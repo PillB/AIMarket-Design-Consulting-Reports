@@ -33,6 +33,7 @@ export const ROUTES = {
   "spirit-checker": { label: "Spirit Checker", group: "tools", icon: "shield" },
   swot: { label: "SWOT Matrix", group: "tools", icon: "grid-2x2" },
   pilot: { label: "Pilot Dashboard", group: "tools", icon: "activity" },
+  scorecard: { label: "Brand Scorecard", group: "tools", icon: "award" },
   sources: { label: "Sources & Evidence", group: "top", icon: "book-open" },
   landing: { label: "Ursa Mañana Landing", group: "top", icon: "sunrise" },
 } as const;

@@ -812,3 +812,47 @@ Next-phase candidates:
 - Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
 - Expand the day-in-life widget to show weekend vs weekday differences
 - Add a "Ursa Mañana" subscription pilot dashboard (tracks sign-ups, revenue, cannibalization)
+
+---
+Task ID: CRON-10
+Agent: webDevReview (cron-triggered, round 10)
+Task: QA testing, Gantt chart fix, and new Brand Audit Scorecard
+
+Work Log:
+- Reviewed worklog (CRON-9 complete: ROI chart fixed, Pilot Dashboard added, 23 views).
+- Performed systematic QA: all 23 views 0 errors, 0 console issues. Mobile overflow: all 23 "ok".
+- Tested interactivity: pilot dashboard +/- buttons work, dark mode toggle functional, command palette indexed.
+- VLM review of experiments view (7/10) identified the 90-day Gantt chart as visually noisy — thin bars, small labels, hard to read.
+- Fixed experiments Gantt chart:
+  • Increased bar height from h-6 (24px) to h-8 (32px) with more internal padding.
+  • Increased row spacing from space-y-1.5 to space-y-2.
+  • Added hover highlight (group-hover:bg-muted/30 + group-hover:brightness-110 on bars).
+  • Enlarged labels: experiment ID 0.62→0.64rem with font-semibold; name 0.82→0.84rem with font-medium; bar labels 0.6→0.62rem with font-semibold.
+  • Made gridlines dashed (border-dashed) and added a border to the track.
+  • VLM confirmed: "bars thick enough to read easily, day labels clearly visible inside the bars."
+- Added new feature: Brand Audit Scorecard (#/scorecard) — VLM 10/10:
+  • One-page executive compilation pulling together Bear Score, brand pillars, experiment status, and the spirit-preservation verdict.
+  • Scorecard header: bear mark + brand name + large letter grade (A/B/C/D, color-coded) with composite score and verdict.
+  • Top metrics row: Bear Score, Pillars avg, Experiments tracked, Composite — 4 large numbers.
+  • Brand pillars: 4 circular mini-rings (Bear motif 76, Art Nouveau 82, Palette 84, Roastery 90) with pillar icons.
+  • Top strength + Biggest gap cards (forest/terracotta tinted).
+  • Experiment tracker summary: 4 status count boxes (proposed/running/passed/killed) + 11 experiment ID pills color-coded by status.
+  • Spirit-preservation verdict: gradient callout with bear/paw/coffee/scale icons + "The plan preserves the bear, the gram, and the green."
+  • Footer: "Compiled from public sources · Snapshot 2026-08-01" + "Un gramo a la vez".
+  • Print button (window.print) + Copy-as-text button (clipboard with full plain-text scorecard) + link to full brand audit.
+  • Surface breakdown section: 10 surfaces sorted by score, each with evidence tag + progress bar.
+  • Registered in ROUTES, header toolKeys, dashboard tools array (T13), page orchestrator, title map.
+- Lint: clean, zero errors. All 24 views: 0 console errors. Mobile: all ok.
+
+Stage Summary:
+- Experiments Gantt chart improved (thicker bars, larger labels, hover highlights)
+- New feature: Brand Audit Scorecard (#/scorecard) — VLM 10/10, one-page executive compilation
+- Project now has 24 views (1 dashboard + 8 dossier + 14 tools + 1 landing prototype)
+- All 24 views remain error-free and mobile-clean
+- Project is stable and more feature-complete; ready for next cron round
+
+Next-phase candidates:
+- Add a print-to-PDF optimized stylesheet for each view (the scorecard already prints well)
+- Expand the day-in-life widget to show weekend vs weekday differences
+- Add a "Ursa Mañana" subscription pilot dashboard (tracks sign-ups, revenue, cannibalization)
+- Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status

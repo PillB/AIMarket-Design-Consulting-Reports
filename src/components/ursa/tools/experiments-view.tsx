@@ -542,7 +542,7 @@ export function ExperimentsView() {
           </div>
 
           {/* Rows */}
-          <div className="space-y-1.5">
+          <div className="space-y-2">
             {EXPERIMENTS.map((e) => {
               const tl = TIMELINE[e.id];
               const status = getStatus(e.id);
@@ -552,40 +552,40 @@ export function ExperimentsView() {
               return (
                 <div
                   key={e.id}
-                  className="grid items-center"
+                  className="grid items-center group hover:bg-muted/30 rounded-lg -mx-1 px-1 py-0.5 transition-colors"
                   style={{ gridTemplateColumns: "minmax(180px, 220px) 1fr" }}
                 >
                   <div className="pr-3 flex items-baseline gap-2 min-w-0">
-                    <span className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-ursa-gold shrink-0">
+                    <span className="font-label text-[0.64rem] tracking-[0.12em] uppercase text-ursa-gold shrink-0 font-semibold">
                       {e.id}
                     </span>
-                    <span className="text-[0.82rem] text-ursa-dark-roast truncate" title={e.name}>
+                    <span className="text-[0.84rem] text-ursa-dark-roast truncate font-medium" title={e.name}>
                       {e.name}
                     </span>
                   </div>
-                  <div className="relative h-6 bg-muted/40 rounded">
+                  <div className="relative h-8 bg-muted/40 rounded-md border border-ursa-line-soft/50">
                     {/* Phase gridlines */}
                     {[30, 60, 90].map((d) => (
                       <div
                         key={d}
-                        className="absolute top-0 bottom-0 border-l border-ursa-line-soft/70"
+                        className="absolute top-0 bottom-0 border-l border-dashed border-ursa-line/60"
                         style={{ left: `${(d / 90) * 100}%` }}
                       />
                     ))}
                     {/* Bar */}
                     <div
                       className={cn(
-                        "absolute top-1 bottom-1 rounded shadow-sm flex items-center px-2",
+                        "absolute top-1 bottom-1 rounded shadow-sm flex items-center px-2.5 transition-all group-hover:brightness-110",
                         m.bar,
                         status === "killed" && "opacity-50"
                       )}
                       style={{
                         left: `${leftPct}%`,
-                        width: `max(${widthPct}%, 28px)`,
+                        width: `max(${widthPct}%, 36px)`,
                       }}
                       title={`${e.id} · ${m.label} · day ${tl.start}–${tl.end}`}
                     >
-                      <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-ursa-cream truncate">
+                      <span className="font-label text-[0.62rem] tracking-[0.08em] uppercase text-ursa-cream truncate font-semibold">
                         d{tl.start}–{tl.end}
                       </span>
                     </div>
