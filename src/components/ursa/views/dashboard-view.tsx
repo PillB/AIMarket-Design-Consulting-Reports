@@ -6,7 +6,7 @@ import { BearScoreWidget } from "../bear-score-widget";
 import { DayInTheLifeWidget } from "../day-in-life-widget";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, EXPERIMENTS, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
-import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass } from "lucide-react";
+import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2 } from "lucide-react";
 
 export function DashboardView() {
   const navigate = useNavigate();
@@ -22,15 +22,18 @@ export function DashboardView() {
   ];
 
   const tools = [
-    { key: "calculator", num: "08", title: "Subscription Economics Calculator", desc: "Interactive: edit every input and see live profit, break-even, free-cup capacity, sensitivity table, and cannibalization model. The Ursa Mañana S/. 20/month idea.", featured: true },
-    { key: "menu-studio", num: "T1", title: "Menu Engineering Studio", desc: "Build a menu category by category with live margin analysis, ingredient overlap, and attach-rate modelling." },
-    { key: "competitors", num: "T2", title: "Competitor Intelligence Dashboard", desc: "Filterable comparison matrix of 10 Miraflores and Lima competitors with strengths, weaknesses, and Ursa implications." },
-    { key: "content-calendar", num: "T3", title: "Content Calendar & Scripts", desc: "Browse 26 concepts, read 10 full scripts, and lay out a four-week pilot calendar with a drag-friendly planner." },
-    { key: "experiments", num: "T4", title: "Experiment Tracker", desc: "Track EXP-01 through EXP-11 with status, cost, metric, and stop rule. Update status as you run each test." },
-    { key: "style-guide", num: "T5", title: "Brand Style Guide Explorer", desc: "Inspect the verified Ursa palette, typography, and components with copy-to-clipboard tokens." },
-    { key: "budget", num: "T6", title: "Budget Allocator", desc: "Compare lean, moderate, and growth scenarios in PEN. Adjust line items and see the live monthly total." },
-    { key: "origin-atlas", num: "T7", title: "Coffee Origin Atlas", desc: "Interactive map of Ursa's verified bean origins with altitude, process, and tasting notes." },
-    { key: "roi", num: "T8", title: "ROI Dashboard", desc: "Model return on each marketing channel with payback period and confidence ranges." },
+    { key: "calculator", num: "08", title: "Subscription Economics Calculator", desc: "Interactive: edit every input and see live profit, break-even, free-cup capacity, sensitivity table, and cannibalization model. The Ursa Mañana S/. 20/month idea.", featured: true, icon: Calculator },
+    { key: "menu-studio", num: "T1", title: "Menu Engineering Studio", desc: "Build a menu category by category with live margin analysis, ingredient overlap, and attach-rate modelling.", icon: Utensils },
+    { key: "competitors", num: "T2", title: "Competitor Intelligence Dashboard", desc: "Filterable comparison matrix of 10 Miraflores and Lima competitors with strengths, weaknesses, and Ursa implications.", icon: Swords },
+    { key: "content-calendar", num: "T3", title: "Content Calendar & Scripts", desc: "Browse 26 concepts, read 10 full scripts, and lay out a four-week pilot calendar with a drag-friendly planner.", icon: Calendar },
+    { key: "experiments", num: "T4", title: "Experiment Tracker", desc: "Track EXP-01 through EXP-11 with status, cost, metric, and stop rule. Update status as you run each test.", icon: FlaskConical },
+    { key: "style-guide", num: "T5", title: "Brand Style Guide Explorer", desc: "Inspect the verified Ursa palette, typography, and components with copy-to-clipboard tokens.", icon: SwatchBook },
+    { key: "budget", num: "T6", title: "Budget Allocator", desc: "Compare lean, moderate, and growth scenarios in PEN. Adjust line items and see the live monthly total.", icon: Wallet },
+    { key: "origin-atlas", num: "T7", title: "Coffee Origin Atlas", desc: "Interactive map of Ursa's verified bean origins with altitude, process, and tasting notes.", icon: Globe },
+    { key: "roi", num: "T8", title: "ROI Dashboard", desc: "Model return on each marketing channel with payback period and confidence ranges.", icon: TrendingUp },
+    { key: "campaign-builder", num: "T9", title: "Campaign Builder", desc: "A 6-step wizard: offer → audience → channel → metric → budget → summary. Outputs a copyable plain-text brief with a stop rule.", icon: Wand2 },
+    { key: "spirit-checker", num: "T10", title: "Spirit-Preservation Checker", desc: "Validate any new tactic against the bear, the gram, and the green. 8 questions, 3 pillars, one verdict.", icon: Shield },
+    { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 10 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
   ];
 
   return (
@@ -177,23 +180,28 @@ export function DashboardView() {
       </ViewSection>
 
       {/* Tools — the extra innovative pages */}
-      <ViewSection badge="Interactive tools" title="Nine working tools — including eight extra innovative pages" meta="Built on the verified research">
+      <ViewSection badge="Interactive tools" title="Eleven working tools — built on the verified research" meta="Click any card to open">
         <Grid cols={4}>
-          {tools.map((t) => (
-            <Card key={t.key} highlight={t.featured} className="cursor-pointer group">
-              <button onClick={() => navigate(t.key)} className="text-left w-full h-full flex flex-col">
-                <div className="flex items-center gap-2 mb-2">
-                  <Pill tone={t.featured ? "gold" : "forest"}>{t.featured ? "Module 08 · Core" : `Extra · ${t.num}`}</Pill>
-                  {t.featured && <Sparkles size={14} className="text-ursa-gold" />}
-                </div>
-                <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-1 mb-1.5 flex items-center gap-1.5">
-                  {t.title}
-                  <ArrowRight size={15} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                </h3>
-                <p className="text-[0.85rem] text-muted-foreground m-0">{t.desc}</p>
-              </button>
-            </Card>
-          ))}
+          {tools.map((t) => {
+            const Icon = t.icon;
+            return (
+              <Card key={t.key} highlight={t.featured} className="cursor-pointer group">
+                <button onClick={() => navigate(t.key)} className="text-left w-full h-full flex flex-col">
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <span className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 transition group-hover:scale-110 ${t.featured ? "bg-ursa-gold/20 text-ursa-gold" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>
+                      <Icon size={20} />
+                    </span>
+                    <Pill tone={t.featured ? "gold" : "forest"}>{t.featured ? "Module 08" : `Extra · ${t.num}`}</Pill>
+                  </div>
+                  <h3 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast mt-0 mb-1.5 flex items-center gap-1.5 leading-tight">
+                    {t.title}
+                    <ArrowRight size={14} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0" />
+                  </h3>
+                  <p className="text-[0.8rem] text-muted-foreground m-0 leading-relaxed">{t.desc}</p>
+                </button>
+              </Card>
+            );
+          })}
         </Grid>
       </ViewSection>
 

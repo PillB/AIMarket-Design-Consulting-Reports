@@ -31,6 +31,7 @@ export const ROUTES = {
   roi: { label: "ROI Dashboard", group: "tools", icon: "chart-line" },
   "campaign-builder": { label: "Campaign Builder", group: "tools", icon: "wand-2" },
   "spirit-checker": { label: "Spirit Checker", group: "tools", icon: "shield" },
+  swot: { label: "SWOT Matrix", group: "tools", icon: "grid-2x2" },
   sources: { label: "Sources & Evidence", group: "top", icon: "book-open" },
   landing: { label: "Ursa Mañana Landing", group: "top", icon: "sunrise" },
 } as const;

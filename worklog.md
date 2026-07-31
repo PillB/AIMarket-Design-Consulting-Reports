@@ -735,3 +735,40 @@ Next-phase candidates:
 - Build a competitor SWOT matrix as a dedicated interactive tool
 - Expand the day-in-life widget to show weekend vs weekday differences
 - Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
+
+---
+Task ID: CRON-8
+Agent: webDevReview (cron-triggered, round 8)
+Task: QA testing, dashboard tool icons, and new Competitor SWOT Matrix
+
+Work Log:
+- Reviewed worklog (CRON-7 complete: creative cards fixed, Spirit Checker added, 21 views).
+- Performed systematic QA: all 21 views 0 errors, 0 console issues. Mobile overflow: all 21 "ok".
+- VLM review of dashboard (8/10) identified the tools grid as text-heavy and monotonous — no distinct icons per tool, making scanning slow.
+- Improved dashboard tools grid:
+  • Added distinct lucide icon per tool (Calculator, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2) — each in a colored square tile (gold for featured, forest for others).
+  • Icon tiles scale 110% on hover (group-hover:scale-110) for a micro-interaction.
+  • Added the 3 newest tools (Campaign Builder T9, Spirit Checker T10, SWOT Matrix T11) to the array so they appear on the dashboard.
+  • Updated section title from "Nine working tools" to "Eleven working tools".
+  • VLM confirmed: "tool cards now feature distinct colored square icon tiles."
+- Added new feature: Competitor SWOT Matrix (#/swot) — VLM 9/10:
+  • Interactive 2×2 scatter plot of 10 competitors on two axes: Brand distinctiveness (bear/gram/green, Y-axis) × Distribution reach (scale/channels, X-axis).
+  • Ursa plotted as a gold dot with a bear mark above it; competitors as forest-deep dots. Selected dot scales 125% with a gold ring shadow.
+  • 4 quadrant labels with tints: Leaders (top-right), Hidden gems (top-left, Ursa's home), Scaled chains (bottom-right), Undifferentiated (bottom-left).
+  • Click any dot (or use the quick-jump chips) to load its SWOT detail panel: position readout (distinctiveness/reach scores), 4-cell SWOT grid (Strengths/Weaknesses/Opportunities/Threats with icons), and an "Implication for Ursa" callout.
+  • Strategic read callout: "Ursa sits in Hidden gems — move rightward (reach) without dropping downward (craft)."
+  • Registered in ROUTES, header toolKeys, dashboard tools array, page orchestrator, title map.
+- Lint: clean, zero errors. All 22 views: 0 console errors. Mobile: all ok.
+
+Stage Summary:
+- Dashboard tools grid enhanced with distinct per-tool icons + 3 new tools added (now 11 tools)
+- New feature: Competitor SWOT Matrix (#/swot) — VLM 9/10, interactive 2×2 plot with SWOT detail
+- Project now has 22 views (1 dashboard + 8 dossier + 12 tools + 1 landing prototype)
+- All 22 views remain error-free and mobile-clean
+- Project is stable and more feature-complete; ready for next cron round
+
+Next-phase candidates:
+- Add a print-to-PDF optimized stylesheet for each view
+- Expand the day-in-life widget to show weekend vs weekday differences
+- Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
+- Add a "Ursa Mañana" subscription pilot dashboard (tracks sign-ups, revenue, cannibalization)

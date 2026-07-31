@@ -24,6 +24,7 @@ import { OriginAtlasView } from "@/components/ursa/tools/origin-atlas-view";
 import { RoiView } from "@/components/ursa/tools/roi-view";
 import { CampaignBuilderView } from "@/components/ursa/tools/campaign-builder-view";
 import { SpiritCheckerView } from "@/components/ursa/tools/spirit-checker-view";
+import { SwotView } from "@/components/ursa/tools/swot-view";
 import { CommandPalette } from "@/components/ursa/command-palette";
 import { ScrollProgress } from "@/components/ursa/scroll-progress";
 import { useEffect } from "react";
@@ -54,6 +55,7 @@ export default function Home() {
       roi: "ROI Dashboard — Ursa Coffee",
       "campaign-builder": "Campaign Builder — Ursa Coffee",
       "spirit-checker": "Spirit-Preservation Checker — Ursa Coffee",
+      swot: "Competitor SWOT Matrix — Ursa Coffee",
       sources: "Sources & Evidence — Ursa Coffee",
       landing: "Ursa Mañana — Landing Page Prototype — Ursa Coffee",
     };
@@ -100,6 +102,8 @@ export default function Home() {
         return <CampaignBuilderView />;
       case "spirit-checker":
         return <SpiritCheckerView />;
+      case "swot":
+        return <SwotView />;
       case "sources":
         return <SourcesView />;
       case "landing":
