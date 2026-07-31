@@ -699,3 +699,39 @@ Next-phase candidates:
 - Build a competitor SWOT matrix as a dedicated interactive tool
 - Expand the day-in-life widget to show weekend vs weekday differences
 - Add a "spirit-preservation checker" that validates any new tactic against the bear/gram/green identity
+
+---
+Task ID: CRON-7
+Agent: webDevReview (cron-triggered, round 7)
+Task: QA testing, creative view alignment fix, and new Spirit-Preservation Checker
+
+Work Log:
+- Reviewed worklog (CRON-6 complete: brand/menu polished, Campaign Builder added, 20 views).
+- Performed systematic QA: all 20 views 0 errors, 0 console issues. Mobile overflow: all 20 "ok".
+- Verified dark mode toggle and command palette both still work; campaign-builder indexed in palette.
+- VLM review of creative view (8/10) identified the 3 brand-evolution level cards had unequal heights (Level 1 shorter than 2 and 3). Sources view also 8/10 with alignment issues.
+- Fixed creative view level cards: added flex flex-col to each Card + mt-auto on the pill row footer so all 3 cards now stretch to equal height with aligned bottoms. VLM confirmed: "Level 1, 2, 3 cards are now equal height with aligned bottom pill rows."
+- Added new feature: Spirit-Preservation Checker (#/spirit-checker) — VLM 9/10:
+  • Interactive identity-guard tool that validates any proposed tactic against the 3 Ursa spirit pillars: Bear (mascot/character), Gram ('un gramo a la vez' weighing ritual), Green (palette/Art Nouveau/roastery).
+  • 8 weighted questions across the 3 pillars — each with Yes/No/N/A buttons color-coded (green=good, red=bad, gold=neutral). 2 "erode" questions (q2 generic, q4 commodify) have inverted scoring.
+  • Tactic input field at top; progress bar tracks answered count.
+  • Live score panel (sticky on desktop): composite /100, 3 pillar breakdown bars (color-coded by threshold), verdict pill (preserved ≥70% / conditional 50-69% / at-risk <50%).
+  • Verdict scale legend + spirit-preservation rule callout.
+  • "Check the spirit" button enabled only when all 8 answered; Clear answers reset.
+  • Scoring tested: all-Yes (which erodes bear+gram via q2,q4) → composite 77, verdict "Conditional — revise before shipping" (correct behavior).
+  • Registered in ROUTES, header toolKeys, page orchestrator, title map.
+  • Note: PawPrint icon used for Bear (lucide-react has no BearIcon); Scale for Gram; Coffee for Green.
+- Lint: clean, zero errors. All 21 views: 0 console errors. Mobile: all ok.
+
+Stage Summary:
+- Creative view level cards fixed (equal height via flex flex-col + mt-auto)
+- New feature: Spirit-Preservation Checker (#/spirit-checker) — VLM 9/10, 8-question interactive identity guard
+- Project now has 21 views (1 dashboard + 8 dossier + 11 tools + 1 landing prototype)
+- All 21 views remain error-free and mobile-clean
+- Project is stable and more feature-complete; ready for next cron round
+
+Next-phase candidates:
+- Add a print-to-PDF optimized stylesheet for each view
+- Build a competitor SWOT matrix as a dedicated interactive tool
+- Expand the day-in-life widget to show weekend vs weekday differences
+- Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status

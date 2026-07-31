@@ -30,6 +30,7 @@ export const ROUTES = {
   "origin-atlas": { label: "Coffee Origin Atlas", group: "tools", icon: "globe" },
   roi: { label: "ROI Dashboard", group: "tools", icon: "chart-line" },
   "campaign-builder": { label: "Campaign Builder", group: "tools", icon: "wand-2" },
+  "spirit-checker": { label: "Spirit Checker", group: "tools", icon: "shield" },
   sources: { label: "Sources & Evidence", group: "top", icon: "book-open" },
   landing: { label: "Ursa Mañana Landing", group: "top", icon: "sunrise" },
 } as const;

@@ -23,6 +23,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
     "origin-atlas",
     "roi",
     "campaign-builder",
+    "spirit-checker",
   ];
 
   const isActive = (key: string) => currentRoute === key;

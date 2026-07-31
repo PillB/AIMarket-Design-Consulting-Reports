@@ -1329,7 +1329,7 @@ export function CreativeView() {
 
         <Grid cols={3}>
           {/* Level 1 */}
-          <Card>
+          <Card className="flex flex-col">
             <div className="flex items-center justify-between mb-3">
               <Pill tone="ok">Level 1 · Conservative</Pill>
               <SectionBadge tone="forest">Recommended permanent</SectionBadge>
@@ -1342,14 +1342,14 @@ export function CreativeView() {
               Paper background, no watermark, no flourish. Identity carried entirely by
               typography and tagline. Lowest risk. Permanent system from day one.
             </p>
-            <div className="mt-3 flex gap-1.5 flex-wrap">
+            <div className="mt-auto pt-3 flex gap-1.5 flex-wrap">
               <Pill tone="forest">No watermark</Pill>
               <Pill tone="default">Type-led</Pill>
             </div>
           </Card>
 
           {/* Level 2 */}
-          <Card highlight>
+          <Card highlight className="flex flex-col">
             <div className="flex items-center justify-between mb-3">
               <Pill tone="warn">Level 2 · Distinctive</Pill>
               <SectionBadge tone="gold">6-month skin</SectionBadge>
@@ -1362,14 +1362,14 @@ export function CreativeView() {
               Forest gradient, bear silhouette watermark at 16%, accent shifts to leaf green.
               Distinctive at thumbnail size. Recommended growth skin from month 4.
             </p>
-            <div className="mt-3 flex gap-1.5 flex-wrap">
+            <div className="mt-auto pt-3 flex gap-1.5 flex-wrap">
               <Pill tone="warn">16% watermark</Pill>
               <Pill tone="forest">Thumbnail-ownable</Pill>
             </div>
           </Card>
 
           {/* Level 3 */}
-          <Card>
+          <Card className="flex flex-col">
             <div className="flex items-center justify-between mb-3">
               <Pill tone="stop">Level 3 · Experimental</Pill>
               <SectionBadge tone="terracotta">Seasonal only</SectionBadge>
@@ -1383,7 +1383,7 @@ export function CreativeView() {
               celestial cousin, numbered limited edition. Summer / winter season only — never a
               permanent register.
             </p>
-            <div className="mt-3 flex gap-1.5 flex-wrap">
+            <div className="mt-auto pt-3 flex gap-1.5 flex-wrap">
               <Pill tone="stop">Numbered N° / 200</Pill>
               <Pill tone="default">Seasonal</Pill>
             </div>
