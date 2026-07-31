@@ -120,7 +120,7 @@
   --secondary: #3B2417;
   --secondary-foreground: #F4EBD9;
   --muted: #3B2417;
-  --muted-foreground: #B7A98A;
+  --muted-foreground: #C4B89E;
   --accent: #3B2417;
   --accent-foreground: #F4EBD9;
   --destructive: #C16E4B;
@@ -140,6 +140,18 @@
   --sidebar-accent-foreground: #F4EBD9;
   --sidebar-border: #3B2417;
   --sidebar-ring: #B8924A;
+
+  /* Dark-mode surface overrides — Ursa "roastery at night" palette.
+     The brand tokens (gold, forest, terracotta) stay the same; only the
+     light surfaces (cream/paper/foam/line) shift to dark equivalents so
+     bg-ursa-cream / bg-ursa-paper / bg-ursa-foam utilities adapt. */
+  --color-ursa-cream: #2D2417;
+  --color-ursa-paper: #211208;
+  --color-ursa-foam: #1A1308;
+  --color-ursa-bg: #211208;
+  --color-ursa-bg-alt: #2D2417;
+  --color-ursa-line: #5C4A35;
+  --color-ursa-line-soft: #3B2E20;
 }
 
 @layer base {

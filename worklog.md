@@ -578,3 +578,43 @@ Next-phase candidates:
 - Add a dark mode toggle (tokens already defined)
 - Build the customer persona cards on the growth view
 - Expand the landing page into a full multi-section marketing site
+
+---
+Task ID: CRON-4
+Agent: webDevReview (cron-triggered, round 4)
+Task: QA testing, dark mode feature, and card alignment fixes
+
+Work Log:
+- Reviewed worklog (CRON-3 complete: viral polished 6→9/10, landing page added, contrast improved).
+- Performed systematic QA: all 19 views 0 errors, 0 console issues. Mobile overflow: all 19 "ok".
+- VLM review confirmed roadmap now 8/10 (up from 6/10 via contrast fix), growth 7/10 (density).
+- Identified highest-impact work: dark mode toggle (long-requested, tokens already defined) + roadmap card alignment.
+
+- Added new feature: Dark mode toggle (VLM 8.5/10 dashboard, 9/10 calculator):
+  • Created useTheme hook (src/hooks/use-theme.ts) — localStorage persistence + system-preference fallback, lazy initial state to avoid setState-in-effect lint error.
+  • Created ThemeToggle component (src/components/ursa/theme-toggle.tsx) — Sun/Moon icons with rotate-on-hover micro-animation, aria-label, hydration-safe (mounted guard).
+  • Added inline anti-FOUC script in layout.tsx <head> — applies saved theme before hydration to prevent flash of light content.
+  • Added dark-mode surface overrides in globals.css .dark — --color-ursa-cream/paper/foam/bg/line shift to dark espresso equivalents (#2D2417, #211208, #1A1308) so bg-ursa-cream/paper/foam utilities adapt. Brand tokens (gold, forest, terracotta) stay the same.
+  • Brightened dark --muted-foreground from #B7A98A → #C4B89E for better chart/label contrast (VLM suggestion).
+  • Placed toggle in header (desktop nav, between Ursa Mañana and Static Dossier) and in mobile menu (footer row with "Tema" label).
+  • Verified: toggle works (light→dark, body bg #F4EBD9→#211208), persists across navigation (#/ → #/calculator), no console errors.
+
+- Fixed roadmap card alignment (8/10 → 9/10):
+  • Grid component: added explicit items-stretch so grid cells fill equal height.
+  • Card component: added h-full so cards stretch to fill their grid cell.
+  • VLM confirmed: "Q1-Q4 cards and Lean/Moderate/Growth budget cards are now equal height with aligned bottom edges."
+
+- Lint: clean, zero errors. All 19 views: 0 console errors. Mobile: all ok.
+
+Stage Summary:
+- New feature: Dark mode toggle with localStorage persistence, anti-FOUC script, and full surface-token adaptation. VLM 8.5-9/10 across dashboard and calculator.
+- Card alignment fixed globally (Grid items-stretch + Card h-full) — benefits all 19 views, confirmed on roadmap (9/10).
+- Dark-mode surface tokens added to globals.css so cream/paper/foam utilities adapt to espresso dark.
+- All 19 views remain error-free and mobile-clean in both light and dark.
+- Project is stable and more feature-complete; ready for next cron round.
+
+Next-phase candidates:
+- Improve growth view density (VLM 7/10 — needs visual breathing room between dense sections)
+- Build interactive customer persona cards on the growth view
+- Add a "print to PDF" optimized stylesheet for each view
+- Expand the day-in-life widget to show weekend vs weekday differences

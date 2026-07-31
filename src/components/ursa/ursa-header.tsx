@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X, Printer, ExternalLink } from "lucide-react";
 import { BearMark } from "./ursa-brand";
+import { ThemeToggle } from "./theme-toggle";
 import { ROUTES, RouteKey, useNavigate } from "@/lib/ursa-nav";
 import { cn } from "@/lib/utils";
 
@@ -113,11 +114,13 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               Ursa Mañana
             </NavBtn>
 
+            <ThemeToggle className="ml-1" />
+
             <a
               href="/dossier/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-soft hover:bg-ursa-gold hover:text-ursa-dark-roast transition flex items-center gap-1.5"
+              className="ml-1 px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-soft hover:bg-ursa-gold hover:text-ursa-dark-roast transition flex items-center gap-1.5"
             >
               Static Dossier <ExternalLink size={12} />
             </a>
@@ -172,6 +175,10 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             >
               Open Static Dossier <ExternalLink size={14} />
             </a>
+            <div className="flex items-center justify-between pt-3 border-t border-ursa-gold/20">
+              <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-soft">Tema</span>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}
