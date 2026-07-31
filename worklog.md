@@ -533,3 +533,48 @@ Next-phase candidates:
 - Add a dark mode toggle (tokens already defined)
 - Add customer persona cards with interactive expansion on growth view
 - Expand the day-in-life widget to show weekend vs weekday differences
+
+---
+Task ID: CRON-3
+Agent: webDevReview (cron-triggered, round 3)
+Task: QA testing, cross-cutting polish, and new landing page feature
+
+Work Log:
+- Reviewed worklog (CRON-2 complete: dashboard polish 6→8.5/10, Day in the Life widget added).
+- Performed systematic QA: all 18 views 0 errors, 0 console issues. Mobile overflow: all 18 "ok".
+- VLM review of 3 dossier views identified cross-cutting issues:
+  • Viral view (6/10): flat cards, no format icons, dense calendar, missing interactivity hints
+  • Market view (8/10): uneven card heights, low contrast body text on cream
+  • Roadmap view (6/10): inconsistent card alignment, low contrast in tables
+- Fixed cross-cutting contrast issue: darkened --muted-foreground from #5C4A35 → #4A3A28 (better WCAG contrast on cream backgrounds). Affects all 19 views.
+- Polished viral view (6/10 → 9/10 per VLM):
+  • Added FormatIcon component — picks a lucide icon by format (Film for Reel, LayoutGrid for Carousel, Repeat for Series, HandHeart for UGC, Megaphone for Event, etc.)
+  • Concept cards: added colored top accent bar (3px) keyed to format tone, format icon inside the pill, hover lift effect
+  • Calendar: added format icons inside each day cell, better day separation (border-b-2 gold/30 on headers, week-end margin spacers), hover shadow + lift on cells, min-height 96→100px
+  • Added ursa-scroll class to calendar wrapper for styled scrollbar
+- Added new feature: "Ursa Mañana" subscription landing page (#/landing) — a polished, customer-facing marketing page prototype (VLM 9/10):
+  • Hero with S/. 20/month offer, 4-meta row, "La propuesta" pitch with Callout explaining the side-pushing strategy
+  • Mock membership card (forest-to-roast gradient, Art Nouveau texture overlay, bear mark, member name, 3 spec badges, 6-stamp punch row) — sticky on desktop
+  • 4-card benefits grid (Café ilimitado, Acompañamientos con descuento, Tu lugar de la mañana, Acceso al gramo del mes) with colored icon circles
+  • 3-step "Cómo funciona" with numbered badges
+  • "Las matemáticas honestas" — why S/. 20 works (checkmarks) + where the risk is (3 bullet points with terracotta dots) + link to calculator
+  • 5-card FAQ grid in Peruvian Spanish (¿De verdad es ilimitado? ¿Puedo llevar? ¿Y si no me gusta?)
+  • Email interest form (prototype, no real storage) with bear-mark CTA
+  • Strategic context section (English, for the owner) explaining why the page exists
+  • All customer-facing copy in natural Peruvian Spanish (VLM: "feels native to Lima, not translated")
+  • Registered in ROUTES, header nav (desktop + mobile), page orchestrator, title map
+- Lint: clean, zero errors. All 19 views: 0 console errors. Mobile: all ok.
+
+Stage Summary:
+- Cross-cutting: improved muted-foreground contrast across all views (#5C4A35 → #4A3A28)
+- Viral view polished 6/10 → 9/10 (format icons, accent bars, calendar improvements)
+- New feature: Ursa Mañana landing page (#/landing) — VLM 9/10, customer-facing Spanish prototype
+- Project now has 19 views (1 dashboard + 8 dossier + 9 tools + 1 landing prototype)
+- All views remain error-free and mobile-clean
+- Project is stable and more polished; ready for next cron round
+
+Next-phase candidates:
+- Improve roadmap view card alignment (VLM noted uneven heights)
+- Add a dark mode toggle (tokens already defined)
+- Build the customer persona cards on the growth view
+- Expand the landing page into a full multi-section marketing site

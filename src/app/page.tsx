@@ -12,6 +12,7 @@ import { ViralView } from "@/components/ursa/views/viral-view";
 import { CreativeView } from "@/components/ursa/views/creative-view";
 import { RoadmapView } from "@/components/ursa/views/roadmap-view";
 import { SourcesView } from "@/components/ursa/views/sources-view";
+import { LandingView } from "@/components/ursa/views/landing-view";
 import { CalculatorView } from "@/components/ursa/tools/calculator-view";
 import { MenuStudioView } from "@/components/ursa/tools/menu-studio-view";
 import { CompetitorsView } from "@/components/ursa/tools/competitors-view";
@@ -50,6 +51,7 @@ export default function Home() {
       "origin-atlas": "Coffee Origin Atlas — Ursa Coffee",
       roi: "ROI Dashboard — Ursa Coffee",
       sources: "Sources & Evidence — Ursa Coffee",
+      landing: "Ursa Mañana — Landing Page Prototype — Ursa Coffee",
     };
     document.title = titles[base] || "Ursa Coffee — Strategic Command Center";
   }, [base]);
@@ -92,6 +94,8 @@ export default function Home() {
         return <RoiView />;
       case "sources":
         return <SourcesView />;
+      case "landing":
+        return <LandingView />;
       default:
         return <DashboardView />;
     }

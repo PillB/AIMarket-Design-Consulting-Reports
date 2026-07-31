@@ -30,6 +30,7 @@ export const ROUTES = {
   "origin-atlas": { label: "Coffee Origin Atlas", group: "tools", icon: "globe" },
   roi: { label: "ROI Dashboard", group: "tools", icon: "chart-line" },
   sources: { label: "Sources & Evidence", group: "top", icon: "book-open" },
+  landing: { label: "Ursa Mañana Landing", group: "top", icon: "sunrise" },
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;

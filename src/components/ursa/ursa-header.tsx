@@ -109,6 +109,10 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               Sources
             </NavBtn>
 
+            <NavBtn active={isActive("landing")} onClick={() => go("landing")}>
+              Ursa Mañana
+            </NavBtn>
+
             <a
               href="/dossier/index.html"
               target="_blank"
@@ -141,6 +145,9 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               </MobileLink>
               <MobileLink active={isActive("sources")} onClick={() => go("sources")}>
                 Sources & Evidence
+              </MobileLink>
+              <MobileLink active={isActive("landing")} onClick={() => go("landing")}>
+                Ursa Mañana Landing
               </MobileLink>
             </MobileSection>
             <MobileSection title="Dossier Modules">

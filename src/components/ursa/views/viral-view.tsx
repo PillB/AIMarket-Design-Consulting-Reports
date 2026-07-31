@@ -30,6 +30,12 @@ import {
   Repeat,
   Users,
   ArrowRight,
+  Film,
+  LayoutGrid,
+  CalendarDays,
+  Megaphone,
+  HandHeart,
+  Clapperboard,
 } from "lucide-react";
 
 type ConceptFormat = string;
@@ -44,6 +50,18 @@ function formatTone(
   if (f.includes("event")) return "ok";
   if (f.includes("reel")) return "forest";
   return "default";
+}
+
+/** Pick an icon that signals the content format visually. */
+function FormatIcon({ format, className }: { format: string; className?: string }) {
+  const f = format.toLowerCase();
+  if (f.includes("carousel")) return <LayoutGrid size={14} className={className} />;
+  if (f.includes("series")) return <Repeat size={14} className={className} />;
+  if (f.includes("story")) return <Sparkles size={14} className={className} />;
+  if (f.includes("ugc")) return <HandHeart size={14} className={className} />;
+  if (f.includes("event")) return <Megaphone size={14} className={className} />;
+  if (f.includes("reel")) return <Film size={14} className={className} />;
+  return <Clapperboard size={14} className={className} />;
 }
 
 const WEEKS = 4;
@@ -135,12 +153,28 @@ export function ViralView() {
         </p>
         <Grid cols={3}>
           {CONTENT_CONCEPTS.map((c) => (
-            <Card key={c.id} className="p-5 flex flex-col gap-3">
+            <Card key={c.id} className="p-5 flex flex-col gap-3 group relative overflow-hidden">
+              {/* Top accent bar colored by format tone */}
+              <span
+                className="absolute top-0 left-0 right-0 h-[3px]"
+                style={{
+                  background:
+                    formatTone(c.format) === "forest" ? "var(--color-ursa-forest-deep)" :
+                    formatTone(c.format) === "gold" ? "var(--color-ursa-gold)" :
+                    formatTone(c.format) === "warn" ? "linear-gradient(90deg,var(--color-ursa-gold),var(--color-ursa-terracotta))" :
+                    formatTone(c.format) === "stop" ? "var(--color-ursa-terracotta)" :
+                    formatTone(c.format) === "ok" ? "var(--color-ursa-forest)" :
+                    "var(--color-ursa-line)",
+                }}
+              />
               <div className="flex items-start justify-between gap-2">
                 <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
                   {c.id}
                 </span>
-                <Pill tone={formatTone(c.format)}>{c.format}</Pill>
+                <Pill tone={formatTone(c.format)}>
+                  <FormatIcon format={c.format} className="shrink-0" />
+                  {c.format}
+                </Pill>
               </div>
               <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast leading-snug">
                 {c.title}
@@ -359,12 +393,12 @@ export function ViralView() {
           <Pill tone="ok">Event</Pill>
         </div>
 
-        <div className="bg-card border border-ursa-line-soft rounded-xl p-4 md:p-6 overflow-x-auto">
-          <div className="grid grid-cols-7 gap-2 min-w-[680px]">
+        <div className="bg-card border border-ursa-line-soft rounded-xl p-4 md:p-6 overflow-x-auto ursa-scroll">
+          <div className="grid grid-cols-7 gap-1.5 md:gap-2 min-w-[680px]">
             {DAYS.map((d) => (
               <div
                 key={d}
-                className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-medium-roast text-center pb-2 border-b border-ursa-line-soft"
+                className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-medium-roast text-center pb-2 border-b-2 border-ursa-gold/30"
               >
                 {d}
               </div>
@@ -373,6 +407,8 @@ export function ViralView() {
               DAYS.map((_, d) => {
                 const entry = SCHEDULE.find((s) => s.week === w && s.day === d);
                 const concept = entry ? conceptById(entry.conceptId) : undefined;
+                // Add a subtle week separator after Sunday (last day of each week row)
+                const isWeekEnd = d === 6;
                 if (concept) {
                   const tone = formatTone(concept.format);
                   const toneBg: Record<string, string> = {
@@ -386,7 +422,7 @@ export function ViralView() {
                   return (
                     <div
                       key={`${w}-${d}`}
-                      className={`rounded-lg p-2.5 border ${toneBg[tone]} min-h-[96px] flex flex-col gap-1`}
+                      className={`rounded-lg p-2.5 border ${toneBg[tone]} min-h-[100px] flex flex-col gap-1 transition hover:shadow-md hover:-translate-y-0.5 ${isWeekEnd ? "mr-2 md:mr-3" : ""} group cursor-default`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
@@ -399,12 +435,12 @@ export function ViralView() {
                       <div className="text-[0.78rem] font-medium text-ursa-dark-roast leading-snug">
                         {concept.title}
                       </div>
-                      <Pill
-                        tone={tone}
-                        className="mt-auto self-start text-[0.55rem] px-1.5 py-0.5"
-                      >
-                        {concept.format.split(" ")[0]}
-                      </Pill>
+                      <div className="mt-auto flex items-center gap-1">
+                        <FormatIcon format={concept.format} className="text-muted-foreground" />
+                        <span className="font-label text-[0.55rem] tracking-[0.08em] uppercase text-muted-foreground">
+                          {concept.format.split(" ")[0]}
+                        </span>
+                      </div>
                     </div>
                   );
                 }
@@ -412,7 +448,7 @@ export function ViralView() {
                 return (
                   <div
                     key={`${w}-${d}`}
-                    className="rounded-lg p-2.5 border border-dashed border-ursa-line min-h-[96px] flex flex-col items-center justify-center gap-1 bg-ursa-cream/40"
+                    className={`rounded-lg p-2.5 border border-dashed border-ursa-line min-h-[100px] flex flex-col items-center justify-center gap-1 bg-ursa-cream/40 ${isWeekEnd ? "mr-2 md:mr-3" : ""}`}
                   >
                     <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
                       W{w + 1} · {DAYS[d]}
