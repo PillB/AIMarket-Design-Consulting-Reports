@@ -26,6 +26,7 @@ import { CampaignBuilderView } from "@/components/ursa/tools/campaign-builder-vi
 import { SpiritCheckerView } from "@/components/ursa/tools/spirit-checker-view";
 import { SwotView } from "@/components/ursa/tools/swot-view";
 import { PilotView } from "@/components/ursa/tools/pilot-view";
+import { ScorecardView } from "@/components/ursa/tools/scorecard-view";
 import { CommandPalette } from "@/components/ursa/command-palette";
 import { ScrollProgress } from "@/components/ursa/scroll-progress";
 import { useEffect } from "react";
@@ -58,6 +59,7 @@ export default function Home() {
       "spirit-checker": "Spirit-Preservation Checker — Ursa Coffee",
       swot: "Competitor SWOT Matrix — Ursa Coffee",
       pilot: "Ursa Mañana Pilot Dashboard — Ursa Coffee",
+      scorecard: "Brand Audit Scorecard — Ursa Coffee",
       sources: "Sources & Evidence — Ursa Coffee",
       landing: "Ursa Mañana — Landing Page Prototype — Ursa Coffee",
     };
@@ -108,6 +110,8 @@ export default function Home() {
         return <SwotView />;
       case "pilot":
         return <PilotView />;
+      case "scorecard":
+        return <ScorecardView />;
       case "sources":
         return <SourcesView />;
       case "landing":
