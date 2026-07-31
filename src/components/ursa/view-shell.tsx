@@ -124,8 +124,8 @@ export function Card({
   highlight?: boolean;
 }) {
   const cls = cn(
-    "bg-card border rounded-xl p-6 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)] ursa-card-hover",
-    href ? "block no-underline text-inherit hover:shadow-[0_2px_0_rgba(59,36,23,0.08),0_20px_48px_-20px_rgba(59,36,23,0.28)]" : "",
+    "bg-card border rounded-xl p-6 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)] ursa-card-hover hover:border-ursa-gold/60 hover:shadow-[0_2px_0_rgba(59,36,23,0.08),0_16px_40px_-18px_rgba(59,36,23,0.28)]",
+    href ? "block no-underline text-inherit" : "",
     highlight ? "border-ursa-gold shadow-[0_0_0_4px_rgba(184,146,74,0.15),0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)]" : "border-ursa-line-soft",
     className
   );
@@ -157,7 +157,11 @@ export function DossierLinkBanner({ moduleId }: { moduleId: string }) {
 
 /** Grid utility. */
 export function Grid({ children, cols = 2, className }: { children: React.ReactNode; cols?: 2 | 3 | 4; className?: string }) {
-  const colMap = { 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4" };
+  const colMap = {
+    2: "sm:grid-cols-2",
+    3: "sm:grid-cols-2 lg:grid-cols-3",
+    4: "sm:grid-cols-2 lg:grid-cols-4",
+  };
   return <div className={cn("grid gap-5 [grid-template-columns:minmax(0,1fr)]", colMap[cols], className)}>{children}</div>;
 }
 

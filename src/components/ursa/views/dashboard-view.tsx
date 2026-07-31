@@ -3,6 +3,7 @@
 import { ViewHero, ViewSection, Card, Grid, Reveal } from "../view-shell";
 import { BearMark, CupGlyph, ArtNouveauDivider, Pill, StatBlock, Callout, EvidenceTag, SectionBadge } from "../ursa-brand";
 import { BearScoreWidget } from "../bear-score-widget";
+import { DayInTheLifeWidget } from "../day-in-life-widget";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, EXPERIMENTS, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
 import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass } from "lucide-react";
@@ -159,12 +160,15 @@ export function DashboardView() {
 
       {/* Dossier modules */}
       <ViewSection badge="Modules" title="Seven linked dossier modules">
-        <Grid cols={3}>
+        <Grid cols={4}>
           {dossierModules.map((m) => (
-            <Card key={m.key} href={`#/dossier`} className="cursor-pointer" >
-              <button onClick={() => navigate(m.key)} className="text-left w-full">
+            <Card key={m.key} className="cursor-pointer group">
+              <button onClick={() => navigate(m.key)} className="text-left w-full h-full flex flex-col">
                 <Pill tone="forest">Module {m.num}</Pill>
-                <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-1.5">{m.title}</h3>
+                <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-1.5 flex items-center gap-1.5">
+                  {m.title}
+                  <ArrowRight size={15} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                </h3>
                 <p className="text-[0.85rem] text-muted-foreground m-0">{m.desc}</p>
               </button>
             </Card>
@@ -174,16 +178,17 @@ export function DashboardView() {
 
       {/* Tools — the extra innovative pages */}
       <ViewSection badge="Interactive tools" title="Nine working tools — including eight extra innovative pages" meta="Built on the verified research">
-        <Grid cols={3}>
+        <Grid cols={4}>
           {tools.map((t) => (
-            <Card key={t.key} highlight={t.featured} className="cursor-pointer">
+            <Card key={t.key} highlight={t.featured} className="cursor-pointer group">
               <button onClick={() => navigate(t.key)} className="text-left w-full h-full flex flex-col">
                 <div className="flex items-center gap-2 mb-2">
                   <Pill tone={t.featured ? "gold" : "forest"}>{t.featured ? "Module 08 · Core" : `Extra · ${t.num}`}</Pill>
                   {t.featured && <Sparkles size={14} className="text-ursa-gold" />}
                 </div>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-1 mb-1.5 flex items-center gap-1.5">
-                  {t.title} <ArrowRight size={16} className="text-ursa-gold" />
+                  {t.title}
+                  <ArrowRight size={15} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </h3>
                 <p className="text-[0.85rem] text-muted-foreground m-0">{t.desc}</p>
               </button>
@@ -239,14 +244,29 @@ export function DashboardView() {
         </Grid>
       </ViewSection>
 
+      {/* Day in the Life — new interactive feature */}
+      <ViewSection badge="The rhythm" title="A day in the life of Alcanfores 183" meta="Interactive · live Lima time">
+        <DayInTheLifeWidget />
+      </ViewSection>
+
       {/* Quick stats */}
-      <ViewSection>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatBlock value="26" label="Original content concepts specific to Ursa" tone="forest" />
-          <StatBlock value="11" label="Designed experiments with stop rules" tone="gold" />
-          <StatBlock value="S/.20" label="Proposed monthly subscription price" tone="terracotta" />
-          <StatBlock value="8+" label="Hotels within walking distance of Alcanfores 183" tone="forest" />
-        </div>
+      <ViewSection badge="By the numbers" title="The plan in four figures">
+        <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 divide-x divide-ursa-line-soft">
+            <div className="px-2 md:px-4 first:pl-0">
+              <StatBlock value="26" label="Original content concepts specific to Ursa" tone="forest" />
+            </div>
+            <div className="px-2 md:px-4">
+              <StatBlock value="11" label="Designed experiments with stop rules" tone="gold" />
+            </div>
+            <div className="px-2 md:px-4">
+              <StatBlock value="S/.20" label="Proposed monthly subscription price" tone="terracotta" />
+            </div>
+            <div className="px-2 md:px-4 last:pr-0">
+              <StatBlock value="8+" label="Hotels within walking distance of Alcanfores 183" tone="forest" />
+            </div>
+          </div>
+        </Card>
         <ArtNouveauDivider />
       </ViewSection>
 

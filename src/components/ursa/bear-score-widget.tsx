@@ -68,6 +68,11 @@ export function BearScoreWidget() {
     composite >= 60 ? { label: "Developing", tone: "warn" as const, color: "var(--color-ursa-gold)" } :
     { label: "At risk", tone: "stop" as const, color: "var(--color-ursa-terracotta)" };
 
+  // Find the biggest gap and top strength for the left column
+  const sorted = [...SURFACES].sort((a, b) => a.score - b.score);
+  const biggestGap = sorted[0];
+  const topStrength = sorted[sorted.length - 1];
+
   return (
     <div className="grid lg:grid-cols-[1fr_1.4fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">
       {/* Composite score ring */}
@@ -88,6 +93,25 @@ export function BearScoreWidget() {
           <div>
             <div className="font-display text-2xl font-semibold text-ursa-dark-roast leading-none">{animatedComposite}</div>
             <div className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">Composite</div>
+          </div>
+        </div>
+        {/* Top strength + biggest gap — fills the lower left column */}
+        <div className="w-full mt-4 grid grid-cols-2 gap-3 text-left">
+          <div className="rounded-lg bg-ursa-forest-deep/8 border border-ursa-forest-deep/20 p-3">
+            <div className="flex items-center gap-1.5 mb-1">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L7.5 4.5L11 5L8.5 7.5L9.2 11L6 9.3L2.8 11L3.5 7.5L1 5L4.5 4.5L6 1Z" fill="var(--color-ursa-forest-deep)"/></svg>
+              <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-forest-deep">Top strength</span>
+            </div>
+            <p className="font-display text-[0.82rem] font-semibold text-ursa-dark-roast m-0 leading-tight">{topStrength.surface}</p>
+            <p className="font-label text-[0.7rem] text-ursa-forest-deep m-0 mt-0.5">{topStrength.score}/100</p>
+          </div>
+          <div className="rounded-lg bg-ursa-terracotta/8 border border-ursa-terracotta/25 p-3">
+            <div className="flex items-center gap-1.5 mb-1">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 11C8.76 11 11 8.76 11 6C11 3.24 8.76 1 6 1C3.24 1 1 3.24 1 6C1 8.76 3.24 11 6 11ZM6 3.5V6.5M6 8V8.5" stroke="var(--color-ursa-terracotta)" strokeWidth="1.2" strokeLinecap="round"/></svg>
+              <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta">Biggest gap</span>
+            </div>
+            <p className="font-display text-[0.82rem] font-semibold text-ursa-dark-roast m-0 leading-tight">{biggestGap.surface}</p>
+            <p className="font-label text-[0.7rem] text-ursa-terracotta m-0 mt-0.5">{biggestGap.score}/100</p>
           </div>
         </div>
       </div>
@@ -150,23 +174,23 @@ export function BearScoreWidget() {
 }
 
 function ScoreRing({ value, color }: { value: number; color: string }) {
-  const r = 52;
+  const r = 50;
   const circ = 2 * Math.PI * r;
   const offset = circ - (value / 100) * circ;
   return (
-    <div className="relative w-32 h-32">
+    <div className="relative w-36 h-36">
       <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
-        <circle cx="60" cy="60" r={r} fill="none" stroke="var(--color-ursa-bg-alt)" strokeWidth="8" />
+        <circle cx="60" cy="60" r={r} fill="none" stroke="var(--color-ursa-bg-alt)" strokeWidth="10" />
         <circle
-          cx="60" cy="60" r={r} fill="none" stroke={color} strokeWidth="8" strokeLinecap="round"
+          cx="60" cy="60" r={r} fill="none" stroke={color} strokeWidth="10" strokeLinecap="round"
           strokeDasharray={circ}
           strokeDashoffset={offset}
-          style={{ transition: "stroke-dashoffset 1.1s cubic-bezier(0.22,1,0.36,1)" }}
+          style={{ transition: "stroke-dashoffset 1.1s cubic-bezier(0.22,1,0.36,1)", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.08))" }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-display text-4xl font-semibold leading-none" style={{ color }}>{value}</span>
-        <span className="font-label text-[0.55rem] tracking-[0.2em] uppercase text-muted-foreground mt-1">/ 100</span>
+        <span className="font-display text-[2.75rem] font-semibold leading-none tabular-nums" style={{ color }}>{value}</span>
+        <span className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-muted-foreground mt-1.5">/ 100</span>
       </div>
       <BearMark size={20} className="absolute -top-1 -right-1 text-ursa-dark-roast bg-card rounded-full p-0.5 border border-ursa-gold/40" />
     </div>
