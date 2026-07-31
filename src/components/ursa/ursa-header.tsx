@@ -25,6 +25,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
     "campaign-builder",
     "spirit-checker",
     "swot",
+    "pilot",
   ];
 
   const isActive = (key: string) => currentRoute === key;

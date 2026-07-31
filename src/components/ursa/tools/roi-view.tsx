@@ -289,7 +289,7 @@ export function RoiView() {
                       <td className="p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold text-ursa-dark-roast">
                         {PEN(c.revenue)}
                       </td>
-                      <td className="p-3 text-right align-top border-b border-ursa-line-soft text-ursa-medium-roast">
+                      <td className="p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold text-ursa-dark-roast">
                         {isFinite(c.paybackMonths) ? c.paybackMonths.toFixed(1) : "—"}
                       </td>
                       <td className={cn("p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold" : "text-ursa-terracotta")}>
@@ -399,19 +399,23 @@ export function RoiView() {
           </p>
           <div className="h-[360px]">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData} margin={{ top: 20, right: 16, left: 0, bottom: 60 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-ursa-line-soft)" vertical={false} />
+              <BarChart data={chartData} margin={{ top: 20, right: 16, left: 8, bottom: 60 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#E2D4B0" vertical={false} />
                 <XAxis
                   dataKey="name"
-                  tick={{ fontSize: 10, fill: "var(--color-ursa-medium-roast)" }}
+                  tick={{ fontSize: 10, fill: "#6F4A2E" }}
                   interval={0}
                   angle={-25}
                   textAnchor="end"
                   height={70}
+                  stroke="#C9B68C"
                 />
                 <YAxis
-                  tick={{ fontSize: 11, fill: "var(--color-ursa-medium-roast)" }}
+                  tick={{ fontSize: 11, fill: "#6F4A2E" }}
                   tickFormatter={(v) => `${v}%`}
+                  stroke="#C9B68C"
+                  domain={[0, 250]}
+                  ticks={[0, 50, 100, 150, 200, 250]}
                 />
                 <ReTooltip
                   formatter={(value: number, _name: string, payload: { payload?: { actualRoi?: number; spend?: number; revenue?: number } }) => {
@@ -420,11 +424,11 @@ export function RoiView() {
                     return [roiLabel, `ROI · spend ${PEN(payload?.payload?.spend ?? 0)} · rev ${PEN(payload?.payload?.revenue ?? 0)}`];
                   }}
                   contentStyle={{
-                    background: "var(--color-ursa-foam)",
-                    border: "1px solid var(--color-ursa-line)",
+                    background: "#FAF5EC",
+                    border: "1px solid #C9B68C",
                     borderRadius: "8px",
                     fontSize: "0.82rem",
-                    color: "var(--color-ursa-dark-roast)",
+                    color: "#3B2417",
                   }}
                   cursor={{ fill: "rgba(184,146,74,0.08)" }}
                 />
@@ -436,7 +440,7 @@ export function RoiView() {
                     dataKey="roi"
                     position="top"
                     formatter={(v: number) => (v >= 200 ? "200%+" : `${v}%`)}
-                    style={{ fontSize: 10, fill: "var(--color-ursa-dark-roast)", fontWeight: 600 }}
+                    style={{ fontSize: 10, fill: "#3B2417", fontWeight: 600 }}
                   />
                 </Bar>
               </BarChart>

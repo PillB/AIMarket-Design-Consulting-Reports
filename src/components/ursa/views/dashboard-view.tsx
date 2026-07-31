@@ -6,7 +6,7 @@ import { BearScoreWidget } from "../bear-score-widget";
 import { DayInTheLifeWidget } from "../day-in-life-widget";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, EXPERIMENTS, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
-import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2 } from "lucide-react";
+import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2, Activity } from "lucide-react";
 
 export function DashboardView() {
   const navigate = useNavigate();
@@ -34,6 +34,7 @@ export function DashboardView() {
     { key: "campaign-builder", num: "T9", title: "Campaign Builder", desc: "A 6-step wizard: offer → audience → channel → metric → budget → summary. Outputs a copyable plain-text brief with a stop rule.", icon: Wand2 },
     { key: "spirit-checker", num: "T10", title: "Spirit-Preservation Checker", desc: "Validate any new tactic against the bear, the gram, and the green. 8 questions, 3 pillars, one verdict.", icon: Shield },
     { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 10 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
+    { key: "pilot", num: "T12", title: "Ursa Mañana Pilot Dashboard", desc: "12-week subscription pilot simulator: sign-ups, side-attach, cannibalization, and net profit. Replaces inputs with real data when the pilot runs.", icon: Activity },
   ];
 
   return (
@@ -180,7 +181,7 @@ export function DashboardView() {
       </ViewSection>
 
       {/* Tools — the extra innovative pages */}
-      <ViewSection badge="Interactive tools" title="Eleven working tools — built on the verified research" meta="Click any card to open">
+      <ViewSection badge="Interactive tools" title="Twelve working tools — built on the verified research" meta="Click any card to open">
         <Grid cols={4}>
           {tools.map((t) => {
             const Icon = t.icon;

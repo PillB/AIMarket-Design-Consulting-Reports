@@ -772,3 +772,43 @@ Next-phase candidates:
 - Expand the day-in-life widget to show weekend vs weekday differences
 - Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
 - Add a "Ursa Mañana" subscription pilot dashboard (tracks sign-ups, revenue, cannibalization)
+
+---
+Task ID: CRON-9
+Agent: webDevReview (cron-triggered, round 9)
+Task: QA testing, ROI chart fix, and new Ursa Mañana Pilot Dashboard
+
+Work Log:
+- Reviewed worklog (CRON-8 complete: dashboard tool icons, SWOT Matrix added, 22 views).
+- Performed systematic QA: all 22 views 0 errors, 0 console issues. Mobile overflow: all 22 "ok".
+- Tested interactivity: SWOT (clicking Bisetti shows its detail), command palette (24 items = 22 routes + 2 actions).
+- VLM review of ROI Dashboard (6/10) identified the bar chart as appearing empty + low table contrast. Investigation found the bars WERE rendering (8 paths with gold/terracotta fills) but the Y-axis tick labels were invisible because recharts doesn't render CSS variables in SVG `fill` attributes.
+- Fixed ROI Dashboard chart:
+  • Replaced all `var(--color-*)` in chart props with explicit hex colors (#6F4A2E for ticks, #E2D4B0 for grid, #C9B68C for axis strokes, #FAF5EC/#3B2417 for tooltip).
+  • Added explicit YAxis domain=[0, 250] and ticks=[0, 50, 100, 150, 200, 250] so the scale is always visible.
+  • VLM confirmed: "8 bars clearly visible in gold and terracotta" with proper ROI values (GBP ~200%+, Meta -47%, etc.).
+  • Improved table contrast: payback column changed from text-ursa-medium-roast to text-ursa-dark-roast font-semibold.
+- Added new feature: Ursa Mañana Pilot Dashboard (#/pilot) — VLM 9/10:
+  • 12-week subscription pilot simulator for EXP-11. Tracks sign-ups, side-attach, cannibalization, and net profit.
+  • Headline metrics: 12-week net profit (S/. 2,713 default), subscribers at week 12 (45), subscription revenue, cups served. Verdict pill (On track / Marginal / Below break-even).
+  • Revenue breakdown bar: stacked gold (subscription) + forest (sides) showing where money comes from; 4-metric breakdown (sub revenue, side margin, coffee cost, cannibalization loss).
+  • Per-subscriber economics: 5 editable sliders (sub price, cost per cup, visits/week, side margin, pre-spend) + live net-profit-per-subscriber card with visits/cups/cost/margin breakdown. Cannibalization callout.
+  • 12-week trajectory: visual bar chart (gold/forest bars by week, peak highlighted) + editable table with +/- controls for subscribers, visits, side attach %, cannibal % per week. Week profit calculates live per row.
+  • 3 stop-rule cards with progress bars: (1) net profit < 0 after 60 days, (2) cannibalization > 50%, (3) side attach < 40% after 30 days. Each shows current value + color-coded progress.
+  • "What a healthy pilot looks like" callout: 40-50 subs, ≥55% attach, 30-35% cannibal, >S/. 15 net/sub by week 12.
+  • Cross-links to full calculator + experiment tracker.
+  • Registered in ROUTES, header toolKeys, dashboard tools array (T12), page orchestrator, title map.
+- Lint: clean, zero errors. All 23 views: 0 console errors. Mobile: all ok.
+
+Stage Summary:
+- ROI Dashboard chart fixed (Y-axis now visible with explicit hex + domain; bars confirmed rendering)
+- New feature: Ursa Mañana Pilot Dashboard (#/pilot) — VLM 9/10, 12-week interactive simulator
+- Project now has 23 views (1 dashboard + 8 dossier + 13 tools + 1 landing prototype)
+- All 23 views remain error-free and mobile-clean
+- Project is stable and more feature-complete; ready for next cron round
+
+Next-phase candidates:
+- Add a print-to-PDF optimized stylesheet for each view
+- Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
+- Expand the day-in-life widget to show weekend vs weekday differences
+- Add a "Ursa Mañana" subscription pilot dashboard (tracks sign-ups, revenue, cannibalization)
