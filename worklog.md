@@ -426,3 +426,61 @@ Unresolved notes for next phase (cron job will handle):
 - Potentially add a dark mode toggle
 - Expand the competitor data with live review sampling
 - Add more bean origins to the atlas as they're verified
+
+---
+Task ID: CRON-1
+Agent: webDevReview (cron-triggered, round 1)
+Task: QA testing, bug fixes, and feature/styling improvements
+
+Work Log:
+- Reviewed full worklog to understand project state (18 views, brand colors fixed, writing protocol applied, cron scheduled).
+- Performed systematic QA via agent-browser across all 18 views: 0 errors, 0 console issues on every view.
+- Tested interactivity: calculator presets (S/. 35.59 → 24.87 on Conservative), menu studio editable inputs, experiments tracker status buttons, origin atlas clickable map.
+- Mobile responsiveness audit (iPhone 16 viewport): found 3 horizontal overflow bugs:
+  1. calculator (227px) — TabsList with 4 triggers doesn't fit on mobile
+  2. experiments (7px) — Grid component lacked minmax(0,1fr) on mobile columns
+  3. budget (17px+17px) — two grid layouts + comparison table lacked min-width constraints
+- Fixed all 3 overflow issues:
+  • calculator: made TabsList scrollable on mobile (overflow-x-auto, flex-nowrap, justify-start sm:justify-center)
+  • view-shell Grid component: added [grid-template-columns:minmax(0,1fr)] base so cards never overflow their grid track
+  • budget: added minmax(0,1fr) to both lg:grid-cols layouts + min-w-[420px] to comparison table inside existing overflow-x-auto wrapper
+- Confirmed full mobile overflow sweep: all 18 views now "ok" on iPhone 16 (393px viewport).
+- Added new feature: Command Palette (Cmd+K / Ctrl+K) — a quick-jump search dialog:
+  • Floating "Quick jump" button bottom-right with ⌘K kbd hint
+  • Opens with Cmd/Ctrl+K, closes with Escape
+  • Fuzzy search across all 18 routes + 2 quick actions (Print, Open static dossier)
+  • Grouped results (Navigate / Dossier / Tools / Action)
+  • Full keyboard navigation (ArrowUp/Down, Enter), active-item scroll-into-view
+  • Bear mark in empty state, Art Nouveau styling
+  • Verified: typing "calc" filters to 1 result (Subscription Calculator)
+- Added new feature: Bear Score brand-health widget on the dashboard:
+  • Composite score ring (animated count-up with easeOutCubic) — 69/100 "Developing"
+  • 4 brand pillar mini-rings (Bear motif 76, Art Nouveau 82, Palette 84, Roastery credibility 90)
+  • 10 surface consistency bars (Instagram bio 92, Post covers 68, Google Profile 18, Website 8, etc.)
+  • Color-coded by status (verified=forest, partial=gold, gap=terracotta)
+  • VLM rated it 9/10 — "exceptionally well-designed, combining data visualization with a strong brand identity"
+- Added new feature: Scroll Progress bar (thin gradient bar under header) + Back-to-top button (appears after 600px scroll, smooth scroll on click)
+- Improved styling:
+  • Art Nouveau corner ornaments added to ViewHero (gold filigree SVG, top-left + mirrored top-right, hidden on mobile)
+  • Card hover-lift animation (ursa-card-hover class with translateY(-3px) on hover)
+  • Header BearMark now has a subtle "breathing" animation (ursa-breathe, 4s ease-in-out scale 1↔1.04)
+  • New Reveal wrapper component + useScrollReveal hook (IntersectionObserver-based fade-up)
+  • Wrapped all 9 dashboard headline cards with staggered Reveal (0/80/160ms delays)
+  • Added 4 new CSS keyframes: ursa-reveal, ursa-breathe, ursa-paw, ursa-card-hover
+- Lint: clean, zero errors.
+- Dev server: compiling successfully, all routes 200.
+
+Stage Summary:
+- 3 mobile overflow bugs fixed (calculator TabsList, experiments/budget grids)
+- 3 new features added: Command Palette (Cmd+K), Bear Score widget, Scroll Progress + Back-to-top
+- Styling improved: Art Nouveau corner ornaments, card hover-lift, breathing bear mark, scroll-reveal animations with stagger
+- All 18 views remain error-free and mobile-clean
+- Bear Score widget VLM-rated 9/10
+- Project is stable and enhanced; ready for next cron round
+
+Next-phase candidates (for future cron rounds):
+- Reading-progress table-of-contents sidebar for long dossier views
+- Dark mode toggle (tokens already defined in globals.css .dark)
+- Expand competitor data with live review sampling
+- Add a "Ursa Mañana" subscription landing page mockup as a dedicated view
+- Add more bean origins to the atlas as they're verified

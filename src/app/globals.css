@@ -228,6 +228,29 @@
   100% { background-position: 200% 0; }
 }
 
+@keyframes ursa-reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.ursa-reveal { opacity: 0; }
+.ursa-reveal.ursa-reveal--in { animation: ursa-reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes ursa-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+.ursa-breathe { animation: ursa-breathe 4s ease-in-out infinite; }
+
+@keyframes ursa-paw {
+  0% { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+  60% { opacity: 1; transform: scale(1.1) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+/* Card hover lift */
+.ursa-card-hover { transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease; }
+.ursa-card-hover:hover { transform: translateY(-3px); }
+
 /* Print friendliness */
 @media print {
   .no-print { display: none !important; }

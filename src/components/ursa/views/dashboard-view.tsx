@@ -1,7 +1,8 @@
 "use client";
 
-import { ViewHero, ViewSection, Card, Grid } from "../view-shell";
+import { ViewHero, ViewSection, Card, Grid, Reveal } from "../view-shell";
 import { BearMark, CupGlyph, ArtNouveauDivider, Pill, StatBlock, Callout, EvidenceTag, SectionBadge } from "../ursa-brand";
+import { BearScoreWidget } from "../bear-score-widget";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, EXPERIMENTS, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
 import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass } from "lucide-react";
@@ -151,6 +152,11 @@ export function DashboardView() {
         </Grid>
       </ViewSection>
 
+      {/* Bear Score — brand-health widget */}
+      <ViewSection badge="Brand health" title="The Bear Score — identity consistency across surfaces" meta="Snapshot 2026-08-01">
+        <BearScoreWidget />
+      </ViewSection>
+
       {/* Dossier modules */}
       <ViewSection badge="Modules" title="Seven linked dossier modules">
         <Grid cols={3}>
@@ -189,31 +195,31 @@ export function DashboardView() {
       {/* Headlines */}
       <ViewSection badge="Headlines" title="What this plan actually says">
         <Grid cols={3}>
-          <Card>
+          <Reveal delay={0}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">1 · Ursa is more distinctive than it looks</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">The bear, the gram, the Art Nouveau lean, the two-bar layout, and named drinks like <em>Ursagroni</em> add up to a brand that already does what Lima's specialty scene rewards: a recognizable identity rather than trend-hopping. The plan refines this rather than replacing it.</p>
-          </Card>
-          <Card>
+          </Card></Reveal>
+          <Reveal delay={80}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">2 · The biggest gap is distribution, not product</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">Ursa has the roastery, the drinks, and the atmosphere. What it lacks is review-channel presence, a Google Business Profile that converts, a creator network, a hospitality pipeline into the 8+ hotels within walking distance, and — most visibly — a website. All five main Miraflores competitors already have one. The plan fixes this in the first 30 days.</p>
-          </Card>
-          <Card>
+          </Card></Reveal>
+          <Reveal delay={160}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">3 · Hormozi + Sutherland adapt, with caveats</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">Hormozi's Value Equation and offer-stack discipline adapt usefully to a café — the dossier adapts rather than imports them, with explicit "do not" lists where the framework would overreach. Sutherland's perceived-value lens is the cheaper lever: story cards, named preparations, and the bear as a recurring character often beat expensive rational changes at near-zero cost.</p>
-          </Card>
-          <Card>
+          </Card></Reveal>
+          <Reveal delay={0}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">4 · Conservative refinement is the recommended direction</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">Of three brand-evolution levels, the plan recommends Level 1 as the permanent system, Level 2 as a 6-month growth skin, and Level 3 only as seasonal expression. Total rebrand is explicitly off the table.</p>
-          </Card>
-          <Card>
+          </Card></Reveal>
+          <Reveal delay={80}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">5 · Each risky assumption has a test and a stop rule</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">{EXPERIMENTS.length} experiments cover the riskiest assumptions. Most cost S/. 0–560 to run. Each has a success metric and a stop rule. If something does not work in 14–30 days, it is killed cleanly and documented, not doubled-down on.</p>
-          </Card>
-          <Card>
+          </Card></Reveal>
+          <Reveal delay={160}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">6 · The 90-day plan is owned, not aspirational</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">72-hour / 30 / 60 / 90-day plans each name an owner, a dependency, a metric, and a stopping rule. Budget scenarios: lean (S/. {BUDGET_SCENARIOS[0].monthlyPEN.toLocaleString()}/mo), moderate (S/. {BUDGET_SCENARIOS[1].monthlyPEN.toLocaleString()}/mo), growth (S/. {BUDGET_SCENARIOS[2].monthlyPEN.toLocaleString()}/mo). The owner picks one and the plan adjusts.</p>
-          </Card>
-          <Card highlight>
+          </Card></Reveal>
+          <Reveal delay={0}><Card highlight>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-1.5">
               <Calculator size={16} className="text-ursa-gold" /> 7 · NEW · Ursa Mañana works on marginal-cost math
             </h3>
@@ -221,15 +227,15 @@ export function DashboardView() {
             <button onClick={() => navigate("calculator")} className="mt-3 inline-flex items-center gap-1.5 font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold hover:text-ursa-dark-roast transition">
               Open the calculator <ArrowRight size={14} />
             </button>
-          </Card>
-          <Card>
+          </Card></Reveal>
+          <Reveal delay={80}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">8 · Ownable space sits orthogonal to competitors</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">Punto Café won Premios Somos 2024. Neira has 4+ locations. Bisetti owns "escuela de café". Puku Puku owns "microlotes". Terrua charges US$25 for a tasting. Ursa's ownable space — bear + two bars + named-drink portmanteaus + "un gramo a la vez" — sits orthogonal to all of these.</p>
-          </Card>
-          <Card>
+          </Card></Reveal>
+          <Reveal delay={160}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">9 · Every claim is traceable; every gap is named</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">Each strategic claim cites a public source or marks itself as a scenario assumption. Where data is missing — average ticket, repeat rate, margin — the dossier says so and absorbs the gap with lean, moderate, and growth scenarios rather than invented numbers. No recommendation is held together by filler.</p>
-          </Card>
+          </Card></Reveal>
         </Grid>
       </ViewSection>
 

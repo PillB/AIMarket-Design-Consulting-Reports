@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { SectionBadge } from "./ursa-brand";
 import { ExternalLink } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 /** Standard hero header for each view. */
 export function ViewHero({
@@ -34,6 +35,17 @@ export function ViewHero({
             "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23B8924A' stroke-width='0.6' opacity='0.18'><path d='M0 60 Q30 30 60 60 T120 60'/><path d='M0 90 Q30 60 60 90 T120 90'/><circle cx='60' cy='60' r='2'/></g></svg>\")",
         }}
       />
+      {/* Art Nouveau corner ornaments */}
+      <svg className="absolute top-4 left-4 opacity-30 pointer-events-none hidden md:block" width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+        <path d="M2 2 Q18 4 24 18 Q28 26 18 30 Q6 34 2 50" stroke="var(--color-ursa-gold)" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
+        <circle cx="8" cy="8" r="1.5" fill="var(--color-ursa-gold)" />
+        <path d="M2 18 Q10 20 14 26" stroke="var(--color-ursa-gold)" strokeWidth="0.5" fill="none" opacity="0.7"/>
+      </svg>
+      <svg className="absolute top-4 right-4 opacity-30 pointer-events-none hidden md:block scale-x-[-1]" width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+        <path d="M2 2 Q18 4 24 18 Q28 26 18 30 Q6 34 2 50" stroke="var(--color-ursa-gold)" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
+        <circle cx="8" cy="8" r="1.5" fill="var(--color-ursa-gold)" />
+        <path d="M2 18 Q10 20 14 26" stroke="var(--color-ursa-gold)" strokeWidth="0.5" fill="none" opacity="0.7"/>
+      </svg>
       <div className="relative max-w-[1180px] mx-auto px-4 md:px-6 py-12 md:py-16">
         <span
           className={cn(
@@ -112,8 +124,8 @@ export function Card({
   highlight?: boolean;
 }) {
   const cls = cn(
-    "bg-card border rounded-xl p-6 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)]",
-    href ? "block no-underline text-inherit transition hover:shadow-[0_2px_0_rgba(59,36,23,0.08),0_20px_48px_-20px_rgba(59,36,23,0.28)] hover:-translate-y-0.5" : "",
+    "bg-card border rounded-xl p-6 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)] ursa-card-hover",
+    href ? "block no-underline text-inherit hover:shadow-[0_2px_0_rgba(59,36,23,0.08),0_20px_48px_-20px_rgba(59,36,23,0.28)]" : "",
     highlight ? "border-ursa-gold shadow-[0_0_0_4px_rgba(184,146,74,0.15),0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)]" : "border-ursa-line-soft",
     className
   );
@@ -146,5 +158,19 @@ export function DossierLinkBanner({ moduleId }: { moduleId: string }) {
 /** Grid utility. */
 export function Grid({ children, cols = 2, className }: { children: React.ReactNode; cols?: 2 | 3 | 4; className?: string }) {
   const colMap = { 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4" };
-  return <div className={cn("grid gap-5", colMap[cols], className)}>{children}</div>;
+  return <div className={cn("grid gap-5 [grid-template-columns:minmax(0,1fr)]", colMap[cols], className)}>{children}</div>;
+}
+
+/** Reveal-on-scroll wrapper. Children fade up when they enter the viewport. */
+export function Reveal({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const { ref, inView } = useScrollReveal<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      className={cn("ursa-reveal", inView && "ursa-reveal--in", className)}
+      style={delay ? { animationDelay: `${delay}ms` } : undefined}
+    >
+      {children}
+    </div>
+  );
 }

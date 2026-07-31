@@ -255,7 +255,7 @@ export function CalculatorView() {
       {/* Tabs: sensitivity + scale + assumptions */}
       <ViewSection badge="Deeper analysis" title="Sensitivity, scale, and the honest assumptions">
         <Tabs defaultValue="sensitivity">
-          <TabsList className="bg-muted">
+          <TabsList className="bg-muted overflow-x-auto ursa-scroll justify-start sm:justify-center flex-nowrap max-w-full">
             <TabsTrigger value="sensitivity">Sensitivity table</TabsTrigger>
             <TabsTrigger value="scale">Scale projection</TabsTrigger>
             <TabsTrigger value="assumptions">Honest assumptions</TabsTrigger>

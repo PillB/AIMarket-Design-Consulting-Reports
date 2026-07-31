@@ -194,7 +194,7 @@ export function BudgetView() {
           </button>
         </div>
 
-        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-6 items-start">
+        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">
           {/* Editable line items */}
           <Card>
             <div className="flex items-center justify-between mb-1">
@@ -348,7 +348,7 @@ export function BudgetView() {
 
       {/* Allocation chart */}
       <ViewSection badge="Allocation" title={`Where the ${active.name} budget goes`} meta="Category-by-category breakdown">
-        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-start">
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1 flex items-center gap-2">
               <PiggyBank size={18} className="text-ursa-gold" /> Spend by line item
@@ -440,8 +440,8 @@ export function BudgetView() {
       {/* Comparison view */}
       <ViewSection badge="Compare" title="All three scenarios side by side" meta="Lean vs Moderate vs Growth">
         <Card className="p-0 overflow-hidden">
-          <div className="overflow-x-auto ursa-scroll">
-            <table className="w-full border-collapse text-[0.88rem]">
+          <div className="overflow-x-auto ursa-scroll -mx-1 px-1">
+            <table className="w-full border-collapse text-[0.88rem] min-w-[420px]">
               <thead>
                 <tr className="bg-ursa-cream">
                   <th className="text-left p-3 font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground border-b border-ursa-line">

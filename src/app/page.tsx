@@ -21,6 +21,8 @@ import { StyleGuideView } from "@/components/ursa/tools/style-guide-view";
 import { BudgetView } from "@/components/ursa/tools/budget-view";
 import { OriginAtlasView } from "@/components/ursa/tools/origin-atlas-view";
 import { RoiView } from "@/components/ursa/tools/roi-view";
+import { CommandPalette } from "@/components/ursa/command-palette";
+import { ScrollProgress } from "@/components/ursa/scroll-progress";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -103,6 +105,8 @@ export default function Home() {
           {renderView()}
         </main>
         <UrsaFooter onPrint={() => window.print()} />
+        <ScrollProgress />
+        <CommandPalette />
       </div>
     </NavContext.Provider>
   );
