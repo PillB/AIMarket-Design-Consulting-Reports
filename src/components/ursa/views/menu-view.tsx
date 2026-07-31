@@ -546,24 +546,29 @@ export function MenuView() {
               </small>
             </div>
             <ArtNouveauDivider className="my-4" />
+            {/* Signature legend */}
+            <div className="flex items-center justify-center gap-2 mb-4 text-[0.72rem] text-muted-foreground">
+              <span className="inline-block w-2 h-2 rounded-full bg-ursa-gold" aria-hidden="true" />
+              <span className="font-label tracking-[0.08em] uppercase">Signature drink — verified named</span>
+            </div>
             <div className="grid md:grid-cols-2 gap-x-10 gap-y-0">
               {CURRENT_MENU_SECTIONS.map((section) => (
                 <div key={section.id} className="ursa-menu__section">
-                  <h4 className="font-display italic text-ursa-medium-roast text-center border-t border-b border-ursa-line py-1.5 my-3 text-[1.05rem]">
+                  <h4 className="font-display italic text-ursa-medium-roast text-center border-t border-b border-ursa-line py-2 my-3 text-[1.1rem]">
                     {section.label}
                   </h4>
                   {section.items.map((item) => (
                     <div
                       key={item.name}
-                      className="flex items-baseline gap-2 mb-2 text-[0.92rem]"
+                      className="flex items-baseline gap-2 mb-3 text-[0.95rem] group"
                     >
                       <b
-                        className="font-display font-semibold text-ursa-dark-roast text-[1rem] flex items-center gap-1.5"
+                        className="font-display font-semibold text-ursa-dark-roast text-[1.05rem] flex items-center gap-1.5"
                       >
                         {item.signature && (
                           <span
-                            className="inline-block w-1.5 h-1.5 rounded-full bg-ursa-gold"
-                            aria-hidden="true"
+                            className="inline-block w-2 h-2 rounded-full bg-ursa-gold shrink-0"
+                            aria-label="Signature drink"
                           />
                         )}
                         {item.name}
@@ -572,11 +577,11 @@ export function MenuView() {
                         className="flex-1 border-b border-dotted border-ursa-line translate-y-[-3px]"
                         aria-hidden="true"
                       />
-                      <span className="font-label text-ursa-medium-roast tracking-[0.04em] text-[0.85rem]">
+                      <span className="font-label text-ursa-medium-roast tracking-[0.04em] text-[0.9rem] font-medium">
                         {item.price}
                       </span>
                       {item.note && (
-                        <span className="basis-full italic text-muted-foreground text-[0.78rem] mt-[-2px] mb-1 pl-3">
+                        <span className="basis-full italic text-muted-foreground text-[0.8rem] mt-[-4px] mb-1 pl-4 border-l-2 border-ursa-gold/30">
                           {item.note}
                         </span>
                       )}

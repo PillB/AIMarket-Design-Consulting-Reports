@@ -22,6 +22,7 @@ import { StyleGuideView } from "@/components/ursa/tools/style-guide-view";
 import { BudgetView } from "@/components/ursa/tools/budget-view";
 import { OriginAtlasView } from "@/components/ursa/tools/origin-atlas-view";
 import { RoiView } from "@/components/ursa/tools/roi-view";
+import { CampaignBuilderView } from "@/components/ursa/tools/campaign-builder-view";
 import { CommandPalette } from "@/components/ursa/command-palette";
 import { ScrollProgress } from "@/components/ursa/scroll-progress";
 import { useEffect } from "react";
@@ -50,6 +51,7 @@ export default function Home() {
       budget: "Budget Allocator — Ursa Coffee",
       "origin-atlas": "Coffee Origin Atlas — Ursa Coffee",
       roi: "ROI Dashboard — Ursa Coffee",
+      "campaign-builder": "Campaign Builder — Ursa Coffee",
       sources: "Sources & Evidence — Ursa Coffee",
       landing: "Ursa Mañana — Landing Page Prototype — Ursa Coffee",
     };
@@ -92,6 +94,8 @@ export default function Home() {
         return <OriginAtlasView />;
       case "roi":
         return <RoiView />;
+      case "campaign-builder":
+        return <CampaignBuilderView />;
       case "sources":
         return <SourcesView />;
       case "landing":

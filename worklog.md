@@ -658,3 +658,44 @@ Next-phase candidates:
 - Expand the day-in-life widget to show weekend vs weekday differences
 - Build a competitor SWOT matrix as a dedicated interactive tool
 - Add a "campaign builder" wizard that walks through offer → audience → channel → metric
+
+---
+Task ID: CRON-6
+Agent: webDevReview (cron-triggered, round 6)
+Task: QA testing, brand/menu polish, and new Campaign Builder wizard
+
+Work Log:
+- Reviewed worklog (CRON-5 complete: growth view 9/10, interactive persona cards added).
+- Performed systematic QA: all 19 views 0 errors, 0 console issues. Mobile overflow: all 19 "ok".
+- VLM review of brand view (9/10) identified palette swatch text contrast issue; menu view (8/10) had dense menu card readability.
+- Fixed brand view palette swatches: added luminance-based contrast detection — each swatch now displays its hex code directly ON the colored block with cream text on dark colors and ink text on light colors. Hover grows the swatch height (h-24 → h-28). VLM confirmed: "hex codes displayed directly on colored blocks with high-contrast text."
+- Improved menu view readability:
+  • Added a "Signature drink — verified named" legend above the menu grid explaining the gold dot.
+  • Increased item font sizes (0.92→0.95rem body, 1rem→1.05rem names, 0.85→0.9rem prices) and item spacing (mb-2→mb-3).
+  • Made the signature dot larger (1.5→2px) with an aria-label.
+  • Section headers: py-1.5→py-2, text 1.05→1.1rem for stronger hierarchy.
+  • Item notes now have a left gold border accent (border-l-2 border-ursa-gold/30) instead of plain indent.
+- Added new feature: Campaign Builder wizard (#/campaign-builder) — VLM 9/10:
+  • 6-step interactive wizard: Offer → Audience → Channel → Metric → Budget → Summary.
+  • Step progress bar with numbered/checkmarked circles, clickable for completed steps, → arrows between.
+  • 6 offers (Ursa Mañana, Cata flight, pairing, hotel card, gram of week, cupping), 6 audiences (personas + office + hotel), 8 channels, 6 metrics — all drawn from verified Ursa data.
+  • Budget step: range slider (S/. 500–3000) + 3 quick-pick tiers (Lean/Moderate/Growth).
+  • Summary step: generates a plain-text campaign brief (copyable to clipboard) with offer, audience, channel, metric, budget, and an auto-generated stop rule.
+  • Running brief sidebar (sticky on desktop) shows live selections with tone-coded values.
+  • Next/Back navigation with disabled-state when a step is incomplete; Reset button.
+  • Registered in ROUTES, header toolKeys, page orchestrator, title map.
+- Lint: clean, zero errors. All 20 views: 0 console errors. Mobile: all ok.
+
+Stage Summary:
+- Brand view palette swatches fixed (contrast-aware hex overlay on each color block)
+- Menu view readability improved (legend, larger fonts, gold accent on notes, better hierarchy)
+- New feature: Campaign Builder wizard (#/campaign-builder) — VLM 9/10, 6-step interactive tool with copyable brief
+- Project now has 20 views (1 dashboard + 8 dossier + 10 tools + 1 landing prototype)
+- All 20 views remain error-free and mobile-clean
+- Project is stable and more feature-complete; ready for next cron round
+
+Next-phase candidates:
+- Add a print-to-PDF optimized stylesheet for each view
+- Build a competitor SWOT matrix as a dedicated interactive tool
+- Expand the day-in-life widget to show weekend vs weekday differences
+- Add a "spirit-preservation checker" that validates any new tactic against the bear/gram/green identity

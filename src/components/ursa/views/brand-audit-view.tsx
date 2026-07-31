@@ -307,26 +307,36 @@ export function BrandAuditView() {
           No blue, no indigo — this is a deliberate non-default choice.
         </p>
         <Grid cols={4}>
-          {PALETTE.map((c) => (
-            <Card key={c.name} className="overflow-hidden p-0">
-              <div
-                className="h-24 w-full"
-                style={{ backgroundColor: c.hex }}
-                aria-hidden="true"
-              />
-              <div className="p-4">
-                <div className="flex items-center justify-between gap-2 mb-1">
-                  <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
-                    {c.name}
-                  </h4>
-                  <span className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-muted-foreground">
+          {PALETTE.map((c) => {
+            // Determine if the color is dark (for contrast-aware text overlay)
+            const r = parseInt(c.hex.slice(1, 3), 16);
+            const g = parseInt(c.hex.slice(3, 5), 16);
+            const b = parseInt(c.hex.slice(5, 7), 16);
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            const isDark = luminance < 0.55;
+            const overlayText = isDark ? "#F4EBD9" : "#211208";
+            return (
+              <Card key={c.name} className="overflow-hidden p-0 group cursor-default">
+                <div
+                  className="h-24 w-full relative flex items-end p-3 transition group-hover:h-28"
+                  style={{ backgroundColor: c.hex }}
+                >
+                  <span
+                    className="font-label text-[0.66rem] tracking-[0.12em] uppercase font-medium"
+                    style={{ color: overlayText }}
+                  >
                     {c.hex}
                   </span>
                 </div>
-                <p className="text-[0.78rem] text-muted-foreground m-0 leading-snug">{c.role}</p>
-              </div>
-            </Card>
-          ))}
+                <div className="p-4">
+                  <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0 leading-tight mb-1">
+                    {c.name}
+                  </h4>
+                  <p className="text-[0.78rem] text-muted-foreground m-0 leading-snug">{c.role}</p>
+                </div>
+              </Card>
+            );
+          })}
         </Grid>
       </ViewSection>
 
