@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import {
   BearMark,
@@ -10,13 +11,14 @@ import {
   StatBlock,
   SectionBadge,
   EvidenceTag,
-  ProgressBar,
 } from "../ursa-brand";
 import { HORMOZI_PRINCIPLES, SUTHERLAND_PRINCIPLES, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { cn } from "@/lib/utils";
 import {
   ArrowRight,
   ArrowDown,
+  ChevronDown,
   Compass,
   Coffee,
   Users,
@@ -50,6 +52,10 @@ type Persona = {
   jtb: string;
   signals: string[];
   proof: string;
+  channels: string[];
+  offer: string;
+  metric: string;
+  tone: "gold" | "terracotta" | "forest";
 };
 
 const PERSONAS: Persona[] = [
@@ -60,6 +66,10 @@ const PERSONAS: Persona[] = [
       "When I start my day in Miraflores, help me get a deliberately good cup faster than I could at home, with a face that remembers my order — without making me think.",
     signals: ["Arrives 7:03–7:30am", "Orders the same drink", "Pays in under 90s"],
     proof: "Ursa opens 07:30; the weighing ritual is fast because the barista already knows the dose.",
+    channels: ["Ursa Mañana subscription", "WhatsApp morning drop", "Barista recognition"],
+    offer: "S/. 20/month unlimited coffee 7–10am + 20% off sides",
+    metric: "Visits/week ≥ 3 · side attach ≥ 60%",
+    tone: "gold",
   },
   {
     name: "The Tourist Explorer",
@@ -68,6 +78,10 @@ const PERSONAS: Persona[] = [
       "When I'm visiting Lima for a few days, help me find a craft coffee spot I can recommend and tag — close to my hotel, with a story I can take home.",
     signals: ["Walks in with a map", "Asks 'what's local?'", "Photographs the cup"],
     proof: "8+ hotels within walking distance; the bear paw Reel trail and concierge cards make Ursa findable.",
+    channels: ["Hotel concierge cards", "Instagram Reels", "Google Business Profile", "Bear paw trail"],
+    offer: "Origin story card + bean sample to take home",
+    metric: "Tags @ursacoffeeperu · retail bean attach ≥ 25%",
+    tone: "terracotta",
   },
   {
     name: "The Remote Worker",
@@ -76,6 +90,10 @@ const PERSONAS: Persona[] = [
       "When I need to work outside my apartment for two hours, help me find a third place with reliable Wi-Fi and a quality second cup — without feeling rushed.",
     signals: ["Laptop open", "Single drink + refill", "Stays 90+ minutes"],
     proof: "Two-bar layout means a quiet side; the named-drink rotation gives a reason to come back tomorrow.",
+    channels: ["Coworking partnerships", "Google Maps", "Slow-hour pricing"],
+    offer: "Second-cup loyalty stamp + quiet-side seating",
+    metric: "Dwell time ≥ 90min · return within 7 days ≥ 40%",
+    tone: "forest",
   },
   {
     name: "The Coffee Curious",
@@ -84,6 +102,10 @@ const PERSONAS: Persona[] = [
       "When I want to understand specialty coffee, help me learn enough to order with confidence — and tell my friends where beans come from.",
     signals: ["Asks about origin", "Buys retail beans", "Attends cuppings"],
     proof: "Story cards, 'gram of the week', and monthly cupping nights make the craft legible, not intimidating.",
+    channels: ["Monthly cupping night", "Gram of the week", "Origin atlas cards", "Workshops"],
+    offer: "Cata de Tres Orígenes tasting flight + bean bag",
+    metric: "Cupping attendance · retail bean repeat ≥ 30%",
+    tone: "gold",
   },
 ];
 
@@ -209,30 +231,38 @@ const JOURNEY = [
 ];
 
 const CHANNELS = [
-  { name: "Acquisition", icon: <Megaphone size={14} />, tactic: "Paid social (Meta, Miraflores 3km) → first-time visitor with a S/. 14 anchor drink." },
-  { name: "Local discovery", icon: <Footprints size={14} />, tactic: "Bear paw stamps around Miraflores landmarks + 'walk-to-Ursa' Reel." },
-  { name: "Google / Maps", icon: <MapPin size={14} />, tactic: "Verify Google Business Profile with photos, hours, menu link, and post weekly." },
-  { name: "Organic social", icon: <Camera size={14} />, tactic: "Reels, Stories, carousels. 'Un gramo a la vez' as the recurring ritual opener." },
-  { name: "Paid social", icon: <Megaphone size={14} />, tactic: "Meta ads, 3km radius, lookalike on existing regulars. A/B test the bear vs the cup." },
-  { name: "Creator strategy", icon: <Star size={14} />, tactic: "3 micro-creators per quarter — a barista, a foodie, a traveller — briefs not posts." },
-  { name: "Delivery", icon: <Truck size={14} />, tactic: "Rappi menu re-photography + bundle pricing. Packing ritual Reel builds trust." },
-  { name: "Partnerships", icon: <Handshake size={14} />, tactic: "8 nearby hotels with concierge origin cards; redeemable coupon code per hotel." },
-  { name: "Events", icon: <Calendar size={14} />, tactic: "Monthly cupping night (EXP-06) + seasonal drink reveal with cloth-off ceremony." },
-  { name: "Tourism", icon: <Compass size={14} />, tactic: "POV walk Reel from Parque Kennedy; 'closer than you think' framing for visitors." },
-  { name: "Hotels", icon: <Hotel size={14} />, tactic: "Concierge cards + a small bean gift for VIP rooms in partnering properties." },
-  { name: "Offices / coworking", icon: <Briefcase size={14} />, tactic: "B2B office sampling (10 offices) for wholesale bean accounts + morning runs." },
-  { name: "Community", icon: <Heart size={14} />, tactic: "Bear barista challenge + 'gram of the week' photo wall in-store." },
-  { name: "Loyalty", icon: <Star size={14} />, tactic: "CoffeePass Perú listing + named-drink rotation as the recurring reason." },
-  { name: "Referral", icon: <Gift size={14} />, tactic: "Subscriber 'brings a friend' first-cup-free; paired with the bear's recommendation." },
-  { name: "Reviews", icon: <MessageSquare size={14} />, tactic: "Google + TripAdvisor review request 24h after first visit; reply within 48h." },
-  { name: "Service recovery", icon: <RefreshCw size={14} />, tactic: "Direct WhatsApp reply + complimentary return cup. Document the pattern weekly." },
-  { name: "Email / WhatsApp", icon: <Mail size={14} />, tactic: "Weekly drop notice + 'gram of the week' highlight. Consent prompt at the till." },
-  { name: "Retail beans", icon: <Package size={14} />, tactic: "Art Nouveau bean bag labels with roast date; sell at counter and via Rappi." },
-  { name: "Wholesale / B2B", icon: <Store size={14} />, tactic: "Office sampling → bean wholesale accounts. Quarterly origin report as the pitch." },
+  { name: "Acquisition", stage: "Discover", icon: <Megaphone size={14} />, tactic: "Paid social (Meta, Miraflores 3km) → first-time visitor with a S/. 14 anchor drink." },
+  { name: "Local discovery", stage: "Discover", icon: <Footprints size={14} />, tactic: "Bear paw stamps around Miraflores landmarks + 'walk-to-Ursa' Reel." },
+  { name: "Google / Maps", stage: "Discover", icon: <MapPin size={14} />, tactic: "Verify Google Business Profile with photos, hours, menu link, and post weekly." },
+  { name: "Organic social", stage: "Discover", icon: <Camera size={14} />, tactic: "Reels, Stories, carousels. 'Un gramo a la vez' as the recurring ritual opener." },
+  { name: "Paid social", stage: "Discover", icon: <Megaphone size={14} />, tactic: "Meta ads, 3km radius, lookalike on existing regulars. A/B test the bear vs the cup." },
+  { name: "Tourism", stage: "Discover", icon: <Compass size={14} />, tactic: "POV walk Reel from Parque Kennedy; 'closer than you think' framing for visitors." },
+  { name: "Creator strategy", stage: "Engage", icon: <Star size={14} />, tactic: "3 micro-creators per quarter — a barista, a foodie, a traveller — briefs not posts." },
+  { name: "Delivery", stage: "Engage", icon: <Truck size={14} />, tactic: "Rappi menu re-photography + bundle pricing. Packing ritual Reel builds trust." },
+  { name: "Events", stage: "Engage", icon: <Calendar size={14} />, tactic: "Monthly cupping night (EXP-06) + seasonal drink reveal with cloth-off ceremony." },
+  { name: "Partnerships", stage: "Engage", icon: <Handshake size={14} />, tactic: "8 nearby hotels with concierge origin cards; redeemable coupon code per hotel." },
+  { name: "Hotels", stage: "Engage", icon: <Hotel size={14} />, tactic: "Concierge cards + a small bean gift for VIP rooms in partnering properties." },
+  { name: "Offices / coworking", stage: "Engage", icon: <Briefcase size={14} />, tactic: "B2B office sampling (10 offices) for wholesale bean accounts + morning runs." },
+  { name: "Community", stage: "Retain", icon: <Heart size={14} />, tactic: "Bear barista challenge + 'gram of the week' photo wall in-store." },
+  { name: "Loyalty", stage: "Retain", icon: <Star size={14} />, tactic: "CoffeePass Perú listing + named-drink rotation as the recurring reason." },
+  { name: "Email / WhatsApp", stage: "Retain", icon: <Mail size={14} />, tactic: "Weekly drop notice + 'gram of the week' highlight. Consent prompt at the till." },
+  { name: "Service recovery", stage: "Retain", icon: <RefreshCw size={14} />, tactic: "Direct WhatsApp reply + complimentary return cup. Document the pattern weekly." },
+  { name: "Retail beans", stage: "Retain", icon: <Package size={14} />, tactic: "Art Nouveau bean bag labels with roast date; sell at counter and via Rappi." },
+  { name: "Referral", stage: "Advocate", icon: <Gift size={14} />, tactic: "Subscriber 'brings a friend' first-cup-free; paired with the bear's recommendation." },
+  { name: "Reviews", stage: "Advocate", icon: <MessageSquare size={14} />, tactic: "Google + TripAdvisor review request 24h after first visit; reply within 48h." },
+  { name: "Wholesale / B2B", stage: "Advocate", icon: <Store size={14} />, tactic: "Office sampling → bean wholesale accounts. Quarterly origin report as the pitch." },
 ];
+
+const FUNNEL_STAGES = [
+  { name: "Discover", tone: "var(--color-ursa-gold)", desc: "Reach new audiences in Miraflores" },
+  { name: "Engage", tone: "var(--color-ursa-forest)", desc: "Convert interest into a visit" },
+  { name: "Retain", tone: "var(--color-ursa-forest-deep)", desc: "Turn first visits into a habit" },
+  { name: "Advocate", tone: "var(--color-ursa-terracotta)", desc: "Let regulars bring the next regular" },
+] as const;
 
 export function GrowthView() {
   const navigate = useNavigate();
+  const [expandedPersona, setExpandedPersona] = useState<number | null>(0);
 
   return (
     <>
@@ -289,35 +319,78 @@ export function GrowthView() {
         </Callout>
       </ViewSection>
 
-      {/* Personas & JTBD */}
-      <ViewSection badge="Audience" title="Who we are serving — and the job each one hires Ursa to do" meta="Four primary personas">
+      {/* Personas & JTBD — interactive expandable cards */}
+      <ViewSection badge="Audience" title="Who we are serving — and the job each one hires Ursa to do" meta="Four primary personas · click to expand">
         <Grid cols={2}>
-          {PERSONAS.map((p) => (
-            <Card key={p.name} className="flex gap-4">
-              <div className="shrink-0">
-                <div className="w-10 h-10 rounded-full bg-ursa-cream border border-ursa-line-soft flex items-center justify-center">
-                  {p.icon}
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-2">{p.name}</h3>
-                <p className="text-[0.92rem] italic text-ursa-medium-roast leading-relaxed mb-3">
-                  &ldquo;{p.jtb}&rdquo;
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-3">
+          {PERSONAS.map((p, idx) => {
+            const expanded = expandedPersona === idx;
+            const accent = p.tone === "gold" ? "var(--color-ursa-gold)" : p.tone === "terracotta" ? "var(--color-ursa-terracotta)" : "var(--color-ursa-forest-deep)";
+            return (
+              <Card
+                key={p.name}
+                className="flex flex-col gap-3 cursor-pointer border-t-2 overflow-hidden"
+                >
+                <span className="block h-1 -mx-6 -mt-6 mb-1" style={{ background: accent }} />
+                <button
+                  onClick={() => setExpandedPersona(expanded ? null : idx)}
+                  aria-expanded={expanded}
+                  className="text-left flex gap-4 items-start"
+                >
+                  <div className="shrink-0">
+                    <div className="w-11 h-11 rounded-full grid place-items-center border" style={{ background: `${accent}15`, borderColor: `${accent}40` }}>
+                      {p.icon}
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">{p.name}</h3>
+                      <ChevronDown size={18} className={cn("text-muted-foreground transition-transform shrink-0", expanded && "rotate-180")} />
+                    </div>
+                    <p className="text-[0.9rem] italic text-ursa-medium-roast leading-relaxed mb-2 m-0">
+                      &ldquo;{p.jtb}&rdquo;
+                    </p>
+                  </div>
+                </button>
+                {/* Always-visible signals */}
+                <div className="flex flex-wrap gap-1.5 pl-[60px]">
                   {p.signals.map((s) => (
-                    <span key={s} className="font-label text-[0.62rem] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full border border-ursa-line-soft text-muted-foreground bg-ursa-foam">
+                    <span key={s} className="font-label text-[0.6rem] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full border text-muted-foreground bg-ursa-foam" style={{ borderColor: `${accent}30` }}>
                       {s}
                     </span>
                   ))}
                 </div>
-                <p className="text-[0.82rem] text-muted-foreground m-0">
-                  <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-gold">Proof · </span>
-                  {p.proof}
-                </p>
-              </div>
-            </Card>
-          ))}
+                {/* Expandable detail */}
+                {expanded && (
+                  <div className="pl-[60px] space-y-3 ursa-fade-up border-t border-ursa-line-soft pt-3 mt-1">
+                    <div>
+                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase block mb-1" style={{ color: accent }}>Proof point</span>
+                      <p className="text-[0.84rem] text-muted-foreground m-0">{p.proof}</p>
+                    </div>
+                    <div>
+                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase block mb-1" style={{ color: accent }}>Channels that reach them</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {p.channels.map((ch) => (
+                          <span key={ch} className="font-label text-[0.62rem] tracking-[0.06em] px-2 py-0.5 rounded border" style={{ borderColor: `${accent}30`, color: "var(--color-ursa-dark-roast)", background: `${accent}08` }}>
+                            {ch}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="rounded-lg p-2.5 border" style={{ borderColor: `${accent}25`, background: `${accent}06` }}>
+                        <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase block mb-0.5" style={{ color: accent }}>Offer for them</span>
+                        <p className="text-[0.8rem] text-ursa-dark-roast m-0 leading-snug">{p.offer}</p>
+                      </div>
+                      <div className="rounded-lg p-2.5 border border-ursa-line-soft bg-ursa-foam">
+                        <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase block mb-0.5 text-muted-foreground">Success metric</span>
+                        <p className="text-[0.8rem] text-ursa-dark-roast m-0 leading-snug font-medium">{p.metric}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </Card>
+            );
+          })}
         </Grid>
       </ViewSection>
 
@@ -427,34 +500,47 @@ export function GrowthView() {
               <Layers size={18} className="text-ursa-gold" />
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0">The stack, bottom to top</h3>
             </div>
-            <div className="space-y-2">
-              {[...OFFER_STACK].reverse().map((layer, i) => (
-                <div
-                  key={layer.layer}
-                  className="relative rounded-lg border bg-card p-4 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-16px_rgba(59,36,23,0.18)]"
-                  style={{
-                    marginLeft: `${i * 12}px`,
-                    borderColor: layer.tone === "forest" ? "var(--color-ursa-forest-deep)" : layer.tone === "terracotta" ? "var(--color-ursa-terracotta)" : "var(--color-ursa-gold)",
-                    borderWidth: "1px",
-                  }}
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground">
-                        {layer.layer}
-                      </span>
-                      <p className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0.5 mb-1 m-0">{layer.item}</p>
-                      <p className="text-[0.82rem] text-muted-foreground m-0">{layer.note}</p>
-                    </div>
-                    <span
-                      className="font-display text-sm font-semibold whitespace-nowrap"
-                      style={{ color: layer.tone === "forest" ? "var(--color-ursa-forest-deep)" : layer.tone === "terracotta" ? "var(--color-ursa-terracotta)" : "var(--color-ursa-gold)" }}
+            <div className="relative pl-6">
+              {/* Vertical connecting line */}
+              <span className="absolute left-[10px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-ursa-gold via-ursa-gold/50 to-ursa-forest-deep/30 rounded-full" aria-hidden="true" />
+              <div className="space-y-2">
+                {[...OFFER_STACK].reverse().map((layer, i) => {
+                  const accent = layer.tone === "forest" ? "var(--color-ursa-forest-deep)" : layer.tone === "terracotta" ? "var(--color-ursa-terracotta)" : "var(--color-ursa-gold)";
+                  return (
+                    <div
+                      key={layer.layer}
+                      className="relative rounded-lg border bg-card p-4 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-16px_rgba(59,36,23,0.18)] transition hover:shadow-md hover:-translate-y-0.5"
+                      style={{
+                        marginLeft: `${i * 10}px`,
+                        borderColor: accent,
+                        borderWidth: "1px",
+                      }}
                     >
-                      {layer.value}
-                    </span>
-                  </div>
-                </div>
-              ))}
+                      {/* Node dot on the connecting line */}
+                      <span
+                        className="absolute -left-[19px] top-5 w-3 h-3 rounded-full border-2 border-card shadow-sm"
+                        style={{ background: accent }}
+                        aria-hidden="true"
+                      />
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground">
+                            {layer.layer}
+                          </span>
+                          <p className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0.5 mb-1 m-0">{layer.item}</p>
+                          <p className="text-[0.82rem] text-muted-foreground m-0">{layer.note}</p>
+                        </div>
+                        <span
+                          className="font-display text-sm font-semibold whitespace-nowrap"
+                          style={{ color: accent }}
+                        >
+                          {layer.value}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             <p className="text-[0.78rem] text-muted-foreground mt-4 mb-0 italic">
               Anchor the stack against the à la carte total — truthfully. Continuity is the
@@ -537,19 +623,48 @@ export function GrowthView() {
         </Callout>
       </ViewSection>
 
-      {/* Channel coverage grid */}
-      <ViewSection badge="Channels" title="Channel coverage — twenty surfaces, one promise" meta="Compact · each carries the four pillars">
-        <Grid cols={4}>
-          {CHANNELS.map((c) => (
-            <Card key={c.name} className="p-4">
-              <div className="flex items-center gap-2 mb-2 text-ursa-gold">
-                {c.icon}
-                <h3 className="font-display text-[0.95rem] font-semibold text-ursa-dark-roast m-0">{c.name}</h3>
+      {/* Channel coverage grid — grouped by funnel stage */}
+      <ViewSection badge="Channels" title="Channel coverage — twenty surfaces, one promise" meta="Grouped by funnel stage · each carries the four pillars">
+        {/* Funnel stage legend */}
+        <div className="flex flex-wrap items-center gap-3 mb-6">
+          {FUNNEL_STAGES.map((stage, i) => {
+            const count = CHANNELS.filter((c) => c.stage === stage.name).length;
+            return (
+              <div key={stage.name} className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-sm" style={{ background: stage.tone }} />
+                <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-ursa-dark-roast">{stage.name}</span>
+                <span className="font-label text-[0.6rem] text-muted-foreground">({count})</span>
+                {i < FUNNEL_STAGES.length - 1 && <span className="text-muted-foreground/40 mx-1">→</span>}
               </div>
-              <p className="text-[0.8rem] leading-snug text-muted-foreground m-0">{c.tactic}</p>
-            </Card>
-          ))}
-        </Grid>
+            );
+          })}
+        </div>
+
+        <div className="space-y-6">
+          {FUNNEL_STAGES.map((stage) => {
+            const stageChannels = CHANNELS.filter((c) => c.stage === stage.name);
+            return (
+              <div key={stage.name}>
+                <div className="flex items-baseline gap-3 mb-3">
+                  <h3 className="font-display text-lg font-semibold m-0" style={{ color: stage.tone }}>{stage.name}</h3>
+                  <span className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground">{stage.desc}</span>
+                </div>
+                <Grid cols={4}>
+                  {stageChannels.map((c) => (
+                    <Card key={c.name} className="p-4 border-t-2" >
+                      <span className="block h-0.5 -mx-4 -mt-4 mb-3" style={{ background: stage.tone }} />
+                      <div className="flex items-center gap-2 mb-2" style={{ color: stage.tone }}>
+                        {c.icon}
+                        <h4 className="font-display text-[0.95rem] font-semibold text-ursa-dark-roast m-0">{c.name}</h4>
+                      </div>
+                      <p className="text-[0.8rem] leading-snug text-muted-foreground m-0">{c.tactic}</p>
+                    </Card>
+                  ))}
+                </Grid>
+              </div>
+            );
+          })}
+        </div>
       </ViewSection>
 
       {/* Budget scenarios teaser */}
@@ -579,10 +694,33 @@ export function GrowthView() {
                   </li>
                 )}
               </ul>
-              <ProgressBar
-                value={(s.monthlyPEN / BUDGET_SCENARIOS[2].monthlyPEN) * 100}
-                tone={i === 0 ? "forest" : i === 1 ? "gold" : "terracotta"}
-              />
+              {/* Prominent total + visual bar */}
+              <div className="mt-auto pt-3 border-t border-ursa-line-soft">
+                <div className="flex items-baseline justify-between mb-2">
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground">Monthly total</span>
+                  <span className="font-display text-2xl font-semibold text-ursa-dark-roast leading-none">
+                    S/. {s.monthlyPEN.toLocaleString()}
+                  </span>
+                </div>
+                <div className="h-3 bg-muted rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full flex items-center justify-end pr-2 transition-all duration-700"
+                    style={{
+                      width: `${(s.monthlyPEN / BUDGET_SCENARIOS[2].monthlyPEN) * 100}%`,
+                      background:
+                        i === 0
+                          ? "linear-gradient(90deg, var(--color-ursa-forest), var(--color-ursa-forest-deep))"
+                          : i === 1
+                          ? "linear-gradient(90deg, var(--color-ursa-gold-soft), var(--color-ursa-gold))"
+                          : "linear-gradient(90deg, var(--color-ursa-terracotta), var(--color-ursa-gold))",
+                    }}
+                  >
+                    <span className="font-label text-[0.56rem] tracking-[0.08em] uppercase text-ursa-cream">
+                      {Math.round((s.monthlyPEN / BUDGET_SCENARIOS[2].monthlyPEN) * 100)}%
+                    </span>
+                  </div>
+                </div>
+              </div>
             </Card>
           ))}
         </Grid>
