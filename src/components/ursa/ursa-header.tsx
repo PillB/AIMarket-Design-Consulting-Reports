@@ -128,7 +128,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             <ThemeToggle className="ml-1" />
 
             <a
-              href="/dossier/index.html"
+              href="/AIMarket-Design-Consulting-Reports/dossier/index.html"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-1 px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-text-soft hover:bg-ursa-gold hover:text-ursa-dark-roast transition flex items-center gap-1.5"
@@ -179,7 +179,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               ))}
             </MobileSection>
             <a
-              href="/dossier/index.html"
+              href="/AIMarket-Design-Consulting-Reports/dossier/index.html"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-2.5 font-label text-[0.72rem] tracking-[0.1em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-text-soft"

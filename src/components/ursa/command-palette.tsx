@@ -20,7 +20,7 @@ type CommandItem = {
 /** Quick actions (labels resolved at render time via `t()` so they translate). */
 const QUICK_ACTIONS: CommandItem[] = [
   { id: "print", label: "print", group: "Action", hint: "current", keywords: "pdf export save print", action: () => window.print() },
-  { id: "dossier", label: "openStaticDossier", group: "Action", hint: "newTab", keywords: "html reference static original", action: () => window.open("/dossier/index.html", "_blank") },
+  { id: "dossier", label: "openStaticDossier", group: "Action", hint: "newTab", keywords: "html reference static original", action: () => window.open("/AIMarket-Design-Consulting-Reports/dossier/index.html", "_blank") },
 ];
 
 /** Resolve a QUICK_ACTION display label/hint via the i18n dictionary. */

@@ -366,7 +366,7 @@ export function SourcesView() {
               Structured array of every cited source with id, label, url, status (<code>verified</code> / <code>partial</code> / <code>unverified</code> / <code>gap</code>), and note. Mirrors the source list above in machine-readable form.
             </p>
             <a
-              href="/dossier/assets/evidence.json"
+              href="/AIMarket-Design-Consulting-Reports/dossier/assets/evidence.json"
               target="_blank"
               rel="noopener noreferrer"
               className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5 mt-auto"
@@ -383,7 +383,7 @@ export function SourcesView() {
               Structured array of every experiment in the tracker with hypothesis, success metric, owner, duration, kill / graduate decision rule, and current status. Drives the Experiment Tracker tool.
             </p>
             <a
-              href="/dossier/assets/experiments.json"
+              href="/AIMarket-Design-Consulting-Reports/dossier/assets/experiments.json"
               target="_blank"
               rel="noopener noreferrer"
               className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5 mt-auto"

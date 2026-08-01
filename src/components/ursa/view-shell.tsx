@@ -144,7 +144,7 @@ export function Card({
 export function DossierLinkBanner({ moduleId }: { moduleId: string }) {
   return (
     <a
-      href={`/dossier/${moduleId}.html`}
+      href={`/AIMarket-Design-Consulting-Reports/dossier/${moduleId}.html`}
       target="_blank"
       rel="noopener noreferrer"
       className="no-print inline-flex items-center gap-2 text-[0.8rem] text-muted-foreground hover:text-ursa-gold-text transition border border-dashed border-ursa-line rounded-lg px-3 py-2"
