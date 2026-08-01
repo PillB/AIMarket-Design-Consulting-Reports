@@ -1353,3 +1353,36 @@ Work Log:
 - Result: 0 contrast failures across all 25 views (verified via runtime harness).
   Bear logo readable in both light and dark mode (VLM-confirmed).
 - Lint: clean.
+
+---
+Task ID: WHITE-BEAR-PAIRWISE
+Agent: Main orchestrator
+Task: White bear with pentagon+ shapes, comprehensive pairwise contrast test
+
+Work Log:
+- Redesigned BearMark completely:
+  • Fill: #FFFFFF (white) — user requested white, no dark/brown colors
+  • Badge bg: #2D4A36 (forest-deep green) with 2px gold border (#B8924A)
+  • Cutouts (eyes, muzzle, inner ears): #2D4A36 (same as badge = hole effect)
+  • Nose/mouth: #D9BC7E (gold-soft) on forest muzzle
+  • All ear and mouth shapes are PENTAGONS (5-sided) or hexagons (6-sided)
+    — NO triangles or squares for ears/mouth per user instruction
+  • Colors are FIXED hex (not CSS variables) — identical in light and dark mode
+- Mathematical pairwise contrast verification:
+  • White #FFFFFF on forest #2D4A36 = 9.79:1 (AA pass)
+  • Forest #2D4A36 on white #FFFFFF = 9.79:1 (AA pass)
+  • Gold-soft #D9BC7E on forest #2D4A36 = 5.34:1 (AA pass)
+  • Gold border #B8924A on light header #3B2417 = 5.00:1 (AA pass)
+  • Gold border #B8924A on dark header #211208 = 6.28:1 (AA pass)
+  • All pairs pass WCAG AA (≥4.5:1 for text, ≥3:1 for graphics)
+- VLM confirmed: bear clearly visible and readable in both light and dark mode
+- Built comprehensive pairwise contrast test (research/pairwise-contrast-test.js):
+  • Extracts all 31 unique hex colors from globals.css
+  • Tests all 465 possible pairs
+  • Reports failures by severity (critical <3:1, moderate 3-4.5:1)
+  • Most "failures" are fill-on-fill pairs (border colors, chart colors,
+    decorative elements) — not text-on-background pairs
+  • The runtime DOM harness (contrast-harness.js) verifies actual
+    text-on-background in the live rendered page — 0 failures across all 25 views
+- Header badge updated: forest-deep bg with gold border ring
+- Lint: clean. Git: committed.
