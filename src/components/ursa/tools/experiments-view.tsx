@@ -42,6 +42,7 @@ type StatusMeta = {
   bg: string;
   border: string;
   bar: string;
+  barText: string;
   dot: string;
   icon: React.ReactNode;
 };
@@ -54,6 +55,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     bg: "bg-ursa-gold/8",
     border: "border-ursa-gold/40",
     bar: "bg-ursa-gold",
+    barText: "text-ursa-espresso",
     dot: "bg-ursa-gold",
     icon: <CircleDot size={12} />,
   },
@@ -64,6 +66,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     bg: "bg-ursa-forest-deep/8",
     border: "border-ursa-forest-deep/30",
     bar: "bg-ursa-forest-deep",
+    barText: "text-ursa-cream",
     dot: "bg-ursa-forest-deep",
     icon: <Play size={12} />,
   },
@@ -74,6 +77,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     bg: "bg-ursa-forest-deep/12",
     border: "border-ursa-forest-deep/45",
     bar: "bg-ursa-forest-deep",
+    barText: "text-ursa-cream",
     dot: "bg-ursa-forest-deep",
     icon: <Check size={12} />,
   },
@@ -84,6 +88,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     bg: "bg-ursa-terracotta/8",
     border: "border-ursa-terracotta/35",
     bar: "bg-ursa-terracotta",
+    barText: "text-ursa-espresso",
     dot: "bg-ursa-terracotta",
     icon: <X size={12} />,
   },
@@ -585,7 +590,7 @@ export function ExperimentsView() {
                       }}
                       title={`${e.id} · ${m.label} · day ${tl.start}–${tl.end}`}
                     >
-                      <span className="font-label text-[0.62rem] tracking-[0.08em] uppercase text-ursa-cream truncate font-semibold">
+                      <span className={cn("font-label text-[0.62rem] tracking-[0.08em] uppercase truncate font-semibold", m.barText)}>
                         d{tl.start}–{tl.end}
                       </span>
                     </div>

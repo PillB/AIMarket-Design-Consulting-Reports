@@ -687,7 +687,7 @@ export function MenuView() {
                       ? "var(--color-ursa-medium-roast)"
                       : meta.tone === "forest"
                       ? "var(--color-ursa-forest-deep)"
-                      : "var(--color-ursa-terracotta)",
+                      : "var(--color-ursa-terracotta-text)",
                 }}
               >
                 {meta.icon}
@@ -722,7 +722,7 @@ export function MenuView() {
                             ? "var(--color-ursa-medium-roast)"
                             : meta.tone === "forest"
                             ? "var(--color-ursa-forest-deep)"
-                            : "var(--color-ursa-terracotta)",
+                            : "var(--color-ursa-terracotta-text)",
                       }}
                     >
                       {p.id}
@@ -998,7 +998,7 @@ function CriterionRow({
               : "var(--color-ursa-gold)",
           color:
             tone === "terracotta"
-              ? "var(--color-ursa-terracotta)"
+              ? "var(--color-ursa-terracotta-text)"
               : "var(--color-ursa-medium-roast)",
           background: "var(--color-ursa-paper)",
         }}

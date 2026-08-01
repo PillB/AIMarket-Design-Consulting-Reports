@@ -330,7 +330,7 @@ export function LoyaltyView() {
                     <div className="font-label text-[0.5rem] tracking-[0.2em] uppercase text-ursa-sage">
                       Tarjeta de Fidelidad
                     </div>
-                    <div className="font-label text-[0.5rem] tracking-[0.16em] uppercase text-ursa-sage/70">
+                    <div className="font-label text-[0.5rem] tracking-[0.16em] uppercase text-ursa-sage">
                       Loyalty Card
                     </div>
                   </div>

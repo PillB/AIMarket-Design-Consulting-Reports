@@ -93,10 +93,10 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-const PILLAR_META: Record<Pillar, { label: string; icon: typeof BearLucide; color: string; desc: string }> = {
-  bear: { label: "Bear", icon: BearLucide, color: "var(--color-ursa-dark-roast)", desc: "The mascot, the paw, the character" },
-  gram: { label: "Gram", icon: Scale, color: "var(--color-ursa-gold)", desc: "'Un gramo a la vez' — the weighing ritual" },
-  green: { label: "Green", icon: Coffee, color: "var(--color-ursa-forest-deep)", desc: "Palette, Art Nouveau, roastery craft" },
+const PILLAR_META: Record<Pillar, { label: string; icon: typeof BearLucide; color: string; textColor: string; desc: string }> = {
+  bear: { label: "Bear", icon: BearLucide, color: "var(--color-ursa-dark-roast)", textColor: "var(--color-ursa-dark-roast)", desc: "The mascot, the paw, the character" },
+  gram: { label: "Gram", icon: Scale, color: "var(--color-ursa-gold)", textColor: "var(--color-ursa-gold-text)", desc: "'Un gramo a la vez' — the weighing ritual" },
+  green: { label: "Green", icon: Coffee, color: "var(--color-ursa-forest-deep)", textColor: "var(--color-ursa-forest-deep)", desc: "Palette, Art Nouveau, roastery craft" },
 };
 
 export function SpiritCheckerView() {
@@ -232,7 +232,7 @@ export function SpiritCheckerView() {
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase" style={{ color: meta.color }}>{meta.label}</span>
+                            <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase" style={{ color: meta.textColor }}>{meta.label}</span>
                             <span className="font-label text-[0.56rem] tracking-[0.1em] uppercase text-muted-foreground">· weight {q.weight}</span>
                           </div>
                           <p className="font-display text-[0.95rem] font-semibold text-ursa-dark-roast m-0 leading-snug">

@@ -66,7 +66,7 @@
   --color-ursa-foam: #FFFCF6;
   --color-ursa-gold: #B8924A;
   --color-ursa-gold-soft: #D9BC7E;
-  --color-ursa-gold-text: #82622C;
+  --color-ursa-gold-text: #706228;
   --color-ursa-gold-text-soft: #D9BC7E;
   --color-ursa-sage-text: #5C6E55;
   --color-ursa-terracotta: #C16E4B;
@@ -283,3 +283,10 @@
 
 /* Force word breaking in long URLs and unbreakable strings */
 .overflow-wrap-anywhere { overflow-wrap: anywhere; word-break: break-word; }
+
+/* Recharts legend: the library sets the slice fill color as the legend text color via inline style.
+   That color (gold/terracotta/sage fills) fails WCAG AA on light backgrounds. The colored icon
+   already conveys the series identity, so we force the text to a contrast-compliant token. */
+.recharts-legend-item-text {
+  color: var(--color-ursa-medium-roast) !important;
+}

@@ -83,7 +83,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
                       onClick={() => go(k)}
                       className={cn(
                         "block w-full text-left px-4 py-2 font-label text-[0.72rem] tracking-[0.1em] uppercase hover:bg-white/10 transition",
-                        isActive(k) ? "text-ursa-gold-text bg-white/5" : "text-ursa-cream/90"
+                        isActive(k) ? "text-ursa-gold-text-soft bg-white/5" : "text-ursa-cream/90"
                       )}
                     >
                       {routeLabel(k)}
@@ -106,7 +106,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
                       onClick={() => go(k)}
                       className={cn(
                         "block w-full text-left px-4 py-2 font-label text-[0.72rem] tracking-[0.1em] uppercase hover:bg-white/10 transition",
-                        isActive(k) ? "text-ursa-gold-text bg-white/5" : "text-ursa-cream/90"
+                        isActive(k) ? "text-ursa-gold-text-soft bg-white/5" : "text-ursa-cream/90"
                       )}
                     >
                       {routeLabel(k)}

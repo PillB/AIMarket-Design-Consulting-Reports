@@ -150,7 +150,7 @@ export function PilotView() {
         <Card className="mt-5">
           <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-3">Where the money comes from and goes</h4>
           <div className="flex h-8 rounded-lg overflow-hidden border border-ursa-line-soft">
-            <div className="h-full flex items-center justify-center text-ursa-cream font-label text-[0.62rem]" style={{ width: `${(pilotTotals.totalRevenue / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100}%`, background: "var(--color-ursa-gold)" }}>
+            <div className="h-full flex items-center justify-center text-ursa-espresso font-label text-[0.62rem]" style={{ width: `${(pilotTotals.totalRevenue / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100}%`, background: "var(--color-ursa-gold)" }}>
               {((pilotTotals.totalRevenue / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100).toFixed(0)}% sub
             </div>
             <div className="h-full flex items-center justify-center text-ursa-cream font-label text-[0.62rem]" style={{ width: `${(pilotTotals.totalSideMargin / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100}%`, background: "var(--color-ursa-forest-deep)" }}>

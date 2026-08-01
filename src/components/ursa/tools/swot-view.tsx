@@ -144,10 +144,10 @@ const COMPETITORS: Competitor[] = [
 ];
 
 const QUADRANTS = {
-  topRight: { label: "Leaders", desc: "High craft + high reach — the benchmark to beat", color: "var(--color-ursa-forest-deep)" },
-  topLeft: { label: "Hidden gems", desc: "High craft + low reach — Ursa's neighbourhood", color: "var(--color-ursa-gold)" },
-  bottomRight: { label: "Scaled chains", desc: "Lower craft + high reach — the volume play", color: "var(--color-ursa-terracotta)" },
-  bottomLeft: { label: "Undifferentiated", desc: "Lower craft + low reach — vulnerable", color: "var(--color-ursa-sage)" },
+  topRight: { label: "Leaders", desc: "High craft + high reach — the benchmark to beat", color: "var(--color-ursa-forest-deep)", textColor: "var(--color-ursa-forest-deep)" },
+  topLeft: { label: "Hidden gems", desc: "High craft + low reach — Ursa's neighbourhood", color: "var(--color-ursa-gold)", textColor: "var(--color-ursa-gold-text)" },
+  bottomRight: { label: "Scaled chains", desc: "Lower craft + high reach — the volume play", color: "var(--color-ursa-terracotta)", textColor: "var(--color-ursa-terracotta-text)" },
+  bottomLeft: { label: "Undifferentiated", desc: "Lower craft + low reach — vulnerable", color: "var(--color-ursa-sage)", textColor: "var(--color-ursa-sage-text)" },
 };
 
 export function SwotView() {
@@ -214,16 +214,16 @@ export function SwotView() {
               {/* Quadrant background tints */}
               <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 rounded-lg overflow-hidden border border-ursa-line-soft">
                 <div className="bg-ursa-gold/5 border-r border-b border-ursa-line-soft/50 relative">
-                  <span className="absolute top-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.topLeft.color }}>{QUADRANTS.topLeft.label}</span>
+                  <span className="absolute top-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.topLeft.textColor }}>{QUADRANTS.topLeft.label}</span>
                 </div>
                 <div className="bg-ursa-forest-deep/5 border-b border-ursa-line-soft/50 relative">
-                  <span className="absolute top-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.topRight.color }}>{QUADRANTS.topRight.label}</span>
+                  <span className="absolute top-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.topRight.textColor }}>{QUADRANTS.topRight.label}</span>
                 </div>
                 <div className="bg-ursa-sage/8 border-r border-ursa-line-soft/50 relative">
-                  <span className="absolute bottom-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.bottomLeft.color }}>{QUADRANTS.bottomLeft.label}</span>
+                  <span className="absolute bottom-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.bottomLeft.textColor }}>{QUADRANTS.bottomLeft.label}</span>
                 </div>
                 <div className="bg-ursa-terracotta/5 relative">
-                  <span className="absolute bottom-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.bottomRight.color }}>{QUADRANTS.bottomRight.label}</span>
+                  <span className="absolute bottom-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.bottomRight.textColor }}>{QUADRANTS.bottomRight.label}</span>
                 </div>
               </div>
 

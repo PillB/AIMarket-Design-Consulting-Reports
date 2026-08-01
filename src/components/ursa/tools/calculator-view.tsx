@@ -89,7 +89,7 @@ export function CalculatorView() {
   }, [calc]);
 
   const cellClass = (v: number) =>
-    v > 1 ? "bg-ursa-forest-deep/15 text-ursa-forest-deep font-semibold" : v < -1 ? "bg-ursa-terracotta/15 text-ursa-terracotta-text font-semibold" : "bg-muted text-muted-foreground";
+    v > 1 ? "bg-ursa-forest-deep/15 text-ursa-forest-deep font-semibold" : v < -1 ? "bg-ursa-terracotta/15 text-ursa-medium-roast font-semibold" : "bg-muted text-muted-foreground";
 
   return (
     <>

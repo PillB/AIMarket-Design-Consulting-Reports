@@ -43,6 +43,8 @@ const DAYS_PER_MONTH = 30;
 
 const SCENARIO_TONES = ["forest", "gold", "terracotta"] as const;
 const SCENARIO_ACCENT_HEX = ["#2D4A36", "#B8924A", "#C16E4B"];
+// Text-compliant variants for inline text colors (gold/terracotta fills fail AA on light bg).
+const SCENARIO_ACCENT_TEXT_HEX = ["#2D4A36", "#706228", "#984A2E"];
 const CHART_COLORS = [
   "#B8924A", // gold
   "#2D4A36", // forest deep
@@ -177,7 +179,7 @@ export function BudgetView() {
                 className={cn(
                   "px-4 py-2.5 rounded-lg border font-label text-[0.74rem] tracking-[0.12em] uppercase transition",
                   isActive
-                    ? "text-ursa-cream shadow-[0_8px_24px_-12px_rgba(59,36,23,0.4)]"
+                    ? `${i === 0 ? "text-ursa-cream" : "text-ursa-espresso"} shadow-[0_8px_24px_-12px_rgba(59,36,23,0.4)]`
                     : "bg-ursa-paper text-ursa-medium-roast border-ursa-line-soft hover:-translate-y-0.5"
                 )}
                 style={isActive ? { background: SCENARIO_ACCENT_HEX[i], borderColor: SCENARIO_ACCENT_HEX[i] } : {}}
@@ -386,8 +388,11 @@ export function BudgetView() {
                     }}
                   />
                   <Legend
-                    wrapperStyle={{ fontSize: "0.78rem", color: "var(--color-ursa-medium-roast)" }}
+                    wrapperStyle={{ fontSize: "0.78rem" }}
                     iconType="circle"
+                    formatter={(value: string) => (
+                      <span style={{ color: "var(--color-ursa-medium-roast)" }}>{value}</span>
+                    )}
                   />
                 </PieChart>
               </ResponsiveContainer>
@@ -451,7 +456,7 @@ export function BudgetView() {
                     <th
                       key={s.name}
                       className="text-left p-3 font-label text-[0.72rem] tracking-[0.1em] uppercase border-b border-ursa-line"
-                      style={{ color: SCENARIO_ACCENT_HEX[i] }}
+                      style={{ color: SCENARIO_ACCENT_TEXT_HEX[i] }}
                     >
                       {s.name}
                     </th>
@@ -587,7 +592,7 @@ function TableRow({
                 ? "text-[0.82rem] text-foreground/85"
                 : "text-ursa-medium-roast"
           )}
-          style={tone === "strong" ? { color: SCENARIO_ACCENT_HEX[i] } : {}}
+          style={tone === "strong" ? { color: SCENARIO_ACCENT_TEXT_HEX[i] } : {}}
         >
           {render(s)}
         </td>

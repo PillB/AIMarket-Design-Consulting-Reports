@@ -69,7 +69,7 @@ function CompetitorCard({ c }: { c: (typeof COMPETITORS)[number] }) {
           <p className="m-0 text-foreground/85">{c.strength}</p>
         </div>
         <div>
-          <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta-text-text mb-0.5">
+          <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta-text mb-0.5">
             <Frown size={11} /> Weakness
           </div>
           <p className="m-0 text-foreground/85">{c.weakness}</p>
@@ -100,7 +100,7 @@ function ActionCard({
   const toneMap = {
     gold: { text: "text-ursa-gold-text", bg: "bg-ursa-gold/10", border: "border-ursa-gold/40" },
     forest: { text: "text-ursa-forest-deep", bg: "bg-ursa-forest-deep/8", border: "border-ursa-forest-deep/25" },
-    terracotta: { text: "text-ursa-terracotta-text-text", bg: "bg-ursa-terracotta/10", border: "border-ursa-terracotta/30" },
+    terracotta: { text: "text-ursa-terracotta-text", bg: "bg-ursa-terracotta/10", border: "border-ursa-terracotta/30" },
   }[tone];
   return (
     <Card className="flex flex-col gap-3 h-full">

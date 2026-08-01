@@ -58,10 +58,10 @@ const EXPERIMENT_SUMMARY = [
 ];
 
 const STATUS_META = {
-  proposed: { label: "Proposed", tone: "warn" as const, color: "var(--color-ursa-gold)" },
+  proposed: { label: "Proposed", tone: "warn" as const, color: "var(--color-ursa-gold-text)" },
   running: { label: "Running", tone: "forest" as const, color: "var(--color-ursa-forest-deep)" },
   passed: { label: "Passed", tone: "ok" as const, color: "var(--color-ursa-forest-deep)" },
-  killed: { label: "Killed", tone: "stop" as const, color: "var(--color-ursa-terracotta)" },
+  killed: { label: "Killed", tone: "stop" as const, color: "var(--color-ursa-terracotta-text)" },
 };
 
 export function ScorecardView() {
@@ -231,10 +231,10 @@ export function ScorecardView() {
             <div className="rounded-lg bg-ursa-terracotta/8 border border-ursa-terracotta/25 p-4">
               <div className="flex items-center gap-1.5 mb-1">
                 <AlertTriangle size={13} className="text-ursa-terracotta-text" />
-                <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta-text-text">Biggest gap</span>
+                <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta-text">Biggest gap</span>
               </div>
               <p className="font-display text-base font-semibold text-ursa-dark-roast m-0">{biggestGap.surface}</p>
-              <p className="font-label text-[0.72rem] text-ursa-terracotta-text-text m-0 mt-0.5">{biggestGap.score}/100</p>
+              <p className="font-label text-[0.72rem] text-ursa-terracotta-text m-0 mt-0.5">{biggestGap.score}/100</p>
             </div>
           </div>
 
@@ -296,6 +296,7 @@ export function ScorecardView() {
         <Grid cols={2}>
           {sortedDesc.map((s) => {
             const barColor = s.status === "verified" ? "var(--color-ursa-forest-deep)" : s.status === "partial" ? "var(--color-ursa-gold)" : "var(--color-ursa-terracotta)";
+            const textColor = s.status === "verified" ? "var(--color-ursa-forest-deep)" : s.status === "partial" ? "var(--color-ursa-gold-text)" : "var(--color-ursa-terracotta-text)";
             return (
               <Card key={s.surface} className="p-4 flex items-center gap-3">
                 <EvidenceTag status={s.status} />
@@ -305,7 +306,7 @@ export function ScorecardView() {
                     <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                       <div className="h-full rounded-full" style={{ width: `${s.score}%`, background: barColor }} />
                     </div>
-                    <span className="font-label text-[0.72rem] font-semibold tabular-nums" style={{ color: barColor }}>{s.score}</span>
+                    <span className="font-label text-[0.72rem] font-semibold tabular-nums" style={{ color: textColor }}>{s.score}</span>
                   </div>
                 </div>
               </Card>

@@ -428,7 +428,7 @@ export function ViralView() {
                         <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
                           W{w + 1} · {DAYS[d]}
                         </span>
-                        <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-ursa-gold-text">
+                        <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-ursa-medium-roast">
                           {concept.id}
                         </span>
                       </div>

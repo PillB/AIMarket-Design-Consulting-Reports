@@ -160,7 +160,7 @@ export function DayInTheLifeWidget() {
               style={{ left: `${((currentHour - 7.5) / (21 - 7.5)) * 100}%` }}
             >
               <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-ursa-terracotta border-2 border-card" />
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-label text-[0.55rem] tracking-[0.08em] uppercase text-ursa-terracotta-text-text whitespace-nowrap">
+              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-label text-[0.6rem] tracking-[0.08em] uppercase whitespace-nowrap bg-ursa-terracotta text-ursa-espresso px-1.5 py-0.5 rounded font-bold">
                 {Math.floor(currentHour)}:{String(Math.round((currentHour % 1) * 60)).padStart(2, "0")}
               </div>
             </div>

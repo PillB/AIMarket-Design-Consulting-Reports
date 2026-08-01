@@ -7,7 +7,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -345,8 +345,46 @@ function getInitialLang(): Language {
   return "en";
 }
 
+// --- External store for hydration-safe client-only language state ---
+let currentLang: Language = "en";
+const langSubscribers = new Set<() => void>();
+
+// Initialize on first client access
+if (typeof window !== "undefined") {
+  currentLang = getInitialLang();
+}
+
+function subscribeLang(callback: () => void): () => void {
+  langSubscribers.add(callback);
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === STORAGE_KEY) {
+      currentLang = getInitialLang();
+      langSubscribers.forEach((cb) => cb());
+    }
+  };
+  window.addEventListener("storage", onStorage);
+  return () => {
+    langSubscribers.delete(callback);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
+function getLangSnapshot(): Language {
+  return currentLang;
+}
+
+function getLangServerSnapshot(): Language {
+  return "en";
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Language>(getInitialLang);
+  // Use useSyncExternalStore for hydration-safe client-only state.
+  // Server snapshot is always "en"; client snapshot reads localStorage.
+  const lang = useSyncExternalStore(
+    subscribeLang,
+    getLangSnapshot,
+    getLangServerSnapshot
+  );
 
   // Persist + mirror to <html lang>
   useEffect(() => {
@@ -359,7 +397,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   }, [lang]);
 
-  const setLang = useCallback((l: Language) => setLangState(l), []);
+  const setLang = useCallback((l: Language) => {
+    currentLang = l;
+    langSubscribers.forEach((cb) => cb());
+  }, []);
 
   const t = useCallback((key: string) => lookup(translations[lang], key), [lang]);
 

@@ -141,7 +141,7 @@ export function EvidenceTag({ status }: { status: "verified" | "partial" | "unve
   const map = {
     verified: { label: "Verified", cls: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30" },
     partial: { label: "Partial", cls: "bg-ursa-gold/20 text-ursa-medium-roast border-ursa-gold" },
-    unverified: { label: "Unverified", cls: "bg-ursa-terracotta/15 text-ursa-terracotta-text-text border-ursa-terracotta/40" },
+    unverified: { label: "Unverified", cls: "bg-ursa-terracotta/15 text-ursa-medium-roast border-ursa-terracotta/40" },
     gap: { label: "Gap", cls: "bg-muted text-muted-foreground border-border" },
   };
   const m = map[status];
@@ -165,7 +165,7 @@ export function Pill({
     default: "bg-muted text-ursa-medium-roast border-ursa-line-soft",
     ok: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30",
     warn: "bg-ursa-gold/15 text-ursa-medium-roast border-ursa-gold",
-    stop: "bg-ursa-terracotta/10 text-ursa-terracotta-text-text border-ursa-terracotta/30",
+    stop: "bg-ursa-terracotta/10 text-ursa-medium-roast border-ursa-terracotta/30",
     forest: "bg-ursa-forest-deep/8 text-ursa-forest-deep border-ursa-forest-deep/25",
     gold: "bg-ursa-gold text-ursa-dark-roast border-ursa-gold",
   };

@@ -318,9 +318,11 @@ export function BrandAuditView() {
             const r = parseInt(c.hex.slice(1, 3), 16);
             const g = parseInt(c.hex.slice(3, 5), 16);
             const b = parseInt(c.hex.slice(5, 7), 16);
-            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-            const isDark = luminance < 0.55;
-            const overlayText = isDark ? "#F4EBD9" : "#211208";
+            // Use WCAG relative luminance for contrast-aware text overlay
+            function srgbLin(v) { return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+            const relLum = 0.2126 * srgbLin(r/255) + 0.7152 * srgbLin(g/255) + 0.0722 * srgbLin(b/255);
+            // Use ink text on mid-tone backgrounds (relLum > 0.18), cream on dark
+            const overlayText = relLum > 0.18 ? "#211208" : "#F4EBD9";
             return (
               <Card key={c.name} className="overflow-hidden p-0 group cursor-default">
                 <div

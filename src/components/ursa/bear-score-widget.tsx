@@ -112,10 +112,10 @@ export function BearScoreWidget() {
           <div className="rounded-lg bg-ursa-terracotta/8 border border-ursa-terracotta/25 p-3">
             <div className="flex items-center gap-1.5 mb-1">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 11C8.76 11 11 8.76 11 6C11 3.24 8.76 1 6 1C3.24 1 1 3.24 1 6C1 8.76 3.24 11 6 11ZM6 3.5V6.5M6 8V8.5" stroke="var(--color-ursa-terracotta)" strokeWidth="1.2" strokeLinecap="round"/></svg>
-              <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta-text-text">Biggest gap</span>
+              <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta-text">Biggest gap</span>
             </div>
             <p className="font-display text-[0.82rem] font-semibold text-ursa-dark-roast m-0 leading-tight">{biggestGap.surface}</p>
-            <p className="font-label text-[0.7rem] text-ursa-terracotta-text-text m-0 mt-0.5">{biggestGap.score}/100</p>
+            <p className="font-label text-[0.7rem] text-ursa-terracotta-text m-0 mt-0.5">{biggestGap.score}/100</p>
           </div>
         </div>
       </div>
@@ -154,11 +154,16 @@ export function BearScoreWidget() {
                 s.status === "verified" ? "var(--color-ursa-forest-deep)" :
                 s.status === "partial" ? "var(--color-ursa-gold)" :
                 "var(--color-ursa-terracotta)";
+              // Text color must pass WCAG — use the darker text variants
+              const textColor =
+                s.status === "verified" ? "var(--color-ursa-forest-deep)" :
+                s.status === "partial" ? "var(--color-ursa-gold-text)" :
+                "var(--color-ursa-terracotta-text)";
               return (
                 <li key={s.surface} className="group">
                   <div className="flex items-baseline justify-between gap-2 mb-1">
                     <span className="font-display text-[0.92rem] font-semibold text-ursa-dark-roast">{s.surface}</span>
-                    <span className="font-label text-[0.78rem] font-semibold tabular-nums" style={{ color: barColor }}>{s.score}</span>
+                    <span className="font-label text-[0.78rem] font-semibold tabular-nums" style={{ color: textColor }}>{s.score}</span>
                   </div>
                   <div className="h-2 bg-ursa-bg-alt rounded-full overflow-hidden mb-1">
                     <div

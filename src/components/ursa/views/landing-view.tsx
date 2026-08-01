@@ -135,29 +135,29 @@ export function LandingView() {
                 </div>
 
                 <div className="border-t border-ursa-gold/20 pt-4 mb-4">
-                  <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-sage-text m-0 mb-1">Socio</p>
+                  <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-sage m-0 mb-1">Socio</p>
                   <p className="font-display text-lg text-ursa-cream m-0">Maria Elena R.</p>
-                  <p className="text-[0.72rem] text-ursa-sage-text m-0 mt-0.5">Miembro desde agosto 2026</p>
+                  <p className="text-[0.72rem] text-ursa-sage m-0 mt-0.5">Miembro desde agosto 2026</p>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2 mb-4">
                   <div className="bg-white/5 rounded-lg p-2 text-center border border-white/10">
                     <Clock size={14} className="text-ursa-gold-text mx-auto mb-1" />
-                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage-text m-0">7–10am</p>
+                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage m-0">7–10am</p>
                   </div>
                   <div className="bg-white/5 rounded-lg p-2 text-center border border-white/10">
                     <Coffee size={14} className="text-ursa-gold-text mx-auto mb-1" />
-                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage-text m-0">Ilimitado</p>
+                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage m-0">Ilimitado</p>
                   </div>
                   <div className="bg-white/5 rounded-lg p-2 text-center border border-white/10">
                     <MapPin size={14} className="text-ursa-gold-text mx-auto mb-1" />
-                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage-text m-0">En el local</p>
+                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage m-0">En el local</p>
                   </div>
                 </div>
 
                 <div className="border-t border-ursa-gold/20 pt-3">
-                  <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-sage-text m-0 mb-1">Un gramo a la vez</p>
-                  <p className="text-[0.68rem] text-ursa-gold-text-soft/80 m-0 italic">Alcanfores 183, Miraflores</p>
+                  <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-sage m-0 mb-1">Un gramo a la vez</p>
+                  <p className="text-[0.68rem] text-ursa-gold-text-soft m-0 italic">Alcanfores 183, Miraflores</p>
                 </div>
 
                 {/* Stamp row */}
@@ -168,7 +168,7 @@ export function LandingView() {
                     </span>
                   ))}
                 </div>
-                <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage-text m-0 mt-2 text-center">
+                <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage m-0 mt-2 text-center">
                   6 acompañamientos · 1 gratis
                 </p>
               </div>

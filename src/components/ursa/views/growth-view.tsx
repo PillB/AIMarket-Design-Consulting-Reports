@@ -466,7 +466,7 @@ export function GrowthView() {
               </div>
               <p className="text-[0.9rem] leading-relaxed text-foreground/85 mb-3">{h.adapted}</p>
               <div className="mt-auto border-t border-ursa-line-soft pt-3">
-                <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta-text-text flex items-center gap-1.5">
+                <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta-text flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-ursa-terracotta" /> Do not
                 </span>
                 <p className="text-[0.82rem] text-muted-foreground mt-1 m-0">{h.caveat}</p>
@@ -733,7 +733,13 @@ export function GrowthView() {
                           : "linear-gradient(90deg, var(--color-ursa-terracotta), var(--color-ursa-gold))",
                     }}
                   >
-                    <span className="font-label text-[0.56rem] tracking-[0.08em] uppercase text-ursa-cream">
+                    <span
+                      className={cn(
+                        "font-label text-[0.56rem] tracking-[0.08em] uppercase",
+                        // Forest bar is dark enough for cream text; gold/terracotta bars need near-black for AA contrast.
+                        i === 0 ? "text-ursa-cream" : "text-ursa-espresso"
+                      )}
+                    >
                       {Math.round((s.monthlyPEN / BUDGET_SCENARIOS[2].monthlyPEN) * 100)}%
                     </span>
                   </div>
@@ -786,7 +792,7 @@ export function GrowthView() {
             <ul className="space-y-1.5 text-[0.88rem] m-0 p-0 list-none text-foreground/85">
               <li><strong className="text-ursa-forest-deep">Lean</strong> — runs GBP, WhatsApp, organic Reels, hotel cards, story cards. Ships the first 30 days.</li>
               <li><strong className="text-ursa-gold-text">Moderate</strong> — adds paid social, 2–3 creators, monthly cupping, Rappi optimisation. The 60-day plan.</li>
-              <li><strong className="text-ursa-terracotta-text-text">Growth</strong> — adds tourism partnerships, B2B office sampling, subscription pilot, photographer. The 90-day plan.</li>
+              <li><strong className="text-ursa-terracotta-text">Growth</strong> — adds tourism partnerships, B2B office sampling, subscription pilot, photographer. The 90-day plan.</li>
             </ul>
           </Card>
           <Card>
