@@ -51,7 +51,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             className="flex items-center gap-3 text-left hover:opacity-90 transition shrink-0"
             aria-label={t("common.goToDashboard")}
           >
-            <span className="w-11 h-11 rounded-full bg-ursa-cream grid place-items-center shadow-[inset_0_0_0_1px_var(--color-ursa-gold)] text-ursa-dark-roast ursa-breathe">
+            <span className="w-11 h-11 rounded-full grid place-items-center border-2 border-ursa-gold ursa-breathe" style={{ backgroundColor: "#2D4A36" }}>
               <BearMark size={30} />
             </span>
             <span className="hidden sm:block">
