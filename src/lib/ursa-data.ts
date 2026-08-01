@@ -45,10 +45,10 @@ export const TYPOGRAPHY = [
 ];
 
 export const VERIFIED_BEVERAGES = [
-  { name: "Ursagroni", desc: "Signature named drink — espresso-tonic-portmanteau concept", status: "verified" as const },
-  { name: "Filtrado Lonya", desc: "Pour-over of Utcubamba, Amazonas origin", status: "verified" as const },
-  { name: "Durazno Clarificado Coldbrew", desc: "Peach-clarified cold brew", status: "verified" as const },
-  { name: "Maracumango Coldbrew", desc: "Passionfruit-mango cold brew", status: "verified" as const },
+  { name: "Ursagroni", desc: "Espresso-tonic drink; name blends 'Ursa' + 'negroni' (cocktail reference). Observed on Instagram and Rappi.", status: "verified" as const },
+  { name: "Filtrado Lonya", desc: "Pour-over named for its origin (Utcubamba, Amazonas). Not a portmanteau — a place-name label.", status: "verified" as const },
+  { name: "Durazno Clarificado Coldbrew", desc: "Peach-clarified cold brew. Descriptive name, not a portmanteau.", status: "verified" as const },
+  { name: "Maracumango Coldbrew", desc: "Cold brew with passionfruit (maracuyá) and mango. Name blends 'maracuyá' + 'mango'.", status: "verified" as const },
 ];
 
 export const VERIFIED_FOOD = [
@@ -269,7 +269,7 @@ export const COMPETITORS: Competitor[] = [
     weakness:
       "Limited Art Nouveau / craft visual identity (generic 'specialty' aesthetic); TA review count very low (n=2) despite awards — discovery gap; award-driven positioning is brittle if awards fade",
     ursaImplication:
-      "Most direct head-to-head: both in CAM 2025 top-5, both Miraflores, both roasters. Ursa differentiators: bear-led brand, two-bar theatre, named-drink portmanteaus. The CAM award race is the single most measurable competitive benchmark — track annually.",
+      "Most direct head-to-head: both in CAM 2025 top-5, both Miraflores, both roasters. Ursa differentiators: bear-led brand, two-bar theatre, named drinks (Ursagroni, Maracumango). The CAM award race is the single most measurable competitive benchmark — track annually.",
     hasWebsite: true,
     reviewThemes: {
       praise: ["award-winning coffee", "roastery quality", "terrace view over San Martín park"],
@@ -995,8 +995,8 @@ export const CUSTOMER_VOICE = [
         evidence: "Census: 0 competitors operate a visible two-bar format. Arabica Espresso Bar is single-bar stand-up; Neira is single-counter; Puku Puku is standard counter. The two-bar theatre is uncontested.",
       },
       {
-        text: "Portmanteau drink naming (Ursagroni, Maracumango) as a signature system",
-        evidence: "Census: 0 competitors use a named-drink portmanteau system. Neira's drinks are praised but unnamed; Puku Puku's 'microlotes' is a bean claim. Ursa's portmanteau system is uncontested.",
+        text: "Two drinks use coined names (Ursagroni = Ursa+negroni, Maracumango = maracuyá+mango) — no competitor does this",
+        evidence: "Census: 0 competitors use coined drink names. Neira's drinks are praised but unnamed; Puku Puku's 'microlotes' is a bean claim. Note: only 2 of Ursa's 4 verified drinks use coined names; the other 2 (Filtrado Lonya, Durazno Clarificado) use origin or descriptive labels. This is a naming convention, not a 'system' — it should not be overstated as a strategic pillar.",
       },
       {
         text: "'Un gramo a la vez' as a patient-craft ethos",
@@ -1200,10 +1200,10 @@ export const SCRIPTS = [
       "SPLIT SCREEN. Left: espresso machine, 92°C. Right: cold brew tower, room temp.",
       "Left: shot pulls in 28s. Right: drip, drip, drip over hours (time-lapse).",
       "Both cups placed side by side. Barista: 'Mismo grano, dos mundos.'",
-      "Tasting reaction. End card with both drink names.",
+      "End card: Ursagroni (espresso bar) · Maracumango Coldbrew (coldbrew bar). Alcanfores 183.",
     ],
-    caption: "Mismo grano, dos mundos. ¿Cuál es el tuyo? ☕️🧊 #UrsaCoffee #TwoBars",
-    cta: "Pruébalo en persona. Espresso bar + Coldbrew bar.",
+    caption: "Mismo grano, dos mundos. ¿Cuál es el tuyo? ☕️🧊 #UrsaCoffee #TwoBars #Ursagroni #Maracumango",
+    cta: "Pruébalo en persona. Espresso bar + Coldbrew bar. Alcanfores 183.",
   },
   {
     id: "S04",
@@ -1255,17 +1255,17 @@ export const SCRIPTS = [
     id: "S07",
     concept: "C09",
     title: "Roast curve time-lapse",
-    hook: "12 minutes. One roast. Watch the bean change colour.",
+    hook: "12 minutes. One roast. Watch the Lonya bean change colour.",
     duration: "45s",
     beats: [
-      "OPEN: green beans pour into the drum. Temperature: 0°C rising.",
+      "OPEN: green Lonya beans pour into the drum. Temperature: 0°C rising.",
       "Time-lapse: yellowing at 5 min, first crack at 9 min, development to 12 min.",
       "Temperature curve overlay: a clean S-curve.",
       "Barista: 'El desarrollo ocurre entre el primer y segundo crack. Ahí decidimos parar.'",
-      "Beans cool on the tray. End card: roast date stamp.",
+      "Beans cool on the tray. End card: roast date stamp + 'Lonya · Utcubamba · 1,750m'.",
     ],
-    caption: "12 minutos que cambian todo. Curva de tueste de hoy. 🔥☕️",
-    cta: "Pregunta por el lote de la semana.",
+    caption: "12 minutos que cambian todo. Curva de tueste de hoy — Lonya, Utcubamba. 🔥☕️ #UrsaCoffee #Lonya",
+    cta: "Pregunta por el lote de la semana. Alcanfores 183.",
   },
   {
     id: "S08",

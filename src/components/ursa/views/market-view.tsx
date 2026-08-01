@@ -326,7 +326,7 @@ export function MarketView() {
         "Tiered tasting flights — accessible entry plus a premium depth vs. Terrua's US$25 ceiling",
         "Microlot sub-line — borrow Puku Puku's positioning without the chain feel",
         "Origin-story bean cards — pair with the Filtrado Lonya line vs. RAIZ",
-        "Named-drink rotation — a new portmanteau every season keeps the menu alive",
+        "Named-drink rotation — a new named drink every season keeps the menu alive",
         "Subscription with attach-rate economics — see the Subscription Calculator",
       ],
     },
@@ -582,10 +582,10 @@ export function MarketView() {
             <p className="text-[0.97rem] leading-relaxed text-foreground/85">
               Every strong Miraflores competitor owns one position. Punto Café owns the award. Neira owns scale. Bisetti
               owns the school. Puku Puku owns the microlote. Terrua owns the premium tasting. None of them owns an
-              animal, an Art Nouveau design language, or a two-bar theatre — and none of them speaks in portmanteaus.
+              animal, an Art Nouveau design language, or a two-bar theatre — and none of them uses named drinks.
             </p>
             <Callout tone="forest" title="The orthogonality principle">
-              Ursa's ownable space — <strong>bear + two bars + named-drink portmanteaus + “Un gramo a la vez”</strong> —
+              Ursa's ownable space — <strong>bear + two bars + named drinks (Ursagroni, Maracumango) + “Un gramo a la vez”</strong> —
               does not compete <em>against</em> the category's existing positions. It sits at a right angle to them. A
               customer can love Punto Café's award and still choose Ursa for the bear. That is the moat.
             </Callout>

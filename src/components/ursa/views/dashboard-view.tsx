@@ -247,7 +247,7 @@ export function DashboardView() {
           </Card></Reveal>
           <Reveal delay={80}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">8 · Ownable space sits orthogonal to competitors</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">Punto Café won Premios Somos 2024. Neira has 4+ locations. Bisetti owns "escuela de café". Puku Puku owns "microlotes". Terrua charges US$25 for a tasting. Ursa's ownable space — bear + two bars + named-drink portmanteaus + "un gramo a la vez" — sits orthogonal to all of these.</p>
+            <p className="text-[0.9rem] text-muted-foreground m-0">Punto Café won Premios Somos 2024. Neira has 4+ locations. Bisetti owns "escuela de café". Puku Puku owns "microlotes". Terrua charges US$25 for a tasting. Ursa's ownable space — bear + two bars + named drinks (Ursagroni, Maracumango) + "un gramo a la vez" — sits orthogonal to all of these.</p>
           </Card></Reveal>
           <Reveal delay={160}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">9 · Every claim is traceable; every gap is named</h3>

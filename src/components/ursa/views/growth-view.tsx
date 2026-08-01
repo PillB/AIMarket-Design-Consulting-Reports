@@ -44,6 +44,7 @@ import {
   Repeat,
   Megaphone,
   Handshake,
+  FlaskConical,
 } from "lucide-react";
 
 type Persona = {
@@ -113,6 +114,8 @@ type Pillar = {
   title: string;
   promise: string;
   proofs: string[];
+  evidence: string;
+  risk: string;
   tone: "gold" | "forest" | "terracotta";
 };
 
@@ -125,6 +128,10 @@ const MESSAGE_PILLARS: Pillar[] = [
       "'Un gramo a la vez' as the weighing ritual",
       "Baristas trained to talk origin, altitude, process",
     ],
+    evidence:
+      "Corner.inc editorial praises Ursa's 'visible roasting equipment creates a workshop feel.' Terrua (513 Google reviews, 4.6★) and Punto Café (CAM 2025 2nd place) both lean on visible roastery/in-house roasting as the credibility signal that converts walk-ins. CENSUS-1: 4 of 14 in-catchment competitors make roastery visibility central to their positioning.",
+    risk:
+      "'Visible craft' without consistency is hollow. If Ursa's roast consistency slips (no documented QC protocol surfaced in research), the visible roaster becomes a liability — customers see the inconsistency, not the craft. Missing evidence: no roast-log audit, no extraction-yield log observed in public sources.",
     tone: "gold",
   },
   {
@@ -133,18 +140,26 @@ const MESSAGE_PILLARS: Pillar[] = [
     proofs: [
       "Bear motif as a recurring character",
       "Two-bar theatre: espresso + cold brew side by side",
-      "Portmanteau naming: Ursagroni, Maracumango",
+      "Coined drink names: Ursagroni, Maracumango (the other two named drinks — Filtrado Lonya, Durazno Clarificado — use origin/descriptive labels, not coined names)",
     ],
+    evidence:
+      "CENSUS-1 audit of 18 competitors: 0 use an animal or character identity; 0 operate a visible two-bar format; 0 use coined drink names. 'Amauta' is the closest analogue — a heritage word, not a character. The bear + two-bar + coined-name trio is uncontested in the catchment.",
+    risk:
+      "Atmosphere is ownable only as long as it is legible. If the bear is treated as decoration rather than character (no consistent voice, no recurring role), competitors can copy the surface (an animal mascot) without copying the meaning. Risk: bear identity becomes a logo, not a character.",
     tone: "forest",
   },
   {
     title: "Honest Origin Stories",
     promise: "We tell you where the bean came from, specifically.",
     proofs: [
-      "Filtrado Lonya line with farm + altitude",
+      "Filtrado Lonya line with farm + altitude (Utcubamba, Amazonas, 1,750m, Bourbon lavado)",
       "'Gram of the week' micro-lot highlight",
       "Quarterly origin transparency report",
     ],
+    evidence:
+      "CENSUS-1: Café Verde (possibly closed) was the cautionary case — generic 'sustainability' messaging without specifics. RAIZ and Terrua own farm-to-cup depth, but Terrua's single-origin (Villa Rica only) is a narrow terroir story. Ursa's Filtrado Lonya line (multi-origin, named lot, named altitude) is uncontested in the catchment.",
+    risk:
+      "'Specific' is only credible if the named farm relationship is real and ongoing. If Ursa cannot document the producer relationship behind each Lonya lot (contract, purchase price, visit date), the story degrades into marketing. Missing evidence: no producer-relationship documentation surfaced in public sources.",
     tone: "forest",
   },
   {
@@ -152,9 +167,13 @@ const MESSAGE_PILLARS: Pillar[] = [
     promise: "Reasons to return weekly, not just once.",
     proofs: [
       "Seasonal drink rotation (Lonya origins)",
-      "Ursa Mañana subscription pilot (S/. 20/mo)",
+      "Ursa Mañana subscription pilot (S/. 20/mo, capped at 50)",
       "Monthly cupping nights + named-drink drops",
     ],
+    evidence:
+      "CENSUS-1: Bisetti owns 'escuela de café' (formal education); Puku Puku owns 'microlotes' retail (S/.49 bag); no competitor owns a subscription + cupping + named-drink drop cadence. CoffeePass Perú listing (URSA_FACTS) validates Ursa already participates in Lima's loyalty infrastructure.",
+    risk:
+      "Continuity promises erode the moment a weekly cadence is missed. If the cupping night skips a month, or the named-drink drop is late, the rhythm breaks and the promise feels performative. Risk: subscription cannibalizes full-price visits if attach rate < 60% (see Module 08 model).",
     tone: "gold",
   },
 ];
@@ -317,6 +336,46 @@ export function GrowthView() {
           Tactics that dilute the bear, skip the gram, or override the green are explicitly marked{" "}
           <em>do not</em>.
         </Callout>
+
+        {/* Evidence / Risk / Test triple — grounds the positioning in the census */}
+        <Grid cols={3}>
+          <Card className="bg-ursa-foam">
+            <div className="flex items-center gap-2 mb-2">
+              <EvidenceTag status="partial" />
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Evidence supporting each claim</span>
+            </div>
+            <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">In-house roastery</strong> — Corner.inc editorial + CENSUS-1 cross-validates (Terrua, Punto Café, RAIZ all lean on visible roasting).</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Bear character</strong> — 0 of 18 census competitors use an animal/character identity. Ownable by absence.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Two-bar theatre</strong> — 0 of 18 census competitors operate a visible two-bar format. Arabica Espresso Bar is single-bar stand-up; the two-bar format is uncontested.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Art Nouveau</strong> — 0 of 18 use a coherent historical design language. Visual identity uncontested.</span></li>
+            </ul>
+          </Card>
+          <Card className="bg-ursa-cream">
+            <div className="flex items-center gap-2 mb-2">
+              <EvidenceTag status="gap" />
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Risks &amp; missing evidence</span>
+            </div>
+            <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">No roast-log audit observed.</strong> The 'every gram is weighed' claim is only credible if documented. Risk: inconsistency undermines the visible-craft story.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Award-driven positioning is brittle.</strong> CAM Café 2025 top-5 is recent but annual; if Ursa drops out of the top-5 in 2026, the 'award-credentialed' framing weakens.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Review-volume gap.</strong> Ursa ~56 Google reviews (addagio aggregate) vs. Neira 911 and Puku Puku 658. Discovery gap is structural, not yet closed.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Producer relationships unverified.</strong> 'Specific origin stories' require documented farm relationships — no contract or purchase-price evidence surfaced.</span></li>
+            </ul>
+          </Card>
+          <Card>
+            <div className="flex items-center gap-2 mb-2">
+              <FlaskConical size={14} className="text-ursa-forest-deep" />
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Test method before full adoption</span>
+            </div>
+            <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
+              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>Run a 30-day 'weighed shot log' — every espresso weighed and recorded, sample audited weekly for ±0.3g tolerance. Cost: S/. 0 (log only).</span></li>
+              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>A/B test the positioning paragraph as the Instagram bio for 30 days vs. the current bio — measure profile clicks and DMS.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>Run a blind 'origin story' taste test: same coffee served with and without the Lonya story card. Measure perceived-quality delta (1–10).</span></li>
+              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>Walk-by census re-verification of Coffee Notes, Café Verde, OK Café (status uncertain) — 1 afternoon, S/. 0.</span></li>
+            </ul>
+          </Card>
+        </Grid>
       </ViewSection>
 
       {/* Personas & JTBD — interactive expandable cards */}
@@ -392,9 +451,44 @@ export function GrowthView() {
             );
           })}
         </Grid>
-      </ViewSection>
 
-      {/* Message architecture tree */}
+        {/* Census-grounding evidence for each persona — verifies signals are not invented */}
+        <Callout tone="forest" title="Each persona's signals are grounded in the 1km census (CENSUS-1), not invented">
+          <div className="space-y-2.5 text-[0.86rem] m-0">
+            <p className="m-0"><strong className="text-ursa-dark-roast">Morning Regular —</strong> grounded in CENSUS-1 finding that Milenaria Cafe (same street, 170m) opens 6:30am and is praised for early opening; Ursa opens 7:30am, so the 7:03–7:30am window is the very first pre-work slot Ursa can serve. The 'orders the same drink' signal mirrors Ursa's own Instagram evidence (repeated-customer comments) and the @rutadelcafeperuano reel citing return visits. <em>Risk:</em> we have no POS data on actual arrival-time distribution — the 7:03–7:30am window is inferred from opening hours, not from observed transaction timestamps.</p>
+            <p className="m-0"><strong className="text-ursa-dark-roast">Tourist Explorer —</strong> grounded in CENSUS-1 count of 8+ hotels within walking distance (Miraflores hotel district around Parque Kennedy). Bear paw Reel trail and concierge cards are the proposed channel, not yet executed. <em>Risk:</em> the 'walks in with a map / asks what's local / photographs the cup' signals are persona hypotheses, not observed behaviours. Validate via a 30-day concierge-card pilot before scaling.</p>
+            <p className="m-0"><strong className="text-ursa-dark-roast">Remote Worker —</strong> grounded in NovaCircle pros/cons flagging 'seating can be limited during peak hours' + 'crowded, especially on weekends.' The two-bar layout (espresso bar + coldbrew bar) is the architectural basis for a 'quiet side,' but no floor-plan evidence confirms the coldbrew side is actually quieter. <em>Risk:</em> the 90+ min dwell metric assumes Ursa tolerates laptop users; current operating model unclear on whether lingerers are welcomed or discouraged.</p>
+            <p className="m-0"><strong className="text-ursa-dark-roast">Coffee Curious —</strong> grounded in CENSUS-1 finding that Bisetti owns 'escuela de café' (formal education) and Terrua's US$25 tasting flight validates demand for paid tasting. Ursa's Aeropress champion Paulo Sierra (@rutadelcafeperuano, 564 likes) is direct credibility evidence for the education channel. <em>Risk:</em> cupping attendance is a leading metric only — no historical attendance baseline to compare against.</p>
+          </div>
+        </Callout>
+
+        {/* Test method for persona validation */}
+        <Grid cols={2}>
+          <Card className="bg-ursa-cream">
+            <div className="flex items-center gap-2 mb-2">
+              <FlaskConical size={14} className="text-ursa-forest-deep" />
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">How to validate the personas before scaling offers against them</span>
+            </div>
+            <ul className="space-y-1.5 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">2-week POS audit</strong> — tag every transaction with daypart + repeat-customer flag. Cost: S/. 0 (POS export). Confirms Morning Regular + Remote Worker mix.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Hotel-concierge card pilot</strong> — 8 hotels, 30 days, unique coupon code per hotel. Cost: ~S/. 200 print. Confirms Tourist Explorer conversion rate.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">First cupping night sign-up sheet</strong> — count attendees + email opt-ins. Cost: S/. 0. Confirms Coffee Curious depth.</span></li>
+            </ul>
+          </Card>
+          <Card>
+            <div className="flex items-center gap-2 mb-2">
+              <EvidenceTag status="partial" />
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">What evidence is missing</span>
+            </div>
+            <ul className="space-y-1.5 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>No Ursa-specific customer survey or interview transcript surfaced — personas are inferred from competitor behaviour + Ursa's own Instagram signals, not from primary customer research.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>No POS data on dwell time, daypart distribution, or repeat-purchase cadence — these are proposed metrics, not yet baselines.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>No demographic data (age, income, residence) on Ursa's actual customer base — persona sketches are behavioural, not demographic.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>Fix: commission a 4-week customer intercept survey (n≈50) before scaling any persona-specific offer.</span></li>
+            </ul>
+          </Card>
+        </Grid>
+      </ViewSection>
       <ViewSection badge="Message" title="Message architecture — from one promise down to proof points" meta="Promise → Pillars → Proof">
         <Card className="bg-ursa-foam">
           {/* Root: brand promise */}
@@ -436,6 +530,22 @@ export function GrowthView() {
                     </li>
                   ))}
                 </ul>
+                {/* Evidence + risk note under each pillar */}
+                <div className="mt-3 pt-3 border-t border-ursa-line-soft space-y-2">
+                  <div className="flex items-start gap-2">
+                    <EvidenceTag status="partial" />
+                    <p className="text-[0.78rem] text-muted-foreground leading-relaxed m-0 flex-1">
+                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-forest-deep block mb-0.5">Evidence</span>
+                      {pillar.evidence}
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase px-1.5 py-0.5 rounded border bg-ursa-terracotta/15 text-ursa-terracotta-text border-ursa-terracotta/40 shrink-0 mt-0.5">Risk</span>
+                    <p className="text-[0.78rem] text-muted-foreground leading-relaxed m-0 flex-1">
+                      {pillar.risk}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </Grid>
@@ -579,6 +689,29 @@ export function GrowthView() {
               </ul>
             </Card>
             <Card className="bg-ursa-cream">
+              <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
+                <FlaskConical size={16} className="text-ursa-forest-deep" /> Operational feasibility — prep, overlap, training
+              </h4>
+              <div className="space-y-3 m-0">
+                <div className="grid grid-cols-[7rem_1fr] gap-x-3 gap-y-1 text-[0.84rem]">
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Continuity</span>
+                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">Ursa Mañana sub.</strong> — prep: 0 min/visit (subscription is a POS flag). Ingredient overlap: 100% (uses existing espresso). Training: 1 hour for staff to recognise subscribers + apply discount. <em>Risk:</em> requires POS that supports member flags; if not, manual tally erodes the staff-time saving.</p>
+
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Story card</span>
+                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">Origin story card</strong> — prep: 0 min/serving (pre-printed). Ingredient overlap: 0 (paper good). Training: 15 min on which card matches which drink. Cost: S/. 0.40/card print. <em>Risk:</em> card-drink mismatch erodes credibility faster than no card at all.</p>
+
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Sample</span>
+                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">50g bean sample</strong> — prep: 30 sec (scoop + label). Ingredient overlap: 100% (retail bean stock). Training: 10 min on portion + label format. <em>Risk:</em> 50g is below brewable yield for some methods — clarify brew instructions on the label or sample feels useless.</p>
+
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Side</span>
+                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">Cookie / empanada</strong> — prep: 0 min/serving (already prepared). Ingredient overlap: 100% (existing food line). Training: 5 min on pairing suggestions. <em>Risk:</em> if pastry sells out by 11am, the attach offer degrades — bake schedule must align with daily attach target.</p>
+
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Core</span>
+                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">Pour-over / flat white</strong> — prep: 3–4 min (pour-over) or 90s (flat white). Ingredient overlap: 100%. Training: existing barista skill. <em>Risk:</em> pour-over at peak creates a service-time bottleneck if &gt; 3 simultaneous orders; consider capping pour-over during 8–9am.</p>
+                </div>
+              </div>
+            </Card>
+            <Card className="bg-ursa-cream">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">A worked example</h4>
               <p className="text-[0.88rem] text-muted-foreground m-0 mb-3">
                 A tourist orders a pour-over, accepts the cookie pairing, takes the bean sample and
@@ -683,9 +816,64 @@ export function GrowthView() {
             );
           })}
         </div>
-      </ViewSection>
 
-      {/* Budget scenarios teaser */}
+        {/* Census evidence: which channels competitors use successfully */}
+        <Grid cols={3}>
+          <Card className="bg-ursa-foam">
+            <div className="flex items-center gap-2 mb-2">
+              <EvidenceTag status="partial" />
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Discover · what the census shows works</span>
+            </div>
+            <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Google Business Profile</strong> — Neira (911 reviews) and Puku Puku (658 TA reviews) prove review volume is the dominant discovery lever in this catchment. Ursa's ~56 Google reviews (addagio aggregate) is the gap.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Hotel proximity</strong> — Milenaria (same street, 170m) draws tourist breakfast traffic via walk-up from 8+ nearby hotels. Concierge cards are the proposed channel; Milenaria validates the demand.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Instagram Reels</strong> — @rutadelcafeperuano reel on Ursa's Aeropress champion (564 likes, 18 comments) is direct evidence that coffee-community content travels. Punto Café's TA n=2 vs. awards shows weak organic reach — content is the multiplier.</span></li>
+            </ul>
+          </Card>
+          <Card className="bg-ursa-cream">
+            <div className="flex items-center gap-2 mb-2">
+              <EvidenceTag status="partial" />
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Engage · what the census shows works</span>
+            </div>
+            <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Tasting format</strong> — Terrua (US$25 flight) and Cate (tasting room) both validate paid-tasting demand. Cate has 190 Google reviews at 4.6★ — the tasting format drives review volume.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Rappi delivery</strong> — multiple census competitors active on Rappi (Puku Puku, Neira). Ursa already on Rappi (URSA_FACTS.delivery); delivery is table-stakes, not differentiation.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">WorkCafé cobrand</strong> — Neira's WorkCafé experiment is a cautionary tale: 'cafe vs co-working?' confusion in reviews. Ursa's office-sampling channel should be B2B (wholesale), not co-working identity.</span></li>
+            </ul>
+          </Card>
+          <Card>
+            <div className="flex items-center gap-2 mb-2">
+              <EvidenceTag status="partial" />
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Retain &amp; Advocate · what the census shows works</span>
+            </div>
+            <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Retail bags</strong> — Puku Puku sells retail bags at S/.49 with TA mention as a praise theme. Ursa currently Instagram-only for retail; the S/.49 anchor is a benchmark.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">CoffeePass Perú</strong> — Ursa already listed (URSA_FACTS.membership). Lima's loyalty infrastructure exists; the lever is making the listing visible at the till.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Review reply cadence</strong> — Neira's 911-review volume is paired with active owner replies (observed in snippets). Ursa's reply cadence unknown; the 48h SLA in the channel card is a hypothesis.</span></li>
+            </ul>
+          </Card>
+        </Grid>
+
+        <Callout tone="warn" title="Risks and missing channel evidence">
+          <ul className="space-y-1.5 m-0 p-0 list-none text-[0.86rem]">
+            <li>• <strong>No paid-social ROI baseline for Ursa.</strong> Competitor evidence (Neira, Puku Puku) shows review-volume outcomes, not ad-spend inputs. We cannot infer a Meta-ads cost-per-acquisition without a Ursa-specific pilot.</li>
+            <li>• <strong>Hotel-concierge card conversion is assumed, not measured.</strong> The 8-hotel pilot is a test, not a proven channel. Risk: hotels accept the cards but concierges do not actively recommend.</li>
+            <li>• <strong>WhatsApp opt-in consent is operationally non-trivial.</strong> Peru's data-protection regime (Law 29733) requires explicit consent; the till-prompt needs legal review before launch.</li>
+            <li>• <strong>Rappi's 30% commission erodes specialty margin.</strong> Active on Rappi is not the same as profitable on Rappi. Risk: delivery volume cannibalises in-store visits without protecting margin.</li>
+          </ul>
+        </Callout>
+
+        <Callout tone="forest" title="Test method — validate channel-by-channel before scaling">
+          <p className="m-0 text-[0.86rem]">
+            Run each new channel as a 30-day pilot with a single primary metric and a stop rule.
+            GBP: target +10 Google reviews/month, stop if &lt; 5/month after 60 days. Concierge cards:
+            target 5 redemptions/hotel/month, stop if &lt; 2 after 30 days. Cupping night: target 8
+            attendees/session, stop if &lt; 4 for 2 consecutive sessions. Retail bean bag: target 20
+            units/week at counter, stop if &lt; 8 after 30 days. Costs are documented in the Budget
+            Allocator; pilot outcomes feed the Experiment Tracker.
+          </p>
+        </Callout>
+      </ViewSection>
       <ViewSection badge="Budget" title="Three budget scenarios — pick one and the plan adjusts" meta="Lean / Moderate / Growth in PEN">
         <Grid cols={3}>
           {BUDGET_SCENARIOS.map((s, i) => (

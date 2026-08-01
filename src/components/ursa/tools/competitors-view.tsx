@@ -63,8 +63,8 @@ const URSA_PROFILE: Competitor & { isUrsa?: boolean } = {
   tripAdvisorReviewCount: 0,
   status: "operating",
   positioning:
-    "Single-site specialty roaster on Alcanfores. Bear-led brand, Art Nouveau craft language, two-bar theatre (espresso + coldbrew), named-drink portmanteaus (Ursagroni, Maracumango), 'Un gramo a la vez' ethos. CAM Café 2025 top-5.",
-  strength: "Bear + Art Nouveau craft; in-house roastery; two bars; named-drink portmanteaus; Aeropress champion (Paulo Sierra); CAM Café 2025 top-5",
+    "Single-site specialty roaster on Alcanfores. Bear-led brand, Art Nouveau craft language, two-bar theatre (espresso + coldbrew), named drinks (Ursagroni, Maracumango) (Ursagroni, Maracumango), 'Un gramo a la vez' ethos. CAM Café 2025 top-5.",
+  strength: "Bear + Art Nouveau craft; in-house roastery; two bars; named drinks (Ursagroni, Maracumango); Aeropress champion (Paulo Sierra); CAM Café 2025 top-5",
   weakness: "No website yet; single-site; smaller retail reach than chains; TripAdvisor footprint near-zero",
   ursaImplication: "Baseline — protect the bear, close the website gap, scale craft without diluting identity.",
   hasWebsite: false,
@@ -310,7 +310,7 @@ export function CompetitorsView() {
         </Grid>
         <p className="text-[0.85rem] text-muted-foreground mt-5 mb-0 max-w-[80ch]">
           The distinctiveness score is qualitative — it is the share of competitors against which Ursa holds a clear
-          positional lead (the bear, the two-bar theatre, the portmanteau naming system, the Art Nouveau craft
+          positional lead (the bear, the two-bar theatre, the named-drink convention, the Art Nouveau craft
           language). It is not a market-share metric.
         </p>
       </ViewSection>

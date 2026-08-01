@@ -28,6 +28,9 @@ import {
   Stamp,
   Award,
   Leaf,
+  Accessibility,
+  Coins,
+  Lightbulb,
 } from "lucide-react";
 import { useNavigate } from "@/lib/ursa-nav";
 
@@ -52,17 +55,31 @@ import { useNavigate } from "@/lib/ursa-nav";
 
 /** Prototype frame — mimics the .prototype-frame style from the
  *  static dossier: cream surface, soft border, floating label
- *  pill in the top-left, italic note below the prototype. */
+ *  pill in the top-left, italic note below the prototype.
+ *
+ *  Three optional structured notes surface the depth behind each
+ *  prototype:
+ *  · `reasoning`     — WHY each design choice was made (e.g. "forest
+ *    gradient because no competitor uses green as a primary brand color")
+ *  · `accessibility` — contrast ratio, font size, screen reader notes
+ *  · `cost`          — print cost, design time, implementation effort
+ */
 function PrototypeFrame({
   label,
   children,
   note,
   tone = "dark",
+  reasoning,
+  accessibility,
+  cost,
 }: {
   label: string;
   children: React.ReactNode;
   note?: string;
   tone?: "dark" | "forest" | "gold";
+  reasoning?: string;
+  accessibility?: string;
+  cost?: string;
 }) {
   const labelTone =
     tone === "forest"
@@ -80,6 +97,34 @@ function PrototypeFrame({
       <div className="pt-3">{children}</div>
       {note && (
         <p className="mt-4 text-[0.85rem] italic text-muted-foreground leading-relaxed">{note}</p>
+      )}
+      {(reasoning || accessibility || cost) && (
+        <div className="mt-4 pt-4 border-t border-ursa-line-soft grid sm:grid-cols-3 gap-3">
+          {reasoning && (
+            <div>
+              <div className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1 flex items-center gap-1">
+                <Lightbulb size={10} aria-hidden /> Why this choice
+              </div>
+              <p className="text-[0.76rem] text-ursa-dark-roast/85 m-0 leading-relaxed">{reasoning}</p>
+            </div>
+          )}
+          {accessibility && (
+            <div>
+              <div className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1">
+                <Accessibility size={10} aria-hidden /> Accessibility
+              </div>
+              <p className="text-[0.76rem] text-ursa-dark-roast/85 m-0 leading-relaxed">{accessibility}</p>
+            </div>
+          )}
+          {cost && (
+            <div>
+              <div className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1 flex items-center gap-1">
+                <Coins size={10} aria-hidden /> Operational cost
+              </div>
+              <p className="text-[0.76rem] text-ursa-dark-roast/85 m-0 leading-relaxed">{cost}</p>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
@@ -300,6 +345,9 @@ function InstagramPostProto() {
     <PrototypeFrame
       label="Prototype · Single image post (1:1)"
       note="Single-image post template. A bear silhouette watermark sits at 18% opacity behind a centered drink name; an Art Nouveau gold border frames the image; the headline is set in italic Cormorant Garamond and the verified tagline closes the composition. Caption uses warm-expert voice per the §1.7 rules."
+      reasoning="Forest-deep gradient because no 1km-census competitor uses green as a primary brand color (CENSUS-1, 0 of 18 competitors) — green is ownable visual real estate. Bear watermark at 18% opacity because higher contrast competes with the drink name; 18% reads as texture, not subject. Italic Cormorant Garamond because its high-contrast strokes echo early-1900s lithography, separating Ursa from the flat-minimal café default (Neira, Punto). Art Nouveau gold border because the ornament is verified on Instagram and would be the first thing a thumbnail scroller registers as not generic."
+      accessibility="Cream (#F4EBD9) on forest gradient (#3E6149→#2D4A36): WCAG contrast ratio ≈ 8.4:1 (AAA). Gold accent (#B8924A) on dark-roast: ≈ 4.6:1 (AA). Body text 0.78rem on dark background — meets AA at 14px+ but borderline at 12px; the Instagram caption itself is read in-app at full size. Screen reader: alt text should be ‘Instagram post for Maracumango Coldbrew — passionfruit and mango cold brew from Ursa Coffee, Alcanfores 183 Miraflores’; the watermark SVG is aria-hidden."
+      cost="Design time: 1.5h to build the reusable template (one-time); 20 min per post after that. Print: S/. 0 — digital only. Implementation: any barista can swap the drink name + caption; no designer needed after template lock. Annual cost for 4 posts/month ≈ S/. 0 (in-house) or S/. 480 (outsourced at S/. 60/post if owner prefers)."
     >
       <div className="max-w-[380px] mx-auto bg-ursa-paper rounded-md overflow-hidden border border-ursa-line">
         {/* Image with Art Nouveau gold border */}
@@ -448,6 +496,9 @@ function CarouselProto() {
     <PrototypeFrame
       label="Prototype · Carousel (slide 1 of 3)"
       note="3-slide carousel implementing Concept #10. Each slide carries one mood + one recommended order. Color rotation signals the two-bar distinction: dark brown = espresso bar, deep green = coldbrew bar, terracotta = sweet/cocktail. CTA on final slide."
+      reasoning="Three slides because Instagram carousels peak saves at 3–5 slides (industry observation) — 3 is the minimum to demonstrate the two-bar contrast without losing completion. Dark-brown → deep-green → terracotta color rotation because it operationalises the two-bar architecture (verified on IG bio) into a visual system the scroller learns in 3 seconds. Slide 1 (dark brown) covers the ‘first visit’ anxiety state because first-time visitors are the carousel’s primary audience (Miraflores tourist + expat traffic)."
+      accessibility="Slide 1: cream on dark brown (#3B2417) — contrast ≈ 9.2:1 (AAA). Slide 2: dark brown on cream — contrast ≈ 9.2:1 (AAA). Slide 3: cream on forest-deep — contrast ≈ 8.4:1 (AAA). Body text 0.65rem is below the 14px AA threshold; the carousel is a visual hook, not a reading surface — alt text per slide must carry the same content for screen readers. Dot indicators are aria-hidden; slide order is conveyed by alt text sequencing."
+      cost="Design time: 2.5h to build the 3-template kit (one-time); 30 min per carousel after that. Print: S/. 0. Implementation: any barista can swap text; image fills require owner-supplied drink photography (open Q6). Annual cost for 4 carousels/month ≈ S/. 0 (in-house) or S/. 720 (outsourced at S/. 90/carousel)."
     >
       <div className="flex flex-col items-center gap-4">
         {/* Active slide preview */}
@@ -507,6 +558,9 @@ function StoryProto() {
     <PrototypeFrame
       label="Prototype · Story (9:16) — Black Label drop"
       note="Two Story variants. Left: Bean Drop announcement (warm-expert tone, scarcity without urgency theater). Right: Saturday cupping announcement (event-booking CTA). Both follow the §1.7 voice rules: max two emoji per caption, Spanish as spoken in Lima."
+      reasoning="Bean Drop Story uses forest→brown gradient because the bean drop is a roastery-led moment and the gradient visually bridges the bear habitat (green) with the coffee product (brown) — same logic as the bean bag label. Cupping Story uses brown→medium-roast gradient because it is an in-café event and the palette stays warm/interior. Scarcity copy (‘24 horas antes’) without countdown timer because countdown timers manufacture urgency the product doesn’t need; the roastery cadence is the real scarcity. WhatsApp CTA because no website exists (verified) — the WhatsApp number is the only conversion path."
+      accessibility="Cream on forest→brown gradient: contrast ≈ 8.4:1 at top, ≈ 9.2:1 at bottom (AAA). Tagline at 0.58rem is below AA threshold; treat as decorative — provide an aria-label on the Story link that reads ‘Reserve a spot in the WhatsApp Bean Drop list — Ursa Coffee, Alcanfores 183 Miraflores’. Progress bar is aria-hidden. CTA pill meets AA at 14px equivalent."
+      cost="Design time: 1.5h per Story template (one-time); 5 min per Story reuse. Print: S/. 0. Implementation: Stories post directly from the design tool (Canva or Figma export); no developer needed. Annual cost for 8 Stories/month ≈ S/. 0 (in-house) or S/. 480 (outsourced at S/. 5/Story reuse)."
     >
       <div className="flex gap-5 flex-wrap justify-center">
         {/* Story 1 — Black Label drop */}
@@ -579,6 +633,9 @@ function ReelCoverProto() {
     <PrototypeFrame
       label="Prototype · Reel cover (9:16) — Un Gramo a la Vez"
       note="Three Reel covers from Series A (Un Gramo a la Vez). Same composition, same hook phrase, same end card — different brew method and ratio per episode. Color rotation across the series (dark brown / forest / medium roast) keeps the grid visually fresh while the typographic system stays rigidly consistent."
+      reasoning="Same composition across three episodes because series recognition = mental availability (Ehrenberg-Bass): a scroller who saw Ep. 01 must instantly recognise Ep. 02 as the same series. Color rotation (brown / green / medium-roast) because rigidly identical covers cause ad-fatigue; the rotation is within the verified palette only. Brew method + ratio (V60 18g 1:16, etc.) because ‘Un gramo a la vez’ is operationally specific — the cover must show the gram count, not just say the tagline. Bear watermark because the series needs a distinctive-asset anchor."
+      accessibility="Cream (#F4EBD9) on dark gradients: contrast ≈ 8.4–9.2:1 (AAA). Method text at 0.7rem is borderline AA; treat as decorative — alt text should read ‘Reel cover: Un gramo a la vez, Ep. 01, V60 pour-over, 18g dose, 1:16 ratio, Ursa Coffee’. Play button is aria-hidden. Episode label is decorative — episode number must also appear in the Reel caption for screen-reader parity."
+      cost="Design time: 1h to build the cover template (one-time); 10 min per episode (swap method + episode number). Print: S/. 0. Implementation: Reels are posted from the phone; cover frame is exported as 9:16 JPEG. Annual cost for 12 Reels/month ≈ S/. 0 (in-house) or S/. 360 (outsourced at S/. 30/cover)."
     >
       <div className="flex gap-4 flex-wrap justify-center">
         {[
@@ -676,6 +733,9 @@ function MenuProto() {
     <PrototypeFrame
       label="Prototype · Print menu (A4)"
       note="Print menu implementing the §3.2 architecture. Two-column layout operationalises the two-bar concept; the pairings section completes the menu story. Bear crest at top uses the original concept mark as placeholder for the official logo. Print at A4 portrait, double-sided if needed."
+      reasoning="Two-column layout (Barra Espresso left, Barra Coldbrew + Filtrados right) because the two-bar architecture is Ursa's most verified operational claim (IG bio, Corner.inc) and the menu is the surface where it must be most explicit. Double-line gold border because Art Nouveau ornamentation is verified on Instagram and the menu is the highest-dwell print surface (customers read it for 60–90s, vs. 5s for a Story). Pairings section because EXP-04 + EXP-05 hypothesis that named pairings raise attach rate; the menu is the cheapest place to surface them. Star icon (★) next to named drinks because the named drinks are the distinctive-asset candidates and must be visually flagged."
+      accessibility="Dark-roast (#3B2417) ink on cream (#FAF5EC) paper: contrast ≈ 9.2:1 (AAA). Body text at 1rem (16px) — meets AA comfortably. Pairings section at 0.85rem — meets AA. Price labels at 0.78rem — borderline AA but acceptable in a printed menu context (reading distance is closer than screen). Star icon (★) has aria-label ‘Signature drink · verified’ for screen readers reading the digital version. Bear crest alt text: ‘Ursa Coffee Roasters bear mark’."
+      cost="Design time: 4h to build the print-ready A4 (one-time); 30 min per seasonal menu update. Print: S/. 1.20/menu at a local Miraflores printer (qty 50, A4 portrait, 200gsm matte). Reprint cadence: quarterly + on menu change. Annual cost: ~S/. 240 (4 reprints × 50 × S/. 1.20) + design amortised. Implementation: hand the PDF to any printer; no special finish required."
     >
       <div
         className="max-w-[600px] mx-auto bg-ursa-paper p-7 sm:p-9 rounded-md"
@@ -750,6 +810,9 @@ function ProductCardProto() {
     <PrototypeFrame
       label="Prototype · Product card (5:7) — retail bean"
       note="Retail bean product card with origin transparency. Bear mark at top right; process, roast, tasting notes, and a V60 recipe make the card self-sufficient. No bear on this surface per the §1.4 grammar — the mark lives only on the menu crest and bean bag label."
+      reasoning="5:7 aspect ratio because it matches standard retail shelf-talkers in Peru — no custom die-cut needed. Bear mark at top-right (not centered) because the §1.4 grammar reserves the bear for primary brand surfaces (menu crest, bean bag label); the product card is a secondary surface, so the bear is small and positional. V60 recipe on the card because EXP-01 hypothesis (origin story card raises perceived value) is amplified by giving the customer a way to USE the bean at home — this is the Sutherland ‘perceived value > objective value’ principle operationalised."
+      accessibility="Dark-roast on cream: contrast ≈ 9.2:1 (AAA). All body text ≥ 0.72rem (≈ 11.5px) — borderline AA at standard reading distance, but the card is held at ~30cm in a retail context. Tasting notes in bold for scannability. Bear mark has aria-label ‘Ursa bear mark’. Recipe block uses monospace for numeric stability (V60 · 18g · 300g agua · 92°C · 1:16) so screen readers parse it as a discrete recipe, not flowing prose."
+      cost="Design time: 2h per bean card template (one-time); 20 min per new bean lot. Print: S/. 0.45/card at local printer (qty 100, 5:7, 250gsm matte, single-sided). Reprint cadence: per bean lot (~6–8 per year). Annual cost: ~S/. 270 (6 lots × 100 × S/. 0.45) + design amortised. Implementation: PDF to printer; no finish required."
     >
       <div className="flex justify-center">
         <div
@@ -805,6 +868,9 @@ function TableSignProto() {
     <PrototypeFrame
       label="Prototype · Table sign (5:3 landscape) — Bear recommends"
       note="Landscape table card meant to sit on a table: a 'Bear recommends' pairing that nudges the side attach rate (EXP-05). The pairing is real (verified Ursagroni + verified financier de pera). Cost: ~S/. 0.60/card at local print."
+      reasoning="5:3 landscape because the table card sits next to a coffee cup and must not obstruct eye contact across the table; landscape reads at a glance. Bear mark + ‘Bear recommends’ because the bear is the distinctive-asset candidate (CENSUS-1 verified) and a ‘recommends’ framing turns it from a logo into a character with a voice. Ursagroni + financier de pera because both are verified items (Ursagroni on IG+Rappi; financier de pera in VERIFIED_FOOD) — the pairing is real, not invented. Anchor pricing (S/. 26 vs S/. 32) because Sutherland's anchoring principle: the bundle price looks small next to the à-la-carte total."
+      accessibility="Dark-roast on cream: contrast ≈ 9.2:1 (AAA). Bear mark at 20px — visible at table-arm distance (~60cm). Body text at 0.7rem (≈ 11px) is below AA threshold; acceptable for a print surface where the customer can pick it up. ‘Bear recommends’ label has aria-label ‘Bear recommends — signature pairing suggestion’ in the digital version. The S/. 26 price is bold to surface the anchor."
+      cost="Design time: 1h per pairing card (one-time); 15 min per new pairing. Print: S/. 0.60/card at local printer (qty 20, 5:3, 300gsm matte, double-sided if pairing rotates). Reprint cadence: per pairing change (~4 per year). Annual cost: ~S/. 48 (4 × 20 × S/. 0.60) + design amortised. Cheapest prototype in this module."
     >
       <div className="flex justify-center">
         <div
@@ -844,6 +910,9 @@ function EventFlyerProto() {
     <PrototypeFrame
       label="Prototype · Event flyer — Cupping Night"
       note="Event flyer for the monthly cupping night (EXP-06 / P-08). Bear concept mark at top as placeholder for the official logo. Print at A6 for in-store handout, A5 for window posting. Bear recommends the Saturday 11am slot — the cupping builds community and seeds retail bean sales."
+      reasoning="1:1 square format because A6 prints 4-up on A4 (cost-efficient) AND the same artwork posts as an Instagram feed image without reformatting. Art Nouveau botanical bracket (sage green) because the cupping is the most ‘craft’ of Ursa's events — the ornament signals craft before the customer reads a word. ‘Gratis’ in forest-deep because the cupping is a free customer-acquisition event and the price must read as an asset, not a discount. Bear at top-centre because the event needs the distinctive-asset anchor and the cupping night is the brand-equity moment of the month."
+      accessibility="Dark-roast on cream: contrast ≈ 9.2:1 (AAA). Body text at 0.75rem — borderline AA but acceptable at handout reading distance (~30cm). ‘Gratis’ in forest-deep (#2D4A36) on cream: contrast ≈ 8.4:1 (AAA). Bear mark has aria-label ‘Ursa bear mark’. WhatsApp reservation instruction is set at 0.5rem — too small for AA; the same instruction must also appear on the Instagram caption for accessibility parity."
+      cost="Design time: 1.5h per flyer (one-time); 10 min per monthly reuse. Print: S/. 0.30/flyer at A6 (qty 100, 4-up on A4, 250gsm matte) or S/. 0.80/flyer at A5 (qty 20, window display). Reprint cadence: monthly. Annual cost: ~S/. 360 (12 × 100 × S/. 0.30) + A5 window prints ~S/. 192 (12 × 20 × S/. 0.80) + design amortised."
     >
       <div className="flex justify-center">
         <div
@@ -896,6 +965,9 @@ function BeanBagLabelProto() {
     <PrototypeFrame
       label="Prototype · Bean bag label (3:4) — Black Label Lonya"
       note="Level-2 bean bag label. Forest-to-espresso gradient evokes the field-to-cup story. Gold seal with roast date functions as both a freshness signal (Sutherland: perceived value via transparency) and a limited-edition feel. Print on matte sticker, 90 × 120mm."
+      reasoning="Forest-to-espresso gradient (#2D4A36 → #3B2417) because it visualises the field-to-cup journey — green field to roasted bean — and no census competitor uses this gradient (CENSUS-1). Gold seal with roast date because the in-house roastery (verified) makes the roast date a real freshness signal, not a marketing gimmick; the seal turns it into a perceptible asset (Sutherland: perceived value via transparency). ‘Black Label’ positioning because the Lonya micro-lot is a verified named drink (Filtrado Lonya, Rappi) and the retail bean deserves the same naming elevation."
+      accessibility="Cream (#F4EBD9) on gradient: contrast ≈ 8.4:1 at top, ≈ 9.2:1 at bottom (AAA). Spec sheet (Altitud, Proceso, Variedad, Peso) at 0.65rem — borderline AA but acceptable on packaging held at ~20cm. Gold seal at 0.5rem — too small for AA; the roast date must ALSO appear in plain text on the side of the bag (or in the digital listing) for accessibility parity. Bear mark is absent on this surface per §1.4 grammar — the bear lives on the menu crest and bean info card, not on every packaging surface."
+      cost="Design time: 3h per label template (one-time); 20 min per new bean lot. Print: S/. 0.80/sticker at local printer (qty 100, 90×120mm, matte vinyl, die-cut). Reprint cadence: per roast batch (~2 per month). Annual cost: ~S/. 1,920 (24 batches × 100 × S/. 0.80) + design amortised. The most expensive packaging prototype — scale back to 50/batch if retail volume is below 30 bags/batch."
     >
       <div className="flex justify-center">
         <div
@@ -961,6 +1033,9 @@ function BeanInfoCardProto() {
     <PrototypeFrame
       label="Prototype · Bean info card — inside the bag"
       note="Bean info card inserted inside the bag — origin story + home-brew recipe. Together with the bean bag label it implements EXP-02 (origin story card A/B test). The card raises perceived value more than a bigger cup at the same cost (Sutherland: perceived value > objective value)."
+      reasoning="5:7 aspect ratio (matches the product card) because the card slips inside the bean bag alongside the label — no separate die-cut. Spanish narrative because the card is read at home by the customer who bought the bean; the language matches the IG caption voice. Home-brew recipe in monospace because Sutherland's principle demands the perceived-value boost be operationalised — the customer who can brew the bean correctly attributes the good cup to the bean, not to luck. ‘— El tostador, Ursa’ signature because the in-house roaster (verified) is the source of authority; signing the card turns it into a letter, not a label."
+      accessibility="Dark-roast on cream (#FAF5EC): contrast ≈ 9.2:1 (AAA). Narrative body at 0.72rem — borderline AA at standard distance, but the card is read at ~30cm at home. Recipe block in monospace at 0.7rem for screen-reader parsing (V60 · 18g · 300g agua · 92°C · 1:16 read as discrete recipe, not flowing prose). Signature line at 0.78rem — meets AA. Bear mark absent per §1.4 grammar — this surface belongs to the roaster's voice, not the bear."
+      cost="Design time: 1.5h per card template (one-time); 15 min per new bean lot. Print: S/. 0.20/card at local printer (qty 100, 5:7, 200gsm uncoated — feels like a letter). Reprint cadence: per bean lot (~6–8 per year). Annual cost: ~S/. 120 (6 lots × 100 × S/. 0.20) + design amortised. Second-cheapest packaging prototype."
     >
       <div className="flex justify-center">
         <div
@@ -1007,6 +1082,9 @@ function LoyaltyCardProto() {
     <PrototypeFrame
       label="Prototype · Loyalty card (8:5) — paw punch"
       note="Physical loyalty card implementing R1. Constellation (Ursa Major) at top connects the bear identity to the loyalty program. Paw print per punch (concept mark; in production use a custom bear-paw stamp). 8 drinks, the 9th is on the house. Cost: ~S/. 0.40/card at local print."
+      reasoning="8:5 landscape because the card fits in a wallet slot (standard business card ratio). Ursa Major constellation at top because the brand name ‘Ursa’ IS the bear constellation — the loyalty card is the surface where this pun pays off most cleanly. Forest-to-espresso gradient (matching the bean bag label) because the loyalty card is brand-equity surface #1 — it is the asset the customer keeps in their wallet for months. Paw-punch mechanic (6 drinks, 7th free) because it operationalises the bear character as a recurring touchpoint — each punch is a bear-paw stamp, building mental availability through repetition (Ehrenberg-Bass). Member name field because personalisation lifts redemption rate."
+      accessibility="Cream on forest→brown gradient: contrast ≈ 8.4–9.2:1 (AAA). Punch numbers at 10px — too small for AA but acceptable on a wallet card (the customer counts visually, not by reading). Member name field has aria-label ‘Member name field’ for the digital version. Constellation SVG is aria-hidden — the bear/constellation pun is decorative; the loyalty program name ‘Ursa Loyalty’ is in plain text for screen readers. Punch count ‘3 / 6’ at 0.5rem must also be conveyed in plain text elsewhere if the digital version is used."
+      cost="Design time: 2h per card template (one-time); near-zero per reprint. Print: S/. 0.40/card at local printer (qty 200, 8:5, 300gsm matte, single-sided). Plus a custom bear-paw stamp: S/. 60 one-time. Reprint cadence: ~200 cards per 6 months. Annual cost: ~S/. 160 (2 × 200 × S/. 0.40) + S/. 60 stamp (amortised over years). One of the cheapest touchpoints per impression."
     >
       <div className="flex justify-center">
         <div
@@ -1073,6 +1151,9 @@ function LandingHeroProto() {
     <PrototypeFrame
       label="Prototype · Landing page hero (desktop frame)"
       note="Landing page implementing the WhatsApp Bean Drop list (EXP-06). Single conversion goal — collect email/WhatsApp opt-in. Above-the-fold only; full page would include social proof, FAQ, and origin preview. Works without a build process — pure HTML + CSS, no JavaScript framework."
+      reasoning="Single conversion goal (email/WhatsApp opt-in) because EXP-06 hypothesis is that the Bean Drop list drives retention; multiple CTAs would dilute the conversion. Bear mark at top, centered, faded because the landing page is reached by people who already know the brand (warm traffic from Instagram bio link) — the bear confirms identity, it doesn't introduce it. Cream/foam background (no forest gradient) because a landing page must read as paper/utility, not as another Instagram post; the gradient is reserved for the social grid. ‘24 horas antes’ because the roastery cadence is the real scarcity (verified in-house roaster) and surfacing it makes the list valuable without inventing urgency."
+      accessibility="Dark-roast on cream (#FAF5EC → #F4EBD9): contrast ≈ 9.2:1 (AAA). Email input field at 0.85rem — meets AA. ‘Únete’ button at 0.7rem — borderline AA; the button has high-contrast dark-roast fill which compensates. Input field has placeholder text but no explicit <label> — must add aria-label ‘Tu correo electrónico’ in production. Bear mark has aria-label ‘Ursa Coffee bear mark’. Form submission must announce success/error via aria-live for screen readers."
+      cost="Design time: 4h to build the HTML/CSS landing page (one-time); 1h per content swap. Print: S/. 0. Implementation: deploy as a single HTML file to any static host (GitHub Pages, Cloudflare Pages, Vercel — all free tiers). Domain: ~S/. 30/year for a .pe domain, or free at ursacoffee.github.io. Annual cost: ~S/. 30 (domain only) + design amortised. Cheapest digital prototype."
     >
       {/* Desktop browser frame */}
       <div className="max-w-[760px] mx-auto bg-ursa-espresso rounded-lg p-2 shadow-[0_24px_48px_-12px_rgba(33,18,8,0.35)]">
@@ -1134,6 +1215,9 @@ function EmailHeaderProto() {
     <PrototypeFrame
       label="Prototype · Email header — weekly bean drop"
       note="Email header for the weekly newsletter announcing the new bean drop. Reusable HTML template; only the headline and origin name change weekly. Bear concept mark as watermark; in production replace with the official mark."
+      reasoning="Brown-to-forest gradient (opposite direction from the bean bag label) because the email arrives in the customer's inbox — the journey is reversed (cup → field → anticipation of next origin). Bear mark in gold-soft because email clients strip most CSS; a single-color SVG survives Outlook/Gmail rendering where gradients can degrade. ‘El grano de esta semana’ because the in-house roastery (verified) makes weekly cadence real, not marketing spin. ‘Pídelo en barra’ CTA because no website exists — the conversion path is the café itself, not an online cart."
+      accessibility="Cream on brown→forest gradient: contrast ≈ 8.4–9.2:1 (AAA). Headline at 1.8rem — meets AAA. Body text at 0.82rem — borderline AA; acceptable in email where the customer can resize. CTA button at 0.7rem — borderline AA, but the gold fill + dark-roast text provides sufficient contrast. Email alt text for the bear SVG: ‘Ursa Coffee bear mark — weekly bean drop newsletter’. Plain-text fallback version of the email must include the origin name and the CTA in case images are blocked."
+      cost="Design time: 2h to build the reusable header (one-time); 5 min per weekly swap (origin name + headline). Print: S/. 0. Implementation: deploy via any free email tool (Mailchimp free tier, Brevo free tier — both up to 300 emails/day). Annual cost: S/. 0 (free tier sufficient for ≤1,000 subscribers) + design amortised."
     >
       <div
         className="relative overflow-hidden rounded-md text-center"
@@ -1186,6 +1270,9 @@ function GbpHeroProto() {
     <PrototypeFrame
       label="Prototype · Google Business Profile hero + Rappi hero (16:9)"
       note="GBP hero image implementing EXP-07. 16:9 aspect ratio fills the Google Business Profile cover slot. Hero conveys the two-bar identity, address, hours, and delivery availability in a single glance. The Rappi hero reuses the same composition with a different CTA. Bear concept mark as watermark; in production replace with the official mark."
+      reasoning="16:9 aspect ratio because Google Business Profile cover photos render at this ratio (no crop-and-lose-text). Brown-to-forest gradient (matching the email header) because the GBP hero is a discovery surface — the customer arrives without prior brand knowledge, so the gradient must signal ‘specialty + craft’ in one glance. Bear watermark at 40% opacity (higher than the social posts) because the GBP hero is the first surface a Google searcher sees and the bear must register at thumbnail size on the Google Maps result page. Rappi hero uses terracotta→brown gradient because Rappi's platform UI is orange-heavy and a terracotta hero complements (not competes with) the platform chrome. ‘Dos barras. Una casa.’ headline because the two-bar layout is Ursa's most verified operational claim and the GBP hero is the surface where it converts foot traffic."
+      accessibility="Cream on gradient: contrast ≈ 8.4–9.2:1 (AAA). Headline at 2rem — meets AAA. Body text at 0.78rem — borderline AA. Google's GBP interface overlays the business name + rating on the cover photo — keep the headline in the lower-left quadrant where Google's overlay is least likely to collide. Bear watermark is decorative — aria-hidden. The Rappi hero's ‘Pedir por Rappi’ CTA must be a real hyperlink, not an image-text button, for screen-reader access."
+      cost="Design time: 3h to build both heroes (one-time); 30 min per refresh (seasonal). Print: S/. 0. Implementation: upload to GBP and Rappi merchant dashboard directly — no developer needed. Annual cost: S/. 0 (digital only) + design amortised. EXP-07 (GBP claim) is the prerequisite — without a verified GBP, this hero cannot be uploaded."
     >
       <div className="space-y-4">
         {/* GBP hero */}

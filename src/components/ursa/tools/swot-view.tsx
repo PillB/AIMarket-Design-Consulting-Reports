@@ -35,7 +35,7 @@ const COMPETITORS: Competitor[] = [
     area: "Miraflores",
     distinctiveness: 88,
     reach: 32,
-    strength: "Bear motif + two-bar theatre + named-drink portmanteaus + in-house roastery + 'un gramo a la vez'",
+    strength: "Bear motif + two-bar theatre + named drinks (Ursagroni, Maracumango) + in-house roastery + 'un gramo a la vez'",
     weakness: "No website, unclaimed Google Business Profile, ~0 TripAdvisor reviews, no creator network yet",
     opportunity: "Own the bear-led craft niche in Miraflores before competitors copy the character angle",
     threat: "Distribution gap lets competitors capture search and review traffic that should be Ursa's",

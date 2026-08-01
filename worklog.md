@@ -1644,3 +1644,137 @@ Stage Summary:
 - Market view: deepened with census table, coverage methodology, real review data
 - Customer voice: evidence-based with sample sizes and source citations
 - All 25 views: 0 errors, 0 overflow, lint clean
+
+---
+
+## Task ID: DEEPEN-BRAND-VIRAL-CREATIVE
+**Agent:** Main orchestrator (deepening pass)
+**Goal:** Push the brand, viral, and creative reports past "too basic" — every claim tied to a verified observation, every prototype carrying reasoning + accessibility + cost.
+
+### Task 1 — brand-audit-view.tsx (deepened)
+- **Verified elements (8):** added `evidence: string` field to every VerifiedItem, each citing WHERE verified (Instagram @ursacoffeeperu, Rappi, TripAdvisor, Corner.inc, CoffeePass, mindtrip.ai) and WHAT was observed. Example: bear motif evidence notes that it appears in the IG avatar (observed 2026-08-01) but is NOT visible in Rappi menu imagery and does NOT appear on the TripAdvisor listing photo — conclusion explicitly states the bear is inconsistently applied across surfaces.
+- **Bear motif analysis:** replaced all generic claims with specific observations tied to surface-by-surface inspection. "What's distinctive" now cites the CENSUS-1 finding (0 of 14 in-catchment + 0 of 4 Lima benchmarks use an animal character — verified white space, not assumption).
+- **Art Nouveau components (4):** added `evidence: string` to each, citing IG Story covers (3 of 5 sampled use botanical curve), post templates, eyebrow color. Flagged that none are verified on physical signage — open question Q6 (owner asset pack) is the blocker.
+- **Three evolution levels:** added `risk: string` field to each level with specific failure modes. Level 1: documentation overhead without enforcement. Level 2: animation budget creep + skipping Level 1 first. Level 3: customer confusion in a 1km walk-up catchment + "seasonal creep" temptation.
+- **NEW Distinctive Assets section (Ehrenberg-Bass framework):** added `DISTINCTIVE_ASSETS` array with 4 candidate assets (bear character, Art Nouveau ornamentation, "Un gramo a la vez" tagline, brown-to-green palette). Each carries: uniqueness, prevalence, census evidence, verdict, and a "promote to distinctive asset only if" gate. Framework properly applied: distinctive assets build mental availability through consistent repetition on two axes — uniqueness × prevalence. Bear is flagged as a POTENTIAL asset (not confirmed) because prevalence is unverified — needs 90 days of consistent cross-surface application AND a customer-recall survey (n≥40) before promotion.
+
+### Task 2 — viral-view.tsx (deepened)
+- **Concept evidence (16 of 26 concepts):** added `CONCEPT_EVIDENCE` map keyed by concept ID, each entry explaining WHY this specific concept works for Ursa — not generic "behind the scenes works." Examples: C01 ties to the verified IG-bio tagline; C03 ties to the verified two-bar layout (IG bio); C04 ties to the Filtrado Lonya (verified drink, Rappi); C15 surfaces Corner.inc's "baristas double as coffee educators" observation; C24 is corrective content for TripAdvisor's 0-review state.
+- **Script product verification (10 of 10 scripts):** added `SCRIPT_VERIFICATION` map keyed by script ID with `refs: string[]` (verified Ursa products + details) and `status: "passed" | "flagged"`. All 10 scripts now verified to reference real Ursa products: Ursagroni, Maracumango, Filtrado Lonya, Utcubamba/Amazonas, Alcanfores 183, Parque Kennedy walk, 9pm close, S/.20/month Ursa Mañana, etc. Fixed S03 (Two-bar theatre) — end card now explicitly names Ursagroni + Maracumango Coldbrew. Fixed S07 (Roast curve) — now references Lonya micro-lot + roast date stamp. Each script accordion renders a green "Verified refs" badge and an inline list of verified product references inside the expanded content.
+- **Production feasibility (26 of 26 concepts):** added `PRODUCTION_FEASIBILITY` map keyed by concept ID with `mode: "phone-in-house" | "phone-with-edit" | "external-help"` and a `note: string` (shoot time, edit time, gear cost, external hire cost). Calendar cells now carry a colored feasibility badge (Smartphone / Camera / UserCheck icons). Added a 3-column breakdown callout below the calendar: 13 concepts at phone-in-house (S/. 0/shoot), 10 at phone+edit (S/. 30–110 one-time gear), 3 at external-help (S/. 400–1,200 per item). Added a hard feasibility rule: if the in-house cadence slips in week 1, the entire external-help tier is cut from the pilot.
+
+### Task 3 — creative-view.tsx (deepened)
+- **Extended PrototypeFrame component** with three new optional props: `reasoning`, `accessibility`, `cost`. Renders as a 3-column meta grid below each prototype with Lightbulb / Accessibility / Coins icons.
+- **All 14 prototypes** now carry the three structured notes:
+  - **reasoning** — WHY each design choice was made. Example: InstagramPostProto reasoning explains "Forest-deep gradient because no 1km-census competitor uses green as a primary brand color (CENSUS-1, 0 of 18 competitors) — green is ownable visual real estate." MenuProto reasoning: "Two-column layout because the two-bar architecture is Ursa's most verified operational claim (IG bio, Corner.inc) and the menu is the surface where it must be most explicit."
+  - **accessibility** — contrast ratio (WCAG AA/AAA), font size, screen reader notes. Examples: cream on forest gradient ≈ 8.4:1 (AAA); gold accent on dark-roast ≈ 4.6:1 (AA); aria-label requirements for bear marks; plain-text fallback requirements for email; alt text templates for social posts.
+  - **cost** — print cost (per-unit at local Miraflores printer with qty + paper weight), design time (one-time + per-reuse), implementation effort. Examples: MenuProto S/. 1.20/menu × 50 × 4 reprints = S/. 240/yr; BeanBagLabelProto S/. 0.80/sticker × 100 × 24 batches = S/. 1,920/yr (most expensive); TableSignProto S/. 0.60/card × 20 × 4 = S/. 48/yr (cheapest).
+- **Source data fixes:** S03 and S07 scripts in `ursa-data.ts` updated to reference real Ursa products (Ursagroni, Maracumango Coldbrew, Lonya micro-lot, Alcanfores 183) instead of generic placeholders.
+
+### Lint & quality
+- `bun run lint`: clean, 0 errors.
+- Fixed pre-existing lint errors in growth-view.tsx (unescaped `<` and `>` characters in JSX text content — `&lt;` / `&gt;`).
+- Fixed one curly-close-quote (") leaking into a JSX attribute string on InstagramPostProto's reasoning prop.
+- Dev server: 200 OK on `/`.
+
+### Files changed
+- `src/components/ursa/views/brand-audit-view.tsx` — evidence + bear analysis + Art Nouveau evidence + evolution risks + Ehrenberg-Bass distinctive assets section
+- `src/components/ursa/views/viral-view.tsx` — CONCEPT_EVIDENCE (16) + SCRIPT_VERIFICATION (10) + PRODUCTION_FEASIBILITY (26) maps and rendering
+- `src/components/ursa/views/creative-view.tsx` — extended PrototypeFrame with reasoning/accessibility/cost props; populated for all 14 prototypes
+- `src/lib/ursa-data.ts` — S03 and S07 scripts deepened to reference real Ursa products
+- `src/components/ursa/views/growth-view.tsx` — pre-existing lint errors fixed
+
+### Stage Summary
+- Every claim in the brand audit now ties to a specific observation on a specific surface (IG, Rappi, TripAdvisor, Corner.inc, etc.).
+- The bear is now correctly framed as a POTENTIAL distinctive asset (Ehrenberg-Bass) — unique (verified by census) but prevalence unverified, gated by a 90-day consistent-application + customer-recall survey condition.
+- Every content concept (where evidence exists) explains WHY it works for Ursa specifically, not why "behind the scenes" works generically.
+- Every script carries an explicit list of verified Ursa product references — no generic café content.
+- Every prototype carries reasoning tied to verified facts (no census competitor uses green; the two-bar layout is verified in IG bio; the bear is a distinctive-asset candidate), accessibility notes (WCAG ratios, aria-labels, screen reader), and operational cost (print + design + implementation, with annual cost projections).
+- Lint: clean. Dev: clean.
+
+---
+
+## Task ID: DEEPEN-GROWTH-MENU
+**Agent:** Main orchestrator
+**Task:** Deepen growth-view.tsx + menu-view.tsx with evidence/risk/test callouts; create recommendation-ledger.json (22-point structure × 10 recommendations). Addressed client complaint that recommendations were "too basic."
+
+### Context
+The client complained that recommendations lacked evidence, alternatives, risks, and operational reasoning. Two specific issues:
+1. Calling product names "portmanteaus" was mediocre — only Ursagroni and Maracumango use coined names; the other two (Filtrado Lonya, Durazno Clarificado) are descriptive/origin labels. (Data already fixed in ursa-data.ts.)
+2. Recommendations lacked evidence, alternatives, risks, and operational reasoning.
+
+### Work log
+
+**Task 1 — Deepened growth-view.tsx (5 sections):**
+- **Positioning statement**: Added 3-column Evidence/Risk/Test-method card grid after the positioning Callout. Evidence card cites CENSUS-1 findings (0/18 competitors use bear character; 0/18 use two-bar format; etc.). Risk card flags missing roast-log audit, brittle award-driven positioning, review-volume gap, unverified producer relationships. Test-method card lists 4 cheap experiments (30-day weighed-shot log, A/B test the positioning paragraph as IG bio, blind origin-story taste test, walk-by census re-verification).
+- **Personas**: Added census-grounding Callout after the personas grid verifying each persona's signals are tied to CENSUS-1 findings (Milenaria 6:30am opening, 8+ hotels within walking distance, NovaCircle peak-hours flag, Bisetti escuela + Terrua US$25 flight + Paulo Sierra Aeropress championship). Plus a 2-column "validation method / missing evidence" grid.
+- **Message architecture**: Extended Pillar type with `evidence` and `risk` fields. Added an Evidence + Risk footer under each of the 4 pillars (Visible Craft, Ownable Atmosphere, Honest Origin Stories, Patient Continuity) — each citing specific CENSUS-1 findings (Terrua/Punto Café for visible roastery; 0/18 census for bear + two-bar + coined names; Café Verde cautionary case for generic sustainability; Bisetti escuela vs Puku Puku microlotes for the continuity gap).
+- **Offer stack**: Added an "Operational feasibility — prep, overlap, training" Card next to "Why the stack works" and "A worked example." Per-layer breakdown of prep time (0 min for subscription flag; 30 sec for bean sample; 3-4 min for pour-over), ingredient overlap (100% for continuity/sample/side/core; 0% for story card), training time (10 min - 1 hour per layer), and risk per layer (POS member-flag support, card-drink mismatch, 50g below brewable yield, pastry sellout by 11am, pour-over bottleneck at peak).
+- **Channel coverage**: Added 3-column census evidence grid (Discover/Engage/Retain&Advocate). Each card lists what the census shows works: Neira 911 reviews + Puku Puku 658 TA prove review-volume lever; Milenaria same-street tourist demand; @rutadelcafeperuano reel 564 likes for content travel; Terrua US$25 + Cate 190 reviews validate tasting format; Rappi as table-stakes; WorkCafé cobrand cautionary tale; Puku Puku S/.49 retail bag benchmark; CoffeePass Perú listing; Neira active review-reply cadence. Plus a Risks Callout (no paid-social ROI baseline, hotel-concierge conversion assumed, WhatsApp consent under Peru Law 29733, Rappi 30% commission erodes margin) and a Test-method Callout (per-channel 30-day pilot + stop rules).
+
+**Task 2 — Deepened menu-view.tsx (3 fixes):**
+
+*Fix 2a: Removed "portmanteau" framing*
+- Replaced the "Portmanteau names — Ursagroni, Maracumango, Durazno Clarificado" line in the "ownable menu language" card with honest framing: "Two coined drink names — Ursagroni (Ursa+negroni) and Maracumango (maracuyá+mango). The other two named drinks (Filtrado Lonya, Durazno Clarificado) use origin / descriptive labels, not coined names. This is a naming convention, not a strategic system — do not over-extend it." Plus a new "Origin-labelling line" bullet highlighting Filtrado Lonya's provenance depth (Utcubamba, Amazonas, 1,750m, Bourbon lavado).
+- Fixed the lede paragraph that had a broken "(Ursagroni, Maracumango) (Ursagroni, Maracumango, Durazno Clarificado)" duplication. New lede honestly distinguishes the two coined names from the two descriptive labels.
+
+*Fix 2b: Added 4 new fields to each of 13 proposals (P-01 through P-13)*
+- Extended Proposal type with: `whyThisProduct` (WHY this specific product, not generic), `customerNeed` (what customer need it addresses + WHO), `evidence` (census/competitor evidence supporting it), `operationalTest` (operational validation step, separate from the market `testMethod`), `pricingRationale` (WHY this price range, anchored to census competitor pricing).
+- For each of 13 proposals, added all 5 new fields with content grounded in CENSUS-1 competitor data:
+  - P-01 Oso Negro: anchored against Ursagroni S/.18, Black Label S/.14, espresso S/.6, flat white S/.10.
+  - P-02 Media Luna: anchored against cortado S/.8, flat white S/.10, Estación 329 cortado band.
+  - P-03 Clarificado de Lúcuma: anchored against Durazno Clarificado S/.14, Maracumango S/.14, Terrua US$25 ceiling.
+  - P-04 Té de Oso: anchored against Durazno Clarificado S/.14, Cata flight S/.22+, Terrua US$25.
+  - P-05 Cosecha de Amazonas: anchored against Terrua US$25, Chemex-para-dos S/.22, Filtrado Lonya S/.14×3.
+  - P-06 Invierno Andino: anchored against V60 S/.12, Filtrado Lonya S/.14.
+  - P-07 Chocolate del Oso: anchored against Flat White S/.10, Mocha S/.12, Cata flight S/.22+, cookie S/.5.
+  - P-08 Infusión de Muña: anchored against espresso S/.6.
+  - P-09 Croissant de Lúcuma: anchored against financier S/.6, empanada S/.12, El Pan de la Chola bakery prices.
+  - P-10 Alfajor de Café: anchored against cookie S/.5, financier S/.6, empanada S/.12.
+  - P-11 Gramo del Mes: anchored against Puku Puku S/.49 retail bag.
+  - P-12 Cata de Tres Orígenes: anchored against Terrua US$25 (~S/.93), Chemex-para-dos S/.22, pour-over S/.12-14 ×3.
+  - P-13 Tuesta tu propio grano: anchored against Terrua US$25 flight, Lima specialist-workshop S/.80-150 band.
+- Updated the rendering of each proposal accordion card: now shows 10 visible criterion rows (up from 6) — Why this specific product, Customer need, Census evidence, Brand fit, Taste concept, Preparation time, Margin potential, Operational test, Market test method, Stop/revision rule. Added a "Why this price range (census-anchored)" footer under the pricing scenarios with the pricingRationale text.
+- Updated section meta to "13 proposals · 7 categories · 16-criteria framework + 4 census-grounding rows" and the StatBlock to "16 + 4" criteria per proposal.
+- Added 4 new lucide icons: Target, Users, Search, ClipboardCheck.
+
+**Task 3 — Created /research/recommendation-ledger.json:**
+- 10 recommendations, each with the full 22-point structure:
+  1. Diagnosed problem/opportunity
+  2. Client-specific evidence
+  3. Local customer/competitor evidence
+  4. Relevant theory/research
+  5. Expected mechanism
+  6. Strongest supporting case
+  7. Strongest contrary case
+  8. Alternatives considered
+  9. Why preferred
+  10. Operational requirements
+  11. Financial implications
+  12. Risks
+  13. Ethical/accessibility considerations
+  14. Dependencies
+  15. Confidence level
+  16. Adopt/test/defer/reject
+  17. Minimum viable experiment
+  18. Primary success metric
+  19. Guardrail metrics
+  20. Success/stopping/revision rules
+  21. Responsible owner
+  22. Implementation timing
+- The 10 recommendations: REC-01 GBP optimization (ADOPT), REC-02 Ursa Mañana subscription (TEST), REC-03 Cata de Tres Orígenes flight (TEST), REC-04 Saturday 7am hours (TEST), REC-05 Art Nouveau story cards (ADOPT), REC-06 Bear paw trail + concierge cards (TEST), REC-07 Gramo del Mes subscription (TEST), REC-08 Monthly cupping nights (TEST), REC-09 Lonya multi-process flight (TEST), REC-10 Rappi delivery QC protocol (ADOPT).
+- Each recommendation cites specific CENSUS-1 findings (Neira 911 reviews, Terrua US$25 flight, Puku Puku S/.49 retail bag, Milenaria 6:30am opening, etc.) and relevant theory (Hormozi, Sutherland, Ehrenberg-Bass, Pine & Gilmore, Kahneman, Cialdini, Sharp).
+- Summary section: 3 ADOPT, 7 TEST, 0 DEFER, 0 REJECT. Total Year-1 investment estimate: S/. 9,800. Sequencing principle: adopt-first recommendations ship in weeks 1-4; test recommendations sequenced by dependency (story cards before flights; subscriptions before cupping nights).
+- Evidence limitation statement: explicitly flags that no recommendations rest on Ursa-internal POS data, customer surveys, or roast logs — first action of any pilot is to establish the Ursa-specific baseline.
+
+### Verification
+- Lint: clean (`bun run lint` → 0 errors, 0 warnings).
+- Dev server: GET / 200 in 89ms.
+- JSON validation: recommendation-ledger.json is valid JSON, 10 recommendations × 22 fields each.
+- No new test files created (per instructions).
+- All evidence citations trace back to CENSUS-1 (18 competitors) or Ursa's own public-footprint data (Instagram, Rappi, GBP, editorial).
+
+### Stage Summary
+- growth-view.tsx: 5 sections deepened with evidence/risk/test callouts. Pillar type extended with `evidence` and `risk` fields. New 3-column grids for positioning evidence, persona grounding, and channel census evidence. Operational feasibility card added to offer stack. ~250 lines added.
+- menu-view.tsx: Portmanteau framing removed (in lede + ownable-menu-language card). Proposal type extended with 5 new fields (whyThisProduct, customerNeed, evidence, operationalTest, pricingRationale). All 13 proposals enriched with census-grounded content. Rendering updated to show 10 visible criterion rows (up from 6) + census-anchored pricing rationale footer. ~400 lines added.
+- recommendation-ledger.json: New file, 10 recommendations × 22-point structure. Ranked by confidence × impact × ease. 3 ADOPT (foundational, low-cost), 7 TEST (with MVP specs and stop rules).
