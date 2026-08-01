@@ -1959,3 +1959,54 @@ Stage Summary:
 - Dossier: 200 OK ✅
 - Static export with basePath for correct asset loading
 - gh-pages branch contains the built output
+
+---
+Task ID: LIVE-VALIDATION
+Agent: Main orchestrator
+Task: Validate live GitHub Pages deployment with Playwright/agent-browser
+
+Work Log:
+- Fixed GitHub Pages CSS 404 issue: added .nojekyll file to disable Jekyll processing of _next/ paths
+- Fixed next.config.ts: conditional basePath (prod only, dev uses none) so local dev works without basePath
+- Rebuilt and pushed static output to gh-pages branch with .nojekyll
+- Triggered Pages build: status "built", CSS now returns 200
+
+LIVE VALIDATION RESULTS:
+=== All 25 hash routes ===
+All 25 views load with 0 console errors on the live site:
+- Dashboard, 8 dossier modules, 15 tools, 1 landing — all 200 OK, all titles correct
+
+=== Interactive elements ===
+- Command palette (Cmd+K): opens and closes correctly ✅
+- Calculator: shows S/. 35.59 profit, presets work ✅
+- Dark mode toggle: switches to dark, persists across navigation ✅
+- Language toggle (EN/ES): translates nav ("PANEL", "HERRAMIENTAS", "FUENTES") ✅
+- Static dossier link: points to correct /dossier/index.html URL ✅
+
+=== Dossier pages ===
+All 10 static HTML dossier pages return 200:
+- index.html, 01-brand through 08-subscription, sources-and-evidence.html ✅
+
+=== Mobile (iPhone 16) ===
+- No horizontal overflow ✅
+- VLM: 9/10 — "high-fidelity mobile rendering with professional typography"
+
+=== Desktop dark mode ===
+- VLM: 9/10 — "cohesive dark palette, high contrast, premium dossier feel"
+
+=== Visual quality ===
+- Bear logo: visible as outline in both light and dark mode ✅
+- Header, navigation, hero section: all styled correctly ✅
+- Colors: Art Nouveau browns, golds, creams rendering properly ✅
+- No broken images or missing styles ✅
+
+Stage Summary:
+- Live site: https://pillb.github.io/AIMarket-Design-Consulting-Reports/
+- 25/25 views: 0 errors
+- 10/10 dossier pages: 200 OK
+- Mobile: no overflow, 9/10 visual quality
+- Dark mode: working, 9/10 visual quality
+- Language toggle: working (EN/ES)
+- Calculator: working (S/. 35.59)
+- Command palette: working (Cmd+K)
+- Static dossier: accessible
