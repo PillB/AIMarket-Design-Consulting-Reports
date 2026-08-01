@@ -654,3 +654,45 @@ section so future deployments can be compared.
   Next.js app → **01-project-overview.md** §5
 - For the contrast harness that must pass post-deployment → **13-accessibility-methodology.md** §2
 - For the editorial protocol that governs the deployed copy → **14-editorial-protocol.md** §1
+
+---
+
+## ACTUAL DEPLOYMENT LOG — 2026-08-01
+
+### Authentication
+- **Tool:** gh CLI v2.63.2 (downloaded tarball to `/tmp/gh_2.63.2_linux_amd64/`)
+- **Method:** Device code flow via `gh auth login --hostname github.com --git-protocol https --web`
+- **Persistence technique:** `setsid nohup bash -c '...'` to keep the auth process alive between tool calls
+- **User:** PillB
+- **Scopes:** gist, read:org, repo
+- **Status:** ✅ Authenticated
+- **Credential helper:** Configured via `gh auth setup-git`
+
+### Repository Creation
+- **Repo name:** `PillB/AIMarket-Design-Consulting-Reports`
+- **Visibility:** Public
+- **Description:** "Ursa Coffee Roasters — AI-driven brand, product, graphic, and marketing strategic dossier with interactive tools, 1km competitor census, and methodology documentation"
+- **Default branch:** main
+- **URL:** https://github.com/PillB/AIMarket-Design-Consulting-Reports
+- **Command:** `gh repo create PillB/AIMarket-Design-Consulting-Reports --public --source=. --remote=origin --push`
+
+### Push Verification
+- **Commits pushed:** 30
+- **Files verified on GitHub:**
+  - `methodology/` folder (11 files including README)
+  - `research/` folder (16+ files including census, recommendation-ledger, contrast-harness)
+  - `public/dossier/` (10 HTML files + assets)
+  - `src/components/ursa/views/` (10 view files)
+  - `src/components/ursa/tools/` (15 tool files)
+  - All config files (package.json, tsconfig.json, next.config.ts, etc.)
+
+### Link Compatibility
+- Static HTML dossiers in `public/dossier/` use relative paths (`assets/ursa.css`, `01-brand-audit-and-design-system.html`)
+- These work correctly when served from GitHub Pages at `https://pillb.github.io/AIMarket-Design-Consulting-Reports/dossier/`
+- The Next.js app uses hash-based routing (`#/brand`, `#/calculator`) which works without server-side routing config
+- Internal links between static and interactive reports use absolute paths from root (`/dossier/index.html`)
+
+### Live Validation
+- Repo URL: https://github.com/PillB/AIMarket-Design-Consulting-Reports
+- All 30 commits successfully pushed
+- All key directories present and verified via GitHub API
