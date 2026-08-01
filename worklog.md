@@ -1319,3 +1319,37 @@ Stage Summary:
 - Contrast harness: research/contrast-harness.js — reusable, handles oklab, gradients, alpha
 - Contrast: 0 failures across all 25 views (was 6 on dashboard, 8 on market, 7 on scorecard, 4 on calculator, 2 on growth, 2 on sources, 1 on loyalty)
 - Lint: clean
+
+---
+Task ID: BEAR-LOGO-CONTRAST-FIX
+Agent: Main orchestrator
+Task: Fix bear logo dark mode invisibility + darken all text tokens to WCAG AA
+
+Work Log:
+- Root cause of bear logo "unreadable" complaint: In dark mode, the BearMark used
+  `var(--color-ursa-cream)` for cutout polygons (eyes, muzzle, inner ears). In dark
+  mode, `--color-ursa-cream` is overridden to `#2D2417` (dark). This made:
+  - Bear fill (currentColor = #3B2417 dark-roast) on badge (#2D2417) = 1.05:1 — INVISIBLE
+  - Cutouts (#2D2417) on bear fill (#3B2417) = 1.05:1 — INVISIBLE
+  The entire bear became an invisible dark-on-dark blob in dark mode.
+
+- Fix: Replaced ALL CSS variable references in BearMark with FIXED hex colors:
+  - BEAR_FILL = #4A7C59 (mid-green that passes 3:1 on BOTH light cream #F4EBD9
+    [4.11:1] AND dark cream #2D2417 [3.14:1])
+  - CUTOUT = #FFFCF6 (foam white, 4.75:1 on the green fill)
+  - DETAIL = #1A140C (ink, 17.84:1 on white muzzle)
+  Bear now renders identically and readably in both light and dark mode.
+
+- VLM confirmed: "bear shape is clearly visible, eyes/nose/muzzle are distinct"
+  in both light mode and dark mode.
+
+- Additional contrast fixes (remaining near-miss failures):
+  - terracotta-text: darkened from #984A2E (4.47:1 on muted bg) to #783822 (6.28:1)
+  - gold-text: already darkened to #706228 (4.79:1 on muted bg) in prior round
+  - EvidenceTag unverified: changed from text-ursa-terracotta (fill) to text-ursa-terracotta-text
+  - Pill default/stop: changed from text-ursa-medium-roast to text-ursa-forest-deep
+  - Callout title: changed from text-ursa-dark-roast to text-ursa-forest-deep
+
+- Result: 0 contrast failures across all 25 views (verified via runtime harness).
+  Bear logo readable in both light and dark mode (VLM-confirmed).
+- Lint: clean.
