@@ -448,13 +448,21 @@ export function GrowthView() {
       </ViewSection>
 
       {/* Hormozi adaptation */}
-      <ViewSection badge="Framework · Hormozi" title="Hormozi adapted — with explicit 'do not' lists" meta="Value Equation, Offers, Lead Magnets, Retention, More/Better/New">
+      <ViewSection badge="Framework · Hormozi" title="Hormozi adapted — with explicit 'do not' lists" meta="Suggestive framework · not café-specific empirical evidence">
+        <Callout tone="warn" title="Framework grade: suggestive, not proven">
+          <p className="m-0 text-[0.88rem]">
+            Hormozi&apos;s Value Equation is a popular entrepreneurial framework with anecdotal support but no peer-reviewed
+            empirical validation in café/hospitality contexts. A 2026 academic paper classifies it among &quot;bro frameworks.&quot;
+            Treat these adaptations as testable hypotheses, not proven principles. The stronger scientific frame is
+            Ehrenberg-Bass (How Brands Grow) — distinctive assets + mental/physical availability.
+          </p>
+        </Callout>
         <Grid cols={2}>
           {HORMOZI_PRINCIPLES.map((h) => (
             <Card key={h.principle} className="flex flex-col">
               <div className="flex items-baseline justify-between gap-3 mb-2">
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0">{h.principle}</h3>
-                <EvidenceTag status="verified" />
+                <EvidenceTag status="partial" />
               </div>
               <p className="text-[0.9rem] leading-relaxed text-foreground/85 mb-3">{h.adapted}</p>
               <div className="mt-auto border-t border-ursa-line-soft pt-3">
@@ -469,13 +477,23 @@ export function GrowthView() {
       </ViewSection>
 
       {/* Sutherland adaptation */}
-      <ViewSection badge="Framework · Sutherland" title="Sutherland adapted — perceived value is the lever" meta="Cheap, irrational, testable">
+      <ViewSection badge="Framework · Sutherland" title="Sutherland adapted — perceived value is the lever" meta="Moderate evidence · largely anecdotal case studies · test each lever">
+        <Callout tone="gold" title="Framework grade: moderate, testable">
+          <p className="m-0 text-[0.88rem]">
+            Sutherland&apos;s perceived-value principles draw on behavioral economics (Kahneman, Thaler) but are largely
+            illustrative case studies, not controlled experiments in hospitality. Each adaptation below should be
+            treated as a testable hypothesis with a measurement plan, not a proven tactic.
+          </p>
+        </Callout>
         <Grid cols={3}>
           {SUTHERLAND_PRINCIPLES.map((s) => (
             <Card key={s.principle}>
-              <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-1.5 leading-snug">
-                {s.principle}
-              </h3>
+              <div className="flex items-baseline justify-between gap-2 mb-1.5">
+                <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 leading-snug">
+                  {s.principle}
+                </h3>
+                <EvidenceTag status="partial" />
+              </div>
               <p className="text-[0.85rem] leading-relaxed text-foreground/85 m-0">{s.adapted}</p>
               {s.caveat && (
                 <p className="mt-3 pt-3 border-t border-ursa-line-soft font-label text-[0.62rem] tracking-[0.12em] uppercase text-ursa-gold-text m-0">
