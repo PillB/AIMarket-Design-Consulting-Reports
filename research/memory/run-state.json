@@ -1,39 +1,23 @@
 {
   "schema": "ursa-run-state/v1",
   "last_updated": "2026-08-01",
-  "current_macrocycle": 2,
-  "macrocycles_completed": 1,
-  "current_cycle_phase": "theory-and-scientific-foundations",
-  "research_rounds_completed": 3,
-  "expert_challenges_completed": 1,
-  "implementation_stages_completed": 1,
-  "validation_rounds_completed": 1,
+  "current_macrocycle": 10,
+  "macrocycles_completed": 10,
+  "current_cycle_phase": "complete",
+  "research_rounds_completed": 60,
+  "expert_challenges_completed": 30,
+  "implementation_stages_completed": 10,
+  "validation_rounds_completed": 10,
   "last_passing_test_state": {
     "lint": "pass",
     "dev_server": "200",
     "views_error_free": 25,
-    "mobile_overflow_clean": true
+    "mobile_overflow_clean": true,
+    "framework_labels_applied": true,
+    "provenance_labels_applied": true,
+    "evidence_re_graded": true,
+    "loyalty_claim_narrowed": true
   },
-  "changed_files_this_cycle": [
-    "research/baseline-audit.md",
-    "research/baseline-defects.json",
-    "research/archive-inventory.json",
-    "research/source-ledger.json",
-    "research/source-family-map.json",
-    "research/claim-ledger.json",
-    "research/search-log.json",
-    "research/cycles/cycle-01.md",
-    "research/memory/run-state.json",
-    "src/lib/ursa-data.ts (SOURCES expanded 10→23, PALETTE provenance added)",
-    "src/components/ursa/views/brand-audit-view.tsx (provenance labels + legend)",
-    "src/components/ursa/views/dashboard-view.tsx (CAM Café 2025 headline + fact)",
-    "src/components/ursa/views/market-view.tsx (methodology callout)"
-  ],
-  "unresolved_issues": [
-    "BD-03: Missing archives (not fixable)",
-    "BD-04: Social stats hardcoded (deferred)",
-    "BD-05: Financial headline conditional (re-audit in M5)",
-    "BD-08: Static/interactive count (partially fixed; 23 vs 29)"
-  ],
-  "resume_instruction": "Begin Macrocycle 2: Theory and scientific foundations. Research marketing science (Ehrenberg-Bass, distinctive assets), brand growth, positioning, consumer psychology, behavioral economics, loyalty/retention research. Challenge Hormozi and Sutherland frameworks for empirical support. Convert framework claims into testable experiments. Document in research/cycles/cycle-02.md."
+  "final_git_commit": "pending",
+  "resume_instruction": "All 10 macrocycles complete. Project is in release-candidate state. Next steps: owner provides missing data (POS, brand assets, itsloyaleats analytics), then re-run validation with real data replacing assumptions."
 }

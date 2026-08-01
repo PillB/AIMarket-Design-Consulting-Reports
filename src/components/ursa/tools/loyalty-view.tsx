@@ -503,13 +503,14 @@ export function LoyaltyView() {
             );
           })}
         </Grid>
-        <Callout tone="gold" title="The 82% number, in context">
-          The Kivetz–Urminsky–Zheng 2006 study found that customers given a 2-stamp head start
-          on a 10-stamp card were ~82% more likely to complete it than customers starting at 0.
-          The mechanism is the same on an 8-stamp card — and arguably stronger, because the
-          goal is closer to begin with. Endowing 1–2 stamps costs Ursa ~S/. 3–6 in marginal
-          coffee cost per new member; the lift in completion rate typically returns many
-          multiples of that in additional visits.
+        <Callout tone="warn" title="The 82% number — read carefully">
+          The Kivetz–Urminsky–Zheng (2006) study found ~82% higher completion when customers
+          were given a 2-stamp head start on a <strong>10-stamp card</strong>. Ursa uses an
+          <strong> 8-visit card</strong>, and the effect size on 8-visit cards has not been
+          independently validated. The mechanism (illusory progress → goal gradient) is
+          robust, but the specific lift figure should be treated as indicative, not predictive.
+          <strong>Test it:</strong> A/B new members with 0 vs 1 endowed stamp over 90 days;
+          track completion rate. Stop if the lift is &lt; 10%.
         </Callout>
       </ViewSection>
 
