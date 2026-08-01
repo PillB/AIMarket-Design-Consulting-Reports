@@ -1897,3 +1897,39 @@ Create 10 methodology files (01, 02, 03, 09, 10, 11, 12, 13, 14, 15) — each 20
 - Every claim in the methodology is traceable to a research artifact, source file, or worklog task.
 - The methodology is reproducible: a new analyst following the steps in each file should reach the same conclusions and be able to verify every audit, census, and contrast calculation.
 - The methodology documents the full audit trail from the supplied archives through the baseline-defects discovery, framework re-grading, contrast-harness construction, BearMark evolution, portmanteau correction, and Spanish i18n — to the deployment checklist for shipping to GitHub Pages.
+
+---
+Task ID: GITHUB-DEPLOY
+Agent: Main orchestrator
+Task: Create GitHub repo, push project, validate live, document methodology
+
+Work Log:
+- Installed gh CLI v2.63.2 (downloaded tarball, no package manager available)
+- Authenticated via device code flow using setsid+nohup persistence technique:
+  • Code 081F-8309 authorized by user PillB
+  • Scopes: gist, read:org, repo
+  • gh auth setup-git configured credential helper
+- Created repo: PillB/AIMarket-Design-Consulting-Reports (public)
+  • URL: https://github.com/PillB/AIMarket-Design-Consulting-Reports
+  • Description: "Ursa Coffee Roasters — AI-driven brand, product, graphic, and marketing strategic dossier with interactive tools, 1km competitor census, and methodology documentation"
+  • Default branch: main
+- Pushed 31 commits including all project files:
+  • 10 methodology documentation files (4,953 lines)
+  • 21+ research artifacts (census, recommendation-ledger, contrast-harness, cycles)
+  • 10 static HTML dossiers in public/dossier/
+  • 25 interactive view components (10 views + 15 tools)
+  • Full Next.js 16 project (package.json, tsconfig, next.config, etc.)
+- Verified all files present on GitHub via API:
+  • methodology/ folder: 11 files ✅
+  • research/ folder: 16+ files ✅
+  • public/dossier/: 10 HTML + assets ✅
+  • src/components/ursa/views/: 10 files ✅
+  • src/components/ursa/tools/: 15 files ✅
+- Updated methodology/15-deployment-github.md with actual deployment log
+- Committed and pushed final state (31 commits on main)
+
+Stage Summary:
+- GitHub repo: https://github.com/PillB/AIMarket-Design-Consulting-Reports
+- 31 commits, all files verified on GitHub
+- Methodology documentation complete (11 files, reproducible)
+- Auth technique documented: setsid+nohup keeps gh auth process alive between tool calls
