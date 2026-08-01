@@ -100,7 +100,7 @@ export function LandingView() {
               </button>
               <button
                 onClick={() => navigate("calculator")}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep font-label text-[0.78rem] tracking-[0.12em] uppercase hover:bg-ursa-forest-deep hover:text-ursa-cream transition"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep font-label text-[0.78rem] tracking-[0.12em] uppercase hover:bg-ursa-dark-roast hover:text-ursa-cream transition"
               >
                 <Calculator size={16} /> Ver las matemáticas
               </button>
@@ -109,7 +109,7 @@ export function LandingView() {
 
           {/* Mock membership card */}
           <div className="lg:sticky lg:top-24">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-ursa-forest-deep) 0%, var(--color-ursa-dark-roast) 100%)" }}>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ background: "linear-gradient(135deg, var(--color-ursa-medium-roast) 0%, var(--color-ursa-dark-roast) 100%)" }}>
               {/* Art Nouveau texture */}
               <div
                 className="absolute inset-0 opacity-30 pointer-events-none"
@@ -189,7 +189,7 @@ export function LandingView() {
             <Card key={b.title} className="text-center flex flex-col items-center">
               <span className={cn(
                 "w-14 h-14 rounded-full grid place-items-center mb-3",
-                b.tone === "forest" && "bg-ursa-forest-deep/12 text-ursa-forest-deep",
+                b.tone === "forest" && "bg-ursa-dark-roast/12 text-ursa-forest-deep",
                 b.tone === "gold" && "bg-ursa-gold/18 text-ursa-gold-text",
                 b.tone === "terracotta" && "bg-ursa-terracotta/12 text-ursa-terracotta-text"
               )}>
@@ -292,7 +292,7 @@ export function LandingView() {
               <p className="text-[0.88rem] text-muted-foreground m-0 leading-relaxed pl-6">{f.a}</p>
             </Card>
           ))}
-          <Card className="p-5 bg-ursa-forest-deep/6 border-ursa-forest-deep/20">
+          <Card className="p-5 bg-ursa-dark-roast/6 border-ursa-forest-deep/20">
             <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-start gap-2">
               <span className="text-ursa-forest-deep font-label text-[0.7rem] tracking-[0.12em] uppercase shrink-0 mt-1">Q</span>
               ¿Y si no me gusta?

@@ -48,13 +48,43 @@ type Competitor = (typeof COMPETITORS)[number];
 
 /** Ursa's own profile for side-by-side comparison. */
 const URSA_PROFILE: Competitor & { isUrsa?: boolean } = {
+  id: "URSA",
   name: "Ursa Coffee Roasters",
   area: "Miraflores (single site)",
-  strength: "Bear + Art Nouveau craft; in-house roastery; two bars; named-drink portmanteaus",
-  weakness: "No website yet; single-site; smaller retail reach than chains",
+  address: "Alcanfores 183, Miraflores, Lima 15074",
+  street: "Alcanfores",
+  distanceMeters: 0,
+  distanceBand: "same-street",
+  type: "Independent specialty (single-site roaster)",
+  subtype: "Specialty roastery + two-bar theatre",
+  googleRating: 4.5,
+  googleReviewCount: 56,
+  tripAdvisorRating: null,
+  tripAdvisorReviewCount: 0,
+  status: "operating",
+  positioning:
+    "Single-site specialty roaster on Alcanfores. Bear-led brand, Art Nouveau craft language, two-bar theatre (espresso + coldbrew), named-drink portmanteaus (Ursagroni, Maracumango), 'Un gramo a la vez' ethos. CAM Café 2025 top-5.",
+  strength: "Bear + Art Nouveau craft; in-house roastery; two bars; named-drink portmanteaus; Aeropress champion (Paulo Sierra); CAM Café 2025 top-5",
+  weakness: "No website yet; single-site; smaller retail reach than chains; TripAdvisor footprint near-zero",
   ursaImplication: "Baseline — protect the bear, close the website gap, scale craft without diluting identity.",
   hasWebsite: false,
   isUrsa: true,
+  reviewThemes: {
+    praise: [
+      "best espresso in Lima (@flying__espresso, Instagram)",
+      "Aeropress champion — Paulo Sierra (@rutadelcafeperuano)",
+      "CAM Café 2025 top-5",
+      "cozy and craft-led (Corner.inc editorial)",
+      "high-quality, specialty; friendly staff (NovaCircle)",
+    ],
+    complaints: [
+      "limited seating at peak (NovaCircle)",
+      "prices slightly higher than average (NovaCircle)",
+      "TripAdvisor footprint ~0 reviews",
+    ],
+    sampleSizeNote:
+      "Ursa-specific reviews: 8 real mentions found across Instagram + editorial. Google aggregate 4.5/5 (56 reviews via addagio.io). Sample small but non-zero — see CUSTOMER_REVIEWS in ursa-data.ts.",
+  },
 };
 
 /** Combined list with Ursa prepended for the table & matrix. */
@@ -73,31 +103,51 @@ type SortDir = "asc" | "desc";
 
 /** Head-to-head verdict per competitor (qualitative assessment from the implication text). */
 const VERDICT: Record<string, "lead" | "match" | "trail"> = {
-  "Punto Café": "lead",
-  "Neira Café Lab": "trail",
-  "Bisetti": "match",
-  "Puku Puku": "trail",
-  "Terrua": "match",
-  "True Artisan": "lead",
-  "Café Verde": "lead",
-  "Puku Puku / Urqu / Origen / Cate / Arabica": "lead",
-  "Ciclos": "lead",
-  "RAIZ": "match",
+  // Same-street & in-catchment direct competitors
+  "Milenaria Cafe": "match", // breakfast-led, not specialty — orthogonal, not leading
+  "Coffee Notes": "lead", // uncertain status, near-zero online presence — Ursa's GBP wins
+  "Estación 329": "match", // cozy+kind+quality; Ursa differentiates via roastery, parity on craft
+  "Neira Café Lab": "trail", // scale + champion founder + 911 reviews — Ursa trails on reach
+  "Arabica Espresso Bar": "lead", // stand-up speed niche Ursa does not want — Ursa leads on lingering craft
+  "Punto Café": "lead", // direct head-to-head on awards; Ursa differentiates via bear + two-bar
+  "Terrua": "match", // premium tasting parity; Ursa counters with tiered model
+  "Cate Tasting Room": "lead", // chocolate crossover dilutes pure-coffee; Ursa leads on focus
+  "Café Verde": "lead", // possibly closed; generic sustainability messaging; Ursa leads on specificity
+  "El Pan de la Chola": "lead", // bakery-primary; not a coffee competitor — Ursa leads on coffee focus
+  "Puku Puku": "trail", // multi-location scale + retail reach; Ursa trails on scale
+  "True Artisan Cafe": "lead", // generic 'artisan' word; Ursa leads on ownable identity
+  "OK Café": "lead", // no online presence; Ursa leads on discoverability
+  "Amauta Coffee": "lead", // 4.1★ lowest rating; Ursa leads on execution
+  // Lima-wide benchmark competitors (out of 1km catchment)
+  "Bisetti": "match", // school-positioning parity; Ursa makes education warmer
+  "Ciclos": "lead", // bike niche; Ursa leads on broad-coffee focus
+  "RAIZ": "match", // farm-to-cup parity; Ursa counters with retail theatre
+  "Monótono Coffee": "trail", // 1st place CAM 2025; Ursa trails on award recognition
 };
 
 /** Matrix positions (scale 0–100, craft 0–100). Scale = retail reach; Craft = distinctiveness of identity. */
 const MATRIX_POSITIONS: Record<string, { scale: number; craft: number }> = {
   "Ursa Coffee Roasters": { scale: 12, craft: 95 },
-  "Punto Café": { scale: 38, craft: 55 },
+  // Same-street & in-catchment direct competitors
+  "Milenaria Cafe": { scale: 20, craft: 40 },
+  "Coffee Notes": { scale: 8, craft: 35 },
+  "Estación 329": { scale: 25, craft: 65 },
   "Neira Café Lab": { scale: 82, craft: 48 },
-  "Bisetti": { scale: 28, craft: 80 },
-  "Puku Puku": { scale: 75, craft: 50 },
+  "Arabica Espresso Bar": { scale: 18, craft: 45 },
+  "Punto Café": { scale: 38, craft: 55 },
   "Terrua": { scale: 30, craft: 85 },
-  "True Artisan": { scale: 22, craft: 52 },
-  "Café Verde": { scale: 30, craft: 45 },
-  "Puku Puku / Urqu / Origen / Cate / Arabica": { scale: 55, craft: 50 },
+  "Cate Tasting Room": { scale: 28, craft: 60 },
+  "Café Verde": { scale: 22, craft: 38 },
+  "El Pan de la Chola": { scale: 45, craft: 50 },
+  "Puku Puku": { scale: 75, craft: 50 },
+  "True Artisan Cafe": { scale: 22, craft: 52 },
+  "OK Café": { scale: 10, craft: 40 },
+  "Amauta Coffee": { scale: 15, craft: 42 },
+  // Lima-wide benchmark competitors
+  "Bisetti": { scale: 28, craft: 80 },
   "Ciclos": { scale: 18, craft: 48 },
   "RAIZ": { scale: 22, craft: 70 },
+  "Monótono Coffee": { scale: 35, craft: 88 },
 };
 
 /** Verdict label & styling. */
@@ -106,7 +156,7 @@ const VERDICT_META = {
     label: "Ursa leads",
     pill: "ok" as const,
     text: "text-ursa-forest-deep",
-    bg: "bg-ursa-forest-deep/8",
+    bg: "bg-ursa-dark-roast/8",
     border: "border-ursa-forest-deep/25",
     dot: "bg-ursa-forest-deep",
     desc: "Ursa holds an advantage on this axis.",
@@ -655,7 +705,7 @@ export function CompetitorsView() {
         <div className="flex flex-wrap items-center gap-3 mt-6">
           <button
             onClick={() => navigate("market")}
-            className="inline-flex items-center gap-2 bg-ursa-forest-deep text-ursa-cream font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-dark-roast transition"
+            className="inline-flex items-center gap-2 bg-ursa-dark-roast text-ursa-cream font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-espresso transition"
           >
             <Compass size={14} /> Open Module 02 (full analysis)
           </button>

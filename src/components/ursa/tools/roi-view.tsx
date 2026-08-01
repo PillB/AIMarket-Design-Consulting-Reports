@@ -543,7 +543,7 @@ export function RoiView() {
         <div className="grid md:grid-cols-2 gap-6">
           <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-ursa-forest-deep/15 border border-ursa-forest-deep flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-full bg-ursa-dark-roast/15 border border-ursa-forest-deep flex items-center justify-center shrink-0">
                 <Wallet size={18} className="text-ursa-forest-deep" />
               </div>
               <div>
@@ -556,7 +556,7 @@ export function RoiView() {
                 </p>
                 <button
                   onClick={() => navigate("budget")}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
                 >
                   <Wallet size={14} /> Open Budget Allocator <ArrowRight size={14} />
                 </button>

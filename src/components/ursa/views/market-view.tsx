@@ -17,8 +17,18 @@ import {
   REVIEW_AGGREGATE_RATINGS,
   REVIEW_RESEARCH_LOG,
   URSA_FACTS,
+  CENSUS_META,
 } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/components/ui/table";
+import { cn } from "@/lib/utils";
 import {
   Compass,
   Globe,
@@ -42,7 +52,115 @@ import {
   ExternalLink,
   Search,
   Info,
+  MapPinned,
+  CheckCircle2,
+  CircleSlash,
+  Ruler,
+  Building2,
+  Network,
 } from "lucide-react";
+
+type Competitor = (typeof COMPETITORS)[number];
+
+/** Proximity tone for a competitor's distance band. */
+const PROXIMITY_META: Record<
+  string,
+  { label: string; tone: "red" | "gold" | "green" | "muted"; description: string }
+> = {
+  "same-street": { label: "Same street", tone: "red", description: "Critical proximity — same street as Ursa, <250m walk" },
+  nearby: { label: "Nearby", tone: "gold", description: "Within ~500m walk of Ursa" },
+  "within-1km": { label: "Within 1km", tone: "green", description: "Within 1km walking radius of Ursa" },
+  "out-of-area-lima-wide": { label: "Benchmark", tone: "muted", description: "Lima-wide benchmark outside 1km catchment" },
+};
+
+const PROXIMITY_TONE_CLASSES: Record<"red" | "gold" | "green" | "muted", { badge: string; dot: string; row: string }> = {
+  red: {
+    badge: "bg-ursa-terracotta/12 text-ursa-terracotta-text border-ursa-terracotta/35",
+    dot: "bg-ursa-terracotta",
+    row: "border-l-2 border-l-ursa-terracotta/60",
+  },
+  gold: {
+    badge: "bg-ursa-gold/15 text-ursa-medium-roast border-ursa-gold/40",
+    dot: "bg-ursa-gold",
+    row: "border-l-2 border-l-ursa-gold/60",
+  },
+  green: {
+    badge: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    dot: "bg-ursa-forest-deep",
+    row: "border-l-2 border-l-ursa-forest-deep/50",
+  },
+  muted: {
+    badge: "bg-muted text-muted-foreground border-border",
+    dot: "bg-muted-foreground/60",
+    row: "border-l-2 border-l-border opacity-90",
+  },
+};
+
+/** Compact proximity badge. */
+function ProximityBadge({ band }: { band: string }) {
+  const meta = PROXIMITY_META[band] ?? PROXIMITY_META["within-1km"];
+  const cls = PROXIMITY_TONE_CLASSES[meta.tone];
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-1 font-label text-[0.58rem] tracking-[0.08em] uppercase px-1.5 py-0.5 rounded border",
+        cls.badge
+      )}
+      title={meta.description}
+    >
+      <span className={cn("w-1 h-1 rounded-full", cls.dot)} />
+      {meta.label}
+    </span>
+  );
+}
+
+/** Status pill — operating / uncertain. */
+function StatusPill({ status }: { status: string }) {
+  if (status === "uncertain") {
+    return (
+      <span className="inline-flex items-center gap-1 font-label text-[0.58rem] tracking-[0.08em] uppercase px-1.5 py-0.5 rounded bg-ursa-gold/15 text-ursa-medium-roast border border-ursa-gold/40">
+        <CircleSlash size={9} /> Uncertain
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1 font-label text-[0.58rem] tracking-[0.08em] uppercase px-1.5 py-0.5 rounded bg-ursa-forest-deep/10 text-ursa-forest-deep border border-ursa-forest-deep/25">
+      <CheckCircle2 size={9} /> Operating
+    </span>
+  );
+}
+
+/** Rating cell — shows ★ rating + review count, or em-dash if null. */
+function RatingCell({
+  rating,
+  count,
+}: {
+  rating: number | null;
+  count: number | null;
+}) {
+  if (rating === null && count === null) return <span className="text-muted-foreground/60">—</span>;
+  return (
+    <div className="flex flex-col leading-tight">
+      {rating !== null ? (
+        <span className="font-medium text-ursa-dark-roast flex items-center gap-0.5">
+          <Star size={10} className="text-ursa-gold-text fill-ursa-gold" />
+          {rating.toFixed(1)}
+        </span>
+      ) : (
+        <span className="text-muted-foreground/60 text-[0.78rem]">—</span>
+      )}
+      {count !== null ? (
+        <span className="text-[0.66rem] text-muted-foreground tracking-[0.02em]">{count} reviews</span>
+      ) : null}
+    </div>
+  );
+}
+
+/** Distance formatter — meters or km. */
+function formatDistance(m: number): string {
+  if (m < 1000) return `${m}m`;
+  return `${(m / 1000).toFixed(1)}km`;
+}
 
 /** One competitor card. */
 function CompetitorCard({ c }: { c: (typeof COMPETITORS)[number] }) {
@@ -74,7 +192,7 @@ function CompetitorCard({ c }: { c: (typeof COMPETITORS)[number] }) {
           </div>
           <p className="m-0 text-foreground/85">{c.weakness}</p>
         </div>
-        <div className="bg-ursa-forest-deep/5 border border-ursa-forest-deep/15 rounded-md px-3 py-2">
+        <div className="bg-ursa-dark-roast/5 border border-ursa-forest-deep/15 rounded-md px-3 py-2">
           <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">
             <Compass size={11} /> Ursa implication
           </div>
@@ -99,7 +217,7 @@ function ActionCard({
 }) {
   const toneMap = {
     gold: { text: "text-ursa-gold-text", bg: "bg-ursa-gold/10", border: "border-ursa-gold/40" },
-    forest: { text: "text-ursa-forest-deep", bg: "bg-ursa-forest-deep/8", border: "border-ursa-forest-deep/25" },
+    forest: { text: "text-ursa-forest-deep", bg: "bg-ursa-dark-roast/8", border: "border-ursa-forest-deep/25" },
     terracotta: { text: "text-ursa-terracotta-text", bg: "bg-ursa-terracotta/10", border: "border-ursa-terracotta/30" },
   }[tone];
   return (
@@ -125,8 +243,18 @@ function ActionCard({
 export function MarketView() {
   const navigate = useNavigate();
 
-  const mirafloresCount = COMPETITORS.filter((c) => c.area.includes("Miraflores")).length;
+  const inCatchment = COMPETITORS.filter(
+    (c) => c.distanceBand !== "out-of-area-lima-wide"
+  ).length;
+  const operating = COMPETITORS.filter((c) => c.status === "operating").length;
+  const uncertain = COMPETITORS.filter((c) => c.status === "uncertain").length;
+  const sameStreet = COMPETITORS.filter((c) => c.distanceBand === "same-street").length;
   const withWebsite = COMPETITORS.filter((c) => c.hasWebsite).length;
+
+  // Sorted by distance for the census table — nearest first.
+  const censusSorted = [...COMPETITORS].sort(
+    (a, b) => a.distanceMeters - b.distanceMeters
+  );
 
   const ownableSpaces = [
     { name: "Punto Café", owns: "Awards", icon: <Award size={14} /> },
@@ -222,19 +350,20 @@ export function MarketView() {
         eyebrow="Module 02 · Market, Competitors & Customer Voice"
         title={
           <>
-            Ten Miraflores and Lima competitors, mapped — and the one space none of them owns.
+            Eighteen competitors mapped within 1km of Alcanfores 183 — and the one space none of them owns.
           </>
         }
         lede={
           <>
-            This module reconstructs the direct competitive set around Ursa's Alcanfores 183 address, reads the
-            customer-voice patterns that surface across them, and converts each finding into something Ursa can match,
-            avoid, or lead on. The bear is not borrowed from the category; it is the one position left uncontested.
+            This module runs a systematic 1km competitor census from Ursa&rsquo;s Alcanfores 183 address — every named
+            street radiating off Parque Kennedy walked, every public-facing café logged — then reads the customer-voice
+            patterns across them and converts each finding into something Ursa can match, avoid, or lead on. The bear is
+            not borrowed from the category; it is the one position left uncontested.
           </>
         }
         meta={[
-          { label: "Competitors", value: `${COMPETITORS.length} analysed` },
-          { label: "Scope", value: "Miraflores + Lima" },
+          { label: "Census", value: `${CENSUS_META.censusId} · ${COMPETITORS.length} competitors` },
+          { label: "Scope", value: `${CENSUS_META.totals.inCatchment} in 1km + ${CENSUS_META.totals.outOfAreaBenchmarks} Lima benchmarks` },
           { label: "Snapshot", value: URSA_FACTS.snapshot },
         ]}
       />
@@ -242,22 +371,198 @@ export function MarketView() {
       {/* At-a-glance stats */}
       <ViewSection className="py-8">
         <Grid cols={4}>
-          <StatBlock value={`${COMPETITORS.length}`} label="Competitors analysed" tone="forest" />
-          <StatBlock value={`${mirafloresCount}`} label="Miraflores-based (incl. clusters)" tone="gold" />
-          <StatBlock value={`${withWebsite}/${COMPETITORS.length}`} label="Competitors with a website" tone="terracotta" />
-          <StatBlock value="1" label="Ownable position — the bear" tone="forest" />
+          <StatBlock value={`${COMPETITORS.length}`} label="Competitors in census" tone="forest" />
+          <StatBlock value={`${inCatchment}`} label="Within 1km catchment" tone="gold" />
+          <StatBlock value={`${operating}·${uncertain}`} label="Operating · Uncertain" tone="terracotta" />
+          <StatBlock value={`${sameStreet}`} label="Same street as Ursa" tone="forest" />
         </Grid>
+      </ViewSection>
+
+      {/* 1km Competitor Census */}
+      <ViewSection
+        badge="1km competitor census (CENSUS-1)"
+        title="Every named competitor within a 1km walk of Alcanfores 183"
+        meta="Systematic street-radiating grid · snapshot 2026-08-01"
+      >
+        <p className="text-[0.97rem] leading-relaxed text-foreground/85 max-w-[68ch] mb-5">
+          The competitor set is no longer a shortlist — it is a census. Every named street within a 1km walk of
+          Ursa&rsquo;s address was walked virtually via Google Maps Street View and cross-referenced against Google
+          Places, TripAdvisor, and Instagram location tags. The result: <strong>14 competitors inside the 1km
+          catchment</strong> plus <strong>4 Lima-wide benchmarks</strong> (Bisetti, Ciclos, RAIZ, Monótono) included for
+          positional context. Proximity is colour-coded: <span className="text-ursa-terracotta-text font-medium">red =
+          same street</span>, <span className="text-ursa-medium-roast font-medium">gold = nearby</span>,{" "}
+          <span className="text-ursa-forest-deep font-medium">green = within 1km</span>,{" "}
+          <span className="text-muted-foreground font-medium">grey = out-of-area benchmark</span>.
+        </p>
+
+        {/* Summary stats grid */}
+        <Grid cols={4}>
+          <StatBlock value={`${CENSUS_META.totals.inCensus}`} label="Total discovered" tone="forest" />
+          <StatBlock value={`${CENSUS_META.totals.operating}`} label="Operating" tone="gold" />
+          <StatBlock value={`${CENSUS_META.totals.uncertain}`} label="Status uncertain" tone="terracotta" />
+          <StatBlock value={`${CENSUS_META.totals.directCompetitors}`} label="Direct competitors" tone="forest" />
+        </Grid>
+
+        {/* Census table */}
+        <Card className="mt-6 p-0 overflow-hidden">
+          <div className="px-4 py-3 border-b border-ursa-line-soft bg-ursa-foam flex items-center justify-between gap-3 flex-wrap">
+            <div className="flex items-center gap-2">
+              <MapPinned size={15} className="text-ursa-gold-text" />
+              <h3 className="font-display text-base font-semibold text-ursa-dark-roast m-0">
+                Census table — sorted nearest-first
+              </h3>
+            </div>
+            <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">
+              {COMPETITORS.length} competitors · {CENSUS_META.gridStreets.length} streets walked
+            </span>
+          </div>
+          <Table className="text-[0.82rem]">
+            <TableHeader>
+              <TableRow className="border-ursa-line-soft hover:bg-transparent">
+                <TableHead className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground h-9 py-2">Competitor</TableHead>
+                <TableHead className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground h-9 py-2 hidden md:table-cell">Address</TableHead>
+                <TableHead className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground h-9 py-2">Distance</TableHead>
+                <TableHead className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground h-9 py-2 hidden lg:table-cell">Type</TableHead>
+                <TableHead className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground h-9 py-2">Google</TableHead>
+                <TableHead className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground h-9 py-2">TripAdvisor</TableHead>
+                <TableHead className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground h-9 py-2">Status</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {censusSorted.map((c) => {
+                const meta = PROXIMITY_META[c.distanceBand] ?? PROXIMITY_META["within-1km"];
+                const cls = PROXIMITY_TONE_CLASSES[meta.tone];
+                return (
+                  <TableRow
+                    key={c.id}
+                    className={cn("border-ursa-line-soft hover:bg-ursa-foam/60", cls.row)}
+                  >
+                    <TableCell className="py-2.5 pr-3 align-top">
+                      <div className="flex flex-col gap-1">
+                        <span className="font-display font-semibold text-ursa-dark-roast leading-tight">{c.name}</span>
+                        <ProximityBadge band={c.distanceBand} />
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-2.5 pr-3 align-top hidden md:table-cell">
+                      <div className="flex items-start gap-1.5 text-muted-foreground">
+                        <MapPin size={11} className="text-ursa-gold-text mt-0.5 shrink-0" />
+                        <span className="leading-snug">{c.address}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-2.5 pr-3 align-top">
+                      <div className="flex items-center gap-1 text-ursa-dark-roast font-medium">
+                        <Ruler size={11} className="text-muted-foreground" />
+                        {formatDistance(c.distanceMeters)}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-2.5 pr-3 align-top hidden lg:table-cell">
+                      <span className="text-muted-foreground leading-snug">{c.type}</span>
+                    </TableCell>
+                    <TableCell className="py-2.5 pr-3 align-top">
+                      <RatingCell rating={c.googleRating} count={c.googleReviewCount} />
+                    </TableCell>
+                    <TableCell className="py-2.5 pr-3 align-top">
+                      <RatingCell rating={c.tripAdvisorRating} count={c.tripAdvisorReviewCount} />
+                    </TableCell>
+                    <TableCell className="py-2.5 pr-3 align-top">
+                      <StatusPill status={c.status} />
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </Card>
+
+        {/* Coverage methodology callout */}
+        <div className="mt-6">
+        <Callout tone="forest" title="Coverage methodology — how the census was built">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-3">
+            <div>
+              <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1.5">
+                <Network size={11} /> Study area
+              </div>
+              <p className="m-0 text-[0.88rem] text-foreground/85 leading-snug">{CENSUS_META.studyArea}. 1km is the practical walk-up catchment for an espresso bar in a dense, walkable district like Miraflores.</p>
+            </div>
+            <div>
+              <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1.5">
+                <MapPinned size={11} /> Grid definition
+              </div>
+              <p className="m-0 text-[0.88rem] text-foreground/85 leading-snug">Street-radiating grid from Parque Kennedy — every named street within 1km walked virtually via Google Maps Street View.</p>
+            </div>
+            <div>
+              <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1.5">
+                <Building2 size={11} /> Streets searched ({CENSUS_META.gridStreets.length})
+              </div>
+              <ul className="m-0 p-0 list-none flex flex-wrap gap-x-3 gap-y-0.5 text-[0.8rem] text-foreground/80">
+                {CENSUS_META.gridStreets.map((s) => (
+                  <li key={s} className="leading-snug">· {s}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1.5">
+                <Info size={11} /> Inclusion / exclusion
+              </div>
+              <p className="m-0 text-[0.88rem] text-foreground/85 leading-snug">In: specialty coffee as primary category, verifiable physical address, public-facing. Out: chains with &gt;10 Lima locations (Starbucks, Juan Valdez), pizzerias, hotel coffee, informal carts.</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+            {[
+              { label: "Discovered", value: CENSUS_META.totals.inCensus, tone: "forest" },
+              { label: "In catchment", value: CENSUS_META.totals.inCatchment, tone: "gold" },
+              { label: "Operating", value: CENSUS_META.totals.operating, tone: "forest" },
+              { label: "Uncertain / closed", value: `${CENSUS_META.totals.uncertain} / ${CENSUS_META.totals.closed}`, tone: "terracotta" },
+            ].map((s) => (
+              <div key={s.label} className="bg-ursa-paper border border-ursa-line-soft rounded-md px-3 py-2 text-center">
+                <div className="font-display text-lg font-semibold text-ursa-dark-roast leading-none">{s.value}</div>
+                <div className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mb-2 text-[0.86rem] leading-snug text-foreground/85">
+            <strong className="text-ursa-dark-roast">Anchor findings:</strong>{" "}
+            nearest confirmed competitor is <strong>{CENSUS_META.nearestConfirmed}</strong>; nearest uncertain is{" "}
+            <strong>{CENSUS_META.nearestUncertain}</strong>; highest review volume is{" "}
+            <strong>{CENSUS_META.highestVolume}</strong>; highest rated is{" "}
+            <strong>{CENSUS_META.highestRatedOperating}</strong>; award leader in catchment is{" "}
+            <strong>{CENSUS_META.awardLeaderInCatchment}</strong>; Lima-wide benchmark to beat is{" "}
+            <strong>{CENSUS_META.awardLeaderLimaWide}</strong>.
+          </p>
+          <details className="bg-ursa-paper border border-ursa-line-soft rounded-md px-3 py-2">
+            <summary className="cursor-pointer font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-forest-deep hover:text-ursa-dark-roast">
+              Methodology, limitations &amp; next steps
+            </summary>
+            <div className="mt-2 space-y-2">
+              <p className="m-0 text-[0.82rem] leading-snug text-foreground/80">{CENSUS_META.methodology}</p>
+              <div className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground">Next steps</div>
+              <ul className="m-0 p-0 list-none space-y-1 text-[0.82rem] text-foreground/80">
+                {CENSUS_META.nextSteps.map((step) => (
+                  <li key={step} className="flex gap-1.5 leading-snug">
+                    <span className="text-ursa-terracotta-text shrink-0">·</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="m-0 text-[0.74rem] italic text-muted-foreground">
+                Full structured census: <code className="text-[0.7rem]">/research/competitor-census.json</code>
+              </p>
+            </div>
+          </details>
+        </Callout>
+        </div>
       </ViewSection>
 
       {/* Competitor landscape */}
       <ViewSection
         badge="Competitor landscape"
-        title="The ten names around Ursa"
-        meta="Snapshot 2026-08-01 · verified from public sources"
+        title="The eighteen names around Ursa"
+        meta="Per-competitor deep-dive · snapshot 2026-08-01"
       >
         <p className="text-[0.97rem] leading-relaxed text-foreground/85 max-w-[68ch] mb-6">
-          Five are within Miraflores, three are Lima-wide, and two are clusters or niches that shape the broader
-          category. Each card records what they do well, where they slip, and the implication that follows for Ursa.
+          The census above is the systematic view. The cards below are the per-competitor deep-dive: what each does
+          well, where they slip, and the implication that follows for Ursa. Fourteen sit inside the 1km catchment;
+          four (Bisetti, Ciclos, RAIZ, Monótono) are Lima-wide benchmarks included for positional context.
         </p>
         <Grid cols={3}>
           {COMPETITORS.map((c) => (
@@ -305,7 +610,7 @@ export function MarketView() {
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className={`flex items-center justify-center w-7 h-7 rounded-full ${s.ursa ? "bg-ursa-gold text-ursa-dark-roast" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>
+                    <span className={`flex items-center justify-center w-7 h-7 rounded-full ${s.ursa ? "bg-ursa-gold text-ursa-dark-roast" : "bg-ursa-dark-roast/10 text-ursa-forest-deep"}`}>
                       {s.icon}
                     </span>
                     <span className="font-medium text-ursa-dark-roast text-[0.95rem]">{s.name}</span>
@@ -489,7 +794,7 @@ export function MarketView() {
                 <span
                   className={`flex items-center justify-center w-7 h-7 rounded-md shrink-0 ${
                     r.sentiment === "positive"
-                      ? "bg-ursa-forest-deep/10 text-ursa-forest-deep"
+                      ? "bg-ursa-dark-roast/10 text-ursa-forest-deep"
                       : r.sentiment === "mixed"
                       ? "bg-ursa-gold/15 text-ursa-medium-roast"
                       : "bg-ursa-terracotta/10 text-ursa-terracotta-text"
@@ -541,34 +846,49 @@ export function MarketView() {
               { icon: <Frown size={15} />, tone: "terracotta" as const, label: "Pain" },
               { icon: <AlertTriangle size={15} />, tone: "gold" as const, label: "Friction" },
               { icon: <TrendingUp size={15} />, tone: "forest" as const, label: "Lead" },
-            ][i % 4];
+              { icon: <Coffee size={15} />, tone: "gold" as const, label: "Evidence" },
+            ][i % 5];
             return (
               <Card key={theme.theme} className="flex flex-col gap-3 h-full">
                 <div className="flex items-center gap-2.5">
                   <span className={`flex items-center justify-center w-8 h-8 rounded-lg ${
                     tones.tone === "forest"
-                      ? "bg-ursa-forest-deep/10 text-ursa-forest-deep"
+                      ? "bg-ursa-dark-roast/10 text-ursa-forest-deep"
                       : tones.tone === "terracotta"
                       ? "bg-ursa-terracotta/10 text-ursa-terracotta-text"
                       : "bg-ursa-gold/15 text-ursa-medium-roast"
                   }`}>
                     {tones.icon}
                   </span>
-                  <div>
+                  <div className="min-w-0">
                     <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground">
                       Theme {String(i + 1).padStart(2, "0")} · {tones.label}
                     </div>
                     <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-0">{theme.theme}</h3>
                   </div>
                 </div>
-                <ul className="space-y-2 m-0 p-0 list-none text-[0.9rem]">
-                  {theme.points.map((p) => (
-                    <li key={p} className="flex gap-2.5 leading-snug">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ursa-gold shrink-0" />
-                      <span className="text-foreground/85">{p}</span>
+                <ul className="space-y-2.5 m-0 p-0 list-none text-[0.9rem]">
+                  {theme.points.map((p, pi) => (
+                    <li key={pi} className="flex flex-col gap-1 leading-snug">
+                      <div className="flex gap-2.5">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ursa-gold shrink-0" />
+                        <span className="text-foreground/85">{p.text}</span>
+                      </div>
+                      {p.evidence && (
+                        <div className="ml-4 pl-2 border-l border-ursa-line-soft text-[0.8rem] text-muted-foreground italic leading-snug">
+                          <span className="font-label not-italic text-[0.58rem] tracking-[0.12em] uppercase text-ursa-gold-text mr-1">Evidence ·</span>
+                          {p.evidence}
+                        </div>
+                      )}
                     </li>
                   ))}
                 </ul>
+                {theme.sampleNote && (
+                  <p className="mt-auto pt-2 border-t border-ursa-line-soft text-[0.74rem] leading-snug text-muted-foreground italic m-0">
+                    <span className="font-label not-italic text-[0.58rem] tracking-[0.12em] uppercase text-ursa-forest-deep mr-1">Sample ·</span>
+                    {theme.sampleNote}
+                  </p>
+                )}
               </Card>
             );
           })}
@@ -596,18 +916,19 @@ export function MarketView() {
       {/* The website gap */}
       <ViewSection
         badge="The website gap"
-        title="All five main Miraflores competitors have a website. Ursa does not."
-        meta="Surfaced in deep-dive research · 30-day priority"
+        title={`Of ${withWebsite} competitors with a website, Ursa is not one of them.`}
+        meta="Surfaced in 1km census · 30-day priority"
       >
         <Callout tone="stop" title="This is the single most visible infrastructure gap in the dossier">
           <p className="mb-3">
-            Punto Café, Neira Café Lab, Terrua, True Artisan, and Café Verde all maintain a public website. Ursa's
+            {withWebsite} of {COMPETITORS.length} competitors in the 1km census maintain a public website. Ursa&rsquo;s
             discoverable presence is Instagram only. A first-time visitor who searches “café de especialidad
-            Miraflores” on Google finds five competitors and one unverified Business Profile in return. The bear is
-            invisible at the moment of greatest intent.
+            Miraflores” on Google finds a wall of competitor websites — Punto Café, Neira Café Lab, Terrua, Cate
+            Tasting Room, and more — and one under-optimized Google Business Profile in return. The bear is invisible
+            at the moment of greatest intent.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-2 my-4">
-            {["Punto Café", "Neira Café Lab", "Terrua", "True Artisan", "Café Verde"].map((n) => (
+            {["Punto Café", "Neira Café Lab", "Terrua", "Cate Tasting Room", "True Artisan Cafe"].map((n) => (
               <div key={n} className="flex items-center gap-1.5 bg-ursa-paper border border-ursa-line-soft rounded-md px-2.5 py-2">
                 <Globe size={13} className="text-ursa-forest-deep" />
                 <span className="text-[0.78rem] font-medium text-ursa-dark-roast">{n}</span>
@@ -624,7 +945,7 @@ export function MarketView() {
         <div className="flex flex-wrap items-center gap-3 mt-5">
           <button
             onClick={() => navigate("brand")}
-            className="inline-flex items-center gap-2 bg-ursa-forest-deep text-ursa-cream font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-dark-roast transition"
+            className="inline-flex items-center gap-2 bg-ursa-dark-roast text-ursa-cream font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-espresso transition"
           >
             <ArrowRight size={14} /> Open Brand Audit (Module 01)
           </button>

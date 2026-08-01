@@ -63,7 +63,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     label: "Running",
     pillTone: "forest",
     text: "text-ursa-forest-deep",
-    bg: "bg-ursa-forest-deep/8",
+    bg: "bg-ursa-dark-roast/8",
     border: "border-ursa-forest-deep/30",
     bar: "bg-ursa-forest-deep",
     barText: "text-ursa-cream",
@@ -74,7 +74,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     label: "Passed",
     pillTone: "ok",
     text: "text-ursa-forest-deep",
-    bg: "bg-ursa-forest-deep/12",
+    bg: "bg-ursa-dark-roast/12",
     border: "border-ursa-forest-deep/45",
     bar: "bg-ursa-forest-deep",
     barText: "text-ursa-cream",
@@ -393,7 +393,7 @@ export function ExperimentsView() {
                 className={cn(
                   "inline-flex items-center gap-2 px-4 py-2 rounded-full border font-label text-[0.72rem] tracking-[0.12em] uppercase transition",
                   isActive
-                    ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep"
+                    ? "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep"
                     : "bg-card text-ursa-dark-roast border-ursa-line-soft hover:border-ursa-gold/60 hover:text-ursa-gold-text"
                 )}
               >
@@ -691,7 +691,7 @@ export function ExperimentsView() {
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => navigate("roadmap")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-forest transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-medium-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <ArrowRight size={14} /> Read Module 07 Roadmap
             </button>

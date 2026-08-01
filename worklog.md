@@ -1386,3 +1386,228 @@ Work Log:
     text-on-background in the live rendered page — 0 failures across all 25 views
 - Header badge updated: forest-deep bg with gold border ring
 - Lint: clean. Git: committed.
+
+---
+
+## Task ID: BEAR-OUTLINE-FIX
+**Agent**: Code Assistant (claude)
+**Date**: 2026-08-01
+**Scope**: BearMark outline verification + remove green from backgrounds/fills across the Ursa dossier UI
+
+### 1. BearMark verification (ursa-brand.tsx)
+- Confirmed `BearMark` is **outline-only**: every `<polygon>` uses `fill="none"` and `stroke="currentColor"`. The bear inherits its color from the parent element's `text-*` class (e.g. `text-ursa-dark-roast` on the header badge wrapper).
+- No changes needed; existing implementation already correct.
+
+### 2. Header badge contrast (ursa-header.tsx)
+- The badge already uses `bg-ursa-cream text-ursa-dark-roast` with a `border-ursa-gold` ring. The bear's `currentColor` resolves to `text-ursa-dark-roast`, giving high contrast on the cream background.
+- No changes needed.
+
+### 3. Green-background sweep — replacements applied
+
+Replacement rules used (per task brief):
+- `bg-ursa-forest-deep` → `bg-ursa-dark-roast`
+- `bg-ursa-forest-deep/N` (tint) → `bg-ursa-dark-roast/N`
+- `bg-ursa-forest` → `bg-ursa-medium-roast`
+- `bg-ursa-forest/N` (tint) → `bg-ursa-medium-roast/N`
+- `bg-ursa-sage` → `bg-muted`
+- `from-ursa-forest-deep` / `to-ursa-forest-deep` → `from-ursa-dark-roast` / `to-ursa-dark-roast`
+- `from-ursa-forest` / `to-ursa-forest` → `from-ursa-medium-roast` / `to-ursa-medium-roast`
+- Inline `style={{ background: "var(--color-ursa-forest-deep)" }}` → `var(--color-ursa-medium-roast)` (for gradients with dark-roast endpoint) or `var(--color-ursa-dark-roast)` (for solid backgrounds)
+
+Preserved (per task brief rules):
+- Text colors (`text-ursa-forest-deep`, `text-ursa-leaf`, etc.)
+- Border colors (`border-ursa-forest-deep`, `border-ursa-leaf/40`)
+- Chart bar fills, ring strokes, data-point dots, legend swatches, and heat-map cells (data visualization)
+
+### Files modified
+
+**Priority files (explicit task items):**
+- `src/components/ursa/bear-score-widget.tsx` — "Top strength" card background tint + decorative star icon fill
+- `src/components/ursa/tools/scorecard-view.tsx` — Copied-button bg, Top-strength card bg, Spirit-verdict gradient
+- `src/components/ursa/tools/spirit-checker-view.tsx` — Active "ok" answer button bg
+- `src/components/ursa/day-in-life-widget.tsx` — No changes needed; all green usages are data-viz (tone colors, intensity bar gradient, data-point dots)
+
+**ursa-brand.tsx (shared primitives):**
+- `EvidenceTag` (verified tone) bg tint
+- `Pill` (`ok` + `forest` tones) bg tints
+- `ProgressBar` (`gold` + `forest` tones) gradient stops
+
+**Other tool views:**
+- `tools/menu-studio-view.tsx` — Copy-to-clipboard button, QuadrantCard toneClasses + badgeTone, MenuQuadrantCard toneBg
+- `tools/swot-view.tsx` — Quadrant background tints (forest + sage), SwotCell forest bg tint
+- `tools/calculator-view.tsx` — Positive-variance cell highlight
+- `tools/loyalty-view.tsx` — Three pillar/tactic/implementation icon-bg tints, Recommendation card bg, bottom CTA button
+- `tools/budget-view.tsx` — Add-custom-item button, ROI-link button
+- `tools/campaign-builder-view.tsx` — Stepper done-state bg + checkmark dot, Copy-brief button, View-roadmap button, tactic badge bg
+- `tools/style-guide-view.tsx` — Radius-token demo swatch, Open-Module-01 button
+- `tools/content-calendar-view.tsx` — CTA box background
+- `tools/roi-view.tsx` — Pair-with card icon-bg tint, Open-budget button
+- `tools/origin-atlas-view.tsx` — Selected origin button bg, spec-grid card bg tints, calendar origin button bg tints, Altitude icon-bg tint
+- `tools/pilot-view.tsx` — View-experiment-tracker button hover bg
+- `tools/experiments-view.tsx` — STATUS_META bg tints (running/passed), active filter button bg, Read-roadmap button
+- `tools/competitors-view.tsx` — lead-status bg tint, Open-Module-02 button
+
+**Other top-level views:**
+- `views/growth-view.tsx` — Vertical timeline gradient stop, Model-ROI button hover bg
+- `views/viral-view.tsx` — CTA box bg, calendar cell forest/ok bg tints, PillarCard forest bg tint
+- `views/landing-view.tsx` — Mock-membership-card gradient (forest-deep → dark-roast replaced with medium-roast → dark-roast), Ver-las-matemáticas button hover bg, Benefit icon bg tint, FAQ Card bg tint
+- `views/dashboard-view.tsx` — Tool-card icon bg tint, See-roadmap button
+- `views/brand-audit-view.tsx` — Open-style-guide button
+- `views/creative-view.tsx` — Creative label "forest" tone bg, GoldSeal background tint, mock browser traffic-light dot (green → medium-roast)
+- `views/sources-view.tsx` — Numbered list bullet bg + methodology step icon bg
+- `views/roadmap-view.tsx` — ROADMAP_PHASES accentBg tints, multiple CTA buttons, quarter pill bg tint, "Gram/Green preserved" pills bg
+- `views/market-view.tsx` — Ursa-implication card bg, toneMap forest bg, three icon-bg tints, Open-Brand-Audit button
+
+**Other:**
+- `scroll-progress.tsx` — Progress bar gradient stop, back-to-top button bg
+
+### Lint
+- `bun run lint` reports zero new errors in any `src/` file.
+- The single pre-existing error in `research/pairwise-contrast-test.js` (`no-require-imports`) is unrelated to this task and was not introduced here.
+
+### Notes
+- Chart bar fills, ring strokes, data-point dots, and heat-map cells retain their green (`bg-ursa-forest-deep` / `bg-ursa-forest` / inline `var(--color-ursa-forest-deep)`) per the explicit data-viz carve-out in the task brief.
+- All green **text** colors (`text-ursa-forest-deep`, `text-ursa-leaf`) and **border** colors (`border-ursa-forest-deep`, `border-ursa-leaf/40`) are preserved.
+- The bear glyph in the header badge now renders as a dark-roast outline on cream — high contrast, no fill.
+
+---
+Task ID: CENSUS-1
+Agent: Main orchestrator
+Task: Systematic 1km competitor census for Ursa Coffee — deepen market view with real data
+
+Work Log:
+- Read prior worklog (WHITE-BEAR-PAIRWISE) and ursa-data.ts (COMPETITORS array,
+  CUSTOMER_VOICE array, REVIEW_RESEARCH_LOG) to understand current state.
+
+TASK 1 — Created /home/z/my-project/research/competitor-census.json
+- Full structured census with studyArea, gridDefinition (15 streets radiating
+  from Parque Kennedy), inclusionCriteria, exclusionCriteria.
+- 18 competitors with full data: id, name, address, street, distanceMeters,
+  distanceBand, type, subtype, googleRating, googleReviewCount,
+  tripAdvisorRating, tripAdvisorReviewCount, status, positioning, strengths,
+  weaknesses, ursaImplication, reviewThemes (praise/complaints/sampleSizeNote).
+- coverageLedger: streetsSearched, businessesDiscovered, included,
+  includedInCatchment (14), includedLimaWide (4), excluded (Starbucks, Juan
+  Valdez, pizzerias, hotel coffee), operating (14), uncertain (3:
+  Coffee Notes, Café Verde, OK Café), closed (1: Café Verde possibly),
+  directCompetitors (11), substitutes (1: El Pan de la Chola), outOfAreaBenchmarks (4).
+- summaryStats: nearest confirmed (Milenaria 170m), nearest uncertain (Coffee
+  Notes 120m), highest volume (Neira 911 Google reviews), highest rated
+  (Estación 329 TA 4.8★), award leaders (Punto Café in catchment, Monótono Lima-wide).
+- methodology + limitations + nextSteps (physical walk-by verification,
+  coded theme-frequency analysis, quarterly re-verification, annual CAM tracking).
+- Validated JSON syntax with node.
+
+TASK 2 — Replaced COMPETITORS array in src/lib/ursa-data.ts
+- Added explicit `Competitor` interface (id, name, area, address, street,
+  distanceMeters, distanceBand, type, subtype, googleRating, googleReviewCount,
+  tripAdvisorRating, tripAdvisorReviewCount, status, positioning, strength,
+  weakness, ursaImplication, hasWebsite, reviewThemes) — typed COMPETITORS as
+  Competitor[] to avoid TypeScript union-of-literal-types inference issues.
+- 18 competitors total: 14 in 1km catchment + 4 Lima-wide benchmarks.
+- Kept existing names (Punto Café, Neira Café Lab, Bisetti, Puku Puku, Terrua,
+  Ciclos, RAIZ) enriched with verified Google ratings + review counts.
+- Renamed "True Artisan" → "True Artisan Cafe" per research.
+- Removed the "Puku Puku / Urqu / Origen / Cate / Arabica" cluster entry
+  (split into separate Cate Tasting Room + Arabica Espresso Bar competitors).
+- Added new competitors: Milenaria Cafe (same street, 170m), Coffee Notes
+  (same street, 120m, uncertain), Estación 329 (Palacios 329, 350m),
+  Arabica Espresso Bar (Recavarren 269, 400m), Cate Tasting Room (Miraflores,
+  600m), El Pan de la Chola (La Mar 1081, 700m, bakery substitute),
+  OK Café (uncertain), Amauta Coffee (TA 4.1★, n=7),
+  Monótono Coffee (1st place CAM 2025, Barranco benchmark).
+- Marked Café Verde as status:"uncertain" (possibly permanently closed per
+  one source).
+- Added CENSUS_META export with censusId, snapshot, studyArea, gridStreets,
+  totals (inCensus, inCatchment, operating, uncertain, closed,
+  directCompetitors, substitutes, outOfAreaBenchmarks, sameStreetCompetitors),
+  proximityBands (same-street=red, nearby=gold, within-1km=green,
+  out-of-area-lima-wide=muted), nearestConfirmed, highestVolume, methodology,
+  nextSteps.
+
+TASK 2b — Updated src/components/ursa/tools/competitors-view.tsx
+- Updated URSA_PROFILE to include all new Competitor fields (id, address,
+  street, distanceMeters, distanceBand, type, subtype, googleRating 4.5,
+  googleReviewCount 56, tripAdvisorRating null, tripAdvisorReviewCount 0,
+  status operating, positioning, reviewThemes with real Ursa review evidence).
+- Updated VERDICT record: added entries for all 18 competitors (Milenaria,
+  Coffee Notes, Estación 329, Arabica, Cate, El Pan de la Chola, OK Café,
+  Amauta, Monótono); renamed "True Artisan" → "True Artisan Cafe"; removed
+  cluster entry.
+- Updated MATRIX_POSITIONS: added scale/craft coordinates for all 18
+  competitors.
+
+TASK 3 — Added "1km competitor census" section to market-view.tsx
+- New helper components: ProximityBadge (color-coded by distanceBand),
+  StatusPill (operating/uncertain), RatingCell (★ rating + review count or —),
+  formatDistance (meters or km).
+- PROXIMITY_META + PROXIMITY_TONE_CLASSES: red=same-street, gold=nearby,
+  green=within-1km, muted=out-of-area benchmark. Applied as left-border on
+  table rows + badge on competitor name cell.
+- New ViewSection "1km competitor census (CENSUS-1)" placed before the
+  existing "Competitor landscape" section. Contains:
+  • Intro paragraph explaining the census + color legend
+  • Summary stats grid (4 StatBlocks: total discovered, operating, uncertain,
+    direct competitors)
+  • Census table (shadcn/ui Table) — sorted nearest-first, 7 columns:
+    Competitor (name + proximity badge), Address (hidden on mobile),
+    Distance (with ruler icon), Type (hidden on small screens), Google rating,
+    TripAdvisor rating, Status pill. Color-coded left border per row.
+  • Coverage methodology Callout: study area, grid definition, streets
+    searched (12 listed), inclusion/exclusion criteria, 4 mini-stats
+    (discovered/in-catchment/operating/uncertain-closed), anchor findings
+    (nearest, highest volume, highest rated, award leaders), collapsible
+    methodology + next steps section.
+- Updated hero title: "Eighteen competitors mapped within 1km of Alcanfores
+  183 — and the one space none of them owns."
+- Updated hero meta: Census CENSUS-1 · 18 competitors, Scope 14 in 1km + 4
+  Lima benchmarks.
+- Updated at-a-glance stats: 18 in census, 14 in catchment, operating·uncertain,
+  2 same street.
+- Renamed "Competitor landscape" section title: "The eighteen names around
+  Ursa" with updated intro paragraph.
+- Updated website-gap section: "Of N competitors with a website, Ursa is not
+  one of them." Updated the 5-competitor example list to current names
+  (Punto Café, Neira Café Lab, Terrua, Cate Tasting Room, True Artisan Cafe).
+
+TASK 4 — Deepened CUSTOMER_VOICE in ursa-data.ts
+- Restructured points from string[] to { text, evidence }[] objects.
+- Added sampleNote field per theme (honest about sample sizes).
+- 5 themes (was 4): added "Competitor-specific review evidence (census)"
+  as theme 5 with per-competitor praise/complaint summaries + sample sizes.
+- Each point now cites specific competitor evidence (Neira 911 reviews,
+  Terrua 513, Puku Puku 658, Cate 190, Milenaria 41, etc.) with honest
+  sample-size notes ("Direction only — no coded frequency analysis" etc.).
+- Theme 1 (Value): 5 points incl. new "Early opening for the pre-work market"
+  (Milenaria opens 6:30am, Ursa 7:30am).
+- Theme 2 (Pain): 7 points incl. chain feel, premium pricing, generic
+  sustainability, award-driven brittleness, tiny spaces, delivery coffee.
+- Theme 3 (Friction): 5 points with REV-ENRICH correction preserved.
+- Theme 4 (Lead): 6 points, each verified by census absence ("0 competitors
+  use an animal/character identity", "0 competitors operate a visible two-bar
+  format", etc.).
+- Theme 5 (Evidence): 9 per-competitor review theme summaries.
+- Updated market-view.tsx CUSTOMER_VOICE rendering: 5 tones (added
+  "Evidence" tone for theme 5), renders p.text + p.evidence (italic, indented,
+  gold "Evidence ·" label) + theme.sampleNote (footer with "Sample ·" label).
+
+VERIFICATION:
+- `bun run lint`: 0 errors in modified files. (1 pre-existing error in
+  research/pairwise-contrast-test.js — `require()` import — NOT introduced
+  by this task; committed in prior WHITE-BEAR-PAIRWISE task.)
+- `npx tsc --noEmit`: 0 errors in src/lib/ursa-data.ts,
+  src/components/ursa/views/market-view.tsx,
+  src/components/ursa/tools/competitors-view.tsx. (Pre-existing errors in
+  other views/tools — budget-view, loyalty-view, menu-studio-view, roi-view,
+  growth-view, landing-view, sources-view, brand-audit-view, creative-view —
+  NOT introduced by this task.)
+- JSON validated: research/competitor-census.json parses cleanly.
+
+FILES MODIFIED:
+- research/competitor-census.json (NEW — full structured census)
+- src/lib/ursa-data.ts (COMPETITORS replaced + Competitor interface +
+  CENSUS_META export + CUSTOMER_VOICE restructured)
+- src/components/ursa/views/market-view.tsx (new census section + updated
+  hero/stats/landscape/website-gap + CUSTOMER_VOICE rendering)
+- src/components/ursa/tools/competitors-view.tsx (URSA_PROFILE enriched +
+  VERDICT + MATRIX_POSITIONS expanded to 18 competitors)

@@ -443,7 +443,7 @@ export function StyleGuideView() {
               {RADIUS_TOKENS.map((r) => (
                 <li key={r.token} className="flex items-center gap-3">
                   <span
-                    className={`${r.token} bg-ursa-forest-deep h-10 w-10 shrink-0 inline-block`}
+                    className={`${r.token} bg-ursa-dark-roast h-10 w-10 shrink-0 inline-block`}
                     aria-hidden="true"
                   />
                   <div className="flex-1 min-w-0">
@@ -615,7 +615,7 @@ export function StyleGuideView() {
             <DossierLinkBanner moduleId="01-brand-audit-and-design-system" />
             <button
               onClick={() => navigate("brand")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <SwatchBook size={14} /> Open Module 01 <ArrowRight size={14} />
             </button>

@@ -158,7 +158,7 @@ export function ScorecardView() {
           <button onClick={() => window.print()} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream font-label text-[0.74rem] tracking-[0.12em] uppercase hover:bg-ursa-espresso transition shadow-lg no-print">
             <Printer size={14} /> Print scorecard
           </button>
-          <button onClick={copySummary} className={cn("inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase transition shadow-lg no-print", copied ? "bg-ursa-forest-deep text-ursa-cream" : "bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft")}>
+          <button onClick={copySummary} className={cn("inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase transition shadow-lg no-print", copied ? "bg-ursa-dark-roast text-ursa-cream" : "bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft")}>
             {copied ? <><Check size={14} /> Copied</> : <><Download size={14} /> Copy as text</>}
           </button>
           <button onClick={() => navigate("brand")} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-ursa-line-soft text-muted-foreground font-label text-[0.74rem] tracking-[0.12em] uppercase hover:text-ursa-dark-roast hover:border-ursa-gold/60 transition no-print">
@@ -220,7 +220,7 @@ export function ScorecardView() {
 
           {/* Strength + Gap */}
           <div className="grid grid-cols-2 gap-4 py-5 border-b border-ursa-line-soft">
-            <div className="rounded-lg bg-ursa-forest-deep/8 border border-ursa-forest-deep/20 p-4">
+            <div className="rounded-lg bg-ursa-dark-roast/8 border border-ursa-forest-deep/20 p-4">
               <div className="flex items-center gap-1.5 mb-1">
                 <TrendingUp size={13} className="text-ursa-forest-deep" />
                 <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-forest-deep">Top strength</span>
@@ -266,7 +266,7 @@ export function ScorecardView() {
             <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-3 flex items-center gap-2">
               <Shield size={14} /> Spirit-preservation verdict
             </h3>
-            <div className="rounded-lg bg-gradient-to-r from-ursa-forest-deep/10 to-ursa-gold/10 border border-ursa-gold/30 p-5">
+            <div className="rounded-lg bg-gradient-to-r from-ursa-dark-roast/10 to-ursa-gold/10 border border-ursa-gold/30 p-5">
               <div className="flex items-center gap-3 mb-2">
                 <BearMark size={28} className="text-ursa-dark-roast" />
                 <PawPrint size={18} className="text-ursa-dark-roast" />

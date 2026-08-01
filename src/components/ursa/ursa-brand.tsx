@@ -3,27 +3,19 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Geometric bear glyph — Art Nouveau–adjacent, built from pentagons,
- * hexagons, and multi-sided convex polygons (no triangles or squares
- * for ears or mouth). NOT a copy of the official logo.
+ * Geometric bear glyph — OUTLINE ONLY (no fill), built from pentagons
+ * and hexagons. Art Nouveau–adjacent. NOT a copy of the official logo.
+ *
+ * The bear is rendered as stroked outlines with no fill color, so it
+ * works on any background without contrast issues. The stroke color
+ * is passed via `currentColor` (inherits from the parent's text color).
  *
  * Construction (viewBox 0 0 40 40):
- *  - Two pentagonal ears (5-sided) with smaller pentagonal inner-ear facets
- *  - An octagonal faceted face (8-sided)
- *  - Two hexagonal eyes (6-sided cut-outs)
- *  - A hexagonal muzzle (6-sided cut-out)
+ *  - Two pentagonal ears (5-sided) with smaller pentagonal inner-ear outlines
+ *  - An octagonal faceted face (8-sided outline)
+ *  - Two hexagonal eyes (6-sided outlines)
+ *  - A hexagonal muzzle (6-sided outline)
  *  - A pentagonal nose (5-sided) and a pentagonal mouth (5-sided)
- *
- * Color strategy — FIXED hex colors (NOT CSS variables), verified by
- * pairwise WCAG contrast calculation:
- *
- *   Bear fill:    #FFFFFF (white)     — 9.79:1 on forest badge
- *   Badge bg:     #2D4A36 (forest)    — separated from header by gold border
- *   Cutouts:      #2D4A36 (forest)    — same as badge = "holes" through bear
- *   Nose/mouth:   #D9BC7E (gold-soft) — 5.34:1 on forest muzzle
- *   Border ring:  #B8924A (gold)      — 5.00:1 on light header, 6.28:1 on dark
- *
- * All pairs pass WCAG AA (≥4.5:1 for text, ≥3:1 for graphics).
  */
 export function BearMark({
   className,
@@ -32,10 +24,8 @@ export function BearMark({
   className?: string;
   size?: number;
 }) {
-  // Fixed colors — mathematically verified for all pairwise contrast
-  const BEAR_FILL = "#FFFFFF"; // white bear on forest badge
-  const CUTOUT = "#2D4A36"; // forest-deep = badge bg, creates "hole" effect
-  const DETAIL = "#D9BC7E"; // gold-soft for nose/mouth on forest muzzle
+  const SW = 1.8; // stroke width
+  const stroke = "currentColor";
 
   return (
     <svg
@@ -45,32 +35,33 @@ export function BearMark({
       role="img"
       aria-label="Ursa bear mark"
       className={className}
+      fill="none"
     >
-      {/* Ears — pentagonal (5-sided), apex up, wide base */}
-      <polygon points="8,2 12,3 13,9 11,12 4,12 3,9 5,3" fill={BEAR_FILL} />
-      <polygon points="32,2 35,3 37,9 36,12 29,12 27,9 28,3" fill={BEAR_FILL} />
-      {/* Inner ear facets — smaller pentagons inset into each ear */}
-      <polygon points="8,5 10,6 10,10 8,11 6,10 6,6" fill={CUTOUT} />
-      <polygon points="32,5 34,6 34,10 32,11 30,10 30,6" fill={CUTOUT} />
+      {/* Ears — pentagonal (7-pointed for wider shape), outline only */}
+      <polygon points="8,2 12,3 13,9 11,12 4,12 3,9 5,3" fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" />
+      <polygon points="32,2 35,3 37,9 36,12 29,12 27,9 28,3" fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" />
+      {/* Inner ear outlines — smaller pentagons */}
+      <polygon points="8,5 10,6 10,10 8,11 6,10 6,6" fill="none" stroke={stroke} strokeWidth={SW * 0.6} strokeLinejoin="round" />
+      <polygon points="32,5 34,6 34,10 32,11 30,10 30,6" fill="none" stroke={stroke} strokeWidth={SW * 0.6} strokeLinejoin="round" />
 
-      {/* Faceted octagonal face — 8-sided with cheekbone angles and tapered chin */}
+      {/* Faceted face — octagonal outline */}
       <polygon
         points="11,11 29,11 34,16 33,24 28,31 20,34 12,31 7,24 6,16"
-        fill={BEAR_FILL}
+        fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round"
       />
 
-      {/* Eyes — hexagonal (6-sided) cut-outs, symmetric about x=20 */}
-      <polygon points="14,16 17,17 17.5,19 16,20.5 13.5,20 13,18" fill={CUTOUT} />
-      <polygon points="26,16 27,18 26.5,20 24,20.5 22.5,19 23,17" fill={CUTOUT} />
+      {/* Eyes — hexagonal outlines */}
+      <polygon points="14,16 17,17 17.5,19 16,20.5 13.5,20 13,18" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
+      <polygon points="26,16 27,18 26.5,20 24,20.5 22.5,19 23,17" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
 
-      {/* Muzzle — hexagonal (6-sided) cut-out, vertically elongated */}
-      <polygon points="20,20 26,25 25,31 20,33 15,31 14,25" fill={CUTOUT} />
+      {/* Muzzle — hexagonal outline */}
+      <polygon points="20,20 26,25 25,31 20,33 15,31 14,25" fill="none" stroke={stroke} strokeWidth={SW * 0.8} strokeLinejoin="round" />
 
-      {/* Nose — pentagonal (5-sided), seated at top of muzzle */}
-      <polygon points="20,22 22.5,24 21,26 19,26 17.5,24" fill={DETAIL} />
+      {/* Nose — pentagonal outline */}
+      <polygon points="20,22 22.5,24 21,26 19,26 17.5,24" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
 
-      {/* Mouth — pentagonal (5-sided), below nose inside muzzle */}
-      <polygon points="20,27 22.5,28.5 21.5,30.5 18.5,30.5 17.5,28.5" fill={DETAIL} />
+      {/* Mouth — pentagonal outline */}
+      <polygon points="20,27 22.5,28.5 21.5,30.5 18.5,30.5 17.5,28.5" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
     </svg>
   );
 }
@@ -118,7 +109,7 @@ export function SectionBadge({ children, tone = "gold" }: { children: React.Reac
 
 export function EvidenceTag({ status }: { status: "verified" | "partial" | "unverified" | "gap" }) {
   const map = {
-    verified: { label: "Verified", cls: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30" },
+    verified: { label: "Verified", cls: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/30" },
     partial: { label: "Partial", cls: "bg-ursa-gold/20 text-ursa-forest-deep border-ursa-gold" },
     unverified: { label: "Unverified", cls: "bg-ursa-terracotta/15 text-ursa-terracotta-text border-ursa-terracotta/40" },
     gap: { label: "Gap", cls: "bg-muted text-muted-foreground border-border" },
@@ -142,10 +133,10 @@ export function Pill({
 }) {
   const tones = {
     default: "bg-muted text-ursa-forest-deep border-ursa-line-soft",
-    ok: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30",
+    ok: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/30",
     warn: "bg-ursa-gold/15 text-ursa-forest-deep border-ursa-gold",
     stop: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
-    forest: "bg-ursa-forest-deep/8 text-ursa-forest-deep border-ursa-forest-deep/25",
+    forest: "bg-ursa-dark-roast/8 text-ursa-forest-deep border-ursa-forest-deep/25",
     gold: "bg-ursa-gold text-ursa-dark-roast border-ursa-gold",
   };
   return (
@@ -198,8 +189,8 @@ export function StatBlock({ value, label, tone = "forest" }: { value: string; la
 /** Progress bar. */
 export function ProgressBar({ value, tone = "gold" }: { value: number; tone?: "gold" | "forest" | "terracotta" }) {
   const tones = {
-    gold: "from-ursa-gold to-ursa-forest-deep",
-    forest: "from-ursa-forest to-ursa-forest-deep",
+    gold: "from-ursa-gold to-ursa-dark-roast",
+    forest: "from-ursa-medium-roast to-ursa-dark-roast",
     terracotta: "from-ursa-terracotta to-ursa-gold",
   };
   return (

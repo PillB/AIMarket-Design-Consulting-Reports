@@ -167,11 +167,11 @@ export function CampaignBuilderView() {
                   className={cn(
                     "flex items-center gap-2 px-3 py-2 rounded-full font-label text-[0.66rem] tracking-[0.12em] uppercase transition border",
                     isActive && "bg-ursa-dark-roast text-ursa-cream border-ursa-dark-roast",
-                    isDone && "bg-ursa-forest-deep/15 text-ursa-forest-deep border-ursa-forest-deep/40 hover:bg-ursa-forest-deep/25",
+                    isDone && "bg-ursa-dark-roast/15 text-ursa-forest-deep border-ursa-forest-deep/40 hover:bg-ursa-dark-roast/25",
                     !isActive && !isDone && "bg-card text-muted-foreground border-ursa-line-soft"
                   )}
                 >
-                  <span className={cn("w-5 h-5 rounded-full grid place-items-center text-[0.6rem] font-semibold", isActive ? "bg-ursa-gold text-ursa-dark-roast" : isDone ? "bg-ursa-forest-deep text-ursa-cream" : "bg-muted")}>
+                  <span className={cn("w-5 h-5 rounded-full grid place-items-center text-[0.6rem] font-semibold", isActive ? "bg-ursa-gold text-ursa-dark-roast" : isDone ? "bg-ursa-dark-roast text-ursa-cream" : "bg-muted")}>
                     {isDone ? <Check size={11} /> : i + 1}
                   </span>
                   <span className="hidden sm:inline">{s.label}</span>
@@ -263,7 +263,7 @@ export function CampaignBuilderView() {
                     onClick={copySummary}
                     className={cn(
                       "absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-label text-[0.66rem] tracking-[0.1em] uppercase transition",
-                      copied ? "bg-ursa-forest-deep text-ursa-cream" : "bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft"
+                      copied ? "bg-ursa-dark-roast text-ursa-cream" : "bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft"
                     )}
                   >
                     {copied ? <><Check size={12} /> Copied</> : "Copy brief"}
@@ -320,7 +320,7 @@ export function CampaignBuilderView() {
           ) : (
             <button
               onClick={() => navigate("roadmap")}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition shadow-lg"
             >
               View roadmap <ArrowRight size={14} />
             </button>
@@ -366,7 +366,7 @@ function OptionCard({ selected, onClick, title, desc, badge }: { selected: boole
       </div>
       <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed">{desc}</p>
       {badge && (
-        <span className="inline-block mt-2 font-label text-[0.6rem] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full bg-ursa-forest-deep/10 text-ursa-forest-deep border border-ursa-forest-deep/20">
+        <span className="inline-block mt-2 font-label text-[0.6rem] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full bg-ursa-dark-roast/10 text-ursa-forest-deep border border-ursa-forest-deep/20">
           {badge}
         </span>
       )}

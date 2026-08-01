@@ -101,9 +101,9 @@ export function BearScoreWidget() {
         </div>
         {/* Top strength + biggest gap — fills the lower left column */}
         <div className="w-full mt-4 grid grid-cols-2 gap-3 text-left">
-          <div className="rounded-lg bg-ursa-forest-deep/8 border border-ursa-forest-deep/20 p-3">
+          <div className="rounded-lg bg-ursa-dark-roast/8 border border-ursa-forest-deep/20 p-3">
             <div className="flex items-center gap-1.5 mb-1">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L7.5 4.5L11 5L8.5 7.5L9.2 11L6 9.3L2.8 11L3.5 7.5L1 5L4.5 4.5L6 1Z" fill="var(--color-ursa-forest-deep)"/></svg>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L7.5 4.5L11 5L8.5 7.5L9.2 11L6 9.3L2.8 11L3.5 7.5L1 5L4.5 4.5L6 1Z" fill="var(--color-ursa-gold)"/></svg>
               <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-forest-deep">Top strength</span>
             </div>
             <p className="font-display text-[0.82rem] font-semibold text-ursa-dark-roast m-0 leading-tight">{topStrength.surface}</p>

@@ -472,7 +472,7 @@ export function LoyaltyView() {
                     className={cn(
                       "w-10 h-10 rounded-lg grid place-items-center shrink-0",
                       p.tone === "gold" && "bg-ursa-gold/15 text-ursa-gold-text",
-                      p.tone === "forest" && "bg-ursa-forest-deep/10 text-ursa-forest-deep",
+                      p.tone === "forest" && "bg-ursa-dark-roast/10 text-ursa-forest-deep",
                       p.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta-text"
                     )}
                   >
@@ -493,7 +493,7 @@ export function LoyaltyView() {
                   </p>
                 </div>
                 <p className="text-[0.92rem] leading-relaxed text-foreground/85 mb-3 m-0">{p.apply}</p>
-                <div className="bg-ursa-forest-deep/5 border border-ursa-forest-deep/20 rounded-md p-3">
+                <div className="bg-ursa-dark-roast/5 border border-ursa-forest-deep/20 rounded-md p-3">
                   <p className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1">
                     Recommendation
                   </p>
@@ -721,7 +721,7 @@ export function LoyaltyView() {
                     className={cn(
                       "w-9 h-9 rounded-lg grid place-items-center shrink-0",
                       t.tone === "gold" && "bg-ursa-gold/15 text-ursa-gold-text",
-                      t.tone === "forest" && "bg-ursa-forest-deep/10 text-ursa-forest-deep",
+                      t.tone === "forest" && "bg-ursa-dark-roast/10 text-ursa-forest-deep",
                       t.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta-text"
                     )}
                   >
@@ -854,7 +854,7 @@ export function LoyaltyView() {
                     className={cn(
                       "w-10 h-10 rounded-lg grid place-items-center shrink-0",
                       imp.tone === "gold" && "bg-ursa-gold/15 text-ursa-gold-text",
-                      imp.tone === "forest" && "bg-ursa-forest-deep/10 text-ursa-forest-deep",
+                      imp.tone === "forest" && "bg-ursa-dark-roast/10 text-ursa-forest-deep",
                       imp.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta-text"
                     )}
                   >
@@ -893,7 +893,7 @@ export function LoyaltyView() {
           <DossierLinkBanner moduleId="04-marketing-growth-and-retention-plan" />
           <button
             onClick={() => navigate("growth")}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
           >
             <Coffee size={14} /> Open Module 04 · Growth &amp; Retention
             <ArrowRight size={14} />

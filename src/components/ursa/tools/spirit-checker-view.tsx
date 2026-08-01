@@ -251,7 +251,7 @@ export function SpiritCheckerView() {
                             ? (opt === "no" ? "ok" : opt === "yes" ? "stop" : "warn")
                             : (opt === "yes" ? "ok" : opt === "no" ? "stop" : "warn");
                           const toneCls = {
-                            ok: isActive ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep" : "text-ursa-forest-deep border-ursa-forest-deep/30 hover:bg-ursa-forest-deep/10",
+                            ok: isActive ? "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep" : "text-ursa-forest-deep border-ursa-forest-deep/30 hover:bg-ursa-dark-roast/10",
                             stop: isActive ? "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta" : "text-ursa-terracotta-text border-ursa-terracotta/30 hover:bg-ursa-terracotta/10",
                             warn: isActive ? "bg-ursa-gold text-ursa-dark-roast border-ursa-gold" : "text-ursa-gold-text border-ursa-gold/30 hover:bg-ursa-gold/10",
                           }[tone];

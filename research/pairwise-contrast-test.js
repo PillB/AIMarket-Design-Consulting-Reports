@@ -10,6 +10,7 @@
  *    or: agent-browser eval "$(cat research/pairwise-contrast-test.js)"
  */
 
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require("fs");
 
 // --- WCAG contrast calculation ---

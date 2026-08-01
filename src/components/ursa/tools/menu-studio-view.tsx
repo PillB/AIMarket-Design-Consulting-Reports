@@ -1050,7 +1050,7 @@ export function MenuStudioView() {
                   </Button>
                   <Button
                     onClick={copyExport}
-                    className="bg-ursa-forest-deep text-ursa-cream border border-ursa-forest-deep hover:bg-ursa-forest hover:text-ursa-cream"
+                    className="bg-ursa-dark-roast text-ursa-cream border border-ursa-forest-deep hover:bg-ursa-medium-roast hover:text-ursa-cream"
                   >
                     {copied ? <Check size={15} /> : <Copy size={15} />}
                     {copied ? "Copied!" : "Copy to clipboard"}
@@ -1182,12 +1182,12 @@ function QuadrantCard({
 }) {
   const meta = QUADRANT_META[quadrant];
   const toneClasses = {
-    forest: "border-ursa-forest-deep/40 bg-ursa-forest-deep/5",
+    forest: "border-ursa-forest-deep/40 bg-ursa-dark-roast/5",
     gold: "border-ursa-gold/50 bg-ursa-gold/8",
     terracotta: "border-ursa-terracotta/40 bg-ursa-terracotta/5",
   };
   const badgeTone = {
-    forest: "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep",
+    forest: "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep",
     gold: "bg-ursa-gold text-ursa-dark-roast border-ursa-gold",
     terracotta: "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta",
   };
@@ -1244,7 +1244,7 @@ function MatrixCell({
   position: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 }) {
   const toneBg = {
-    forest: "bg-ursa-forest-deep/10 border-ursa-forest-deep/30",
+    forest: "bg-ursa-dark-roast/10 border-ursa-forest-deep/30",
     gold: "bg-ursa-gold/15 border-ursa-gold/40",
     terracotta: "bg-ursa-terracotta/10 border-ursa-terracotta/30",
   };

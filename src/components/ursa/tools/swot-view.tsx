@@ -216,10 +216,10 @@ export function SwotView() {
                 <div className="bg-ursa-gold/5 border-r border-b border-ursa-line-soft/50 relative">
                   <span className="absolute top-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.topLeft.textColor }}>{QUADRANTS.topLeft.label}</span>
                 </div>
-                <div className="bg-ursa-forest-deep/5 border-b border-ursa-line-soft/50 relative">
+                <div className="bg-ursa-dark-roast/5 border-b border-ursa-line-soft/50 relative">
                   <span className="absolute top-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.topRight.textColor }}>{QUADRANTS.topRight.label}</span>
                 </div>
-                <div className="bg-ursa-sage/8 border-r border-ursa-line-soft/50 relative">
+                <div className="bg-muted border-r border-ursa-line-soft/50 relative">
                   <span className="absolute bottom-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.bottomLeft.textColor }}>{QUADRANTS.bottomLeft.label}</span>
                 </div>
                 <div className="bg-ursa-terracotta/5 relative">
@@ -376,7 +376,7 @@ export function SwotView() {
 
 function SwotCell({ label, icon, tone, text }: { label: string; icon: React.ReactNode; tone: "forest" | "terracotta" | "gold" | "stop"; text: string }) {
   const tones = {
-    forest: "border-ursa-forest-deep/25 bg-ursa-forest-deep/5 text-ursa-forest-deep",
+    forest: "border-ursa-forest-deep/25 bg-ursa-dark-roast/5 text-ursa-forest-deep",
     terracotta: "border-ursa-terracotta/25 bg-ursa-terracotta/5 text-ursa-terracotta-text",
     gold: "border-ursa-gold/30 bg-ursa-gold/5 text-ursa-gold-text",
     stop: "border-ursa-terracotta/30 bg-ursa-terracotta/8 text-ursa-terracotta-text",

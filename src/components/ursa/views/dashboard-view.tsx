@@ -192,7 +192,7 @@ export function DashboardView() {
               <Card key={t.key} highlight={t.featured} className="cursor-pointer group">
                 <button onClick={() => navigate(t.key)} className="text-left w-full h-full flex flex-col">
                   <div className="flex items-start justify-between gap-2 mb-3">
-                    <span className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 transition group-hover:scale-110 ${t.featured ? "bg-ursa-gold/20 text-ursa-gold-text" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>
+                    <span className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 transition group-hover:scale-110 ${t.featured ? "bg-ursa-gold/20 text-ursa-gold-text" : "bg-ursa-dark-roast/10 text-ursa-forest-deep"}`}>
                       <Icon size={20} />
                     </span>
                     <Pill tone={t.featured ? "gold" : "forest"}>{t.featured ? "Module 08" : `Extra · ${t.num}`}</Pill>
@@ -325,7 +325,7 @@ export function DashboardView() {
           <a href="/dossier/index.html" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold-soft/40 text-ursa-forest-deep hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase">
             <ExternalLink size={14} /> Open static HTML dossiers
           </a>
-          <button onClick={() => navigate("roadmap")} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase">
+          <button onClick={() => navigate("roadmap")} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase">
             <MapPin size={14} /> See the 90-day roadmap
           </button>
           <button onClick={() => navigate("calculator")} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft transition font-label text-[0.74rem] tracking-[0.1em] uppercase">

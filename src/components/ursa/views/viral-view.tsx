@@ -259,7 +259,7 @@ export function ViralView() {
                           {s.caption}
                         </p>
                       </div>
-                      <div className="bg-ursa-forest-deep text-ursa-cream rounded-lg p-4">
+                      <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4">
                         <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-leaf mb-2">
                           CTA · ES (Peru) · customer-facing
                         </div>
@@ -412,11 +412,11 @@ export function ViralView() {
                 if (concept) {
                   const tone = formatTone(concept.format);
                   const toneBg: Record<string, string> = {
-                    forest: "bg-ursa-forest-deep/8 border-ursa-forest-deep/30",
+                    forest: "bg-ursa-dark-roast/8 border-ursa-forest-deep/30",
                     gold: "bg-ursa-gold/15 border-ursa-gold/40",
                     warn: "bg-ursa-gold-soft/20 border-ursa-gold/40",
                     stop: "bg-ursa-terracotta/8 border-ursa-terracotta/30",
-                    ok: "bg-ursa-forest/10 border-ursa-forest-deep/30",
+                    ok: "bg-ursa-medium-roast/10 border-ursa-forest-deep/30",
                     default: "bg-muted border-ursa-line-soft",
                   };
                   return (
@@ -610,7 +610,7 @@ function MethodStep({
   icon: React.ReactNode;
 }) {
   const tones: Record<string, string> = {
-    forest: "border-ursa-forest-deep/40 bg-ursa-forest-deep/5",
+    forest: "border-ursa-forest-deep/40 bg-ursa-dark-roast/5",
     gold: "border-ursa-gold/50 bg-ursa-gold/8",
     warn: "border-ursa-gold-soft bg-ursa-gold-soft/15",
     stop: "border-ursa-terracotta/40 bg-ursa-terracotta/8",

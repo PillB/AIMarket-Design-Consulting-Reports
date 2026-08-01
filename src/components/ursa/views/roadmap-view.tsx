@@ -85,7 +85,7 @@ const PHASE_META: PhaseMeta[] = [
     icon: <Target size={18} className="text-ursa-forest-deep" />,
     tone: "forest",
     accentBorder: "border-ursa-forest-deep/40",
-    accentBg: "bg-ursa-forest-deep/6",
+    accentBg: "bg-ursa-dark-roast/6",
     dot: "bg-ursa-forest-deep",
     intro:
       "Month two turns on paid social and the creator pilot. The first cupping night runs; Rappi is re-photographed and bundled; the Ursa Mañana subscription waitlist opens. Nothing here should ship if month one's experiments all failed — check the stop rules first.",
@@ -95,7 +95,7 @@ const PHASE_META: PhaseMeta[] = [
     icon: <Trophy size={18} className="text-ursa-forest-deep" />,
     tone: "forest",
     accentBorder: "border-ursa-forest-deep/60",
-    accentBg: "bg-ursa-forest-deep/8",
+    accentBg: "bg-ursa-dark-roast/8",
     dot: "bg-ursa-forest-deep",
     intro:
       "Month three launches the subscription pilot, capped at 50 subscribers, and publishes the first quarterly origin report. Every experiment is graduated or killed. If a Growth budget is approved, B2B office sampling begins. Decide on Level-2 brand rollout only after the 90-day read.",
@@ -368,7 +368,7 @@ export function RoadmapView() {
         <div className="mt-4 flex flex-wrap gap-3">
           <button
             onClick={() => navigate("experiments")}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-forest transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-medium-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
           >
             <Beaker size={14} /> Open the Experiment Tracker
           </button>
@@ -515,7 +515,7 @@ export function RoadmapView() {
           </button>
           <button
             onClick={() => navigate("roi")}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep hover:bg-ursa-forest-deep hover:text-ursa-cream transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep hover:bg-ursa-dark-roast hover:text-ursa-cream transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
           >
             <Crosshair size={14} /> Model ROI per channel
           </button>
@@ -658,7 +658,7 @@ export function RoadmapView() {
                   className={cn(
                     "inline-flex items-center gap-2 font-label text-[0.66rem] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full border",
                     r.tone === "gold" && "border-ursa-gold/50 text-ursa-gold-text bg-ursa-gold/8",
-                    r.tone === "forest" && "border-ursa-forest-deep/40 text-ursa-forest-deep bg-ursa-forest-deep/8",
+                    r.tone === "forest" && "border-ursa-forest-deep/40 text-ursa-forest-deep bg-ursa-dark-roast/8",
                     r.tone === "terracotta" && "border-ursa-terracotta/40 text-ursa-terracotta-text bg-ursa-terracotta/8"
                   )}
                 >
@@ -735,10 +735,10 @@ export function RoadmapView() {
                 <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.16em] uppercase px-2.5 py-1 rounded-full bg-ursa-gold/20 text-ursa-gold-text-soft border border-ursa-gold/50">
                   <Shield size={12} /> Bear preserved
                 </span>
-                <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.16em] uppercase px-2.5 py-1 rounded-full bg-ursa-forest/30 text-ursa-leaf border border-ursa-leaf/40">
+                <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.16em] uppercase px-2.5 py-1 rounded-full bg-ursa-medium-roast/30 text-ursa-leaf border border-ursa-leaf/40">
                   <Coffee size={12} /> Gram preserved
                 </span>
-                <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.16em] uppercase px-2.5 py-1 rounded-full bg-ursa-forest/30 text-ursa-leaf border border-ursa-leaf/40">
+                <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.16em] uppercase px-2.5 py-1 rounded-full bg-ursa-medium-roast/30 text-ursa-leaf border border-ursa-leaf/40">
                   <Sparkles size={12} /> Green preserved
                 </span>
               </div>
@@ -784,7 +784,7 @@ export function RoadmapView() {
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => navigate("experiments")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-forest transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-medium-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <Beaker size={14} /> Experiment Tracker
             </button>
@@ -796,7 +796,7 @@ export function RoadmapView() {
             </button>
             <button
               onClick={() => navigate("budget")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep hover:bg-ursa-forest-deep hover:text-ursa-cream transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep hover:bg-ursa-dark-roast hover:text-ursa-cream transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <Banknote size={14} /> Budget Allocator
             </button>

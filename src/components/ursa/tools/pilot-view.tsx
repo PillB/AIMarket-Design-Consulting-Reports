@@ -370,7 +370,7 @@ export function PilotView() {
           <button onClick={() => navigate("calculator")} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ursa-gold text-ursa-dark-roast font-label text-[0.74rem] tracking-[0.12em] uppercase hover:bg-ursa-gold-soft transition shadow-lg">
             <Coffee size={14} /> Open the full calculator
           </button>
-          <button onClick={() => navigate("experiments")} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep font-label text-[0.74rem] tracking-[0.12em] uppercase hover:bg-ursa-forest-deep hover:text-ursa-cream transition">
+          <button onClick={() => navigate("experiments")} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep font-label text-[0.74rem] tracking-[0.12em] uppercase hover:bg-ursa-dark-roast hover:text-ursa-cream transition">
             <Target size={14} /> View experiment tracker
           </button>
         </div>

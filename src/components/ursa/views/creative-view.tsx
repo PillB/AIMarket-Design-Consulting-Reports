@@ -66,7 +66,7 @@ function PrototypeFrame({
 }) {
   const labelTone =
     tone === "forest"
-      ? "bg-ursa-forest-deep text-ursa-cream"
+      ? "bg-ursa-dark-roast text-ursa-cream"
       : tone === "gold"
         ? "bg-ursa-gold text-ursa-dark-roast"
         : "bg-ursa-dark-roast text-ursa-cream";
@@ -197,7 +197,7 @@ function PawPunch({ filled, count }: { filled: number; count: number }) {
 /** Small gold seal — for the bean bag label. */
 function GoldSeal({ date }: { date: string }) {
   return (
-    <div className="absolute top-4 right-4 w-16 h-16 rounded-full border-[1.5px] border-ursa-gold grid place-items-center text-center font-label text-[0.5rem] tracking-[0.12em] uppercase text-ursa-gold-text-soft leading-[1.1] bg-ursa-forest-deep/40">
+    <div className="absolute top-4 right-4 w-16 h-16 rounded-full border-[1.5px] border-ursa-gold grid place-items-center text-center font-label text-[0.5rem] tracking-[0.12em] uppercase text-ursa-gold-text-soft leading-[1.1] bg-ursa-dark-roast/40">
       <span>
         Tueste
         <br />
@@ -1081,7 +1081,7 @@ function LandingHeroProto() {
           <div className="flex items-center gap-1.5 px-3 py-2 border-b border-ursa-line-soft bg-ursa-cream">
             <span className="w-2.5 h-2.5 rounded-full bg-ursa-terracotta/70" />
             <span className="w-2.5 h-2.5 rounded-full bg-ursa-gold/70" />
-            <span className="w-2.5 h-2.5 rounded-full bg-ursa-forest/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-ursa-medium-roast/70" />
             <div className="flex-1 mx-3 px-3 py-0.5 bg-ursa-foam rounded text-[0.65rem] text-muted-foreground font-mono truncate">
               ursa-coffee.pe/black-label
             </div>

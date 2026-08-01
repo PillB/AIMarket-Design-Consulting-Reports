@@ -495,7 +495,7 @@ export function ContentCalendarView() {
                           {s.caption}
                         </p>
                       </div>
-                      <div className="bg-ursa-forest-deep text-ursa-cream rounded-lg p-4">
+                      <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4">
                         <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-leaf mb-2">
                           CTA · ES Peru
                         </div>

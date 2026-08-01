@@ -627,7 +627,7 @@ export function BrandAuditView() {
             <DossierLinkBanner moduleId="01-brand-audit-and-design-system" />
             <button
               onClick={() => navigate("style-guide")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <Sparkles size={14} /> Open the interactive style guide <ArrowRight size={14} />
             </button>

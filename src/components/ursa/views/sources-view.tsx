@@ -274,7 +274,7 @@ export function SourcesView() {
           <ol className="space-y-2.5 m-0 p-0 list-none">
             {OPEN_QUESTIONS.map((q, i) => (
               <li key={i} className="flex gap-3 items-start">
-                <span className="flex items-center justify-center w-7 h-7 shrink-0 rounded-full bg-ursa-forest-deep text-ursa-cream font-label text-[0.72rem] tracking-[0.06em]">
+                <span className="flex items-center justify-center w-7 h-7 shrink-0 rounded-full bg-ursa-dark-roast text-ursa-cream font-label text-[0.72rem] tracking-[0.06em]">
                   {i + 1}
                 </span>
                 <span className="text-[0.92rem] text-foreground/90 leading-relaxed pt-1">{q}</span>
@@ -330,7 +330,7 @@ export function SourcesView() {
           {METHODOLOGY.map((m, i) => (
             <Card key={m.title} className="flex flex-col gap-2 h-full">
               <div className="flex items-center gap-2">
-                <span className="flex items-center justify-center w-6 h-6 shrink-0 rounded-full bg-ursa-forest-deep/10 text-ursa-forest-deep font-label text-[0.66rem] tracking-[0.06em] border border-ursa-forest-deep/25">
+                <span className="flex items-center justify-center w-6 h-6 shrink-0 rounded-full bg-ursa-dark-roast/10 text-ursa-forest-deep font-label text-[0.66rem] tracking-[0.06em] border border-ursa-forest-deep/25">
                   {i + 1}
                 </span>
                 <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">{m.title}</h4>

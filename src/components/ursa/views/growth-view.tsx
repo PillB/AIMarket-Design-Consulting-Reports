@@ -520,7 +520,7 @@ export function GrowthView() {
             </div>
             <div className="relative pl-6">
               {/* Vertical connecting line */}
-              <span className="absolute left-[10px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-ursa-gold via-ursa-gold/50 to-ursa-forest-deep/30 rounded-full" aria-hidden="true" />
+              <span className="absolute left-[10px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-ursa-gold via-ursa-gold/50 to-ursa-dark-roast/30 rounded-full" aria-hidden="true" />
               <div className="space-y-2">
                 {[...OFFER_STACK].reverse().map((layer, i) => {
                   const accent = layer.tone === "forest" ? "var(--color-ursa-forest-deep)" : layer.tone === "terracotta" ? "var(--color-ursa-terracotta-text)" : "var(--color-ursa-gold-text)";
@@ -776,7 +776,7 @@ export function GrowthView() {
           </button>
           <button
             onClick={() => navigate("roi")}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep hover:bg-ursa-forest-deep hover:text-ursa-cream transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep hover:bg-ursa-dark-roast hover:text-ursa-cream transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
           >
             <ArrowRight size={14} /> Model ROI per channel
           </button>

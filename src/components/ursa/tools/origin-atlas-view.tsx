@@ -383,7 +383,7 @@ export function OriginAtlasView() {
                     className={cn(
                       "font-label text-[0.7rem] tracking-[0.08em] uppercase px-2.5 py-1.5 rounded-md border transition",
                       o.id === selectedId
-                        ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep"
+                        ? "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep"
                         : "bg-ursa-paper text-ursa-dark-roast border-ursa-line-soft hover:border-ursa-gold"
                     )}
                   >
@@ -418,7 +418,7 @@ export function OriginAtlasView() {
 
             {/* Spec grid */}
             <div className="grid grid-cols-2 gap-3 text-[0.86rem]">
-              <div className="bg-ursa-forest-deep/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
+              <div className="bg-ursa-dark-roast/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
                 <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep flex items-center gap-1">
                   <Mountain size={10} /> Altitude
                 </div>
@@ -436,7 +436,7 @@ export function OriginAtlasView() {
                 </div>
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.varietal}</div>
               </div>
-              <div className="bg-ursa-forest-deep/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
+              <div className="bg-ursa-dark-roast/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
                 <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep flex items-center gap-1">
                   <Coffee size={10} /> Ursa drink
                 </div>
@@ -511,8 +511,8 @@ export function OriginAtlasView() {
                           o.verified
                             ? "bg-ursa-gold text-ursa-dark-roast border-ursa-gold hover:brightness-105"
                             : o.id === selectedId
-                            ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep"
-                            : "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30 hover:border-ursa-gold"
+                            ? "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep"
+                            : "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/30 hover:border-ursa-gold"
                         )}
                       >
                         {o.name}
@@ -677,7 +677,7 @@ export function OriginAtlasView() {
         <Grid cols={3}>
           <Card className="flex flex-col gap-2 h-full">
             <div className="flex items-center gap-2">
-              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-forest-deep/10 text-ursa-forest-deep border border-ursa-forest-deep/25">
+              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-dark-roast/10 text-ursa-forest-deep border border-ursa-forest-deep/25">
                 <Mountain size={18} />
               </span>
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Altitude</h4>
