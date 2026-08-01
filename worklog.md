@@ -1933,3 +1933,29 @@ Stage Summary:
 - 31 commits, all files verified on GitHub
 - Methodology documentation complete (11 files, reproducible)
 - Auth technique documented: setsid+nohup keeps gh auth process alive between tool calls
+
+---
+Task ID: GH-PAGES-DEPLOY
+Agent: Main orchestrator
+Task: Deploy to GitHub Pages
+
+Work Log:
+- Changed next.config.ts: output="export", basePath="/AIMarket-Design-Consulting-Reports", images.unoptimized=true
+- Simplified build script: "next build" (removed standalone copy)
+- Removed src/app/api/route.ts (breaks static export)
+- Fixed all /dossier/ paths to include basePath prefix
+- Updated .gitignore for clean builds
+- Built static export successfully (out/ directory with index.html, _next/, dossier/)
+- Pushed static output to gh-pages branch via git force-push
+- Configured GitHub Pages: build_type=legacy, source=gh-pages branch, path=/
+- Triggered Pages build via API
+- Build status: "built" ✅
+- Live URL: https://pillb.github.io/AIMarket-Design-Consulting-Reports/
+- Verified: 200 OK on main page and dossier/index.html
+
+Stage Summary:
+- GitHub Pages: LIVE at https://pillb.github.io/AIMarket-Design-Consulting-Reports/
+- Main page: 200 OK ✅
+- Dossier: 200 OK ✅
+- Static export with basePath for correct asset loading
+- gh-pages branch contains the built output
