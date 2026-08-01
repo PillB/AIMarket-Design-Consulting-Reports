@@ -1282,3 +1282,40 @@ Stage Summary:
 EVIDENCE VERDICT: MODERATE
 IMPLEMENTATION VERDICT: RELEASE-READY WITH QUALIFICATIONS
 SPIRIT-PRESERVATION VERDICT: PRESERVED
+
+---
+Task ID: HYDRATION-CONTRAST-HARNESS
+Agent: Main orchestrator
+Task: Fix hydration mismatch, build contrast evaluation harness, achieve zero contrast failures
+
+Work Log:
+- Fixed ThemeToggle hydration mismatch:
+  • Root cause: useTheme hook read localStorage during initialization (getInitialTheme), returning "dark" on client but "light" on server. The `mounted` guard only protected the icon, not aria-label/title.
+  • Fix: Refactored useTheme to use useSyncExternalStore. Server snapshot always returns "light"; client snapshot reads localStorage. No setState-in-effect.
+  • ThemeToggle now renders stable placeholder (Moon + "Toggle theme") until client hydrates, then swaps to correct icon+label.
+- Fixed LanguageProvider hydration mismatch (same pattern):
+  • Refactored to useSyncExternalStore with external store pattern (subscribeLang, getLangSnapshot, getLangServerSnapshot).
+  • Server always renders "en"; client reads actual language on mount.
+- Built runtime contrast evaluation harness (research/contrast-harness.js):
+  • Walks the DOM, finds all text-bearing elements
+  • Computes ACTUAL rendered text color vs ACTUAL background (walks ancestor chain for transparency)
+  • Handles oklab() color format (Tailwind opacity modifiers like text-ursa-cream/85)
+  • Handles CSS gradient backgrounds (extracts darkest stop for worst-case contrast)
+  • Handles alpha-blending (semi-transparent colors blended with parent bg)
+  • Calculates WCAG contrast ratios (4.5:1 normal text, 3:1 large text)
+  • Reports failures with selector, text, colors, ratio, threshold
+- Ran harness across all 25 views. Found and fixed failures:
+  • Bear Score widget: score numbers used fill colors (gold #B8924A = 2.67:1, terracotta #C16E4B = 3.45:1) as text. Fixed: separated barColor (fill) from textColor (gold-text/terracotta-text variant).
+  • Scorecard view: same pattern, same fix.
+  • Day-in-Life widget: time label was terracotta-text on terracotta bar (1.67:1). Fixed: espresso text on terracotta pill background (4.85:1).
+  • Brand audit palette: hex labels on swatches used simple luminance threshold (0.55) which misclassified terracotta as "dark". Fixed: WCAG relative luminance with 0.18 threshold — mid-tones get ink text, darks get cream.
+  • Header mobile nav: active state used gold-text (#82622C = 3.23:1 on dark espresso). Fixed: gold-text-soft (#D9BC7E = 9.91:1).
+  • Darkened gold-text token from #82622C (4.45:1 on muted bg) to #706228 (4.79:1) — fixes near-misses on muted/secondary backgrounds.
+  • Fixed double -text-text suffix bug (terracotta-text-text → terracotta-text) across all files.
+- Final result: 0 contrast failures across all 25 views. 7 near-miss warnings (ratio 4.75-5.0, all pass).
+
+Stage Summary:
+- Hydration: ThemeToggle and LanguageProvider fixed via useSyncExternalStore — no more SSR/CSR mismatch
+- Contrast harness: research/contrast-harness.js — reusable, handles oklab, gradients, alpha
+- Contrast: 0 failures across all 25 views (was 6 on dashboard, 8 on market, 7 on scorecard, 4 on calculator, 2 on growth, 2 on sources, 1 on loyalty)
+- Lint: clean
