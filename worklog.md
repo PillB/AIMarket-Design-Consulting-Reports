@@ -1034,3 +1034,46 @@ Next-phase candidates:
 - Add NFC tap-to-add-card simulation on the loyalty view
 - Build a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
 - Add A/B testing framework for the landing page variants
+
+---
+
+## Task ID: M1-IMPL
+**Agent:** main (strategic-research integration)
+**Task:** Integrate the CAM Café Perú 2025 award finding into the dashboard, and add a methodology callout to the market view to surface the customer-voice sampling limitation.
+
+### Context discovered
+- **New material fact:** Ursa Coffee Roasters placed in the **top 5** of the **CAM Café Perú EXPERIENCE 2025** competition (Specialty Coffee Shop category), published Dec 10, 2025 by camcafeperu.com.pe. 1st: Monótono Coffee (Barranco), 2nd: Punto Café. A specialized jury visited 40+ establishments across 17 districts. This was NOT in the original dossier.
+- **Baseline defect:** The market view reported customer-voice themes without documenting a reproducible sampling method.
+
+### Work Log
+**Task 1 — Dashboard (src/components/ursa/views/dashboard-view.tsx)**
+- Added a 10th headline card to the "Headlines" Grid, after card 9 ("Every claim is traceable; every gap is named").
+  - Wrapped in `<Reveal delay={0}>` (resets the row cycle 0/80/160 → 0 for the new row 4 start).
+  - `<Card highlight>` to draw attention (matches card 7's highlight treatment for "NEW" items).
+  - Gold `<Pill tone="gold">NEW</Pill>` badge above the title.
+  - `<ArrowRight>` icon in the h3 (matches card 7's icon-in-title pattern).
+  - Body uses the exact supplied copy, with smart quotes (`&rsquo;`, `&ldquo;`, `&rdquo;`) and a proper em dash to match the typographic style of the surrounding cards.
+- Added a new FactRow to the "Verified at research snapshot" card: `<FactRow label="Recognition" value="CAM Café 2025 · Top 5" />` (placed after Membership, before the snapshot footer).
+
+**Task 2 — Market view (src/components/ursa/views/market-view.tsx)**
+- Inserted a `<Callout tone="warn" title="Methodology and limitations">` block immediately BEFORE the customer-voice `<Grid cols={2}>`, inside the existing "Customer voice" ViewSection.
+- Lead paragraph states plainly that the themes are **illustrative, not validated** — inferred from competitor review patterns and the dossier's own competitive analysis, not from a coded sample of Ursa's own customers.
+- A `<dl>` definition list (responsive: 1 col mobile, 2 cols sm+) documents the six methodology fields:
+  - **Market boundary**: Miraflores specialty coffee cafés + Lima-wide leaders for benchmarking
+  - **Platforms sampled**: Instagram, Rappi, TripAdvisor, Google Maps, CoffeePass
+  - **Observation period**: 2026-08-01 (point-in-time snapshot)
+  - **Sample**: Public listings and bios of 10 competitors; TripAdvisor review samples where available
+  - **Inclusion criteria**: Direct Miraflores competitors + Lima specialty leaders with public online presence
+  - **Coding**: Themes grouped by recurring topic (quality, service, atmosphere, value, accessibility)
+- Closing paragraph spells out the **Limitation**: Ursa's TripAdvisor has ~0 reviews; a proper customer-voice study requires owner-provided POS data, a consented survey, or a review-mining sample of ≥50 Ursa-specific reviews (not currently available).
+
+### Verification
+- `bun run lint` — clean, zero errors.
+- Dev server recompiled successfully (no type errors, no runtime errors in dev.log).
+- Only the two specified files were edited; no test files created.
+
+### Stage Summary
+- Dashboard now carries 10 headline cards; card 10 surfaces the CAM Café 2025 award and reframes the distribution gap (Module 02) as a visibility problem, not a quality problem.
+- "Verified at research snapshot" card now lists Ursa's award recognition alongside address, hours, tagline, Instagram, layout, delivery, and membership.
+- Market view now opens the Customer Voice section with an honest methodology callout (tone="warn") that documents the sampling boundary, platforms, period, sample size, inclusion criteria, and coding scheme — and explicitly flags the Ursa-specific review gap. The customer-voice themes remain visible as direction-setting signal, with the caveat now attached.
+- Net effect: the dossier's competitive-positioning claim has been upgraded from "unrecognized" to "award-recognized", and a reproducibility gap in the market view has been disclosed rather than hidden.

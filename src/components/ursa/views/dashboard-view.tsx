@@ -104,6 +104,7 @@ export function DashboardView() {
                 <FactRow label="Layout" value={URSA_FACTS.twoBars} />
                 <FactRow label="Delivery" value={URSA_FACTS.delivery} />
                 <FactRow label="Membership" value={URSA_FACTS.membership} />
+                <FactRow label="Recognition" value="CAM Café 2025 · Top 5" />
               </ul>
               <p className="font-label text-[0.72rem] tracking-[0.06em] text-muted-foreground mt-3 mb-0">
                 Snapshot {URSA_FACTS.snapshot} · <button onClick={() => navigate("sources")} className="text-ursa-forest-deep underline hover:text-ursa-dark-roast">See Sources &amp; Evidence</button>
@@ -251,6 +252,15 @@ export function DashboardView() {
           <Reveal delay={160}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">9 · Every claim is traceable; every gap is named</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">Each strategic claim cites a public source or marks itself as a scenario assumption. Where data is missing — average ticket, repeat rate, margin — the dossier says so and absorbs the gap with lean, moderate, and growth scenarios rather than invented numbers. No recommendation is held together by filler.</p>
+          </Card></Reveal>
+          <Reveal delay={0}><Card highlight>
+            <div className="flex items-center gap-2 mb-2">
+              <Pill tone="gold">NEW</Pill>
+            </div>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-1.5">
+              <ArrowRight size={16} className="text-ursa-gold-text" /> 10 · Ursa is now an award-recognized café
+            </h3>
+            <p className="text-[0.9rem] text-muted-foreground m-0">Ursa placed in the top 5 of the CAM Café Perú EXPERIENCE 2025 competition (Specialty Coffee Shop category), alongside Monótono Coffee (1st) and Punto Café (2nd). A specialized jury visited 40+ establishments across 17 districts. This upgrades Ursa&rsquo;s competitive position from &ldquo;unrecognized&rdquo; to &ldquo;award-recognized&rdquo; — the distribution gap (Module 02) is no longer about quality, it&rsquo;s about visibility.</p>
           </Card></Reveal>
         </Grid>
       </ViewSection>

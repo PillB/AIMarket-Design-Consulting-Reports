@@ -318,6 +318,47 @@ export function MarketView() {
         title="What Lima's café customers actually say"
         meta="Four themes · verified from public reviews and direct observation"
       >
+        <Callout tone="warn" title="Methodology and limitations">
+          <p className="mb-3">
+            The customer-voice themes below are <strong>illustrative, not validated</strong>. They are inferred from
+            competitor review patterns and the dossier&rsquo;s own competitive analysis, not from a coded sample of
+            Ursa&rsquo;s own customers. Read them as direction-setting signal, not as a quantitative read on Ursa&rsquo;s
+            clientele.
+          </p>
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mb-3 m-0">
+            <div>
+              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Market boundary</dt>
+              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Miraflores specialty coffee cafés + Lima-wide leaders for benchmarking</dd>
+            </div>
+            <div>
+              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Platforms sampled</dt>
+              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Instagram, Rappi, TripAdvisor, Google Maps, CoffeePass</dd>
+            </div>
+            <div>
+              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Observation period</dt>
+              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">2026-08-01 (point-in-time snapshot)</dd>
+            </div>
+            <div>
+              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Sample</dt>
+              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Public listings and bios of 10 competitors; TripAdvisor review samples where available</dd>
+            </div>
+            <div>
+              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Inclusion criteria</dt>
+              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Direct Miraflores competitors + Lima specialty leaders with public online presence</dd>
+            </div>
+            <div>
+              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Coding</dt>
+              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Themes grouped by recurring topic (quality, service, atmosphere, value, accessibility)</dd>
+            </div>
+          </dl>
+          <p className="mb-0">
+            <strong className="text-ursa-dark-roast">Limitation:</strong> Ursa&rsquo;s TripAdvisor has ~0 reviews;
+            customer themes are inferred from competitor review patterns and the dossier&rsquo;s own competitive
+            analysis, <em>not</em> from a coded sample of Ursa&rsquo;s own customers. A proper customer-voice study
+            requires owner-provided POS data, a consented survey, or a review-mining sample of &ge;50 Ursa-specific
+            reviews (not currently available).
+          </p>
+        </Callout>
         <Grid cols={2}>
           {CUSTOMER_VOICE.map((theme, i) => {
             const tones = [

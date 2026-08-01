@@ -20,22 +20,22 @@ export const URSA_FACTS = {
 };
 
 export const PALETTE = [
-  { name: "Green Bean", hex: "#6F5B3D", role: "Roast spectrum · lightest" },
-  { name: "Light Roast", hex: "#8B6240", role: "Warm mid-tone" },
-  { name: "Medium Roast", hex: "#6F4A2E", role: "Primary brown" },
-  { name: "Dark Roast", hex: "#3B2417", role: "Headers · deep brown" },
-  { name: "Espresso", hex: "#211208", role: "Footer · darkest" },
-  { name: "Forest Deep", hex: "#2D4A36", role: "Bear habitat · primary green" },
-  { name: "Forest", hex: "#3E6149", role: "Secondary green" },
-  { name: "Sage", hex: "#8FA68B", role: "Muted green" },
-  { name: "Leaf", hex: "#B7C9A8", role: "Soft accent" },
-  { name: "Cream", hex: "#F4EBD9", role: "Background · paper" },
-  { name: "Paper", hex: "#FAF5EC", role: "Card surface" },
-  { name: "Foam", hex: "#FFFCF6", role: "Lightest surface" },
-  { name: "Gold", hex: "#B8924A", role: "Art Nouveau accent" },
-  { name: "Gold Soft", hex: "#D9BC7E", role: "Light gold" },
-  { name: "Terracotta", hex: "#C16E4B", role: "Warm contrast" },
-  { name: "Ink", hex: "#1A140C", role: "Text · darkest" },
+  { name: "Green Bean", hex: "#6F5B3D", role: "Roast spectrum · lightest", provenance: "approximate" as const },
+  { name: "Light Roast", hex: "#8B6240", role: "Warm mid-tone", provenance: "approximate" as const },
+  { name: "Medium Roast", hex: "#6F4A2E", role: "Primary brown", provenance: "approximate" as const },
+  { name: "Dark Roast", hex: "#3B2417", role: "Headers · deep brown", provenance: "approximate" as const },
+  { name: "Espresso", hex: "#211208", role: "Footer · darkest", provenance: "approximate" as const },
+  { name: "Forest Deep", hex: "#2D4A36", role: "Bear habitat · primary green", provenance: "approximate" as const },
+  { name: "Forest", hex: "#3E6149", role: "Secondary green", provenance: "approximate" as const },
+  { name: "Sage", hex: "#8FA68B", role: "Muted green", provenance: "approximate" as const },
+  { name: "Leaf", hex: "#B7C9A8", role: "Soft accent", provenance: "approximate" as const },
+  { name: "Cream", hex: "#F4EBD9", role: "Background · paper", provenance: "approximate" as const },
+  { name: "Paper", hex: "#FAF5EC", role: "Card surface", provenance: "proposed" as const },
+  { name: "Foam", hex: "#FFFCF6", role: "Lightest surface", provenance: "proposed" as const },
+  { name: "Gold", hex: "#B8924A", role: "Art Nouveau accent", provenance: "approximate" as const },
+  { name: "Gold Soft", hex: "#D9BC7E", role: "Light gold", provenance: "proposed" as const },
+  { name: "Terracotta", hex: "#C16E4B", role: "Warm contrast", provenance: "proposed" as const },
+  { name: "Ink", hex: "#1A140C", role: "Text · darkest", provenance: "proposed" as const },
 ];
 
 export const TYPOGRAPHY = [
@@ -616,16 +616,35 @@ export const TWELVE_MONTH_ROADMAP = [
 ];
 
 export const SOURCES = [
-  { id: "S1", label: "Instagram @ursacoffeeperu", url: "https://www.instagram.com/ursacoffeeperu/", status: "verified" as const, note: "Bio, posts, reels covers sampled 2026-08-01" },
-  { id: "S2", label: "Facebook /UrsaCoffeePeru", url: "https://www.facebook.com/UrsaCoffeePeru/", status: "partial" as const, note: "Public page; limited post access" },
-  { id: "S3", label: "Rappi — Ursa Coffee Roasters", url: "https://www.rappi.com.pe/restaurantes/77182-ursa-coffee-roasters", status: "verified" as const, note: "Delivery menu and pricing" },
-  { id: "S4", label: "CoffeePass Perú — Ursa", url: "https://coffeepass.pe/marcas/ursa-coffee-roasters/", status: "verified" as const, note: "Membership platform listing" },
-  { id: "S5", label: "TripAdvisor — Ursa Coffee Roasters", url: "https://www.tripadvisor.com.pe/Restaurant_Review-g294316-d32878304-Reviews-Ursa_Coffee_Roasters-Lima_Lima_Region.html", status: "partial" as const, note: "Listing exists; ~0 reviews at snapshot" },
-  { id: "S6", label: "Acquisition.com — Offers training", url: "https://www.acquisition.com/training/offers", status: "verified" as const, note: "Hormozi framework reference" },
-  { id: "S7", label: "Acquisition.com — Leads start here", url: "https://www.acquisition.com/training/leads/start-here", status: "verified" as const, note: "Lead generation reference" },
-  { id: "S8", label: "Rory Sutherland — FS Knowledge Project", url: "https://fs.blog/knowledge-project-podcast/rory-sutherland-2/", status: "verified" as const, note: "Behavioral marketing reference" },
-  { id: "S9", label: "Premios Somos 2024 — Punto Café", url: "https://www.premiossomos.pe/", status: "partial" as const, note: "Competitor award reference" },
-  { id: "S10", label: "Fresh Cup — 2025 café trends", url: "https://www.freshcup.com/", status: "partial" as const, note: "Industry trend reference" },
+  // First-party observations (Ursa's own channels) — observed, not independently verified
+  { id: "S1", label: "Instagram @ursacoffeeperu", url: "https://www.instagram.com/ursacoffeeperu/", status: "partial" as const, note: "Bio, posts, reels covers sampled 2026-08-01. First-party observation — confirms what Ursa says about itself." },
+  { id: "S2", label: "Facebook /UrsaCoffeePeru", url: "https://www.facebook.com/UrsaCoffeePeru/", status: "partial" as const, note: "Public page; limited post access. First-party." },
+  { id: "S3", label: "Rappi — Ursa Coffee Roasters", url: "https://www.rappi.com.pe/restaurantes/77182-ursa-coffee-roasters", status: "partial" as const, note: "Delivery menu and pricing. First-party platform listing." },
+  { id: "S4", label: "CoffeePass Perú — Ursa", url: "https://coffeepass.pe/marcas/ursa-coffee-roasters/", status: "partial" as const, note: "Membership platform listing. First-party." },
+  { id: "S5", label: "TripAdvisor — Ursa Coffee Roasters", url: "https://www.tripadvisor.com.pe/Restaurant_Review-g294316-d32878304-Reviews-Ursa_Coffee_Roasters-Lima_Lima_Region.html", status: "partial" as const, note: "Listing exists; ~0 reviews at snapshot (2026-08-01). Re-checked 2026-08-01: still 'No reviews for this property yet'." },
+  { id: "S6", label: "Corner.inc — Ursa Coffee Roasters", url: "https://www.corner.inc/place/pqGK5KMpViS2", status: "verified" as const, note: "Independent listing aggregator. Updated Dec 26, 2025. Confirms roastery, address, hours, 'baristas double as coffee educators'." },
+  { id: "S7", label: "mindtrip.ai — Ursa listing", url: "https://mindtrip.ai/restaurant/lima-central-peru/ursa-coffee-roasters/re-5CeuedW6", status: "partial" as const, note: "Independent listing. Confirms address. Phone +51 938 636 645 (conflicts with Instagram +51 973 619 428 — unresolved)." },
+  // Framework references — suggestive, not empirically validated for cafés
+  { id: "S8", label: "Acquisition.com — Offers training", url: "https://www.acquisition.com/training/offers", status: "partial" as const, note: "Hormozi framework reference. Framework, not café-specific empirical evidence." },
+  { id: "S9", label: "Acquisition.com — Leads start here", url: "https://www.acquisition.com/training/leads/start-here", status: "partial" as const, note: "Lead generation reference. Framework." },
+  { id: "S10", label: "Rory Sutherland — FS Knowledge Project", url: "https://fs.blog/knowledge-project-podcast/rory-sutherland-2/", status: "partial" as const, note: "Behavioral marketing reference. Influential, not café-specific." },
+  // Industry context
+  { id: "S11", label: "Fresh Cup — 2025 café trends", url: "https://www.freshcup.com/", status: "partial" as const, note: "Industry trend reference. Context, not Ursa-specific." },
+  { id: "S12", label: "Premios Somos 2024 — Punto Café", url: "n/a", status: "verified" as const, note: "Competitor award (Punto Café won 'Best Specialty Café in Peru' 2024). Verifiable fact about a competitor." },
+  { id: "S13", label: "CAM Café Perú — EXPERIENCE 2025 Competition", url: "https://camcafeperu.com.pe/EN/article.php?id=237", status: "verified" as const, note: "NEW (2026-08-01): Ursa Coffee is in the TOP 5 of the Specialty Coffee Shop category. 1st: Monótono Coffee, 2nd: Punto Café. Jury visited 40+ shops across 17 districts. Published Dec 10, 2025." },
+  { id: "S14", label: "World's 100 Best Coffee Shops — Puku Puku nomination", url: "n/a", status: "verified" as const, note: "Puku Puku nominated. Verifiable competitor fact." },
+  // Competitor observations
+  { id: "S15", label: "Punto Café (competitor)", url: "n/a", status: "partial" as const, note: "Miraflores direct competitor. Observed via public listings." },
+  { id: "S16", label: "Neira Café Lab (competitor)", url: "n/a", status: "partial" as const, note: "Miraflores + 3 locations. Founder: barista champion Harrysson Neira." },
+  { id: "S17", label: "Tostaduría Bisetti (competitor)", url: "n/a", status: "partial" as const, note: "Barranco pioneer. 'Escuela de café' positioning." },
+  { id: "S18", label: "Puku Puku (competitor)", url: "n/a", status: "partial" as const, note: "Multiple Lima locations. 'Microlotes' positioning." },
+  { id: "S19", label: "Terrua Café (competitor)", url: "n/a", status: "partial" as const, note: "Miraflores. US$25 paid tasting — premium experience pricing." },
+  { id: "S20", label: "Monótono Coffee (competitor)", url: "n/a", status: "partial" as const, note: "NEW: Barranco. 1st place CAM Café 2025. Previously not in dossier." },
+  // Benchmarks
+  { id: "S21", label: "Specialty coffee marginal cost benchmark", url: "n/a", status: "partial" as const, note: "US$0.75–1.20/cup industry benchmark. Not Ursa-specific; used for calculator defaults." },
+  { id: "S22", label: "Lima subscription market gap", url: "n/a", status: "partial" as const, note: "No Lima specialty café currently offers unlimited-cup subscription. Market observation, not verified exhaustively." },
+  // Owner statement — unverified
+  { id: "S23", label: "Owner brief — brand direction", url: "n/a", status: "unverified" as const, note: "Owner-described: Art Nouveau, browns/greens, bear motif, specialty roasting. Starting lead, not independently verified." },
 ];
 
 export const OPEN_QUESTIONS = [

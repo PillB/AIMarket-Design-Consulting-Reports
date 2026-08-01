@@ -298,14 +298,20 @@ export function BrandAuditView() {
       {/* 3. Color palette */}
       <ViewSection
         badge="Color system"
-        title="The verified Ursa palette"
-        meta={`${PALETTE.length} tokens · roast-spectrum browns + forest greens + cream + gold`}
+        title="The Ursa palette — observed and proposed"
+        meta={`${PALETTE.length} tokens · provenance-labeled · not official until owner-verified`}
       >
-        <p className="text-[1rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-6">
+        <p className="text-[1rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-4">
           A roast-spectrum brown ladder (green-bean → espresso) carries the coffee story; a forest-deep green
           carries the bear's habitat; cream surfaces hold it all up; a single warm gold reserves emphasis.
           No blue, no indigo — this is a deliberate non-default choice.
         </p>
+        <div className="flex flex-wrap items-center gap-3 mb-6 p-3 rounded-lg bg-ursa-foam border border-ursa-line-soft">
+          <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Provenance key:</span>
+          <span className="flex items-center gap-1.5 text-[0.76rem]"><span className="w-2.5 h-2.5 rounded-sm bg-ursa-gold/60" /> approximate — sampled from social media</span>
+          <span className="flex items-center gap-1.5 text-[0.76rem]"><span className="w-2.5 h-2.5 rounded-sm bg-ursa-terracotta/60" /> proposed — design-system addition</span>
+          <span className="flex items-center gap-1.5 text-[0.76rem]"><span className="w-2.5 h-2.5 rounded-sm bg-ursa-forest-deep/60" /> official — from owner guidelines (none yet)</span>
+        </div>
         <Grid cols={4}>
           {PALETTE.map((c) => {
             // Determine if the color is dark (for contrast-aware text overlay)
@@ -329,9 +335,17 @@ export function BrandAuditView() {
                   </span>
                 </div>
                 <div className="p-4">
-                  <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0 leading-tight mb-1">
-                    {c.name}
-                  </h4>
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+                      {c.name}
+                    </h4>
+                    <span className="font-label text-[0.52rem] tracking-[0.1em] uppercase px-1.5 py-0.5 rounded border" style={{
+                      borderColor: c.provenance === "official" ? "var(--color-ursa-forest-deep)" : c.provenance === "approximate" ? "var(--color-ursa-gold)" : "var(--color-ursa-terracotta)",
+                      color: c.provenance === "official" ? "var(--color-ursa-forest-deep)" : c.provenance === "approximate" ? "var(--color-ursa-gold-text)" : "var(--color-ursa-terracotta-text)",
+                    }}>
+                      {c.provenance}
+                    </span>
+                  </div>
                   <p className="text-[0.78rem] text-muted-foreground m-0 leading-snug">{c.role}</p>
                 </div>
               </Card>
