@@ -541,7 +541,7 @@ export function MenuView() {
               >
                 Carta Ursa
               </h3>
-              <small className="font-label text-[0.66rem] tracking-[0.32em] uppercase text-ursa-gold block">
+              <small className="font-label text-[0.66rem] tracking-[0.32em] uppercase text-ursa-gold-text block">
                 Alcanfores 183 · Miraflores
               </small>
             </div>
@@ -640,7 +640,7 @@ export function MenuView() {
             </Callout>
             <Card className="bg-ursa-foam">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-                <Coffee size={16} className="text-ursa-gold" />
+                <Coffee size={16} className="text-ursa-gold-text" />
                 The ownable menu language
               </h4>
               <ul className="space-y-1.5 text-[0.88rem] m-0 p-0 list-none text-muted-foreground">
@@ -764,7 +764,7 @@ export function MenuView() {
                       </div>
                     </div>
                     <div className="bg-ursa-cream rounded-lg p-4 border border-ursa-line-soft">
-                      <h5 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-3">
+                      <h5 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-3">
                         Pricing scenarios (PEN)
                       </h5>
                       <div className="space-y-2.5">
@@ -861,7 +861,7 @@ export function MenuView() {
               className="bg-card border border-ursa-line-soft rounded-lg p-4 transition hover:border-ursa-gold hover:shadow-[0_4px_16px_-8px_rgba(184,146,74,0.4)]"
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="font-display text-[1.4rem] font-semibold text-ursa-gold leading-none w-7">
+                <span className="font-display text-[1.4rem] font-semibold text-ursa-gold-text leading-none w-7">
                   {String(c.n).padStart(2, "0")}
                 </span>
                 <CheckCircle2 size={14} className="text-ursa-forest-deep" />
@@ -885,7 +885,7 @@ export function MenuView() {
       >
         <Grid cols={3}>
           <Card>
-            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-2">
+            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-2">
               Lean
             </h4>
             <p className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 mb-2">
@@ -898,7 +898,7 @@ export function MenuView() {
             </p>
           </Card>
           <Card highlight>
-            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-2">
+            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-2">
               Moderate
             </h4>
             <p className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 mb-2">
@@ -910,7 +910,7 @@ export function MenuView() {
             </p>
           </Card>
           <Card>
-            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-2">
+            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-2">
               Growth
             </h4>
             <p className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 mb-2">

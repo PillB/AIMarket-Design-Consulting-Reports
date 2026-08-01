@@ -126,49 +126,49 @@ export function LandingView() {
                     </span>
                     <div>
                       <p className="font-display text-base font-semibold leading-none m-0 text-ursa-cream">Ursa Mañana</p>
-                      <p className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-soft m-0 mt-1">Socio piloto</p>
+                      <p className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft m-0 mt-1">Socio piloto</p>
                     </div>
                   </div>
-                  <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-ursa-gold-soft border border-ursa-gold/40 rounded-full px-2 py-1">
+                  <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-ursa-gold-text-soft border border-ursa-gold/40 rounded-full px-2 py-1">
                     S/. 20 / mes
                   </span>
                 </div>
 
                 <div className="border-t border-ursa-gold/20 pt-4 mb-4">
-                  <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-sage m-0 mb-1">Socio</p>
+                  <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-sage-text m-0 mb-1">Socio</p>
                   <p className="font-display text-lg text-ursa-cream m-0">Maria Elena R.</p>
-                  <p className="text-[0.72rem] text-ursa-sage m-0 mt-0.5">Miembro desde agosto 2026</p>
+                  <p className="text-[0.72rem] text-ursa-sage-text m-0 mt-0.5">Miembro desde agosto 2026</p>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2 mb-4">
                   <div className="bg-white/5 rounded-lg p-2 text-center border border-white/10">
-                    <Clock size={14} className="text-ursa-gold mx-auto mb-1" />
-                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage m-0">7–10am</p>
+                    <Clock size={14} className="text-ursa-gold-text mx-auto mb-1" />
+                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage-text m-0">7–10am</p>
                   </div>
                   <div className="bg-white/5 rounded-lg p-2 text-center border border-white/10">
-                    <Coffee size={14} className="text-ursa-gold mx-auto mb-1" />
-                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage m-0">Ilimitado</p>
+                    <Coffee size={14} className="text-ursa-gold-text mx-auto mb-1" />
+                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage-text m-0">Ilimitado</p>
                   </div>
                   <div className="bg-white/5 rounded-lg p-2 text-center border border-white/10">
-                    <MapPin size={14} className="text-ursa-gold mx-auto mb-1" />
-                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage m-0">En el local</p>
+                    <MapPin size={14} className="text-ursa-gold-text mx-auto mb-1" />
+                    <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage-text m-0">En el local</p>
                   </div>
                 </div>
 
                 <div className="border-t border-ursa-gold/20 pt-3">
-                  <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-sage m-0 mb-1">Un gramo a la vez</p>
-                  <p className="text-[0.68rem] text-ursa-gold-soft/80 m-0 italic">Alcanfores 183, Miraflores</p>
+                  <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-sage-text m-0 mb-1">Un gramo a la vez</p>
+                  <p className="text-[0.68rem] text-ursa-gold-text-soft/80 m-0 italic">Alcanfores 183, Miraflores</p>
                 </div>
 
                 {/* Stamp row */}
                 <div className="flex gap-1.5 mt-4">
                   {[1,2,3,4,5,6].map((n) => (
-                    <span key={n} className={cn("flex-1 aspect-square rounded-full border-2 grid place-items-center", n <= 3 ? "bg-ursa-gold border-ursa-gold text-ursa-dark-roast" : "border-ursa-gold/30 text-ursa-gold/40")}>
+                    <span key={n} className={cn("flex-1 aspect-square rounded-full border-2 grid place-items-center", n <= 3 ? "bg-ursa-gold border-ursa-gold text-ursa-dark-roast" : "border-ursa-gold/30 text-ursa-gold-text/40")}>
                       {n <= 3 && <Check size={12} />}
                     </span>
                   ))}
                 </div>
-                <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage m-0 mt-2 text-center">
+                <p className="font-label text-[0.54rem] tracking-[0.1em] uppercase text-ursa-sage-text m-0 mt-2 text-center">
                   6 acompañamientos · 1 gratis
                 </p>
               </div>
@@ -190,7 +190,7 @@ export function LandingView() {
               <span className={cn(
                 "w-14 h-14 rounded-full grid place-items-center mb-3",
                 b.tone === "forest" && "bg-ursa-forest-deep/12 text-ursa-forest-deep",
-                b.tone === "gold" && "bg-ursa-gold/18 text-ursa-gold",
+                b.tone === "gold" && "bg-ursa-gold/18 text-ursa-gold-text",
                 b.tone === "terracotta" && "bg-ursa-terracotta/12 text-ursa-terracotta"
               )}>
                 <b.icon size={26} />
@@ -211,10 +211,10 @@ export function LandingView() {
             { n: "03", title: "Marida un acompañamiento", desc: "Cookie, financier o empanada con 20% off. Acumula 6 sellos y el séptimo acompañamiento va por cuenta del oso.", icon: Cookie },
           ].map((step) => (
             <Card key={step.n} className="relative">
-              <span className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-ursa-dark-roast text-ursa-gold grid place-items-center font-display text-base font-semibold shadow-lg">
+              <span className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-ursa-dark-roast text-ursa-gold-text grid place-items-center font-display text-base font-semibold shadow-lg">
                 {step.n}
               </span>
-              <step.icon size={22} className="text-ursa-gold mb-3 mt-2" />
+              <step.icon size={22} className="text-ursa-gold-text mb-3 mt-2" />
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-2">{step.title}</h3>
               <p className="text-[0.88rem] text-muted-foreground m-0 leading-relaxed">{step.desc}</p>
             </Card>
@@ -227,7 +227,7 @@ export function LandingView() {
         <div className="grid lg:grid-cols-[1fr_1fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">
           <Card className="bg-gradient-to-br from-ursa-foam to-ursa-cream">
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <CupGlyph size={20} className="text-ursa-gold" /> Por qué S/. 20 funciona
+              <CupGlyph size={20} className="text-ursa-gold-text" /> Por qué S/. 20 funciona
             </h3>
             <ul className="space-y-2.5 m-0 p-0 list-none">
               <li className="flex items-start gap-2.5">
@@ -249,7 +249,7 @@ export function LandingView() {
             </ul>
             <button
               onClick={() => navigate("calculator")}
-              className="mt-4 inline-flex items-center gap-1.5 font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold hover:text-ursa-dark-roast transition"
+              className="mt-4 inline-flex items-center gap-1.5 font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text hover:text-ursa-dark-roast transition"
             >
               <Calculator size={14} /> Abrir la calculadora completa <ArrowRight size={14} />
             </button>
@@ -286,7 +286,7 @@ export function LandingView() {
           {faqs.map((f) => (
             <Card key={f.q} className="p-5">
               <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-start gap-2">
-                <span className="text-ursa-gold font-label text-[0.7rem] tracking-[0.12em] uppercase shrink-0 mt-1">Q</span>
+                <span className="text-ursa-gold-text font-label text-[0.7rem] tracking-[0.12em] uppercase shrink-0 mt-1">Q</span>
                 {f.q}
               </h4>
               <p className="text-[0.88rem] text-muted-foreground m-0 leading-relaxed pl-6">{f.a}</p>

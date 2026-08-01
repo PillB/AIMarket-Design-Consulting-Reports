@@ -85,7 +85,7 @@ export function DayInTheLifeWidget() {
             <BearMark size={20} className="text-ursa-dark-roast" /> Un día en Alcanfores 183
           </h3>
           {nowInTimeline && (
-            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold flex items-center gap-1.5">
+            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-ursa-terracotta ursa-breathe" /> Ahora en Lima
             </span>
           )}
@@ -234,7 +234,7 @@ function Insight({ label, value, highlight = false }: { label: string; value: st
   return (
     <div className={cn("rounded-lg p-2.5 border", highlight ? "bg-ursa-gold/10 border-ursa-gold/40" : "bg-ursa-foam/60 border-ursa-line-soft")}>
       <div className="font-label text-[0.56rem] tracking-[0.14em] uppercase text-muted-foreground">{label}</div>
-      <p className={cn("font-display text-[0.85rem] font-semibold m-0 mt-0.5", highlight ? "text-ursa-gold" : "text-ursa-dark-roast")}>{value}</p>
+      <p className={cn("font-display text-[0.85rem] font-semibold m-0 mt-0.5", highlight ? "text-ursa-gold-text" : "text-ursa-dark-roast")}>{value}</p>
     </div>
   );
 }

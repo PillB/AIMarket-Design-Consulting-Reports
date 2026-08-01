@@ -387,7 +387,7 @@ export function OriginAtlasView() {
                         : "bg-ursa-paper text-ursa-dark-roast border-ursa-line-soft hover:border-ursa-gold"
                     )}
                   >
-                    {o.verified && <span className="text-ursa-gold mr-1">●</span>}
+                    {o.verified && <span className="text-ursa-gold-text mr-1">●</span>}
                     {o.name}
                   </button>
                 ))}
@@ -400,7 +400,7 @@ export function OriginAtlasView() {
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <div className="flex items-center gap-2 mb-1 flex-wrap">
-                  <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold">
+                  <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-text">
                     {selected.department}
                   </span>
                   {selected.verified && (
@@ -560,13 +560,13 @@ export function OriginAtlasView() {
                     <button
                       onClick={() => setSelectedId(o.id)}
                       className={cn(
-                        "font-label text-[0.66rem] tracking-[0.06em] uppercase text-left pr-2 truncate transition hover:text-ursa-gold",
+                        "font-label text-[0.66rem] tracking-[0.06em] uppercase text-left pr-2 truncate transition hover:text-ursa-gold-text",
                         o.id === selectedId
                           ? "text-ursa-forest-deep font-semibold"
                           : "text-ursa-dark-roast"
                       )}
                     >
-                      {o.verified && <span className="text-ursa-gold mr-1">●</span>}
+                      {o.verified && <span className="text-ursa-gold-text mr-1">●</span>}
                       {o.name}
                     </button>
                     {MONTHS.map((_, i) => {
@@ -739,13 +739,13 @@ export function OriginAtlasView() {
             </Pill>
             <button
               onClick={() => navigate("menu")}
-              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold transition inline-flex items-center gap-1.5"
+              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5"
             >
               Menu & Product <ArrowRight size={12} />
             </button>
             <button
               onClick={() => navigate("menu-studio")}
-              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold transition inline-flex items-center gap-1.5"
+              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5"
             >
               Menu Engineering Studio <ArrowRight size={12} />
             </button>

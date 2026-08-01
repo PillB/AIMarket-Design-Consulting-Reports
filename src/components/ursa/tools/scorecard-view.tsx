@@ -176,7 +176,7 @@ export function ScorecardView() {
               <BearMark size={44} className="text-ursa-dark-roast ursa-breathe" />
               <div>
                 <h2 className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 leading-tight">Ursa Coffee Roasters</h2>
-                <p className="font-label text-[0.64rem] tracking-[0.2em] uppercase text-ursa-gold m-0 mt-1">Brand Audit Scorecard · 2026-08-01</p>
+                <p className="font-label text-[0.64rem] tracking-[0.2em] uppercase text-ursa-gold-text m-0 mt-1">Brand Audit Scorecard · 2026-08-01</p>
               </div>
             </div>
             <div className="text-right">
@@ -195,7 +195,7 @@ export function ScorecardView() {
 
           {/* Brand pillars */}
           <div className="py-5 border-b border-ursa-line-soft">
-            <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-4">Brand pillars</h3>
+            <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-4">Brand pillars</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {PILLARS.map((p) => {
                 const Icon = p.icon;
@@ -240,7 +240,7 @@ export function ScorecardView() {
 
           {/* Experiment status summary */}
           <div className="py-5 border-b border-ursa-line-soft">
-            <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-4 flex items-center gap-2">
+            <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-4 flex items-center gap-2">
               <FlaskConical size={14} /> Experiment tracker — {EXPERIMENT_SUMMARY.length} experiments
             </h3>
             <div className="grid grid-cols-4 gap-2 mb-4">
@@ -263,14 +263,14 @@ export function ScorecardView() {
 
           {/* Spirit-preservation verdict */}
           <div className="py-5">
-            <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-3 flex items-center gap-2">
+            <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-3 flex items-center gap-2">
               <Shield size={14} /> Spirit-preservation verdict
             </h3>
             <div className="rounded-lg bg-gradient-to-r from-ursa-forest-deep/10 to-ursa-gold/10 border border-ursa-gold/30 p-5">
               <div className="flex items-center gap-3 mb-2">
                 <BearMark size={28} className="text-ursa-dark-roast" />
                 <PawPrint size={18} className="text-ursa-dark-roast" />
-                <Coffee size={18} className="text-ursa-gold" />
+                <Coffee size={18} className="text-ursa-gold-text" />
                 <Scale size={18} className="text-ursa-forest-deep" />
               </div>
               <p className="font-display text-lg font-semibold text-ursa-dark-roast m-0 mb-1">The plan preserves the bear, the gram, and the green.</p>
@@ -322,7 +322,7 @@ export function ScorecardView() {
 }
 
 function ScorecardMetric({ label, value, suffix, tone }: { label: string; value: number; suffix: string; tone: "gold" | "forest" | "terracotta" }) {
-  const tones = { gold: "text-ursa-gold", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta" };
+  const tones = { gold: "text-ursa-gold-text", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta" };
   return (
     <div className="text-center">
       <div className={cn("font-display text-3xl font-semibold leading-none", tones[tone])}>

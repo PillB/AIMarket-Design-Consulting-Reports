@@ -6,7 +6,7 @@ import { BearScoreWidget } from "../bear-score-widget";
 import { DayInTheLifeWidget } from "../day-in-life-widget";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, EXPERIMENTS, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
-import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2, Activity, Award } from "lucide-react";
+import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2, Activity, Award, CreditCard } from "lucide-react";
 
 export function DashboardView() {
   const navigate = useNavigate();
@@ -36,6 +36,7 @@ export function DashboardView() {
     { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 10 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
     { key: "pilot", num: "T12", title: "Ursa Mañana Pilot Dashboard", desc: "12-week subscription pilot simulator: sign-ups, side-attach, cannibalization, and net profit. Replaces inputs with real data when the pilot runs.", icon: Activity },
     { key: "scorecard", num: "T13", title: "Brand Audit Scorecard", desc: "One-page executive compilation: Bear Score, brand pillars, experiment status, and the spirit-preservation verdict. Print or copy as text.", icon: Award, featured: false },
+    { key: "loyalty", num: "T14", title: "Loyalty Wallet Card Analysis", desc: "The 8-visit wallet card (Apple Wallet + Google Pay, via itsloyaleats). Behavioral science, interactive economics, and the six tactics that turn stamps into retention.", icon: CreditCard },
   ];
 
   return (
@@ -122,7 +123,7 @@ export function DashboardView() {
         <Grid cols={2}>
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Coffee size={18} className="text-ursa-gold" /> Verified beverages
+              <Coffee size={18} className="text-ursa-gold-text" /> Verified beverages
             </h3>
             <ul className="space-y-2 m-0 p-0 list-none">
               {VERIFIED_BEVERAGES.map((b) => (
@@ -172,7 +173,7 @@ export function DashboardView() {
                 <Pill tone="forest">Module {m.num}</Pill>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-1.5 flex items-center gap-1.5">
                   {m.title}
-                  <ArrowRight size={15} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  <ArrowRight size={15} className="text-ursa-gold-text opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </h3>
                 <p className="text-[0.85rem] text-muted-foreground m-0">{m.desc}</p>
               </button>
@@ -182,7 +183,7 @@ export function DashboardView() {
       </ViewSection>
 
       {/* Tools — the extra innovative pages */}
-      <ViewSection badge="Interactive tools" title="Thirteen working tools — built on the verified research" meta="Click any card to open">
+      <ViewSection badge="Interactive tools" title="Fourteen working tools — built on the verified research" meta="Click any card to open">
         <Grid cols={4}>
           {tools.map((t) => {
             const Icon = t.icon;
@@ -190,14 +191,14 @@ export function DashboardView() {
               <Card key={t.key} highlight={t.featured} className="cursor-pointer group">
                 <button onClick={() => navigate(t.key)} className="text-left w-full h-full flex flex-col">
                   <div className="flex items-start justify-between gap-2 mb-3">
-                    <span className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 transition group-hover:scale-110 ${t.featured ? "bg-ursa-gold/20 text-ursa-gold" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>
+                    <span className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 transition group-hover:scale-110 ${t.featured ? "bg-ursa-gold/20 text-ursa-gold-text" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>
                       <Icon size={20} />
                     </span>
                     <Pill tone={t.featured ? "gold" : "forest"}>{t.featured ? "Module 08" : `Extra · ${t.num}`}</Pill>
                   </div>
                   <h3 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast mt-0 mb-1.5 flex items-center gap-1.5 leading-tight">
                     {t.title}
-                    <ArrowRight size={14} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0" />
+                    <ArrowRight size={14} className="text-ursa-gold-text opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0" />
                   </h3>
                   <p className="text-[0.8rem] text-muted-foreground m-0 leading-relaxed">{t.desc}</p>
                 </button>
@@ -236,10 +237,10 @@ export function DashboardView() {
           </Card></Reveal>
           <Reveal delay={0}><Card highlight>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-1.5">
-              <Calculator size={16} className="text-ursa-gold" /> 7 · NEW · Ursa Mañana works on marginal-cost math
+              <Calculator size={16} className="text-ursa-gold-text" /> 7 · NEW · Ursa Mañana works on marginal-cost math
             </h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">A S/. 20/month unlimited-coffee subscription (Mon–Fri 7–10am, no milk drinks, in-store only, 1 cup/visit) is profitable across all three calculator presets — conservative, default, optimistic — because Ursa's own-roastery keeps marginal cost at S/. 1.20–1.80/cup. At default assumptions, net profit is <strong>S/. 35.60/subscriber/month</strong> before cannibalization. The real risk is cannibalization, which is why an interactive calculator models it explicitly.</p>
-            <button onClick={() => navigate("calculator")} className="mt-3 inline-flex items-center gap-1.5 font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold hover:text-ursa-dark-roast transition">
+            <button onClick={() => navigate("calculator")} className="mt-3 inline-flex items-center gap-1.5 font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text hover:text-ursa-dark-roast transition">
               Open the calculator <ArrowRight size={14} />
             </button>
           </Card></Reveal>
@@ -301,7 +302,7 @@ export function DashboardView() {
           </Card>
           <Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Star size={16} className="text-ursa-gold" /> Audience &amp; assets
+              <Star size={16} className="text-ursa-gold-text" /> Audience &amp; assets
             </h3>
             <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
               <li>Size of existing customer email / WhatsApp list with consent?</li>

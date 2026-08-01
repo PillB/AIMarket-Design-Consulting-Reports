@@ -454,7 +454,7 @@ export function MenuStudioView() {
           <Card>
             <div className="flex items-center justify-between mb-2">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0 flex items-center gap-2">
-                <Percent size={16} className="text-ursa-gold" /> Average margin progress
+                <Percent size={16} className="text-ursa-gold-text" /> Average margin progress
               </h4>
               <Pill tone={marginTone(metrics.avgMarginPct)}>
                 {metrics.avgMarginPct.toFixed(1)}%
@@ -464,7 +464,7 @@ export function MenuStudioView() {
             <div className="flex justify-between mt-2 font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">
               <span>0%</span>
               <span className="text-ursa-terracotta">55% threshold</span>
-              <span className="text-ursa-gold">65% healthy</span>
+              <span className="text-ursa-gold-text">65% healthy</span>
               <span>100%</span>
             </div>
             <p className="text-[0.85rem] text-muted-foreground mt-3 m-0">
@@ -476,7 +476,7 @@ export function MenuStudioView() {
           {/* Total prep time + category breakdown */}
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Clock size={16} className="text-ursa-gold" /> Total prep time &amp; category mix
+              <Clock size={16} className="text-ursa-gold-text" /> Total prep time &amp; category mix
             </h4>
             <div className="flex items-baseline gap-3 mb-3">
               <span className="font-display text-3xl font-semibold text-ursa-dark-roast">
@@ -726,7 +726,7 @@ export function MenuStudioView() {
           {/* Controls */}
           <Card>
             <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-              <Wallet size={18} className="text-ursa-gold" /> Configure the pairing
+              <Wallet size={18} className="text-ursa-gold-text" /> Configure the pairing
             </h4>
 
             <div className="space-y-5">
@@ -818,7 +818,7 @@ export function MenuStudioView() {
           <div className="space-y-4">
             <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="flex items-center justify-between mb-1">
-                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
+                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
                   Side-margin contribution
                 </span>
                 <SectionBadge tone="gold">live</SectionBadge>
@@ -929,7 +929,7 @@ export function MenuStudioView() {
         {/* 2x2 visual matrix */}
         <Card className="mt-6 bg-ursa-foam">
           <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-            <Sparkles size={16} className="text-ursa-gold" /> The matrix at a glance
+            <Sparkles size={16} className="text-ursa-gold-text" /> The matrix at a glance
           </h4>
           <div className="relative grid grid-cols-2 grid-rows-2 gap-3 min-h-[280px]">
             {/* axes labels */}
@@ -1158,7 +1158,7 @@ function MiniStat({
   };
   return (
     <div className="bg-card border border-ursa-line-soft rounded-lg p-4">
-      <div className="flex items-center gap-2 text-ursa-gold mb-1">
+      <div className="flex items-center gap-2 text-ursa-gold-text mb-1">
         {icon}
         <span className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground">
           {label}

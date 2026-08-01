@@ -148,7 +148,7 @@ export function SourcesView() {
             <Card key={s.id} className="flex flex-col gap-3 h-full">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-baseline gap-2 min-w-0">
-                  <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold shrink-0">{s.id}</span>
+                  <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text shrink-0">{s.id}</span>
                   <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0 leading-snug">{s.label}</h3>
                 </div>
                 <EvidenceTag status={s.status} />
@@ -157,7 +157,7 @@ export function SourcesView() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-start gap-1.5 text-[0.82rem] text-ursa-forest-deep hover:text-ursa-gold transition break-all"
+                className="inline-flex items-start gap-1.5 text-[0.82rem] text-ursa-forest-deep hover:text-ursa-gold-text transition break-all"
               >
                 <ExternalLink size={12} className="mt-0.5 shrink-0" />
                 <span className="break-all">{s.url}</span>
@@ -244,14 +244,14 @@ export function SourcesView() {
           </Card>
           <Card className="h-full">
             <div className="flex items-center gap-2 mb-2">
-              <ShieldCheck size={16} className="text-ursa-gold" />
-              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold">How to verify</span>
+              <ShieldCheck size={16} className="text-ursa-gold-text" />
+              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text">How to verify</span>
             </div>
             <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">Three confirmations</h4>
             <ul className="m-0 p-0 list-none space-y-1 text-[0.86rem] text-foreground/85">
-              <li className="flex gap-2"><span className="text-ursa-gold">·</span><span>Address contains <b>Miraflores, Lima</b></span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold">·</span><span>Instagram handle is <b>@ursacoffeeperu</b></span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold">·</span><span>Spanish bio; <b>&ldquo;Tostadores de café de especialidad&rdquo;</b></span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>Address contains <b>Miraflores, Lima</b></span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>Instagram handle is <b>@ursacoffeeperu</b></span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>Spanish bio; <b>&ldquo;Tostadores de café de especialidad&rdquo;</b></span></li>
             </ul>
           </Card>
         </Grid>
@@ -265,7 +265,7 @@ export function SourcesView() {
       >
         <Card highlight>
           <div className="flex items-center gap-2 mb-3">
-            <HelpCircle size={18} className="text-ursa-gold" />
+            <HelpCircle size={18} className="text-ursa-gold-text" />
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Single grouped clarification request</h3>
           </div>
           <p className="text-[0.92rem] text-foreground/85 mb-4 mt-0">
@@ -315,7 +315,7 @@ export function SourcesView() {
           {CONFLICTS.map((c) => (
             <Card key={c.topic} className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <AlertTriangle size={16} className="text-ursa-gold shrink-0" />
+                <AlertTriangle size={16} className="text-ursa-gold-text shrink-0" />
                 <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">{c.topic}</h4>
               </div>
               <p className="m-0 text-[0.9rem] text-foreground/85 leading-relaxed pl-7">{c.detail}</p>
@@ -359,7 +359,7 @@ export function SourcesView() {
         <Grid cols={2}>
           <Card className="flex flex-col gap-3 h-full">
             <div className="flex items-center gap-2">
-              <FileJson size={18} className="text-ursa-gold" />
+              <FileJson size={18} className="text-ursa-gold-text" />
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">evidence.json</h4>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/80 leading-relaxed">
@@ -369,14 +369,14 @@ export function SourcesView() {
               href="/dossier/assets/evidence.json"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold transition inline-flex items-center gap-1.5 mt-auto"
+              className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5 mt-auto"
             >
               <ExternalLink size={11} /> /dossier/assets/evidence.json
             </a>
           </Card>
           <Card className="flex flex-col gap-3 h-full">
             <div className="flex items-center gap-2">
-              <FlaskConical size={18} className="text-ursa-gold" />
+              <FlaskConical size={18} className="text-ursa-gold-text" />
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">experiments.json</h4>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/80 leading-relaxed">
@@ -386,7 +386,7 @@ export function SourcesView() {
               href="/dossier/assets/experiments.json"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold transition inline-flex items-center gap-1.5 mt-auto"
+              className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5 mt-auto"
             >
               <ExternalLink size={11} /> /dossier/assets/experiments.json
             </a>
@@ -405,7 +405,7 @@ export function SourcesView() {
             <Pill tone="forest"><BookOpen size={11} /> Appendix complete</Pill>
             <button
               onClick={() => navigate("experiments")}
-              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold transition inline-flex items-center gap-1.5"
+              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5"
             >
               Open Experiment Tracker <ArrowRight size={12} />
             </button>

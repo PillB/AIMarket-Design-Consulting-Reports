@@ -148,7 +148,7 @@ export function PilotView() {
 
         {/* Revenue breakdown bar */}
         <Card className="mt-5">
-          <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold m-0 mb-3">Where the money comes from and goes</h4>
+          <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-3">Where the money comes from and goes</h4>
           <div className="flex h-8 rounded-lg overflow-hidden border border-ursa-line-soft">
             <div className="h-full flex items-center justify-center text-ursa-cream font-label text-[0.62rem]" style={{ width: `${(pilotTotals.totalRevenue / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100}%`, background: "var(--color-ursa-gold)" }}>
               {((pilotTotals.totalRevenue / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100).toFixed(0)}% sub
@@ -160,7 +160,7 @@ export function PilotView() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 text-[0.8rem]">
             <div>
               <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">Subscription revenue</span>
-              <span className="font-display font-semibold text-ursa-gold">{PEN(pilotTotals.totalRevenue)}</span>
+              <span className="font-display font-semibold text-ursa-gold-text">{PEN(pilotTotals.totalRevenue)}</span>
             </div>
             <div>
               <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">Side margin</span>
@@ -186,7 +186,7 @@ export function PilotView() {
           {/* Inputs */}
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-              <DollarSign size={18} className="text-ursa-gold" /> Edit the inputs
+              <DollarSign size={18} className="text-ursa-gold-text" /> Edit the inputs
             </h3>
             <div className="space-y-4">
               <ParamInput label="Subscription price (monthly)" value={params.subPrice} onChange={(v) => updateParam("subPrice", v)} min={5} max={40} step={1} prefix="S/. " />
@@ -296,7 +296,7 @@ export function PilotView() {
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
             <p className="text-[0.76rem] text-muted-foreground m-0">
-              <Info size={11} className="inline mr-1 text-ursa-gold/60" />
+              <Info size={11} className="inline mr-1 text-ursa-gold-text/60" />
               Edit any cell to model a different trajectory. Week profit = sub revenue + side margin − coffee cost + cannibalization adjustment.
             </p>
             <button
@@ -328,7 +328,7 @@ export function PilotView() {
           </Card>
           <Card className="flex flex-col">
             <div className="flex items-center gap-2 mb-2">
-              <AlertTriangle size={16} className="text-ursa-gold" />
+              <AlertTriangle size={16} className="text-ursa-gold-text" />
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">Stop rule 2</h4>
             </div>
             <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">Cannibalization exceeds 50% of subscribers.</p>
@@ -342,7 +342,7 @@ export function PilotView() {
           </Card>
           <Card className="flex flex-col">
             <div className="flex items-center gap-2 mb-2">
-              <AlertTriangle size={16} className="text-ursa-gold" />
+              <AlertTriangle size={16} className="text-ursa-gold-text" />
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">Stop rule 3</h4>
             </div>
             <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">Side attach rate below 40% after 30 days.</p>

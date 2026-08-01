@@ -150,7 +150,7 @@ export function CalculatorView() {
           {/* INPUTS */}
           <Card>
             <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0 mb-1 flex items-center gap-2">
-              <Calculator size={20} className="text-ursa-gold" /> Edit the inputs
+              <Calculator size={20} className="text-ursa-gold-text" /> Edit the inputs
             </h3>
             <p className="text-[0.85rem] text-muted-foreground mb-5">Drag sliders or type values. Everything recalculates instantly.</p>
 
@@ -185,7 +185,7 @@ export function CalculatorView() {
             {/* Headline profit */}
             <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="flex items-center justify-between mb-1">
-                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">Net profit per subscriber / month</span>
+                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">Net profit per subscriber / month</span>
                 <EvidenceTag status="verified" />
               </div>
               <div className={cn("font-display text-5xl font-semibold leading-none mb-2", calc.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
@@ -228,7 +228,7 @@ export function CalculatorView() {
             {/* Cannibalization */}
             <Card className="bg-ursa-foam">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-                <AlertTriangle size={16} className="text-ursa-gold" /> Cannibalization-adjusted profit
+                <AlertTriangle size={16} className="text-ursa-gold-text" /> Cannibalization-adjusted profit
               </h4>
               <div className="flex items-baseline gap-3 mb-2">
                 <span className={cn("font-display text-3xl font-semibold", calc.cannibalProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
@@ -314,7 +314,7 @@ export function CalculatorView() {
                   return (
                     <div key={s.subscribers} className="flex items-center gap-4">
                       <span className="font-label text-[0.8rem] tracking-[0.08em] uppercase text-muted-foreground w-28 shrink-0">
-                        {s.subscribers} subs {isPilot && <span className="text-ursa-gold">· pilot</span>}
+                        {s.subscribers} subs {isPilot && <span className="text-ursa-gold-text">· pilot</span>}
                       </span>
                       <div className="flex-1 h-8 bg-muted rounded relative overflow-hidden">
                         <div
@@ -372,7 +372,7 @@ export function CalculatorView() {
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3">How to push sides without being pushy</h4>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold mb-2">At the counter</h5>
+                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text mb-2">At the counter</h5>
                   <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
                     <li>• "Bear recommends" pairing card on the till — e.g. Ursagroni + financier de pera.</li>
                     <li>• Visible morning pastry case at eye level, lit warm.</li>
@@ -381,7 +381,7 @@ export function CalculatorView() {
                   </ul>
                 </div>
                 <div>
-                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold mb-2">On the app / Rappi / WhatsApp</h5>
+                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text mb-2">On the app / Rappi / WhatsApp</h5>
                   <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
                     <li>• A pre-selected "morning bundle" that defaults to coffee + a side.</li>
                     <li>• A weekly rotating "bear's pick" that creates novelty.</li>
@@ -458,7 +458,7 @@ function MiniMetric({ icon, label, value, tone }: { icon: React.ReactNode; label
   const tones = { neutral: "text-ursa-dark-roast", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta" };
   return (
     <div className="bg-card border border-ursa-line-soft rounded-lg p-4">
-      <div className="flex items-center gap-2 text-ursa-gold mb-1">{icon}<span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">{label}</span></div>
+      <div className="flex items-center gap-2 text-ursa-gold-text mb-1">{icon}<span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">{label}</span></div>
       <p className={cn("font-display text-2xl font-semibold m-0", tones[tone])}>{value}</p>
     </div>
   );

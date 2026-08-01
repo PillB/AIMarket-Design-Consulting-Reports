@@ -1,6 +1,7 @@
 "use client";
 
 import { NavContext } from "@/lib/ursa-nav";
+import { LanguageProvider } from "@/lib/i18n";
 import { useHashRoute, parseRoute } from "@/hooks/use-hash-route";
 import { UrsaHeader, UrsaFooter } from "@/components/ursa/ursa-header";
 import { DashboardView } from "@/components/ursa/views/dashboard-view";
@@ -27,6 +28,7 @@ import { SpiritCheckerView } from "@/components/ursa/tools/spirit-checker-view";
 import { SwotView } from "@/components/ursa/tools/swot-view";
 import { PilotView } from "@/components/ursa/tools/pilot-view";
 import { ScorecardView } from "@/components/ursa/tools/scorecard-view";
+import { LoyaltyView } from "@/components/ursa/tools/loyalty-view";
 import { CommandPalette } from "@/components/ursa/command-palette";
 import { ScrollProgress } from "@/components/ursa/scroll-progress";
 import { useEffect } from "react";
@@ -60,6 +62,7 @@ export default function Home() {
       swot: "Competitor SWOT Matrix — Ursa Coffee",
       pilot: "Ursa Mañana Pilot Dashboard — Ursa Coffee",
       scorecard: "Brand Audit Scorecard — Ursa Coffee",
+      loyalty: "Loyalty Wallet Card Analysis — Ursa Coffee",
       sources: "Sources & Evidence — Ursa Coffee",
       landing: "Ursa Mañana — Landing Page Prototype — Ursa Coffee",
     };
@@ -112,6 +115,8 @@ export default function Home() {
         return <PilotView />;
       case "scorecard":
         return <ScorecardView />;
+      case "loyalty":
+        return <LoyaltyView />;
       case "sources":
         return <SourcesView />;
       case "landing":
@@ -123,15 +128,17 @@ export default function Home() {
 
   return (
     <NavContext.Provider value={navigate}>
-      <div className="min-h-screen flex flex-col bg-background">
-        <UrsaHeader currentRoute={base} />
-        <main className="flex-1 ursa-fade-up" key={base}>
-          {renderView()}
-        </main>
-        <UrsaFooter onPrint={() => window.print()} />
-        <ScrollProgress />
-        <CommandPalette />
-      </div>
+      <LanguageProvider>
+        <div className="min-h-screen flex flex-col bg-background">
+          <UrsaHeader currentRoute={base} />
+          <main className="flex-1 ursa-fade-up" key={base}>
+            {renderView()}
+          </main>
+          <UrsaFooter onPrint={() => window.print()} />
+          <ScrollProgress />
+          <CommandPalette />
+        </div>
+      </LanguageProvider>
     </NavContext.Provider>
   );
 }

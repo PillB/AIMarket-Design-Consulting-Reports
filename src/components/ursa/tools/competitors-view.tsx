@@ -316,7 +316,7 @@ export function CompetitorsView() {
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-ursa-line-soft">
-            <Filter size={13} className="text-ursa-gold" />
+            <Filter size={13} className="text-ursa-gold-text" />
             <span className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-muted-foreground">
               Showing
             </span>
@@ -356,7 +356,7 @@ export function CompetitorsView() {
                   <TableHead className="pl-4">
                     <button
                       onClick={() => toggleSort("name")}
-                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold transition"
+                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold-text transition"
                     >
                       Name <SortIcon k="name" sortKey={sortKey} sortDir={sortDir} />
                     </button>
@@ -364,7 +364,7 @@ export function CompetitorsView() {
                   <TableHead>
                     <button
                       onClick={() => toggleSort("area")}
-                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold transition"
+                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold-text transition"
                     >
                       Area <SortIcon k="area" sortKey={sortKey} sortDir={sortDir} />
                     </button>
@@ -375,7 +375,7 @@ export function CompetitorsView() {
                   <TableHead>
                     <button
                       onClick={() => toggleSort("site")}
-                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold transition"
+                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold-text transition"
                     >
                       Website <SortIcon k="site" sortKey={sortKey} sortDir={sortDir} />
                     </button>
@@ -483,7 +483,7 @@ export function CompetitorsView() {
                 <div className="absolute top-2 left-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-forest-deep/70 max-w-[8rem] leading-tight">
                   High craft · Low scale<br />Niche specialists
                 </div>
-                <div className="absolute top-2 right-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold/80 text-right max-w-[9rem] leading-tight">
+                <div className="absolute top-2 right-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold-text/80 text-right max-w-[9rem] leading-tight">
                   High craft · High scale<br />Category leaders
                 </div>
                 <div className="absolute bottom-2 left-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground max-w-[9rem] leading-tight">
@@ -562,7 +562,7 @@ export function CompetitorsView() {
           <div className="space-y-4">
             <Card className="bg-ursa-foam">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <Target size={16} className="text-ursa-gold" /> How to read this
+                <Target size={16} className="text-ursa-gold-text" /> How to read this
               </h3>
               <ul className="space-y-2.5 m-0 p-0 list-none text-[0.88rem]">
                 <li className="flex gap-2">
@@ -608,7 +608,7 @@ export function CompetitorsView() {
                   <div>
                     <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">{c.name}</h3>
                     <div className="flex items-center gap-1.5 text-[0.74rem] text-muted-foreground">
-                      <MapPin size={11} className="text-ursa-gold" />
+                      <MapPin size={11} className="text-ursa-gold-text" />
                       <span className="font-label tracking-[0.06em] uppercase">{c.area}</span>
                     </div>
                   </div>
@@ -661,7 +661,7 @@ export function CompetitorsView() {
           </button>
           <button
             onClick={() => navigate("brand")}
-            className="inline-flex items-center gap-2 border border-ursa-gold text-ursa-gold font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-gold hover:text-ursa-dark-roast transition"
+            className="inline-flex items-center gap-2 border border-ursa-gold text-ursa-gold-text font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-gold hover:text-ursa-dark-roast transition"
           >
             <BearMark size={14} className="text-current" /> Open Brand Audit
           </button>

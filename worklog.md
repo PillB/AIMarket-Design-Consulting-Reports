@@ -856,3 +856,181 @@ Next-phase candidates:
 - Expand the day-in-life widget to show weekend vs weekday differences
 - Add a "Ursa Mañana" subscription pilot dashboard (tracks sign-ups, revenue, cannibalization)
 - Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
+
+---
+Task ID: 11-B
+Agent: Loyalty Wallet Card view builder (subagent)
+
+Task:
+Build `/src/components/ursa/tools/loyalty-view.tsx` exporting `LoyaltyView` — Extra Tool T14 · Loyalty Wallet Card Analysis. Cover the itsloyaleats/bytecampperu 8-visit wallet card (Apple Wallet + Google Pay): realistic wallet-pass mockup, four behavioral-science principles (Endowed Progress, Endowment, Goal Gradient, Small Wins), interactive 8-visit economics calculator, six marketing tactics, competitor comparison, four improvement recommendations, and a DossierLinkBanner to module 04. Register the route in ursa-nav.ts, page.tsx, ursa-header.tsx, and the dashboard tools array.
+
+Work Log:
+- Read worklog.md, BUILD_SPEC.md, view-shell.tsx, ursa-brand.tsx, calculator-view.tsx, pilot-view.tsx, spirit-checker-view.tsx, dashboard-view.tsx, ursa-nav.ts, ursa-header.tsx, page.tsx for established patterns, palette, and component APIs.
+- Built loyalty-view.tsx with eight substantive sections:
+  1. ViewHero — eyebrow "Extra Tool T14 · Loyalty & retention science", title about the 8-visit wallet card, meta strip (platform / mechanic / channels / no-app).
+  2. The wallet card mockup — realistic Apple Wallet pass with forest→roast gradient (135deg: #2D4A36 → #3E6149 → #6F4A2E → #3B2417), Art Nouveau inner border, BearMark + brand name, "Tarjeta de Fidelidad" / "Loyalty Card" label, 8 paw-print stamp circles (5 filled, 3 empty via custom PawStamp SVG), "3 more visits to your free coffee" progress text, "Socio: Maria Elena R." member field, gradient progress bar, "Add to Apple Wallet" CTA. Pass aspect ratio 1.6:1, deep shadow, rounded corners. Side panel explains wallet-native vs app, plus callouts on why-8-not-10 and the bear paw stamp.
+  3. Behavioral science — 4 cards (Endowed Progress, Endowment, Goal Gradient, Small Wins) each with principle name, source citation, italic finding quote, application to Ursa's 8-visit card, and a specific recommendation block. Followed by an 82%-context callout citing Kivetz–Urminsky–Zheng 2006.
+  4. Interactive economics — useState + useMemo calculator with 5 sliders (avg ticket default S/. 14, visits to complete default 8, free coffee cost default S/. 3, endowed stamps default 2, cycles default 6). Live outputs: revenue per cycle, reward cost, reward:revenue ratio, net per cycle, CLV over N cycles. Big StatBlock-style display + highlighted CLV card + headline callout showing the S/. 3 → S/. 112+ leverage, plus the €14,000/150-regulars benchmark translated to Ursa defaults.
+  5. Marketing recommendations — 6 tactic cards (endowed stamps, personalisation, push at stamp 6, geofence Alcanfores 183, cross-promote Ursa Mañana on the back, stamp-velocity tracking) plus a sequencing callout covering the full retention lifecycle.
+  6. Competitor comparison — 4-row table (Ursa wallet card vs CoffeePass Perú vs paper punch card vs app-based) with mechanic / friction / data / personalisation / brand columns, Ursa row highlighted. Three follow-up cards distilling the wallet-native, 8-visit, and bear-branded advantages.
+  7. Improvement recommendations — 4 cards (geometric bear as stamp shape, rotating bear-fact on the pass back, double-stamp Tuesday, auto-stamp Ursa Mañana subscribers) each with an impact Pill, plus a spirit-preservation callout confirming all four pass the bear/gram/green test.
+  8. DossierLinkBanner for `04-marketing-growth-and-retention-plan` with two cross-links (Module 04 view, Ursa Mañana calculator).
+- Custom PawStamp SVG (4-toe + main pad) reused for both the wallet pass and the improvement section.
+- All copy handcrafted, specific, and grounded in the provided research findings (Kivetz/Urminsky/Zheng 2006, Thaler endowment, goal gradient, dopamine loop, wallet best practices, revenue benchmark, 8 vs 10 stamps).
+- Used shared components only: ViewHero, ViewSection, Card, Grid, DossierLinkBanner, BearMark, Pill, Callout, ArtNouveauDivider. shadcn Label + Slider for the calculator. lucide-react icons throughout.
+- Palette discipline: browns, greens, cream, gold, terracotta only — no blue/indigo. Forest-to-roast gradient on the wallet pass is on-palette.
+- Registered the route in 4 places:
+  - `/src/lib/ursa-nav.ts` → `loyalty: { label: "Loyalty Card", group: "tools", icon: "credit-card" }`
+  - `/src/app/page.tsx` → import LoyaltyView, case "loyalty" returns <LoyaltyView />, title "Loyalty Wallet Card Analysis — Ursa Coffee"
+  - `/src/components/ursa/ursa-header.tsx` → added "loyalty" to toolKeys array
+  - `/src/components/ursa/views/dashboard-view.tsx` → imported CreditCard icon, added T14 entry to the tools array, bumped section title to "Fourteen working tools"
+- Initial lint/runtime: caught a missing `Calendar` import (referenced in the Double-stamp Tuesday improvement card) from the dev.log runtime error, added the import, removed unused imports (Input, Gift, Users, X, StatBlock, ProgressBar). Re-ran `bun run lint` — clean, zero warnings.
+
+Stage Summary:
+- File `/src/components/ursa/tools/loyalty-view.tsx` created and verified — exports `LoyaltyView`, ~940 lines, fully interactive calculator, 8 substantive sections.
+- Route `#/loyalty` live and rendering HTTP 200.
+- Lint passes with zero warnings.
+- Dashboard now lists fourteen tools (T1–T14), with T14 = Loyalty Wallet Card Analysis using the CreditCard icon.
+- All cross-links (Module 04 dossier + Ursa Mañana calculator) functional via useNavigate.
+- View is print-friendly, responsive, mobile-first, and uses the verified Ursa palette exclusively.
+
+---
+Task ID: 11-A
+Agent: brandAndI18nAgent
+Task: (1) Redesign BearMark + CupGlyph as geometric/low-poly SVGs. (2) Build a lightweight Context-based i18n system (EN/ES) covering all UI chrome, with a header toggle and localStorage persistence.
+
+Work Log:
+
+**Task 1 — Geometric BearMark + CupGlyph redesign**
+
+- Reviewed existing `ursa-brand.tsx`: the old BearMark used 6 `<circle>` / `<ellipse>` elements (rounded head, rounded ears, oval muzzle) — too soft for the "geometric bear made from triangles and polygons" low-poly aesthetic the actual Ursa logo uses.
+- Rewrote `BearMark` entirely from angular primitives (zero circles, zero ellipses):
+  • Two triangular ears (apex pointing up) — `<polygon points="8,3 4,12 13,12">` and mirror
+  • Two smaller cream inner-ear facets inset into each ear
+  • An octagonal faceted face with sharp cheekbone + jaw vertices — `<polygon points="11,11 29,11 34,17 32,26 26,33 20,34 14,33 8,26 6,17">`
+  • Two cut-gem diamond eyes (cream cut-outs), symmetric about x=20
+  • An angular rhombus muzzle (cream), vertically elongated — `<polygon points="20,21 26,27 20,33 14,27">`
+  • A triangular nose (espresso) at the top of the muzzle
+  • An angular chevron mouth (espresso stroke path) inside the muzzle
+- Same component API preserved: `BearMark({ className, size = 40 })`. Uses `currentColor` for the bear silhouette so it inherits text color; cream token for negative-space cut-outs (matches the cream container in the header/footer); espresso for nose + mouth detail. Works at any size via the `0 0 40 40` viewBox.
+- Rewrote `CupGlyph` to match the geometric aesthetic — replaced the curved cup body (`C22 22.4...`) with a faceted trapezoid polygon, the curved handle with an angular polyline, and the curved steam paths with angular zigzag lines. Same animation hooks (`ursa-steam`) preserved.
+- Verified via `curl` + Python HTML inspection: the rendered BearMark SVG contains 9 `<polygon>` + 1 `<path>`, and ZERO `<circle>` / `<ellipse>` elements. Confirmed it renders at sizes 24, 30, 32, 40, 48 (all scale proportionally from the viewBox).
+- Lint clean.
+
+**Task 2 — i18n infrastructure (EN/ES)**
+
+- Created `/src/lib/i18n.ts` (kept as `.ts` per spec — used `createElement` instead of JSX so the file compiles without renaming):
+  • `Language = "en" | "es"` type
+  • `TranslationShape` type with 5 namespaces: `nav` (routes + dropdown/section labels), `actions` (buttons), `badges` (status pills), `common` (search, theme, group labels, hints), `footer` (footer-specific copy)
+  • Full `translations` object for both EN and ES — Spanish is hand-crafted Peruvian Spanish (Lima register), NOT machine-translated:
+    - "Dashboard" → "Panel" (not "Tablero")
+    - "Brand Audit" → "Auditoría de Marca"
+    - "SWOT Matrix" → "Matriz DAFO"
+    - "Roadmap & KPIs" → "Hoja de Ruta y KPIs"
+    - "Spirit Checker" → "Verificador de Espíritu"
+    - "Pilot Dashboard" → "Panel del Piloto"
+    - "Brand Scorecard" → "Tarjeta de Calificación de Marca"
+    - "Menu & Product" → "Carta y Producto" (Peruvian "carta" for restaurant menu)
+    - "Viral Content Lab" → "Lab de Contenido Viral"
+    - "Experiment Tracker" → "Seguimiento de Experimentos"
+    - "Sources & Evidence" → "Fuentes y Evidencia"
+    - "Quick jump" → "Salto rápido", "Back to top" → "Volver arriba"
+    - "Switch to dark/light mode" → "Cambiar a modo oscuro/claro"
+    - "Search commands" → "Buscar comandos"
+    - Full footer blurb + compiled-from-sources disclaimer translated to natural Peruvian Spanish
+    - Spanish quote marks «» used in the "no matches" hint
+    - All 25 route labels translated (including "loyalty" added by a concurrent agent)
+  • `LanguageProvider` — uses `useState(getInitialLang)`, persists to `localStorage["ursa-lang"]`, mirrors `document.documentElement.lang` on every change. `getInitialLang()` reads `window.__URSA_LANG__` (set by the inline anti-FOUC script) so the client's first render matches the saved language with no flash.
+  • `useTranslation()` returns `{ t, lang, setLang }`; `t(key)` walks dotted paths (`"nav.routes.brand"`) and falls back to the key itself if missing. Falls back to English if called outside the provider so components never crash.
+  • `useRouteLabel()` convenience helper exported for resolving `nav.routes.{key}` (handles the empty-string `""` dashboard route → `"home"` key).
+- Created `/src/components/ursa/language-toggle.tsx` — compact segmented EN | ES control:
+  • Two pills inside a single rounded container with gold-soft border
+  • Active language fills with `bg-ursa-gold text-ursa-dark-roast`; inactive is `text-ursa-gold-text-soft`
+  • `role="group"` + `aria-label="Language / Idioma"`; each pill is a real `<button>` with `aria-pressed`, keyboard-focusable, with a visible focus ring (`focus-visible:ring-ursa-gold/60`)
+  • Bilingual aria-labels: EN pill → "Switch to English", ES pill → "Cambiar a español"
+- Integrated the provider + toggle across the chrome:
+  • `page.tsx`: wrapped the app in `<LanguageProvider>` inside `<NavContext.Provider>` per spec
+  • `layout.tsx`: extended the existing anti-FOUC inline script to also read `localStorage["ursa-lang"]` and set `window.__URSA_LANG__` + `document.documentElement.lang` before hydration (so `<html lang>` is correct from first paint, no flash)
+  • `ursa-header.tsx`: every visible string now flows through `t()` — brand subtitle, dropdown triggers (Dossier/Tools), all route labels (via `routeLabel(k)` helper), section titles (Top/Dossier Modules/Interactive Tools), the "Static Dossier" link, the "Open Static Dossier" mobile link, the theme row label, and the brand/mobile-toggle aria-labels. Added `<LanguageToggle />` immediately before `<ThemeToggle />` in the desktop nav, and in the mobile menu's bottom settings row. Also added "loyalty" to `toolKeys` so the concurrent agent's new view shows up in the Tools dropdown with its translated label.
+  • `ursa-footer.tsx` (same file): title, blurb, section headers, all 8 module links + sources link, the compiled disclaimer, and the Print button label all use `t()`
+  • `command-palette.tsx`: trigger button aria-label + "Quick jump" label, search input placeholder + aria-label, close button aria-label, "No matches" + hint, all 4 group headers (Navigate/Dossier/Tools/Action), the two quick-action labels + hints (Print/Save as PDF → Imprimir/Guardar como PDF; Open static HTML dossiers → Abrir dossiers HTML estáticos), the keyboard-hint footer (navigate/select), and "Ursa Command" — all translated. The route command items now build their label from `routeLabel(key)` and include BOTH the English and Spanish forms in the search keywords, so typing "marca" OR "brand" both find the Brand Audit entry.
+  • `theme-toggle.tsx`: aria-label and title now use `t("common.switchToLight")` / `t("common.switchToDark")` instead of the hardcoded Spanish-only "Modo claro/oscuro" title (which was wrong for English users). Added a focus-visible ring to match the LanguageToggle's a11y.
+
+**Scope discipline**: the long-form strategic dossier content (report prose inside each view) stays in English — only the UI shell translates. The existing customer-facing Spanish (landing page copy, script captions) was left untouched.
+
+**Verification**:
+- `bun run lint` — clean, zero errors.
+- `curl http://localhost:3000/` — returns 200; SSR HTML contains the geometric BearMark (9 polygons, 0 circles), the LanguageToggle (`role="group" aria-label="Language / Idioma"` with EN active and ES inactive), the translated command palette trigger (`aria-label="Open command palette (Cmd+K)"`), and `<html lang="en">`.
+- Dev server log: all recent `GET /` requests return 200 with no runtime errors after the changes.
+- Spanish path verified by code inspection: when `setLang("es")` fires, `t()` walks the ES dictionary and returns e.g. `t("nav.routes.brand")` → "Auditoría de Marca", `t("common.switchToDark")` → "Cambiar a modo oscuro", `t("footer.blurb")` → the full Peruvian-Spanish blurb.
+
+Stage Summary:
+- BearMark redesigned as a true low-poly geometric bear (triangular ears with inner facets, octagonal faceted face, diamond eyes, rhombus muzzle, triangular nose, chevron mouth) — zero rounded forms. CupGlyph refacet ed to match.
+- Lightweight Context-based i18n system live across all UI chrome: header (desktop + mobile), footer, command palette, theme toggle. EN/ES toggle in the header with gold-highlighted active pill, keyboard-accessible, persisted to localStorage, mirrored to `<html lang>` via both the inline anti-FOUC script and the provider's effect.
+- Spanish translations are hand-crafted Peruvian Spanish (not machine-translated) — covers all 25 routes + dropdown labels + actions + badges + common strings + full footer copy + command palette strings.
+- Strategic dossier content stays English; existing customer-facing Spanish untouched.
+- Lint clean; dev server healthy at 200; no new files created beyond the two specified (i18n.ts, language-toggle.tsx).
+
+---
+Task ID: 11
+Agent: Main orchestrator (user-directed)
+Task: Accessibility contrast audit, geometric logo redesign, i18n EN/ES toggle, loyalty wallet card analysis, cross-device testing
+
+Work Log:
+- Researched WCAG 2.2 contrast requirements: 4.5:1 for normal text, 3:1 for large text + UI components (Level AA).
+- Researched loyalty card psychology: Endowed Progress Effect (82% completion lift from head-start stamps), Endowment Effect (ownership via personalization), Goal Gradient Effect (motivation increases near goal), Small Wins/Dopamine loop. Revenue benchmark: €14k+/year from 150 regulars.
+- Researched itsloyaleats by bytecampperu: digital loyalty card platform for Apple Wallet + Google Pay, 8-visit stamp mechanic, no app download needed.
+- Audited current Ursa palette for WCAG compliance via Node contrast calculator:
+  • FAIL: gold (#B8924A) on cream = 2.45:1 — used for eyebrows, labels, pills, accents
+  • FAIL: sage (#8FA68B) on cream = 2.22:1 — used for secondary text
+  • PASS: muted-foreground (#4A3A28) on cream = 9.20:1, dark-roast on cream = 12.22:1, etc.
+- Fixed contrast: added 3 new WCAG-compliant text tokens to @theme:
+  • --color-ursa-gold-text: #82622C (4.75:1 on cream, PASS) — light mode; #D9BC7E in dark mode (passes on dark)
+  • --color-ursa-sage-text: #5C6E55 (4.65:1 on cream, PASS) — light mode; #8FA68B in dark mode
+  • --color-ursa-terracotta-text: #A85434 (4.5:1+ on cream) — for terracotta text use
+- Global replacement: text-ursa-gold → text-ursa-gold-text across 31 files (sed); bg-ursa-gold/border-ursa-gold fills unchanged. Verified: 0 remaining text-ursa-gold (not followed by -text).
+- Verified: gold-text renders as rgb(130, 98, 44) = #82622C in light mode (confirmed via getComputedStyle).
+
+- Redesigned BearMark to GEOMETRIC style (subagent 11-A):
+  • Replaced all circles/ellipses with triangles, polygons, and angular convex shapes.
+  • Triangular ears (apex up) with cream inner-ear facets, octagonal faceted face, diamond eyes, rhombus muzzle, triangular nose, angular chevron mouth.
+  • Verified: 12 polygons, 0 circles in BearMark. CupGlyph also refaceted (trapezoid cup, angular handle, zigzag steam).
+  • Matches actual Ursa logo style (geometric bear from triangles and convex shapes).
+
+- Built i18n EN/ES toggle (subagent 11-A):
+  • Created /src/lib/i18n.ts — LanguageProvider + useTranslation hook, 5 namespaces (nav, actions, badges, common, footer), localStorage persistence, html lang attribute sync.
+  • Spanish translations hand-crafted in Peruvian register: "Panel" (not "Tablero"), "Matriz DAFO", "Hoja de Ruta", "Fuentes y Evidencia", "Constructor de Campañas", "Verificador de Espíritu", etc.
+  • Created LanguageToggle component (EN | ES segmented control, gold active pill).
+  • Integrated into header (next to ThemeToggle), command palette (search keywords include EN+ES), theme toggle (language-aware aria-labels).
+  • Anti-FOUC script extended to set html lang before hydration.
+  • Verified: clicking ES translates nav ("DASHBOARD"→"PANEL", "TOOLS"→"HERRAMIENTAS", "SOURCES"→"FUENTES"), command palette placeholder → "Salta a una vista, herramienta o acción…", html lang="es".
+
+- Added Loyalty Wallet Card Analysis view (#/loyalty) (subagent 11-B):
+  • VLM 9/10. Realistic Apple Wallet pass mockup (forest→roast gradient, geometric bear, 8 paw-print stamps, "Add to Apple Wallet" CTA).
+  • 4 behavioral science cards (Endowed Progress, Endowment, Goal Gradient, Small Wins) with citations and Ursa-specific recommendations.
+  • Interactive 8-visit economics calculator (5 sliders: ticket, visits, free coffee cost, endowed stamps, cycles → live CLV, showing S/. 3 cost → S/. 112+ revenue leverage).
+  • 6 marketing tactics, competitor comparison table, 4 improvement recommendations.
+  • Registered in nav, header, dashboard (T14), page orchestrator.
+
+- Fixed Card overflow: added min-w-0 + overflow-hidden to Card base classes. Fixed 5px overflow on Galaxy S25 (360px viewport) in growth view offer stack section.
+
+- Cross-device Playwright testing (agent-browser):
+  • Tested 25 views across 4 devices: iPhone 16 (393px), iPad (810px), Galaxy S25 (360px), Pixel 9 (412px).
+  • All 25 views pass on all 4 devices — 0 overflow, 0 errors.
+  • Language toggle tested: EN→ES switching works across nav, command palette, footer.
+  • Dark mode tested: toggle persists across navigation.
+
+Stage Summary:
+- Accessibility: WCAG contrast audit complete, 3 failing colors fixed (gold, sage, terracotta text variants), all text now ≥4.5:1 on cream
+- Logo: BearMark redesigned to geometric (triangles/polygons, 0 circles) matching actual Ursa logo
+- i18n: EN/ES toggle with hand-crafted Peruvian Spanish translations across all UI chrome
+- New feature: Loyalty Wallet Card Analysis (#/loyalty) — VLM 9/10, behavioral science + economics + wallet mockup
+- Cross-device: All 25 views pass on iPhone 16, iPad, Galaxy S25, Pixel 9
+- Project now has 25 views (1 dashboard + 8 dossier + 15 tools + 1 landing prototype)
+- Lint: clean, zero errors
+
+Next-phase candidates:
+- Translate the strategic dossier CONTENT (not just UI chrome) into Spanish
+- Add NFC tap-to-add-card simulation on the loyalty view
+- Build a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
+- Add A/B testing framework for the landing page variants

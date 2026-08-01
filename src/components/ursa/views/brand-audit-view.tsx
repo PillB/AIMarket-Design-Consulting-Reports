@@ -355,7 +355,7 @@ export function BrandAuditView() {
             <Card key={f.name} className="flex flex-col">
               <div className="flex items-center justify-between mb-3">
                 <Pill tone="forest">{f.role.split(" · ")[0]}</Pill>
-                <Type size={16} className="text-ursa-gold" />
+                <Type size={16} className="text-ursa-gold-text" />
               </div>
               <p
                 className={`${f.className} text-ursa-dark-roast mt-0 mb-3 leading-tight`}
@@ -412,7 +412,7 @@ export function BrandAuditView() {
                 <ul className="space-y-2 m-0 p-0 list-none">
                   {b.points.map((p, i) => (
                     <li key={i} className="text-[0.85rem] text-muted-foreground leading-relaxed flex gap-2">
-                      <span className="text-ursa-gold mt-1 shrink-0">·</span>
+                      <span className="text-ursa-gold-text mt-1 shrink-0">·</span>
                       <span>{p}</span>
                     </li>
                   ))}
@@ -424,7 +424,7 @@ export function BrandAuditView() {
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <BearMark size={48} className="text-ursa-dark-roast" />
           <BearMark size={48} className="text-ursa-forest-deep" />
-          <BearMark size={48} className="text-ursa-gold" />
+          <BearMark size={48} className="text-ursa-gold-text" />
           <BearMark size={48} className="text-ursa-terracotta" />
           <span className="font-label text-[0.7rem] tracking-[0.14em] uppercase text-muted-foreground">
             One mark, four approved tints · dark-roast · forest-deep · gold · terracotta
@@ -441,7 +441,7 @@ export function BrandAuditView() {
         <Grid cols={4}>
           {ART_NOUVEAU_COMPONENTS.map((c) => (
             <Card key={c.title}>
-              <Palette size={18} className="text-ursa-gold mb-2" />
+              <Palette size={18} className="text-ursa-gold-text mb-2" />
               <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-1.5">
                 {c.title}
               </h4>
@@ -486,7 +486,7 @@ export function BrandAuditView() {
               <div className="flex items-center justify-between mb-3">
                 <Pill tone={lvl.recommended ? "gold" : "forest"}>{lvl.level}</Pill>
                 {lvl.recommended && (
-                  <span className="inline-flex items-center gap-1 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold">
+                  <span className="inline-flex items-center gap-1 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold-text">
                     <ShieldCheck size={12} /> Recommended
                   </span>
                 )}
@@ -535,7 +535,7 @@ export function BrandAuditView() {
                 <ul className="space-y-2 m-0 p-0 list-none">
                   {block.items.map((it, i) => (
                     <li key={i} className="text-[0.88rem] text-ursa-dark-roast/85 leading-relaxed flex gap-2">
-                      <span className="text-ursa-gold mt-1 shrink-0">◆</span>
+                      <span className="text-ursa-gold-text mt-1 shrink-0">◆</span>
                       <span>{it}</span>
                     </li>
                   ))}
@@ -564,9 +564,9 @@ export function BrandAuditView() {
             aria-hidden="true"
           />
           <div className="relative flex flex-col md:flex-row md:items-start gap-6">
-            <BearMark size={56} className="text-ursa-gold shrink-0" />
+            <BearMark size={56} className="text-ursa-gold-text shrink-0" />
             <div className="flex-1">
-              <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-soft">
+              <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft">
                 Spirit-preservation principle
               </span>
               <h3 className="font-display text-2xl md:text-[1.8rem] font-semibold text-ursa-cream mt-2 mb-3 leading-tight">

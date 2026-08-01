@@ -197,7 +197,7 @@ function PawPunch({ filled, count }: { filled: number; count: number }) {
 /** Small gold seal — for the bean bag label. */
 function GoldSeal({ date }: { date: string }) {
   return (
-    <div className="absolute top-4 right-4 w-16 h-16 rounded-full border-[1.5px] border-ursa-gold grid place-items-center text-center font-label text-[0.5rem] tracking-[0.12em] uppercase text-ursa-gold-soft leading-[1.1] bg-ursa-forest-deep/40">
+    <div className="absolute top-4 right-4 w-16 h-16 rounded-full border-[1.5px] border-ursa-gold grid place-items-center text-center font-label text-[0.5rem] tracking-[0.12em] uppercase text-ursa-gold-text-soft leading-[1.1] bg-ursa-forest-deep/40">
       <span>
         Tueste
         <br />
@@ -237,7 +237,7 @@ function LevelSample({
         <div className="font-body text-[0.7rem] text-ursa-medium-roast">
           Maracuyá · Mango · Coldbrew
         </div>
-        <div className="font-display italic text-[0.7rem] text-ursa-gold mt-4">Un gramo a la vez</div>
+        <div className="font-display italic text-[0.7rem] text-ursa-gold-text mt-4">Un gramo a la vez</div>
       </div>
     );
   }
@@ -257,7 +257,7 @@ function LevelSample({
             Maracumango
           </div>
           <div className="font-body text-[0.7rem] text-ursa-leaf">Maracuyá · Mango · Coldbrew</div>
-          <div className="font-display italic text-[0.7rem] text-ursa-gold-soft mt-4">
+          <div className="font-display italic text-[0.7rem] text-ursa-gold-text-soft mt-4">
             Un gramo a la vez
           </div>
         </div>
@@ -270,21 +270,21 @@ function LevelSample({
       className="aspect-square rounded-md p-6 flex flex-col justify-between text-center relative overflow-hidden"
       style={{ background: "linear-gradient(180deg, #211208 0%, #3B2417 100%)" }}
     >
-      <div className="text-ursa-gold-soft">
+      <div className="text-ursa-gold-text-soft">
         <StarConstellation />
       </div>
       <div>
-        <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-soft mb-2">
+        <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text-soft mb-2">
           Estación Invernal · Edición limitada
         </div>
         <div className="font-display italic text-[1.6rem] leading-[1.05] text-ursa-cream mb-1">
           Cassiopeia
         </div>
-        <div className="font-body text-[0.7rem] text-ursa-gold-soft">
+        <div className="font-body text-[0.7rem] text-ursa-gold-text-soft">
           Cacao · Especias · Coldbrew de invierno
         </div>
       </div>
-      <div className="font-display italic text-[0.7rem] text-ursa-gold-soft">
+      <div className="font-display italic text-[0.7rem] text-ursa-gold-text-soft">
         Un gramo a la vez · N° 042 / 200
       </div>
     </div>
@@ -321,7 +321,7 @@ function InstagramPostProto() {
           />
           {/* Corner flourishes */}
           <svg
-            className="absolute top-2 left-2 text-ursa-gold-soft opacity-80"
+            className="absolute top-2 left-2 text-ursa-gold-text-soft opacity-80"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -334,7 +334,7 @@ function InstagramPostProto() {
             <circle cx="4" cy="4" r="1" fill="currentColor" stroke="none" />
           </svg>
           <svg
-            className="absolute top-2 right-2 text-ursa-gold-soft opacity-80"
+            className="absolute top-2 right-2 text-ursa-gold-text-soft opacity-80"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -347,7 +347,7 @@ function InstagramPostProto() {
             <circle cx="16" cy="4" r="1" fill="currentColor" stroke="none" />
           </svg>
           <svg
-            className="absolute bottom-2 left-2 text-ursa-gold-soft opacity-80"
+            className="absolute bottom-2 left-2 text-ursa-gold-text-soft opacity-80"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -360,7 +360,7 @@ function InstagramPostProto() {
             <circle cx="4" cy="16" r="1" fill="currentColor" stroke="none" />
           </svg>
           <svg
-            className="absolute bottom-2 right-2 text-ursa-gold-soft opacity-80"
+            className="absolute bottom-2 right-2 text-ursa-gold-text-soft opacity-80"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -380,12 +380,12 @@ function InstagramPostProto() {
             className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           />
           <div className="relative z-10 text-center text-ursa-cream p-6">
-            <div className="font-label text-[0.7rem] tracking-[0.24em] uppercase text-ursa-gold-soft mb-3">
+            <div className="font-label text-[0.7rem] tracking-[0.24em] uppercase text-ursa-gold-text-soft mb-3">
               Barra Coldbrew
             </div>
             <div className="font-display italic text-[2rem] leading-[1.1] mb-2">Maracumango</div>
             <div className="font-body text-[0.78rem] opacity-85">Maracuyá · Mango · Coldbrew</div>
-            <div className="font-display italic text-[0.78rem] text-ursa-gold-soft mt-4">
+            <div className="font-display italic text-[0.78rem] text-ursa-gold-text-soft mt-4">
               Un gramo a la vez
             </div>
           </div>
@@ -527,14 +527,14 @@ function StoryProto() {
             Ursa · Barra Espresso
           </div>
           <div className="mt-auto">
-            <div className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-soft mb-1.5">
+            <div className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft mb-1.5">
               24 horas antes
             </div>
             <div className="font-display text-[1.4rem] leading-[1.1] mb-2">Black Label</div>
             <div className="font-display italic text-[0.95rem] opacity-90 mb-3.5">
               Perú · Yuraq Yaku · Cusco
             </div>
-            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-soft border border-ursa-gold-soft px-2.5 py-1.5 rounded-full inline-flex items-center gap-1">
+            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text-soft border border-ursa-gold-soft px-2.5 py-1.5 rounded-full inline-flex items-center gap-1">
               Únete a la lista <ArrowRight size={11} />
             </span>
           </div>
@@ -557,14 +557,14 @@ function StoryProto() {
             Ursa · Cata del sábado
           </div>
           <div className="mt-auto">
-            <div className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-soft mb-1.5">
+            <div className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft mb-1.5">
               Sábado 11am · Gratis
             </div>
             <div className="font-display text-[1.4rem] leading-[1.1] mb-2">Cata en barra</div>
             <div className="font-display italic text-[0.95rem] opacity-90 mb-3.5">
               3 orígenes · 20 min · 6 cupos
             </div>
-            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-soft border border-ursa-gold-soft px-2.5 py-1.5 rounded-full inline-block">
+            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text-soft border border-ursa-gold-soft px-2.5 py-1.5 rounded-full inline-block">
               Reserva por WhatsApp
             </span>
           </div>
@@ -592,7 +592,7 @@ function ReelCoverProto() {
             style={{ width: 180, height: 320, background: r.grad, color: "#F4EBD9" }}
           >
             {/* Top label row */}
-            <div className="absolute top-4 left-4 right-4 flex justify-between items-center font-label text-[0.55rem] tracking-[0.2em] uppercase text-ursa-gold-soft">
+            <div className="absolute top-4 left-4 right-4 flex justify-between items-center font-label text-[0.55rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft">
               <span>Ursa</span>
               <span>{r.ep}</span>
             </div>
@@ -655,7 +655,7 @@ function MenuProto() {
     <div key={i.name} className="flex items-baseline gap-2 mb-2">
       <b className="font-display font-semibold text-ursa-dark-roast text-[1rem]">{i.name}</b>
       {i.sig && (
-        <span className="text-ursa-gold" title="Signature · verified" aria-label="Signature drink">
+        <span className="text-ursa-gold-text" title="Signature · verified" aria-label="Signature drink">
           <Star size={11} fill="currentColor" />
         </span>
       )}
@@ -687,7 +687,7 @@ function MenuProto() {
           <h3 className="font-display text-[2rem] tracking-[0.04em] text-ursa-dark-roast m-0">
             Ursa Coffee Roasters
           </h3>
-          <small className="block font-label text-[0.66rem] tracking-[0.32em] uppercase text-ursa-gold mt-1.5">
+          <small className="block font-label text-[0.66rem] tracking-[0.32em] uppercase text-ursa-gold-text mt-1.5">
             Un gramo a la vez · Alcanfores 183
           </small>
         </div>
@@ -759,7 +759,7 @@ function ProductCardProto() {
           <div>
             <div className="flex items-start justify-between">
               <div>
-                <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold">
+                <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text">
                   Single Origin · Amazonas
                 </div>
                 <div className="font-display italic text-[1.4rem] text-ursa-dark-roast mt-1.5">
@@ -790,7 +790,7 @@ function ProductCardProto() {
             <div className="font-label text-[0.7rem] tracking-[0.06em] text-ursa-dark-roast">
               S/. 32 · 250g
             </div>
-            <div className="font-display italic text-[0.78rem] text-ursa-gold">
+            <div className="font-display italic text-[0.78rem] text-ursa-gold-text">
               Un gramo a la vez
             </div>
           </div>
@@ -815,7 +815,7 @@ function TableSignProto() {
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-2">
               <BearMark size={20} className="text-ursa-dark-roast" />
-              <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold">
+              <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text">
                 Bear recommends
               </div>
             </div>
@@ -860,7 +860,7 @@ function EventFlyerProto() {
           <ArtNouveauBorder color="#B7C9A8" opacity={0.45} />
           <div className="mt-2">
             <BearMark size={44} className="mx-auto mb-3 text-ursa-dark-roast" />
-            <div className="font-label text-[0.55rem] tracking-[0.24em] uppercase text-ursa-gold mb-2">
+            <div className="font-label text-[0.55rem] tracking-[0.24em] uppercase text-ursa-gold-text mb-2">
               Sábado · 11:00 &amp; 16:00
             </div>
             <div className="font-display italic text-[1.5rem] leading-[1.1] text-ursa-dark-roast mb-2.5">
@@ -911,7 +911,7 @@ function BeanBagLabelProto() {
           <GoldSeal date="27·07·26" />
           {/* Top */}
           <div>
-            <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-soft mb-2.5">
+            <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text-soft mb-2.5">
               Ursa · Black Label
             </div>
             <div className="font-display italic text-[1.7rem] leading-[1] mb-1.5">Lonya</div>
@@ -946,7 +946,7 @@ function BeanBagLabelProto() {
                 250 g
               </div>
             </div>
-            <div className="font-display italic text-[0.78rem] text-ursa-gold-soft mt-2.5 text-right">
+            <div className="font-display italic text-[0.78rem] text-ursa-gold-text-soft mt-2.5 text-right">
               Un gramo a la vez
             </div>
           </div>
@@ -968,7 +968,7 @@ function BeanInfoCardProto() {
           style={{ aspectRatio: "5 / 7", maxWidth: 260, width: "100%" }}
         >
           <div>
-            <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold">
+            <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text">
               Bean info card · inside bag
             </div>
             <div className="font-display italic text-[1.2rem] text-ursa-dark-roast mt-1.5 mb-2.5">
@@ -993,7 +993,7 @@ function BeanInfoCardProto() {
               </p>
             </div>
           </div>
-          <div className="font-display italic text-[0.78rem] text-ursa-gold text-right pt-2 border-t border-ursa-line-soft">
+          <div className="font-display italic text-[0.78rem] text-ursa-gold-text text-right pt-2 border-t border-ursa-line-soft">
             — El tostador, Ursa
           </div>
         </div>
@@ -1020,14 +1020,14 @@ function LoyaltyCardProto() {
           }}
         >
           {/* Constellation top */}
-          <div className="text-ursa-gold-soft opacity-80">
+          <div className="text-ursa-gold-text-soft opacity-80">
             <StarConstellation />
           </div>
           {/* Header */}
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <BearMark size={20} className="text-ursa-gold-soft" />
-              <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-soft">
+              <BearMark size={20} className="text-ursa-gold-text-soft" />
+              <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-text-soft">
                 Ursa Loyalty
               </div>
             </div>
@@ -1041,7 +1041,7 @@ function LoyaltyCardProto() {
           {/* Punch row */}
           <div>
             <PawPunch filled={3} count={6} />
-            <div className="font-label text-[0.5rem] tracking-[0.2em] uppercase text-ursa-gold-soft mt-3.5 flex justify-between">
+            <div className="font-label text-[0.5rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft mt-3.5 flex justify-between">
               <span>3 / 6</span>
               <span>Alcanfores 183</span>
             </div>
@@ -1096,7 +1096,7 @@ function LandingHeroProto() {
             }}
           >
             <BearMark size={48} className="mx-auto mb-3 text-ursa-dark-roast opacity-70" />
-            <div className="font-label text-[0.62rem] tracking-[0.28em] uppercase text-ursa-gold mb-3">
+            <div className="font-label text-[0.62rem] tracking-[0.28em] uppercase text-ursa-gold-text mb-3">
               Ursa Coffee Roasters · Miraflores
             </div>
             <h2 className="font-display italic text-[2.1rem] sm:text-[2.4rem] leading-[1.05] text-ursa-dark-roast mb-3">
@@ -1119,7 +1119,7 @@ function LandingHeroProto() {
                 Únete
               </button>
             </div>
-            <div className="font-display italic text-[0.78rem] text-ursa-gold mt-5">
+            <div className="font-display italic text-[0.78rem] text-ursa-gold-text mt-5">
               Un gramo a la vez.
             </div>
           </div>
@@ -1159,8 +1159,8 @@ function EmailHeaderProto() {
           </g>
         </svg>
         <div className="relative z-10">
-          <BearMark size={48} className="mx-auto mb-3 text-ursa-gold-soft" />
-          <div className="font-label text-[0.6rem] tracking-[0.28em] uppercase text-ursa-gold-soft mb-2">
+          <BearMark size={48} className="mx-auto mb-3 text-ursa-gold-text-soft" />
+          <div className="font-label text-[0.6rem] tracking-[0.28em] uppercase text-ursa-gold-text-soft mb-2">
             Ursa Coffee Roasters · Newsletter
           </div>
           <div className="font-display italic text-[1.8rem] leading-[1.1] mb-2">
@@ -1200,7 +1200,7 @@ function GbpHeroProto() {
         >
           <BearWatermark size={80} opacity={0.4} className="top-6 right-6" color="#F4EBD9" />
           <div className="relative z-10">
-            <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-soft mb-2.5">
+            <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-text-soft mb-2.5">
               Ursa Coffee Roasters · Miraflores
             </div>
             <div className="font-display italic text-[2rem] leading-[1.1] mb-2">
@@ -1237,7 +1237,7 @@ function GbpHeroProto() {
         >
           <BearWatermark size={70} opacity={0.25} className="bottom-[-10px] right-[-10px]" />
           <div className="relative z-10">
-            <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-soft mb-2.5">
+            <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-text-soft mb-2.5">
               Ursa · Rappi
             </div>
             <div className="font-display italic text-[1.7rem] leading-[1.1] mb-2">
@@ -1535,7 +1535,7 @@ export function CreativeView() {
             </p>
           </Card>
           <Card>
-            <Stamp className="text-ursa-gold mb-2" size={22} />
+            <Stamp className="text-ursa-gold-text mb-2" size={22} />
             <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Print-ready spec</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
               Exact hex colours, named fonts, defined aspect ratios. A screenshot handed to a
@@ -1573,7 +1573,7 @@ export function CreativeView() {
             </p>
             <button
               onClick={() => navigate("brand")}
-              className="inline-flex items-center gap-1.5 text-[0.78rem] font-label tracking-[0.14em] uppercase text-ursa-gold hover:text-ursa-dark-roast transition"
+              className="inline-flex items-center gap-1.5 text-[0.78rem] font-label tracking-[0.14em] uppercase text-ursa-gold-text hover:text-ursa-dark-roast transition"
             >
               Open Module 01 · Brand Audit <ArrowRight size={13} />
             </button>
@@ -1591,7 +1591,7 @@ export function CreativeView() {
       >
         <Grid cols={3}>
           <Card>
-            <Quote className="text-ursa-gold mb-2" size={20} />
+            <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
               “These are HTML prototypes, not production files. How does the owner use them?”
             </p>
@@ -1604,7 +1604,7 @@ export function CreativeView() {
             </p>
           </Card>
           <Card>
-            <Quote className="text-ursa-gold mb-2" size={20} />
+            <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
               “You used a generic bear in the prototypes. The real bear might look totally
               different.”
@@ -1618,7 +1618,7 @@ export function CreativeView() {
             </p>
           </Card>
           <Card>
-            <Quote className="text-ursa-gold mb-2" size={20} />
+            <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
               “Level 3 with inverted constellation and numbered editions is too cute for a small
               café.”
@@ -1646,7 +1646,7 @@ export function CreativeView() {
             </div>
           </Card>
           <Card className="flex items-center gap-3">
-            <Clock className="text-ursa-gold shrink-0" size={22} />
+            <Clock className="text-ursa-gold-text shrink-0" size={22} />
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
                 Bear recommends window
@@ -1682,7 +1682,7 @@ export function CreativeView() {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-2 text-[0.8rem] text-muted-foreground">
-          <CupGlyph size={18} className="text-ursa-gold" />
+          <CupGlyph size={18} className="text-ursa-gold-text" />
           <span className="font-display italic text-ursa-dark-roast">Un gramo a la vez.</span>
           <span className="opacity-60">·</span>
           <span>Module 06 compiled 2026-08-01</span>

@@ -120,7 +120,7 @@ export function BearScoreWidget() {
       <div className="space-y-5">
         {/* Pillars */}
         <div className="bg-card border border-ursa-line-soft rounded-2xl p-5 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)]">
-          <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-3">Brand pillars</h4>
+          <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-3">Brand pillars</h4>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {PILLAR_SCORES.map((p) => (
               <div key={p.pillar} className="text-center">
@@ -143,7 +143,7 @@ export function BearScoreWidget() {
 
         {/* Surface scores list */}
         <div className="bg-card border border-ursa-line-soft rounded-2xl p-5 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)]">
-          <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-3">Surface consistency</h4>
+          <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-3">Surface consistency</h4>
           <ul className="m-0 p-0 list-none space-y-2.5 max-h-[280px] overflow-y-auto ursa-scroll pr-1">
             {SURFACES.map((s) => {
               const barColor =

@@ -189,7 +189,7 @@ export function SwotView() {
           <Card className="p-4 md:p-6">
             <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0 flex items-center gap-2">
-                <Swords size={18} className="text-ursa-gold" /> Distinctiveness × Reach
+                <Swords size={18} className="text-ursa-gold-text" /> Distinctiveness × Reach
               </h3>
               <div className="flex items-center gap-3 text-[0.7rem] text-muted-foreground">
                 <span className="flex items-center gap-1.5">
@@ -307,7 +307,7 @@ export function SwotView() {
               {/* Position readout */}
               <div className="grid grid-cols-2 gap-2 mb-4">
                 <div className="rounded-lg bg-ursa-foam border border-ursa-line-soft p-2.5 text-center">
-                  <div className="font-display text-xl font-semibold text-ursa-gold leading-none">{selectedComp.distinctiveness}</div>
+                  <div className="font-display text-xl font-semibold text-ursa-gold-text leading-none">{selectedComp.distinctiveness}</div>
                   <div className="font-label text-[0.54rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">Distinctiveness</div>
                 </div>
                 <div className="rounded-lg bg-ursa-foam border border-ursa-line-soft p-2.5 text-center">
@@ -327,7 +327,7 @@ export function SwotView() {
 
             {/* Ursa implication */}
             <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
-              <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold m-0 mb-2 flex items-center gap-1.5">
+              <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-2 flex items-center gap-1.5">
                 <Info size={13} /> Implication for Ursa
               </h4>
               <p className="text-[0.88rem] text-ursa-dark-roast m-0 leading-relaxed font-medium">{selectedComp.ursaImplication}</p>
@@ -378,7 +378,7 @@ function SwotCell({ label, icon, tone, text }: { label: string; icon: React.Reac
   const tones = {
     forest: "border-ursa-forest-deep/25 bg-ursa-forest-deep/5 text-ursa-forest-deep",
     terracotta: "border-ursa-terracotta/25 bg-ursa-terracotta/5 text-ursa-terracotta",
-    gold: "border-ursa-gold/30 bg-ursa-gold/5 text-ursa-gold",
+    gold: "border-ursa-gold/30 bg-ursa-gold/5 text-ursa-gold-text",
     stop: "border-ursa-terracotta/30 bg-ursa-terracotta/8 text-ursa-terracotta",
   };
   return (

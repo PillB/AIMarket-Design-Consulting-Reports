@@ -41,7 +41,7 @@ function CompetitorCard({ c }: { c: (typeof COMPETITORS)[number] }) {
         <div>
           <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0 mb-1">{c.name}</h3>
           <div className="flex items-center gap-1.5 text-[0.78rem] text-muted-foreground">
-            <MapPin size={13} className="text-ursa-gold" />
+            <MapPin size={13} className="text-ursa-gold-text" />
             <span className="font-label tracking-[0.06em] uppercase">{c.area}</span>
           </div>
         </div>
@@ -87,7 +87,7 @@ function ActionCard({
   items: string[];
 }) {
   const toneMap = {
-    gold: { text: "text-ursa-gold", bg: "bg-ursa-gold/10", border: "border-ursa-gold/40" },
+    gold: { text: "text-ursa-gold-text", bg: "bg-ursa-gold/10", border: "border-ursa-gold/40" },
     forest: { text: "text-ursa-forest-deep", bg: "bg-ursa-forest-deep/8", border: "border-ursa-forest-deep/25" },
     terracotta: { text: "text-ursa-terracotta", bg: "bg-ursa-terracotta/10", border: "border-ursa-terracotta/30" },
   }[tone];
@@ -281,7 +281,7 @@ export function MarketView() {
           </div>
           <Card highlight className="bg-ursa-foam">
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-              <Swords size={18} className="text-ursa-gold" /> Who owns what
+              <Swords size={18} className="text-ursa-gold-text" /> Who owns what
             </h3>
             <ul className="space-y-2.5 m-0 p-0 list-none">
               {ownableSpaces.map((s) => (
@@ -299,7 +299,7 @@ export function MarketView() {
                     </span>
                     <span className="font-medium text-ursa-dark-roast text-[0.95rem]">{s.name}</span>
                   </div>
-                  <span className={`font-label text-[0.72rem] tracking-[0.1em] uppercase ${s.ursa ? "text-ursa-gold font-semibold" : "text-muted-foreground"}`}>
+                  <span className={`font-label text-[0.72rem] tracking-[0.1em] uppercase ${s.ursa ? "text-ursa-gold-text font-semibold" : "text-muted-foreground"}`}>
                     {s.owns}
                   </span>
                 </li>
@@ -414,7 +414,7 @@ export function MarketView() {
           </button>
           <button
             onClick={() => navigate("competitors")}
-            className="inline-flex items-center gap-2 border border-ursa-gold text-ursa-gold font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-gold hover:text-ursa-dark-roast transition"
+            className="inline-flex items-center gap-2 border border-ursa-gold text-ursa-gold-text font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-gold hover:text-ursa-dark-roast transition"
           >
             <Swords size={14} /> Open the interactive Competitor Dashboard
           </button>

@@ -61,7 +61,7 @@ type Persona = {
 const PERSONAS: Persona[] = [
   {
     name: "The Morning Regular",
-    icon: <Coffee size={18} className="text-ursa-gold" />,
+    icon: <Coffee size={18} className="text-ursa-gold-text" />,
     jtb:
       "When I start my day in Miraflores, help me get a deliberately good cup faster than I could at home, with a face that remembers my order — without making me think.",
     signals: ["Arrives 7:03–7:30am", "Orders the same drink", "Pays in under 90s"],
@@ -97,7 +97,7 @@ const PERSONAS: Persona[] = [
   },
   {
     name: "The Coffee Curious",
-    icon: <Sparkles size={18} className="text-ursa-gold" />,
+    icon: <Sparkles size={18} className="text-ursa-gold-text" />,
     jtb:
       "When I want to understand specialty coffee, help me learn enough to order with confidence — and tell my friends where beans come from.",
     signals: ["Asks about origin", "Buys retail beans", "Attends cuppings"],
@@ -405,7 +405,7 @@ export function GrowthView() {
             </p>
           </div>
 
-          <div className="flex items-center justify-center my-3 text-ursa-gold">
+          <div className="flex items-center justify-center my-3 text-ursa-gold-text">
             <span className="h-px w-12 bg-ursa-line" />
             <ArrowDown size={14} className="mx-1" />
             <span className="h-px w-12 bg-ursa-line" />
@@ -424,7 +424,7 @@ export function GrowthView() {
                 <p className="font-display text-[1.05rem] text-ursa-dark-roast font-medium leading-snug mb-3">
                   {pillar.promise}
                 </p>
-                <div className="flex items-center gap-1 text-ursa-gold mb-2">
+                <div className="flex items-center gap-1 text-ursa-gold-text mb-2">
                   <ArrowDown size={12} />
                   <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase">Proof points</span>
                 </div>
@@ -478,7 +478,7 @@ export function GrowthView() {
               </h3>
               <p className="text-[0.85rem] leading-relaxed text-foreground/85 m-0">{s.adapted}</p>
               {s.caveat && (
-                <p className="mt-3 pt-3 border-t border-ursa-line-soft font-label text-[0.62rem] tracking-[0.12em] uppercase text-ursa-gold m-0">
+                <p className="mt-3 pt-3 border-t border-ursa-line-soft font-label text-[0.62rem] tracking-[0.12em] uppercase text-ursa-gold-text m-0">
                   {s.caveat}
                 </p>
               )}
@@ -497,7 +497,7 @@ export function GrowthView() {
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-start">
           <Card className="bg-ursa-foam">
             <div className="flex items-center gap-2 mb-4">
-              <Layers size={18} className="text-ursa-gold" />
+              <Layers size={18} className="text-ursa-gold-text" />
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0">The stack, bottom to top</h3>
             </div>
             <div className="relative pl-6">
@@ -551,13 +551,13 @@ export function GrowthView() {
           <div className="space-y-4">
             <Card>
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-                <CupGlyph size={18} className="text-ursa-gold" /> Why the stack works
+                <CupGlyph size={18} className="text-ursa-gold-text" /> Why the stack works
               </h4>
               <ul className="space-y-2 m-0 p-0 list-none text-[0.88rem] text-foreground/85">
-                <li className="flex gap-2"><span className="text-ursa-gold mt-1">›</span> The core drink anchors price; the side is the highest-margin attach.</li>
-                <li className="flex gap-2"><span className="text-ursa-gold mt-1">›</span> The bean sample converts one visit into a home-brew trial — repeated exposure.</li>
-                <li className="flex gap-2"><span className="text-ursa-gold mt-1">›</span> The story card is the Sutherland lever: free to print, raises perceived value.</li>
-                <li className="flex gap-2"><span className="text-ursa-gold mt-1">›</span> The subscription invite closes the loop only after the craft has been experienced.</li>
+                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> The core drink anchors price; the side is the highest-margin attach.</li>
+                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> The bean sample converts one visit into a home-brew trial — repeated exposure.</li>
+                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> The story card is the Sutherland lever: free to print, raises perceived value.</li>
+                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> The subscription invite closes the loop only after the craft has been experienced.</li>
               </ul>
             </Card>
             <Card className="bg-ursa-cream">
@@ -577,7 +577,7 @@ export function GrowthView() {
                   <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground m-0">Touchpoints</p>
                 </div>
                 <div>
-                  <p className="font-display text-lg font-semibold text-ursa-gold m-0">1</p>
+                  <p className="font-display text-lg font-semibold text-ursa-gold-text m-0">1</p>
                   <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground m-0">Referral</p>
                 </div>
               </div>
@@ -594,7 +594,7 @@ export function GrowthView() {
               <div key={j.stage} className="flex items-stretch flex-1">
                 <div className="flex-1 rounded-lg border border-ursa-line-soft bg-card p-4 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-16px_rgba(59,36,23,0.18)] flex flex-col">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="w-7 h-7 rounded-full bg-ursa-cream border border-ursa-gold/40 flex items-center justify-center text-ursa-gold">
+                    <span className="w-7 h-7 rounded-full bg-ursa-cream border border-ursa-gold/40 flex items-center justify-center text-ursa-gold-text">
                       {j.icon}
                     </span>
                     <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">
@@ -602,13 +602,13 @@ export function GrowthView() {
                     </span>
                   </div>
                   <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{j.stage}</h3>
-                  <p className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-gold mb-1 m-0">Channel</p>
+                  <p className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-gold-text mb-1 m-0">Channel</p>
                   <p className="text-[0.82rem] text-foreground/85 mb-3 m-0">{j.channel}</p>
                   <p className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-forest-deep mb-1 m-0 mt-auto">Tactic</p>
                   <p className="text-[0.82rem] text-muted-foreground m-0">{j.tactic}</p>
                 </div>
                 {i < JOURNEY.length - 1 && (
-                  <div className="flex items-center justify-center w-8 text-ursa-gold">
+                  <div className="flex items-center justify-center w-8 text-ursa-gold-text">
                     <ArrowRight size={18} />
                   </div>
                 )}
@@ -763,17 +763,17 @@ export function GrowthView() {
         <div className="grid sm:grid-cols-2 gap-6">
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Coffee size={16} className="text-ursa-gold" /> What each scenario unlocks
+              <Coffee size={16} className="text-ursa-gold-text" /> What each scenario unlocks
             </h4>
             <ul className="space-y-1.5 text-[0.88rem] m-0 p-0 list-none text-foreground/85">
               <li><strong className="text-ursa-forest-deep">Lean</strong> — runs GBP, WhatsApp, organic Reels, hotel cards, story cards. Ships the first 30 days.</li>
-              <li><strong className="text-ursa-gold">Moderate</strong> — adds paid social, 2–3 creators, monthly cupping, Rappi optimisation. The 60-day plan.</li>
+              <li><strong className="text-ursa-gold-text">Moderate</strong> — adds paid social, 2–3 creators, monthly cupping, Rappi optimisation. The 60-day plan.</li>
               <li><strong className="text-ursa-terracotta">Growth</strong> — adds tourism partnerships, B2B office sampling, subscription pilot, photographer. The 90-day plan.</li>
             </ul>
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Star size={16} className="text-ursa-gold" /> How to choose
+              <Star size={16} className="text-ursa-gold-text" /> How to choose
             </h4>
             <p className="text-[0.88rem] text-muted-foreground m-0">
               Pick the budget the owner can sustain for at least three months without flinching. The

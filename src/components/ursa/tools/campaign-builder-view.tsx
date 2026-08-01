@@ -190,7 +190,7 @@ export function CampaignBuilderView() {
           {/* Main step area */}
           <Card className="min-h-[400px]">
             {step === 0 && (
-              <StepShell title="Pick the offer" desc="What is the customer actually getting? Anchor truthfully against the à la carte total." icon={<Target size={20} className="text-ursa-gold" />}>
+              <StepShell title="Pick the offer" desc="What is the customer actually getting? Anchor truthfully against the à la carte total." icon={<Target size={20} className="text-ursa-gold-text" />}>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {OFFERS.map((o) => (
                     <OptionCard key={o.id} selected={offer === o.id} onClick={() => setOffer(o.id)} title={o.name} desc={o.desc} badge={o.anchor} />
@@ -199,7 +199,7 @@ export function CampaignBuilderView() {
               </StepShell>
             )}
             {step === 1 && (
-              <StepShell title="Pick the audience" desc="Who is this campaign for? Each persona has a distinct job to be done." icon={<Users size={20} className="text-ursa-gold" />}>
+              <StepShell title="Pick the audience" desc="Who is this campaign for? Each persona has a distinct job to be done." icon={<Users size={20} className="text-ursa-gold-text" />}>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {AUDIENCES.map((a) => (
                     <OptionCard key={a.id} selected={audience === a.id} onClick={() => setAudience(a.id)} title={a.name} desc={a.desc} />
@@ -208,7 +208,7 @@ export function CampaignBuilderView() {
               </StepShell>
             )}
             {step === 2 && (
-              <StepShell title="Pick the channel" desc="Where will the audience encounter the offer? Match reach and cost to the budget." icon={<Megaphone size={20} className="text-ursa-gold" />}>
+              <StepShell title="Pick the channel" desc="Where will the audience encounter the offer? Match reach and cost to the budget." icon={<Megaphone size={20} className="text-ursa-gold-text" />}>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {CHANNELS.map((c) => (
                     <OptionCard key={c.id} selected={channel === c.id} onClick={() => setChannel(c.id)} title={c.name} desc={`${c.reach} · ${c.cost}`} />
@@ -217,7 +217,7 @@ export function CampaignBuilderView() {
               </StepShell>
             )}
             {step === 3 && (
-              <StepShell title="Pick the metric" desc="How will you know it worked? One primary metric, one target, one stop rule." icon={<TrendingUp size={20} className="text-ursa-gold" />}>
+              <StepShell title="Pick the metric" desc="How will you know it worked? One primary metric, one target, one stop rule." icon={<TrendingUp size={20} className="text-ursa-gold-text" />}>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {METRICS.map((m) => (
                     <OptionCard key={m.id} selected={metric === m.id} onClick={() => setMetric(m.id)} title={m.name} desc={m.desc} badge={m.target} />
@@ -226,7 +226,7 @@ export function CampaignBuilderView() {
               </StepShell>
             )}
             {step === 4 && (
-              <StepShell title="Set the monthly budget" desc="Match the channel cost to a realistic monthly spend. Lean starts at S/. 500; growth can reach S/. 3,000." icon={<Wallet size={20} className="text-ursa-gold" />}>
+              <StepShell title="Set the monthly budget" desc="Match the channel cost to a realistic monthly spend. Lean starts at S/. 500; growth can reach S/. 3,000." icon={<Wallet size={20} className="text-ursa-gold-text" />}>
                 <div className="max-w-md">
                   <div className="flex items-baseline justify-between mb-3">
                     <span className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-muted-foreground">Monthly budget</span>
@@ -254,7 +254,7 @@ export function CampaignBuilderView() {
               </StepShell>
             )}
             {step === 5 && (
-              <StepShell title="Your campaign brief" desc="Copy this plain-text brief and hand it to whoever runs the campaign." icon={<FileText size={20} className="text-ursa-gold" />}>
+              <StepShell title="Your campaign brief" desc="Copy this plain-text brief and hand it to whoever runs the campaign." icon={<FileText size={20} className="text-ursa-gold-text" />}>
                 <div className="relative">
                   <pre className="bg-ursa-espresso text-ursa-cream rounded-xl p-5 text-[0.82rem] leading-relaxed font-mono whitespace-pre-wrap overflow-x-auto ursa-scroll border border-ursa-gold/30">
 {summaryText()}
@@ -362,7 +362,7 @@ function OptionCard({ selected, onClick, title, desc, badge }: { selected: boole
     >
       <div className="flex items-center justify-between gap-2 mb-1">
         <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">{title}</h4>
-        {selected && <Check size={16} className="text-ursa-gold shrink-0" />}
+        {selected && <Check size={16} className="text-ursa-gold-text shrink-0" />}
       </div>
       <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed">{desc}</p>
       {badge && (
@@ -391,7 +391,7 @@ function BudgetTier({ label, amount, current, onClick }: { label: string; amount
 }
 
 function BriefRow({ label, value, tone }: { label: string; value: string | null | undefined; tone: "gold" | "terracotta" | "forest" }) {
-  const tones = { gold: "text-ursa-gold", terracotta: "text-ursa-terracotta", forest: "text-ursa-forest-deep" };
+  const tones = { gold: "text-ursa-gold-text", terracotta: "text-ursa-terracotta", forest: "text-ursa-forest-deep" };
   return (
     <div className="flex items-baseline justify-between gap-2">
       <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground shrink-0">{label}</span>

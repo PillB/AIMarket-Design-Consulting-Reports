@@ -168,7 +168,7 @@ export function ViralView() {
                 }}
               />
               <div className="flex items-start justify-between gap-2">
-                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
+                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
                   {c.id}
                 </span>
                 <Pill tone={formatTone(c.format)}>
@@ -209,7 +209,7 @@ export function ViralView() {
               <AccordionItem key={s.id} value={s.id} className="border-0">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-start gap-4 flex-1 text-left">
-                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold mt-1 shrink-0">
+                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text mt-1 shrink-0">
                       {s.id}
                     </span>
                     <div className="flex-1 min-w-0">
@@ -242,7 +242,7 @@ export function ViralView() {
                             key={i}
                             className="flex gap-3 text-[0.92rem] leading-relaxed"
                           >
-                            <span className="font-display font-semibold text-ursa-gold w-6 shrink-0 text-base">
+                            <span className="font-display font-semibold text-ursa-gold-text w-6 shrink-0 text-base">
                               {String(i + 1).padStart(2, "0")}
                             </span>
                             <span className="text-ursa-dark-roast">{b}</span>
@@ -252,7 +252,7 @@ export function ViralView() {
                     </div>
                     <div className="flex flex-col gap-4">
                       <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4 border border-ursa-espresso">
-                        <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-soft mb-2">
+                        <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft mb-2">
                           Caption · ES (Peru) · customer-facing
                         </div>
                         <p className="font-body text-[0.95rem] leading-relaxed m-0">
@@ -428,7 +428,7 @@ export function ViralView() {
                         <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
                           W{w + 1} · {DAYS[d]}
                         </span>
-                        <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-ursa-gold">
+                        <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-ursa-gold-text">
                           {concept.id}
                         </span>
                       </div>
@@ -462,7 +462,7 @@ export function ViralView() {
             )}
           </div>
           <div className="mt-4 pt-3 border-t border-ursa-line-soft flex items-center gap-2 text-[0.78rem] text-muted-foreground">
-            <BearMark size={18} className="text-ursa-gold" />
+            <BearMark size={18} className="text-ursa-gold-text" />
             <span>
               <strong className="text-ursa-dark-roast">Every day:</strong> Bear&apos;s
               Morning Ritual runs in Stories (C17) alongside the featured concept. Two Reels
@@ -573,7 +573,7 @@ export function ViralView() {
             <DossierLinkBanner moduleId="05-viral-content-laboratory" />
             <button
               onClick={() => navigate("content-calendar")}
-              className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
+              className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold-text hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
             >
               Open the interactive Content Calendar tool
               <ArrowRight size={14} />
@@ -617,7 +617,7 @@ function MethodStep({
   };
   const iconTones: Record<string, string> = {
     forest: "text-ursa-forest-deep",
-    gold: "text-ursa-gold",
+    gold: "text-ursa-gold-text",
     warn: "text-ursa-medium-roast",
     stop: "text-ursa-terracotta",
   };

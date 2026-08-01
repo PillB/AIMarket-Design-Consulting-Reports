@@ -72,7 +72,7 @@ const PHASE_META: PhaseMeta[] = [
   },
   {
     badge: "Day 1 → 30",
-    icon: <Calendar size={18} className="text-ursa-gold" />,
+    icon: <Calendar size={18} className="text-ursa-gold-text" />,
     tone: "gold",
     accentBorder: "border-ursa-gold/50",
     accentBg: "bg-ursa-gold/6",
@@ -115,7 +115,7 @@ type Owner = {
 const OWNERS: Owner[] = [
   {
     workstream: "Brand & Identity",
-    icon: <Shield size={16} className="text-ursa-gold" />,
+    icon: <Shield size={16} className="text-ursa-gold-text" />,
     owner: "Founder + fractional designer",
     dependency: "Original Art Nouveau asset pack + packaging",
     metric: "Unprompted bear recall (Miraflores visitors)",
@@ -123,7 +123,7 @@ const OWNERS: Owner[] = [
   },
   {
     workstream: "Content & Social",
-    icon: <Megaphone size={16} className="text-ursa-gold" />,
+    icon: <Megaphone size={16} className="text-ursa-gold-text" />,
     owner: "In-house content lead",
     dependency: "Phone/camera; Reel production capacity",
     metric: "Profile visits / week; saves per Reel",
@@ -131,7 +131,7 @@ const OWNERS: Owner[] = [
   },
   {
     workstream: "Paid Media",
-    icon: <Crosshair size={16} className="text-ursa-gold" />,
+    icon: <Crosshair size={16} className="text-ursa-gold-text" />,
     owner: "Fractional performance marketer",
     dependency: "Budget approval + Meta Business Manager",
     metric: "Cost per qualified visit; store-visit lift",
@@ -139,7 +139,7 @@ const OWNERS: Owner[] = [
   },
   {
     workstream: "Creator Programme",
-    icon: <Sparkles size={16} className="text-ursa-gold" />,
+    icon: <Sparkles size={16} className="text-ursa-gold-text" />,
     owner: "Creator coordinator",
     dependency: "3-creator roster + clear briefs",
     metric: "Profile visits, directions clicks, CPM-equivalent",
@@ -147,7 +147,7 @@ const OWNERS: Owner[] = [
   },
   {
     workstream: "Delivery (Rappi)",
-    icon: <Truck size={16} className="text-ursa-gold" />,
+    icon: <Truck size={16} className="text-ursa-gold-text" />,
     owner: "Operations lead",
     dependency: "Re-photography + bundle design",
     metric: "Delivery AOV; bundle share",
@@ -155,7 +155,7 @@ const OWNERS: Owner[] = [
   },
   {
     workstream: "Community & Events",
-    icon: <Users size={16} className="text-ursa-gold" />,
+    icon: <Users size={16} className="text-ursa-gold-text" />,
     owner: "Head barista",
     dependency: "Cupping-night logistics + retail bean stock",
     metric: "Attendance; retail bean sales post-event",
@@ -163,7 +163,7 @@ const OWNERS: Owner[] = [
   },
   {
     workstream: "Retail Beans",
-    icon: <Package size={16} className="text-ursa-gold" />,
+    icon: <Package size={16} className="text-ursa-gold-text" />,
     owner: "Roaster + barista",
     dependency: "Bean bag inventory + story cards",
     metric: "Retail bean units / week",
@@ -171,7 +171,7 @@ const OWNERS: Owner[] = [
   },
   {
     workstream: "B2B & Wholesale",
-    icon: <Briefcase size={16} className="text-ursa-gold" />,
+    icon: <Briefcase size={16} className="text-ursa-gold-text" />,
     owner: "Founder + business development",
     dependency: "Office intros + sampling budget",
     metric: "Sampling → account conversion rate",
@@ -374,7 +374,7 @@ export function RoadmapView() {
           </button>
           <button
             onClick={() => navigate("calculator")}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/60 text-ursa-gold hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/60 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
           >
             <ArrowRight size={14} /> Model the subscription pilot
           </button>
@@ -480,7 +480,7 @@ export function RoadmapView() {
                 <ul className="space-y-1 m-0 p-0 list-none text-[0.82rem] text-foreground/85">
                   {s.items.slice(0, 4).map((it) => (
                     <li key={it.item} className="flex items-baseline gap-2">
-                      <CircleDot size={11} className="text-ursa-gold shrink-0 translate-y-0.5" />
+                      <CircleDot size={11} className="text-ursa-gold-text shrink-0 translate-y-0.5" />
                       <span className="flex-1">{it.item}</span>
                       <span className="font-label text-[0.66rem] tracking-wider text-muted-foreground uppercase">
                         {PEN(it.cost)}
@@ -615,7 +615,7 @@ export function RoadmapView() {
                     className={cn(
                       "font-display text-[1.3rem] font-semibold",
                       k.tone === "forest" && "text-ursa-forest-deep",
-                      k.tone === "gold" && "text-ursa-gold",
+                      k.tone === "gold" && "text-ursa-gold-text",
                       k.tone === "terracotta" && "text-ursa-terracotta"
                     )}
                   >
@@ -657,7 +657,7 @@ export function RoadmapView() {
                 <span
                   className={cn(
                     "inline-flex items-center gap-2 font-label text-[0.66rem] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full border",
-                    r.tone === "gold" && "border-ursa-gold/50 text-ursa-gold bg-ursa-gold/8",
+                    r.tone === "gold" && "border-ursa-gold/50 text-ursa-gold-text bg-ursa-gold/8",
                     r.tone === "forest" && "border-ursa-forest-deep/40 text-ursa-forest-deep bg-ursa-forest-deep/8",
                     r.tone === "terracotta" && "border-ursa-terracotta/40 text-ursa-terracotta bg-ursa-terracotta/8"
                   )}
@@ -716,9 +716,9 @@ export function RoadmapView() {
             }}
           />
           <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6">
-            <BearMark size={64} className="text-ursa-gold shrink-0" />
+            <BearMark size={64} className="text-ursa-gold-text shrink-0" />
             <div className="flex-1">
-              <span className="font-label text-[0.7rem] tracking-[0.22em] uppercase text-ursa-gold-soft">
+              <span className="font-label text-[0.7rem] tracking-[0.22em] uppercase text-ursa-gold-text-soft">
                 Verdict · Permanent system
               </span>
               <h3 className="font-display text-2xl md:text-[1.8rem] font-semibold text-ursa-cream leading-tight mt-2 mb-3">
@@ -732,7 +732,7 @@ export function RoadmapView() {
                 chasing a generic growth play, this dossier chooses the bear.
               </p>
               <div className="flex flex-wrap gap-2 mt-5">
-                <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.16em] uppercase px-2.5 py-1 rounded-full bg-ursa-gold/20 text-ursa-gold-soft border border-ursa-gold/50">
+                <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.16em] uppercase px-2.5 py-1 rounded-full bg-ursa-gold/20 text-ursa-gold-text-soft border border-ursa-gold/50">
                   <Shield size={12} /> Bear preserved
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.16em] uppercase px-2.5 py-1 rounded-full bg-ursa-forest/30 text-ursa-leaf border border-ursa-leaf/40">
@@ -749,7 +749,7 @@ export function RoadmapView() {
         <Grid cols={3}>
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-1.5 flex items-center gap-2">
-              <Flag size={16} className="text-ursa-gold" /> Permanent system
+              <Flag size={16} className="text-ursa-gold-text" /> Permanent system
             </h4>
             <p className="text-[0.86rem] text-muted-foreground leading-relaxed m-0">
               Art Nouveau lean, browns-and-greens palette, bear motif, in-house roastery, "Un gramo a la vez".
@@ -758,7 +758,7 @@ export function RoadmapView() {
           </Card>
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-1.5 flex items-center gap-2">
-              <Calendar size={16} className="text-ursa-gold" /> 6-month reversible skin
+              <Calendar size={16} className="text-ursa-gold-text" /> 6-month reversible skin
             </h4>
             <p className="text-[0.86rem] text-muted-foreground leading-relaxed m-0">
               Level-2 distinctive growth system — new copy, new Reels, named-drink rotation.
@@ -767,7 +767,7 @@ export function RoadmapView() {
           </Card>
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-1.5 flex items-center gap-2">
-              <Sparkles size={16} className="text-ursa-gold" /> Seasonal only
+              <Sparkles size={16} className="text-ursa-gold-text" /> Seasonal only
             </h4>
             <p className="text-[0.86rem] text-muted-foreground leading-relaxed m-0">
               Level-3 seasonal campaigns (Lonya release, Andean winter cup). Approved per season,
@@ -790,7 +790,7 @@ export function RoadmapView() {
             </button>
             <button
               onClick={() => navigate("calculator")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/60 text-ursa-gold hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/60 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <ArrowRight size={14} /> Subscription Calculator
             </button>

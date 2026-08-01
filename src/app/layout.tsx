@@ -58,10 +58,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Prevent dark-mode flash: apply saved theme before hydration */}
+        {/* Prevent dark-mode flash + apply saved language before hydration */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('ursa-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}if(t==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('ursa-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}if(t==='dark'){document.documentElement.classList.add('dark');}}catch(e){}try{var l=localStorage.getItem('ursa-lang');if(l!=='en'&&l!=='es'){l='en';}window.__URSA_LANG__=l;document.documentElement.lang=l;}catch(e){window.__URSA_LANG__='en';document.documentElement.lang='en';}})();`,
           }}
         />
       </head>

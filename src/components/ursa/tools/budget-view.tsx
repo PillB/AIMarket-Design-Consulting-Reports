@@ -199,7 +199,7 @@ export function BudgetView() {
           <Card>
             <div className="flex items-center justify-between mb-1">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-0 flex items-center gap-2">
-                <Wallet size={18} className="text-ursa-gold" /> {active.name} · line items
+                <Wallet size={18} className="text-ursa-gold-text" /> {active.name} · line items
               </h3>
               <Pill tone={SCENARIO_TONES[activeIdx]}>{active.items.length} items</Pill>
             </div>
@@ -279,7 +279,7 @@ export function BudgetView() {
           <div className="space-y-5">
             <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="flex items-center justify-between mb-1">
-                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
+                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
                   Live monthly total · {active.name}
                 </span>
                 <EvidenceTag status="verified" />
@@ -316,7 +316,7 @@ export function BudgetView() {
 
             <Card className="bg-ursa-foam">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <Calendar size={16} className="text-ursa-gold" /> Per-day breakdown
+                <Calendar size={16} className="text-ursa-gold-text" /> Per-day breakdown
               </h4>
               <div className="space-y-2">
                 <div className="flex justify-between text-[0.85rem]">
@@ -351,7 +351,7 @@ export function BudgetView() {
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1 flex items-center gap-2">
-              <PiggyBank size={18} className="text-ursa-gold" /> Spend by line item
+              <PiggyBank size={18} className="text-ursa-gold-text" /> Spend by line item
             </h3>
             <p className="text-[0.85rem] text-muted-foreground mb-4 m-0">
               Each slice is one line item. Edit the cost above and watch the chart redraw.
@@ -506,7 +506,7 @@ export function BudgetView() {
           <Card className="bg-gradient-to-br from-ursa-foam to-ursa-cream">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-full bg-ursa-gold/15 border border-ursa-gold flex items-center justify-center shrink-0">
-                <TrendingUp size={18} className="text-ursa-gold" />
+                <TrendingUp size={18} className="text-ursa-gold-text" />
               </div>
               <div>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1.5">
@@ -527,7 +527,7 @@ export function BudgetView() {
                   </button>
                   <button
                     onClick={() => navigate("growth")}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/40 text-ursa-gold hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/40 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
                   >
                     Back to Module 04
                   </button>
