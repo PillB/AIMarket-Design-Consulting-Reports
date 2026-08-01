@@ -180,7 +180,7 @@ export function CampaignBuilderView() {
               </div>
             );
           })}
-          <button onClick={reset} className="ml-auto shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-full font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground hover:text-ursa-terracotta transition">
+          <button onClick={reset} className="ml-auto shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-full font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground hover:text-ursa-terracotta-text transition">
             <RotateCcw size={12} /> Reset
           </button>
         </div>
@@ -391,7 +391,7 @@ function BudgetTier({ label, amount, current, onClick }: { label: string; amount
 }
 
 function BriefRow({ label, value, tone }: { label: string; value: string | null | undefined; tone: "gold" | "terracotta" | "forest" }) {
-  const tones = { gold: "text-ursa-gold-text", terracotta: "text-ursa-terracotta", forest: "text-ursa-forest-deep" };
+  const tones = { gold: "text-ursa-gold-text", terracotta: "text-ursa-terracotta-text", forest: "text-ursa-forest-deep" };
   return (
     <div className="flex items-baseline justify-between gap-2">
       <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground shrink-0">{label}</span>

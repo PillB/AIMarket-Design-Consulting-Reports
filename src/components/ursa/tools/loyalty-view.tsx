@@ -473,7 +473,7 @@ export function LoyaltyView() {
                       "w-10 h-10 rounded-lg grid place-items-center shrink-0",
                       p.tone === "gold" && "bg-ursa-gold/15 text-ursa-gold-text",
                       p.tone === "forest" && "bg-ursa-forest-deep/10 text-ursa-forest-deep",
-                      p.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta"
+                      p.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta-text"
                     )}
                   >
                     <Icon size={20} />
@@ -644,7 +644,7 @@ export function LoyaltyView() {
                 <div
                   className={cn(
                     "font-display text-5xl font-semibold leading-none mt-2",
-                    calc.netPerCycle >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta"
+                    calc.netPerCycle >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text"
                   )}
                 >
                   {PENn(calc.netPerCycle)}
@@ -675,7 +675,7 @@ export function LoyaltyView() {
               </div>
               <p className="text-[0.88rem] leading-relaxed text-muted-foreground m-0">
                 One free coffee (marginal cost{" "}
-                <strong className="text-ursa-terracotta">{PEN(freeCoffeeCost)}</strong>) drives{" "}
+                <strong className="text-ursa-terracotta-text">{PEN(freeCoffeeCost)}</strong>) drives{" "}
                 <strong className="text-ursa-forest-deep">
                   {PENn(calc.revenuePerCycle)}
                 </strong>{" "}
@@ -722,7 +722,7 @@ export function LoyaltyView() {
                       "w-9 h-9 rounded-lg grid place-items-center shrink-0",
                       t.tone === "gold" && "bg-ursa-gold/15 text-ursa-gold-text",
                       t.tone === "forest" && "bg-ursa-forest-deep/10 text-ursa-forest-deep",
-                      t.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta"
+                      t.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta-text"
                     )}
                   >
                     <Icon size={18} />
@@ -821,7 +821,7 @@ export function LoyaltyView() {
           </Card>
           <Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Target size={16} className="text-ursa-terracotta" /> 8-visit, not 10
+              <Target size={16} className="text-ursa-terracotta-text" /> 8-visit, not 10
             </h3>
             <p className="text-[0.86rem] leading-relaxed text-muted-foreground m-0">
               The 8-visit mechanic feels closer at every equivalent point — a stronger goal
@@ -855,7 +855,7 @@ export function LoyaltyView() {
                       "w-10 h-10 rounded-lg grid place-items-center shrink-0",
                       imp.tone === "gold" && "bg-ursa-gold/15 text-ursa-gold-text",
                       imp.tone === "forest" && "bg-ursa-forest-deep/10 text-ursa-forest-deep",
-                      imp.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta"
+                      imp.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta-text"
                     )}
                   >
                     <Icon size={20} />
@@ -925,7 +925,7 @@ function Metric({
     default: "text-ursa-dark-roast",
     forest: "text-ursa-forest-deep",
     gold: "text-ursa-gold-text",
-    terracotta: "text-ursa-terracotta",
+    terracotta: "text-ursa-terracotta-text",
   };
   return (
     <div className="flex flex-col gap-0.5">

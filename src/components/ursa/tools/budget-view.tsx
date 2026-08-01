@@ -231,7 +231,7 @@ export function BudgetView() {
                   <button
                     onClick={() => removeItem(i)}
                     aria-label={`Remove ${it.item}`}
-                    className="w-8 h-8 rounded-md flex items-center justify-center text-muted-foreground hover:text-ursa-terracotta hover:bg-ursa-terracotta/10 transition"
+                    className="w-8 h-8 rounded-md flex items-center justify-center text-muted-foreground hover:text-ursa-terracotta-text hover:bg-ursa-terracotta/10 transition"
                   >
                     <Trash2 size={14} />
                   </button>
@@ -293,7 +293,7 @@ export function BudgetView() {
               <p className="text-[0.85rem] text-muted-foreground m-0">
                 Original baseline: <strong className="text-ursa-dark-roast">{PEN(originalTotal)}</strong>
                 {" · "}
-                <span className={delta > 0 ? "text-ursa-terracotta" : delta < 0 ? "text-ursa-forest-deep" : "text-muted-foreground"}>
+                <span className={delta > 0 ? "text-ursa-terracotta-text" : delta < 0 ? "text-ursa-forest-deep" : "text-muted-foreground"}>
                   {delta > 0 ? "+" : ""}
                   {PEN(delta)}
                 </span>
@@ -537,12 +537,12 @@ export function BudgetView() {
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <AlertTriangle size={16} className="text-ursa-terracotta" /> What this tool does not do
+              <AlertTriangle size={16} className="text-ursa-terracotta-text" /> What this tool does not do
             </h4>
             <ul className="space-y-1.5 m-0 p-0 list-none text-[0.85rem] text-muted-foreground">
-              <li className="flex gap-2"><span className="text-ursa-terracotta mt-1">›</span> It does not model revenue or payback — see ROI Dashboard.</li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta mt-1">›</span> It does not persist edits across reloads — this is a scratchpad.</li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta mt-1">›</span> It does not enforce a total cap — set your own discipline.</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not model revenue or payback — see ROI Dashboard.</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not persist edits across reloads — this is a scratchpad.</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not enforce a total cap — set your own discipline.</li>
             </ul>
           </Card>
         </div>

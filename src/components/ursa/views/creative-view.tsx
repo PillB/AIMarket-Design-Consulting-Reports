@@ -1543,7 +1543,7 @@ export function CreativeView() {
             </p>
           </Card>
           <Card>
-            <Award className="text-ursa-terracotta mb-2" size={22} />
+            <Award className="text-ursa-terracotta-text mb-2" size={22} />
             <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Cheaply testable</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
               Most prototypes cost S/. 0–200 to test in print. The bean bag label and the table
@@ -1655,7 +1655,7 @@ export function CreativeView() {
             </div>
           </Card>
           <Card className="flex items-center gap-3">
-            <MapPin className="text-ursa-terracotta shrink-0" size={22} />
+            <MapPin className="text-ursa-terracotta-text shrink-0" size={22} />
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
                 Home base

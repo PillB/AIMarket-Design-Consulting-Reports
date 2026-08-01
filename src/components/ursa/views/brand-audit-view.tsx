@@ -439,7 +439,7 @@ export function BrandAuditView() {
           <BearMark size={48} className="text-ursa-dark-roast" />
           <BearMark size={48} className="text-ursa-forest-deep" />
           <BearMark size={48} className="text-ursa-gold-text" />
-          <BearMark size={48} className="text-ursa-terracotta" />
+          <BearMark size={48} className="text-ursa-terracotta-text" />
           <span className="font-label text-[0.7rem] tracking-[0.14em] uppercase text-muted-foreground">
             One mark, four approved tints · dark-roast · forest-deep · gold · terracotta
           </span>

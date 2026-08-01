@@ -63,10 +63,14 @@ export function BearScoreWidget() {
     return () => cancelAnimationFrame(raf);
   }, [overall, composite]);
 
+  // Note: grade.color drives both the ring stroke AND the numeric label.
+  // For text on a light card surface we use the darker *-text token so the
+  // 44px score passes WCAG AA contrast (the bright --color-ursa-gold /
+  // --color-ursa-terracotta tokens are for fills, not text).
   const grade =
     composite >= 80 ? { label: "Strong", tone: "ok" as const, color: "var(--color-ursa-forest-deep)" } :
-    composite >= 60 ? { label: "Developing", tone: "warn" as const, color: "var(--color-ursa-gold)" } :
-    { label: "At risk", tone: "stop" as const, color: "var(--color-ursa-terracotta)" };
+    composite >= 60 ? { label: "Developing", tone: "warn" as const, color: "var(--color-ursa-gold-text)" } :
+    { label: "At risk", tone: "stop" as const, color: "var(--color-ursa-terracotta-text)" };
 
   // Find the biggest gap and top strength for the left column
   const sorted = [...SURFACES].sort((a, b) => a.score - b.score);
@@ -108,10 +112,10 @@ export function BearScoreWidget() {
           <div className="rounded-lg bg-ursa-terracotta/8 border border-ursa-terracotta/25 p-3">
             <div className="flex items-center gap-1.5 mb-1">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 11C8.76 11 11 8.76 11 6C11 3.24 8.76 1 6 1C3.24 1 1 3.24 1 6C1 8.76 3.24 11 6 11ZM6 3.5V6.5M6 8V8.5" stroke="var(--color-ursa-terracotta)" strokeWidth="1.2" strokeLinecap="round"/></svg>
-              <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta">Biggest gap</span>
+              <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta-text-text">Biggest gap</span>
             </div>
             <p className="font-display text-[0.82rem] font-semibold text-ursa-dark-roast m-0 leading-tight">{biggestGap.surface}</p>
-            <p className="font-label text-[0.7rem] text-ursa-terracotta m-0 mt-0.5">{biggestGap.score}/100</p>
+            <p className="font-label text-[0.7rem] text-ursa-terracotta-text-text m-0 mt-0.5">{biggestGap.score}/100</p>
           </div>
         </div>
       </div>

@@ -128,7 +128,7 @@ export function SectionBadge({ children, tone = "gold" }: { children: React.Reac
   const tones = {
     gold: "border-ursa-gold text-ursa-gold-text bg-ursa-paper",
     forest: "border-ursa-forest-deep text-ursa-forest-deep bg-ursa-paper",
-    terracotta: "border-ursa-terracotta text-ursa-terracotta bg-ursa-paper",
+    terracotta: "border-ursa-terracotta text-ursa-terracotta-text bg-ursa-paper",
   };
   return (
     <span className={cn("inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full border", tones[tone])}>
@@ -141,7 +141,7 @@ export function EvidenceTag({ status }: { status: "verified" | "partial" | "unve
   const map = {
     verified: { label: "Verified", cls: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30" },
     partial: { label: "Partial", cls: "bg-ursa-gold/20 text-ursa-medium-roast border-ursa-gold" },
-    unverified: { label: "Unverified", cls: "bg-ursa-terracotta/15 text-ursa-terracotta border-ursa-terracotta/40" },
+    unverified: { label: "Unverified", cls: "bg-ursa-terracotta/15 text-ursa-terracotta-text-text border-ursa-terracotta/40" },
     gap: { label: "Gap", cls: "bg-muted text-muted-foreground border-border" },
   };
   const m = map[status];
@@ -165,7 +165,7 @@ export function Pill({
     default: "bg-muted text-ursa-medium-roast border-ursa-line-soft",
     ok: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30",
     warn: "bg-ursa-gold/15 text-ursa-medium-roast border-ursa-gold",
-    stop: "bg-ursa-terracotta/10 text-ursa-terracotta border-ursa-terracotta/30",
+    stop: "bg-ursa-terracotta/10 text-ursa-terracotta-text-text border-ursa-terracotta/30",
     forest: "bg-ursa-forest-deep/8 text-ursa-forest-deep border-ursa-forest-deep/25",
     gold: "bg-ursa-gold text-ursa-dark-roast border-ursa-gold",
   };
@@ -194,9 +194,9 @@ export function Callout({
     forest: "border-ursa-forest-deep",
   };
   return (
-    <div className={cn("border-l-4 bg-muted/60 px-5 py-4 rounded-r-lg my-5", tones[tone])}>
+    <div className={cn("border-l-4 bg-muted/60 px-5 py-4 rounded-r-lg my-5 overflow-hidden break-words", tones[tone])}>
       {title && <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-1.5">{title}</h4>}
-      <div className="text-[0.95rem] leading-relaxed">{children}</div>
+      <div className="text-[0.95rem] leading-relaxed break-words overflow-wrap-anywhere">{children}</div>
     </div>
   );
 }
@@ -206,7 +206,7 @@ export function StatBlock({ value, label, tone = "forest" }: { value: string; la
   const tones = {
     forest: "text-ursa-forest-deep",
     gold: "text-ursa-gold-text",
-    terracotta: "text-ursa-terracotta",
+    terracotta: "text-ursa-terracotta-text",
   };
   return (
     <div className="flex flex-col gap-1">

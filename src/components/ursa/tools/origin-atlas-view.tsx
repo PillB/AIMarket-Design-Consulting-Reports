@@ -431,7 +431,7 @@ export function OriginAtlasView() {
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.process}</div>
               </div>
               <div className="bg-ursa-terracotta/10 border border-ursa-terracotta/30 rounded-md px-3 py-2">
-                <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-terracotta flex items-center gap-1">
+                <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-terracotta-text flex items-center gap-1">
                   <Sparkles size={10} /> Varietal
                 </div>
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.varietal}</div>
@@ -709,7 +709,7 @@ export function OriginAtlasView() {
           </Card>
           <Card className="flex flex-col gap-2 h-full">
             <div className="flex items-center gap-2">
-              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-terracotta/10 text-ursa-terracotta border border-ursa-terracotta/30">
+              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-terracotta/10 text-ursa-terracotta-text border border-ursa-terracotta/30">
                 <Sparkles size={18} />
               </span>
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Varietal</h4>

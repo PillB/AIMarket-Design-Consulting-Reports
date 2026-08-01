@@ -41,6 +41,17 @@ const TONE_COLORS = {
   winding: "var(--color-ursa-forest)",
 };
 
+// Text-safe variants — the bright TONE_COLORS above are designed for fills /
+// strokes and fail WCAG AA when used as text on a light card surface. The
+// *-text tokens are the same hue family but darker, so the large display
+// time numerals (text-3xl) on the active-phase card remain legible.
+const TONE_TEXT_COLORS = {
+  calm: "var(--color-ursa-sage-text)",
+  rising: "var(--color-ursa-gold-text)",
+  peak: "var(--color-ursa-terracotta-text)",
+  winding: "var(--color-ursa-forest-deep)",
+};
+
 export function DayInTheLifeWidget() {
   const [hovered, setHovered] = useState<number | null>(null);
   const [currentHour, setCurrentHour] = useState<number | null>(null);
@@ -149,7 +160,7 @@ export function DayInTheLifeWidget() {
               style={{ left: `${((currentHour - 7.5) / (21 - 7.5)) * 100}%` }}
             >
               <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-ursa-terracotta border-2 border-card" />
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-label text-[0.55rem] tracking-[0.08em] uppercase text-ursa-terracotta whitespace-nowrap">
+              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-label text-[0.55rem] tracking-[0.08em] uppercase text-ursa-terracotta-text-text whitespace-nowrap">
                 {Math.floor(currentHour)}:{String(Math.round((currentHour % 1) * 60)).padStart(2, "0")}
               </div>
             </div>
@@ -172,7 +183,7 @@ export function DayInTheLifeWidget() {
         <div className="grid md:grid-cols-[auto_1fr_auto] gap-4 md:gap-6 items-start">
           {/* Time block */}
           <div className="flex md:flex-col items-baseline md:items-start gap-2 md:gap-0">
-            <span className="font-display text-3xl font-semibold leading-none" style={{ color: TONE_COLORS[active.tone] }}>
+            <span className="font-display text-3xl font-semibold leading-none" style={{ color: TONE_TEXT_COLORS[active.tone] }}>
               {Math.floor(active.hour)}:{String(Math.round((active.hour % 1) * 60)).padStart(2, "0")}
             </span>
             <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground">{active.label}</span>

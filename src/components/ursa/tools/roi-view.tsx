@@ -292,7 +292,7 @@ export function RoiView() {
                       <td className="p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold text-ursa-dark-roast">
                         {isFinite(c.paybackMonths) ? c.paybackMonths.toFixed(1) : "—"}
                       </td>
-                      <td className={cn("p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold-text" : "text-ursa-terracotta")}>
+                      <td className={cn("p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold-text" : "text-ursa-terracotta-text")}>
                         {isFinite(c.roi) ? `${c.roi.toFixed(0)}%` : "∞"}
                       </td>
                     </tr>
@@ -365,7 +365,7 @@ export function RoiView() {
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
               <Target size={16} className="text-ursa-forest-deep" /> Profit / month
             </h4>
-            <p className={cn("font-display text-3xl font-semibold m-0", portfolio.totalRevenue - portfolio.totalSpend >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
+            <p className={cn("font-display text-3xl font-semibold m-0", portfolio.totalRevenue - portfolio.totalSpend >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
               {PEN(portfolio.totalRevenue - portfolio.totalSpend)}
             </p>
             <p className="text-[0.82rem] text-muted-foreground m-0 mt-1">
@@ -507,7 +507,7 @@ export function RoiView() {
             </Card>
             <Card>
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <AlertTriangle size={16} className="text-ursa-terracotta" /> Weakest channel
+                <AlertTriangle size={16} className="text-ursa-terracotta-text" /> Weakest channel
               </h4>
               {(() => {
                 const sorted = [...calced]
@@ -624,7 +624,7 @@ function RangeRow({
   const tones = {
     forest: "text-ursa-forest-deep border-ursa-forest-deep",
     gold: "text-ursa-gold-text border-ursa-gold",
-    terracotta: "text-ursa-terracotta border-ursa-terracotta",
+    terracotta: "text-ursa-terracotta-text border-ursa-terracotta",
   };
   return (
     <div
@@ -669,7 +669,7 @@ function RangeBar({
         <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">
           {label}
         </span>
-        <span className={cn("font-display text-lg font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold-text" : "text-ursa-terracotta")}>
+        <span className={cn("font-display text-lg font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold-text" : "text-ursa-terracotta-text")}>
           {PEN(value)}
         </span>
       </div>

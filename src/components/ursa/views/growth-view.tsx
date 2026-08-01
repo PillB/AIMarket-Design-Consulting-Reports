@@ -73,7 +73,7 @@ const PERSONAS: Persona[] = [
   },
   {
     name: "The Tourist Explorer",
-    icon: <Compass size={18} className="text-ursa-terracotta" />,
+    icon: <Compass size={18} className="text-ursa-terracotta-text" />,
     jtb:
       "When I'm visiting Lima for a few days, help me find a craft coffee spot I can recommend and tag — close to my hotel, with a story I can take home.",
     signals: ["Walks in with a map", "Asks 'what's local?'", "Photographs the cup"],
@@ -254,10 +254,10 @@ const CHANNELS = [
 ];
 
 const FUNNEL_STAGES = [
-  { name: "Discover", tone: "var(--color-ursa-gold)", desc: "Reach new audiences in Miraflores" },
+  { name: "Discover", tone: "var(--color-ursa-gold-text)", desc: "Reach new audiences in Miraflores" },
   { name: "Engage", tone: "var(--color-ursa-forest)", desc: "Convert interest into a visit" },
   { name: "Retain", tone: "var(--color-ursa-forest-deep)", desc: "Turn first visits into a habit" },
-  { name: "Advocate", tone: "var(--color-ursa-terracotta)", desc: "Let regulars bring the next regular" },
+  { name: "Advocate", tone: "var(--color-ursa-terracotta-text)", desc: "Let regulars bring the next regular" },
 ] as const;
 
 export function GrowthView() {
@@ -324,7 +324,7 @@ export function GrowthView() {
         <Grid cols={2}>
           {PERSONAS.map((p, idx) => {
             const expanded = expandedPersona === idx;
-            const accent = p.tone === "gold" ? "var(--color-ursa-gold)" : p.tone === "terracotta" ? "var(--color-ursa-terracotta)" : "var(--color-ursa-forest-deep)";
+            const accent = p.tone === "gold" ? "var(--color-ursa-gold-text)" : p.tone === "terracotta" ? "var(--color-ursa-terracotta-text)" : "var(--color-ursa-forest-deep)";
             return (
               <Card
                 key={p.name}
@@ -466,7 +466,7 @@ export function GrowthView() {
               </div>
               <p className="text-[0.9rem] leading-relaxed text-foreground/85 mb-3">{h.adapted}</p>
               <div className="mt-auto border-t border-ursa-line-soft pt-3">
-                <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta flex items-center gap-1.5">
+                <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta-text-text flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-ursa-terracotta" /> Do not
                 </span>
                 <p className="text-[0.82rem] text-muted-foreground mt-1 m-0">{h.caveat}</p>
@@ -523,7 +523,7 @@ export function GrowthView() {
               <span className="absolute left-[10px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-ursa-gold via-ursa-gold/50 to-ursa-forest-deep/30 rounded-full" aria-hidden="true" />
               <div className="space-y-2">
                 {[...OFFER_STACK].reverse().map((layer, i) => {
-                  const accent = layer.tone === "forest" ? "var(--color-ursa-forest-deep)" : layer.tone === "terracotta" ? "var(--color-ursa-terracotta)" : "var(--color-ursa-gold)";
+                  const accent = layer.tone === "forest" ? "var(--color-ursa-forest-deep)" : layer.tone === "terracotta" ? "var(--color-ursa-terracotta-text)" : "var(--color-ursa-gold-text)";
                   return (
                     <div
                       key={layer.layer}
@@ -786,7 +786,7 @@ export function GrowthView() {
             <ul className="space-y-1.5 text-[0.88rem] m-0 p-0 list-none text-foreground/85">
               <li><strong className="text-ursa-forest-deep">Lean</strong> — runs GBP, WhatsApp, organic Reels, hotel cards, story cards. Ships the first 30 days.</li>
               <li><strong className="text-ursa-gold-text">Moderate</strong> — adds paid social, 2–3 creators, monthly cupping, Rappi optimisation. The 60-day plan.</li>
-              <li><strong className="text-ursa-terracotta">Growth</strong> — adds tourism partnerships, B2B office sampling, subscription pilot, photographer. The 90-day plan.</li>
+              <li><strong className="text-ursa-terracotta-text-text">Growth</strong> — adds tourism partnerships, B2B office sampling, subscription pilot, photographer. The 90-day plan.</li>
             </ul>
           </Card>
           <Card>

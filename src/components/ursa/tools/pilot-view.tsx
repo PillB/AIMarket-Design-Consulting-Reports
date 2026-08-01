@@ -168,11 +168,11 @@ export function PilotView() {
             </div>
             <div>
               <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">Coffee cost</span>
-              <span className="font-display font-semibold text-ursa-terracotta">-{PEN(pilotTotals.totalCoffeeCost)}</span>
+              <span className="font-display font-semibold text-ursa-terracotta-text">-{PEN(pilotTotals.totalCoffeeCost)}</span>
             </div>
             <div>
               <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">Cannibalization loss</span>
-              <span className="font-display font-semibold text-ursa-terracotta">{PENd(pilotTotals.totalCannibalLoss)}</span>
+              <span className="font-display font-semibold text-ursa-terracotta-text">{PENd(pilotTotals.totalCannibalLoss)}</span>
             </div>
           </div>
         </Card>
@@ -202,7 +202,7 @@ export function PilotView() {
             <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="text-center">
                 <div className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground">Net profit per subscriber / month</div>
-                <div className={cn("font-display text-5xl font-semibold leading-none mt-2", perSub.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
+                <div className={cn("font-display text-5xl font-semibold leading-none mt-2", perSub.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
                   {PENd(perSub.netProfit)}
                 </div>
               </div>
@@ -284,7 +284,7 @@ export function PilotView() {
                       <td className="p-2 text-right">
                         <InlineNum value={w.cannibal} onChange={(v) => updateWeek(i, "cannibal", v)} min={0} max={100} step={5} suffix="%" />
                       </td>
-                      <td className={cn("p-2 text-right font-display font-semibold", weekProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
+                      <td className={cn("p-2 text-right font-display font-semibold", weekProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
                         {PENd(weekProfit)}
                       </td>
                     </tr>
@@ -301,7 +301,7 @@ export function PilotView() {
             </p>
             <button
               onClick={() => setWeeks(DEFAULT_WEEKS)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-label text-[0.64rem] tracking-[0.1em] uppercase text-muted-foreground hover:text-ursa-terracotta transition"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-label text-[0.64rem] tracking-[0.1em] uppercase text-muted-foreground hover:text-ursa-terracotta-text transition"
             >
               <RotateCcw size={12} /> Reset trajectory
             </button>
@@ -314,14 +314,14 @@ export function PilotView() {
         <Grid cols={3}>
           <Card className="flex flex-col">
             <div className="flex items-center gap-2 mb-2">
-              <AlertTriangle size={16} className="text-ursa-terracotta" />
+              <AlertTriangle size={16} className="text-ursa-terracotta-text" />
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">Stop rule 1</h4>
             </div>
             <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">Net profit per subscriber below zero after 60 days.</p>
             <div className="mt-auto pt-3">
               <div className="flex items-baseline justify-between mb-1">
                 <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">Current</span>
-                <span className={cn("font-display font-semibold", perSub.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>{PENd(perSub.netProfit)}</span>
+                <span className={cn("font-display font-semibold", perSub.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>{PENd(perSub.netProfit)}</span>
               </div>
               <ProgressBar value={Math.min(100, Math.max(0, (perSub.netProfit / 20) * 100))} tone={perSub.netProfit >= 0 ? "forest" : "terracotta"} />
             </div>
@@ -335,7 +335,7 @@ export function PilotView() {
             <div className="mt-auto pt-3">
               <div className="flex items-baseline justify-between mb-1">
                 <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">Final week</span>
-                <span className={cn("font-display font-semibold", finalWeek.cannibal <= 50 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>{finalWeek.cannibal}%</span>
+                <span className={cn("font-display font-semibold", finalWeek.cannibal <= 50 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>{finalWeek.cannibal}%</span>
               </div>
               <ProgressBar value={finalWeek.cannibal} tone={finalWeek.cannibal <= 50 ? "forest" : "terracotta"} />
             </div>
@@ -349,7 +349,7 @@ export function PilotView() {
             <div className="mt-auto pt-3">
               <div className="flex items-baseline justify-between mb-1">
                 <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">Final week</span>
-                <span className={cn("font-display font-semibold", finalWeek.sideAttach >= 40 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>{finalWeek.sideAttach}%</span>
+                <span className={cn("font-display font-semibold", finalWeek.sideAttach >= 40 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>{finalWeek.sideAttach}%</span>
               </div>
               <ProgressBar value={finalWeek.sideAttach} tone={finalWeek.sideAttach >= 40 ? "forest" : "terracotta"} />
             </div>
@@ -413,7 +413,7 @@ function ParamInput({ label, value, onChange, min, max, step, prefix }: { label:
 function InlineNum({ value, onChange, min = 0, max = 999, step = 1, suffix }: { value: number; onChange: (v: number) => void; min?: number; max?: number; step?: number; suffix?: string }) {
   return (
     <div className="inline-flex items-center gap-0.5">
-      <button onClick={() => onChange(Math.max(min, value - step))} className="w-5 h-5 rounded grid place-items-center text-muted-foreground hover:text-ursa-terracotta hover:bg-muted transition" aria-label="Decrease">
+      <button onClick={() => onChange(Math.max(min, value - step))} className="w-5 h-5 rounded grid place-items-center text-muted-foreground hover:text-ursa-terracotta-text hover:bg-muted transition" aria-label="Decrease">
         <Minus size={10} />
       </button>
       <span className="font-display font-semibold text-ursa-dark-roast w-8 text-center tabular-nums">{value}{suffix}</span>
@@ -425,7 +425,7 @@ function InlineNum({ value, onChange, min = 0, max = 999, step = 1, suffix }: { 
 }
 
 function Metric({ label, value, tone = "default" }: { label: string; value: string; tone?: "default" | "forest" | "terracotta" }) {
-  const tones = { default: "text-ursa-dark-roast", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta" };
+  const tones = { default: "text-ursa-dark-roast", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta-text" };
   return (
     <div>
       <span className="font-label text-[0.56rem] tracking-[0.12em] uppercase text-muted-foreground block">{label}</span>

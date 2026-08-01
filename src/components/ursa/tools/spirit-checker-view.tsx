@@ -252,7 +252,7 @@ export function SpiritCheckerView() {
                             : (opt === "yes" ? "ok" : opt === "no" ? "stop" : "warn");
                           const toneCls = {
                             ok: isActive ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep" : "text-ursa-forest-deep border-ursa-forest-deep/30 hover:bg-ursa-forest-deep/10",
-                            stop: isActive ? "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta" : "text-ursa-terracotta border-ursa-terracotta/30 hover:bg-ursa-terracotta/10",
+                            stop: isActive ? "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta" : "text-ursa-terracotta-text border-ursa-terracotta/30 hover:bg-ursa-terracotta/10",
                             warn: isActive ? "bg-ursa-gold text-ursa-dark-roast border-ursa-gold" : "text-ursa-gold-text border-ursa-gold/30 hover:bg-ursa-gold/10",
                           }[tone];
                           return (
@@ -285,7 +285,7 @@ export function SpiritCheckerView() {
                 </button>
                 <button
                   onClick={() => { setAnswers({}); setSubmitted(false); }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-label text-[0.72rem] tracking-[0.1em] uppercase text-muted-foreground hover:text-ursa-terracotta transition"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-label text-[0.72rem] tracking-[0.1em] uppercase text-muted-foreground hover:text-ursa-terracotta-text transition"
                 >
                   <RotateCcw size={13} /> Clear answers
                 </button>
@@ -372,7 +372,7 @@ export function SpiritCheckerView() {
                   <span><strong className="text-ursa-dark-roast">50–69%</strong> — conditional; revise the weak pillar.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <X size={14} className="text-ursa-terracotta mt-0.5 shrink-0" />
+                  <X size={14} className="text-ursa-terracotta-text mt-0.5 shrink-0" />
                   <span><strong className="text-ursa-dark-roast">&lt; 50%</strong> — at risk; do not ship as-is.</span>
                 </li>
               </ul>

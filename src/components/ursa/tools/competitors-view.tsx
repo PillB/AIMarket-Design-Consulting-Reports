@@ -123,7 +123,7 @@ const VERDICT_META = {
   trail: {
     label: "Ursa trails",
     pill: "stop" as const,
-    text: "text-ursa-terracotta",
+    text: "text-ursa-terracotta-text",
     bg: "bg-ursa-terracotta/10",
     border: "border-ursa-terracotta/30",
     dot: "bg-ursa-terracotta",
@@ -334,7 +334,7 @@ export function CompetitorsView() {
                 setSortKey("name");
                 setSortDir("asc");
               }}
-              className="ml-auto font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-terracotta hover:text-ursa-dark-roast transition"
+              className="ml-auto font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-terracotta-text hover:text-ursa-dark-roast transition"
             >
               Reset all
             </button>
@@ -489,7 +489,7 @@ export function CompetitorsView() {
                 <div className="absolute bottom-2 left-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground max-w-[9rem] leading-tight">
                   Low craft · Low scale<br />Undifferentiated
                 </div>
-                <div className="absolute bottom-2 right-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta/80 text-right max-w-[9rem] leading-tight">
+                <div className="absolute bottom-2 right-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta-text/80 text-right max-w-[9rem] leading-tight">
                   Low craft · High scale<br />Chains
                 </div>
 

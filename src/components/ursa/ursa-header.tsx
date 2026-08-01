@@ -253,7 +253,7 @@ export function UrsaFooter({ onPrint }: { onPrint?: () => void }) {
               </span>
               <h4 className="font-display text-lg text-ursa-cream m-0">{t("common.strategicDossier")}</h4>
             </div>
-            <p className="text-[0.88rem] text-ursa-sage-text leading-relaxed">
+            <p className="text-[0.88rem] text-ursa-sage leading-relaxed">
               {t("footer.blurb")}
             </p>
           </div>
@@ -282,7 +282,7 @@ export function UrsaFooter({ onPrint }: { onPrint?: () => void }) {
           </div>
         </div>
         <div className="mt-8 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-[0.76rem] text-ursa-sage-text max-w-3xl">{t("footer.compiled")}</p>
+          <p className="text-[0.76rem] text-ursa-sage max-w-3xl">{t("footer.compiled")}</p>
           {onPrint && (
             <button
               onClick={onPrint}

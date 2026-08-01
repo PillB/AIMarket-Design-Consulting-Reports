@@ -417,7 +417,7 @@ export function StyleGuideView() {
               <div className="h-12 w-px bg-ursa-line-soft" />
               <CupGlyph size={32} className="text-ursa-forest-deep" />
               <CupGlyph size={40} className="text-ursa-gold-text" />
-              <CupGlyph size={48} className="text-ursa-terracotta" />
+              <CupGlyph size={48} className="text-ursa-terracotta-text" />
             </div>
             <ArtNouveauDivider />
             <p className="text-[0.8rem] text-muted-foreground m-0 text-center">
@@ -582,13 +582,13 @@ export function StyleGuideView() {
           </Card>
           <Card className="border-ursa-terracotta/30">
             <div className="flex items-center gap-2 mb-4">
-              <XCircle size={18} className="text-ursa-terracotta" />
+              <XCircle size={18} className="text-ursa-terracotta-text" />
               <h4 className="font-display text-[1.15rem] font-semibold text-ursa-dark-roast m-0">Don't</h4>
             </div>
             <ul className="space-y-2.5 m-0 p-0 list-none">
               {DOS_DONTS.filter((d) => d.kind === "dont").map((d, i) => (
                 <li key={i} className="text-[0.88rem] text-ursa-dark-roast/85 leading-relaxed flex gap-2">
-                  <XCircle size={14} className="text-ursa-terracotta mt-0.5 shrink-0" />
+                  <XCircle size={14} className="text-ursa-terracotta-text mt-0.5 shrink-0" />
                   <span>{d.text}</span>
                 </li>
               ))}

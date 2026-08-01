@@ -191,7 +191,7 @@ export function LandingView() {
                 "w-14 h-14 rounded-full grid place-items-center mb-3",
                 b.tone === "forest" && "bg-ursa-forest-deep/12 text-ursa-forest-deep",
                 b.tone === "gold" && "bg-ursa-gold/18 text-ursa-gold-text",
-                b.tone === "terracotta" && "bg-ursa-terracotta/12 text-ursa-terracotta"
+                b.tone === "terracotta" && "bg-ursa-terracotta/12 text-ursa-terracotta-text"
               )}>
                 <b.icon size={26} />
               </span>
@@ -211,7 +211,7 @@ export function LandingView() {
             { n: "03", title: "Marida un acompañamiento", desc: "Cookie, financier o empanada con 20% off. Acumula 6 sellos y el séptimo acompañamiento va por cuenta del oso.", icon: Cookie },
           ].map((step) => (
             <Card key={step.n} className="relative">
-              <span className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-ursa-dark-roast text-ursa-gold-text grid place-items-center font-display text-base font-semibold shadow-lg">
+              <span className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-ursa-dark-roast text-ursa-gold-text-soft grid place-items-center font-display text-base font-semibold shadow-lg">
                 {step.n}
               </span>
               <step.icon size={22} className="text-ursa-gold-text mb-3 mt-2" />
@@ -257,7 +257,7 @@ export function LandingView() {
 
           <Card className="bg-ursa-foam">
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <AlertCircle size={20} className="text-ursa-terracotta" /> Dónde está el riesgo
+              <AlertCircle size={20} className="text-ursa-terracotta-text" /> Dónde está el riesgo
             </h3>
             <ul className="space-y-2.5 m-0 p-0 list-none">
               <li className="flex items-start gap-2.5">

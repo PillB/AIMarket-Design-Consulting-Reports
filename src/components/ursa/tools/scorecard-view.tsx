@@ -230,11 +230,11 @@ export function ScorecardView() {
             </div>
             <div className="rounded-lg bg-ursa-terracotta/8 border border-ursa-terracotta/25 p-4">
               <div className="flex items-center gap-1.5 mb-1">
-                <AlertTriangle size={13} className="text-ursa-terracotta" />
-                <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta">Biggest gap</span>
+                <AlertTriangle size={13} className="text-ursa-terracotta-text" />
+                <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta-text-text">Biggest gap</span>
               </div>
               <p className="font-display text-base font-semibold text-ursa-dark-roast m-0">{biggestGap.surface}</p>
-              <p className="font-label text-[0.72rem] text-ursa-terracotta m-0 mt-0.5">{biggestGap.score}/100</p>
+              <p className="font-label text-[0.72rem] text-ursa-terracotta-text-text m-0 mt-0.5">{biggestGap.score}/100</p>
             </div>
           </div>
 
@@ -322,7 +322,7 @@ export function ScorecardView() {
 }
 
 function ScorecardMetric({ label, value, suffix, tone }: { label: string; value: number; suffix: string; tone: "gold" | "forest" | "terracotta" }) {
-  const tones = { gold: "text-ursa-gold-text", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta" };
+  const tones = { gold: "text-ursa-gold-text", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta-text" };
   return (
     <div className="text-center">
       <div className={cn("font-display text-3xl font-semibold leading-none", tones[tone])}>

@@ -75,8 +75,8 @@ export function DashboardView() {
               How to use this command center
             </h2>
             <p className="text-[0.97rem] leading-relaxed text-foreground/85 mb-3">
-              This site is a single, interactive workspace. The seven dossier modules above present the research and
-              recommendations; the nine tools below turn the most important recommendations into things you can actually
+              This site is a single, interactive workspace. The dossier modules present the research and
+              recommendations; the tools turn the most important recommendations into things you can actually
               manipulate — a calculator, a menu builder, a budget allocator, a competitor matrix, and more. Every
               recommendation is traceable to a source, and every risky assumption is paired with a low-cost experiment.
             </p>
@@ -140,7 +140,7 @@ export function DashboardView() {
           </Card>
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Flame size={18} className="text-ursa-terracotta" /> Verified food
+              <Flame size={18} className="text-ursa-terracotta-text" /> Verified food
             </h3>
             <ul className="space-y-2 m-0 p-0 list-none">
               {VERIFIED_FOOD.map((b) => (

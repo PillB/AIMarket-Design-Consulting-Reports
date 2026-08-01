@@ -10,7 +10,14 @@ import {
   SectionBadge,
   EvidenceTag,
 } from "../ursa-brand";
-import { COMPETITORS, CUSTOMER_VOICE, URSA_FACTS } from "@/lib/ursa-data";
+import {
+  COMPETITORS,
+  CUSTOMER_VOICE,
+  CUSTOMER_REVIEWS,
+  REVIEW_AGGREGATE_RATINGS,
+  REVIEW_RESEARCH_LOG,
+  URSA_FACTS,
+} from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
 import {
   Compass,
@@ -31,6 +38,10 @@ import {
   Frown,
   ThumbsUp,
   TrendingUp,
+  Quote,
+  ExternalLink,
+  Search,
+  Info,
 } from "lucide-react";
 
 /** One competitor card. */
@@ -58,7 +69,7 @@ function CompetitorCard({ c }: { c: (typeof COMPETITORS)[number] }) {
           <p className="m-0 text-foreground/85">{c.strength}</p>
         </div>
         <div>
-          <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta mb-0.5">
+          <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta-text-text mb-0.5">
             <Frown size={11} /> Weakness
           </div>
           <p className="m-0 text-foreground/85">{c.weakness}</p>
@@ -89,7 +100,7 @@ function ActionCard({
   const toneMap = {
     gold: { text: "text-ursa-gold-text", bg: "bg-ursa-gold/10", border: "border-ursa-gold/40" },
     forest: { text: "text-ursa-forest-deep", bg: "bg-ursa-forest-deep/8", border: "border-ursa-forest-deep/25" },
-    terracotta: { text: "text-ursa-terracotta", bg: "bg-ursa-terracotta/10", border: "border-ursa-terracotta/30" },
+    terracotta: { text: "text-ursa-terracotta-text-text", bg: "bg-ursa-terracotta/10", border: "border-ursa-terracotta/30" },
   }[tone];
   return (
     <Card className="flex flex-col gap-3 h-full">
@@ -356,9 +367,173 @@ export function MarketView() {
             customer themes are inferred from competitor review patterns and the dossier&rsquo;s own competitive
             analysis, <em>not</em> from a coded sample of Ursa&rsquo;s own customers. A proper customer-voice study
             requires owner-provided POS data, a consented survey, or a review-mining sample of &ge;50 Ursa-specific
-            reviews (not currently available).
+            reviews (not currently available). The real-review sample below supplements these themes with verbatim
+            public mentions but does <em>not</em> replace a coded customer-voice study.
           </p>
         </Callout>
+
+        {/* Real customer reviews sample */}
+        <Card className="mb-6 border-ursa-gold/35 bg-ursa-foam">
+          <div className="flex items-start gap-3 mb-3">
+            <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-gold/15 text-ursa-medium-roast border border-ursa-gold/40 shrink-0">
+              <Search size={16} />
+            </span>
+            <div className="min-w-0">
+              <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground">
+                Review sample status · REV-ENRICH
+              </div>
+              <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">
+                Real customer reviews &amp; external voice
+              </h3>
+              <p className="m-0 text-[0.88rem] leading-relaxed text-foreground/85">
+                Searched {REVIEW_RESEARCH_LOG.platformsChecked.length} platforms on {REVIEW_RESEARCH_LOG.observationDate}. Found{" "}
+                <strong className="text-ursa-dark-roast">{REVIEW_RESEARCH_LOG.realReviewsFound} real Ursa-specific mentions</strong>{" "}
+                (mostly Instagram posts and reels) and{" "}
+                <strong className="text-ursa-dark-roast">{REVIEW_RESEARCH_LOG.aggregateRatingsFound} aggregate ratings</strong>{" "}
+                from directory platforms. Ursa&rsquo;s public review footprint is <em>thin but not zero</em> — and is
+                concentrated on Instagram and Google, <em>not</em> on TripAdvisor.
+              </p>
+            </div>
+          </div>
+
+          {/* Aggregate ratings row */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+            {REVIEW_AGGREGATE_RATINGS.map((r) => (
+              <div
+                key={r.platform}
+                className="bg-ursa-paper border border-ursa-line-soft rounded-md px-3 py-2 text-center"
+              >
+                <div className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground mb-0.5">
+                  {r.platform}
+                </div>
+                <div className="font-display text-lg font-semibold text-ursa-dark-roast leading-none">
+                  {r.rating !== null ? `${r.rating}★` : "—"}
+                </div>
+                <div className="font-label text-[0.66rem] tracking-[0.04em] text-ursa-gold-text mt-0.5">
+                  {r.reviewCount} reviews
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Important correction callout */}
+          <div className="bg-ursa-gold/10 border border-ursa-gold/35 rounded-md px-3 py-2 mb-3 flex items-start gap-2">
+            <Info size={14} className="text-ursa-medium-roast shrink-0 mt-0.5" />
+            <p className="m-0 text-[0.82rem] leading-snug text-ursa-dark-roast">
+              <strong>Correction to prior dossier:</strong> aggregator evidence (addagio.io schema.org
+              <code className="text-[0.74rem] mx-1">LocalBusiness</code>
+              data) shows Ursa has an <strong>active Google Business Profile with ~56 reviews at 4.5 stars</strong>.
+              The prior claim that Ursa&rsquo;s Google profile is &ldquo;missing/unverified&rdquo; was incorrect.
+              The actual friction is weak SEO/GBP optimization (Ursa does not surface in Google&rsquo;s own
+              &ldquo;best Lima cafés&rdquo; guides), not missing presence.
+            </p>
+          </div>
+
+          {/* Methodology note */}
+          <details className="bg-ursa-paper border border-ursa-line-soft rounded-md px-3 py-2 mb-3">
+            <summary className="cursor-pointer font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-forest-deep hover:text-ursa-dark-roast">
+              Platforms checked &amp; limitations ({REVIEW_RESEARCH_LOG.platformsChecked.length} sources)
+            </summary>
+            <div className="mt-2 space-y-2">
+              <div>
+                <div className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground mb-1">
+                  Platforms checked
+                </div>
+                <ul className="m-0 p-0 list-none grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-0.5 text-[0.78rem] text-foreground/80">
+                  {REVIEW_RESEARCH_LOG.platformsChecked.map((p) => (
+                    <li key={p} className="leading-snug">· {p}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <div className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground mb-1">
+                  Methodology
+                </div>
+                <p className="m-0 text-[0.82rem] leading-snug text-foreground/80">
+                  {REVIEW_RESEARCH_LOG.methodology}
+                </p>
+              </div>
+              <div>
+                <div className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground mb-1">
+                  Limitations
+                </div>
+                <ul className="m-0 p-0 list-none space-y-1 text-[0.82rem] text-foreground/80">
+                  {REVIEW_RESEARCH_LOG.limitations.map((l) => (
+                    <li key={l} className="flex gap-1.5 leading-snug">
+                      <span className="text-ursa-terracotta-text shrink-0">·</span>
+                      <span>{l}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </details>
+        </Card>
+
+        {/* Real review cards */}
+        <Grid cols={2}>
+          {CUSTOMER_REVIEWS.map((r) => (
+            <Card key={r.source} className="flex flex-col gap-2.5 h-full">
+              <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <Pill tone={r.sentiment === "positive" ? "ok" : r.sentiment === "mixed" ? "warn" : "stop"}>
+                      {r.platform}
+                    </Pill>
+                    <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-muted-foreground">
+                      {r.date}
+                    </span>
+                  </div>
+                  <div className="font-medium text-[0.82rem] text-ursa-dark-roast truncate">{r.author}</div>
+                </div>
+                <span
+                  className={`flex items-center justify-center w-7 h-7 rounded-md shrink-0 ${
+                    r.sentiment === "positive"
+                      ? "bg-ursa-forest-deep/10 text-ursa-forest-deep"
+                      : r.sentiment === "mixed"
+                      ? "bg-ursa-gold/15 text-ursa-medium-roast"
+                      : "bg-ursa-terracotta/10 text-ursa-terracotta-text"
+                  }`}
+                  title={r.sentiment}
+                >
+                  {r.sentiment === "positive" ? <ThumbsUp size={13} /> : r.sentiment === "mixed" ? <AlertTriangle size={13} /> : <Frown size={13} />}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-ursa-gold-text bg-ursa-gold/10 border border-ursa-gold/25 rounded px-1.5 py-0.5">
+                  <Star size={9} className="inline mr-1" /> {r.theme}
+                </span>
+              </div>
+              <div className="relative bg-ursa-paper border border-ursa-line-soft rounded-md px-3 py-2.5 text-[0.86rem] leading-relaxed text-foreground/90 flex gap-2">
+                <Quote size={14} className="text-ursa-gold-text shrink-0 mt-0.5" />
+                <p className="m-0">{r.text}</p>
+              </div>
+              {r.notes && (
+                <p className="m-0 text-[0.74rem] leading-snug text-muted-foreground italic">
+                  {r.notes}
+                </p>
+              )}
+              <a
+                href={r.source}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-1 text-[0.74rem] text-ursa-forest-deep hover:text-ursa-dark-roast hover:underline self-start"
+              >
+                <ExternalLink size={11} /> Source
+              </a>
+            </Card>
+          ))}
+        </Grid>
+
+        {/* Spacer before illustrative themes */}
+        <div className="mt-8 mb-2 flex items-center gap-3">
+          <div className="h-px flex-1 bg-ursa-line-soft" />
+          <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground">
+            Illustrative themes below are inferred from competitor patterns
+          </span>
+          <div className="h-px flex-1 bg-ursa-line-soft" />
+        </div>
+
         <Grid cols={2}>
           {CUSTOMER_VOICE.map((theme, i) => {
             const tones = [
@@ -374,7 +549,7 @@ export function MarketView() {
                     tones.tone === "forest"
                       ? "bg-ursa-forest-deep/10 text-ursa-forest-deep"
                       : tones.tone === "terracotta"
-                      ? "bg-ursa-terracotta/10 text-ursa-terracotta"
+                      ? "bg-ursa-terracotta/10 text-ursa-terracotta-text"
                       : "bg-ursa-gold/15 text-ursa-medium-roast"
                   }`}>
                     {tones.icon}

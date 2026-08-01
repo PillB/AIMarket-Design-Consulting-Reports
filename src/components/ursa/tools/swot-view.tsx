@@ -377,9 +377,9 @@ export function SwotView() {
 function SwotCell({ label, icon, tone, text }: { label: string; icon: React.ReactNode; tone: "forest" | "terracotta" | "gold" | "stop"; text: string }) {
   const tones = {
     forest: "border-ursa-forest-deep/25 bg-ursa-forest-deep/5 text-ursa-forest-deep",
-    terracotta: "border-ursa-terracotta/25 bg-ursa-terracotta/5 text-ursa-terracotta",
+    terracotta: "border-ursa-terracotta/25 bg-ursa-terracotta/5 text-ursa-terracotta-text",
     gold: "border-ursa-gold/30 bg-ursa-gold/5 text-ursa-gold-text",
-    stop: "border-ursa-terracotta/30 bg-ursa-terracotta/8 text-ursa-terracotta",
+    stop: "border-ursa-terracotta/30 bg-ursa-terracotta/8 text-ursa-terracotta-text",
   };
   return (
     <div className={cn("rounded-lg border p-2.5", tones[tone])}>

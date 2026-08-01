@@ -89,7 +89,7 @@ export function CalculatorView() {
   }, [calc]);
 
   const cellClass = (v: number) =>
-    v > 1 ? "bg-ursa-forest-deep/15 text-ursa-forest-deep font-semibold" : v < -1 ? "bg-ursa-terracotta/15 text-ursa-terracotta font-semibold" : "bg-muted text-muted-foreground";
+    v > 1 ? "bg-ursa-forest-deep/15 text-ursa-forest-deep font-semibold" : v < -1 ? "bg-ursa-terracotta/15 text-ursa-terracotta-text font-semibold" : "bg-muted text-muted-foreground";
 
   return (
     <>
@@ -188,7 +188,7 @@ export function CalculatorView() {
                 <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">Net profit per subscriber / month</span>
                 <EvidenceTag status="verified" />
               </div>
-              <div className={cn("font-display text-5xl font-semibold leading-none mb-2", calc.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
+              <div className={cn("font-display text-5xl font-semibold leading-none mb-2", calc.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
                 {PEN(calc.netProfit)}
               </div>
               <p className="text-[0.85rem] text-muted-foreground m-0">
@@ -231,7 +231,7 @@ export function CalculatorView() {
                 <AlertTriangle size={16} className="text-ursa-gold-text" /> Cannibalization-adjusted profit
               </h4>
               <div className="flex items-baseline gap-3 mb-2">
-                <span className={cn("font-display text-3xl font-semibold", calc.cannibalProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
+                <span className={cn("font-display text-3xl font-semibold", calc.cannibalProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
                   {PEN(calc.cannibalProfit)}
                 </span>
                 <span className="text-[0.8rem] text-muted-foreground">per subscriber / month, blended</span>
@@ -455,7 +455,7 @@ function SliderField({ label, value, onChange, min, max, step, display, hint }: 
 }
 
 function MiniMetric({ icon, label, value, tone }: { icon: React.ReactNode; label: string; value: string; tone: "neutral" | "forest" | "terracotta" }) {
-  const tones = { neutral: "text-ursa-dark-roast", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta" };
+  const tones = { neutral: "text-ursa-dark-roast", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta-text" };
   return (
     <div className="bg-card border border-ursa-line-soft rounded-lg p-4">
       <div className="flex items-center gap-2 text-ursa-gold-text mb-1">{icon}<span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">{label}</span></div>

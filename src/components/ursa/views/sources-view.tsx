@@ -234,8 +234,8 @@ export function SourcesView() {
           </Card>
           <Card className="h-full border-dashed">
             <div className="flex items-center gap-2 mb-2">
-              <Ban size={16} className="text-ursa-terracotta" />
-              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta">Unrelated</span>
+              <Ban size={16} className="text-ursa-terracotta-text" />
+              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta-text">Unrelated</span>
             </div>
             <h4 className="font-display text-lg font-semibold text-muted-foreground mt-0 mb-1">URSA (Bridgeport, CT)</h4>
             <p className="m-0 text-[0.86rem] text-muted-foreground leading-relaxed">
@@ -297,7 +297,7 @@ export function SourcesView() {
           {MISSING_DATA.map((m) => (
             <Card key={m.item} className="flex flex-col gap-2 h-full">
               <div className="flex items-start gap-2">
-                <CircleSlash size={15} className="text-ursa-terracotta mt-1 shrink-0" />
+                <CircleSlash size={15} className="text-ursa-terracotta-text mt-1 shrink-0" />
                 <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">{m.item}</h4>
               </div>
               <p className="m-0 text-[0.86rem] text-foreground/75 leading-relaxed pl-7">{m.note}</p>
@@ -341,11 +341,11 @@ export function SourcesView() {
         </Grid>
         <Callout tone="gold" title="What was deliberately not done">
           <ul className="m-0 p-0 list-none space-y-1">
-            <li className="flex gap-2"><span className="text-ursa-terracotta">·</span><span>No scraping of private Instagram or Facebook posts.</span></li>
-            <li className="flex gap-2"><span className="text-ursa-terracotta">·</span><span>No access to Ursa's POS, CRM, or Ads Manager.</span></li>
-            <li className="flex gap-2"><span className="text-ursa-terracotta">·</span><span>No interviews with staff or customers.</span></li>
-            <li className="flex gap-2"><span className="text-ursa-terracotta">·</span><span>No proprietary competitor data.</span></li>
-            <li className="flex gap-2"><span className="text-ursa-terracotta">·</span><span>No financial modelling that requires undisclosed costs.</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No scraping of private Instagram or Facebook posts.</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No access to Ursa's POS, CRM, or Ads Manager.</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No interviews with staff or customers.</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No proprietary competitor data.</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No financial modelling that requires undisclosed costs.</span></li>
           </ul>
         </Callout>
       </ViewSection>

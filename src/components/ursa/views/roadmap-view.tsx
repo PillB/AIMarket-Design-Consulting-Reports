@@ -62,7 +62,7 @@ type PhaseMeta = {
 const PHASE_META: PhaseMeta[] = [
   {
     badge: "Hours 0 → 72",
-    icon: <Zap size={18} className="text-ursa-terracotta" />,
+    icon: <Zap size={18} className="text-ursa-terracotta-text" />,
     tone: "terracotta",
     accentBorder: "border-ursa-terracotta/40",
     accentBg: "bg-ursa-terracotta/6",
@@ -558,7 +558,7 @@ export function RoadmapView() {
                   <TableCell className="text-[0.86rem] text-foreground/85">{o.owner}</TableCell>
                   <TableCell className="text-[0.86rem] text-muted-foreground">{o.dependency}</TableCell>
                   <TableCell className="text-[0.86rem] text-ursa-forest-deep">{o.metric}</TableCell>
-                  <TableCell className="text-[0.84rem] text-ursa-terracotta italic">{o.stop}</TableCell>
+                  <TableCell className="text-[0.84rem] text-ursa-terracotta-text italic">{o.stop}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -616,7 +616,7 @@ export function RoadmapView() {
                       "font-display text-[1.3rem] font-semibold",
                       k.tone === "forest" && "text-ursa-forest-deep",
                       k.tone === "gold" && "text-ursa-gold-text",
-                      k.tone === "terracotta" && "text-ursa-terracotta"
+                      k.tone === "terracotta" && "text-ursa-terracotta-text"
                     )}
                   >
                     {k.target}
@@ -659,7 +659,7 @@ export function RoadmapView() {
                     "inline-flex items-center gap-2 font-label text-[0.66rem] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full border",
                     r.tone === "gold" && "border-ursa-gold/50 text-ursa-gold-text bg-ursa-gold/8",
                     r.tone === "forest" && "border-ursa-forest-deep/40 text-ursa-forest-deep bg-ursa-forest-deep/8",
-                    r.tone === "terracotta" && "border-ursa-terracotta/40 text-ursa-terracotta bg-ursa-terracotta/8"
+                    r.tone === "terracotta" && "border-ursa-terracotta/40 text-ursa-terracotta-text bg-ursa-terracotta/8"
                   )}
                 >
                   <History size={12} /> {r.round}

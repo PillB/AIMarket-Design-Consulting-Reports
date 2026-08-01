@@ -151,7 +151,7 @@ function marginTextClass(pct: number) {
   const t = marginTone(pct);
   if (t === "forest") return "text-ursa-forest-deep";
   if (t === "gold") return "text-ursa-medium-roast";
-  return "text-ursa-terracotta";
+  return "text-ursa-terracotta-text";
 }
 
 // Stars & Puzzles classification
@@ -463,7 +463,7 @@ export function MenuStudioView() {
             <ProgressBar value={metrics.avgMarginPct} tone={marginTone(metrics.avgMarginPct)} />
             <div className="flex justify-between mt-2 font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">
               <span>0%</span>
-              <span className="text-ursa-terracotta">55% threshold</span>
+              <span className="text-ursa-terracotta-text">55% threshold</span>
               <span className="text-ursa-gold-text">65% healthy</span>
               <span>100%</span>
             </div>
@@ -611,7 +611,7 @@ export function MenuStudioView() {
                       <button
                         onClick={() => removeItem(it.id)}
                         aria-label={`Remove ${it.name}`}
-                        className="p-1.5 rounded-md text-muted-foreground hover:text-ursa-terracotta hover:bg-ursa-terracotta/10 transition"
+                        className="p-1.5 rounded-md text-muted-foreground hover:text-ursa-terracotta-text hover:bg-ursa-terracotta/10 transition"
                       >
                         <Trash2 size={14} />
                       </button>
@@ -1154,7 +1154,7 @@ function MiniStat({
     neutral: "text-ursa-dark-roast",
     forest: "text-ursa-forest-deep",
     gold: "text-ursa-medium-roast",
-    terracotta: "text-ursa-terracotta",
+    terracotta: "text-ursa-terracotta-text",
   };
   return (
     <div className="bg-card border border-ursa-line-soft rounded-lg p-4">
@@ -1251,7 +1251,7 @@ function MatrixCell({
   const toneText = {
     forest: "text-ursa-forest-deep",
     gold: "text-ursa-medium-roast",
-    terracotta: "text-ursa-terracotta",
+    terracotta: "text-ursa-terracotta-text",
   };
   const align = {
     "top-left": "items-start text-left",

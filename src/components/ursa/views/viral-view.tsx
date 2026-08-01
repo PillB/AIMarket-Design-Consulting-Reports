@@ -352,7 +352,7 @@ export function ViralView() {
           {UGC_MECHANISMS.map((u) => (
             <Card key={u.name} className="flex flex-col gap-3">
               <div className="flex items-center justify-between gap-2">
-                <Users size={20} className="text-ursa-terracotta" />
+                <Users size={20} className="text-ursa-terracotta-text" />
                 <Pill tone="stop">UGC</Pill>
               </div>
               <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast m-0">
@@ -362,7 +362,7 @@ export function ViralView() {
                 {u.mechanism}
               </p>
               <div className="border-l-2 border-ursa-terracotta pl-3 bg-ursa-terracotta/5 py-2 rounded-r">
-                <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-terracotta mb-1">
+                <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1">
                   Consent
                 </div>
                 <p className="text-[0.82rem] text-ursa-dark-roast leading-snug m-0">
@@ -619,7 +619,7 @@ function MethodStep({
     forest: "text-ursa-forest-deep",
     gold: "text-ursa-gold-text",
     warn: "text-ursa-medium-roast",
-    stop: "text-ursa-terracotta",
+    stop: "text-ursa-terracotta-text",
   };
   return (
     <div

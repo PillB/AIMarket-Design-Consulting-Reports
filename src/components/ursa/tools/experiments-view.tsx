@@ -80,7 +80,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
   killed: {
     label: "Killed",
     pillTone: "stop",
-    text: "text-ursa-terracotta",
+    text: "text-ursa-terracotta-text",
     bg: "bg-ursa-terracotta/8",
     border: "border-ursa-terracotta/35",
     bar: "bg-ursa-terracotta",
@@ -360,7 +360,7 @@ export function ExperimentsView() {
             </div>
             <p className="text-[0.82rem] text-muted-foreground m-0">
               <strong className="text-ursa-forest-deep">{counts.passed}</strong> passed ·{" "}
-              <strong className="text-ursa-terracotta">{counts.killed}</strong> killed ·{" "}
+              <strong className="text-ursa-terracotta-text">{counts.killed}</strong> killed ·{" "}
               <strong>{activeCount}</strong> still active or proposed.
             </p>
           </Card>
@@ -411,7 +411,7 @@ export function ExperimentsView() {
               variant="outline"
               size="sm"
               onClick={resetAll}
-              className="font-label text-[0.7rem] tracking-[0.12em] uppercase border-ursa-terracotta/40 text-ursa-terracotta hover:bg-ursa-terracotta hover:text-ursa-cream"
+              className="font-label text-[0.7rem] tracking-[0.12em] uppercase border-ursa-terracotta/40 text-ursa-terracotta-text hover:bg-ursa-terracotta hover:text-ursa-cream"
             >
               <RotateCcw size={12} className="mr-1.5" /> Reset all
             </Button>
@@ -485,7 +485,7 @@ export function ExperimentsView() {
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <AlertTriangle size={16} className="text-ursa-terracotta" /> Honest caveats
+              <AlertTriangle size={16} className="text-ursa-terracotta-text" /> Honest caveats
             </h4>
             <p className="text-[0.84rem] text-muted-foreground m-0">
               Costs are scenario ranges, not invoices. Two experiments cost{" "}
@@ -783,7 +783,7 @@ function ExperimentCard({
           <span className="inline-flex items-center gap-1.5 font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground shrink-0 w-20">
             <Crosshair size={11} /> Stop rule
           </span>
-          <span className="text-[0.84rem] text-ursa-terracotta italic leading-snug">
+          <span className="text-[0.84rem] text-ursa-terracotta-text italic leading-snug">
             {experiment.stopRule}
           </span>
         </div>
