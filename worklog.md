@@ -1778,3 +1778,55 @@ The client complained that recommendations lacked evidence, alternatives, risks,
 - growth-view.tsx: 5 sections deepened with evidence/risk/test callouts. Pillar type extended with `evidence` and `risk` fields. New 3-column grids for positioning evidence, persona grounding, and channel census evidence. Operational feasibility card added to offer stack. ~250 lines added.
 - menu-view.tsx: Portmanteau framing removed (in lede + ownable-menu-language card). Proposal type extended with 5 new fields (whyThisProduct, customerNeed, evidence, operationalTest, pricingRationale). All 13 proposals enriched with census-grounded content. Rendering updated to show 10 visible criterion rows (up from 6) + census-anchored pricing rationale footer. ~400 lines added.
 - recommendation-ledger.json: New file, 10 recommendations × 22-point structure. Ranked by confidence × impact × ease. 3 ADOPT (foundational, low-cost), 7 TEST (with MVP specs and stop rules).
+
+---
+Task ID: DEEPEN-ALL-REPORTS-V2
+Agent: Main orchestrator
+Task: Fix portmanteau overclaim, deepen every report with evidence/risk/test
+
+Work Log:
+- PORTMANTEAU FIX: Client correctly identified that calling drink names "portmanteaus" is mediocre.
+  Analysis: Only 2 of 4 verified drinks use coined names:
+  • Ursagroni = Ursa + negroni (portmanteau)
+  • Maracumango = maracuyá + mango (portmanteau)
+  • Filtrado Lonya = origin label (NOT a portmanteau)
+  • Durazno Clarificado = descriptive (NOT a portmanteau)
+  Fixed ALL references: removed "portmanteau system", "signature system", "strategic pillar" framing.
+  Replaced with honest: "Two of four verified drinks use coined names; no census competitor does this."
+  Updated VERIFIED_BEVERAGES descriptions to clarify which are coined vs descriptive.
+
+- DEEPENED GROWTH-VIEW (5 sections):
+  • Positioning: added 3-column evidence/risks/test grid citing CENSUS-1 findings
+  • Personas: added census-grounding callout verifying each signal
+  • Message architecture: each pillar now has evidence + risk fields
+  • Offer stack: added operational feasibility (prep time, ingredient overlap, training)
+  • Channel coverage: added 3-column census evidence grid + risks + test methods
+
+- DEEPENED MENU-VIEW (3 fixes):
+  • Removed portmanteau framing from ownable-menu-language card
+  • Enriched 13 product proposals with: WHY this product, customer need, evidence,
+    operational test, census-anchored pricing rationale
+  • Each proposal now has 10 visible criteria rows (up from 6)
+
+- DEEPENED BRAND-AUDIT-VIEW:
+  • Each verified element now cites WHERE verified (Instagram, Rappi, Corner.inc, etc.)
+  • Bear motif: specific surface-by-surface analysis (avatar yes, Rappi no, TripAdvisor no)
+  • Art Nouveau: evidence notes on what's observed vs unverified
+  • Three evolution levels: each has specific risk/failure modes
+  • NEW Distinctive Assets section: Ehrenberg-Bass framework, 4 candidate assets scored
+
+- DEEPENED VIRAL-VIEW:
+  • 16 concept evidence notes explaining WHY each works for Ursa specifically
+  • 10 script verification checks (all reference real Ursa products)
+  • 26 production feasibility assessments (phone-in-house vs external-help)
+
+- DEEPENED CREATIVE-VIEW:
+  • 14 prototypes with reasoning, accessibility notes, operational cost estimates
+
+- CREATED RECOMMENDATION-LEDGER.JSON:
+  10 recommendations × 22-point structure (problem, evidence, theory, mechanism,
+  supporting/contrary cases, alternatives, operations, finance, risks, ethics,
+  confidence, adopt/test/defer, experiment, metrics, rules, owner, timing)
+  3 ADOPT, 7 TEST. Total Year-1 investment: S/. 9,800.
+
+- Lint: clean. All views: 0 errors. No portmanteau overclaim remains.
