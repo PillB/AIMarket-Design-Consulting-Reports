@@ -147,8 +147,8 @@ export function DashboardView() {
       {/* Dossier modules */}
       <ViewSection badge={t("badges.modules")} title={t("content.dashboard.section.modules")}>
         <Grid cols={4}>
-          {dossierModules.map((m) => (
-            <Card key={m.key} className="cursor-pointer group transition-all duration-200 hover:-translate-y-1 hover:border-ursa-gold/50 hover:shadow-md">
+          {dossierModules.map((m, i) => (
+            <Card key={m.key} className={`cursor-pointer group transition-all duration-200 hover:-translate-y-1 hover:border-ursa-gold/50 hover:shadow-md stagger-${(i % 6) + 1}`}>
               <button onClick={() => navigate(m.key)} className="text-left w-full h-full flex flex-col">
                 <Pill tone="forest">{t("common.module")} {m.num}</Pill>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-1.5 flex items-center gap-1.5">
@@ -165,10 +165,10 @@ export function DashboardView() {
       {/* Tools — the extra innovative pages */}
       <ViewSection badge={t("badges.interactive-tools")} title={t("content.dashboard.section.tools")} meta={t("content.dashboard.meta.tools")}>
         <Grid cols={4}>
-          {tools.map((tool) => {
+          {tools.map((tool, toolIdx) => {
             const Icon = tool.icon;
             return (
-              <Card key={tool.key} highlight={tool.featured} className="cursor-pointer group transition-all duration-200 hover:-translate-y-1 hover:border-ursa-gold/50 hover:shadow-md">
+              <Card key={tool.key} highlight={tool.featured} className={`cursor-pointer group transition-all duration-200 hover:-translate-y-1 hover:border-ursa-gold/50 hover:shadow-md stagger-${(toolIdx % 6) + 1}`}>
                 <button onClick={() => navigate(tool.key)} className="text-left w-full h-full flex flex-col">
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <span className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 transition group-hover:scale-110 ${tool.featured ? "bg-ursa-gold/20 text-ursa-gold" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>

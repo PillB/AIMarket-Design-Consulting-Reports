@@ -1799,3 +1799,53 @@ Spanish copy is hand-written in Peruvian Spanish (Miraflores context, "oso" voic
 - All new view-file code uses `useI18n` from `@/hooks/use-i18n` and the existing `Card` / `Callout` / `EvidenceTag` components from `../ursa-brand`.
 - Default theme remains LIGHT; no theme changes; no test code added.
 - Git commit to follow.
+
+---
+
+## MENU-STUDIO-V2 · Rebuild Menu Studio with psychology-backed design
+
+**Agent:** general-purpose sub agent
+**Commit:** `Rebuild Menu Studio with psychology-backed design techniques, editable template, transparent calculations` (cc3df95)
+**Files touched:**
+- `/home/z/my-project/src/components/ursa/tools/menu-studio-view.tsx` — full rewrite, 1252 → 2340 lines (+1088)
+- `/home/z/my-project/src/lib/i18n.ts` — replaced EN + ES menu-studio blocks, +268 net lines
+
+### What was built
+
+The Menu Studio is now the "wow factor" tool. Nine sections instead of six, all bilingual EN/ES, all numbers driven by `fmtPEN` / `fmtPct` / `fmtNum` safe formatters:
+
+1. **Live menu metrics** (Section 01) — extended with a third card showing average popularity (1-5) and average attach rate per category mix, plus the existing avg-margin progress and prep-time category mix.
+2. **Editable menu template + live preview** (Section 02) — two-column layout. Left: one card per item with inline editing of name, category, customer-facing description, price, cost, prep burden, popularity (1-5 dot UI), attach rate slider, recommended toggle, and a chip-based pairing selector that opens on demand. Right: a sticky `MenuPreviewCard` that renders the customer-facing menu in real time — BearMark header, Art Nouveau dividers, dotted leaders, star markers for recommended items, italic descriptions, «Pairs with» chips per item.
+3. **Transparent calculations** (Section 03) — sortable 10-column table: item, price, cost, margin PEN, margin %, popularity (dots + score), prep (min), attach %, classification badge, pairings. No hidden formula — every cell derives live from the editable fields above.
+4. **Category performance dashboard** (Section 04) — aggregate per category: item count, avg margin %, avg popularity, avg prep, avg attach %. Each row carries inline mini-bars.
+5. **Psychology-backed design techniques** (Section 05) — 8 hypotheses as cards: star markers, menu ordering, descriptive names, price anchoring, decoy pricing, pairing suggestions, bundle offers, font hierarchy. Each card carries evidence-strength badge (strong / moderate / weak / mixed), commercial mechanism, ethical risk, measurement plan at Ursa, stop condition, and citation. A gold callout up front frames them all as hypotheses, not laws.
+6. **Attach-rate modeler** (Section 06) — kept the existing primary/side picker with sliders; switched from `PEN()` helper to `fmtPEN` etc. for safe formatting. Fixed the `Pill tone="terracotta"` TS error by mapping terracotta to "stop" (the Pill component's accepted type).
+7. **Stars & Puzzles matrix** (Section 07) — kept the four quadrant cards and the 2×2 matrix; updated intro copy to reference the new 1-5 popularity score (≥ 3 counts as high) instead of the old boolean.
+8. **Export** (Section 08) — plain-text snapshot now includes headline metrics, every item with all new fields (popularity, prep, attach, classification, pairings), the full Stars & Puzzles summary, the category dashboard aggregates, the attach-rate projection, and a list of the 8 psychology hypotheses with their evidence ratings.
+
+### Design rule adherence
+
+- **Light mode default** — all colours come from `ursa-*` tokens; the app defaults to light unless `.dark` is applied. No dark-only colours used.
+- **No green fills** — `marginColorClass()` switched from `bg-ursa-forest-deep` to `bg-ursa-dark-roast` for the high-margin tone. Same change in `LegendChip`. The category-mix bar gradient changed from `from-ursa-forest to-ursa-forest-deep` to `from-ursa-medium-roast to-ursa-dark-roast`. Forest green stays for TEXT (marginTextClass) and low-opacity tint backgrounds, which are not "fills" in the design-rule sense.
+- **BearMark outline-only** — confirmed `BearMark` is rendered with `fill="none"` and `stroke="currentColor"`; no fills introduced.
+- **No blue/indigo** — none introduced.
+- **Sticky footer** — the live preview panel uses `lg:sticky lg:top-24` so it stays visible while the owner scrolls through the editor on the left. The page-level `UrsaFooter` continues to sit at the bottom of the page via `mt-auto`.
+- **`useI18n` from `@/hooks/use-i18n`** — used throughout. Category labels localised via a `CATEGORY_KEY` map → `content.menu-studio.category.<key>`.
+- **`fmtNum` / `fmtPEN` / `fmtPct` from `@/lib/utils`** — replaced every use of the local `PEN()` helper with `fmtPEN`. All `.toFixed()` calls in the JSX replaced with the safe formatters.
+- **No test code** — none added.
+
+### i18n approach
+
+Both the EN and ES `menu-studio.*` blocks were replaced end-to-end (the ES block was applied via a Python script because the Edit tool could not match the very large old_str verbatim, likely due to a whitespace subtlety in one of the 160 lines). All section badges renumbered to 01-08 sequentially. New namespaces: `menu-studio.template.*`, `menu-studio.preview.*`, `menu-studio.calc.*`, `menu-studio.category.*` (columns + display labels), `menu-studio.popularity.*`, `menu-studio.psych.*` (labels + evidence ratings + 8 techniques × 6 fields each). Spanish is hand-written Peruvian Spanish — warm, direct, no translated-corporate tone. Proper nouns (Ursagroni, Maracumango, Filtrado Lonya, Art Nouveau) kept in original form on both sides.
+
+### Lint + type check
+
+- `bun run lint` → exit 0 (only a Babel informational note about i18n.ts exceeding 500KB, which is not a lint error).
+- `bunx tsc --noEmit` → no errors specific to `menu-studio-view.tsx` or `i18n.ts`. Pre-existing TS errors in other files (budget-view, loyalty-view, roi-view, brand-audit-view, creative-view, growth-view, landing-view, sources-view, ursa-data.ts) are unchanged and out of scope for this task.
+
+### Next actions for the owner / next agent
+
+- Run the dev server and click through `#/menu-studio` to validate the live preview updates as expected.
+- Replace the 12 default items' costs with actual roast logs and supplier invoices before quoting prices or making kill decisions (the default costs are Lima specialty-café benchmarks, not Ursa's actuals).
+- Consider porting the `MenuPreviewCard` component into a printable PDF export (the dossier's existing PDF skill could host it). The preview is already styled to look like a printed menu — it would port cleanly.
+- The psychology hypotheses section is content-complete but could be enriched with a "Run this experiment" button per card that opens the Experiment Tracker pre-populated with the measurement plan and stop condition. That wiring is out of scope for this task (MENU-STUDIO-V2) but would be a natural follow-up.

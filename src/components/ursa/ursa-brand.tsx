@@ -35,7 +35,7 @@ export function BearMark({
       height={size}
       role="img"
       aria-label="Ursa bear mark"
-      className={className}
+      className={cn("ursa-bear-mark", className)}
       fill="none"
     >
       {/* Ears — rounded hexagonal outlines, wider and softer */}

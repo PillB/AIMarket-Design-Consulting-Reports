@@ -272,6 +272,81 @@
 .ursa-card-hover { transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease; }
 .ursa-card-hover:hover { transform: translateY(-3px); }
 
+/* ============================================================
+   STAGGERED ENTRANCE ANIMATIONS
+   Purposeful motion: orient the user as content loads.
+   ============================================================ */
+@keyframes ursa-scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes ursa-slide-right {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes ursa-pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Stagger utility classes — apply to cards/items in a grid */
+.stagger-1 { animation: ursa-fade-up 0.5s ease-out 0.05s both; }
+.stagger-2 { animation: ursa-fade-up 0.5s ease-out 0.1s both; }
+.stagger-3 { animation: ursa-fade-up 0.5s ease-out 0.15s both; }
+.stagger-4 { animation: ursa-fade-up 0.5s ease-out 0.2s both; }
+.stagger-5 { animation: ursa-fade-up 0.5s ease-out 0.25s both; }
+.stagger-6 { animation: ursa-fade-up 0.5s ease-out 0.3s both; }
+
+/* Scale-in stagger for grid items */
+.scale-in-1 { animation: ursa-scale-in 0.4s ease-out 0.05s both; }
+.scale-in-2 { animation: ursa-scale-in 0.4s ease-out 0.1s both; }
+.scale-in-3 { animation: ursa-scale-in 0.4s ease-out 0.15s both; }
+.scale-in-4 { animation: ursa-scale-in 0.4s ease-out 0.2s both; }
+
+/* BearMark hover — subtle ear wiggle */
+.ursa-bear-mark { transition: transform 0.3s ease; }
+.ursa-bear-mark:hover { transform: rotate(-2deg) scale(1.05); }
+
+/* Button microinteractions */
+.ursa-btn-press { transition: transform 0.1s ease; }
+.ursa-btn-press:active { transform: scale(0.97); }
+
+/* Tab transition */
+.ursa-tab-transition { animation: ursa-fade-in 0.3s ease-out both; }
+@keyframes ursa-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Evidence drawer expand */
+.ursa-drawer { overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease; }
+.ursa-drawer--collapsed { max-height: 0; opacity: 0; }
+.ursa-drawer--expanded { max-height: 2000px; opacity: 1; }
+
+/* Number count-up shimmer */
+.ursa-count-up { animation: ursa-fade-in 0.5s ease-out both; }
+
+/* ============================================================
+   REDUCED MOTION — disable ALL animations for accessibility
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ursa-fade-up, .ursa-reveal, .ursa-reveal--in,
+  .stagger-1, .stagger-2, .stagger-3, .stagger-4, .stagger-5, .stagger-6,
+  .scale-in-1, .scale-in-2, .scale-in-3, .scale-in-4,
+  .ursa-breathe, .ursa-steam, .ursa-paw, .ursa-tab-transition,
+  .ursa-count-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Print friendliness */
 @media print {
   .no-print { display: none !important; }
