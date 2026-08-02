@@ -14,31 +14,31 @@ export function DashboardView() {
   const { t } = useI18n();
 
   const dossierModules = [
-    { key: "brand", num: "01", title: "Brand Audit & Design System", desc: "Verifies what is consistent, inconsistent, distinctive, and missing in Ursa's current brand. Codifies a conservative-refinement design system." },
-    { key: "market", num: "02", title: "Market, Competitors & Customer Voice", desc: "Direct Miraflores competitors and Lima leaders. Converts competitor patterns into standards to match, problems to avoid, and areas to lead." },
-    { key: "menu", num: "03", title: "Menu & Product Development", desc: "Reconstructs Ursa's current menu, then proposes new products across coffee, cold, seasonal, pastry, retail, experiences, and subscriptions." },
-    { key: "growth", num: "04", title: "Marketing, Growth & Retention Plan", desc: "Integrated plan: positioning, JTBD, message and offer architecture, acquisition, creators, delivery, loyalty, reviews. Adapts Hormozi and Sutherland." },
-    { key: "viral", num: "05", title: "Viral Content Laboratory", desc: "26 original content concepts, 10 complete scripts, 3 repeatable series, 3 creator briefs, 3 UGC mechanisms, and a four-week pilot calendar." },
-    { key: "creative", num: "06", title: "Creative Campaigns", desc: "HTML/CSS/SVG samples for social posts, carousels, Stories, menus, packaging labels, bean cards, event materials, landing pages, and email." },
-    { key: "roadmap", num: "07", title: "Implementation Roadmap & KPIs", desc: "First-72-hours, 30/60/90-day plans, and a 12-month innovation roadmap. Each workstream has owners, dependencies, metrics, and stopping rules." },
+    { key: "brand", num: "01" },
+    { key: "market", num: "02" },
+    { key: "menu", num: "03" },
+    { key: "growth", num: "04" },
+    { key: "viral", num: "05" },
+    { key: "creative", num: "06" },
+    { key: "roadmap", num: "07" },
   ];
 
   const tools = [
-    { key: "calculator", num: "08", title: "Subscription Economics Calculator", desc: "Interactive: edit every input and see live profit, break-even, free-cup capacity, sensitivity table, and cannibalization model. The Ursa Mañana S/. 20/month idea.", featured: true, icon: Calculator },
-    { key: "menu-studio", num: "T1", title: "Menu Engineering Studio", desc: "Build a menu category by category with live margin analysis, ingredient overlap, and attach-rate modelling.", icon: Utensils },
-    { key: "competitors", num: "T2", title: "Competitor Intelligence Dashboard", desc: "Filterable comparison matrix of 14 Miraflores and Lima competitors with strengths, weaknesses, and Ursa implications.", icon: Swords },
-    { key: "content-calendar", num: "T3", title: "Content Calendar & Scripts", desc: "Browse 26 concepts, read 10 full scripts, and lay out a four-week pilot calendar with a drag-friendly planner.", icon: Calendar },
-    { key: "experiments", num: "T4", title: "Experiment Tracker", desc: "Track every experiment with status, cost, metric, and stop rule. Update status as you run each test.", icon: FlaskConical },
-    { key: "style-guide", num: "T5", title: "Brand Style Guide Explorer", desc: "Inspect the verified Ursa palette, typography, and components with copy-to-clipboard tokens.", icon: SwatchBook },
-    { key: "budget", num: "T6", title: "Budget Allocator", desc: "Compare lean, moderate, and growth scenarios in PEN. Adjust line items and see the live monthly total.", icon: Wallet },
-    { key: "origin-atlas", num: "T7", title: "Coffee Origin Atlas", desc: "Interactive map of Ursa's verified bean origins with altitude, process, and tasting notes.", icon: Globe },
-    { key: "roi", num: "T8", title: "ROI Dashboard", desc: "Model return on each marketing channel with payback period and confidence ranges.", icon: TrendingUp },
-    { key: "campaign-builder", num: "T9", title: "Campaign Builder", desc: "A 6-step wizard: offer → audience → channel → metric → budget → summary. Outputs a copyable plain-text brief with a stop rule.", icon: Wand2 },
-    { key: "spirit-checker", num: "T10", title: "Spirit-Preservation Checker", desc: "Validate any new tactic against the bear, the gram, and the green. 8 questions, 3 pillars, one verdict.", icon: Shield },
-    { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 14 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
-    { key: "pilot", num: "T12", title: "Ursa Mañana Pilot Dashboard", desc: "12-week subscription pilot dashboard: sign-ups, side-attach, cannibalization, and net profit. Adjust the inputs to model different scenarios.", icon: Activity },
-    { key: "scorecard", num: "T13", title: "Brand Audit Scorecard", desc: "One-page executive compilation: Bear Score, brand pillars, experiment status, and the spirit-preservation verdict. Print or copy as text.", icon: Award, featured: false },
-    { key: "loyalty", num: "T14", title: "Loyalty Card Analysis", desc: "The itsloyaleats digital wallet card: 8-visit mechanic, behavioral-science backing, unit economics, and competitor comparison.", icon: CreditCard, featured: false },
+    { key: "calculator", num: "08", featured: true, icon: Calculator },
+    { key: "menu-studio", num: "T1", icon: Utensils },
+    { key: "competitors", num: "T2", icon: Swords },
+    { key: "content-calendar", num: "T3", icon: Calendar },
+    { key: "experiments", num: "T4", icon: FlaskConical },
+    { key: "style-guide", num: "T5", icon: SwatchBook },
+    { key: "budget", num: "T6", icon: Wallet },
+    { key: "origin-atlas", num: "T7", icon: Globe },
+    { key: "roi", num: "T8", icon: TrendingUp },
+    { key: "campaign-builder", num: "T9", icon: Wand2 },
+    { key: "spirit-checker", num: "T10", icon: Shield },
+    { key: "swot", num: "T11", icon: Grid2x2 },
+    { key: "pilot", num: "T12", icon: Activity },
+    { key: "scorecard", num: "T13", icon: Award, featured: false },
+    { key: "loyalty", num: "T14", icon: CreditCard, featured: false },
   ];
 
   return (
@@ -153,10 +153,10 @@ export function DashboardView() {
               <button onClick={() => navigate(m.key)} className="text-left w-full h-full flex flex-col">
                 <Pill tone="forest">{t("common.module")} {m.num}</Pill>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-1.5 flex items-center gap-1.5">
-                  {m.title}
+                  {t(`content.dashboard.module.${m.key}.title`)}
                   <ArrowRight size={15} className="text-ursa-gold-text opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </h3>
-                <p className="text-[0.85rem] text-muted-foreground m-0">{m.desc}</p>
+                <p className="text-[0.85rem] text-muted-foreground m-0">{t(`content.dashboard.module.${m.key}.desc`)}</p>
               </button>
             </Card>
           ))}
@@ -178,7 +178,7 @@ export function DashboardView() {
                     <Pill tone={tool.featured ? "gold" : "forest"}>{tool.featured ? `${t("common.module")} 08` : `${t("common.extra")} · ${tool.num}`}</Pill>
                   </div>
                   <h3 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast mt-0 mb-1.5 flex items-center gap-1.5 leading-tight">
-                    {tool.title}
+                    {t(`content.dashboard.tool.${tool.key}.title`)}
                     <ArrowRight size={14} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0" />
                   </h3>
                   <p className="text-[0.8rem] text-muted-foreground m-0 leading-relaxed">{t(`content.dashboard.tool.${tool.key}.desc`)}</p>
