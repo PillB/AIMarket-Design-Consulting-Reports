@@ -1849,3 +1849,63 @@ Both the EN and ES `menu-studio.*` blocks were replaced end-to-end (the ES block
 - Replace the 12 default items' costs with actual roast logs and supplier invoices before quoting prices or making kill decisions (the default costs are Lima specialty-café benchmarks, not Ursa's actuals).
 - Consider porting the `MenuPreviewCard` component into a printable PDF export (the dossier's existing PDF skill could host it). The preview is already styled to look like a printed menu — it would port cleanly.
 - The psychology hypotheses section is content-complete but could be enriched with a "Run this experiment" button per card that opens the Experiment Tracker pre-populated with the measurement plan and stop condition. That wiring is out of scope for this task (MENU-STUDIO-V2) but would be a natural follow-up.
+
+---
+Task ID: CRASH-FIX-V2-BEARMARK-ANIMATIONS
+Agent: main (crash root cause fix + BearMark v2 + animations + Menu Studio + Hormozi/Sutherland)
+Task: Fix production toFixed crash, improve BearMark, add animations, rebuild Menu Studio, review with Hormozi/Sutherland lenses
+
+Work Log:
+- PRODUCTION CRASH ROOT CAUSE FOUND AND FIXED:
+  • Error: "Cannot read properties of undefined (reading 'toFixed')" at RatingCell → actually at formatDistance
+  • Root cause: The 4 new competitors (Milimetrica, Milenaria, Dulce Ciudad, Caficulto) used field name `distance` instead of `distanceMeters` (the actual type field name)
+  • The sort function `a.distanceMeters - b.distanceMeters` got `undefined - undefined = NaN`
+  • `formatDistance(undefined)` called `(undefined / 1000).toFixed(1)` → CRASH
+  • Fix: (1) Renamed `distance` → `distanceMeters` for all 4 new competitors, (2) Hardened formatDistance to accept undefined/null/NaN with em-dash fallback, (3) Hardened sort with nullish coalescing (?? 9999), (4) Also added missing googleRating/googleReviewCount/tripAdvisorRating/tripAdvisorReviewCount fields (null) to all 4 new competitors, (5) Rewrote RatingCell with ultra-safe type coercion + isFinite/isNaN guards
+  • Verified: 0 errors on /market with fresh browser (was 1 TypeError crash)
+
+- BEARMARK V2 — improved aesthetics:
+  • Replaced rigid pentagonal "O" mouth with a gentle split-mouth (two soft Q-curves meeting at center)
+  • Replaced rigid polygon ears with rounded hexagonal outlines using Q-curves
+  • Replaced hexagonal eyes with softer almond shapes
+  • Added subtle chin line for a finished muzzle base
+  • All paths now use strokeLinecap="round" for softer feel
+  • Added ursa-bear-mark CSS class for hover interaction (subtle rotate + scale)
+
+- ANIMATIONS & INTERACTIVITY:
+  • Added ursa-scale-in, ursa-slide-right, ursa-pulse-soft keyframes to globals.css
+  • Added stagger-1 through stagger-6 utility classes for grid card entrances
+  • Added scale-in-1 through scale-in-4 for subtle scale animations
+  • Added ursa-btn-press, ursa-tab-transition, ursa-drawer (progressive disclosure), ursa-count-up
+  • CRITICAL: Added prefers-reduced-motion media query that disables ALL animations
+  • Dashboard: Module and tool cards now have staggered entrance animations
+  • BearMark: Hover triggers subtle rotate(-2deg) scale(1.05)
+
+- MENU STUDIO REBUILD (subagent):
+  • Full rewrite: 1,252 → 2,340 lines
+  • 8 sections: live metrics, editable template + live preview, transparent calculations, category dashboard, 8 psychology hypothesis cards (star markers, menu ordering, descriptive names, price anchoring, decoy pricing, pairings, bundles, font hierarchy), attach-rate modeler, Stars & Puzzles, export
+  • Each psychology technique shows: evidence strength, mechanism, ethical risk, measurement plan, stop condition, citation
+  • ~268 new i18n keys (EN+ES)
+
+- HORMOZI/SUTHERLAND REVIEW (subagent):
+  • Applied offer-value lens (outcome, likelihood, delay, effort, proof, risk reversal, packaging, friction) to 5 views
+  • Applied behavioral economics lens (framing, salience, signaling, context, choice architecture, ritual, distinctiveness, perceived value)
+  • Added offer-value lens cards to growth-view, calculator-view, pilot-view
+  • Added behavioral lens callouts to menu-view, landing-view
+  • ~80 new i18n keys (EN+ES)
+  • No impersonation — frameworks cited analytically
+
+- OSINT Web Research:
+  • Confirmed Ursa Facebook page (@UrsaCoffeePeru) — "Buscamos llevar a todos nuestros clientes por las 3 etapas de nuestro café"
+  • Confirmed Instagram @ursacoffeeperu — 4,760 followers, 206 posts
+  • Confirmed CAM Experience 2025 participation via Facebook
+  • Confirmed Ursagroni, Durazno Clarificado Coldbrew, Maracumango Coldbrew as summer favorites
+
+Stage Summary:
+- Production crash: FIXED (root cause = distanceMeters field name mismatch)
+- BearMark: v2 with soft mouth, rounded ears, hover animation
+- Animations: staggered entrances, reduced-motion support, microinteractions
+- Menu Studio: full rebuild with psychology-backed design techniques
+- Hormozi/Sutherland: offer-value + behavioral lens applied to 5 views
+- Navbar: all items show proper translated labels (no raw keys)
+- Live site: https://pillb.github.io/AIMarket-Design-Consulting-Reports/ — verified 0 errors
