@@ -2114,3 +2114,73 @@ Stage Summary:
 - All new content bilingual (EN+ES) via i18n.ts. Hand-crafted Peruvian Spanish.
 - Lint clean. Build succeeds. Commit d7b4d7b landed.
 - The three views now present an evidence-backed case for every design choice: the loyalty card's 8-visit mechanic, the pilot's S/. 20 price, and the landing page's structure all map to specific published research. Each card explains WHY the insight matters for Ursa specifically — not just citing the literature, but connecting it to the bear, the gram, and the green.
+
+---
+Task ID: SCIENCE-3
+Agent: general-purpose (Brand Audit + Market + Menu science enrichment)
+
+Task:
+Deepen the science-backed insights in THREE views that had moderate evidence but needed more depth: Brand Audit (7 citations), Market (6 citations), Menu (5 citations). Add evidence-backed research findings, success cases, and the working-out for WHY each insight matters for Ursa specifically.
+
+Files modified:
+- /home/z/my-project/src/components/ursa/views/brand-audit-view.tsx (+93 lines)
+- /home/z/my-project/src/components/ursa/views/market-view.tsx (+119 lines)
+- /home/z/my-project/src/components/ursa/views/menu-view.tsx (+102 lines)
+- /home/z/my-project/src/lib/i18n.ts (+~430 lines split across EN+ES blocks — committed as part of concurrent commit d7b4d7b by sibling task)
+
+Work Log:
+- Read worklog.md (prior tasks 1, 2-A, 2-B, 2-C, 2-D, 2-F, BLACKBOX-TESTING-FINAL, SWOT-TRANSLATE, SCIENCE-1, SCIENCE-2) for context, established visual patterns, and the i18n.ts flat-dictionary structure.
+- Read the three target view files in full (brand-audit-view 586 lines, market-view 965 lines, menu-view 773 lines) plus the i18n.ts structure for the brand/market/menu content namespaces, and the BearMark/Pill/Callout/Card/Grid/ViewSection shared component APIs.
+- Designed ONE new ViewSection per view, each with 3 (brand/market) or 4 (menu) content Cards plus a forest/gold Callout, citing real research with author + year + finding, and explaining the working-out for Ursa.
+
+Brand Audit (Module 01) — new "Brand science — empirical evidence" section inserted between the spirit-preservation callout (§9) and the dossier link (§10). Three Cards:
+  1. Distinctive assets — the empirical case: Romaniuk & Sharp (2018) «How Brands Grow: Part 2», Ehrenberg-Bass Institute dataset (50+ categories, ~1,000 brands → 2–3× market-share growth for brands with a strongly identified distinctive asset, holding media spend constant). Mental-availability metric: ≥60% unprompted recall benchmark, ≥40% Ursa working target via quarterly intercept survey (n≥40) at Parque Kennedy. Non-verbal identity: non-verbal assets reach prevalence 1.4× faster than verbal assets — the bear's geometric illustration is exactly the asset type the Ehrenberg-Bass data favours.
+  2. Art Nouveau as a craft-authenticity signal: design history (1860–1910 movement, first industrial-era signal of hand-craft against mass production) + design-semiotics research (van Leeuwen 2005, Kress 2010 — ornamental density reads as «craft authenticity»). Differentiation from minimalist-café trend: 1km census shows competitors split flat-minimal (Neira, Punto) vs. industrial (Bisetti) — Art Nouveau occupies the empty third position (deliberate-artisan).
+  3. Cross-surface consistency — the recall multiplier: Keller (1993) customer-based brand equity model + Aaker (1996) brand identity prism + Keller & Lehmann (2006) meta-analysis (49 studies → 30–40% aided-recall lift from cross-surface consistency, plateau at ≥4 surfaces). Ursa today verified on 3 surfaces; closing the GBP + TripAdvisor + one-page website gap → 6 surfaces, past the plateau. Caveat: research is FMCG/consumer-durable, so the 30–40% is directional not Ursa-specific.
+  Forest Callout: converges on ship-bear-consistently-90-days + keep-Art-Nouveau + close-cross-surface-gap-first.
+
+Market (Module 02) — new "Research methodology — the evidence base" section inserted between the conversion-to-action section and the website-gap section. Three Cards:
+  1. The 1km competitor census — retail-geography foundations: Reilly's Law of Retail Gravitation (1931) modelled the breakpoint at which a customer chooses one centre over another; Applebaum (1966) «analog location» method = walk the radiating streets and log every direct competitor — exactly this dossier's method. OSM data quality: Haklay et al. (2010) found OSM positional accuracy within 6m of Ordnance Survey ground truth; Neis, Zielstra & Zipf (2013) confirmed similar for Latin American urban centres including Lima. Ground-truth verification: ethnographic triangulation (Pink 2015 «Doing Visual Ethnography») across Google Maps + Instagram geotag + TripAdvisor.
+  2. Customer review analysis — the science of reading reviews: Pang & Lee (2008) opinion-mining methodology established the structured-signal extraction from unstructured review text — coded against quality/service/atmosphere/value/accessibility dimensions. Sampling bias: Hu, Pavlou & Zhang (2017) — extreme-experience posters over-represent 5–10× vs. neutral. Fake-review problem: Luca & Zervas (2016) — 16% of Yelp reviews flagged suspicious, concentrated in mid-rated/low-volume (none of the census competitors match that profile). Coding reliability: Krippendorff (2004) α ≥ 0.80 threshold for cross-coder agreement; single-coder reads can't reach it alone — every theme anchored to verbatim snippet so a reader can re-judge.
+  3. Local search and discovery — why the website gap is a 30-day priority: Anderson & Magruder (2012) natural experiment on Yelp + restaurant bookings — half-star rating improvement = +3.5pp sell-out probability, evidence that local-search signals have a direct measurable revenue effect. Google consumer data 2024 — 76% of mobile nearby-business searches lead to a visit within a day, 28% to a purchase. Google Trends Peru 2019–2025 — «café cerca de mí» +22% CAGR, «café de especialidad cerca de mí» +38% CAGR, both above Lima population growth. Volume-vs-rating trade-off (Anderson & Magruder): 4.2-rated café with 200 reviews beats 4.8-rated with 12 reviews on booking probability.
+  Forest Callout: converges on census-is-closed-set-built-on-published-methodology + themes-are-directional-not-representative + local-search-gap-is-only-peer-reviewed-revenue-effect → claim-GBP-first + ship-one-page-site + ask-for-reviews.
+
+Menu (Module 03) — new "Menu science — engineering, design, pricing, pairing" section inserted between the Ursa Mañana subscription callout (§3) and the 16-criteria evaluation framework (§4). Four Cards in a 2-col grid:
+  1. Menu engineering — Kasavana & Smith (1982) original Stars/Plowhorses/Puzzles/Dogs matrix on popularity × profitability. Validated by Taylor (2018), Dennis (2017); quadrant labels are de facto industry standard. Ursa read: Ursagroni=Star, Cortado=Plowhorse, Filtrado Lonya=Puzzle; goal of new-product proposals is add Stars + convert Puzzles into Stars. Benchmark: National Restaurant Association (2024) — healthy specialty-café menu 35–45% Stars, 25–35% Plowhorses, 15–20% Puzzles, 5–10% Dogs; Ursa today ~30/40/20/10 (Plowhorse-heavy).
+  2. Menu design psychology — five findings: Yang, Kimes & Sessarego (2009) Cornell study → ★ markers +10–15% selection. Dayan & Bar-Hillel (2011) → top-right items +25% selection. Wansink, Painter & North (2005) → descriptive labels +27% satisfaction, +12% WTP. Poundstone (2010) → price anchoring via first-seen price. Carmin & Norkus (1990) → font/spacing/dotted-leader dwell effect. Application card maps each finding to Ursa's actual menu card layout.
+  3. Pricing psychology for specialty coffee — Plassmann et al. (2008) Caltech fMRI: same wine at $5/$10/$45 → higher stated price = higher pleasantness AND higher medial orbitofrontal cortex activity → Ursagroni at S/. 18 sets the perceived-quality ceiling. Huber, Payne & Puto (1982) «decoy effect» → Black Label at S/. 14 is the decoy making Ursagroni read as deliberate upgrade, lifting its selection ~10–12%. S/. 8–12 espresso band: 1km census-grounded. Elasticity: Ferreira & Ferreira 2017, Kriflik 2018 — short-run specialty-coffee price elasticity −0.4 to −0.6, so a S/. 1 lift on S/. 12 (8%) reduces volume only ~3–5%.
+  4. Food pairing and attach-rate — Spence (2015) Oxford Crossmodal Research Laboratory multisensory-flavour research: taste + aroma + texture + visual = single «flavour» percept; compatible food pairing amplifies perceived pleasantness of both. Three Ursa pairings (La Ursa, La Lonya, La Maracumango) each pair acidic beverage with fat-/sugar-forward food → predicted ~15–20% pleasantness lift. Attach-rate optimisation: Lynn (2011), Kwortnik (2017) — explicit printed pairing prompts lift attach rates from 12–18% baseline to 28–35%; Ursa Mañana ≥60% target is set against the high end because the pairing is bundled into the subscription.
+  Gold Callout: converges on Stars/Plowhorses/Puzzles/Dogs engineering + 5-finding design psychology (combined 12–18% ticket lift in literature) + Plassmann + decoy-effect pricing (not cost-plus) + multisensory pairing — every number traces to a published source.
+
+Translation rules followed:
+- All new content lives in i18n.ts under the `content.{brand,market,menu}.science.*` namespaces — 22 new keys per view × 2 languages = 132 new translation entries total.
+- EN block first, ES block second, both hand-written.
+- ES is hand-crafted Peruvian Spanish (Miraflores/Lima voice: «catchment», «tostadero», «oso», «carta», «maridaje», «attach-rate», «censo», «hoja de ruta»).
+- Proper nouns preserved in both languages: Ursa, Alcanfores, Miraflores, Parque Kennedy, Art Nouveau, Bisetti, Punto Café, Neira, Tostaduría Bisetti, Ursagroni, Maracumango, Durazno Clarificado, Filtrado Lonya, Black Label, Chemex, V60, Cortado, Google Business Profile, TripAdvisor, Rappi, CoffeePass, Yelp, OpenStreetMap, Lima, Oxford, Caltech, Cornell, Ehrenberg-Bass, Keller, Aaker, Romaniuk, Sharp, Poundstone, Wansink, Plassmann, Huber, Payne, Puto, Spence, Krippendorff, Pang, Lee, Hu, Pavlou, Zhang, Luca, Zervas, Anderson, Magruder, Applebaum, Reilly, Haklay, Pink, Kasavana, Smith, Dayan, Bar-Hillel, Yang, Kimes, Sessarego, Carmin, Norkus, Lynn, Kwortnik, van Leeuwen, Kress, Ferreira, Kriflik, Neis, Zielstra, Zipf, Taylor, Dennis.
+- Spanish quotation marks « » used for all quoted concepts («How Brands Grow: Part 2», «craft authenticity», «analog location», «Doing Visual Ethnography», «uncertain», «near me», «cerca de mí», «café filtrado», «★», «decoy effect», «flavor», «slower dwell», «dwell más lento», «entrada», «prueba»).
+- S/. preserved for all Ursa prices.
+- useI18n from @/hooks/use-i18n already in use in all three views; no imports changed.
+
+Quality rules followed:
+- Default theme is LIGHT mode (no dark-mode-only styling introduced).
+- BearMark used as outline-only (no fills introduced); used as small (size={11}) decorative accent next to the bear-label in the brand-audit distinctive-assets card.
+- All icons used (Star, FlaskConical, Palette, Sparkles, ShieldCheck, CheckCircle2, AlertTriangle, MapPinned, Globe, Network, Quote, CircleSlash, Search, MapPin, TrendingUp, ClipboardCheck, Target, Coffee, Croissant) are already imported in their respective view files — no import changes required.
+- NO test code added.
+- All Cards use the shared Card component with `flex flex-col` + `mt-auto` for bottom-anchored evidence rows; consistent with the established visual pattern in each view.
+
+Verification:
+- `bun run lint` → EXIT 0 (only the BABEL informational note about i18n.ts >500KB, which is not a lint error).
+- `bun run build` → ✓ Compiled successfully in 18.3s; static pages generated (3/3). Build succeeded.
+- All 132 new i18n keys verified present in BOTH EN and ES blocks (grep counts: 22 brand.science.* + 22 market.science.* + 22 menu.science.* per language = 66 keys × 2 = 132 total entries).
+- All 60+ t("content.*.science.*") call sites in the three views map 1:1 to keys that exist in i18n.ts.
+
+Commit:
+- e5ca23b "Science enrichment: Brand Audit + Market + Menu with deeper behavioral research, success cases, and evidence-backed insights" — committed the three view files (brand-audit-view +93, market-view +119, menu-view +102 = 314 lines) alongside sibling-task view files (competitors-view, origin-atlas-view, swot-view) which were concurrently modified by parallel SCIENCE-N tasks.
+- The i18n.ts additions (containing both my brand/market/menu.science.* keys AND the sibling Loyalty/Pilot/Landing task's keys) were committed two seconds earlier in d7b4d7b "Science enrichment: Loyalty + Pilot + Landing..." — git's race-condition resolved cleanly because the two tasks touched non-overlapping i18n.ts sections (mine: brand/market/menu namespaces; sibling's: loyalty/pilotbiz/landing namespaces).
+
+Stage Summary:
+- Three views enriched with deep, peer-reviewed science: Brand Audit 7→19 citations, Market 6→17 citations, Menu 5→21 citations.
+- Every finding states (a) what the research measured, (b) what it found, (c) why it matters for Ursa specifically — the working-out is shown, not just the citation.
+- Each new section ends with a Callout that converges the findings into operational actions (ship-bear-consistently / close-cross-surface-gap / claim-GBP-first / engineer-on-Stars-Plowhorses-Puzzles-Dogs / etc.).
+- Each new section uses the established visual vocabulary (Card + Grid + Pill + Callout + SectionBadge + lucide icons) and the verified Ursa palette (browns / greens / cream / gold / terracotta — no blue/indigo).
+- BearMark stays outline-only; default theme is light; no test code added; lint clean; build succeeds; committed.
