@@ -1088,3 +1088,44 @@ Unresolved:
 - Once authed: push to main, rebuild static export (bun run build with output:export), push to gh-pages branch
 - Remaining Spanish translation: market-view, brand-audit-view, menu-view, growth-view, viral-view, creative-view, roadmap-view bodies still English. Calculator, menu-studio, content-calendar, style-guide, budget, origin-atlas, roi, campaign-builder, spirit-checker, swot, pilot, scorecard view bodies still English.
 - VLM dark mode suggestion: improve metadata text contrast (currently compliant but could be brighter)
+
+---
+Task ID: HYDRATION-FIX
+Agent: main (hydration mismatch fix)
+Task: Fix the ThemeToggle/LanguageToggle hydration mismatch that was causing 8 console errors on every page load
+
+Work Log:
+- Identified root cause: use-theme.ts and use-i18n.ts used `useState(readClientTheme)` / `useState(readClientLanguage)` which read localStorage on the client's INITIAL render. When a returning user had "dark"/"es" stored, the server rendered "light"/"en" but the client rendered "dark"/"es" — causing React hydration to fail.
+- The worklog from a previous session claimed `useSyncExternalStore` was used, but the actual code used plain `useState`. The fix was never properly applied.
+- Rewrote both hooks with `useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)`:
+  • `getServerSnapshot()` returns the default ("light" / "en") — used by BOTH server SSR and the initial client render
+  • `getSnapshot()` reads from localStorage — used only AFTER hydration completes
+  • `subscribe()` listens to "storage" + custom events for cross-tab/component sync
+- This is the canonical React 18+ pattern for external store hydration safety — no `mounted` flag or `useEffect` state-setting needed
+- The `toggle`/`setLang` functions write to localStorage + update DOM directly + dispatch custom events (no setState)
+- Added a `useEffect` in use-i18n to sync `document.documentElement.lang` (pure DOM side effect, doesn't trigger set-state-in-effect lint rule)
+- Verified via agent-browser:
+  • Fresh load (no localStorage): 0 hydration errors ✓
+  • Returning user (dark+es stored): 0 hydration errors ✓ (previously 8 errors)
+  • Anti-FOUC script in layout.tsx still applies `.dark` class before hydration — no visual flash
+  • Theme toggle still works (dark↔light) ✓
+  • Language toggle still works (en↔es) ✓
+- Lint: clean (0 errors, 0 warnings)
+
+Stage Summary:
+- Hydration mismatch FIXED — 8 console errors → 0 errors
+- Both use-theme and use-i18n now use useSyncExternalStore (the proper React 18+ pattern)
+- Returning users with dark mode or Spanish stored no longer trigger hydration errors
+- All theme/language functionality preserved (toggle, persistence, cross-tab sync)
+- Dev server running on localhost:3000 (HTTP 200)
+
+Current commit log (this session):
+1. Remove meta text, add Milimetrica + OSM competitors, redraft Spanish translations
+2. Add hover micro-interactions to dashboard cards (lift + gold border)
+3. Expand Spanish translations for competitors view (lede, stats, meta labels)
+4. Expand Spanish translations for experiments view (section titles, stat labels)
+5. Fix hydration mismatch: use useSyncExternalStore for theme + i18n hooks
+6. Remove accidental tool-results file, add to .gitignore
+
+GitHub auth status: 7 device codes generated (3914-B187, DA82-4193, 6582-68AF, 8D90-92D7, BAFB-E0D7, B440-35AD, 9BAB-718B) — all expired without user authorization. Code 9BAB-718B is the latest pending.
+  → Go to https://github.com/login/device and enter 9BAB-718B
