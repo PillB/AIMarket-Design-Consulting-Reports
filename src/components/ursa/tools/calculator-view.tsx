@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import { Pill, Callout, StatBlock, EvidenceTag, SectionBadge } from "../ursa-brand";
-import { Calculator, Coffee, TrendingUp, AlertTriangle, Sparkles, RotateCcw, Info } from "lucide-react";
+import { Calculator, Coffee, TrendingUp, AlertTriangle, Sparkles, RotateCcw, Info, Repeat, Infinity as InfinityIcon, Scale, BookOpen, Target, Layers, Droplet, Brain, Split, Star } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -394,6 +395,56 @@ export function CalculatorView() {
         </Tabs>
       </ViewSection>
 
+      {/* ============================================================
+          SCIENCE — the research behind the numbers
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.calculator.science.badge")}
+        title={t("content.calculator.science.title")}
+        meta={t("content.calculator.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.calculator.science.intro")}
+        </p>
+
+        {/* Group 1 — Subscription economics */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Repeat size={16} className="text-ursa-gold-text" />
+          {t("content.calculator.science.group.subscription")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {CALC_SUBSCRIPTION.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 2 — Coffee shop unit economics */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Coffee size={16} className="text-ursa-gold-text" />
+          {t("content.calculator.science.group.unit")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {CALC_UNIT.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 3 — Behavioral pricing & retention */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Brain size={16} className="text-ursa-gold-text" />
+          {t("content.calculator.science.group.behavioural")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {CALC_BEHAVIOURAL.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.calculator.science.synthesis.title")}>
+          {t("content.calculator.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
       <ViewSection>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <StatBlock value={PEN(calc.netProfit)} label={t("content.calculator.stat.profit")} tone="forest" />
@@ -452,5 +503,90 @@ function MiniMetric({ icon, label, value, tone }: { icon: React.ReactNode; label
       <div className="flex items-center gap-2 text-ursa-gold-text mb-1">{icon}<span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">{label}</span></div>
       <p className={cn("font-display text-2xl font-semibold m-0", tones[tone])}>{value}</p>
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the Subscription Calculator.
+// Strings live under content.calculator.science.card.{id}.{field} in i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const CALC_SUBSCRIPTION: ScienceEntry[] = [
+  { id: "recurly-churn", icon: Repeat, tone: "terracotta" },
+  { id: "chargebee-ltv", icon: InfinityIcon, tone: "gold" },
+  { id: "bessemer-ltv-cac", icon: Scale, tone: "forest" },
+  { id: "contribution-margin-horngren", icon: BookOpen, tone: "forest" },
+];
+
+const CALC_UNIT: ScienceEntry[] = [
+  { id: "sca-food-cost", icon: Coffee, tone: "forest" },
+  { id: "breakeven-horngren", icon: Target, tone: "gold" },
+  { id: "marginal-cup-cost", icon: Layers, tone: "forest" },
+  { id: "pour-over-economics", icon: Droplet, tone: "gold" },
+];
+
+const CALC_BEHAVIOURAL: ScienceEntry[] = [
+  { id: "thaler-mental-accounting", icon: Brain, tone: "gold" },
+  { id: "gourville-soman-decoupling", icon: Split, tone: "forest" },
+  { id: "reichheld-nps", icon: Star, tone: "terracotta" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.calculator.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.calculator.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.calculator.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.calculator.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }

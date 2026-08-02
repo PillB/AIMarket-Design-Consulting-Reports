@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import { Pill, Callout, StatBlock, EvidenceTag } from "../ursa-brand";
 import { BUDGET_SCENARIOS } from "@/lib/ursa-data";
@@ -19,6 +20,14 @@ import {
   ArrowRight,
   PiggyBank,
   AlertTriangle,
+  BookOpen,
+  Layers,
+  RefreshCw,
+  Map,
+  Coffee,
+  Megaphone,
+  MapPin,
+  Beaker,
 } from "lucide-react";
 import {
   PieChart,
@@ -489,6 +498,56 @@ export function BudgetView() {
         </Callout>
       </ViewSection>
 
+      {/* ============================================================
+          SCIENCE — the research behind the spend
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.budget.science.badge")}
+        title={t("content.budget.science.title")}
+        meta={t("content.budget.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.budget.science.intro")}
+        </p>
+
+        {/* Group 1 — Marketing budget allocation science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Layers size={16} className="text-ursa-gold-text" />
+          {t("content.budget.science.group.allocation")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {BUDGET_ALLOCATION.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 2 — Scenario planning research */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Map size={16} className="text-ursa-gold-text" />
+          {t("content.budget.science.group.scenarios")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {BUDGET_SCENARIOS_SCIENCE.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 3 — Success cases & over-spend traps */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Coffee size={16} className="text-ursa-gold-text" />
+          {t("content.budget.science.group.cases")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {BUDGET_CASES.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.budget.science.synthesis.title")}>
+          {t("content.budget.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
       {/* ROI hint */}
       <ViewSection badge={t("content.budget.section.04.badge")} title={t("content.budget.section.04.title")}>
         <div className="grid md:grid-cols-[1.4fr_1fr] gap-6 items-center">
@@ -579,5 +638,90 @@ function TableRow({
         </td>
       ))}
     </tr>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the Budget Allocator.
+// Strings live under content.budget.science.card.{id}.{field} in i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const BUDGET_ALLOCATION: ScienceEntry[] = [
+  { id: "cmo-survey-2023", icon: BookOpen, tone: "forest" },
+  { id: "deloitte-b2c-b2b", icon: Layers, tone: "gold" },
+  { id: "sba-5-10-rule", icon: PiggyBank, tone: "forest" },
+  { id: "mckinsey-zero-based", icon: RefreshCw, tone: "gold" },
+];
+
+const BUDGET_SCENARIOS_SCIENCE: ScienceEntry[] = [
+  { id: "schoemaker-1995", icon: Map, tone: "forest" },
+  { id: "elasticity-tellis", icon: TrendingUp, tone: "gold" },
+  { id: "parsa-survival", icon: AlertTriangle, tone: "terracotta" },
+];
+
+const BUDGET_CASES: ScienceEntry[] = [
+  { id: "cafe-industry-square", icon: Coffee, tone: "forest" },
+  { id: "paid-social-trap", icon: Megaphone, tone: "terracotta" },
+  { id: "brightlocal-local-seo", icon: MapPin, tone: "gold" },
+  { id: "lean-startup-budget", icon: Beaker, tone: "forest" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.budget.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.budget.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.budget.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.budget.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }

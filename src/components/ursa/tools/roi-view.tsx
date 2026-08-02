@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { Pill, Callout, StatBlock } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
@@ -19,6 +20,17 @@ import {
   Target,
   CalendarClock,
   Trophy,
+  BookOpen,
+  Split,
+  BarChart3,
+  Megaphone,
+  Search,
+  Instagram,
+  MessageCircle,
+  MapPin,
+  Compass,
+  Star,
+  Brain,
 } from "lucide-react";
 import {
   BarChart,
@@ -608,6 +620,56 @@ export function RoiView() {
         </div>
       </ViewSection>
 
+      {/* ============================================================
+          SCIENCE — the research behind the return
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.roi.science.badge")}
+        title={t("content.roi.science.title")}
+        meta={t("content.roi.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.roi.science.intro")}
+        </p>
+
+        {/* Group 1 — Marketing ROI methodology */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <BookOpen size={16} className="text-ursa-gold-text" />
+          {t("content.roi.science.group.methodology")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {ROI_METHODOLOGY.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 2 — Channel-specific ROI research */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Megaphone size={16} className="text-ursa-gold-text" />
+          {t("content.roi.science.group.channels")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {ROI_CHANNELS.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 3 — Attribution traps & free-channel science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <AlertTriangle size={16} className="text-ursa-gold-text" />
+          {t("content.roi.science.group.traps")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {ROI_TRAPS.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.roi.science.synthesis.title")}>
+          {t("content.roi.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
       <ViewSection>
         <DossierLinkBanner moduleId="04-marketing-growth-and-retention-plan" />
       </ViewSection>
@@ -700,5 +762,90 @@ function RangeBar({
         />
       </div>
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the ROI Dashboard.
+// Strings live under content.roi.science.card.{id}.{field} in i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const ROI_METHODOLOGY: ScienceEntry[] = [
+  { id: "lenskold-2003", icon: BookOpen, tone: "forest" },
+  { id: "attribution-problem", icon: Split, tone: "terracotta" },
+  { id: "marketing-mix-tellis", icon: BarChart3, tone: "gold" },
+  { id: "incremental-gordon", icon: AlertTriangle, tone: "terracotta" },
+];
+
+const ROI_CHANNELS: ScienceEntry[] = [
+  { id: "google-roas-benchmarks", icon: Search, tone: "forest" },
+  { id: "instagram-engagement-conversion", icon: Instagram, tone: "gold" },
+  { id: "whatsapp-marketing", icon: MessageCircle, tone: "forest" },
+  { id: "gbp-local-seo", icon: MapPin, tone: "gold" },
+];
+
+const ROI_TRAPS: ScienceEntry[] = [
+  { id: "tripadvisor-platform", icon: Compass, tone: "gold" },
+  { id: "luca-reviews-revenue", icon: Star, tone: "forest" },
+  { id: "attribution-bias-stop", icon: Brain, tone: "terracotta" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.roi.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.roi.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.roi.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.roi.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }

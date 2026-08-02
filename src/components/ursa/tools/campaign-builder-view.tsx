@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, Callout, ArtNouveauDivider } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
@@ -9,6 +10,9 @@ import { cn } from "@/lib/utils";
 import {
   ArrowRight, ArrowLeft, Check, RotateCcw, Target, Users, Megaphone,
   TrendingUp, Wallet, FileText,
+  Lightbulb, Award, ListChecks, Fingerprint,
+  Layers, Tag, ShieldCheck, Anchor,
+  AlertTriangle, Beaker, Scale,
 } from "lucide-react";
 
 /**
@@ -365,6 +369,56 @@ export function CampaignBuilderView() {
         </div>
       </ViewSection>
 
+      {/* ============================================================
+          SCIENCE — the research behind the brief
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.campaign-builder.science.badge")}
+        title={t("content.campaign-builder.science.title")}
+        meta={t("content.campaign-builder.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.campaign-builder.science.intro")}
+        </p>
+
+        {/* Group 1 — Campaign effectiveness research */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Lightbulb size={16} className="text-ursa-gold-text" />
+          {t("content.campaign-builder.science.group.effectiveness")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {CB_EFFECTIVENESS.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 2 — Offer construction science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Target size={16} className="text-ursa-gold-text" />
+          {t("content.campaign-builder.science.group.offer")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {CB_OFFER.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 3 — Stop-rule & discipline science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <AlertTriangle size={16} className="text-ursa-gold-text" />
+          {t("content.campaign-builder.science.group.discipline")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {CB_DISCIPLINE.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.campaign-builder.science.synthesis.title")}>
+          {t("content.campaign-builder.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
       <ViewSection>
         <DossierLinkBanner moduleId="04-marketing-growth-and-retention-plan" />
       </ViewSection>
@@ -436,5 +490,90 @@ function BriefRow({ label, value, tone }: { label: string; value: string | null 
         {value || "—"}
       </span>
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the Campaign Builder.
+// Strings live under content.campaign-builder.science.card.{id}.{field} in i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const CB_EFFECTIVENESS: ScienceEntry[] = [
+  { id: "ogilvy-1985", icon: Lightbulb, tone: "forest" },
+  { id: "binet-field-2013", icon: Award, tone: "gold" },
+  { id: "direct-marketing-hughes", icon: ListChecks, tone: "forest" },
+  { id: "romaniuk-distinctive", icon: Fingerprint, tone: "gold" },
+];
+
+const CB_OFFER: ScienceEntry[] = [
+  { id: "hormozi-offer-stack", icon: Layers, tone: "forest" },
+  { id: "monroe-pricing-psychology", icon: Tag, tone: "gold" },
+  { id: "risk-reversal-dholakia", icon: ShieldCheck, tone: "forest" },
+  { id: "anchoring-tversky-kahneman", icon: Anchor, tone: "gold" },
+];
+
+const CB_DISCIPLINE: ScienceEntry[] = [
+  { id: "moore-healy-overconfidence", icon: AlertTriangle, tone: "terracotta" },
+  { id: "ries-validated-learning", icon: Beaker, tone: "forest" },
+  { id: "binet-field-stop-rules", icon: Scale, tone: "gold" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.campaign-builder.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.campaign-builder.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.campaign-builder.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.campaign-builder.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }

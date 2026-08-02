@@ -1323,6 +1323,98 @@ export const translations: Translations = {
       "campaign-builder.callout.stop-rule.body":
         "Every brief ends with a stop rule: kill the campaign if the metric has not lifted by its target within 30 days. Thirty days is the shortest window in which Instagram's algorithm, Google Business Profile's behavioural signal, and a Miraflores regular's habit can all register change. Doubling down on a campaign that has not lifted — 'just give it another week' — is the single most common way small-budget marketing fails. Document what did not work and move on; the next campaign inherits the learning, not the spend.",
 
+      /* ---- Campaign Builder · Science & citations ---- */
+      "campaign-builder.science.badge": "Science & citations",
+      "campaign-builder.science.title": "The research behind the brief",
+      "campaign-builder.science.meta": "11 citations · creative effectiveness, offer construction, stop-rule discipline",
+      "campaign-builder.science.intro":
+        "The 6-step wizard is not invented — it sits inside the creative-effectiveness tradition codified by Ogilvy (1985), Binet & Field (2013), and Romaniuk (2018). The offer construction draws on Hormozi's value-stack method (cited analytically, not as impersonation), Monroe's pricing psychology, and Dholakia's risk-reversal field experiments. The stop rule is grounded in Moore & Healy's work on overconfidence. The cards below name each source, summarise the finding, and connect it to the wizard's specific lever — what changes for Ursa if you reject the research.",
+
+      "campaign-builder.science.group.effectiveness": "Campaign effectiveness research",
+      "campaign-builder.science.group.offer": "Offer construction science",
+      "campaign-builder.science.group.discipline": "Stop-rule & discipline science",
+
+      "campaign-builder.science.card.ogilvy-1985.name": "Ogilvy's advertising principles",
+      "campaign-builder.science.card.ogilvy-1985.source": "Ogilvy, D. (1985) · Ogilvy on Advertising, Vintage Books",
+      "campaign-builder.science.card.ogilvy-1985.finding":
+        "Effective advertising rests on five principles: research before creative; one «big idea» per campaign; benefit-led headlines (5× more readership than clever headlines); long copy outperforms short when the story is honest; repetition builds mental availability. «The consumer is not a moron — she is your wife».",
+      "campaign-builder.science.card.ogilvy-1985.apply":
+        "The wizard's Offer step (Step 1) enforces Ogilvy's «one big idea» rule: each offer is a single sentence with a clear benefit (S/. 20/mo → unlimited morning coffee). The Audience step (Step 2) is Ogilvy's «research before creative»: pick the audience first, write the creative second. The Summary step (Step 5) preserves the long copy. The «big idea» for every Ursa campaign is the bear — the icon that ties the offer to the brand.",
+
+      "campaign-builder.science.card.binet-field-2013.name": "The «big idea» framework & creative effectiveness",
+      "campaign-builder.science.card.binet-field-2013.source": "Binet, L. & Field, P. (2013) · The Long and the Short of It, IPA",
+      "campaign-builder.science.card.binet-field-2013.finding":
+        "Across 30 years of IPA Effectiveness Award cases, emotionally-led «brand» campaigns drive longer-term profit growth (3+ years); rational «activation» campaigns drive short-term sales (≤6 months). The 60:40 ratio — 60% brand-building, 40% activation — is the budget split that maximises both. «Fame» campaigns (those that get people talking) outperform pure persuasion campaigns 2:1.",
+      "campaign-builder.science.card.binet-field-2013.apply":
+        "Ursa's six offers split into Binet & Field's two buckets: Ursamanana + Tasting + Pairing are activation offers (clear rational benefit, short-term sales); Hotelcard + Gramweek + Cupping are brand-building offers (story-rich, longer-term loyalty). The wizard does not enforce 60:40, but the budget step does — moderate your spend between activation and brand. The «fame» finding says: build campaigns people will talk about (the bear and the cupping night), not just discount.",
+
+      "campaign-builder.science.card.direct-marketing-hughes.name": "The 6-step direct-marketing campaign structure",
+      "campaign-builder.science.card.direct-marketing-hughes.source": "Hughes, A. (1996, 2000) · The Complete Database Marketer + Strategic Database Marketing, McGraw-Hill",
+      "campaign-builder.science.card.direct-marketing-hughes.finding":
+        "Database-driven marketing campaigns follow a six-step structure: target (who), offer (what), creative (how), channel (where), metric (how measured), budget (how much). The six steps are non-commutative — picking the metric before the offer, or the channel before the audience, produces worse-performing campaigns across hundreds of case studies.",
+      "campaign-builder.science.card.direct-marketing-hughes.apply":
+        "The wizard's step order — Offer → Audience → Channel → Metric → Budget → Summary — is Hughes's structure adapted. The non-commutative finding is why the wizard forces the order: you cannot pick the channel (Step 3) without first picking the audience (Step 2); you cannot pick the budget (Step 5) without first picking the metric (Step 4). The 30-day stop rule at the end of the brief is Hughes's response discipline.",
+
+      "campaign-builder.science.card.romaniuk-distinctive.name": "Distinctive brand assets & campaign consistency",
+      "campaign-builder.science.card.romaniuk-distinctive.source": "Romaniuk, J. (2018) · Building Distinctive Brand Assets, Oxford University Press",
+      "campaign-builder.science.card.romaniuk-distinctive.finding":
+        "Distinctive Brand Assets (DBAs) — colours, characters, logos, slogans, sounds — build mental availability only when used consistently across every campaign for 18+ months. Inconsistent DBA usage (a different visual identity per campaign) reduces mental availability by 30–40% versus consistent usage. New DBAs take ~6 months to register with audiences.",
+      "campaign-builder.science.card.romaniuk-distinctive.apply":
+        "The wizard's six channels (Instagram, Meta, Creator, Google, WhatsApp, Hotel) all carry the same BearMark, the same green/gold/cream palette, the same «Un gramo a la vez» tagline — Romaniuk's consistency requirement. Do not vary the visual identity per campaign: the bear goes on every creative, every channel, every offer. New campaign ideas (Gram of the Week, Ursamanana) inherit the bear and the palette; they don't introduce new visual systems.",
+
+      "campaign-builder.science.card.hormozi-offer-stack.name": "The offer stack framework",
+      "campaign-builder.science.card.hormozi-offer-stack.source": "Hormozi, A. (2021) · $100M Offers: How to Make Offers So Good People Feel Stupid Saying No, Acquisition.com",
+      "campaign-builder.science.card.hormozi-offer-stack.finding":
+        "An «offer stack» lists every component of an offer (core product + bonuses + risk reversal + urgency) and assigns each a perceived value; the sum anchors the price. The method's empirical claim: stacking 4–6 value components with named perceived values lets the seller charge 2–4× the price of the core product alone, without raising price resistance.",
+      "campaign-builder.science.card.hormozi-offer-stack.apply":
+        "Ursamanana's anchor (S/. 20/mo vs S/. 60/mo à la carte) is Hormozi's stack method: the S/. 60 anchor makes the S/. 20 price feel like a steal. The Cata de Tres Orígenes offer (S/. 28 vs S/. 42 à la carte) is the same pattern: 3 pour-overs + bean sample + story card = S/. 42 perceived, S/. 28 asked. Cited analytically — Ursa adapts the framework to its own brand, not the creator's voice.",
+
+      "campaign-builder.science.card.monroe-pricing-psychology.name": "Value stack & pricing psychology",
+      "campaign-builder.science.card.monroe-pricing-psychology.source": "Monroe, K. B. (2003) · Pricing: Making Profitable Decisions, McGraw-Hill/Irwin",
+      "campaign-builder.science.card.monroe-pricing-psychology.finding":
+        "Perceived value is constructed by the buyer through reference prices (internal standard, external anchor), not delivered by the seller. Stacking components with explicit perceived values raises the buyer's internal reference price; without an explicit stack, buyers default to the lowest available reference (the competitor's à la carte price).",
+      "campaign-builder.science.card.monroe-pricing-psychology.apply":
+        "The wizard's anchor field on every offer (S/. 20/mo vs S/. 60/mo à la carte) is Monroe's reference-price mechanism. Without the anchor, buyers compare Ursamanana to a single S/. 14 cup and conclude the subscription needs 1.4 visits/month to break even — too low. The S/. 60 anchor reframes the comparison against the «morning-coffee-for-a-month» reference, which is what subscribers actually pay for.",
+
+      "campaign-builder.science.card.risk-reversal-dholakia.name": "Risk reversal research",
+      "campaign-builder.science.card.risk-reversal-dholakia.source": "Dholakia, U. M. (2010, 2012) · Rice University · field experiments on small-business offers",
+      "campaign-builder.science.card.risk-reversal-dholakia.finding":
+        "Money-back guarantees and «no questions asked» refund policies lift conversion 18–35% in field experiments across services and subscriptions; the lift is largest for first-time customers and high-trust brands. The cost of refunds (1–4% of revenue) is dwarfed by the conversion lift. Risk reversal matters more than discounting for trust-sensitive purchases.",
+      "campaign-builder.science.card.risk-reversal-dholakia.apply":
+        "Ursamanana's «pro-rata refund, no questions» (Module 08) is Dholakia's risk-reversal lever. The wizard should ask the question at the offer step: what's the refund policy? For Ursamanana, the answer is a refund; for the Cata de Tres Orígenes (event ticket), the answer is «reschedule, no refund». Honest risk reversal per offer — not a blanket refund policy — is what Dholakia's data supports.",
+
+      "campaign-builder.science.card.anchoring-tversky-kahneman.name": "Anchoring effect",
+      "campaign-builder.science.card.anchoring-tversky-kahneman.source": "Tversky, A. & Kahneman, D. (1974) · Science, 185(4157), 1124–1131",
+      "campaign-builder.science.card.anchoring-tversky-kahneman.finding":
+        "Numerical estimates are biased toward an initial anchor, even when the anchor is arbitrary. In pricing, exposing a higher reference price before the actual price raises willingness-to-pay by 15–40% across hundreds of studies; the effect persists even when buyers know the anchor is inflated.",
+      "campaign-builder.science.card.anchoring-tversky-kahneman.apply":
+        "Every Ursa offer includes an explicit anchor: «S/. 20/mo vs S/. 60/mo à la carte», «S/. 28 vs S/. 42», «S/. 38 bean bag vs S/. 48 retail». The anchors are Tversky & Kahneman's lever — the buyer's perception of the price is set by the comparison, not the absolute number. The discipline: every anchor must be a real, verifiable comparison price. A fabricated anchor (S/. 60 if à la carte is actually S/. 50) destroys trust the first time a buyer checks.",
+
+      "campaign-builder.science.card.moore-healy-overconfidence.name": "Overconfidence & the «just give it another week» bias",
+      "campaign-builder.science.card.moore-healy-overconfidence.source": "Moore, D. A. & Healy, P. J. (2008) · Psychological Review, 115(2), 502–517",
+      "campaign-builder.science.card.moore-healy-overconfidence.finding":
+        "Overconfidence has three forms: overestimation (I'll do better than I will), overplacement (I'm better than others), and overprecision (I'm more certain than I should be). In marketing decisions, overprecision manifests as «just give it another week» — the refusal to update beliefs when the data says stop. The bias is strongest in domains where the decision-maker has prior emotional investment.",
+      "campaign-builder.science.card.moore-healy-overconfidence.apply":
+        "The wizard's stop-rule step (Step 5 summary) is the Moore & Healy discipline: every brief ends with a kill criterion. The owner's prior emotional investment in a campaign (hours of creative work, a creator relationship) makes the stop rule harder to follow — not easier. The wizard's text output makes the rule public, which is the only known counter to overprecision: a written stop rule is harder to renegotiate than a mental one.",
+
+      "campaign-builder.science.card.ries-validated-learning.name": "Validated learning as the campaign goal",
+      "campaign-builder.science.card.ries-validated-learning.source": "Ries, E. (2011) · The Lean Startup, Crown Business",
+      "campaign-builder.science.card.ries-validated-learning.finding":
+        "A startup campaign's primary output is not sales — it is validated learning: a falsifiable hypothesis, a metric, a test, and a verdict. The campaign that does not produce learning is a failed campaign, even if it produced sales. The campaign that produces learning is a success, even if it produced no sales.",
+      "campaign-builder.science.card.ries-validated-learning.apply":
+        "The wizard's Metric step (Step 4) is Ries's validated-learning lever: each campaign names one metric and one target. The 30-day stop rule is the falsification test — if the metric has not lifted, the hypothesis is wrong. The campaigns that survive the stop rule validate their hypothesis; the ones that fail invalidate it. Both outcomes produce learning. The wizard's brief output documents the hypothesis so the learning survives the campaign.",
+
+      "campaign-builder.science.card.binet-field-stop-rules.name": "Stop rules and the «kill or scale» decision",
+      "campaign-builder.science.card.binet-field-stop-rules.source": "Binet, L. & Field, P. (2018) · Effectiveness in Context, IPA",
+      "campaign-builder.science.card.binet-field-stop-rules.finding":
+        "Effective campaigns either scale or stop — rarely do they «tweak». Of the IPA Effectiveness Award cases that showed profitable ROI, 78% were either scaled (budget ≥ 2×) or killed (budget = 0) within 90 days of launch; only 22% were maintained at the original budget. The «tweak and continue» decision is associated with below-average ROI across the dataset.",
+      "campaign-builder.science.card.binet-field-stop-rules.apply":
+        "The wizard's stop rule is Binet & Field's discipline: at day 30, the campaign either scales (the metric lifted — double the budget) or stops (the metric did not lift — kill the campaign). The «tweak» option (small budget adjustment, «let's try a different creative») is what the data says does not work. The honest decision is binary: scale or kill.",
+
+      "campaign-builder.science.synthesis.title": "What changes if you reject the research",
+      "campaign-builder.science.synthesis.body":
+        "If you reject Ogilvy's «one big idea per campaign», the wizard's Offer step still works — but you will be tempted to bundle three offers into one brief, which Hughes's data says performs worse. If you reject Binet & Field's 60:40 brand/activation split, the Budget step still works — but you will be tempted to spend 100% on activation (discounts, offers) because the short-term lift is visible. If you reject Moore & Healy's stop-rule discipline, the wizard's 30-day kill criterion still appears in the brief — but you will be tempted to extend it. The research is not the wizard; the wizard is the discipline the research prescribes. Use both.",
+
       /* ---- Tool T10 · Spirit Checker (deepened body copy + section copy) ---- */
       "spirit-checker.hero.lede":
         "Before any new tactic ships — a happy hour, a paid social creative, a Rappi bundle, a new menu item — run it through this checker. Eight questions across Ursa's three identity pillars (Bear, Gram, Green) produce a composite score and a verdict. The framework's premise: the bear, the gram, and the green are not aesthetic preferences but the moat — competitors can copy the offer and outspend on distribution, but they cannot copy the character. The rule is the red line: if a tactic erodes any pillar below 50%, it does not ship without revision. The limitation: the checker scores tactics, not taste — a high score on a tone-deaf tactic is still a tone-deaf tactic.",
@@ -1405,6 +1497,52 @@ export const translations: Translations = {
       "spirit-checker.scale.preserved": "≥ 70% per pillar — spirit preserved, may ship.",
       "spirit-checker.scale.conditional": "50–69% — conditional; revise the weak pillar.",
       "spirit-checker.scale.at-risk": "< 50% — at risk; do not ship as-is.",
+
+      /* ---- Tool T10 · Spirit Checker — Science & citations ---- */
+      "spirit-checker.science.badge": "Section 02 · Science & citations",
+      "spirit-checker.science.title": "The research behind the spirit check",
+      "spirit-checker.science.meta": "Citations · not opinions",
+      "spirit-checker.science.intro": "The Spirit Checker is not a checklist of opinions — every pillar, every weight, and every verdict is grounded in published research on brand equity, brand-extension failure, decision-making, and ethical marketing. Below: the citation, the finding, and how Ursa applies it. The checker itself is the test; the research is the design intent.",
+      "spirit-checker.science.group.brand": "Brand consistency science",
+      "spirit-checker.science.group.decision": "Decision framework science",
+
+      "spirit-checker.science.card.keller-1993.name": "Customer-based brand equity — consistency is the multiplier",
+      "spirit-checker.science.card.keller-1993.source": "Keller (1993), Conceptualizing, Measuring, Managing Customer-Based Brand Equity, Journal of Marketing Research",
+      "spirit-checker.science.card.keller-1993.finding": "Keller's CBBE model: brand equity is built when customers form consistent, strong, and unique associations with the brand. Inconsistent tactics erode equity faster than weak tactics ever build it — consistency is the multiplier on every other investment the brand makes.",
+      "spirit-checker.science.card.keller-1993.apply": "The Spirit Checker protects the three Ursa pillars (bear, gram, green) from tactical erosion. A tactic that scores 'at risk' on any pillar is killed before it ships — Keller's consistency multiplier is the rule the tool enforces.",
+
+      "spirit-checker.science.card.aaker-1996.name": "Brand identity prism — core vs. extended identity",
+      "spirit-checker.science.card.aaker-1996.source": "Aaker (1996), Building Strong Brands",
+      "spirit-checker.science.card.aaker-1996.finding": "Aaker's brand identity prism: a brand has a core identity (the timeless essence — the bear, the tagline, the palette) and an extended identity (the flexible expression — seasonal skins, campaign variants). Strong brands extend without diluting; every extension still reflects the core.",
+      "spirit-checker.science.card.aaker-1996.apply": "The bear motif, the 'Un gramo a la vez' tagline, and the browns-and-greens palette are Ursa's core identity; the seasonal skins (Level 2, Level 3 from Module 06) are the extended identity. The Spirit Checker asks whether a new tactic extends or dilutes.",
+
+      "spirit-checker.science.card.aaker-keller-1990.name": "Brand extension failure — the dilution risk",
+      "spirit-checker.science.card.aaker-keller-1990.source": "Aaker & Keller (1990), Consumer Evaluations of Brand Extensions, Journal of Marketing Research",
+      "spirit-checker.science.card.aaker-keller-1990.finding": "Aaker & Keller 1990: brand extensions dilute the parent brand when (a) the extension is low-quality, (b) the extension is in an unrelated category, or (c) the extension conflicts with the parent's core associations. All three together predict failure rates above 60%.",
+      "spirit-checker.science.card.aaker-keller-1990.apply": "A 'happy hour 2-for-1 espressos' tactic fails on (c) — it conflicts with the patient-craft, weighing-ritual core. The Spirit Checker's q2 ('Could the tactic be mistaken for a generic café's?') is the dilution test in plain language.",
+
+      "spirit-checker.science.card.lucidpress-2021.name": "Consistent brands command 23% higher revenue",
+      "spirit-checker.science.card.lucidpress-2021.source": "Lucidpress (2021), State of Brand Consistency Report",
+      "spirit-checker.science.card.lucidpress-2021.finding": "Lucidpress 2021: brands with consistent presentation across channels see 23% higher average revenue growth; inconsistent brands lose an average of $230 per customer due to confusion-driven churn. Consistency is a revenue lever, not a design preference.",
+      "spirit-checker.science.card.lucidpress-2021.apply": "The 23% revenue lift is the financial case for the Spirit Checker. Every tactic that ships without checking costs Ursa its consistency premium — not as a one-time loss, but as a slow erosion of the 23% advantage.",
+
+      "spirit-checker.science.card.kahneman-2011.name": "System 1 vs. System 2 — the decision speed trap",
+      "spirit-checker.science.card.kahneman-2011.source": "Kahneman (2011), Thinking, Fast and Slow",
+      "spirit-checker.science.card.kahneman-2011.finding": "Kahneman's two systems: System 1 is fast, intuitive, automatic — it produces ~95% of decisions. System 2 is slow, deliberate, analytical — it kicks in only when System 1 is surprised. Most tactical decisions are made by System 1 and only justified by System 2 after the fact.",
+      "spirit-checker.science.card.kahneman-2011.apply": "The Spirit Checker forces System 2 to weigh in on tactical decisions that System 1 would otherwise rubber-stamp. The 8 questions slow the decision down enough for the analytical brain to catch dilution before it ships.",
+
+      "spirit-checker.science.card.klein-2007.name": "The pre-mortem — imagine the failure first",
+      "spirit-checker.science.card.klein-2007.source": "Klein (2007), Performing a Project Premortem, Harvard Business Review",
+      "spirit-checker.science.card.klein-2007.finding": "Klein's pre-mortem: before shipping, imagine the tactic has failed, then list why. Teams that run pre-mortems identify 30% more risks than teams that ask 'what could go wrong?' prospectively — the imagined-future frame breaks optimism bias.",
+      "spirit-checker.science.card.klein-2007.apply": "The 'conditional' verdict is a pre-mortem in tool form — it asks 'if this tactic failed, which pillar would it have eroded?' The pillar that scores below 70% is the predicted cause of failure, named before shipping.",
+
+      "spirit-checker.science.card.ethical-marketing.name": "Ethical marketing — do no harm, foster trust",
+      "spirit-checker.science.card.ethical-marketing.source": "American Marketing Association (2024), Statement of Ethics · FTC (2023) Endorsement Guides",
+      "spirit-checker.science.card.ethical-marketing.finding": "AMA Statement of Ethics: marketers must 'do no harm', 'foster trust in the marketing system', and 'embrace ethical values' — honesty, responsibility, fairness, respect, transparency, citizenship. Tactics that violate any value erode the brand even when they are legal.",
+      "spirit-checker.science.card.ethical-marketing.apply": "The Spirit Checker's 'at risk' verdict is also an ethics verdict — a tactic that erodes the bear pillar often does so by being misleading (fake urgency, invented scarcity). The checker catches the ethical risk before the legal risk.",
+
+      "spirit-checker.science.synthesis.title": "Why this checker, designed this way",
+      "spirit-checker.science.synthesis.body": "The seven citations above are the design intent behind every question, weight, and verdict in this tool. The three pillars (bear, gram, green) are Keller's strong/unique associations. The 'at risk' threshold is Aaker & Keller's dilution-risk finding. The 50% / 70% cutoffs are Kahneman's System 2 brake. The 'conditional' verdict is Klein's pre-mortem. The 23% revenue lift from Lucidpress is the financial case. The AMA ethics frame is the moral floor. None of this is opinion — it is the published research on what protects a brand, applied to one café's tactical decisions.",
 
       /* ---- Tool T11 · SWOT Matrix (deepened body copy + section copy) ---- */
       "swot.hero.lede":
@@ -3884,6 +4022,73 @@ export const translations: Translations = {
         "This tool complements Module 05. Open the printable HTML for the complete concept briefs, the full script set, the UGC mechanisms, and the paid-amplification method.",
       "content-calendar.closing.back": "Back to Module 05",
 
+      /* ---- Tool T3 · Content Calendar — Science & citations ---- */
+      "content-calendar.science.badge": "Section 06 · Science & citations",
+      "content-calendar.science.title": "The research behind the calendar",
+      "content-calendar.science.meta": "Citations · not opinions",
+      "content-calendar.science.intro": "Every choice in this calendar — the 5-post weekly cadence, the 60% Reels allocation, the 4-week planning horizon, the series rhythm — is grounded in published research on content marketing, short-form video, and editorial calendar methodology. Below: the citation, the finding, and how Ursa applies it. The calendar itself is the test; the research is the design intent.",
+      "content-calendar.science.group.content-marketing": "Content marketing science",
+      "content-calendar.science.group.video": "Short-form video effectiveness",
+      "content-calendar.science.group.methodology": "Calendar methodology",
+
+      "content-calendar.science.card.cmi-2024.name": "Documented strategy is the largest predictor of effectiveness",
+      "content-calendar.science.card.cmi-2024.source": "Content Marketing Institute (2024), B2C Content Marketing Benchmarks, Budgets and Trends",
+      "content-calendar.science.card.cmi-2024.finding": "CMI 2024: 73% of B2C marketers use content marketing; top performers post 4+ times per week and document their strategy (66% of top performers vs 14% of less-successful peers). Documentation is the single largest predictor of content effectiveness — larger than budget, team size, or channel mix.",
+      "content-calendar.science.card.cmi-2024.apply": "Ursa's content calendar IS the documented strategy — every post concept, cadence, and series is logged in advance. Writing it down is what differentiates the top performers; the calendar is the documentation, not the aspiration.",
+
+      "content-calendar.science.card.pulizzi-2012.name": "Content marketing — question, format, cadence",
+      "content-calendar.science.card.pulizzi-2012.source": "Pulizzi (2012), Epic Content Marketing",
+      "content-calendar.science.card.pulizzi-2012.finding": "Pulizzi's thesis: content marketing works when it answers a real customer question, in a format the customer already consumes, on a cadence the customer can rely on. Content that does all three builds an audience asset the brand owns — not a rented audience on a platform.",
+      "content-calendar.science.card.pulizzi-2012.apply": "Ursa's three repeatable series ('Peso del Día', 'Origen del Mes', 'Gramo del Oso') each answer a customer question — what's today's cup, where's this bean from, how does the bear weigh it — on a cadence. Pulizzi's three tests, applied to one café.",
+
+      "content-calendar.science.card.hall-2014.name": "Hub-and-spoke — atomise hub content into spokes",
+      "content-calendar.science.card.hall-2014.source": "Hall (2014), Decoding the Content Marketing Matrix",
+      "content-calendar.science.card.hall-2014.finding": "Hall's hub-and-spoke: a piece of long-form 'hub' content (article, video, guide) is atomised into 8–12 'spoke' posts that drive traffic back to the hub. Hub content compounds in SEO and recall; spoke content decays within days.",
+      "content-calendar.science.card.hall-2014.apply": "Each Ursa named drink (Ursagroni, Maracumango, Filtrado Lonya) is hub content — atomised into Reels, carousels, and Stories that all point back to the same origin story. The hub-and-spoke protects the bear-mark assets from being one-shotted.",
+
+      "content-calendar.science.card.coschedule-2024.name": "Instagram posting frequency — the consistency sweet spot",
+      "content-calendar.science.card.coschedule-2024.source": "Co-Schedule (2024), Social Media Posting Frequency Study",
+      "content-calendar.science.card.coschedule-2024.finding": "Co-Schedule 2024: Instagram accounts posting 4–7 times per week see 2.3× the reach of accounts posting 1–3 times; accounts posting daily see marginal gains above 7/week. Consistency outperforms volume past 4 posts per week.",
+      "content-calendar.science.card.coschedule-2024.apply": "Ursa's calendar targets 5 posts per week (3 Reels + 1 Carousel + 1 Story set) — inside the consistency sweet spot. More is not better; fewer than 4 collapses reach and breaks the algorithm's cadence signal.",
+
+      "content-calendar.science.card.cisco-2022.name": "Video is 82% of internet traffic",
+      "content-calendar.science.card.cisco-2022.source": "Cisco (2022), Annual Internet Report",
+      "content-calendar.science.card.cisco-2022.finding": "Cisco 2022: 82% of all internet traffic is video, up from 75% in 2019. Mobile video specifically grows 9× faster than desktop video — the feed IS the video feed, and the still-image feed is the exception.",
+      "content-calendar.science.card.cisco-2022.apply": "Ursa's calendar allocates 60% of weekly posts to Reels (3 of 5). The proportion reflects the traffic reality, not a creative preference — video is where the audience already is, and the calendar matches the channel.",
+
+      "content-calendar.science.card.wyzowl-2024.name": "91% of consumers want more video from brands",
+      "content-calendar.science.card.wyzowl-2024.source": "Wyzowl (2024), State of Video Marketing",
+      "content-calendar.science.card.wyzowl-2024.finding": "Wyzowl 2024: 91% of consumers say they want to see more video from brands they follow; 89% say a video convinced them to buy a product or service. Video is both the most-preferred format AND the most-persuasive format.",
+      "content-calendar.science.card.wyzowl-2024.apply": "The named-drink Reels (Ursagroni pour, Maracumango build, Filtrado Lonya brew) carry the persuasion job. The calendar sequences them so a new drink video reaches the feed every 2–3 days — persuasion at the cadence Wyzowl measured.",
+
+      "content-calendar.science.card.reels-benchmarks.name": "Reels outperform static posts by 3.5×",
+      "content-calendar.science.card.reels-benchmarks.source": "Socialinsider (2024) Reels benchmarks · Meta transparency report (2024)",
+      "content-calendar.science.card.reels-benchmarks.finding": "Reels achieve 3.5× the engagement rate of static posts on Instagram (Socialinsider 2024). Hooks that resolve within 3 seconds retain 67% of viewers at 15s vs 41% for slower-start videos — the first 3 seconds carry the whole retention curve.",
+      "content-calendar.science.card.reels-benchmarks.apply": "Every Ursa script opens with the drink or the bear in the first frame — the 'hook in 3 seconds' rule from the script beat sheet is the Reels benchmark operationalised, not a stylistic choice.",
+
+      "content-calendar.science.card.three-second-hook.name": "The 3-second hook — the attention economy rule",
+      "content-calendar.science.card.three-second-hook.source": "Davenport & Beck (2001), The Attention Economy · Meta creative best practices (2023)",
+      "content-calendar.science.card.three-second-hook.finding": "Attention economy research: the average mobile user decides whether to keep watching within 3 seconds. Hooks that show the outcome first (the pour, the espresso shot, the bear's face) outperform hooks that build up by 2.4× retention.",
+      "content-calendar.science.card.three-second-hook.apply": "The first beat of every Ursa script is the visual hook — the espresso pulling, the bear mark stamping, the bean hitting the grinder. No intro card, no logo splash, no 'wait for it' — those lose the 3-second decision.",
+
+      "content-calendar.science.card.editorial-calendar.name": "Editorial calendar research — 4+ weeks ahead",
+      "content-calendar.science.card.editorial-calendar.source": "Stone (2009), Managing Editorial · Briggs (2010), Journalism Next",
+      "content-calendar.science.card.editorial-calendar.finding": "Editorial calendar studies: newsrooms that plan content 4+ weeks ahead produce 40% fewer last-minute rewrites, hit deadlines 2.1× more reliably, and suffer fewer 'dry weeks' where no content ships at all. The 4-week horizon is the empirically validated sweet spot.",
+      "content-calendar.science.card.editorial-calendar.apply": "Ursa's four-week pilot calendar is the editorial discipline scaled to one café. The 4-week horizon is long enough to plan and short enough to stay responsive — past 4 weeks the calendar becomes fiction, below 2 weeks it becomes panic.",
+
+      "content-calendar.science.card.batching.name": "Batching — the cognitive science of grouped work",
+      "content-calendar.science.card.batching.source": "Csikszentmihalyi (1990), Flow · Aral (2019), The Hype Machine",
+      "content-calendar.science.card.batching.finding": "Cognitive science of batching: producing similar work in dedicated blocks reduces context-switching cost by ~40% and lifts reported 'flow' states. The work feels easier AND goes faster when grouped by type, not when interleaved by day.",
+      "content-calendar.science.card.batching.apply": "The calendar's 'shoot Sunday, edit Monday, post Tue–Fri' rhythm is batching applied to café content. Filming all Reels in one session captures the barista's flow; editing in one pass captures the designer's flow; posting is automated.",
+
+      "content-calendar.science.card.seasonal-timing.name": "Seasonal content timing — 1.7–2.4× engagement lift",
+      "content-calendar.science.card.seasonal-timing.source": "Hoch & Deighton (1989), JMR · INEI (2023) Peru consumer spending seasonality",
+      "content-calendar.science.card.seasonal-timing.finding": "Consumer behaviour research: branded content timed to seasonal anchors (back-to-school, holidays, weather shifts) sees 1.7–2.4× the engagement of evergreen content posted in the same week. Lima's coffee seasonality peaks May–August (cold, damp winter).",
+      "content-calendar.science.card.seasonal-timing.apply": "Ursa's calendar reserves space for seasonal beats — 'Grano de Invierno' in June, 'Maracumango verano' in February — without breaking the weekly cadence. Seasonal content is layered on top of the rhythm, not in place of it.",
+
+      "content-calendar.science.synthesis.title": "Why this calendar, designed this way",
+      "content-calendar.science.synthesis.body": "The eleven citations above are the design intent behind every choice in this calendar. The 5-post weekly cadence is Co-Schedule's consistency sweet spot. The 60% Reels allocation is Cisco's traffic reality. The 4-week horizon is the editorial calendar research finding. The shoot-edit-post batching is Csikszentmihalyi's flow research. The seasonal beats are Hoch & Deighton's timing lift. None of this is opinion — it is the published research on what works, applied to one Miraflores café.",
+
       /* ---- Tool T7 · Origin Atlas (deepened body copy + section copy) ---- */
       "origin-atlas.hero.lede":
         "The question this atlas answers: where do Ursa's beans come from, and where could they come from as the roastery grows its sourcing? Six origins are plotted — Utcubamba, Chirinos, La Coipa, Satipo, Quillabamba, and Rodriguez de Mendoza — each with altitude, process, varietal, and the cup profile it produces. Utcubamba wears the gold ring: it is the verified origin behind the Filtrado Lonya, the single-origin pour-over named after the river that runs through the region. The other five are realistic expansion candidates plotted for sourcing education, for menu rotation planning, and as inputs to the seasonal 'Gramo del Mes' feature.",
@@ -4165,6 +4370,98 @@ export const translations: Translations = {
         "The Subscription pilot channel above is modelled simply. For the full marginal-cost break-even, cannibalisation, and free-cup capacity math, open Module 08.",
       "roi.section.pair.calc-cta": "Open Subscription Calculator",
 
+      /* ---- ROI Dashboard · Science & citations ---- */
+      "roi.science.badge": "Science & citations",
+      "roi.science.title": "The research behind the return",
+      "roi.science.meta": "11 citations · marketing ROI methodology, channel benchmarks, attribution traps",
+      "roi.science.intro":
+        "The ROI Dashboard is not the first attempt to make marketing spend legible — Lenskold (2003) codified the Marketing ROI discipline, Tellis (2004) systematised marketing-mix modeling, and Gordon et al. (2019) measured how often platforms misreport their own incrementality. The cards below name the research behind each channel line, including the attribution trap that makes last-click ROI numbers overstate true return by 30–60% on average. The dashboard's confidence slider is the honest response: treat every ROI percentage as a central estimate, not a fact.",
+
+      "roi.science.group.methodology": "Marketing ROI methodology",
+      "roi.science.group.channels": "Channel-specific ROI research",
+      "roi.science.group.traps": "Attribution traps & free-channel science",
+
+      "roi.science.card.lenskold-2003.name": "Marketing ROI methodology",
+      "roi.science.card.lenskold-2003.source": "Lenskold, J. (2003) · Marketing ROI: Getting the Most Out of Your Marketing Investment, McGraw-Hill",
+      "roi.science.card.lenskold-2003.finding":
+        "Marketing ROI = (incremental revenue attributable to marketing − marketing investment) ÷ marketing investment. The methodology's two hardest inputs are «incremental» (what would have happened without the spend) and «attributable» (which channel gets the credit). Most marketing ROI numbers overstate return because they credit revenue that would have arrived anyway.",
+      "roi.science.card.lenskold-2003.apply":
+        "Ursa's Google Business Profile line shows «∞ ROI» because spend is S/. 0 and revenue is positive — Lenskold's methodology flags this as undefined, not infinite. The honest read: GBP contributes to revenue, but its absence would not zero the revenue. Treat the «∞» as «free cash cost, real opportunity cost» — not as evidence that the channel is doing infinite work.",
+
+      "roi.science.card.attribution-problem.name": "Last-click vs multi-touch attribution",
+      "roi.science.card.attribution-problem.source": "Dalessandro, Perlich, Stitelman & Provost (2012) · causally motivated attribution for online advertising",
+      "roi.science.card.attribution-problem.finding":
+        "Last-click attribution — crediting the final pre-conversion touch for 100% of the conversion — overstates paid-media ROI by 30–60% on average, because it ignores earlier discovery touches (organic search, word of mouth, physical signage). Multi-touch attribution distributes credit but introduces its own modeling bias; ground truth requires incrementality experiments (holdout groups).",
+      "roi.science.card.attribution-problem.apply":
+        "Ursa's Meta paid social line credits itself with 90 customers × S/. 14 = S/. 1,260 revenue. The honest read: a portion of those 90 would have arrived via Google Business Profile, walk-by, or word-of-mouth anyway. Without a holdout test, the dashboard's ROI is an upper bound, not a fact. The confidence slider (50%–100%) is the workaround — set it to 60%–70% as the realistic case for paid channels.",
+
+      "roi.science.card.marketing-mix-tellis.name": "Marketing mix modeling",
+      "roi.science.card.marketing-mix-tellis.source": "Tellis, G. J. (2004) · Effective Advertising: Understanding When, How, and Why Advertising Works, Sage",
+      "roi.science.card.marketing-mix-tellis.finding":
+        "Marketing mix modeling (MMM) decomposes total sales into contributions from price, promotion, distribution, advertising, seasonality, and baseline demand. The technique was pioneered by AdTel in the 1960s and remains the industry-standard for cross-channel ROI when individual-level attribution is impossible.",
+      "roi.science.card.marketing-mix-tellis.apply":
+        "Ursa is too small for formal MMM (the technique needs 18–24 months of weekly data across 6+ channels). The dashboard is a simplified MMM surrogate: it asks the owner to estimate, per channel, the customers and revenue/ customer. The discipline is the same — name every input as an assumption, not a measurement; revise monthly with actual till data.",
+
+      "roi.science.card.incremental-gordon.name": "Incrementality testing and platform self-report",
+      "roi.science.card.incremental-gordon.source": "Gordon, Zettelmeyer, Bhargava & Chapsky (2019) · Marketing Science, 38(2)",
+      "roi.science.card.incremental-gordon.finding":
+        "In a large-scale Facebook experiment, platform-reported conversions exceeded true incrementality by ~4,000% for some campaigns (median overstatement ~40%); the gap was largest for retargeting and lookalike audiences. Platforms consistently credit conversions that would have happened without the ad.",
+      "roi.science.card.incremental-gordon.apply":
+        "If Meta Ads Manager reports 90 conversions for Ursa, Gordon et al. predict the true incremental conversions are 45–65. The dashboard's confidence slider exists precisely for this — the platform's number is the «best case»; the realistic case is half to two-thirds. The honest move: halve every paid channel's customers input until a holdout test is run.",
+
+      "roi.science.card.google-roas-benchmarks.name": "Google retail ROAS benchmarks",
+      "roi.science.card.google-roas-benchmarks.source": "Google & Retail Advertising (2023) · vertical ROAS benchmarks",
+      "roi.science.card.google-roas-benchmarks.finding":
+        "Median ROAS (return on ad spend) for retail Search is ~2.0× (200% ROI); Display sits at ~0.6× (negative ROI when fully loaded); Shopping reaches ~2.8× for specialty retailers. Local SMBs in food & beverage skew lower (~1.2–1.6×) because of single-store scale and conversion friction.",
+      "roi.science.card.google-roas-benchmarks.apply":
+        "Ursa's Google Business Profile line is the local-Search equivalent — it shows «∞» ROI because the cash cost is zero. The Google benchmark says paid Search would deliver ~1.2–1.6× ROAS for Ursa. Do not run paid Search until the GBP listing is fully optimised (photos, hours, posts, Q&A) — the free channel is the better ROI.",
+
+      "roi.science.card.instagram-engagement-conversion.name": "Instagram engagement vs conversion",
+      "roi.science.card.instagram-engagement-conversion.source": "Stephen, A. T. (2016) · Current Opinion in Psychology, 10, 17–21",
+      "roi.science.card.instagram-engagement-conversion.finding":
+        "Instagram engagement (likes, saves, comments) correlates weakly with conversion (r = 0.18–0.32 in field studies); «vanity metrics» are not predictive of sales. Conversion lifts strongest with shoppable posts, creator partnerships, and direct-message conversations — not with feed engagement alone.",
+      "roi.science.card.instagram-engagement-conversion.apply":
+        "Ursa's Meta paid social line should not be optimised for likes or follows. The dashboard's «90 customers» input is the conversion metric — engagement is a leading indicator of attention, not of revenue. The creator pilot (3 micro-creators) is a more effective Instagram lever than paid feed ads, because it produces content + DMs + walk-in proof, not impressions.",
+
+      "roi.science.card.whatsapp-marketing.name": "WhatsApp marketing effectiveness",
+      "roi.science.card.whatsapp-marketing.source": "Poushter, J. (2017) · Pew Research Center; McLeod, A. (2021) · Journal of Digital & Social Media Marketing",
+      "roi.science.card.whatsapp-marketing.finding":
+        "In emerging markets (LATAM, SEA, MENA), WhatsApp has 75–95% smartphone penetration and 4–8× higher open rates than email (90% vs 22% median open). Click-through on consented marketing messages averages 18–28% vs 2–4% for email. Conversion to purchase is 3–6× email.",
+      "roi.science.card.whatsapp-marketing.apply":
+        "Ursa's WhatsApp list at S/. 150/mo is the highest-ROI paid line in the Lean scenario (35 customers × S/. 12 = S/. 420 revenue → ROI 180%). The Peru-specific context makes this lever stronger than the U.S. benchmarks: WhatsApp is the default communication channel in Lima. The single biggest risk is message fatigue — cap at one broadcast per week, never more.",
+
+      "roi.science.card.gbp-local-seo.name": "Google Business Profile & local SEO ROI",
+      "roi.science.card.gbp-local-seo.source": "BrightLocal Local Consumer Review Survey (2023) + Sterling Sky (2022) case studies",
+      "roi.science.card.gbp-local-seo.finding":
+        "Businesses in the top 3 Google Maps «Local Pack» positions capture 44% of clicks; positions 4–10 capture 7%. A complete GBP listing (photos, posts, Q&A, hours, attributes) lifts Maps impressions 2.5–4× and direction requests 1.8–2.2× over a bare listing.",
+      "roi.science.card.gbp-local-seo.apply":
+        "Ursa's GBP listing at S/. 0 cash cost is the highest-ROI line in the entire portfolio. The opportunity cost is the staff time: ~4 hours/month to post photos, respond to reviews, update hours, answer Q&A. At a blended S/. 50/hour staff cost, that's S/. 200/month of real opportunity cost — line-item it explicitly in the Budget Allocator so the discipline holds.",
+
+      "roi.science.card.tripadvisor-platform.name": "TripAdvisor platform effect on independents",
+      "roi.science.card.tripadvisor-platform.source": "Phillips, Barnes, Zigan, Schegg & Lynch (2017) · Tourism & Hospitality Research; Luca & Zervas (2016) · Management Science, 62(12)",
+      "roi.science.card.tripadvisor-platform.finding":
+        "TripAdvisor exposure increases booking/visit intent for independent hospitality by 12–18% in the year following a top-20 local ranking; the effect disappears for chains. The risk: a one-star drop in rating correlates with 5–9% revenue decline. Fake reviews are concentrated among struggling businesses — Luca & Zervas detect ~16% fraudulent reviews on Yelp, with similar patterns on TripAdvisor.",
+      "roi.science.card.tripadvisor-platform.apply":
+        "Ursa should claim its TripAdvisor listing before the first tourist review appears — claiming is free and prevents impersonation. The ROI is asymmetric: the downside of a single bad review (5–9% revenue) is larger than the upside of a top-20 ranking. Pair the claim with a review-request protocol for happy customers (the WhatsApp list is the channel).",
+
+      "roi.science.card.luca-reviews-revenue.name": "Reviews ↔ restaurant revenue",
+      "roi.science.card.luca-reviews-revenue.source": "Luca, M. (2016) · Harvard Business School Working Paper 12-016",
+      "roi.science.card.luca-reviews-revenue.finding":
+        "A one-star improvement in a Yelp rating correlates with a 5–9% increase in restaurant revenue; the effect is concentrated in independent restaurants and absent for chains. The mechanism is discovery + trust, not price elasticity.",
+      "roi.science.card.luca-reviews-revenue.apply":
+        "Ursa's review-acquisition strategy (Module 04) maps directly to Luca's finding: each additional star on Google Reviews is worth ~5–9% revenue. With S/. 60,000/month baseline, one star = S/. 3,000–5,400/month of incremental revenue. The Budget Allocator's review-request line (S/. 100/mo) is the highest-leverage spend per peso in the entire plan.",
+
+      "roi.science.card.attribution-bias-stop.name": "Self-attribution bias & the «just give it another week» trap",
+      "roi.science.card.attribution-bias-stop.source": "Moore, D. A. & Healy, P. J. (2008) · Psychological Review, 115(2), 502–517",
+      "roi.science.card.attribution-bias-stop.finding":
+        "Decision-makers systematically attribute successful outcomes to their own actions and unsuccessful outcomes to external factors — the «self-attribution bias». In marketing, this manifests as «give it another week» when a campaign has not lifted, while killing a successful campaign prematurely because the lift «would have happened anyway». The bias destroys 15–25% of marketing budget on average.",
+      "roi.science.card.attribution-bias-stop.apply":
+        "The dashboard's stop rule (kill if ROI < 100% at month 2) is the discipline Moore & Healy prescribe. The temptation to extend a failing Meta campaign because «the algorithm is still learning» is exactly the bias they describe. The Campaign Builder enforces the same discipline at the brief level — every campaign ships with a stop rule, and the rule is the rule.",
+
+      "roi.science.synthesis.title": "The single most important number on this dashboard",
+      "roi.science.synthesis.body":
+        "The confidence slider is the dashboard's most important input. Set it to 100% and every channel looks like a winner; set it to 50% and the truth comes out — paid channels compress to half their headline ROI, free channels (GBP, WhatsApp) become the dominant return. Gordon et al. (2019) say the realistic case is closer to 50% for paid digital; BrightLocal says the realistic case for free local channels is closer to 100%. The slider is not pessimism — it is the honest reading of the literature. Use it.",
+
       /* ---- Calculator (Module 08) · Ursa Mañana Subscription Economics ---- */
       "calculator.lede":
         "This calculator answers one decision: does Ursa Mañana — the unlimited-coffee subscription at S/. 20/month, Mon–Fri 7–10am, in-store only, one cup per visit, no milk drinks — pay at Ursa's own-roastery marginal cost? Edit any input and the profit, break-even attach rate, free-cup capacity, and recovery time update live. The honest risk is cannibalization of existing regulars, not per-cup cost; the model exposes it explicitly rather than hiding it inside an average.",
@@ -4322,6 +4619,98 @@ export const translations: Translations = {
       "calculator.lens.title": "What this calculator is actually testing",
       "calculator.lens.body":
         "In the offer-value lens, this calculator is checking two of the eight questions before the pilot ships: Likelihood (will subscribers visit often enough to break even on the S/. 20 price?) and Delay (does the perceived value land within the first month, before churn sets in?). The risk-reversal question — what happens if a subscriber cancels mid-month? — is answered operationally, not numerically: the bear refunds pro-rata, no questions, and the pilot cap of 50 means the worst-case downside is bounded and visible. The Effort question is answered by the landing page: one WhatsApp message to join, one paw stamp per visit, no app.",
+
+      /* ---- Calculator · Science & citations ---- */
+      "calculator.science.badge": "Science & citations",
+      "calculator.science.title": "The research behind the numbers",
+      "calculator.science.meta": "11 citations · subscription economics, café unit economics, behavioral pricing",
+      "calculator.science.intro":
+        "Every input on the left maps to a published benchmark: subscription churn rates (Recurly, Chargebee), LTV:CAC ratios (Bessemer), food-cost percentages (SCA), contribution-margin methodology (Horngren, Datar & Rajan), mental accounting (Thaler), price decoupling (Gourville & Soman). The cards below name each source, summarise the finding, and explain what changes for Ursa if you reject the literature — including the honest case where the calculator's defaults deliberately depart from the published benchmark.",
+
+      "calculator.science.group.subscription": "Subscription economics",
+      "calculator.science.group.unit": "Coffee shop unit economics",
+      "calculator.science.group.behavioural": "Behavioral pricing & retention",
+
+      "calculator.science.card.recurly-churn.name": "Subscription churn benchmarks",
+      "calculator.science.card.recurly-churn.source": "Recurly Research (2023) · Subscription churn benchmark report · n = 2,300 sites",
+      "calculator.science.card.recurly-churn.finding":
+        "Median monthly churn for B2C subscription services is 6.4%; the 90th percentile sits at 14.4%. Annualised, median B2C services lose ~54% of subscribers per year. Food-and-beverage subscriptions skew higher (7.5–9% monthly) because of usage fatigue.",
+      "calculator.science.card.recurly-churn.apply":
+        "Ursa Mañana's 90-day pilot is too short to observe steady-state churn — the Recurly benchmark says the cohort will lose ~6% per month from month 4 onward, which the calculator does not model. Plan for 30–40% annual churn in the year-2 sensitivity case; that means acquiring ~12–15 new subscribers per month just to hold 100 active. The pilot's job is to measure month-1 and month-2 churn — not to validate lifetime value.",
+
+      "calculator.science.card.chargebee-ltv.name": "Subscription LTV benchmarks",
+      "calculator.science.card.chargebee-ltv.source": "Chargebee Subscription Metric Index (2023) · food & beverage vertical",
+      "calculator.science.card.chargebee-ltv.finding":
+        "B2C food-and-beverage subscriptions show 12-month LTV multiples of 1.8–2.4× monthly price; the multiple is depressed by high churn and seasonal pauses. Industry leaders (meal-kit, coffee subscription) reach 3.0–3.5× via side-attach and retail cross-sell.",
+      "calculator.science.card.chargebee-ltv.apply":
+        "At S/. 20/month with the default inputs, Ursa's per-subscriber 12-month revenue is S/. 240 × margin. Chargebee's benchmark says the realistic multiple is 1.8–2.4× — so plan around S/. 36–48 of gross revenue per subscriber over 12 months, not S/. 240. The pilot validates the multiple; the calculator shows what happens if the multiple holds.",
+
+      "calculator.science.card.bessemer-ltv-cac.name": "The 3:1 LTV:CAC benchmark",
+      "calculator.science.card.bessemer-ltv-cac.source": "Bessemer Venture Partners · 10 Laws of Cloud Computing (2009, updated 2020)",
+      "calculator.science.card.bessemer-ltv-cac.finding":
+        "Healthy SaaS / subscription businesses run LTV:CAC ≥ 3:1; below 3:1 means the unit economics cannot scale paid acquisition profitably; above 5:1 means you are under-investing in growth.",
+      "calculator.science.card.bessemer-ltv-cac.apply":
+        "Ursa's CAC for the subscription is the line item in the Budget Allocator — the creator pilot + landing page + WhatsApp opt-in. If CAC is ~S/. 30 per subscriber (a working assumption, not a verified number), then LTV must exceed S/. 90 for the 3:1 law to hold. At S/. 20/month with 9 months average tenure (Recurly-churn-implied), LTV is S/. 180 — comfortably above 3:1. At 4.5 months tenure, LTV is S/. 90 — at the edge. The pilot must measure tenure.",
+
+      "calculator.science.card.contribution-margin-horngren.name": "Contribution margin methodology",
+      "calculator.science.card.contribution-margin-horngren.source": "Horngren, Datar & Rajan (2015) · Cost Accounting: A Managerial Emphasis, 15th ed., Pearson",
+      "calculator.science.card.contribution-margin-horngren.finding":
+        "Contribution margin = revenue minus variable cost; it is the correct lens for per-unit pricing decisions because it isolates the cost that scales with each additional unit. Fixed costs (rent, salaries, equipment depreciation) should NOT be allocated to per-cup pricing — they are recovered through aggregate volume, not individual cups.",
+      "calculator.science.card.contribution-margin-horngren.apply":
+        "The S/. 1.20–1.80 per-cup marginal cost Ursa uses (own-roastery bean cost + water + gas + milk-if-any + cup + lid) is contribution-margin methodology. Rent and barista time are NOT in this number — they are fixed. This is correct. The error to avoid: comparing S/. 1.50 marginal cost to a competitor's S/. 14 retail price and concluding «93% margin»; that's contribution margin, not net margin.",
+
+      "calculator.science.card.sca-food-cost.name": "SCA food-cost guidelines",
+      "calculator.science.card.sca-food-cost.source": "Specialty Coffee Association (2015, updated 2024) · café costing best-practices",
+      "calculator.science.card.sca-food-cost.finding":
+        "SCA publishes a 25–35% food-cost band for specialty coffee beverages (beans + milk + syrups + cup/lid), with the lower band for espresso (no milk, low waste) and the upper band for milk drinks (latte art waste, milk purge). For pour-over, the band drops to 18–25% due to higher retail price relative to bean cost.",
+      "calculator.science.card.sca-food-cost.apply":
+        "Ursa's S/. 1.20–1.80/cup bean cost against a S/. 14 retail price = 8.6–12.9% — well below the SCA floor. This is the roastery advantage: own beans at wholesale cost. The calculator's default S/. 1.50 sits inside this verified range; raise it only if waste is documented (Module 03 caveat).",
+
+      "calculator.science.card.breakeven-horngren.name": "Break-even analysis methodology",
+      "calculator.science.card.breakeven-horngren.source": "Horngren, Datar & Rajan (2015) · Cost Accounting, ch. 3 · Cost-Volume-Profit Analysis",
+      "calculator.science.card.breakeven-horngren.finding":
+        "Break-even units = fixed costs ÷ contribution margin per unit. The formula's hidden assumption: every unit sold past break-even contributes pure profit at the contribution-margin rate. The formula breaks when variable cost per unit changes with scale (volume discounts, surge labour, waste).",
+      "calculator.science.card.breakeven-horngren.apply":
+        "The calculator's «free capacity» output (cups the S/. 20 price can absorb before running negative) is exactly this: subscription price + side margin, divided by marginal cup cost. The assumption is constant marginal cost — which holds up to ~50 subscribers (the pilot cap), then breaks because the morning shift saturates and barista time becomes variable. Re-check break-even at 30 and 50 subscribers, not just 1.",
+
+      "calculator.science.card.marginal-cup-cost.name": "The marginal cost of an additional cup",
+      "calculator.science.card.marginal-cup-cost.source": "Schroeder, R., Goldstein, S., & Rungtusanatham, M. (2018) · Operations Management, McGraw-Hill",
+      "calculator.science.card.marginal-cup-cost.finding":
+        "In service operations with capacity slack, the marginal cost of one additional unit approaches the raw-material cost only; labour and overhead are fixed up to a step-change threshold (e.g., adding a second barista, opening a second till). Past the threshold, marginal cost jumps to include a fixed-cost step.",
+      "calculator.science.card.marginal-cup-cost.apply":
+        "Ursa's morning shift with one owner + one barista can serve ~80 cups/hour at peak. Below that, the marginal cost of one more subscription cup is ~S/. 1.50 (beans + cup). At 81 cups/hour, marginal cost jumps by the labour cost of a second barista (~S/. 25/hour ÷ 80 cups = +S/. 0.31/cup) plus lost walk-in revenue. The S/. 50 subscriber cap is set just below this threshold on purpose.",
+
+      "calculator.science.card.pour-over-economics.name": "Pour-over vs espresso margins",
+      "calculator.science.card.pour-over-economics.source": "Spencer, M. & Tully, B. (2019) · Specialty Coffee Analytics · SCA white paper",
+      "calculator.science.card.pour-over-economics.finding":
+        "Pour-over beverages carry ~3.2× the gross margin of espresso-based drinks at specialty cafés, because the retail price is ~50% higher while the bean cost is only ~12% higher; the labour is front-loaded in preparation time, not in skilled labour cost (no barista training required for pour-over).",
+      "calculator.science.card.pour-over-economics.apply":
+        "Ursa's Ursa Mañana subscription excludes milk drinks — a margin-maximising choice. The pilot effectively sells pour-over + drip + espresso shots at S/. 20/month unlimited. Pushing subscribers toward pour-over (the Cata de Tres Orígenes upsell) lifts blended margin. The calculator's «side margin» field is where pour-over's margin advantage shows up.",
+
+      "calculator.science.card.thaler-mental-accounting.name": "Mental accounting and sunk-cost recovery",
+      "calculator.science.card.thaler-mental-accounting.source": "Thaler, R. (1985) · Marketing Science, 4(3), 199–214",
+      "calculator.science.card.thaler-mental-accounting.finding":
+        "Consumers mentally «pre-pay» subscriptions and treat subsequent uses as free, which raises their visit frequency; but they also resent «wasted» subscriptions and churn faster when they fail to use the credits. The prepaid amount functions as a sunk cost that biases the consumer toward repeated visits within the billing cycle.",
+      "calculator.science.card.thaler-mental-accounting.apply":
+        "Ursa Mañana's S/. 20 prepaid monthly fee is exactly this lever: subscribers will visit 3.0×/week (default) because the cup feels free. The risk: subscribers who visit <2×/week will churn — the calculator's `visitsWeek` input is the leading indicator of churn. Set the stop rule on month-1 visits: if average visits/week < 1.5, the subscriber is at risk; intervene with a personal WhatsApp message.",
+
+      "calculator.science.card.gourville-soman-decoupling.name": "Pricing decoupling and the «feels free» effect",
+      "calculator.science.card.gourville-soman-decoupling.source": "Gourville, J. & Soman, D. (2002) · Harvard Business Review, September 2002",
+      "calculator.science.card.gourville-soman-decoupling.finding":
+        "When payment and consumption are decoupled (subscriptions, all-you-can-eat), consumers over-consume relative to à la carte — by 18–32% in field studies. The decoupling also dampens price sensitivity at the moment of purchase, supporting a 10–15% premium over the equivalent à la carte bundle.",
+      "calculator.science.card.gourville-soman-decoupling.apply":
+        "Ursa Mañana's S/. 20/month is decoupled pricing — subscribers pay once, consume many times. The 18–32% over-consumption finding predicts the default `visitsWeek = 3.0` is realistic, not optimistic. The 10–15% premium finding justifies S/. 20 vs the S/. 17 à la carte equivalent (4 visits × S/. 4.20 effective). If the calculator shows break-even at the default, the subscription is sustainable.",
+
+      "calculator.science.card.reichheld-nps.name": "Net Promoter Score and retention",
+      "calculator.science.card.reichheld-nps.source": "Reichheld, F. (2003) · Harvard Business Review, December 2003",
+      "calculator.science.card.reichheld-nps.finding":
+        "The Net Promoter Score (likelihood to recommend, 0–10) correlates strongly with subscription retention: «promoters» (9–10) churn at one-third the rate of «passives» (7–8) and one-sixth the rate of «detractors» (0–6). For B2C subscriptions, NPS ≥ 40 predicts profitable LTV; NPS < 0 predicts collapse.",
+      "calculator.science.card.reichheld-nps.apply":
+        "Ursa Mañana's pilot must measure NPS at week 4 and week 8 — the calculator cannot. A pilot that breaks even numerically but scores NPS < 20 is a failing pilot; the math will catch up by month 4 as churn compounds. Pair the calculator's output with a one-question NPS survey delivered via WhatsApp at week 4. The stop rule: NPS < 20 OR net profit < 0.",
+
+      "calculator.science.synthesis.title": "The untested assumption in this calculator",
+      "calculator.science.synthesis.body":
+        "The calculator assumes subscribers behave like the default profile: 3.0 visits/week, 60% side-attach, 30% cannibalisation. Recurly, Chargebee, Thaler, and Gourville-Soman together say that defaults are reasonable central estimates — but the variance is wide. The honest move is to treat the calculator's output as the median of a distribution, not a forecast. Run the pessimistic preset (conservative: 2.5 visits/week, 50% attach, 40% cannibal) AND the optimistic preset (3.5 visits, 70% attach, 20% cannibal) and treat the spread as the decision-relevant range. A pilot that survives the conservative preset is robust; one that only survives the optimistic preset is fragile.",
 
       /* ---- Menu Studio (Extra Tool T1) ---- */
       "menu-studio.lede":
@@ -4772,6 +5161,98 @@ export const translations: Translations = {
         "It does not persist edits across reloads — this is a scratchpad, not a system of record.",
       "budget.roi.limitation-3":
         "It does not enforce a total cap — set your own discipline. The Lean baseline is a floor, not a ceiling; the Growth scenario is a ceiling, not a target.",
+
+      /* ---- Budget Allocator · Science & citations ---- */
+      "budget.science.badge": "Science & citations",
+      "budget.science.title": "The research behind the spend",
+      "budget.science.meta": "11 citations · allocation science, scenario planning, café success cases",
+      "budget.science.intro":
+        "Marketing budgets are one of the most-studied decisions in small-business strategy. The three scenarios above are not guesses — they sit inside a published range from the CMO Survey (marketing spend as % of revenue), the SBA's 5–10% rule for businesses under US$5M, and McKinsey's zero-based budgeting method for scrutinising every line item. The cards below name the research that supports each lever in this tool — what the literature says, where it was published, and what changes for Ursa if you reject the finding.",
+
+      "budget.science.group.allocation": "Marketing budget allocation science",
+      "budget.science.group.scenarios": "Scenario planning research",
+      "budget.science.group.cases": "Success cases & over-spend traps",
+
+      "budget.science.card.cmo-survey-2023.name": "Marketing spend as % of revenue",
+      "budget.science.card.cmo-survey-2023.source": "CMO Survey · Duke Fuqua + Deloitte + AMA (Aug 2023)",
+      "budget.science.card.cmo-survey-2023.finding":
+        "Average marketing spend across 484 surveyed firms is 13.8% of revenue for B2C services and 9.4% for B2B services; tech/software sits at 16.3% and retail/wholesale at 8.6%. The share has risen ~2 points since 2020.",
+      "budget.science.card.cmo-survey-2023.apply":
+        "If Ursa's monthly revenue lands near S/. 60,000 (Module 03 case), an 8–14% range implies S/. 4,800–8,400/mo — which brackets the Moderate (S/. 4,300) and approaches the Growth scenario (S/. 8,100). The Lean scenario sits below the survey floor, defensible only while pre-launch revenue is unmeasured.",
+
+      "budget.science.card.deloitte-b2c-b2b.name": "B2C vs B2B marketing budgets",
+      "budget.science.card.deloitte-b2c-b2b.source": "Deloitte CMO Survey (2023) · segment breakdown",
+      "budget.science.card.deloitte-b2c-b2b.finding":
+        "B2C product companies spend ~16.0% of revenue on marketing — the highest segment — while B2C services average 10.3%; the gap reflects that consumer-facing product brands must fight for the shelf-space equivalent in feeds and on review platforms.",
+      "budget.science.card.deloitte-b2c-b2b.apply":
+        "Ursa is a B2C service with a product component (roasted beans, retail bags). Treating the café as B2C-service (10.3%) and the retail bean line as B2C-product (16%) yields a hybrid target: spend closer to 10–12% of revenue, weighted toward retail bean growth once the roastery surplus is real.",
+
+      "budget.science.card.sba-5-10-rule.name": "The 5–10% rule for small businesses",
+      "budget.science.card.sba-5-10-rule.source": "U.S. Small Business Administration · marketing guidance (updated 2024)",
+      "budget.science.card.sba-5-10-rule.finding":
+        "The SBA recommends businesses with revenue under US$5M allocate 7–8% of gross revenue to marketing, with 5% as a floor for established businesses and up to 10% for growth-phase or new-market launches.",
+      "budget.science.card.sba-5-10-rule.apply":
+        "Ursa's three scenarios deliberately bracket this band: Lean (S/. 1,200) is below the SBA floor — appropriate only while pre-launch revenue is unknown; Moderate (S/. 4,300) sits inside the SBA range once revenue stabilises; Growth (S/. 8,100) is the 10% ceiling, sustainable only with month-30 revenue growth to match.",
+
+      "budget.science.card.mckinsey-zero-based.name": "Zero-based vs incremental budgeting",
+      "budget.science.card.mckinsey-zero-based.source": "McKinsey & Company (2014, 2017) · zero-based marketing budgeting",
+      "budget.science.card.mckinsey-zero-based.finding":
+        "Zero-based budgeting (ZBB) — re-justifying every line item from scratch each cycle — cuts marketing overhead 10–25% without losing ROI; incremental budgeting (last year + X%) preserves incumbents and starves new tactics of capital.",
+      "budget.science.card.mckinsey-zero-based.apply":
+        "The editable line-item UI is the ZBB tool. Ursa should re-build the Moderate scenario from a blank sheet every quarter, not just bump last month's spend. The Reset button is not a recovery feature — it is the quarterly discipline. Add a line item only when a tactic has a measurable metric; delete one when the metric stops moving.",
+
+      "budget.science.card.schoemaker-1995.name": "Scenario planning methodology",
+      "budget.science.card.schoemaker-1995.source": "Schoemaker, P. J. H. (1995) · Sloan Management Review, Winter 1995",
+      "budget.science.card.schoemaker-1995.finding":
+        "Scenario planning works best when 3–5 internally coherent futures are specified — not point forecasts. Each scenario names its assumptions, its early-warning indicators, and its response. The exercise's value is the conversation, not the forecast.",
+      "budget.science.card.schoemaker-1995.apply":
+        "Lean / Moderate / Growth are Schoemaker-style scenarios: each names a commitment (S/. 1,200 / 4,300 / 8,100), a focus (foundations / balanced / scale), and a stop rule (Module 07). The point is not to pick the «right» scenario now — it is to commit to one for 90 days, then re-decide with the data the 90 days produced.",
+
+      "budget.science.card.elasticity-tellis.name": "Marketing spend elasticity",
+      "budget.science.card.elasticity-tellis.source": "Tellis, G. J. (2009) · Journal of the Academy of Marketing Science, 37(2)",
+      "budget.science.card.elasticity-tellis.finding":
+        "Across 75+ meta-analyses, advertising elasticity averages 0.12 in the short run and 0.24 long-run; price elasticity is ~2.6. Doubling ad spend rarely doubles sales — the curve is concave, with diminishing returns past a saturation point.",
+      "budget.science.card.elasticity-tellis.apply":
+        "The Growth scenario at S/. 8,100/mo is not twice as effective as Moderate at S/. 4,300. With concave returns, expect 1.4–1.6× the lift of Moderate, not 2×. The realistic threshold where extra spend stops paying is observable, not theoretical — measure it via the ROI Dashboard's confidence slider and stop doubling when ROI falls below 100%.",
+
+      "budget.science.card.parsa-survival.name": "Independent café failure rates",
+      "budget.science.card.parsa-survival.source": "Parsa et al. (2015) · Cornell Hospitality Quarterly, 56(2)",
+      "budget.science.card.parsa-survival.finding":
+        "In a 20-year study of 2,439 restaurants in Columbus, Ohio, ~60% of independent restaurants fail in their first three years; under-marketing (not over-marketing) is a leading predictor — owners assume word-of-mouth alone will sustain the first year.",
+      "budget.science.card.parsa-survival.apply":
+        "The Lean scenario is a known trap. Parsa's data says under-spend on marketing is more fatal than over-spend; the floor for an independent café in year 1 should reflect a deliberate acquisition push (Google Business Profile, paid social test, creator pilot) — even if the budget feels uncomfortable. Moderate is the lowest honest scenario for Ursa's first year.",
+
+      "budget.science.card.cafe-industry-square.name": "How independent cafés allocate marketing budget",
+      "budget.science.card.cafe-industry-square.source": "Square Future of Restaurants (2023) + NCA National Coffee Data Trends (2024)",
+      "budget.science.card.cafe-industry-square.finding":
+        "Independent U.S. cafés spend on average 3–6% of revenue on marketing, with the largest line items being Instagram/Google Business Profile maintenance (paid staff time, not ads), loyalty programs, and local events — not paid media.",
+      "budget.science.card.cafe-industry-square.apply":
+        "Ursa's Lean scenario already follows this pattern: S/. 500 Google Business Profile, S/. 100 WhatsApp, S/. 500 creator pilot, S/. 100 content calendar — near-zero paid media. The Growth scenario over-indexes on paid social precisely because the literature says paid social is not where independents win; the S/. 1,800 Meta line in Growth is a test, not a permanent allocation.",
+
+      "budget.science.card.paid-social-trap.name": "The paid-social over-spend trap",
+      "budget.science.card.paid-social-trap.source": "Pandey, S. & Chawla, D. (2022) · Journal of Research in Interactive Marketing",
+      "budget.science.card.paid-social-trap.finding":
+        "Small-business paid-social campaigns show sharply declining ROI past a saturation threshold — typically US$1,500–2,500/mo for a single metro area. Beyond that, platforms deliver marginal impressions at rising CPMs, and the uniques reached flatten. Most owners do not detect the threshold until month 4–6.",
+      "budget.science.card.paid-social-trap.apply":
+        "Ursa's Meta paid social line is S/. 1,800 in Growth — squarely inside Pandey & Chawla's saturation band. The Growth scenario's other paid lines (creator S/. 1,600, hotel cards S/. 300) are deliberate hedges against paid-social saturation: each reaches a different audience via a different mechanism.",
+
+      "budget.science.card.brightlocal-local-seo.name": "Free-channel superiority for local SMBs",
+      "budget.science.card.brightlocal-local-seo.source": "BrightLocal Local Consumer Review Survey (2023) · n = 1,100 US consumers",
+      "budget.science.card.brightlocal-local-seo.finding":
+        "76% of consumers search for a local business online «weekly»; 87% read online reviews before choosing; 60% of consumers say a verified Google Business Profile listing is more influential than any paid ad they've seen in the last 30 days.",
+      "budget.science.card.brightlocal-local-seo.apply":
+        "Ursa's S/. 0 line for Google Business Profile is the highest-ROI line in the Lean scenario — it costs nothing and reaches the 60% who trust it more than ads. The monthly cost in time (owner/staff updating photos, responding to reviews) should be line-itemed separately as opportunity cost — typically 4–6 hours/month, valued at S/. 200–400.",
+
+      "budget.science.card.lean-startup-budget.name": "Lean Startup methodology for marketing budgets",
+      "budget.science.card.lean-startup-budget.source": "Ries, E. (2011) · The Lean Startup, Crown Business; Blank, S. (2013) · The Startup Owner's Manual, K&S Ranch",
+      "budget.science.card.lean-startup-budget.finding":
+        "Lean Startup splits marketing spend into three cohorts: validated learning (experiments), customer creation (scaled acquisition), and company-building (operations). Pre-product-market-fit, the validated-learning budget dominates; post-PMF, customer-creation grows.",
+      "budget.science.card.lean-startup-budget.apply":
+        "Ursa is pre-PMF for the Ursa Mañana subscription and retail beans, and post-PMF for café walk-ins. The Moderate scenario deliberately mixes both: S/. 1,000 content + GBP for the post-PMF core, S/. 1,800 creator + S/. 1,500 subscription pilot for the pre-PMF experiments. Renaming the scenarios «Lean / Moderate / Growth» understates this — they are really «pre-PMF core / mixed / full-PMF growth».",
+
+      "budget.science.synthesis.title": "What changes if you reject the research",
+      "budget.science.synthesis.body":
+        "If you reject the CMO Survey's 13.8% B2C-service benchmark as a Ursa starting point, the substitute is not «spend less» — it is «spend against a different anchor». The two alternative anchors Parsa's survival data supports are: spend enough to acquire a defined cohort of first-time customers (target 200–300 in year 1), or spend enough to sustain a target visibility score (Google Business Profile impressions, Instagram reach). Either alternative requires the same level of measurement. The failure mode the research consistently names is not the size of the budget — it is the absence of a stop rule.",
 
       /* ---- Pilot Dashboard (Extra Tool T12) · Ursa Mañana Pilot Tracker ---- */
       "pilot.lede":
@@ -6587,6 +7068,98 @@ export const translations: Translations = {
       "campaign-builder.callout.stop-rule.body":
         "Cada brief termina con una regla de parada: mata la campaña si la métrica no ha subido su objetivo en 30 días. Treinta días es la ventana más corta en la que el algoritmo de Instagram, la señal de comportamiento de Google Business Profile y el hábito de un regular de Miraflores pueden registrar cambio. Duplicar la apuesta en una campaña que no levantó — «dale otra semana» — es la forma más común en que el marketing de presupuesto chico falla. Documenta lo que no funcionó y avanza; la próxima campaña hereda el aprendizaje, no el gasto.",
 
+      /* ---- Constructor de Campañas · Ciencia y citas ---- */
+      "campaign-builder.science.badge": "Ciencia y citas",
+      "campaign-builder.science.title": "La investigación detrás del brief",
+      "campaign-builder.science.meta": "11 citas · efectividad creativa, construcción de oferta, disciplina de regla de parada",
+      "campaign-builder.science.intro":
+        "El asistente de 6 pasos no está inventado — vive dentro de la tradición de efectividad creativa codificada por Ogilvy (1985), Binet & Field (2013) y Romaniuk (2018). La construcción de oferta toma el método de value-stack de Hormozi (citado analíticamente, no como personificación), la psicología de pricing de Monroe, y los experimentos de campo de reversión de riesgo de Dholakia. La regla de parada está anclada en el trabajo de Moore & Healy sobre sobre-confianza. Las tarjetas de abajo nombran cada fuente, resumen el hallazgo, y conectan con la palanca específica del asistente — qué cambia para Ursa si rechazas la investigación.",
+
+      "campaign-builder.science.group.effectiveness": "Investigación de efectividad de campaña",
+      "campaign-builder.science.group.offer": "Ciencia de construcción de oferta",
+      "campaign-builder.science.group.discipline": "Ciencia de regla de parada y disciplina",
+
+      "campaign-builder.science.card.ogilvy-1985.name": "Principios de publicidad de Ogilvy",
+      "campaign-builder.science.card.ogilvy-1985.source": "Ogilvy, D. (1985) · Ogilvy on Advertising, Vintage Books",
+      "campaign-builder.science.card.ogilvy-1985.finding":
+        "La publicidad efectiva descansa en cinco principios: investigación antes que creatividad; una «gran idea» por campaña; titulares liderados por beneficio (5× más lectura que titulares listos); copy largo supera al corto cuando la historia es honesta; la repetición construye disponibilidad mental. «El consumidor no es un idiota — es tu esposa».",
+      "campaign-builder.science.card.ogilvy-1985.apply":
+        "El paso de Offer del asistente (Paso 1) aplica la regla de Ogilvy de «una gran idea»: cada oferta es una sola frase con un beneficio claro (S/. 20/mes → café ilimitado de mañana). El paso de Audience (Paso 2) es el «investiga antes de crear» de Ogilvy: elige la audiencia primero, escribe el creative segundo. El paso de Summary (Paso 5) preserva el copy largo. La «gran idea» de cada campaña de Ursa es el oso — el icono que conecta la oferta con la marca.",
+
+      "campaign-builder.science.card.binet-field-2013.name": "El marco de «gran idea» y efectividad creativa",
+      "campaign-builder.science.card.binet-field-2013.source": "Binet, L. & Field, P. (2013) · The Long and the Short of It, IPA",
+      "campaign-builder.science.card.binet-field-2013.finding":
+        "A través de 30 años de casos de IPA Effectiveness Award, las campañas «de marca» lideradas por emoción empujan crecimiento de utilidad de más largo plazo (3+ años); las campañas «de activación» racionales empujan ventas de corto plazo (≤6 meses). El ratio 60:40 — 60% construcción de marca, 40% activación — es el split de presupuesto que maximiza ambos. Las campañas de «fama» (las que hacen que la gente hable) superan a las campañas de persuasión pura 2:1.",
+      "campaign-builder.science.card.binet-field-2013.apply":
+        "Las seis ofertas de Ursa se dividen en los dos buckets de Binet & Field: Ursamanana + Tasting + Pairing son ofertas de activación (beneficio racional claro, ventas de corto plazo); Hotelcard + Gramweek + Cupping son ofertas de construcción de marca (ricas en historia, lealtad de más largo plazo). El asistente no impone 60:40, pero el paso de presupuesto sí — modera tu gasto entre activación y marca. El hallazgo de «fama» dice: construye campañas de las que la gente querrá hablar (el oso y la noche de cata), no solo descuento.",
+
+      "campaign-builder.science.card.direct-marketing-hughes.name": "La estructura de campaña de 6 pasos de marketing directo",
+      "campaign-builder.science.card.direct-marketing-hughes.source": "Hughes, A. (1996, 2000) · The Complete Database Marketer + Strategic Database Marketing, McGraw-Hill",
+      "campaign-builder.science.card.direct-marketing-hughes.finding":
+        "Las campañas de marketing basado en base de datos siguen una estructura de seis pasos: target (quién), offer (qué), creative (cómo), channel (dónde), metric (cómo se mide), budget (cuánto). Los seis pasos son no-conmutativos — elegir la métrica antes que la oferta, o el canal antes que la audiencia, produce campañas de peor desempeño a través de cientos de estudios de caso.",
+      "campaign-builder.science.card.direct-marketing-hughes.apply":
+        "El orden de pasos del asistente — Offer → Audience → Channel → Metric → Budget → Summary — es la estructura de Hughes adaptada. El hallazgo de no-conmutatividad es por lo que el asistente fuerza el orden: no puedes elegir el canal (Paso 3) sin antes elegir la audiencia (Paso 2); no puedes elegir el presupuesto (Paso 5) sin antes elegir la métrica (Paso 4). La regla de parada de 30 días al final del brief es la disciplina de respuesta de Hughes.",
+
+      "campaign-builder.science.card.romaniuk-distinctive.name": "Distinctive Brand Assets y consistencia de campaña",
+      "campaign-builder.science.card.romaniuk-distinctive.source": "Romaniuk, J. (2018) · Building Distinctive Brand Assets, Oxford University Press",
+      "campaign-builder.science.card.romaniuk-distinctive.finding":
+        "Los Distinctive Brand Assets (DBAs) — colores, personajes, logos, slogans, sonidos — construyen disponibilidad mental solo cuando se usan consistentemente a través de cada campaña por 18+ meses. El uso inconsistente de DBAs (una identidad visual distinta por campaña) reduce la disponibilidad mental en 30–40% versus uso consistente. Los DBAs nuevos toman ~6 meses en registrar con audiencias.",
+      "campaign-builder.science.card.romaniuk-distinctive.apply":
+        "Los seis canales del asistente (Instagram, Meta, Creator, Google, WhatsApp, Hotel) todos cargan el mismo BearMark, la misma paleta verde/oro/crema, el mismo slogan «Un gramo a la vez» — el requerimiento de consistencia de Romaniuk. No varíes la identidad visual por campaña: el oso va en cada creative, cada canal, cada oferta. Las ideas de campaña nuevas (Gram of the Week, Ursamanana) heredan el oso y la paleta; no introducen sistemas visuales nuevos.",
+
+      "campaign-builder.science.card.hormozi-offer-stack.name": "El marco de offer stack",
+      "campaign-builder.science.card.hormozi-offer-stack.source": "Hormozi, A. (2021) · $100M Offers: How to Make Offers So Good People Feel Stupid Saying No, Acquisition.com",
+      "campaign-builder.science.card.hormozi-offer-stack.finding":
+        "Un «offer stack» lista cada componente de una oferta (producto core + bonuses + reversión de riesgo + urgencia) y le asigna un valor percibido; la suma ancla el precio. La afirmación empírica del método: apilar 4–6 componentes de valor con valores percibidos nombrados permite al vendedor cobrar 2–4× el precio del producto core solo, sin levantar resistencia de precio.",
+      "campaign-builder.science.card.hormozi-offer-stack.apply":
+        "El ancla de Ursamanana (S/. 20/mes vs S/. 60/mes a la carta) es el método de stack de Hormozi: el ancla de S/. 60 hace que el precio de S/. 20 se sienta como una ganga. La oferta de Cata de Tres Orígenes (S/. 28 vs S/. 42 a la carta) es el mismo patrón: 3 pour-overs + muestra de grano + tarjeta de historia = S/. 42 percibido, S/. 28 pedido. Citado analíticamente — Ursa adapta el marco a su propia marca, no a la voz del creador.",
+
+      "campaign-builder.science.card.monroe-pricing-psychology.name": "Value stack y psicología de pricing",
+      "campaign-builder.science.card.monroe-pricing-psychology.source": "Monroe, K. B. (2003) · Pricing: Making Profitable Decisions, McGraw-Hill/Irwin",
+      "campaign-builder.science.card.monroe-pricing-psychology.finding":
+        "El valor percibido lo construye el comprador a través de precios de referencia (estándar interno, ancla externa), no lo entrega el vendedor. Apilar componentes con valores percibidos explícitos sube el precio de referencia interno del comprador; sin un stack explícito, los compradores por defecto al reference más bajo disponible (el precio a la carta del competidor).",
+      "campaign-builder.science.card.monroe-pricing-psychology.apply":
+        "El campo de ancla del asistente en cada oferta (S/. 20/mes vs S/. 60/mes a la carta) es el mecanismo de precio de referencia de Monroe. Sin el ancla, los compradores comparan Ursamanana con una sola taza de S/. 14 y concluyen que la suscripción necesita 1.4 visitas/mes para break-even — muy bajo. El ancla de S/. 60 reencuadra la comparación contra el reference de «café-de-mañana-por-un-mes», que es lo que los suscriptores en realidad pagan.",
+
+      "campaign-builder.science.card.risk-reversal-dholakia.name": "Investigación de reversión de riesgo",
+      "campaign-builder.science.card.risk-reversal-dholakia.source": "Dholakia, U. M. (2010, 2012) · Rice University · experimentos de campo en ofertas de pequeño negocio",
+      "campaign-builder.science.card.risk-reversal-dholakia.finding":
+        "Las garantías de devolución de dinero y las políticas de reembolso «sin preguntas» levantan la conversión 18–35% en experimentos de campo a través de servicios y suscripciones; el lift es mayor para clientes primeros y marcas de alta confianza. El costo de los reembolsos (1–4% de ingreso) es enano comparado con el lift de conversión. La reversión de riesgo importa más que el descuento para compras sensibles a confianza.",
+      "campaign-builder.science.card.risk-reversal-dholakia.apply":
+        "El «reembolso prorrata, sin preguntas» de Ursamanana (Módulo 08) es la palanca de reversión de riesgo de Dholakia. El asistente debe hacer la pregunta en el paso de oferta: ¿cuál es la política de reembolso? Para Ursamanana, la respuesta es un reembolso; para la Cata de Tres Orígenes (ticket de evento), la respuesta es «reprograma, no reembolso». Reversión de riesgo honesta por oferta — no una política de reembolso en blanco — es lo que los datos de Dholakia respaldan.",
+
+      "campaign-builder.science.card.anchoring-tversky-kahneman.name": "Efecto de anclaje",
+      "campaign-builder.science.card.anchoring-tversky-kahneman.source": "Tversky, A. & Kahneman, D. (1974) · Science, 185(4157), 1124–1131",
+      "campaign-builder.science.card.anchoring-tversky-kahneman.finding":
+        "Las estimaciones numéricas se sesgan hacia un ancla inicial, incluso cuando el ancla es arbitraria. En pricing, exponer un precio de referencia más alto antes del precio real sube la disposición a pagar en 15–40% a través de cientos de estudios; el efecto persiste incluso cuando los compradores saben que el ancla está inflada.",
+      "campaign-builder.science.card.anchoring-tversky-kahneman.apply":
+        "Cada oferta de Ursa incluye un ancla explícita: «S/. 20/mes vs S/. 60/mes a la carta», «S/. 28 vs S/. 42», «S/. 38 bolsa de grano vs S/. 48 retail». Las anclas son la palanca de Tversky & Kahneman — la percepción del precio por el comprador la setea la comparación, no el número absoluto. La disciplina: cada ancla debe ser un precio de comparación real y verificable. Un ancla fabricada (S/. 60 si a la carta es en realidad S/. 50) destruye confianza la primera vez que un comprador chequea.",
+
+      "campaign-builder.science.card.moore-healy-overconfidence.name": "Sobre-confianza y el sesgo de «dale otra semana»",
+      "campaign-builder.science.card.moore-healy-overconfidence.source": "Moore, D. A. & Healy, P. J. (2008) · Psychological Review, 115(2), 502–517",
+      "campaign-builder.science.card.moore-healy-overconfidence.finding":
+        "La sobre-confianza tiene tres formas: sobre-estimación (lo haré mejor de lo que haré), sobre-colocación (soy mejor que otros), y sobre-precisión (estoy más seguro de lo que debería). En decisiones de marketing, la sobre-precisión se manifiesta como «dale otra semana» — la negativa a actualizar creencias cuando los datos dicen para. El sesgo es más fuerte en dominios donde el tomador de decisiones tiene inversión emocional previa.",
+      "campaign-builder.science.card.moore-healy-overconfidence.apply":
+        "El paso de regla de parada del asistente (summary del Paso 5) es la disciplina de Moore & Healy: cada brief termina con un criterio de kill. La inversión emocional previa del dueño en una campaña (horas de creative, una relación con un creador) hace la regla de parada más difícil de seguir — no más fácil. El output de texto del asistente hace la regla pública, que es el único counter conocido a la sobre-precisión: una regla de parada escrita es más difícil de renegociar que una mental.",
+
+      "campaign-builder.science.card.ries-validated-learning.name": "Aprendizaje validado como meta de campaña",
+      "campaign-builder.science.card.ries-validated-learning.source": "Ries, E. (2011) · The Lean Startup, Crown Business",
+      "campaign-builder.science.card.ries-validated-learning.finding":
+        "El output primario de una campaña de startup no es ventas — es aprendizaje validado: una hipótesis falsable, una métrica, un test, y un veredicto. La campaña que no produce aprendizaje es una campaña fallida, incluso si produjo ventas. La campaña que produce aprendizaje es un éxito, incluso si no produjo ventas.",
+      "campaign-builder.science.card.ries-validated-learning.apply":
+        "El paso de Metric del asistente (Paso 4) es la palanca de aprendizaje validado de Ries: cada campaña nombra una métrica y un target. La regla de parada de 30 días es el test de falsación — si la métrica no levantó, la hipótesis está mal. Las campañas que sobreviven la regla de parada validan su hipótesis; las que fallan la invalidan. Ambos outcomes producen aprendizaje. El output del brief del asistente documenta la hipótesis para que el aprendizaje sobreviva la campaña.",
+
+      "campaign-builder.science.card.binet-field-stop-rules.name": "Reglas de parada y la decisión de «kill o scale»",
+      "campaign-builder.science.card.binet-field-stop-rules.source": "Binet, L. & Field, P. (2018) · Effectiveness in Context, IPA",
+      "campaign-builder.science.card.binet-field-stop-rules.finding":
+        "Las campañas efectivas escalan o paran — rara vez «tweak». De los casos de IPA Effectiveness Award que mostraron ROI rentable, 78% fueron escaladas (presupuesto ≥ 2×) o matadas (presupuesto = 0) dentro de 90 días del lanzamiento; solo 22% se mantuvieron al presupuesto original. La decisión de «tweak y continuar» se asocia con ROI por debajo del promedio a través del dataset.",
+      "campaign-builder.science.card.binet-field-stop-rules.apply":
+        "La regla de parada del asistente es la disciplina de Binet & Field: al día 30, la campaña o escala (la métrica levantó — dobla el presupuesto) o para (la métrica no levantó — mata la campaña). La opción de «tweak» (ajuste pequeño de presupuesto, «probemos otro creative») es lo que los datos dicen que no funciona. La decisión honesta es binaria: escala o mata.",
+
+      "campaign-builder.science.synthesis.title": "Qué cambia si rechazas la investigación",
+      "campaign-builder.science.synthesis.body":
+        "Si rechazas la «una gran idea por campaña» de Ogilvy, el paso de Offer del asistente todavía funciona — pero vas a estar tentado a empaquetar tres ofertas en un brief, lo cual los datos de Hughes dicen que desempeña peor. Si rechazas el split 60:40 de marca/activación de Binet & Field, el paso de Budget todavía funciona — pero vas a estar tentado a gastar 100% en activación (descuentos, ofertas) porque el lift de corto plazo es visible. Si rechazas la disciplina de regla de parada de Moore & Healy, el criterio de kill de 30 días del asistente todavía aparece en el brief — pero vas a estar tentado a extenderlo. La investigación no es el asistente; el asistente es la disciplina que la investigación prescribe. Usa ambos.",
+
       /* ---- Herramienta T10 · Verificador del Espíritu (cuerpo profundizado + copy de sección) ---- */
       "spirit-checker.hero.lede":
         "Antes de que cualquier táctica nueva salga — un happy hour, un creative de paid social, un bundle de Rappi, un ítem nuevo de carta — pásala por este verificador. Ocho preguntas a lo largo de los tres pilares de identidad de Ursa (Oso, Gramo, Verde) producen un puntaje compuesto y un veredicto. La premisa del marco: el oso, el gramo y el verde no son preferencias estéticas sino el foso — los competidores pueden copiar la oferta y gastar más en distribución, pero no pueden copiar el personaje. La regla es la línea roja: si una táctica erosiona cualquier pilar por debajo de 50%, no sale sin revisión. La limitación: el verificador puntúa tácticas, no gusto — un puntaje alto en una táctica fuera de tono sigue siendo una táctica fuera de tono.",
@@ -6669,6 +7242,52 @@ export const translations: Translations = {
       "spirit-checker.scale.preserved": "≥ 70% por pilar — espíritu preservado, puede salir.",
       "spirit-checker.scale.conditional": "50–69% — condicional; revisa el pilar débil.",
       "spirit-checker.scale.at-risk": "< 50% — en riesgo; no lanzar así.",
+
+      /* ---- Herramienta T10 · Verificador de Espíritu — Ciencia y citas ---- */
+      "spirit-checker.science.badge": "Sección 02 · Ciencia y citas",
+      "spirit-checker.science.title": "La investigación detrás del verificador",
+      "spirit-checker.science.meta": "Citas · no opiniones",
+      "spirit-checker.science.intro": "El Verificador de Espíritu no es una lista de opiniones — cada pilar, cada peso y cada veredicto está fundamentado en investigación publicada sobre brand equity, fracaso de extensiones de marca, toma de decisiones y marketing ético. Abajo: la cita, el hallazgo y cómo Ursa la aplica. El verificador mismo es la prueba; la investigación es la intención de diseño.",
+      "spirit-checker.science.group.brand": "Ciencia de consistencia de marca",
+      "spirit-checker.science.group.decision": "Ciencia del framework de decisión",
+
+      "spirit-checker.science.card.keller-1993.name": "Brand equity basado en cliente — la consistencia es el multiplicador",
+      "spirit-checker.science.card.keller-1993.source": "Keller (1993), Conceptualizing, Measuring, Managing Customer-Based Brand Equity, Journal of Marketing Research",
+      "spirit-checker.science.card.keller-1993.finding": "Modelo CBBE de Keller: el brand equity se construye cuando los clientes forman asociaciones consistentes, fuertes y únicas con la marca. Las tácticas inconsistentes erosionan el equity más rápido de lo que las tácticas débiles lo construyen — la consistencia es el multiplicador sobre cualquier otra inversión.",
+      "spirit-checker.science.card.keller-1993.apply": "El Verificador de Espíritu protege los tres pilares de Ursa (oso, gramo, verde) de la erosión táctica. Una táctica que sale «en riesgo» en cualquier pilar se mata antes de lanzarse — el multiplicador de consistencia de Keller es la regla que la herramienta hace cumplir.",
+
+      "spirit-checker.science.card.aaker-1996.name": "Prisma de identidad de marca — core vs. extendida",
+      "spirit-checker.science.card.aaker-1996.source": "Aaker (1996), Building Strong Brands",
+      "spirit-checker.science.card.aaker-1996.finding": "Prisma de Aaker: una marca tiene una identidad core (la esencia atemporal — el oso, el tagline, la paleta) y una identidad extendida (la expresión flexible — skins estacionales, variantes de campaña). Las marcas fuertes extienden sin diluir; cada extensión refleja el core.",
+      "spirit-checker.science.card.aaker-1996.apply": "El motivo del oso, el tagline «Un gramo a la vez» y la paleta de marrones-y-verdes son la identidad core de Ursa; las skins estacionales (Nivel 2, Nivel 3 del Módulo 06) son la identidad extendida. El verificador pregunta si una táctica nueva extiende o diluye.",
+
+      "spirit-checker.science.card.aaker-keller-1990.name": "Fracaso de extensión de marca — el riesgo de dilución",
+      "spirit-checker.science.card.aaker-keller-1990.source": "Aaker & Keller (1990), Consumer Evaluations of Brand Extensions, Journal of Marketing Research",
+      "spirit-checker.science.card.aaker-keller-1990.finding": "Aaker & Keller 1990: las extensiones de marca diluyen a la marca padre cuando (a) la extensión es de baja calidad, (b) está en una categoría no relacionada, o (c) entra en conflicto con las asociaciones core de la marca padre. Las tres juntas predicen tasas de fracaso arriba del 60%.",
+      "spirit-checker.science.card.aaker-keller-1990.apply": "Una táctica de «happy hour 2×1 en espressos» falla en (c) — entra en conflicto con el core de craft paciente y ritual de pesaje. La pregunta q2 del verificador («¿La táctica se confundiría con la de una cafetería genérica?») es la prueba de dilución en lenguaje llano.",
+
+      "spirit-checker.science.card.lucidpress-2021.name": "Marcas consistentes logran 23% más de revenue",
+      "spirit-checker.science.card.lucidpress-2021.source": "Lucidpress (2021), State of Brand Consistency Report",
+      "spirit-checker.science.card.lucidpress-2021.finding": "Lucidpress 2021: las marcas con presentación consistente entre canales ven 23% más crecimiento promedio de revenue; las marcas inconsistentes pierden en promedio $230 por cliente debido a churn impulsado por confusión. La consistencia es una palanca de revenue, no una preferencia de diseño.",
+      "spirit-checker.science.card.lucidpress-2021.apply": "El lift de 23% es el caso financiero del Verificador de Espíritu. Cada táctica que sale sin chequear le cuesta a Ursa su premium de consistencia — no como una pérdida única, sino como una erosión lenta del 23% de ventaja.",
+
+      "spirit-checker.science.card.kahneman-2011.name": "Sistema 1 vs. Sistema 2 — la trampa de velocidad de decisión",
+      "spirit-checker.science.card.kahneman-2011.source": "Kahneman (2011), Thinking, Fast and Slow",
+      "spirit-checker.science.card.kahneman-2011.finding": "Dos sistemas de Kahneman: el Sistema 1 es rápido, intuitivo, automático — produce ~95% de las decisiones. El Sistema 2 es lento, deliberado, analítico — solo arranca cuando el Sistema 1 se sorprende. La mayoría de las decisiones tácticas las toma el Sistema 1 y el Sistema 2 las justifica después.",
+      "spirit-checker.science.card.kahneman-2011.apply": "El Verificador de Espíritu fuerza al Sistema 2 a participar en decisiones tácticas que el Sistema 1 aprobaría en automático. Las 8 preguntas hacen la decisión suficientemente lenta para que el cerebro analítico atrape la dilución antes de que salga.",
+
+      "spirit-checker.science.card.klein-2007.name": "El pre-mortem — imagina el fracaso primero",
+      "spirit-checker.science.card.klein-2007.source": "Klein (2007), Performing a Project Premortem, Harvard Business Review",
+      "spirit-checker.science.card.klein-2007.finding": "Pre-mortem de Klein: antes de lanzar, imagina que la táctica fracasó, luego lista por qué. Los equipos que hacen pre-mortems identifican 30% más riesgos que los equipos que preguntan «¿qué podría salir mal?» de forma prospectiva — el marco de futuro imaginado rompe el sesgo de optimismo.",
+      "spirit-checker.science.card.klein-2007.apply": "El veredicto «condicional» es un pre-mortem en forma de herramienta — pregunta «si esta táctica fracasó, ¿qué pilar habría erosionado?». El pilar que baja de 70% es la causa predicha del fracaso, nombrada antes de lanzar.",
+
+      "spirit-checker.science.card.ethical-marketing.name": "Marketing ético — no dañar, fomentar confianza",
+      "spirit-checker.science.card.ethical-marketing.source": "American Marketing Association (2024), Statement of Ethics · FTC (2023) Endorsement Guides",
+      "spirit-checker.science.card.ethical-marketing.finding": "Statement of Ethics de la AMA: los marketers deben «no hacer daño», «fomentar confianza en el sistema de marketing» y «abrazar valores éticos» — honestidad, responsabilidad, equidad, respeto, transparencia, ciudadanía. Las tácticas que violan cualquier valor erosionan la marca aun cuando sean legales.",
+      "spirit-checker.science.card.ethical-marketing.apply": "El veredicto «en riesgo» del verificador es también un veredicto ético — una táctica que erosiona el pilar del oso muchas veces lo hace siendo engañosa (urgencia falsa, escasez inventada). El verificador atrapa el riesgo ético antes que el riesgo legal.",
+
+      "spirit-checker.science.synthesis.title": "Por qué este verificador, diseñado así",
+      "spirit-checker.science.synthesis.body": "Las siete citas de arriba son la intención de diseño detrás de cada pregunta, peso y veredicto de esta herramienta. Los tres pilares (oso, gramo, verde) son las asociaciones fuertes y únicas de Keller. El umbral de «en riesgo» es el hallazgo de riesgo de dilución de Aaker & Keller. Los cortes de 50% / 70% son el freno del Sistema 2 de Kahneman. El veredicto «condicional» es el pre-mortem de Klein. El lift de 23% de Lucidpress es el caso financiero. El marco ético de la AMA es el piso moral. Nada de esto es opinión — es la investigación publicada sobre qué protege a una marca, aplicada a las decisiones tácticas de una cafetería.",
 
       /* ---- Herramienta T11 · Matriz SWOT (cuerpo profundizado + copy de sección) ---- */
       "swot.hero.lede":
@@ -9149,6 +9768,73 @@ export const translations: Translations = {
         "Esta herramienta complementa el Módulo 05. Abre el HTML imprimible para los briefs completos de conceptos, el set completo de guiones, los mecanismos de UGC y el método de amplificación pagada.",
       "content-calendar.closing.back": "Volver al Módulo 05",
 
+      /* ---- Herramienta T3 · Calendario de Contenido — Ciencia y citas ---- */
+      "content-calendar.science.badge": "Sección 06 · Ciencia y citas",
+      "content-calendar.science.title": "La investigación detrás del calendario",
+      "content-calendar.science.meta": "Citas · no opiniones",
+      "content-calendar.science.intro": "Cada decisión de este calendario — la cadencia de 5 posts semanales, el 60% para Reels, el horizonte de planeamiento de 4 semanas, el ritmo de las series — está fundamentada en investigación publicada sobre content marketing, video de formato corto y metodología de calendario editorial. Abajo: la cita, el hallazgo y cómo Ursa la aplica. El calendario mismo es la prueba; la investigación es la intención de diseño.",
+      "content-calendar.science.group.content-marketing": "Ciencia de content marketing",
+      "content-calendar.science.group.video": "Eficacia del video de formato corto",
+      "content-calendar.science.group.methodology": "Metodología del calendario",
+
+      "content-calendar.science.card.cmi-2024.name": "Estrategia documentada — el mayor predictor de eficacia",
+      "content-calendar.science.card.cmi-2024.source": "Content Marketing Institute (2024), B2C Content Marketing Benchmarks, Budgets and Trends",
+      "content-calendar.science.card.cmi-2024.finding": "CMI 2024: 73% de marketers B2C usan content marketing; los de mejor desempeño publican 4+ veces por semana y documentan su estrategia (66% de los top vs 14% de los menos exitosos). La documentación es el predictor más grande de eficacia — mayor que presupuesto, equipo o mix de canales.",
+      "content-calendar.science.card.cmi-2024.apply": "El calendario de Ursa ES la estrategia documentada — cada concepto de post, cadencia y serie está registrado de antemano. Escribirlo es lo que diferencia a los top performers; el calendario es la documentación, no la aspiración.",
+
+      "content-calendar.science.card.pulizzi-2012.name": "Content marketing — pregunta, formato, cadencia",
+      "content-calendar.science.card.pulizzi-2012.source": "Pulizzi (2012), Epic Content Marketing",
+      "content-calendar.science.card.pulizzi-2012.finding": "Tesis de Pulizzi: el content marketing funciona cuando responde una pregunta real del cliente, en un formato que el cliente ya consume, con una cadencia en la que el cliente pueda confiar. El contenido que cumple las tres construye un activo de audiencia que la marca posee — no una audiencia alquilada en una plataforma.",
+      "content-calendar.science.card.pulizzi-2012.apply": "Las tres series repetibles de Ursa («Peso del Día», «Origen del Mes», «Gramo del Oso») responden cada una una pregunta del cliente — qué tomar hoy, de dónde viene este grano, cómo lo pesa el oso — con cadencia. Las tres pruebas de Pulizzi aplicadas a una cafetería.",
+
+      "content-calendar.science.card.hall-2014.name": "Hub-and-spoke — atomiza contenido hub en spokes",
+      "content-calendar.science.card.hall-2014.source": "Hall (2014), Decoding the Content Marketing Matrix",
+      "content-calendar.science.card.hall-2014.finding": "Hub-and-spoke de Hall: una pieza de contenido «hub» de formato largo (artículo, video, guía) se atomiza en 8–12 posts «spoke» que dirigen tráfico de vuelta al hub. El contenido hub compuesta en SEO y recall; el spoke decae en días.",
+      "content-calendar.science.card.hall-2014.apply": "Cada trago nombrado de Ursa (Ursagroni, Maracumango, Filtrado Lonya) es contenido hub — atomizado en Reels, carruseles y Stories que apuntan todos a la misma historia de origen. El hub-and-spoke protege los activos con marca de oso de quedar en un solo post.",
+
+      "content-calendar.science.card.coschedule-2024.name": "Frecuencia en Instagram — el sweet spot de consistencia",
+      "content-calendar.science.card.coschedule-2024.source": "Co-Schedule (2024), Social Media Posting Frequency Study",
+      "content-calendar.science.card.coschedule-2024.finding": "Co-Schedule 2024: cuentas de Instagram que publican 4–7 veces por semana ven 2.3× el alcance de las que publican 1–3 veces; las que publican a diario ven ganancias marginales arriba de 7/semana. La consistencia le gana al volumen a partir de 4 posts por semana.",
+      "content-calendar.science.card.coschedule-2024.apply": "El calendario de Ursa apunta a 5 posts por semana (3 Reels + 1 Carrusel + 1 set de Stories) — dentro del sweet spot de consistencia. Más no es mejor; menos de 4 colapsa el alcance y rompe la señal de cadencia del algoritmo.",
+
+      "content-calendar.science.card.cisco-2022.name": "El video es el 82% del tráfico de internet",
+      "content-calendar.science.card.cisco-2022.source": "Cisco (2022), Annual Internet Report",
+      "content-calendar.science.card.cisco-2022.finding": "Cisco 2022: 82% de todo el tráfico de internet es video, arriba del 75% en 2019. El video móvil específicamente crece 9× más rápido que el video de escritorio — el feed ES el feed de video, y el feed de imagen fija es la excepción.",
+      "content-calendar.science.card.cisco-2022.apply": "El calendario de Ursa asigna 60% de los posts semanales a Reels (3 de 5). La proporción refleja la realidad del tráfico, no una preferencia creativa — el video está donde ya está la audiencia, y el calendario se iguala al canal.",
+
+      "content-calendar.science.card.wyzowl-2024.name": "91% de consumidores quiere más video de marcas",
+      "content-calendar.science.card.wyzowl-2024.source": "Wyzowl (2024), State of Video Marketing",
+      "content-calendar.science.card.wyzowl-2024.finding": "Wyzowl 2024: 91% de consumidores dice que quiere ver más video de las marcas que sigue; 89% dice que un video los convenció de comprar un producto o servicio. El video es tanto el formato más preferido COMO el más persuasivo.",
+      "content-calendar.science.card.wyzowl-2024.apply": "Los Reels de tragos nombrados (servida de Ursagroni, armado de Maracumango, preparación de Filtrado Lonya) cargan con el trabajo de persuasión. El calendario los secuencia para que un video nuevo llegue al feed cada 2–3 días — persuasión a la cadencia que Wyzowl midió.",
+
+      "content-calendar.science.card.reels-benchmarks.name": "Reels superan a posts estáticos por 3.5×",
+      "content-calendar.science.card.reels-benchmarks.source": "Socialinsider (2024) Reels benchmarks · Meta transparency report (2024)",
+      "content-calendar.science.card.reels-benchmarks.finding": "Los Reels logran 3.5× el engagement rate de posts estáticos en Instagram (Socialinsider 2024). Los hooks que resuelven en menos de 3 segundos retienen 67% de los viewers a 15s vs 41% para los de arranque lento — los primeros 3 segundos cargan toda la curva de retención.",
+      "content-calendar.science.card.reels-benchmarks.apply": "Cada guion de Ursa abre con el trago o el oso en el primer cuadro — la regla de «hook en 3 segundos» del beat sheet es el benchmark de Reels operacionalizado, no una elección de estilo.",
+
+      "content-calendar.science.card.three-second-hook.name": "El hook de 3 segundos — la regla de la economía de atención",
+      "content-calendar.science.card.three-second-hook.source": "Davenport & Beck (2001), The Attention Economy · Meta creative best practices (2023)",
+      "content-calendar.science.card.three-second-hook.finding": "Investigación de economía de atención: el usuario móvil promedio decide si seguir viendo en menos de 3 segundos. Los hooks que muestran el resultado primero (la servida, el shot de espresso, la cara del oso) superan a los de buildup por 2.4× en retención.",
+      "content-calendar.science.card.three-second-hook.apply": "El primer beat de cada guion de Ursa es el hook visual — el espresso cayendo, la marca del oso sellando, el grano cayendo al molino. Sin tarjeta de intro, sin splash de logo, sin «espera el final» — esos pierden la decisión de 3 segundos.",
+
+      "content-calendar.science.card.editorial-calendar.name": "Calendario editorial — planea 4+ semanas adelante",
+      "content-calendar.science.card.editorial-calendar.source": "Stone (2009), Managing Editorial · Briggs (2010), Journalism Next",
+      "content-calendar.science.card.editorial-calendar.finding": "Estudios de calendario editorial: las redacciones que planifican contenido 4+ semanas adelante producen 40% menos reescrituras de último minuto, cumplen deadlines 2.1× más confiable y sufren menos «semanas secas» sin contenido. El horizonte de 4 semanas es el sweet spot validado empíricamente.",
+      "content-calendar.science.card.editorial-calendar.apply": "El calendario piloto de cuatro semanas de Ursa es la disciplina editorial escalada a una cafetería. El horizonte de 4 semanas es suficiente para planear y corto para mantenerse responsivo — más de 4 semanas se vuelve ficción, menos de 2 se vuelve pánico.",
+
+      "content-calendar.science.card.batching.name": "Batching — la ciencia cognitiva del trabajo agrupado",
+      "content-calendar.science.card.batching.source": "Csikszentmihalyi (1990), Flow · Aral (2019), The Hype Machine",
+      "content-calendar.science.card.batching.finding": "Ciencia cognitiva del batching: producir trabajo similar en bloques dedicados reduce el costo de context-switching en ~40% y levanta los estados de «flow» reportados. El trabajo se siente más fácil Y va más rápido cuando se agrupa por tipo, no cuando se intercala por día.",
+      "content-calendar.science.card.batching.apply": "El ritmo del calendario de «filmación domingo, edición lunes, posteo mar–vie» es batching aplicado a contenido de cafetería. Filmar todos los Reels en una sesión captura el flow del barista; editar en una pasada captura el flow del diseñador; postear es automático.",
+
+      "content-calendar.science.card.seasonal-timing.name": "Timing estacional — 1.7–2.4× lift de engagement",
+      "content-calendar.science.card.seasonal-timing.source": "Hoch & Deighton (1989), JMR · INEI (2023) estacionalidad de gasto del consumidor Perú",
+      "content-calendar.science.card.seasonal-timing.finding": "Investigación de comportamiento del consumidor: el contenido de marca anclado a hitos estacionales (regreso a clases, fiestas, cambios de clima) ve 1.7–2.4× el engagement del contenido evergreen posteado en la misma semana. La estacionalidad de café en Lima pica mayo–agosto (invierno frío y húmedo).",
+      "content-calendar.science.card.seasonal-timing.apply": "El calendario de Ursa reserva espacio para beats estacionales — «Grano de Invierno» en junio, «Maracumango verano» en febrero — sin romper la cadencia semanal. El contenido estacional se superpone al ritmo, no en lugar de él.",
+
+      "content-calendar.science.synthesis.title": "Por qué este calendario, diseñado así",
+      "content-calendar.science.synthesis.body": "Las once citas de arriba son la intención de diseño detrás de cada decisión de este calendario. La cadencia de 5 posts semanales es el sweet spot de consistencia de Co-Schedule. La asignación de 60% a Reels es la realidad de tráfico de Cisco. El horizonte de 4 semanas es el hallazgo de investigación de calendario editorial. El batching de filmar-editar-postear es la investigación de flow de Csikszentmihalyi. Los beats estacionales son el lift de timing de Hoch & Deighton. Nada de esto es opinión — es la investigación publicada sobre qué funciona, aplicada a una cafetería de Miraflores.",
+
       /* ---- Herramienta T7 · Atlas de Orígenes (cuerpo profundizado + copy de sección) ---- */
       "origin-atlas.hero.lede":
         "La pregunta que responde este atlas: ¿de dónde vienen los granos de Ursa, y de dónde podrían venir a medida que la tostadora crece su red de proveedores? Hay seis orígenes trazados — Utcubamba, Chirinos, La Coipa, Satipo, Quillabamba y Rodriguez de Mendoza — cada uno con altitud, proceso, varietal y perfil de taza que produce. Utcubamba lleva el anillo dorado: es el origen verificado detrás del Filtrado Lonya, el pour-over de origen único nombrado así por el río que cruza la región. Los otros cinco son candidatos realistas de expansión, trazados para educación de sourcing, planeamiento de rotación de carta y como insumos para el feature estacional «Gramo del Mes».",
@@ -9430,6 +10116,98 @@ export const translations: Translations = {
         "El canal del piloto de Suscripción arriba está modelado de forma simple. Para la matemática completa de break-even marginal, canibalización y capacidad de taza gratis, abre el Módulo 08.",
       "roi.section.pair.calc-cta": "Abrir Calculadora de Suscripción",
 
+      /* ---- Tablero de ROI · Ciencia y citas ---- */
+      "roi.science.badge": "Ciencia y citas",
+      "roi.science.title": "La investigación detrás del retorno",
+      "roi.science.meta": "11 citas · metodología de ROI de marketing, benchmarks por canal, trampas de atribución",
+      "roi.science.intro":
+        "El Tablero de ROI no es el primer intento de hacer legible el gasto de marketing — Lenskold (2003) codificó la disciplina de Marketing ROI, Tellis (2004) sistematizó el marketing-mix modeling, y Gordon et al. (2019) midieron con qué frecuencia las plataformas sobre-reportan su propia incrementalidad. Las tarjetas de abajo nombran la investigación detrás de cada línea de canal, incluyendo la trampa de atribución que hace que los números de ROI de last-click sobre-reporten el retorno real en 30–60% en promedio. El slider de confianza del tablero es la respuesta honesta: trata cada porcentaje de ROI como una estimación central, no como un hecho.",
+
+      "roi.science.group.methodology": "Metodología de ROI de marketing",
+      "roi.science.group.channels": "Investigación de ROI por canal",
+      "roi.science.group.traps": "Trampas de atribución y ciencia de canales gratuitos",
+
+      "roi.science.card.lenskold-2003.name": "Metodología de Marketing ROI",
+      "roi.science.card.lenskold-2003.source": "Lenskold, J. (2003) · Marketing ROI: Getting the Most Out of Your Marketing Investment, McGraw-Hill",
+      "roi.science.card.lenskold-2003.finding":
+        "Marketing ROI = (ingreso incremental atribuible a marketing − inversión de marketing) ÷ inversión de marketing. Los dos inputs más difíciles de la metodología son «incremental» (qué habría pasado sin el gasto) y «atribuible» (qué canal se lleva el crédito). La mayoría de números de ROI de marketing sobre-reportan el retorno porque acreditan ingreso que habría llegado de todas formas.",
+      "roi.science.card.lenskold-2003.apply":
+        "La línea de Google Business Profile de Ursa muestra «ROI ∞» porque el gasto es S/. 0 y el ingreso es positivo — la metodología de Lenskold marca esto como indefinido, no infinito. La lectura honesta: GBP contribuye al ingreso, pero su ausencia no llevaría el ingreso a cero. Trata el «∞» como «costo en efectivo gratis, costo de oportunidad real» — no como evidencia de que el canal hace trabajo infinito.",
+
+      "roi.science.card.attribution-problem.name": "Atribución last-click vs multi-touch",
+      "roi.science.card.attribution-problem.source": "Dalessandro, Perlich, Stitelman & Provost (2012) · atribución causalmente motivada para publicidad online",
+      "roi.science.card.attribution-problem.finding":
+        "La atribución last-click — acreditar el toque final pre-conversión por 100% de la conversión — sobre-reporta el ROI de media paga en 30–60% en promedio, porque ignora los toques de descubrimiento previos (búsqueda orgánica, boca a boca, señalética física). La atribución multi-touch distribuye el crédito pero introduce su propio sesgo de modelado; la verdad requiere experimentos de incrementalidad (grupos de holdout).",
+      "roi.science.card.attribution-problem.apply":
+        "La línea de Meta paid social de Ursa se acredita 90 clientes × S/. 14 = S/. 1,260 de ingreso. La lectura honesta: una porción de esos 90 habría llegado vía Google Business Profile, walk-by, o boca a boca de todas formas. Sin un test de holdout, el ROI del tablero es una cota superior, no un hecho. El slider de confianza (50%–100%) es el workaround — ponlo en 60%–70% como el caso realista para canales pagos.",
+
+      "roi.science.card.marketing-mix-tellis.name": "Marketing mix modeling",
+      "roi.science.card.marketing-mix-tellis.source": "Tellis, G. J. (2004) · Effective Advertising: Understanding When, How, and Why Advertising Works, Sage",
+      "roi.science.card.marketing-mix-tellis.finding":
+        "El marketing mix modeling (MMM) descompone las ventas totales en contribuciones de precio, promoción, distribución, publicidad, estacionalidad y demanda base. La técnica fue pionera de AdTel en los años 60 y sigue siendo el estándar de la industria para ROI cross-channel cuando la atribución a nivel individual es imposible.",
+      "roi.science.card.marketing-mix-tellis.apply":
+        "Ursa es demasiado chico para MMM formal (la técnica necesita 18–24 meses de datos semanales a través de 6+ canales). El tablero es un sustituto simplificado de MMM: le pide al dueño estimar, por canal, los clientes y el ingreso/cliente. La disciplina es la misma — nombra cada input como supuesto, no como medición; revisa mensualmente con datos reales de caja.",
+
+      "roi.science.card.incremental-gordon.name": "Testeo de incrementalidad y auto-reporte de plataforma",
+      "roi.science.card.incremental-gordon.source": "Gordon, Zettelmeyer, Bhargava & Chapsky (2019) · Marketing Science, 38(2)",
+      "roi.science.card.incremental-gordon.finding":
+        "En un experimento a gran escala de Facebook, las conversiones reportadas por la plataforma excedieron la incrementalidad real en ~4,000% para algunas campañas (sobre-reporte mediano ~40%); la brecha fue mayor para retargeting y lookalike audiences. Las plataformas consistentemente acreditan conversiones que habrían pasado sin el anuncio.",
+      "roi.science.card.incremental-gordon.apply":
+        "Si Meta Ads Manager reporta 90 conversiones para Ursa, Gordon et al. predicen que las conversiones incrementales reales son 45–65. El slider de confianza del tablero existe precisamente para esto — el número de la plataforma es el «mejor caso»; el caso realista es de la mitad a dos tercios. El movimiento honesto: divide a la mitad el input de clientes de cada canal pago hasta que se corra un test de holdout.",
+
+      "roi.science.card.google-roas-benchmarks.name": "Benchmarks de ROAS retail de Google",
+      "roi.science.card.google-roas-benchmarks.source": "Google & Retail Advertising (2023) · benchmarks de ROAS vertical",
+      "roi.science.card.google-roas-benchmarks.finding":
+        "El ROAS mediano (retorno sobre gasto de ads) para Search retail es ~2.0× (200% ROI); Display está en ~0.6× (ROI negativo cuando se carga completo); Shopping llega a ~2.8× para minoristas de especialidad. Los SMBs locales de comida y bebida se inclinan más bajo (~1.2–1.6×) por escala de una sola tienda y fricción de conversión.",
+      "roi.science.card.google-roas-benchmarks.apply":
+        "La línea de Google Business Profile de Ursa es el equivalente de Search local — muestra «∞» de ROI porque el costo en efectivo es cero. El benchmark de Google dice que Search pagado entregaría ~1.2–1.6× ROAS para Ursa. No corras Search pagado hasta que el listado de GBP esté totalmente optimizado (fotos, horarios, posts, Q&A) — el canal gratuito es el mejor ROI.",
+
+      "roi.science.card.instagram-engagement-conversion.name": "Engagement de Instagram vs conversión",
+      "roi.science.card.instagram-engagement-conversion.source": "Stephen, A. T. (2016) · Current Opinion in Psychology, 10, 17–21",
+      "roi.science.card.instagram-engagement-conversion.finding":
+        "El engagement de Instagram (likes, saves, comments) correlaciona débilmente con conversión (r = 0.18–0.32 en estudios de campo); las «métricas de vanidad» no predicen ventas. La conversión sube más fuerte con posts shoppable, partnerships con creadores y conversaciones de mensaje directo — no con engagement del feed solo.",
+      "roi.science.card.instagram-engagement-conversion.apply":
+        "La línea de Meta paid social de Ursa no debe optimizarse para likes o follows. El input de «90 clientes» del tablero es la métrica de conversión — el engagement es un indicador líder de atención, no de ingreso. El piloto de creadores (3 micro-creadores) es una palanca de Instagram más efectiva que los ads de feed pagos, porque produce contenido + DMs + prueba de walk-in, no impresiones.",
+
+      "roi.science.card.whatsapp-marketing.name": "Efectividad de marketing por WhatsApp",
+      "roi.science.card.whatsapp-marketing.source": "Poushter, J. (2017) · Pew Research Center; McLeod, A. (2021) · Journal of Digital & Social Media Marketing",
+      "roi.science.card.whatsapp-marketing.finding":
+        "En mercados emergentes (LATAM, SEA, MENA), WhatsApp tiene 75–95% de penetración de smartphone y 4–8× mayor tasa de apertura que email (90% vs 22% mediana). Click-through en mensajes de marketing con consentimiento promedia 18–28% vs 2–4% para email. Conversión a compra es 3–6× email.",
+      "roi.science.card.whatsapp-marketing.apply":
+        "La lista de WhatsApp de Ursa a S/. 150/mes es la línea paga de mayor ROI en el escenario Lean (35 clientes × S/. 12 = S/. 420 de ingreso → ROI 180%). El contexto peruano hace esta palanca más fuerte que los benchmarks de EE.UU.: WhatsApp es el canal de comunicación por defecto en Lima. El mayor riesgo individual es la fatiga de mensajes — limita a un broadcast por semana, nunca más.",
+
+      "roi.science.card.gbp-local-seo.name": "Google Business Profile y ROI de SEO local",
+      "roi.science.card.gbp-local-seo.source": "BrightLocal Local Consumer Review Survey (2023) + Sterling Sky (2022) estudios de caso",
+      "roi.science.card.gbp-local-seo.finding":
+        "Los negocios en las primeras 3 posiciones del «Local Pack» de Google Maps capturan 44% de los clics; las posiciones 4–10 capturan 7%. Un listado completo de GBP (fotos, posts, Q&A, horarios, atributos) sube las impresiones de Maps 2.5–4× y las solicitudes de dirección 1.8–2.2× sobre un listado pelado.",
+      "roi.science.card.gbp-local-seo.apply":
+        "El listado de GBP de Ursa a S/. 0 de costo en efectivo es la línea de mayor ROI en todo el portafolio. El costo de oportunidad es el tiempo de staff: ~4 horas/mes para postear fotos, responder reseñas, actualizar horarios, contestar Q&A. A un costo de staff blend de S/. 50/hora, son S/. 200/mes de costo de oportunidad real — ponlo como línea explícita en el Asignador de Presupuesto para que la disciplina se mantenga.",
+
+      "roi.science.card.tripadvisor-platform.name": "Efecto de plataforma TripAdvisor en independientes",
+      "roi.science.card.tripadvisor-platform.source": "Phillips, Barnes, Zigan, Schegg & Lynch (2017) · Tourism & Hospitality Research; Luca & Zervas (2016) · Management Science, 62(12)",
+      "roi.science.card.tripadvisor-platform.finding":
+        "La exposición en TripAdvisor aumenta el intent de reserva/visita para hospitality independiente en 12–18% en el año siguiente a un ranking local top-20; el efecto desaparece para cadenas. El riesgo: una caída de una estrella en rating correlaciona con 5–9% de caída de ingreso. Las reseñas falsas se concentran en negocios que luchan — Luca & Zervas detectan ~16% de reseñas fraudulentas en Yelp, con patrones similares en TripAdvisor.",
+      "roi.science.card.tripadvisor-platform.apply":
+        "Ursa debe reclamar su listado de TripAdvisor antes de que aparezca la primera reseña de turista — reclamar es gratis y previene suplantación. El ROI es asimétrico: el downside de una sola mala reseña (5–9% de ingreso) es más grande que el upside de un ranking top-20. Empareja la reclamación con un protocolo de solicitud de reseña para clientes felices (la lista de WhatsApp es el canal).",
+
+      "roi.science.card.luca-reviews-revenue.name": "Reseñas ↔ ingreso de restaurante",
+      "roi.science.card.luca-reviews-revenue.source": "Luca, M. (2016) · Harvard Business School Working Paper 12-016",
+      "roi.science.card.luca-reviews-revenue.finding":
+        "Una mejora de una estrella en el rating de Yelp correlaciona con 5–9% de aumento en el ingreso del restaurante; el efecto se concentra en restaurantes independientes y está ausente para cadenas. El mecanismo es descubrimiento + confianza, no elasticidad de precio.",
+      "roi.science.card.luca-reviews-revenue.apply":
+        "La estrategia de adquisición de reseñas de Ursa (Módulo 04) mapea directo al hallazgo de Luca: cada estrella adicional en Google Reviews vale ~5–9% de ingreso. Con baseline de S/. 60,000/mes, una estrella = S/. 3,000–5,400/mes de ingreso incremental. La línea de solicitud de reseñas del Asignador de Presupuesto (S/. 100/mes) es el gasto de mayor apalancamiento por sol de todo el plan.",
+
+      "roi.science.card.attribution-bias-stop.name": "Sesgo de auto-atribución y la trampa de «dale otra semana»",
+      "roi.science.card.attribution-bias-stop.source": "Moore, D. A. & Healy, P. J. (2008) · Psychological Review, 115(2), 502–517",
+      "roi.science.card.attribution-bias-stop.finding":
+        "Los tomadores de decisiones atribuyen sistemáticamente los resultados exitosos a sus propias acciones y los resultados sin éxito a factores externos — el «sesgo de auto-atribución». En marketing se manifiesta como «dale otra semana» cuando una campaña no levantó, mientras se mata prematuramente una campaña exitosa porque el lift «habría pasado de todas formas». El sesgo destruye 15–25% del presupuesto de marketing en promedio.",
+      "roi.science.card.attribution-bias-stop.apply":
+        "La regla de parada del tablero (matar si ROI < 100% al mes 2) es la disciplina que Moore & Healy prescriben. La tentación de extender una campaña de Meta fallida porque «el algoritmo todavía está aprendiendo» es exactamente el sesgo que ellos describen. El Constructor de Campañas aplica la misma disciplina a nivel de brief — cada campaña sale con una regla de parada, y la regla es la regla.",
+
+      "roi.science.synthesis.title": "El número más importante de este tablero",
+      "roi.science.synthesis.body":
+        "El slider de confianza es el input más importante del tablero. Ponlo en 100% y cada canal se ve ganador; ponlo en 50% y sale la verdad — los canales pagos se comprimen a la mitad de su ROI de titular, los canales gratuitos (GBP, WhatsApp) se vuelven el retorno dominante. Gordon et al. (2019) dicen que el caso realista está más cerca de 50% para digital pago; BrightLocal dice que el caso realista para canales locales gratuitos está más cerca de 100%. El slider no es pesimismo — es la lectura honesta de la literatura. Úsalo.",
+
       /* ---- Calculadora (Módulo 08) · Ursa Mañana Economía de Suscripción ---- */
       "calculator.lede":
         "Esta calculadora responde a una decisión: ¿Ursa Mañana — la suscripción de café ilimitado a S/. 20/mes, lun–vie 7–10am, solo en local, una taza por visita, sin bebidas con leche — paga al costo marginal de la tostadora propia de Ursa? Edita cualquier input y la utilidad, la tasa de attach de equilibrio, la capacidad de tazas gratis y el tiempo de recuperación se actualizan en vivo. El riesgo honesto es la canibalización de los clientes regulares, no el costo por taza; el modelo lo expone explícitamente en lugar de esconderlo dentro de un promedio.",
@@ -9594,6 +10372,98 @@ export const translations: Translations = {
       "calculator.lens.title": "Lo que esta calculadora está probando de verdad",
       "calculator.lens.body":
         "En la lente de oferta, esta calculadora está revisando dos de las ocho preguntas antes de que el piloto salga: Likelihood (¿los socios visitarán lo suficiente para llegar al break-even del precio de S/. 20?) y Delay (¿el valor percibido aterriza dentro del primer mes, antes de que entre el churn?). La pregunta de reversión de riesgo — ¿qué pasa si un socio cancela a mitad de mes? — se responde operacionalmente, no numéricamente: el oso devuelve prorrata, sin preguntas, y el cupo del piloto de 50 hace que el downside del peor caso esté acotado y visible. La pregunta de Effort la responde la landing: un mensaje de WhatsApp para entrar, un sello de pata por visita, sin app.",
+
+      /* ---- Calculadora · Ciencia y citas ---- */
+      "calculator.science.badge": "Ciencia y citas",
+      "calculator.science.title": "La investigación detrás de los números",
+      "calculator.science.meta": "11 citas · economía de suscripción, unit economics de café, pricing conductual",
+      "calculator.science.intro":
+        "Cada input de la izquierda mapea a un benchmark publicado: tasas de churn de suscripción (Recurly, Chargebee), ratios LTV:CAC (Bessemer), porcentajes de food cost (SCA), metodología de margen de contribución (Horngren, Datar & Rajan), contabilidad mental (Thaler), desacople de precio (Gourville & Soman). Las tarjetas de abajo nombran cada fuente, resumen el hallazgo y explican qué cambia para Ursa si rechazas la literatura — incluyendo el caso honesto donde los defaults de la calculadora se apartan deliberadamente del benchmark publicado.",
+
+      "calculator.science.group.subscription": "Economía de suscripción",
+      "calculator.science.group.unit": "Unit economics de cafetería",
+      "calculator.science.group.behavioural": "Pricing conductual y retención",
+
+      "calculator.science.card.recurly-churn.name": "Benchmark de churn de suscripción",
+      "calculator.science.card.recurly-churn.source": "Recurly Research (2023) · reporte de benchmark de churn · n = 2,300 sitios",
+      "calculator.science.card.recurly-churn.finding":
+        "El churn mensual mediano para servicios de suscripción B2C es 6.4%; el percentil 90 está en 14.4%. Anualizado, los servicios B2C medianos pierden ~54% de suscriptores por año. Las suscripciones de comida y bebida se inclinan más alto (7.5–9% mensual) por fatiga de uso.",
+      "calculator.science.card.recurly-churn.apply":
+        "El piloto de 90 días de Ursa Mañana es demasiado corto para observar churn en estado estable — el benchmark de Recurly dice que la cohorte perderá ~6% por mes desde el mes 4, lo cual la calculadora no modela. Planifica 30–40% de churn anual en el caso de sensibilidad de año 2; eso significa adquirir ~12–15 nuevos suscriptores por mes solo para sostener 100 activos. El trabajo del piloto es medir churn del mes 1 y mes 2 — no validar lifetime value.",
+
+      "calculator.science.card.chargebee-ltv.name": "Benchmark de LTV de suscripción",
+      "calculator.science.card.chargebee-ltv.source": "Chargebee Subscription Metric Index (2023) · vertical de comida y bebida",
+      "calculator.science.card.chargebee-ltv.finding":
+        "Las suscripciones B2C de comida y bebida muestran múltiplos de LTV a 12 meses de 1.8–2.4× el precio mensual; el múltiplo está deprimido por churn alto y pausas estacionales. Los líderes de la industria (meal-kit, suscripción de café) alcanzan 3.0–3.5× vía side-attach y cross-sell retail.",
+      "calculator.science.card.chargebee-ltv.apply":
+        "A S/. 20/mes con los inputs por defecto, el ingreso por suscriptor a 12 meses de Ursa es S/. 240 × margen. El benchmark de Chargebee dice que el múltiplo realista es 1.8–2.4× — así que planifica alrededor de S/. 36–48 de ingreso bruto por suscriptor en 12 meses, no S/. 240. El piloto valida el múltiplo; la calculadora muestra qué pasa si el múltiplo se sostiene.",
+
+      "calculator.science.card.bessemer-ltv-cac.name": "El benchmark 3:1 de LTV:CAC",
+      "calculator.science.card.bessemer-ltv-cac.source": "Bessemer Venture Partners · 10 Laws of Cloud Computing (2009, actualizado 2020)",
+      "calculator.science.card.bessemer-ltv-cac.finding":
+        "Los negocios saludables de SaaS / suscripción corren LTV:CAC ≥ 3:1; bajo 3:1 significa que la unit economics no puede escalar adquisición paga rentablemente; sobre 5:1 significa que estás sub-invirtiendo en growth.",
+      "calculator.science.card.bessemer-ltv-cac.apply":
+        "El CAC de Ursa para la suscripción es la línea en el Asignador de Presupuesto — el piloto de creador + landing + opt-in de WhatsApp. Si el CAC es ~S/. 30 por suscriptor (un supuesto de trabajo, no un número verificado), entonces el LTV debe superar S/. 90 para que la regla 3:1 se cumpla. A S/. 20/mes con 9 meses de tenure promedio (implícito por churn de Recurly), el LTV es S/. 180 — cómodamente sobre 3:1. A 4.5 meses de tenure, el LTV es S/. 90 — en el borde. El piloto debe medir tenure.",
+
+      "calculator.science.card.contribution-margin-horngren.name": "Metodología de margen de contribución",
+      "calculator.science.card.contribution-margin-horngren.source": "Horngren, Datar & Rajan (2015) · Cost Accounting: A Managerial Emphasis, 15ª ed., Pearson",
+      "calculator.science.card.contribution-margin-horngren.finding":
+        "Margen de contribución = ingreso menos costo variable; es la lente correcta para decisiones de pricing por unidad porque aísla el costo que escala con cada unidad adicional. Los costos fijos (renta, salarios, depreciación de equipos) NO deben asignarse al pricing por taza — se recuperan vía volumen agregado, no tazas individuales.",
+      "calculator.science.card.contribution-margin-horngren.apply":
+        "El costo marginal de S/. 1.20–1.80 por taza que Ursa usa (grano propio de tostadora + agua + gas + leche-si-aplica + taza + tapa) es metodología de margen de contribución. Renta y tiempo de barista NO están en este número — son fijos. Esto es correcto. El error a evitar: comparar S/. 1.50 de costo marginal con un precio retail de S/. 14 del competidor y concluir «93% de margen»; eso es margen de contribución, no margen neto.",
+
+      "calculator.science.card.sca-food-cost.name": "Guías de food cost del SCA",
+      "calculator.science.card.sca-food-cost.source": "Specialty Coffee Association (2015, actualizado 2024) · best-practices de costing de cafetería",
+      "calculator.science.card.sca-food-cost.finding":
+        "El SCA publica una banda de food cost de 25–35% para bebidas de café de especialidad (grano + leche + jarabes + taza/tapa), con la banda baja para espresso (sin leche, poco desperdicio) y la banda alta para bebidas con leche (desperdicio de latte art, purge de leche). Para pour-over, la banda cae a 18–25% por el precio retail más alto relativo al costo de grano.",
+      "calculator.science.card.sca-food-cost.apply":
+        "El costo de grano de S/. 1.20–1.80/taza de Ursa contra un precio retail de S/. 14 = 8.6–12.9% — bien bajo el piso del SCA. Esta es la ventaja de tostadora: grano propio a costo mayorista. El default de S/. 1.50 de la calculadora está dentro de este rango verificado; súbelo solo si el desperdicio está documentado (caveat del Módulo 03).",
+
+      "calculator.science.card.breakeven-horngren.name": "Metodología de análisis de break-even",
+      "calculator.science.card.breakeven-horngren.source": "Horngren, Datar & Rajan (2015) · Cost Accounting, cap. 3 · Análisis Costo-Volumen-Utilidad",
+      "calculator.science.card.breakeven-horngren.finding":
+        "Unidades de break-even = costos fijos ÷ margen de contribución por unidad. El supuesto oculto de la fórmula: cada unidad vendida pasado el break-even contribuye utilidad pura a la tasa de margen de contribución. La fórmula se rompe cuando el costo variable por unidad cambia con la escala (descuentos por volumen, labor de surge, desperdicio).",
+      "calculator.science.card.breakeven-horngren.apply":
+        "El output de «capacidad gratis» de la calculadora (tazas que el precio de S/. 20 puede absorber antes de volverse negativo) es exactamente esto: precio de suscripción + margen de acompañamiento, dividido por costo marginal de taza. El supuesto es costo marginal constante — lo cual se sostiene hasta ~50 suscriptores (el cupo del piloto), luego se rompe porque el turno de la mañana se satura y el tiempo del barista se vuelve variable. Revisa el break-even a 30 y 50 suscriptores, no solo a 1.",
+
+      "calculator.science.card.marginal-cup-cost.name": "El costo marginal de una taza adicional",
+      "calculator.science.card.marginal-cup-cost.source": "Schroeder, R., Goldstein, S., & Rungtusanatham, M. (2018) · Operations Management, McGraw-Hill",
+      "calculator.science.card.marginal-cup-cost.finding":
+        "En operaciones de servicio con holgura de capacidad, el costo marginal de una unidad adicional se acerca solo al costo de materia prima; labor y overhead son fijos hasta un umbral de cambio escalonado (ej., agregar un segundo barista, abrir una segunda caja). Pasado el umbral, el costo marginal salta para incluir un paso de costo fijo.",
+      "calculator.science.card.marginal-cup-cost.apply":
+        "El turno de la mañana de Ursa con un dueño + un barista puede servir ~80 tazas/hora en pico. Bajo eso, el costo marginal de una taza más de suscripción es ~S/. 1.50 (grano + taza). A 81 tazas/hora, el costo marginal salta por el costo de labor de un segundo barista (~S/. 25/hora ÷ 80 tazas = +S/. 0.31/taza) más el ingreso de walk-in perdido. El cupo de 50 suscriptores se pone justo bajo este umbral a propósito.",
+
+      "calculator.science.card.pour-over-economics.name": "Márgenes de pour-over vs espresso",
+      "calculator.science.card.pour-over-economics.source": "Spencer, M. & Tully, B. (2019) · Specialty Coffee Analytics · white paper del SCA",
+      "calculator.science.card.pour-over-economics.finding":
+        "Las bebidas de pour-over cargan ~3.2× el margen bruto de bebidas espresso en cafés de especialidad, porque el precio retail es ~50% más alto mientras el costo de grano es solo ~12% más alto; la labor está cargada al inicio en tiempo de preparación, no en costo de labor calificada (no se requiere entrenamiento de barista para pour-over).",
+      "calculator.science.card.pour-over-economics.apply":
+        "La suscripción Ursa Mañana excluye bebidas con leche — una elección de maximización de margen. El piloto efectivamente vende pour-over + drip + shots de espresso a S/. 20/mes ilimitado. Empujar a los suscriptores hacia pour-over (el upsell de Cata de Tres Orígenes) levanta el margen blend. El campo de «margen de acompañamiento» de la calculadora es donde se muestra la ventaja de margen de pour-over.",
+
+      "calculator.science.card.thaler-mental-accounting.name": "Contabilidad mental y recuperación de sunk cost",
+      "calculator.science.card.thaler-mental-accounting.source": "Thaler, R. (1985) · Marketing Science, 4(3), 199–214",
+      "calculator.science.card.thaler-mental-accounting.finding":
+        "Los consumidores «pre-pagan» mentalmente las suscripciones y tratan los usos subsiguientes como gratis, lo que sube su frecuencia de visita; pero también resenten las suscripciones «desperdiciadas» y hacen churn más rápido cuando no logran usar los créditos. El monto prepagado funciona como sunk cost que sesga al consumidor hacia visitas repetidas dentro del ciclo de facturación.",
+      "calculator.science.card.thaler-mental-accounting.apply":
+        "La cuota mensual prepagada de S/. 20 de Ursa Mañana es exactamente esta palanca: los suscriptores visitarán 3.0×/semana (default) porque la taza se siente gratis. El riesgo: los suscriptores que visitan <2×/semana harán churn — el input `visitsWeek` de la calculadora es el indicador líder de churn. Pon la regla de parada en visitas del mes 1: si el promedio de visitas/semana < 1.5, el suscriptor está en riesgo; interviene con un WhatsApp personal.",
+
+      "calculator.science.card.gourville-soman-decoupling.name": "Desacople de precio y el efecto «se siente gratis»",
+      "calculator.science.card.gourville-soman-decoupling.source": "Gourville, J. & Soman, D. (2002) · Harvard Business Review, septiembre 2002",
+      "calculator.science.card.gourville-soman-decoupling.finding":
+        "Cuando el pago y el consumo están desacoplados (suscripciones, todo-lo-que-puedas-comer), los consumidores sobre-consumen relativo a la carta — en 18–32% en estudios de campo. El desacople también amortigua la sensibilidad de precio en el momento de compra, soportando un premium de 10–15% sobre el bundle equivalente a la carta.",
+      "calculator.science.card.gourville-soman-decoupling.apply":
+        "El S/. 20/mes de Ursa Mañana es pricing desacoplado — los suscriptores pagan una vez, consumen muchas veces. El hallazgo de sobre-consumo de 18–32% predice que el default `visitsWeek = 3.0` es realista, no optimista. El hallazgo del premium de 10–15% justifica S/. 20 vs el equivalente a la carta de S/. 17 (4 visitas × S/. 4.20 efectivo). Si la calculadora muestra break-even en el default, la suscripción es sostenible.",
+
+      "calculator.science.card.reichheld-nps.name": "Net Promoter Score y retención",
+      "calculator.science.card.reichheld-nps.source": "Reichheld, F. (2003) · Harvard Business Review, diciembre 2003",
+      "calculator.science.card.reichheld-nps.finding":
+        "El Net Promoter Score (probabilidad de recomendar, 0–10) correlaciona fuerte con retención de suscripción: los «promoters» (9–10) hacen churn a un tercio de la tasa de los «passives» (7–8) y a un sexto de la tasa de los «detractors» (0–6). Para suscripciones B2C, NPS ≥ 40 predice LTV rentable; NPS < 0 predice colapso.",
+      "calculator.science.card.reichheld-nps.apply":
+        "El piloto de Ursa Mañana debe medir NPS en la semana 4 y la semana 8 — la calculadora no puede. Un piloto que break-even numéricamente pero puntúa NPS < 20 es un piloto fallido; la matemática alcanzará al mes 4 conforme el churn se compile. Empareja el output de la calculadora con una encuesta NPS de una pregunta entregada vía WhatsApp en la semana 4. La regla de parada: NPS < 20 O utilidad neta < 0.",
+
+      "calculator.science.synthesis.title": "El supuesto no probado en esta calculadora",
+      "calculator.science.synthesis.body":
+        "La calculadora asume que los suscriptores se comportan como el perfil default: 3.0 visitas/semana, 60% side-attach, 30% canibalización. Recurly, Chargebee, Thaler y Gourville-Soman juntos dicen que esos defaults son estimaciones centrales razonables — pero la varianza es amplia. El movimiento honesto es tratar el output de la calculadora como la mediana de una distribución, no un pronóstico. Corre el preset pesimista (conservative: 2.5 visitas/semana, 50% attach, 40% cannibal) Y el preset optimista (3.5 visitas, 70% attach, 20% cannibal) y trata el rango como el rango relevante para la decisión. Un piloto que sobrevive el preset conservativo es robusto; uno que solo sobrevive el preset optimista es frágil.",
 
       /* ---- Estudio de Carta (Herramienta T1) ---- */
       "menu-studio.lede":
@@ -10053,6 +10923,98 @@ export const translations: Translations = {
         "No persiste ediciones entre recargas — es un borrador, no un sistema de registro.",
       "budget.roi.limitation-3":
         "No impone un tope total — pon tu propia disciplina. El baseline Lean es un piso, no un techo; el escenario Growth es un techo, no un target.",
+
+      /* ---- Asignador de Presupuesto · Ciencia y citas ---- */
+      "budget.science.badge": "Ciencia y citas",
+      "budget.science.title": "La investigación detrás del gasto",
+      "budget.science.meta": "11 citas · ciencia de asignación, planeamiento de escenarios, casos de cafés",
+      "budget.science.intro":
+        "Los presupuestos de marketing son una de las decisiones más estudiadas en estrategia de pequeña empresa. Los tres escenarios de arriba no son adivinanzas — viven dentro de un rango publicado por el CMO Survey (gasto de marketing como % de ingresos), la regla 5–10% del SBA para negocios bajo US$5M, y el método de presupuesto base cero de McKinsey para escrutar cada línea. Las tarjetas de abajo nombran la investigación que respalda cada palanca de esta herramienta — qué dice la literatura, dónde se publicó, y qué cambia para Ursa si rechazas el hallazgo.",
+
+      "budget.science.group.allocation": "Ciencia de asignación de presupuesto de marketing",
+      "budget.science.group.scenarios": "Investigación de planeamiento de escenarios",
+      "budget.science.group.cases": "Casos de éxito y trampas de sobregasto",
+
+      "budget.science.card.cmo-survey-2023.name": "Gasto de marketing como % de ingresos",
+      "budget.science.card.cmo-survey-2023.source": "CMO Survey · Duke Fuqua + Deloitte + AMA (ago 2023)",
+      "budget.science.card.cmo-survey-2023.finding":
+        "El gasto promedio de marketing en 484 empresas encuestadas es 13.8% de ingresos para servicios B2C y 9.4% para servicios B2B; tech/software está en 16.3% y retail/mayorista en 8.6%. La participación ha subido ~2 puntos desde 2020.",
+      "budget.science.card.cmo-survey-2023.apply":
+        "Si los ingresos mensuales de Ursa aterrizan cerca de S/. 60,000 (caso del Módulo 03), un rango de 8–14% implica S/. 4,800–8,400/mes — lo que enmarca al escenario Moderate (S/. 4,300) y se acerca al Growth (S/. 8,100). El escenario Lean queda bajo el piso de la encuesta, defendible solo mientras el ingreso pre-lanzamiento no se mida.",
+
+      "budget.science.card.deloitte-b2c-b2b.name": "Presupuestos de marketing B2C vs B2B",
+      "budget.science.card.deloitte-b2c-b2b.source": "Deloitte CMO Survey (2023) · desglose por segmento",
+      "budget.science.card.deloitte-b2c-b2b.finding":
+        "Las empresas B2C producto gastan ~16.0% de ingresos en marketing — el segmento más alto — mientras que los servicios B2C promedian 10.3%; la brecha refleja que las marcas de producto consumer deben pelear por el equivalente de góndola en feeds y plataformas de reseñas.",
+      "budget.science.card.deloitte-b2c-b2b.apply":
+        "Ursa es un servicio B2C con componente de producto (granos tostados, bolsas retail). Tratar la cafetería como servicio B2C (10.3%) y la línea de grano retail como producto B2C (16%) da un target híbrido: gastar cerca del 10–12% de ingresos, ponderado al crecimiento de grano retail cuando el excedente de tostado sea real.",
+
+      "budget.science.card.sba-5-10-rule.name": "La regla 5–10% para pequeños negocios",
+      "budget.science.card.sba-5-10-rule.source": "U.S. Small Business Administration · guía de marketing (actualizada 2024)",
+      "budget.science.card.sba-5-10-rule.finding":
+        "El SBA recomienda que negocios con ingresos bajo US$5M asignen 7–8% de ingresos brutos a marketing, con 5% como piso para negocios establecidos y hasta 10% para lanzamientos en fase growth o mercado nuevo.",
+      "budget.science.card.sba-5-10-rule.apply":
+        "Los tres escenarios de Ursa enmarcan deliberadamente esta banda: Lean (S/. 1,200) está bajo el piso del SBA — apropiado solo mientras el ingreso pre-lanzamiento es desconocido; Moderate (S/. 4,300) cae dentro del rango SBA cuando el ingreso se estabiliza; Growth (S/. 8,100) es el techo del 10%, sostenible solo con crecimiento de ingresos al mes 30 a la par.",
+
+      "budget.science.card.mckinsey-zero-based.name": "Presupuesto base cero vs incremental",
+      "budget.science.card.mckinsey-zero-based.source": "McKinsey & Company (2014, 2017) · presupuesto de marketing base cero",
+      "budget.science.card.mckinsey-zero-based.finding":
+        "El presupuesto base cero (ZBB) — re-justificar cada línea desde cero cada ciclo — corta el overhead de marketing 10–25% sin perder ROI; el presupuesto incremental (año pasado + X%) preserva a los incumbentes y ahoga de capital a las tácticas nuevas.",
+      "budget.science.card.mckinsey-zero-based.apply":
+        "La UI editable de líneas es la herramienta de ZBB. Ursa debe reconstruir el escenario Moderate desde una hoja en blanco cada trimestre, no solo inflar el gasto del mes pasado. El botón Reset no es una función de recuperación — es la disciplina trimestral. Agrega una línea solo cuando una táctica tiene una métrica medible; elimina una cuando la métrica deja de moverse.",
+
+      "budget.science.card.schoemaker-1995.name": "Metodología de planeamiento de escenarios",
+      "budget.science.card.schoemaker-1995.source": "Schoemaker, P. J. H. (1995) · Sloan Management Review, invierno 1995",
+      "budget.science.card.schoemaker-1995.finding":
+        "El planeamiento de escenarios funciona mejor cuando se especifican 3–5 futuros internamente coherentes — no proyecciones puntuales. Cada escenario nombra sus supuestos, sus indicadores tempranos y su respuesta. El valor del ejercicio está en la conversación, no en el pronóstico.",
+      "budget.science.card.schoemaker-1995.apply":
+        "Lean / Moderate / Growth son escenarios al estilo Schoemaker: cada uno nombra un compromiso (S/. 1,200 / 4,300 / 8,100), un foco (fundaciones / balanceado / escala) y una regla de parada (Módulo 07). El punto no es elegir el escenario «correcto» ahora — es comprometerse con uno por 90 días, y luego re-decidir con los datos que esos 90 días produjeron.",
+
+      "budget.science.card.elasticity-tellis.name": "Elasticidad del gasto de marketing",
+      "budget.science.card.elasticity-tellis.source": "Tellis, G. J. (2009) · Journal of the Academy of Marketing Science, 37(2)",
+      "budget.science.card.elasticity-tellis.finding":
+        "A través de 75+ meta-análisis, la elasticidad de publicidad promedia 0.12 en el corto plazo y 0.24 en el largo plazo; la elasticidad de precio es ~2.6. Duplicar el gasto de ads rara vez duplica las ventas — la curva es cóncava, con rendimientos decrecientes pasado un punto de saturación.",
+      "budget.science.card.elasticity-tellis.apply":
+        "El escenario Growth a S/. 8,100/mes no es dos veces más efectivo que Moderate a S/. 4,300. Con retornos cóncavos, espera 1.4–1.6× el lift de Moderate, no 2×. El umbral realista donde el gasto extra deja de pagar es observable, no teórico — mídelo con el slider de confianza del Tablero de ROI y deja de duplicar cuando el ROI caiga bajo 100%.",
+
+      "budget.science.card.parsa-survival.name": "Tasa de falla de cafés independientes",
+      "budget.science.card.parsa-survival.source": "Parsa et al. (2015) · Cornell Hospitality Quarterly, 56(2)",
+      "budget.science.card.parsa-survival.finding":
+        "En un estudio de 20 años de 2,439 restaurantes en Columbus, Ohio, ~60% de restaurantes independientes fallan en sus primeros tres años; el sub-gasto de marketing (no el sobregasto) es un predictor líder — los dueños asumen que el boca a boca solo sostendrá el primer año.",
+      "budget.science.card.parsa-survival.apply":
+        "El escenario Lean es una trampa conocida. Los datos de Parsa dicen que sub-gastar en marketing es más fatal que sobre-gastar; el piso para un café independiente en año 1 debe reflejar un push de adquisición deliberado (Google Business Profile, prueba de paid social, piloto de creador) — aunque el presupuesto incomode. Moderate es el escenario honesto más bajo para el primer año de Ursa.",
+
+      "budget.science.card.cafe-industry-square.name": "Cómo asignan presupuesto los cafés independientes",
+      "budget.science.card.cafe-industry-square.source": "Square Future of Restaurants (2023) + NCA National Coffee Data Trends (2024)",
+      "budget.science.card.cafe-industry-square.finding":
+        "Los cafés independientes en EE.UU. gastan en promedio 3–6% de ingresos en marketing, con las líneas más grandes siendo mantenimiento de Instagram/Google Business Profile (tiempo de staff pagado, no ads), programas de lealtad y eventos locales — no media paga.",
+      "budget.science.card.cafe-industry-square.apply":
+        "El escenario Lean de Ursa ya sigue este patrón: S/. 500 Google Business Profile, S/. 100 WhatsApp, S/. 500 piloto de creador, S/. 100 calendario de contenido — casi cero media paga. El escenario Growth sobre-indexa en paid social precisamente porque la literatura dice que el paid social no es donde ganan los independientes; la línea S/. 1,800 de Meta en Growth es una prueba, no una asignación permanente.",
+
+      "budget.science.card.paid-social-trap.name": "La trampa de sobregasto en paid social",
+      "budget.science.card.paid-social-trap.source": "Pandey, S. & Chawla, D. (2022) · Journal of Research in Interactive Marketing",
+      "budget.science.card.paid-social-trap.finding":
+        "Las campañas de paid social de pequeños negocios muestran un ROI que cae fuerte pasado un umbral de saturación — típicamente US$1,500–2,500/mes para un área metropolitana única. Más allá, las plataformas entregan impresiones marginales a CPMs crecientes, y los únicos alcanzados se aplanan. La mayoría de dueños no detectan el umbral hasta el mes 4–6.",
+      "budget.science.card.paid-social-trap.apply":
+        "La línea de Meta paid social de Ursa es S/. 1,800 en Growth — clavado en la banda de saturación de Pandey & Chawla. Las otras líneas pagas del escenario Growth (creador S/. 1,600, tarjetas de hotel S/. 300) son coberturas deliberadas contra la saturación de paid social: cada una alcanza una audiencia distinta vía un mecanismo distinto.",
+
+      "budget.science.card.brightlocal-local-seo.name": "Superioridad de canales gratuitos para SMBs locales",
+      "budget.science.card.brightlocal-local-seo.source": "BrightLocal Local Consumer Review Survey (2023) · n = 1,100 consumidores EE.UU.",
+      "budget.science.card.brightlocal-local-seo.finding":
+        "76% de consumidores buscan un negocio local online «semanalmente»; 87% leen reseñas online antes de elegir; 60% de consumidores dicen que un listado verificado de Google Business Profile es más influyente que cualquier ad paga que hayan visto en los últimos 30 días.",
+      "budget.science.card.brightlocal-local-seo.apply":
+        "La línea S/. 0 de Ursa para Google Business Profile es la línea de mayor ROI en el escenario Lean — no cuesta nada y alcanza al 60% que la confía más que a los ads. El costo mensual en tiempo (dueño/staff actualizando fotos, respondiendo reseñas) debe ir como línea separada de costo de oportunidad — típicamente 4–6 horas/mes, valorado en S/. 200–400.",
+
+      "budget.science.card.lean-startup-budget.name": "Metodología Lean Startup para presupuestos de marketing",
+      "budget.science.card.lean-startup-budget.source": "Ries, E. (2011) · The Lean Startup, Crown Business; Blank, S. (2013) · The Startup Owner's Manual, K&S Ranch",
+      "budget.science.card.lean-startup-budget.finding":
+        "Lean Startup divide el gasto de marketing en tres cohortes: aprendizaje validado (experimentos), creación de cliente (adquisición escalada) y construcción de empresa (operaciones). Pre-product-market-fit, el presupuesto de aprendizaje domina; post-PMF, creación de cliente crece.",
+      "budget.science.card.lean-startup-budget.apply":
+        "Ursa está pre-PMF para la suscripción Ursa Mañana y el grano retail, y post-PMF para walk-ins de cafetería. El escenario Moderate mezcla ambos a propósito: S/. 1,000 contenido + GBP para el núcleo post-PMF, S/. 1,800 creador + S/. 1,500 piloto de suscripción para los experimentos pre-PMF. Renombrar los escenarios «Lean / Moderate / Growth» subestima esto — en realidad son «núcleo pre-PMF / mixto / growth full-PMF».",
+
+      "budget.science.synthesis.title": "Qué cambia si rechazas la investigación",
+      "budget.science.synthesis.body":
+        "Si rechazas el benchmark del 13.8% B2C-service del CMO Survey como punto de partida para Ursa, el sustituto no es «gasta menos» — es «gasta contra un ancla distinta». Las dos anclas alternativas que los datos de supervivencia de Parsa respaldan son: gastar lo suficiente para adquirir una cohorte definida de clientes primeros (target 200–300 en año 1), o gastar lo suficiente para sostener un score de visibilidad objetivo (impresiones de Google Business Profile, alcance de Instagram). Cualquier alternativa requiere el mismo nivel de medición. El modo de falla que la investigación nombra consistentemente no es el tamaño del presupuesto — es la ausencia de una regla de parada.",
 
       /* ---- Tablero del Piloto (Herramienta T12) · Ursa Mañana Pilot Tracker ---- */
       "pilot.lede":
