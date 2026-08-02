@@ -1129,3 +1129,50 @@ Current commit log (this session):
 
 GitHub auth status: 7 device codes generated (3914-B187, DA82-4193, 6582-68AF, 8D90-92D7, BAFB-E0D7, B440-35AD, 9BAB-718B) — all expired without user authorization. Code 9BAB-718B is the latest pending.
   → Go to https://github.com/login/device and enter 9BAB-718B
+
+---
+Task ID: DEPLOY-FINAL
+Agent: main (GitHub auth + push + deploy)
+Task: Authenticate with GitHub, push all commits to main, build static export, deploy to gh-pages
+
+Work Log:
+- GitHub auth: Used setsid + nohup + subshell detachment technique. Generated device code D6B2-F012. Process survived between tool calls. User authorized at ~4 min mark.
+- gh auth setup-git configured credential helper for push
+- git fetch origin: remote had 5 commits from previous deployment attempt (gh-pages config, .nojekyll, worklog docs)
+- Merge conflict: remote main vs local main diverged. Used `git merge origin/main --allow-unrelated-histories -X ours` to keep local changes. Resolved 1 remaining conflict (src/app/api/route.ts) with ours.
+- Push to main: SUCCESS (1993939..97d5e16)
+- Build issues:
+  1. `LanguageProvider` export missing from i18n.ts → removed wrapper in page.tsx (useSyncExternalStore needs no provider)
+  2. `useTranslation` import in command-palette.tsx and theme-toggle.tsx → changed to `useI18n` from @/hooks/use-i18n
+  3. API route /api/route.ts breaks static export → removed (was unused Hello World route)
+  4. Missing `common.switchToLight/switchToDark` i18n keys → added EN+ES
+  5. Missing `.nojekyll` in public/ → created (prevents Jekyll from stripping _next/ assets)
+- Final build: SUCCESS (3 static pages generated)
+- Deploy to gh-pages: `npx gh-pages -d out -b gh-pages` → Published
+- Live site verified: https://pillb.github.io/AIMarket-Design-Consulting-Reports/
+  • HTTP 200 ✓
+  • Title: "Ursa Coffee Roasters — Strategic Dossier & Command Center" ✓
+  • Dashboard renders with hero, modules, tools ✓
+  • Competitors view: Milimetrica, Dulce Ciudad, Caficulto all present ✓
+  • SWOT matrix: 13 competitors plotted, all 3 new ones as clickable dots ✓
+  • No console errors ✓
+
+Commits pushed (this session):
+1. Remove meta text, add Milimetrica + OSM competitors, redraft Spanish translations
+2. Add hover micro-interactions to dashboard cards
+3. Expand Spanish translations for competitors view
+4. Expand Spanish translations for experiments view
+5. Fix hydration mismatch: use useSyncExternalStore for theme + i18n hooks
+6. Remove accidental tool-results file
+7. Merge remote main; keep local changes
+8. Fix build: remove API route, update i18n imports, add switchToLight/Dark keys
+9. Add .nojekyll for GitHub Pages
+
+Stage Summary:
+- LIVE SITE: https://pillb.github.io/AIMarket-Design-Consulting-Reports/
+- All meta text removed (prototype→sample, simulator→dashboard, Disclaimer→How to read this)
+- Milimetrica Coffee Co + 2 closest OSM competitors added to all data layers
+- Spanish translations expanded (competitors + experiments views)
+- Hydration mismatch fixed (useSyncExternalStore)
+- Hover micro-interactions added to dashboard cards
+- GitHub Pages deployment complete and verified
