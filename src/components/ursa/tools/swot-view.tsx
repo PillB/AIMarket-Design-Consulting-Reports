@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
-import { BearMark, Pill, Callout, EvidenceTag } from "../ursa-brand";
-import { useNavigate } from "@/lib/ursa-nav";
+import { BearMark, Pill, Callout } from "../ursa-brand";
 import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
-import { Swords, Eye, TrendingUp, AlertTriangle, Info, RotateCcw } from "lucide-react";
+import { Swords, Eye, TrendingUp, AlertTriangle, Info } from "lucide-react";
 
 /**
  * Competitor SWOT Matrix — an interactive 2x2 visualization that plots
@@ -14,6 +13,11 @@ import { Swords, Eye, TrendingUp, AlertTriangle, Info, RotateCcw } from "lucide-
  * actually researched: Brand Distinctiveness (bear/gram/green) vs
  * Distribution Reach (scale + channels). Each quadrant has a label and
  * an implication. Clicking a competitor shows its SWOT detail.
+ *
+ * The COMPETITORS array below is research-source data verified in
+ * Module 02 — strength / weakness / opportunity / threat / ursaImplication
+ * prose stays inline as in the Competitor Intelligence Dashboard (T2)
+ * and the Origin Atlas (T7). UI chrome is translated.
  */
 
 type Competitor = {
@@ -177,15 +181,14 @@ const COMPETITORS: Competitor[] = [
   },
 ];
 
-const QUADRANTS = {
-  topRight: { label: "Leaders", desc: "High craft + high reach — the benchmark to beat", color: "var(--color-ursa-forest-deep)", textColor: "var(--color-ursa-forest-deep)" },
-  topLeft: { label: "Hidden gems", desc: "High craft + low reach — Ursa's neighbourhood", color: "var(--color-ursa-gold)", textColor: "var(--color-ursa-gold-text)" },
-  bottomRight: { label: "Scaled chains", desc: "Lower craft + high reach — the volume play", color: "var(--color-ursa-terracotta)", textColor: "var(--color-ursa-terracotta-text)" },
-  bottomLeft: { label: "Undifferentiated", desc: "Lower craft + low reach — vulnerable", color: "var(--color-ursa-sage)", textColor: "var(--color-ursa-sage-text)" },
+const QUADRANT_KEYS = {
+  topRight: { labelKey: "content.swot.quadrant.top-right.label", descKey: "content.swot.quadrant.top-right.desc", color: "var(--color-ursa-forest-deep)", textColor: "var(--color-ursa-forest-deep)" },
+  topLeft: { labelKey: "content.swot.quadrant.top-left.label", descKey: "content.swot.quadrant.top-left.desc", color: "var(--color-ursa-gold)", textColor: "var(--color-ursa-gold-text)" },
+  bottomRight: { labelKey: "content.swot.quadrant.bottom-right.label", descKey: "content.swot.quadrant.bottom-right.desc", color: "var(--color-ursa-terracotta)", textColor: "var(--color-ursa-terracotta-text)" },
+  bottomLeft: { labelKey: "content.swot.quadrant.bottom-left.label", descKey: "content.swot.quadrant.bottom-left.desc", color: "var(--color-ursa-sage)", textColor: "var(--color-ursa-sage-text)" },
 };
 
 export function SwotView() {
-  const navigate = useNavigate();
   const { t } = useI18n();
   const [selected, setSelected] = useState<string>("Ursa");
 
@@ -202,18 +205,11 @@ export function SwotView() {
       <ViewHero
         eyebrow={t("content.view.swot.eyebrow")}
         title={t("content.view.swot.title")}
-        lede={
-          <>
-            A 2×2 plot of {COMPETITORS.length} Miraflores and Lima competitors on two axes the dossier
-            actually researched: <strong>Brand distinctiveness</strong> (bear, gram, green, Art Nouveau, roastery)
-            versus <strong>Distribution reach</strong> (scale, channels, review presence). Click any dot to see
-            its SWOT and the implication for Ursa.
-          </>
-        }
+        lede={<>{t("content.swot.hero.lede", { n: COMPETITORS.length })}</>}
         meta={[
-          { label: "Competitors", value: `${COMPETITORS.length} plotted` },
-          { label: "Axes", value: "Distinctiveness × Reach" },
-          { label: "Ursa", value: "High craft · low reach" },
+          { label: t("content.swot.meta.competitors"), value: t("content.swot.meta.competitors-value", { n: COMPETITORS.length }) },
+          { label: t("content.swot.meta.axes"), value: t("content.swot.meta.axes-value") },
+          { label: t("content.swot.meta.ursa"), value: t("content.swot.meta.ursa-value") },
         ]}
         tone="forest"
       />
@@ -224,14 +220,14 @@ export function SwotView() {
           <Card className="p-4 md:p-6">
             <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0 flex items-center gap-2">
-                <Swords size={18} className="text-ursa-gold-text" /> Distinctiveness × Reach
+                <Swords size={18} className="text-ursa-gold-text" /> {t("content.swot.matrix.title")}
               </h3>
               <div className="flex items-center gap-3 text-[0.7rem] text-muted-foreground">
                 <span className="flex items-center gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-ursa-gold ring-2 ring-ursa-gold/30" /> Ursa
+                  <span className="w-3 h-3 rounded-full bg-ursa-gold ring-2 ring-ursa-gold/30" /> {t("content.swot.matrix.legend-ursa")}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-ursa-forest-deep" /> Competitors
+                  <span className="w-3 h-3 rounded-full bg-ursa-forest-deep" /> {t("content.swot.matrix.legend-competitor")}
                 </span>
               </div>
             </div>
@@ -240,25 +236,25 @@ export function SwotView() {
             <div className="relative aspect-square md:aspect-[4/3] w-full">
               {/* Axis labels */}
               <span className="absolute -left-2 top-1/2 -translate-y-1/2 -rotate-90 font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground whitespace-nowrap origin-center" style={{ left: "-28px" }}>
-                Distinctiveness →
+                {t("content.swot.matrix.axis-y")}
               </span>
               <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground whitespace-nowrap">
-                Distribution reach →
+                {t("content.swot.matrix.axis-x")}
               </span>
 
               {/* Quadrant background tints */}
               <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 rounded-lg overflow-hidden border border-ursa-line-soft">
                 <div className="bg-ursa-gold/5 border-r border-b border-ursa-line-soft/50 relative">
-                  <span className="absolute top-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.topLeft.textColor }}>{QUADRANTS.topLeft.label}</span>
+                  <span className="absolute top-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANT_KEYS.topLeft.textColor }}>{t(QUADRANT_KEYS.topLeft.labelKey)}</span>
                 </div>
                 <div className="bg-ursa-dark-roast/5 border-b border-ursa-line-soft/50 relative">
-                  <span className="absolute top-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.topRight.textColor }}>{QUADRANTS.topRight.label}</span>
+                  <span className="absolute top-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANT_KEYS.topRight.textColor }}>{t(QUADRANT_KEYS.topRight.labelKey)}</span>
                 </div>
                 <div className="bg-muted border-r border-ursa-line-soft/50 relative">
-                  <span className="absolute bottom-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.bottomLeft.textColor }}>{QUADRANTS.bottomLeft.label}</span>
+                  <span className="absolute bottom-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANT_KEYS.bottomLeft.textColor }}>{t(QUADRANT_KEYS.bottomLeft.labelKey)}</span>
                 </div>
                 <div className="bg-ursa-terracotta/5 relative">
-                  <span className="absolute bottom-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.bottomRight.textColor }}>{QUADRANTS.bottomRight.label}</span>
+                  <span className="absolute bottom-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANT_KEYS.bottomRight.textColor }}>{t(QUADRANT_KEYS.bottomRight.labelKey)}</span>
                 </div>
               </div>
 
@@ -275,7 +271,7 @@ export function SwotView() {
                   <button
                     key={c.name}
                     onClick={() => setSelected(c.name)}
-                    aria-label={`${c.name} — distinctiveness ${c.distinctiveness}, reach ${c.reach}`}
+                    aria-label={`${c.name} — ${t("content.swot.readout.distinctiveness")} ${c.distinctiveness}, ${t("content.swot.readout.reach")} ${c.reach}`}
                     className="absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-200 group"
                     style={{ left: p.left, top: p.top, zIndex: isSelected ? 20 : 10 }}
                   >
@@ -313,12 +309,12 @@ export function SwotView() {
 
             {/* Quadrant descriptions */}
             <div className="grid grid-cols-2 gap-2 mt-8 pt-4 border-t border-ursa-line-soft">
-              {(Object.keys(QUADRANTS) as (keyof typeof QUADRANTS)[]).map((qk) => (
+              {(Object.keys(QUADRANT_KEYS) as (keyof typeof QUADRANT_KEYS)[]).map((qk) => (
                 <div key={qk} className="flex items-start gap-2">
-                  <span className="w-2.5 h-2.5 rounded-sm mt-1 shrink-0" style={{ background: QUADRANTS[qk].color }} />
+                  <span className="w-2.5 h-2.5 rounded-sm mt-1 shrink-0" style={{ background: QUADRANT_KEYS[qk].color }} />
                   <div>
-                    <span className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-dark-roast font-semibold">{QUADRANTS[qk].label}</span>
-                    <p className="text-[0.72rem] text-muted-foreground m-0 leading-snug">{QUADRANTS[qk].desc}</p>
+                    <span className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-dark-roast font-semibold">{t(QUADRANT_KEYS[qk].labelKey)}</span>
+                    <p className="text-[0.72rem] text-muted-foreground m-0 leading-snug">{t(QUADRANT_KEYS[qk].descKey)}</p>
                   </div>
                 </div>
               ))}
@@ -336,41 +332,41 @@ export function SwotView() {
                     <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">{selectedComp.area}</span>
                   </div>
                 </div>
-                {selectedComp.isUrsa && <Pill tone="gold">Ursa</Pill>}
+                {selectedComp.isUrsa && <Pill tone="gold">{t("content.swot.matrix.legend-ursa")}</Pill>}
               </div>
 
               {/* Position readout */}
               <div className="grid grid-cols-2 gap-2 mb-4">
                 <div className="rounded-lg bg-ursa-foam border border-ursa-line-soft p-2.5 text-center">
                   <div className="font-display text-xl font-semibold text-ursa-gold-text leading-none">{selectedComp.distinctiveness}</div>
-                  <div className="font-label text-[0.54rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">Distinctiveness</div>
+                  <div className="font-label text-[0.54rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">{t("content.swot.readout.distinctiveness")}</div>
                 </div>
                 <div className="rounded-lg bg-ursa-foam border border-ursa-line-soft p-2.5 text-center">
                   <div className="font-display text-xl font-semibold text-ursa-forest-deep leading-none">{selectedComp.reach}</div>
-                  <div className="font-label text-[0.54rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">Reach</div>
+                  <div className="font-label text-[0.54rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">{t("content.swot.readout.reach")}</div>
                 </div>
               </div>
 
               {/* SWOT grid */}
               <div className="grid grid-cols-2 gap-2">
-                <SwotCell label="Strengths" icon={<TrendingUp size={12} />} tone="forest" text={selectedComp.strength} />
-                <SwotCell label="Weaknesses" icon={<AlertTriangle size={12} />} tone="terracotta" text={selectedComp.weakness} />
-                <SwotCell label="Opportunities" icon={<Eye size={12} />} tone="gold" text={selectedComp.opportunity} />
-                <SwotCell label="Threats" icon={<Swords size={12} />} tone="stop" text={selectedComp.threat} />
+                <SwotCell label={t("content.swot.swot-cell.strengths")} icon={<TrendingUp size={12} />} tone="forest" text={selectedComp.strength} />
+                <SwotCell label={t("content.swot.swot-cell.weaknesses")} icon={<AlertTriangle size={12} />} tone="terracotta" text={selectedComp.weakness} />
+                <SwotCell label={t("content.swot.swot-cell.opportunities")} icon={<Eye size={12} />} tone="gold" text={selectedComp.opportunity} />
+                <SwotCell label={t("content.swot.swot-cell.threats")} icon={<Swords size={12} />} tone="stop" text={selectedComp.threat} />
               </div>
             </Card>
 
             {/* Ursa implication */}
             <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-2 flex items-center gap-1.5">
-                <Info size={13} /> Implication for Ursa
+                <Info size={13} /> {t("content.swot.ursa-implication.heading")}
               </h4>
               <p className="text-[0.88rem] text-ursa-dark-roast m-0 leading-relaxed font-medium">{selectedComp.ursaImplication}</p>
             </Card>
 
             {/* Quick switch */}
             <Card className="bg-ursa-foam">
-              <h4 className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mb-2">Jump to</h4>
+              <h4 className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mb-2">{t("content.swot.quick-switch.heading")}</h4>
               <div className="flex flex-wrap gap-1.5">
                 {COMPETITORS.map((c) => (
                   <button
@@ -392,12 +388,9 @@ export function SwotView() {
         </div>
 
         {/* Strategic takeaway */}
-        <Callout tone="forest" title="The strategic read">
+        <Callout tone="forest" title={t("content.swot.callout.takeaway.title")}>
           <p className="m-0 text-[0.92rem]">
-            Ursa sits in the <strong>Hidden gems</strong> quadrant — high distinctiveness, low reach. The
-            plan&apos;s job is to move Ursa <strong>rightward</strong> (more reach via Google, reviews, creators,
-            hotel pipeline) without dropping <strong>downward</strong> (losing the craft that makes it
-            distinctive). No competitor occupies Ursa&apos;s space; the gap is distribution, not identity.
+            {t("content.swot.callout.takeaway.body")}
           </p>
         </Callout>
       </ViewSection>
