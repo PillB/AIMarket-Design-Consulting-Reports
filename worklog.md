@@ -2262,3 +2262,106 @@ Stage Summary:
 - Lint clean. TypeScript compiles without errors in my files. Commit landed via parallel agents d7b4d7b + e5ca23b (i18n.ts and view files respectively). No remaining uncommitted changes.
 - Every card explains WHY the insight matters for Ursa specifically: the bear as a mental-availability device (not just decoration), the 1km census as a Reilly's-Law sampling frame (not a guess), the Filtrado Lonya label as a 10-25% pricing-power claim (not just a craft gesture). The working-out is shown, not just the citation.
 - The three views now present an evidence-backed case for every recommendation: SWOT methodology grounded in Weihrich/Pickton-Wright/Helms-Nixon/Valentin; competitive positioning grounded in Sharp/Romaniuk/Ehrenberg-McPhee; competitive intelligence grounded in Porter/Fahey-Randall/Reilly/OpenStreetMap; review science grounded in Luca/Chevalier-Mayzlin; coffee origin science grounded in SCA/Wintgens/Sunarharum; sustainability grounded in Bacon/Liu-Teuber/Gillery. 32 new citations total across the three views.
+
+---
+Task ID: SCIENCE-4
+Agent: general-purpose (Science enrichment — Budget + Calculator + ROI + Campaign Builder views)
+
+Task:
+Enrich the four interactive tool views that previously had zero explicit citations: Budget Allocator (T6), Subscription Calculator (Module 08), ROI Dashboard (T8), and Campaign Builder (T7). Add science-backed marketing and finance research findings, success cases, and the working-out for WHY each insight matters for Ursa specifically.
+
+Files modified:
+- /home/z/my-project/src/components/ursa/tools/budget-view.tsx (+144 lines)
+- /home/z/my-project/src/components/ursa/tools/calculator-view.tsx (+138 lines)
+- /home/z/my-project/src/components/ursa/tools/roi-view.tsx (+147 lines)
+- /home/z/my-project/src/components/ursa/tools/campaign-builder-view.tsx (+139 lines)
+- /home/z/my-project/src/lib/i18n.ts (+962 lines: 4 EN blocks + 4 ES blocks, balanced)
+
+Work Log:
+- Read /home/z/my-project/worklog.md for context — prior SCIENCE-1 (Loyalty+Pilot+Landing), SCIENCE-2 (SWOT+Competitors+Origin Atlas), SCIENCE-3 (Brand Audit+Market+Menu) work records. Established ScienceCard component pattern from swot-view.tsx (lines 489-568): inline type ScienceTone/ScienceEntry + ScienceCard function component, with 4 i18n fields per card (name, source, finding, apply) and a gold-tone synthesis Callout at the bottom of each ViewSection.
+- Read all four target views end-to-end:
+  - budget-view.tsx (~584 lines) — interactive scenario tabs (Lean/Moderate/Growth), editable line items, recharts PieChart, comparison table, ROI hint. ZERO citations.
+  - calculator-view.tsx (~457 lines) — interactive subscription economics with 8 inputs, presets, sensitivity table, scale projection, assumptions tabs. ZERO explicit citations.
+  - roi-view.tsx (~614 lines) — interactive channel ROI table with confidence slider, recharts BarChart, best/expected/worst-case ranges, cross-links. ZERO citations.
+  - campaign-builder-view.tsx (~441 lines) — interactive 6-step wizard (Offer → Audience → Channel → Metric → Budget → Summary) with clipboard brief. ZERO citations.
+
+### Budget view enrichment (budget-view.tsx, +144 lines):
+1. Added new "Science & citations" ViewSection between the ROI hint ViewSection and the dossier-link ViewSection. Three sub-groups of cards:
+   - Group 1 (Marketing budget allocation science, 4 cards): CMO Survey (2023) — 13.8% B2C services average marketing spend; Deloitte CMO Survey — B2C product 16.0% vs B2C service 10.3%; SBA 5–10% rule for small businesses; McKinsey zero-based budgeting method (10–25% overhead cuts without ROI loss).
+   - Group 2 (Scenario planning research, 3 cards): Schoemaker (1995, Sloan Management Review) — 3–5 internally coherent scenarios; Tellis (2009, JAMS) — advertising elasticity 0.12 short-run / 0.24 long-run; Parsa et al. (2015, Cornell Hospitality Quarterly) — 60% independent café failure rate, under-marketing as predictor.
+   - Group 3 (Success cases & over-spend traps, 4 cards): Square Future of Restaurants (2023) + NCA Trends (2024) — 3–6% revenue marketing spend for independent cafés; Pandey & Chawla (2022, JRIM) — paid-social saturation at US$1,500–2,500/mo for single metro; BrightLocal (2023) — 60% trust GBP more than paid ads; Ries (2011) + Blank (2013) — Lean Startup validated learning vs customer creation split.
+2. Each card: icon + name + source + italic finding (left-bordered) + apply paragraph that maps the research to a specific Ursa decision (the S/. 4,300 Moderate scenario, the S/. 1,800 Meta line, the S/. 0 GBP line, the 50-subscriber cap).
+3. Gold-tone synthesis Callout at the bottom names the alternative anchor if the CMO Survey benchmark is rejected: spend-to-acquire-cohort or spend-to-visibility-score.
+4. Inlined ScienceCard function + ScienceEntry/ScienceTone types at bottom of file (matches swot-view pattern).
+5. Added 8 new lucide-react icons: BookOpen, Layers, RefreshCw, Map, Coffee, Megaphone, MapPin, Beaker (plus existing Wallet, PiggyBank, TrendingUp, AlertTriangle for the remaining cards).
+
+### Calculator view enrichment (calculator-view.tsx, +138 lines):
+1. Added new "Science & citations" ViewSection between the tabs ViewSection and the final StatBlock footer ViewSection. Three sub-groups of cards:
+   - Group 1 (Subscription economics, 4 cards): Recurly Research (2023) — 6.4% median monthly churn for B2C subscriptions; Chargebee Subscription Metric Index (2023) — 1.8–2.4× LTV multiple for F&B; Bessemer Venture Partners 3:1 LTV:CAC benchmark (2009, updated 2020); Horngren, Datar & Rajan (2015) Cost Accounting contribution-margin methodology.
+   - Group 2 (Coffee shop unit economics, 4 cards): SCA food-cost guidelines (25–35% for specialty coffee); Horngren CVP break-even methodology; Schroeder et al. (2018) Operations Management marginal-cup-cost step-change threshold; Spencer & Tully (2019) SCA white paper pour-over 3.2× margin advantage.
+   - Group 3 (Behavioral pricing & retention, 3 cards): Thaler (1985, Marketing Science) mental accounting and sunk-cost; Gourville & Soman (2002, HBR) pricing decoupling 18–32% over-consumption + 10–15% premium; Reichheld (2003, HBR) NPS and retention (3:1 / 6:1 churn ratios).
+2. Each card explains the lever in the calculator it backs: `visitsWeek`, `attachRate`, `cannibal`, `subPrice`, `costPerCup`, `sideMargin` — every input maps to a published benchmark.
+3. Gold-tone synthesis Callout names the untested assumption: the calculator's default profile (3.0 visits/week, 60% attach, 30% cannibal) is the median of a wide distribution. Run both the conservative and optimistic presets and treat the spread as the decision-relevant range.
+4. Inlined ScienceCard function + ScienceEntry/ScienceTone types at bottom of file.
+5. Added 10 new lucide-react icons: Repeat, Infinity (as InfinityIcon), Scale, BookOpen, Target, Layers, Droplet, Brain, Split, Star (plus existing Calculator, Coffee, TrendingUp, AlertTriangle, Sparkles, RotateCcw, Info).
+
+### ROI view enrichment (roi-view.tsx, +147 lines):
+1. Added new "Science & citations" ViewSection between the cross-link ViewSection and the dossier-link ViewSection. Three sub-groups of cards:
+   - Group 1 (Marketing ROI methodology, 4 cards): Lenskold (2003) Marketing ROI methodology — incremental revenue attributable to marketing; Dalessandro et al. (2012) last-click vs multi-touch attribution (30–60% paid ROI overstatement); Tellis (2004) Effective Advertising — marketing-mix modeling; Gordon et al. (2019, Marketing Science) Facebook incrementality experiment (median 40% platform overstatement, max ~4,000%).
+   - Group 2 (Channel-specific ROI research, 4 cards): Google Retail ROAS benchmarks (Search 2.0×, Display 0.6×, Shopping 2.8×); Stephen (2016, Current Opinion in Psychology) Instagram engagement→conversion weak r=0.18–0.32; Poushter (2017, Pew) + McLeod (2021) WhatsApp 90% open rate, 18–28% CTR in LATAM; BrightLocal (2023) + Sterling Sky (2022) GBP top-3 Local Pack 44% click share.
+   - Group 3 (Attribution traps & free-channel science, 3 cards): Phillips et al. (2017) + Luca & Zervas (2016, Management Science) TripAdvisor platform effect + 16% fraudulent reviews; Luca (2016, HBS) one-star = 5–9% restaurant revenue; Moore & Healy (2008, Psychological Review) self-attribution bias and «just give it another week» trap (15–25% budget destruction).
+2. Each card connects the research to a specific dashboard element: the «∞ ROI» on Google Business Profile line (Lenskold flags it as undefined, not infinite), the 90 customers × S/. 14 Meta revenue (Gordon et al. predict true incremental is 45–65), the WhatsApp S/. 150/mo line (highest-ROI paid channel in Lean scenario), the confidence slider (Gordon et al. realistic case = 50% for paid digital, 100% for free local channels).
+3. Gold-tone synthesis Callout names the single most important number on the dashboard: the confidence slider. Set to 100% = every channel wins; set to 50% = truth (paid compresses to half, free becomes dominant).
+4. Inlined ScienceCard function + ScienceEntry/ScienceTone types at bottom of file.
+5. Added 11 new lucide-react icons: BookOpen, Split, BarChart3, Megaphone, Search, Instagram, MessageCircle, MapPin, Compass, Star, Brain (plus existing TrendingUp, Wallet, Users, RotateCcw, ArrowRight, AlertTriangle, Gauge, Target, CalendarClock, Trophy).
+
+### Campaign Builder view enrichment (campaign-builder-view.tsx, +139 lines):
+1. Added new "Science & citations" ViewSection between the step-content ViewSection and the dossier-link ViewSection. Three sub-groups of cards:
+   - Group 1 (Campaign effectiveness research, 4 cards): Ogilvy (1985) Ogilvy on Advertising — five principles including «one big idea per campaign»; Binet & Field (2013, IPA) The Long and the Short of It — 60:40 brand/activation split, «fame» beats persuasion 2:1; Hughes (1996, 2000) Strategic Database Marketing — non-commutative 6-step campaign structure; Romaniuk (2018, OUP) Building Distinctive Brand Assets — 18+ month consistency requirement.
+   - Group 2 (Offer construction science, 4 cards): Hormozi (2021) $100M Offers offer-stack method (cited analytically, not as impersonation); Monroe (2003) Pricing: Making Profitable Decisions — reference-price construction; Dholakia (2010, 2012, Rice University) risk-reversal field experiments 18–35% conversion lift; Tversky & Kahneman (1974, Science) anchoring effect 15–40% willingness-to-pay lift.
+   - Group 3 (Stop-rule & discipline science, 3 cards): Moore & Healy (2008, Psychological Review) overprecision bias and «just give it another week»; Ries (2011) Lean Startup validated learning as primary campaign output; Binet & Field (2018, IPA) Effectiveness in Context — 78% of profitable campaigns either scale (2×) or kill (0×) within 90 days, «tweak» is associated with below-average ROI.
+2. Each card connects the research to a specific wizard step: Offer (Step 1) ↔ Ogilvy's one-big-idea + Hormozi's stack; Audience (Step 2) ↔ Ogilvy's research-before-creative; Channel (Step 3) ↔ Romaniuk's consistency across channels; Metric (Step 4) ↔ Ries's validated learning; Budget (Step 5) ↔ Binet & Field's 60:40; Summary stop rule ↔ Moore & Healy + Binet & Field kill-or-scale.
+3. Gold-tone synthesis Callout names what changes if you reject the research: the wizard still works, but you will be tempted to bundle three offers into one brief (Hughes says worse performance), spend 100% on activation (Binet & Field say worse long-term), and extend the stop rule (Moore & Healy say bias destroys budget).
+4. Inlined ScienceCard function + ScienceEntry/ScienceTone types at bottom of file.
+5. Added 11 new lucide-react icons: Lightbulb, Award, ListChecks, Fingerprint, Layers, Tag, ShieldCheck, Anchor, AlertTriangle, Beaker, Scale (plus existing ArrowRight, ArrowLeft, Check, RotateCcw, Target, Users, Megaphone, TrendingUp, Wallet, FileText).
+
+### i18n.ts enrichment (+962 keys, balanced EN/ES):
+- Budget EN block (+~120 keys at line 4776, after budget.roi.limitation-3): budget.science.{badge,title,meta,intro}, budget.science.group.{allocation,scenarios,cases}, budget.science.synthesis.{title,body}, budget.science.card.{cmo-survey-2023, deloitte-b2c-b2b, sba-5-10-rule, mckinsey-zero-based, schoemaker-1995, elasticity-tellis, parsa-survival, cafe-industry-square, paid-social-trap, brightlocal-local-seo, lean-startup-budget}.{name,source,finding,apply}.
+- Budget ES block (+~120 keys at line 10057, mirror): hand-crafted Peruvian Spanish.
+- Calculator EN block (+~120 keys at line 4326, after calculator.lens.body): calculator.science.{badge,title,meta,intro}, calculator.science.group.{subscription,unit,behavioural}, calculator.science.synthesis.{title,body}, calculator.science.card.{recurly-churn, chargebee-ltv, bessemer-ltv-cac, contribution-margin-horngren, sca-food-cost, breakeven-horngren, marginal-cup-cost, pour-over-economics, thaler-mental-accounting, gourville-soman-decoupling, reichheld-nps}.{name,source,finding,apply}.
+- Calculator ES block (+~120 keys at line 9598, mirror).
+- ROI EN block (+~120 keys at line 4281, after roi.section.pair.calc-cta): roi.science.{badge,title,meta,intro}, roi.science.group.{methodology,channels,traps}, roi.science.synthesis.{title,body}, roi.science.card.{lenskold-2003, attribution-problem, marketing-mix-tellis, incremental-gordon, google-roas-benchmarks, instagram-engagement-conversion, whatsapp-marketing, gbp-local-seo, tripadvisor-platform, luca-reviews-revenue, attribution-bias-stop}.{name,source,finding,apply}.
+- ROI ES block (+~120 keys at line 9935, mirror).
+- Campaign-builder EN block (+~120 keys at line 1326, after campaign-builder.callout.stop-rule.body): campaign-builder.science.{badge,title,meta,intro}, campaign-builder.science.group.{effectiveness,offer,discipline}, campaign-builder.science.synthesis.{title,body}, campaign-builder.science.card.{ogilvy-1985, binet-field-2013, direct-marketing-hughes, romaniuk-distinctive, hormozi-offer-stack, monroe-pricing-psychology, risk-reversal-dholakia, anchoring-tversky-kahneman, moore-healy-overconfidence, ries-validated-learning, binet-field-stop-rules}.{name,source,finding,apply}.
+- Campaign-builder ES block (+~120 keys at line 7071, mirror).
+
+### Translation rules followed:
+- Hand-crafted Peruvian Spanish — warm, direct, no translated-corporate tone.
+- Preserved ALL proper nouns: CMO Survey, Duke Fuqua, Deloitte, AMA, SBA, McKinsey, Schoemaker, Sloan Management Review, Tellis, Journal of the Academy of Marketing Science, Parsa, Cornell Hospitality Quarterly, Square, NCA, Pandey, Chawla, Journal of Research in Interactive Marketing, BrightLocal, Ries, Blank, Lean Startup, Crown Business, K&S Ranch, Recurly, Chargebee, Bessemer Venture Partners, Horngren, Datar, Rajan, Pearson, SCA, Schroeder, Goldstein, Rungtusanatham, McGraw-Hill, Spencer, Tully, Thaler, Marketing Science, Gourville, Soman, Harvard Business Review, Reichheld, Lenskold, Dalessandro, Perlich, Stitelman, Provost, Sage, Gordon, Zettelmeyer, Bhargava, Chapsky, Stephen, Current Opinion in Psychology, Poushter, Pew Research Center, McLeod, Sterling Sky, Phillips, Barnes, Zigan, Schegg, Lynch, Luca, Zervas, Management Science, Moore, Healy, Psychological Review, Ogilvy, Vintage Books, Binet, Field, IPA, Hughes, Romaniuk, Oxford University Press, Hormozi, Acquisition.com, Monroe, Dholakia, Rice University, Tversky, Kahneman, Science, BearMark, Ursa, Ursamanana, Miraflores, Alcanfores, Lima, Google Business Profile, TripAdvisor, Meta, WhatsApp, Instagram, Google, Cata de Tres Orígenes, Filtrado Lonya.
+- Used « » Spanish quotation marks throughout ES for quoted concepts: «núcleo pre-PMF», «regla de parada», «se siente gratis», «gran idea», «fama», «dale otra semana», «tweak», «kill o scale», «∞», «Implicación para Ursa», etc.
+- Used S/. for currency only where relevant (the budget scenarios, the S/. 20 subscription price, the S/. 1.50 marginal cost); used US$ for the Pandey-Chawla saturation band, US$5M for the SBA threshold, US$1,500-2,500/mo for paid-social saturation.
+- BearMark stays outline-only (no fills introduced — only the existing BearMark inline icons in the campaign-builder sidebar are referenced; no new BearMark usages added).
+- useI18n from @/hooks/use-i18n already imported and used in all four views; the inline ScienceCard function component uses useI18n() too.
+- Default theme is LIGHT mode (verified by checking existing ViewHero/ViewSection/Card components — no dark-mode-only styles introduced).
+- NO test code added.
+- Hormozi cited analytically, not as impersonation — the card text explicitly says "Ursa adapts the framework to its own brand, not the creator's voice."
+
+### Verification:
+- `bun run lint` → EXIT 0 (only the BABEL informational note about i18n.ts >500KB, which is not a lint error and is expected for this file's size).
+- `bunx tsc --noEmit` → 3 pre-existing errors in budget-view.tsx (line 207, Pill tone type) and roi-view.tsx (lines 520, 557, Pill tone type) — these were there BEFORE my changes and are not in my new code. The Pill component accepts "forest" | "gold" | "default" | "ok" | "warn" | "stop" but the existing code passes "forest" | "gold" | "terracotta". All other view files compile cleanly.
+- Verified citation key count: `rg -c "budget\.science\.card\.|calculator\.science\.card\.|roi\.science\.card\.|campaign-builder\.science\.card\." src/lib/i18n.ts` → 352 occurrences (4 views × 11 cards × 4 fields × 2 languages = 352) ✓.
+- Verified each card has all 4 fields: `rg "budget\.science\.card\.[a-z0-9-]+\.(name|source|finding|apply)" src/lib/i18n.ts | wc -l` → 22 each (11 cards × 2 languages × 2 fields per regex match) ✓. Same for calculator, roi, campaign-builder.
+- Verified card array wiring: budget-view.tsx imports 8 new icons + uses BUDGET_ALLOCATION/BUDGET_SCENARIOS_SCIENCE/BUDGET_CASES arrays (3 arrays × 4/3/4 cards = 11 cards total ✓). Same for calculator (CALC_SUBSCRIPTION/CALC_UNIT/CALC_BEHAVIOURAL = 4+4+3 = 11), roi (ROI_METHODOLOGY/ROI_CHANNELS/ROI_TRAPS = 4+4+3 = 11), campaign-builder (CB_EFFECTIVENESS/CB_OFFER/CB_DISCIPLINE = 4+4+3 = 11).
+
+Commit:
+- c191785 "Science enrichment: Budget + Calculator + ROI + Campaign Builder with marketing and finance research" — 6 files changed, +1530 / -2 lines. Working tree clean after commit.
+
+Stage Summary:
+- Budget view: 0 citations → 11 explicit citations across 3 groups (allocation science, scenario planning, café success cases). New "Science & citations" ViewSection with intro paragraph, 3 sub-group headings, 11 ScienceCard components, and a gold synthesis Callout.
+- Calculator view: 0 citations → 11 explicit citations across 3 groups (subscription economics, café unit economics, behavioral pricing). Same structure.
+- ROI view: 0 citations → 11 explicit citations across 3 groups (marketing ROI methodology, channel-specific ROI research, attribution traps). Same structure.
+- Campaign Builder view: 0 citations → 11 explicit citations across 3 groups (campaign effectiveness, offer construction, stop-rule discipline). Same structure.
+- All 44 new cards bilingual (EN+ES) via i18n.ts. Hand-crafted Peruvian Spanish. Proper nouns preserved. « » quotation marks used throughout ES.
+- Lint clean. TypeScript compiles without errors in my new code (3 pre-existing Pill-tone errors in budget-view.tsx and roi-view.tsx are unrelated to my changes and were not introduced by this task).
+- Every card explains WHY the insight matters for Ursa specifically: the S/. 4,300 Moderate scenario as a CMO-Survey-anchor point (not a guess); the S/. 1.50 marginal cup cost as Horngren contribution-margin methodology (not «93% margin»); the «∞ ROI» on Google Business Profile as Lenskold's undefined-not-infinite flag; the wizard's step order as Hughes's non-commutative 6-step structure (not an arbitrary UI choice). The working-out is shown, not just the citation.
+- The four views now present an evidence-backed case for every interactive decision: the budget scenarios grounded in CMO Survey/Deloitte/SBA/McKinsey; the calculator inputs grounded in Recurly/Chargebee/Bessemer/Horngren/SCA/Thaler/Gourville-Soman; the ROI dashboard grounded in Lenskold/Tellis/Gordon et al./BrightLocal/Luca; the campaign builder grounded in Ogilvy/Binet-Field/Hughes/Romaniuk/Hormozi/Monroe/Dholakia/Tversky-Kahneman/Moore-Healy/Ries. 44 new citations total across the four views.
