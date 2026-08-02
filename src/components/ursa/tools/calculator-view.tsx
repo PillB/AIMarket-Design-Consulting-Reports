@@ -98,18 +98,11 @@ export function CalculatorView() {
       <ViewHero
         eyebrow={t("content.view.calculator.eyebrow")}
         title={t("content.view.calculator.title")}
-        lede={
-          <>
-            A S/. 20/month unlimited-coffee subscription (Mon–Fri, 7–10am, in-store only, one cup per visit, no milk
-            drinks) is profitable on marginal-cost math because Ursa roasts its own beans. Edit every input below and
-            watch the profit, break-even, free-cup capacity, and sensitivity table update live. The real risk is
-            cannibalization, not per-cup cost — model it explicitly.
-          </>
-        }
+        lede={<>{t("content.calculator.lede")}</>}
         meta={[
-          { label: "Pilot", value: "Capped at 50 members" },
-          { label: "Default", value: "S/. 20/mo · 7–10am" },
-          { label: "Verified cost", value: "S/. 1.20–1.80/cup (own roastery)" },
+          { label: t("content.calculator.meta.pilot"), value: t("content.calculator.meta.pilot-value") },
+          { label: t("content.calculator.meta.default"), value: t("content.calculator.meta.default-value") },
+          { label: t("content.calculator.meta.cost"), value: t("content.calculator.meta.cost-value") },
         ]}
       />
 
@@ -120,7 +113,7 @@ export function CalculatorView() {
       {/* Presets */}
       <ViewSection>
         <div className="flex flex-wrap items-center gap-3 mb-6">
-          <span className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-muted-foreground">Quick scenarios:</span>
+          <span className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-muted-foreground">{t("content.calculator.presets.label")}</span>
           {(["conservative", "default", "optimistic"] as const).map((p) => (
             <button
               key={p}
@@ -135,16 +128,16 @@ export function CalculatorView() {
                 color: "var(--color-ursa-medium-roast)",
               }}
             >
-              {p === "conservative" && "Conservative"}
-              {p === "default" && "Default (recommended)"}
-              {p === "optimistic" && "Optimistic"}
+              {p === "conservative" && t("content.calculator.preset.conservative")}
+              {p === "default" && t("content.calculator.preset.default")}
+              {p === "optimistic" && t("content.calculator.preset.optimistic")}
             </button>
           ))}
           <button
             onClick={() => setInputs(PRESETS.default)}
             className="ml-auto inline-flex items-center gap-1.5 px-3 py-2 rounded-full font-label text-[0.7rem] tracking-[0.12em] uppercase text-muted-foreground hover:text-ursa-dark-roast transition"
           >
-            <RotateCcw size={13} /> Reset
+            <RotateCcw size={13} /> {t("content.calculator.action.reset")}
           </button>
         </div>
 
@@ -152,33 +145,28 @@ export function CalculatorView() {
           {/* INPUTS */}
           <Card>
             <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0 mb-1 flex items-center gap-2">
-              <Calculator size={20} className="text-ursa-gold-text" /> Edit the inputs
+              <Calculator size={20} className="text-ursa-gold-text" /> {t("content.calculator.inputs.title")}
             </h3>
-            <p className="text-[0.85rem] text-muted-foreground mb-5">Drag sliders or type values. Everything recalculates instantly.</p>
+            <p className="text-[0.85rem] text-muted-foreground mb-5">{t("content.calculator.inputs.subtitle")}</p>
 
             <div className="space-y-5">
               {/* Subscription price */}
-              <NumberField label="Subscription price (monthly)" value={inputs.subPrice} onChange={(v) => update("subPrice", v)} min={5} max={60} step={1} prefix="S/. " hint="The price a subscriber pays per month." />
+              <NumberField label={t("content.calculator.field.subPrice.label")} value={inputs.subPrice} onChange={(v) => update("subPrice", v)} min={5} max={60} step={1} prefix="S/. " hint={t("content.calculator.field.subPrice.hint")} />
               {/* Cost per cup */}
-              <NumberField label="Marginal cost per cup" value={inputs.costPerCup} onChange={(v) => update("costPerCup", v)} min={0.3} max={4} step={0.05} prefix="S/. " hint="Bean + water + energy + cup. Own-roastery benchmark: S/. 1.20–1.80." />
+              <NumberField label={t("content.calculator.field.costPerCup.label")} value={inputs.costPerCup} onChange={(v) => update("costPerCup", v)} min={0.3} max={4} step={0.05} prefix="S/. " hint={t("content.calculator.field.costPerCup.hint")} />
 
-              <SliderField label="Visits per week" value={inputs.visitsWeek} onChange={(v) => update("visitsWeek", v)} min={0.5} max={5} step={0.5} display={`${inputs.visitsWeek.toFixed(1)} visits`} hint="How often a subscriber comes in during the 7–10am window." />
-              <SliderField label="Cups per visit" value={inputs.cupsVisit} onChange={(v) => update("cupsVisit", v)} min={1} max={3} step={1} display={`${inputs.cupsVisit}`} hint="Capped at 1 in the pilot to prevent abuse." />
+              <SliderField label={t("content.calculator.field.visitsWeek.label")} value={inputs.visitsWeek} onChange={(v) => update("visitsWeek", v)} min={0.5} max={5} step={0.5} display={`${inputs.visitsWeek.toFixed(1)}`} hint={t("content.calculator.field.visitsWeek.hint")} />
+              <SliderField label={t("content.calculator.field.cupsVisit.label")} value={inputs.cupsVisit} onChange={(v) => update("cupsVisit", v)} min={1} max={3} step={1} display={`${inputs.cupsVisit}`} hint={t("content.calculator.field.cupsVisit.hint")} />
 
-              <SliderField label="Side attach rate" value={inputs.attachRate} onChange={(v) => update("attachRate", v)} min={0} max={100} step={5} display={`${inputs.attachRate}%`} hint="% of visits where the subscriber also buys a cookie, pastry, or empanada. This is the lever that makes the model work." />
-              <NumberField label="Side margin (per attach)" value={inputs.sideMargin} onChange={(v) => update("sideMargin", v)} min={1} max={12} step={0.25} prefix="S/. " hint="Profit margin on the accompanying food item, not revenue." />
+              <SliderField label={t("content.calculator.field.attachRate.label")} value={inputs.attachRate} onChange={(v) => update("attachRate", v)} min={0} max={100} step={5} display={`${inputs.attachRate}%`} hint={t("content.calculator.field.attachRate.hint")} />
+              <NumberField label={t("content.calculator.field.sideMargin.label")} value={inputs.sideMargin} onChange={(v) => update("sideMargin", v)} min={1} max={12} step={0.25} prefix="S/. " hint={t("content.calculator.field.sideMargin.hint")} />
 
-              <SliderField label="Cannibalization rate" value={inputs.cannibal} onChange={(v) => update("cannibal", v)} min={0} max={100} step={5} display={`${inputs.cannibal}%`} hint="% of subscribers who would have paid full price anyway. The biggest risk." />
-              <NumberField label="Avg. pre-subscription spend" value={inputs.avgSpendPre} onChange={(v) => update("avgSpendPre", v)} min={6} max={30} step={0.5} prefix="S/. " hint="What a cannibalized customer used to spend per visit, before subscribing." />
+              <SliderField label={t("content.calculator.field.cannibal.label")} value={inputs.cannibal} onChange={(v) => update("cannibal", v)} min={0} max={100} step={5} display={`${inputs.cannibal}%`} hint={t("content.calculator.field.cannibal.hint")} />
+              <NumberField label={t("content.calculator.field.avgSpendPre.label")} value={inputs.avgSpendPre} onChange={(v) => update("avgSpendPre", v)} min={6} max={30} step={0.5} prefix="S/. " hint={t("content.calculator.field.avgSpendPre.hint")} />
             </div>
 
-            <Callout tone="warn" title="The side-pushing strategy is the whole game">
-              <p className="m-0">
-                Unlimited coffee only works if subscribers buy accompanying food at a healthy rate. The café should
-                actively push sides — cookies, the financier de pera, the empanada, seasonal pastries — through pairing
-                cards, bear-recommends prompts, and a visible morning pastry case. This calculator assumes you do that;
-                if the attach rate stays below 40%, kill the pilot (see stop rule).
-              </p>
+            <Callout tone="warn" title={t("content.calculator.callout.side.title")}>
+              <p className="m-0">{t("content.calculator.callout.side.body")}</p>
             </Callout>
           </Card>
 
@@ -187,7 +175,7 @@ export function CalculatorView() {
             {/* Headline profit */}
             <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="flex items-center justify-between mb-1">
-                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">Net profit per subscriber / month</span>
+                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">{t("content.calculator.outputs.profit.label")}</span>
                 <EvidenceTag status="verified" />
               </div>
               <div className={cn("font-display text-5xl font-semibold leading-none mb-2", calc.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
@@ -195,25 +183,25 @@ export function CalculatorView() {
               </div>
               <p className="text-[0.85rem] text-muted-foreground m-0">
                 {calc.netProfit >= 0
-                  ? "Profitable at these assumptions. Scroll down for the sensitivity table and cannibalization-adjusted view."
-                  : "Not profitable at these assumptions. Raise the price, raise the attach rate, or lower the cost per cup."}
+                  ? t("content.calculator.outputs.profit.body-positive")
+                  : t("content.calculator.outputs.profit.body-negative")}
               </p>
             </Card>
 
             {/* Key metrics grid */}
             <Grid cols={2}>
-              <MiniMetric icon={<Coffee size={16} />} label="Visits / month" value={calc.visitsMonth.toFixed(1)} tone="neutral" />
-              <MiniMetric icon={<Coffee size={16} />} label="Cups / month" value={calc.cupsMonth.toFixed(0)} tone="neutral" />
-              <MiniMetric icon={<TrendingUp size={16} />} label="Coffee cost / month" value={PEN(calc.coffeeCost)} tone="terracotta" />
-              <MiniMetric icon={<Sparkles size={16} />} label="Side margin / month" value={PEN(calc.sideMarginTotal)} tone="forest" />
-              <MiniMetric icon={<Info size={16} />} label="Break-even (no sides)" value={isFinite(calc.breakevenNoSides) ? `${calc.breakevenNoSides.toFixed(1)} cups` : "∞"} tone="neutral" />
-              <MiniMetric icon={<Info size={16} />} label="Free-cup capacity" value={isFinite(calc.freeCapacity) ? `${calc.freeCapacity.toFixed(1)} cups` : "∞"} tone="forest" />
+              <MiniMetric icon={<Coffee size={16} />} label={t("content.calculator.metric.visits")} value={calc.visitsMonth.toFixed(1)} tone="neutral" />
+              <MiniMetric icon={<Coffee size={16} />} label={t("content.calculator.metric.cups")} value={calc.cupsMonth.toFixed(0)} tone="neutral" />
+              <MiniMetric icon={<TrendingUp size={16} />} label={t("content.calculator.metric.coffee-cost")} value={PEN(calc.coffeeCost)} tone="terracotta" />
+              <MiniMetric icon={<Sparkles size={16} />} label={t("content.calculator.metric.side-margin")} value={PEN(calc.sideMarginTotal)} tone="forest" />
+              <MiniMetric icon={<Info size={16} />} label={t("content.calculator.metric.breakeven")} value={isFinite(calc.breakevenNoSides) ? `${calc.breakevenNoSides.toFixed(1)} cups` : "∞"} tone="neutral" />
+              <MiniMetric icon={<Info size={16} />} label={t("content.calculator.metric.free-capacity")} value={isFinite(calc.freeCapacity) ? `${calc.freeCapacity.toFixed(1)} cups` : "∞"} tone="forest" />
             </Grid>
 
             {/* Cutoff attach */}
             <Card>
               <div className="flex items-center justify-between mb-2">
-                <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">Minimum attach rate to break even</h4>
+                <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">{t("content.calculator.cutoff.title")}</h4>
                 <Pill tone={isFinite(calc.cutoffAttach) && calc.cutoffAttach <= inputs.attachRate ? "ok" : "warn"}>
                   {isFinite(calc.cutoffAttach) ? `${calc.cutoffAttach.toFixed(0)}%` : "n/a"}
                 </Pill>
@@ -221,32 +209,32 @@ export function CalculatorView() {
               <p className="text-[0.85rem] text-muted-foreground m-0">
                 {isFinite(calc.cutoffAttach)
                   ? calc.cutoffAttach <= inputs.attachRate
-                    ? `You are above the break-even attach rate by ${(inputs.attachRate - calc.cutoffAttach).toFixed(0)} points. Headroom is healthy.`
-                    : `You are below break-even by ${(calc.cutoffAttach - inputs.attachRate).toFixed(0)} points. Push sides harder or raise the price.`
-                  : "Cannot compute — set a side margin and visit frequency."}
+                    ? t("content.calculator.cutoff.body-above", { delta: (inputs.attachRate - calc.cutoffAttach).toFixed(0) })
+                    : t("content.calculator.cutoff.body-below", { delta: (calc.cutoffAttach - inputs.attachRate).toFixed(0) })
+                  : t("content.calculator.cutoff.body-na")}
               </p>
             </Card>
 
             {/* Cannibalization */}
             <Card className="bg-ursa-foam">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-                <AlertTriangle size={16} className="text-ursa-gold-text" /> Cannibalization-adjusted profit
+                <AlertTriangle size={16} className="text-ursa-gold-text" /> {t("content.calculator.cannibal.title")}
               </h4>
               <div className="flex items-baseline gap-3 mb-2">
                 <span className={cn("font-display text-3xl font-semibold", calc.cannibalProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
                   {PEN(calc.cannibalProfit)}
                 </span>
-                <span className="text-[0.8rem] text-muted-foreground">per subscriber / month, blended</span>
+                <span className="text-[0.8rem] text-muted-foreground">{t("content.calculator.cannibal.subtitle")}</span>
               </div>
               <p className="text-[0.85rem] text-muted-foreground m-0">
                 {calc.cannibalProfit >= 0
-                  ? `Even accounting for ${inputs.cannibal}% of subscribers who would have paid full price, the blended profit is positive.`
-                  : `At ${inputs.cannibal}% cannibalization, the blended profit is negative. Reduce cannibalization (target new customers, not existing regulars) or raise the price.`}
+                  ? t("content.calculator.cannibal.body-positive", { cannibal: inputs.cannibal })
+                  : t("content.calculator.cannibal.body-negative", { cannibal: inputs.cannibal })}
               </p>
               <div className="mt-3 pt-3 border-t border-ursa-line-soft flex items-center justify-between">
-                <span className="font-label text-[0.7rem] tracking-[0.12em] uppercase text-muted-foreground">Recovery time</span>
+                <span className="font-label text-[0.7rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.calculator.cannibal.recovery-label")}</span>
                 <span className="font-display text-base font-semibold text-ursa-dark-roast">
-                  {isFinite(calc.recoverMonths) ? (calc.recoverMonths === 0 ? "Already positive" : `${calc.recoverMonths.toFixed(1)} months`) : "Never (kill the pilot)"}
+                  {isFinite(calc.recoverMonths) ? (calc.recoverMonths === 0 ? t("content.calculator.cannibal.recovery-already") : `${calc.recoverMonths.toFixed(1)} mo`) : t("content.calculator.cannibal.recovery-never")}
                 </span>
               </div>
             </Card>
@@ -255,27 +243,26 @@ export function CalculatorView() {
       </ViewSection>
 
       {/* Tabs: sensitivity + scale + assumptions */}
-      <ViewSection badge="Deeper analysis" title="Sensitivity, scale, and the honest assumptions">
+      <ViewSection badge={t("content.calculator.tabs.badge")} title={t("content.calculator.tabs.title")}>
         <Tabs defaultValue="sensitivity">
           <TabsList className="bg-muted overflow-x-auto ursa-scroll justify-start sm:justify-center flex-nowrap max-w-full">
-            <TabsTrigger value="sensitivity">Sensitivity table</TabsTrigger>
-            <TabsTrigger value="scale">Scale projection</TabsTrigger>
-            <TabsTrigger value="assumptions">Honest assumptions</TabsTrigger>
-            <TabsTrigger value="sides">Side-pushing playbook</TabsTrigger>
+            <TabsTrigger value="sensitivity">{t("content.calculator.tab.sensitivity")}</TabsTrigger>
+            <TabsTrigger value="scale">{t("content.calculator.tab.scale")}</TabsTrigger>
+            <TabsTrigger value="assumptions">{t("content.calculator.tab.assumptions")}</TabsTrigger>
+            <TabsTrigger value="sides">{t("content.calculator.tab.sides")}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="sensitivity" className="mt-6">
             <Card>
               <p className="text-[0.9rem] text-muted-foreground mb-4">
-                Net profit per subscriber/month across visit frequency (rows) and side attach rate (columns). The
-                highlighted cell is your current scenario. Green is profitable; red is not.
+                {t("content.calculator.sensitivity.intro")}
               </p>
               <div className="overflow-x-auto ursa-scroll">
                 <table className="w-full border-collapse text-[0.85rem]">
                   <thead>
                     <tr>
                       <th className="text-left p-2 font-label text-[0.7rem] tracking-[0.1em] uppercase text-muted-foreground border-b border-ursa-line">
-                        Visits/wk ↓ / Attach →
+                        {t("content.calculator.sensitivity.col-visits")}
                       </th>
                       {sensitivity.attachRates.map((ar) => (
                         <th key={ar} className="p-2 font-label text-[0.7rem] tracking-[0.1em] uppercase text-muted-foreground border-b border-ursa-line text-center">
@@ -306,8 +293,7 @@ export function CalculatorView() {
           <TabsContent value="scale" className="mt-6">
             <Card>
               <p className="text-[0.9rem] text-muted-foreground mb-4">
-                Blended monthly profit (cannibalization-adjusted) as the subscriber base grows. The pilot is capped at 50
-                to validate before scaling.
+                {t("content.calculator.scale.intro")}
               </p>
               <div className="space-y-3">
                 {scaleProjection.map((s) => {
@@ -316,7 +302,7 @@ export function CalculatorView() {
                   return (
                     <div key={s.subscribers} className="flex items-center gap-4">
                       <span className="font-label text-[0.8rem] tracking-[0.08em] uppercase text-muted-foreground w-28 shrink-0">
-                        {s.subscribers} subs {isPilot && <span className="text-ursa-gold-text">· pilot</span>}
+                        {s.subscribers} {t("content.calculator.scale.label-subs")} {isPilot && <span className="text-ursa-gold-text">· {t("content.calculator.scale.label-pilot")}</span>}
                       </span>
                       <div className="flex-1 h-8 bg-muted rounded relative overflow-hidden">
                         <div
@@ -326,7 +312,7 @@ export function CalculatorView() {
                           <span className="text-ursa-cream font-display font-semibold text-sm">{PEN(s.monthlyProfit)}</span>
                         </div>
                       </div>
-                      <span className="text-[0.75rem] text-muted-foreground w-24 text-right shrink-0">{s.cupsPerMonth.toFixed(0)} cups/mo</span>
+                      <span className="text-[0.75rem] text-muted-foreground w-24 text-right shrink-0">{s.cupsPerMonth.toFixed(0)} {t("content.calculator.scale.label-cups")}</span>
                     </div>
                   );
                 })}
@@ -336,34 +322,32 @@ export function CalculatorView() {
 
           <TabsContent value="assumptions" className="mt-6">
             <Grid cols={2}>
-              <Callout tone="forest" title="What we verified">
+              <Callout tone="forest" title={t("content.calculator.assumptions.verified.title")}>
                 <ul className="space-y-1.5 m-0 p-0 list-none text-[0.9rem]">
-                  <li>• Own-roastery keeps marginal cost low (specialty benchmark US$0.75–1.20/cup; verified range S/. 1.20–1.80).</li>
-                  <li>• The 7–10am window targets the morning-regular slot in Miraflores — the same persona the Ursa Mañana subscription is built for.</li>
-                  <li>• Side items (cookies, financier, empanada) already exist in-house — no new SKU needed.</li>
-                  <li>• Subscription models are consistent with willingness to pay for membership among Lima café customers (CoffeePass is the local precedent).</li>
+                  <li>• {t("content.calculator.assumptions.verified.1")}</li>
+                  <li>• {t("content.calculator.assumptions.verified.2")}</li>
+                  <li>• {t("content.calculator.assumptions.verified.3")}</li>
+                  <li>• {t("content.calculator.assumptions.verified.4")}</li>
                 </ul>
               </Callout>
-              <Callout tone="warn" title="What we assumed (and you should test)">
+              <Callout tone="warn" title={t("content.calculator.assumptions.assumed.title")}>
                 <ul className="space-y-1.5 m-0 p-0 list-none text-[0.9rem]">
-                  <li>• Side attach rate of 50–70% is achievable with active prompting. Unverified — test in pilot.</li>
-                  <li>• Cannibalization of 20–40% is typical for subscription products. Could be higher if existing regulars over-adopt.</li>
-                  <li>• One-cup-per-visit cap is intended to be enforceable without alienating subscribers — verify with the first 20 sign-ups.</li>
-                  <li>• Marginal cost is assumed to stay at S/. 1.20–1.80 as volume rises, on the assumption that the roastery has spare capacity. Confirm against roast logs before scaling.</li>
+                  <li>• {t("content.calculator.assumptions.assumed.1")}</li>
+                  <li>• {t("content.calculator.assumptions.assumed.2")}</li>
+                  <li>• {t("content.calculator.assumptions.assumed.3")}</li>
+                  <li>• {t("content.calculator.assumptions.assumed.4")}</li>
                 </ul>
               </Callout>
-              <Callout tone="stop" title="Stop rule">
+              <Callout tone="stop" title={t("content.calculator.assumptions.stop.title")}>
                 <p className="m-0 text-[0.9rem]">
-                  Kill or revise the pilot if <strong>blended profit per subscriber is below zero after 60 days</strong>,
-                  or if <strong>cannibalization exceeds 50%</strong>, or if <strong>side attach rate stays below 40%</strong>{" "}
-                  despite active prompting after 30 days. Document the result either way.
+                  {t("content.calculator.assumptions.stop.body")}
                 </p>
               </Callout>
-              <Callout tone="gold" title="What we deliberately did not assume">
+              <Callout tone="gold" title={t("content.calculator.assumptions.not-assumed.title")}>
                 <ul className="space-y-1.5 m-0 p-0 list-none text-[0.9rem]">
-                  <li>• No invented exact ingredient costs — use the scenario ranges.</li>
-                  <li>• No guaranteed subscriber count — the pilot is capped at 50 to learn cheaply.</li>
-                  <li>• No virality assumption — the subscription is promoted through existing channels first.</li>
+                  <li>• {t("content.calculator.assumptions.not-assumed.1")}</li>
+                  <li>• {t("content.calculator.assumptions.not-assumed.2")}</li>
+                  <li>• {t("content.calculator.assumptions.not-assumed.3")}</li>
                 </ul>
               </Callout>
             </Grid>
@@ -371,31 +355,29 @@ export function CalculatorView() {
 
           <TabsContent value="sides" className="mt-6">
             <Card>
-              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3">How to push sides without being pushy</h4>
+              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3">{t("content.calculator.sides.title")}</h4>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text mb-2">At the counter</h5>
+                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text mb-2">{t("content.calculator.sides.counter-title")}</h5>
                   <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
-                    <li>• "Bear recommends" pairing card on the till — e.g. Ursagroni + financier de pera.</li>
-                    <li>• Visible morning pastry case at eye level, lit warm.</li>
-                    <li>• Barista trained to offer one specific pairing, not "would you like anything else?"</li>
-                    <li>• A S/. 2 add-on price for subscribers (anchored against the S/. 8 retail price).</li>
+                    <li>• {t("content.calculator.sides.counter.1")}</li>
+                    <li>• {t("content.calculator.sides.counter.2")}</li>
+                    <li>• {t("content.calculator.sides.counter.3")}</li>
+                    <li>• {t("content.calculator.sides.counter.4")}</li>
                   </ul>
                 </div>
                 <div>
-                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text mb-2">On the app / Rappi / WhatsApp</h5>
+                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text mb-2">{t("content.calculator.sides.online-title")}</h5>
                   <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
-                    <li>• A pre-selected "morning bundle" that defaults to coffee + a side.</li>
-                    <li>• A weekly rotating "bear's pick" that creates novelty.</li>
-                    <li>• A stamp card: 10 sides bought = 1 free side (retention without discounting coffee).</li>
+                    <li>• {t("content.calculator.sides.online.1")}</li>
+                    <li>• {t("content.calculator.sides.online.2")}</li>
+                    <li>• {t("content.calculator.sides.online.3")}</li>
                   </ul>
                 </div>
               </div>
-              <Callout tone="forest" title="The principle">
+              <Callout tone="forest" title={t("content.calculator.sides.principle.title")}>
                 <p className="m-0 text-[0.9rem]">
-                  Do not discount the coffee — discounting erodes the specialty perception that justifies the price. Discount or bundle the sides, which
-                  have higher margin elasticity and reinforce the "morning ritual" story. The subscription makes the
-                  coffee feel free; the sides are where the relationship and the margin actually live.
+                  {t("content.calculator.sides.principle.body")}
                 </p>
               </Callout>
             </Card>
@@ -405,15 +387,13 @@ export function CalculatorView() {
 
       <ViewSection>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatBlock value={PEN(calc.netProfit)} label="Net profit / subscriber / month (current inputs)" tone="forest" />
-          <StatBlock value={`${calc.cutoffAttach.toFixed(0)}%`} label="Break-even side attach rate" tone="gold" />
-          <StatBlock value={`${calc.freeCapacity.toFixed(0)}`} label="Free cups the margin can absorb" tone="forest" />
-          <StatBlock value={isFinite(calc.recoverMonths) ? `${calc.recoverMonths.toFixed(1)} mo` : "kill"} label="Cannibalization recovery time" tone="terracotta" />
+          <StatBlock value={PEN(calc.netProfit)} label={t("content.calculator.stat.profit")} tone="forest" />
+          <StatBlock value={`${calc.cutoffAttach.toFixed(0)}%`} label={t("content.calculator.stat.cutoff")} tone="gold" />
+          <StatBlock value={`${calc.freeCapacity.toFixed(0)}`} label={t("content.calculator.stat.capacity")} tone="forest" />
+          <StatBlock value={isFinite(calc.recoverMonths) ? `${calc.recoverMonths.toFixed(1)} mo` : t("content.calculator.stat.recovery-kill")} label={t("content.calculator.stat.recovery")} tone="terracotta" />
         </div>
         <p className="text-[0.78rem] text-muted-foreground mt-6 max-w-3xl">
-          <strong>How to read this:</strong> This calculator is a decision-support tool, not a financial guarantee. Marginal
-          cost per cup depends on roast yield, milk usage, and waste; verify against Ursa's actual roast logs before
-          scaling. Virality and subscriber growth are not assumed — the pilot is designed to measure them.
+          {t("content.calculator.footer.body")}
         </p>
       </ViewSection>
     </>

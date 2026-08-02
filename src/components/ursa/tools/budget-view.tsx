@@ -145,17 +145,11 @@ export function BudgetView() {
       <ViewHero
         eyebrow={t("content.view.budget.eyebrow")}
         title={<>{t("content.view.budget.title")}</>}
-        lede={
-          <>
-            Start from the verified Lean, Moderate, and Growth scenarios. Edit any line item, add
-            your own, and watch the monthly total, per-day cost, and category breakdown recalculate
-            instantly. Pick the scenario the owner can sustain for three months without flinching.
-          </>
-        }
+        lede={<>{t("content.budget.lede")}</>}
         meta={[
-          { label: "Currency", value: "PEN (S/.)" },
-          { label: "Source", value: "Module 04 · verified scenarios" },
-          { label: "Interactive", value: "Live totals · editable" },
+          { label: t("content.budget.meta.currency"), value: t("content.budget.meta.currency-value") },
+          { label: t("content.budget.meta.source"), value: t("content.budget.meta.source-value") },
+          { label: t("content.budget.meta.interactive"), value: t("content.budget.meta.interactive-value") },
         ]}
       />
 
@@ -164,7 +158,7 @@ export function BudgetView() {
       </ViewSection>
 
       {/* Scenario selector + live total */}
-      <ViewSection badge="Scenario" title="Pick a scenario, then edit line items live" meta="Three pre-populated · fully editable">
+      <ViewSection badge={t("content.budget.section.01.badge")} title={t("content.budget.section.01.title")} meta={t("content.budget.section.01.meta")}>
         {/* Scenario tabs */}
         <div className="flex flex-wrap items-center gap-2 mb-6">
           {scenarios.map((s, i) => {
@@ -190,7 +184,7 @@ export function BudgetView() {
             onClick={resetAll}
             className="ml-auto inline-flex items-center gap-1.5 px-3 py-2 rounded-full font-label text-[0.7rem] tracking-[0.12em] uppercase text-muted-foreground hover:text-ursa-dark-roast transition"
           >
-            <RotateCcw size={13} /> Reset all
+            <RotateCcw size={13} /> {t("content.budget.action.reset")}
           </button>
         </div>
 
@@ -199,9 +193,9 @@ export function BudgetView() {
           <Card>
             <div className="flex items-center justify-between mb-1">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-0 flex items-center gap-2">
-                <Wallet size={18} className="text-ursa-gold-text" /> {active.name} · line items
+                <Wallet size={18} className="text-ursa-gold-text" /> {t("content.budget.line-items.title", { name: active.name })}
               </h3>
-              <Pill tone={SCENARIO_TONES[activeIdx]}>{active.items.length} items</Pill>
+              <Pill tone={SCENARIO_TONES[activeIdx]}>{t("content.budget.line-items.count", { n: active.items.length })}</Pill>
             </div>
             <p className="text-[0.85rem] text-muted-foreground mb-4 m-0">{active.focus}</p>
 
@@ -239,7 +233,7 @@ export function BudgetView() {
               ))}
               {active.items.length === 0 && (
                 <p className="text-[0.85rem] text-muted-foreground italic m-0">
-                  No line items. Add one below.
+                  {t("content.budget.line-items.empty")}
                 </p>
               )}
             </div>
@@ -247,13 +241,13 @@ export function BudgetView() {
             {/* Add custom line item */}
             <div className="mt-4 pt-4 border-t border-ursa-line-soft">
               <Label className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-muted-foreground mb-2 block">
-                Add a custom line item to <span className="text-ursa-dark-roast">{active.name}</span>
+                {t("content.budget.line-items.add-label", { name: active.name })}
               </Label>
               <div className="grid grid-cols-[1fr_120px_auto] gap-2 items-center">
                 <Input
                   value={newItemName}
                   onChange={(e) => setNewItemName(e.target.value)}
-                  placeholder="e.g. Influencer trip hosting"
+                  placeholder={t("content.budget.line-items.placeholder")}
                   className="h-9"
                 />
                 <div className="flex items-center gap-1">
@@ -269,7 +263,7 @@ export function BudgetView() {
                   onClick={addCustomItem}
                   className="bg-ursa-dark-roast hover:bg-ursa-espresso text-ursa-cream h-9 px-3"
                 >
-                  <Plus size={14} className="mr-1" /> Add
+                  <Plus size={14} className="mr-1" /> {t("content.budget.line-items.add-button")}
                 </Button>
               </div>
             </div>
@@ -280,7 +274,7 @@ export function BudgetView() {
             <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="flex items-center justify-between mb-1">
                 <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
-                  Live monthly total · {active.name}
+                  {t("content.budget.total.label", { name: active.name })}
                 </span>
                 <EvidenceTag status="verified" />
               </div>
@@ -288,56 +282,50 @@ export function BudgetView() {
                 <span className="font-display text-5xl font-semibold leading-none text-ursa-dark-roast">
                   {PEN(editedTotal)}
                 </span>
-                <span className="font-label text-[0.72rem] tracking-[0.1em] uppercase text-muted-foreground">/ month</span>
+                <span className="font-label text-[0.72rem] tracking-[0.1em] uppercase text-muted-foreground">{t("content.budget.total.per-month")}</span>
               </div>
               <p className="text-[0.85rem] text-muted-foreground m-0">
-                Original baseline: <strong className="text-ursa-dark-roast">{PEN(originalTotal)}</strong>
-                {" · "}
-                <span className={delta > 0 ? "text-ursa-terracotta-text" : delta < 0 ? "text-ursa-forest-deep" : "text-muted-foreground"}>
-                  {delta > 0 ? "+" : ""}
-                  {PEN(delta)}
-                </span>
-                {" "}vs. baseline
+                {t("content.budget.total.baseline-label", { baseline: PEN(originalTotal), delta: `${delta > 0 ? "+" : ""}${PEN(delta)}` })}
               </p>
             </Card>
 
             <Grid cols={2}>
               <StatBlock
                 value={PEN(perDay)}
-                label="Per-day cost · 30-day month"
+                label={t("content.budget.stat.per-day")}
                 tone="forest"
               />
               <StatBlock
                 value={`${active.items.length}`}
-                label="Active line items in this scenario"
+                label={t("content.budget.stat.active")}
                 tone="gold"
               />
             </Grid>
 
             <Card className="bg-ursa-foam">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <Calendar size={16} className="text-ursa-gold-text" /> Per-day breakdown
+                <Calendar size={16} className="text-ursa-gold-text" /> {t("content.budget.breakdown.title")}
               </h4>
               <div className="space-y-2">
                 <div className="flex justify-between text-[0.85rem]">
-                  <span className="text-muted-foreground">Daily cost</span>
+                  <span className="text-muted-foreground">{t("content.budget.breakdown.daily")}</span>
                   <span className="font-display font-semibold text-ursa-dark-roast">{PEN(perDay)}</span>
                 </div>
                 <div className="flex justify-between text-[0.85rem]">
-                  <span className="text-muted-foreground">Weekly cost (÷ 4.33)</span>
+                  <span className="text-muted-foreground">{t("content.budget.breakdown.weekly")}</span>
                   <span className="font-display font-semibold text-ursa-dark-roast">{PEN(editedTotal / 4.33)}</span>
                 </div>
                 <div className="flex justify-between text-[0.85rem]">
-                  <span className="text-muted-foreground">Quarterly cost (× 3)</span>
+                  <span className="text-muted-foreground">{t("content.budget.breakdown.quarterly")}</span>
                   <span className="font-display font-semibold text-ursa-dark-roast">{PEN(editedTotal * 3)}</span>
                 </div>
               </div>
               {Math.abs(delta) > 0 && (
-                <Callout tone={delta > 0 ? "stop" : "ok"} title={delta > 0 ? "You are over baseline" : "You are under baseline"}>
+                <Callout tone={delta > 0 ? "stop" : "ok"} title={delta > 0 ? t("content.budget.breakdown.over-title") : t("content.budget.breakdown.under-title")}>
                   <p className="m-0 text-[0.85rem]">
                     {delta > 0
-                      ? `Adding ${PEN(delta)}/mo means ${PEN(delta * 3)} over a quarter. Confirm the owner can sustain it before committing.`
-                      : `Cutting ${PEN(Math.abs(delta))}/mo saves ${PEN(Math.abs(delta) * 3)} over a quarter. Make sure no experiment loses its budget.`}
+                      ? t("content.budget.breakdown.over-body", { delta: PEN(delta), quarterly: PEN(delta * 3) })
+                      : t("content.budget.breakdown.under-body", { delta: PEN(Math.abs(delta)), quarterly: PEN(Math.abs(delta) * 3) })}
                   </p>
                 </Callout>
               )}
@@ -347,14 +335,14 @@ export function BudgetView() {
       </ViewSection>
 
       {/* Allocation chart */}
-      <ViewSection badge="Allocation" title={`Where the ${active.name} budget goes`} meta="Category-by-category breakdown">
+      <ViewSection badge={t("content.budget.section.02.badge")} title={t("content.budget.section.02.title", { name: active.name })} meta={t("content.budget.section.02.meta")}>
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1 flex items-center gap-2">
-              <PiggyBank size={18} className="text-ursa-gold-text" /> Spend by line item
+              <PiggyBank size={18} className="text-ursa-gold-text" /> {t("content.budget.allocation.title")}
             </h3>
             <p className="text-[0.85rem] text-muted-foreground mb-4 m-0">
-              Each slice is one line item. Edit the cost above and watch the chart redraw.
+              {t("content.budget.allocation.body")}
             </p>
             <div className="h-[320px]">
               <ResponsiveContainer width="100%" height="100%">
@@ -399,7 +387,7 @@ export function BudgetView() {
 
           <Card className="bg-ursa-foam">
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3">
-              Ranked by share of total
+              {t("content.budget.ranked.title")}
             </h3>
             <div className="space-y-2 max-h-[320px] overflow-y-auto ursa-scroll pr-1">
               {[...active.items]
@@ -441,14 +429,14 @@ export function BudgetView() {
       </ViewSection>
 
       {/* Comparison view */}
-      <ViewSection badge="Compare" title="All three scenarios side by side" meta="Lean vs Moderate vs Growth">
+      <ViewSection badge={t("content.budget.section.03.badge")} title={t("content.budget.section.03.title")} meta={t("content.budget.section.03.meta")}>
         <Card className="p-0 overflow-hidden">
           <div className="overflow-x-auto ursa-scroll -mx-1 px-1">
             <table className="w-full border-collapse text-[0.88rem] min-w-[420px]">
               <thead>
                 <tr className="bg-ursa-cream">
                   <th className="text-left p-3 font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground border-b border-ursa-line">
-                    Metric
+                    {t("content.budget.compare.table-metric")}
                   </th>
                   {scenarios.map((s, i) => (
                     <th
@@ -462,13 +450,13 @@ export function BudgetView() {
                 </tr>
               </thead>
               <tbody>
-                <TableRow label="Edited monthly total" tone="strong" render={(s) => PEN(s.items.reduce((sum, it) => sum + (Number.isFinite(it.cost) ? it.cost : 0), 0))} scenarios={scenarios} />
-                <TableRow label="Baseline monthly" render={(s) => PEN(s.monthlyPEN)} scenarios={scenarios} />
-                <TableRow label="Per-day cost" render={(s) => PEN(s.items.reduce((sum, it) => sum + (Number.isFinite(it.cost) ? it.cost : 0), 0) / DAYS_PER_MONTH)} scenarios={scenarios} />
-                <TableRow label="Line items" render={(s) => `${s.items.length}`} scenarios={scenarios} />
-                <TableRow label="Focus" tone="wrap" render={(s) => s.focus} scenarios={scenarios} />
+                <TableRow label={t("content.budget.compare.row-edited")} tone="strong" render={(s) => PEN(s.items.reduce((sum, it) => sum + (Number.isFinite(it.cost) ? it.cost : 0), 0))} scenarios={scenarios} />
+                <TableRow label={t("content.budget.compare.row-baseline")} render={(s) => PEN(s.monthlyPEN)} scenarios={scenarios} />
+                <TableRow label={t("content.budget.compare.row-per-day")} render={(s) => PEN(s.items.reduce((sum, it) => sum + (Number.isFinite(it.cost) ? it.cost : 0), 0) / DAYS_PER_MONTH)} scenarios={scenarios} />
+                <TableRow label={t("content.budget.compare.row-items")} render={(s) => `${s.items.length}`} scenarios={scenarios} />
+                <TableRow label={t("content.budget.compare.row-focus")} tone="wrap" render={(s) => s.focus} scenarios={scenarios} />
                 <TableRow
-                  label="Top item"
+                  label={t("content.budget.compare.row-top")}
                   render={(s) => {
                     const top = [...s.items].sort((a, b) => b.cost - a.cost)[0];
                     return top ? `${top.item} · ${PEN(top.cost)}` : "—";
@@ -487,24 +475,22 @@ export function BudgetView() {
               <StatBlock
                 key={s.name}
                 value={PEN(total)}
-                label={`${s.name} · edited monthly total`}
+                label={t("content.budget.compare.stat", { name: s.name })}
                 tone={SCENARIO_TONES[i]}
               />
             );
           })}
         </div>
 
-        <Callout tone="warn" title="The cheap scenario is the real benchmark">
+        <Callout tone="warn" title={t("content.budget.compare.callout.title")}>
           <p className="m-0">
-            If the edited Moderate or Growth total creeps past what the owner can sustain for three
-            months, fall back to the Lean edited total. The plan is internally coherent at any of
-            the three — there is no half-Moderate scenario that breaks.
+            {t("content.budget.compare.callout.body")}
           </p>
         </Callout>
       </ViewSection>
 
       {/* ROI hint */}
-      <ViewSection badge="Next step" title="Once the budget is set, model the return per channel">
+      <ViewSection badge={t("content.budget.section.04.badge")} title={t("content.budget.section.04.title")}>
         <div className="grid md:grid-cols-[1.4fr_1fr] gap-6 items-center">
           <Card className="bg-gradient-to-br from-ursa-foam to-ursa-cream">
             <div className="flex items-start gap-3">
@@ -513,26 +499,23 @@ export function BudgetView() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1.5">
-                  ROI modelling lives in the ROI Dashboard
+                  {t("content.budget.roi.title")}
                 </h3>
                 <p className="text-[0.9rem] text-muted-foreground m-0 mb-3">
-                  The Budget Allocator tells you what you spend. The ROI Dashboard turns each
-                  channel's spend into expected customers, revenue, payback months, and ROI % — with
-                  a confidence slider for best/worst case. Use both together: set the budget here,
-                  then validate it there.
+                  {t("content.budget.roi.body")}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <button
                     onClick={() => navigate("roi")}
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
                   >
-                    <TrendingUp size={14} /> Open the ROI Dashboard <ArrowRight size={14} />
+                    <TrendingUp size={14} /> {t("content.budget.roi.button-roi")} <ArrowRight size={14} />
                   </button>
                   <button
                     onClick={() => navigate("growth")}
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/40 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
                   >
-                    Back to Module 04
+                    {t("content.budget.roi.button-back")}
                   </button>
                 </div>
               </div>
@@ -540,12 +523,12 @@ export function BudgetView() {
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <AlertTriangle size={16} className="text-ursa-terracotta-text" /> What this tool does not do
+              <AlertTriangle size={16} className="text-ursa-terracotta-text" /> {t("content.budget.roi.limitations-title")}
             </h4>
             <ul className="space-y-1.5 m-0 p-0 list-none text-[0.85rem] text-muted-foreground">
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not model revenue or payback — see ROI Dashboard.</li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not persist edits across reloads — this is a scratchpad.</li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not enforce a total cap — set your own discipline.</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> {t("content.budget.roi.limitation-1")}</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> {t("content.budget.roi.limitation-2")}</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> {t("content.budget.roi.limitation-3")}</li>
             </ul>
           </Card>
         </div>

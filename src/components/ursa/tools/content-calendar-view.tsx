@@ -189,53 +189,47 @@ export function ContentCalendarView() {
       <ViewHero
         eyebrow={t("content.view.content-calendar.eyebrow")}
         title={<>{t("content.view.content-calendar.title")}</>}
-        lede={
-          <>
-            A working planner for the Ursa content lab. Browse all 26 concepts, read every
-            script with its Spanish caption + CTA, assign concepts to a 4-week grid, and
-            track when each repeatable series was last posted.
-          </>
-        }
+        lede={<>{t("content.content-calendar.hero.lede")}</>}
         meta={[
-          { label: "Concepts", value: "26" },
-          { label: "Scripts", value: "10" },
-          { label: "Series", value: "3" },
-          { label: "Pilot", value: "4 weeks" },
+          { label: t("content.content-calendar.meta.concepts"), value: "26" },
+          { label: t("content.content-calendar.meta.scripts"), value: "10" },
+          { label: t("content.content-calendar.meta.series"), value: "3" },
+          { label: t("content.content-calendar.meta.pilot"), value: t("content.content-calendar.meta.pilot-value") },
         ]}
       />
 
       {/* Section 01 — Stats */}
       <ViewSection
-        badge="Section 01"
-        title="Library at a glance"
-        meta="Counts by format"
+        badge={t("content.content-calendar.section.1.badge")}
+        title={t("content.content-calendar.section.1.title")}
+        meta={t("content.content-calendar.section.1.meta")}
       >
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <Card className="p-5">
             <StatBlock
               value="26"
-              label="Content concepts in the library"
+              label={t("content.content-calendar.stat.concepts")}
               tone="forest"
             />
           </Card>
           <Card className="p-5">
             <StatBlock
               value="10"
-              label="Production-ready scripts (beats + caption + CTA)"
+              label={t("content.content-calendar.stat.scripts")}
               tone="gold"
             />
           </Card>
           <Card className="p-5">
             <StatBlock
               value="3"
-              label="Repeatable series with cadence"
+              label={t("content.content-calendar.stat.series")}
               tone="terracotta"
             />
           </Card>
         </div>
         <div className="bg-card border border-ursa-line-soft rounded-xl p-5">
           <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground mb-3">
-            Concepts by format (overlapping — one concept may match several)
+            {t("content.content-calendar.section.1.formats-label")}
           </div>
           <div className="space-y-2.5">
             {formatCounts.map((f) => {
@@ -253,7 +247,7 @@ export function ContentCalendarView() {
               return (
                 <div key={f.filter} className="flex items-center gap-3">
                   <div className="w-20 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-medium-roast">
-                    {f.filter}
+                    {t(`content.content-calendar.filter.${f.filter.toLowerCase()}`)}
                   </div>
                   <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
                     <div
@@ -272,14 +266,22 @@ export function ContentCalendarView() {
             })}
           </div>
         </div>
+        <div className="mt-6">
+          <Callout tone="gold" title={t("content.content-calendar.section.1.callout-title")}>
+            {t("content.content-calendar.section.1.callout-body")}
+          </Callout>
+        </div>
       </ViewSection>
 
       {/* Section 02 — Filterable concept library */}
       <ViewSection
-        badge="Section 02"
-        title="Filterable concept library"
-        meta={`${filteredConcepts.length} of 26 shown`}
+        badge={t("content.content-calendar.section.2.badge")}
+        title={t("content.content-calendar.section.2.title")}
+        meta={t("content.content-calendar.section.2.meta", { n: filteredConcepts.length })}
       >
+        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-5 m-0">
+          {t("content.content-calendar.section.2.intro")}
+        </p>
         <div className="flex flex-col md:flex-row md:items-center gap-3 mb-5">
           <div className="relative flex-1 max-w-md">
             <Search
@@ -287,7 +289,7 @@ export function ContentCalendarView() {
               className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
             />
             <Input
-              placeholder="Search title, hook, or ID (e.g. C07, bear, coldbrew)…"
+              placeholder={t("content.content-calendar.section.2.search-placeholder")}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="pl-9"
@@ -307,7 +309,7 @@ export function ContentCalendarView() {
                       : "bg-card text-ursa-medium-roast border-ursa-line hover:border-ursa-gold hover:text-ursa-gold-text"
                   )}
                 >
-                  {f}
+                  {t(`content.content-calendar.filter.${f.toLowerCase()}`)}
                 </button>
               );
             })}
@@ -316,7 +318,7 @@ export function ContentCalendarView() {
 
         {filteredConcepts.length === 0 ? (
           <div className="text-center py-12 text-muted-foreground border border-dashed border-ursa-line rounded-xl">
-            No concepts match. Try a different filter or search term.
+            {t("content.content-calendar.section.2.empty")}
           </div>
         ) : (
           <Grid cols={3}>
@@ -339,7 +341,7 @@ export function ContentCalendarView() {
                   {c.hook}
                 </p>
                 <span className="mt-auto text-[0.7rem] font-label tracking-[0.14em] uppercase text-ursa-gold-text opacity-0 group-hover:opacity-100 transition">
-                  View details →
+                  {t("content.content-calendar.section.2.view-details")}
                 </span>
               </button>
             ))}
@@ -368,7 +370,7 @@ export function ContentCalendarView() {
                 </DialogHeader>
                 <div>
                   <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-forest-deep mb-2">
-                    The hook
+                    {t("content.content-calendar.section.2.dialog.hook-label")}
                   </div>
                   <p className="text-[0.95rem] text-ursa-dark-roast leading-relaxed m-0">
                     {dialogConcept.hook}
@@ -376,18 +378,18 @@ export function ContentCalendarView() {
                 </div>
                 <div className="bg-ursa-cream/60 rounded-lg p-4 border border-ursa-line-soft">
                   <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground mb-2">
-                    How to use this concept
+                    {t("content.content-calendar.section.2.dialog.use-label")}
                   </div>
                   <ul className="text-[0.85rem] text-ursa-dark-roast space-y-1.5 list-disc pl-4 m-0">
-                    <li>Film in-house with the baristas; no actors, no paid locations.</li>
-                    <li>Lead with the hook in the first 2 seconds; brand the last frame only.</li>
-                    <li>If a matching script exists, use it verbatim (caption + CTA in Peru Spanish).</li>
-                    <li>Post on the cadence in the planner; measure for 48 hours before deciding.</li>
+                    <li>{t("content.content-calendar.section.2.dialog.use-1")}</li>
+                    <li>{t("content.content-calendar.section.2.dialog.use-2")}</li>
+                    <li>{t("content.content-calendar.section.2.dialog.use-3")}</li>
+                    <li>{t("content.content-calendar.section.2.dialog.use-4")}</li>
                   </ul>
                 </div>
                 <DialogFooter>
                   <Button variant="outline" onClick={() => setDialogConcept(null)}>
-                    Close
+                    {t("content.content-calendar.section.2.dialog.close")}
                   </Button>
                   <Button
                     onClick={() => {
@@ -395,7 +397,7 @@ export function ContentCalendarView() {
                       navigate("viral");
                     }}
                   >
-                    Open Module 05
+                    {t("content.content-calendar.section.2.dialog.open-module")}
                   </Button>
                 </DialogFooter>
               </>
@@ -406,14 +408,12 @@ export function ContentCalendarView() {
 
       {/* Section 03 — Script reader */}
       <ViewSection
-        badge="Section 03"
-        title="Script reader"
-        meta="Beats · caption · CTA · copy"
+        badge={t("content.content-calendar.section.3.badge")}
+        title={t("content.content-calendar.section.3.title")}
+        meta={t("content.content-calendar.section.3.meta")}
       >
-        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-5">
-          Every script with its beats (the edit), the Spanish caption (copy-paste ready),
-          and the Spanish CTA. Captions and CTAs are posted verbatim — no translation, no
-          adaptation.
+        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-5 m-0">
+          {t("content.content-calendar.section.3.intro")}
         </p>
         <Accordion
           type="single"
@@ -452,7 +452,7 @@ export function ContentCalendarView() {
                   <div className="grid md:grid-cols-2 gap-6 pt-2">
                     <div>
                       <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-forest-deep mb-3">
-                        Beats
+                        {t("content.content-calendar.section.3.beats-label")}
                       </div>
                       <ol className="list-none space-y-2.5 m-0 p-0">
                         {s.beats.map((b, i) => (
@@ -472,7 +472,7 @@ export function ContentCalendarView() {
                       <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4 border border-ursa-espresso">
                         <div className="flex items-center justify-between mb-2 gap-2">
                           <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft">
-                            Caption · ES Peru
+                            {t("content.content-calendar.section.3.caption-label")}
                           </div>
                           <Button
                             size="sm"
@@ -483,12 +483,12 @@ export function ContentCalendarView() {
                             {copiedId === s.id ? (
                               <>
                                 <Check size={14} className="mr-1" />
-                                Copied
+                                {t("content.content-calendar.section.3.copied-button")}
                               </>
                             ) : (
                               <>
                                 <Copy size={14} className="mr-1" />
-                                Copy caption
+                                {t("content.content-calendar.section.3.copy-button")}
                               </>
                             )}
                           </Button>
@@ -499,7 +499,7 @@ export function ContentCalendarView() {
                       </div>
                       <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4">
                         <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-leaf mb-2">
-                          CTA · ES Peru
+                          {t("content.content-calendar.section.3.cta-label")}
                         </div>
                         <p className="font-body text-[1rem] leading-relaxed m-0">
                           {s.cta}
@@ -518,18 +518,17 @@ export function ContentCalendarView() {
 
       {/* Section 04 — Interactive weekly planner */}
       <ViewSection
-        badge="Section 04"
-        title="Interactive weekly planner"
-        meta={`${totalAssigned} assignments · click any day`}
+        badge={t("content.content-calendar.section.4.badge")}
+        title={t("content.content-calendar.section.4.title")}
+        meta={t("content.content-calendar.section.4.meta", { n: totalAssigned })}
       >
         <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
           <p className="text-[0.9rem] text-muted-foreground max-w-[64ch] m-0">
-            Click any cell to open a concept picker. Pre-populated with a suggested 4-week
-            schedule — Mon/Wed/Fri Reels, Tue/Thu Carousels, Sat Event/UGC, Sun Stories.
+            {t("content.content-calendar.section.4.intro")}
           </p>
           <Button variant="outline" size="sm" onClick={resetPlanner}>
             <ClipboardList size={14} className="mr-2" />
-            Reset to suggested
+            {t("content.content-calendar.section.4.reset")}
           </Button>
         </div>
 
@@ -540,7 +539,7 @@ export function ContentCalendarView() {
                 key={d}
                 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-medium-roast text-center pb-2 border-b border-ursa-line-soft"
               >
-                {d}
+                {t(`content.content-calendar.day.${d}`)}
               </div>
             ))}
             {[...Array(WEEKS)].map((_, w) =>
@@ -566,7 +565,10 @@ export function ContentCalendarView() {
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
-                        W{w + 1} · {DAYS[d]}
+                        {t("content.content-calendar.section.4.cell-label", {
+                          week: w + 1,
+                          day: t(`content.content-calendar.day.${DAYS[d]}`),
+                        })}
                       </span>
                       {ids.length > 0 && (
                         <span className="font-label text-[0.55rem] tracking-[0.1em] uppercase text-ursa-gold-text">
@@ -576,7 +578,7 @@ export function ContentCalendarView() {
                     </div>
                     {ids.length === 0 ? (
                       <span className="text-[0.7rem] text-muted-foreground italic mt-auto">
-                        + add concept
+                        {t("content.content-calendar.section.4.add-concept")}
                       </span>
                     ) : (
                       <div className="flex flex-col gap-1 mt-auto">
@@ -597,7 +599,9 @@ export function ContentCalendarView() {
                         })}
                         {ids.length > 3 && (
                           <span className="text-[0.65rem] text-muted-foreground">
-                            +{ids.length - 3} more
+                            {t("content.content-calendar.section.4.more", {
+                              n: ids.length - 3,
+                            })}
                           </span>
                         )}
                       </div>
@@ -608,8 +612,10 @@ export function ContentCalendarView() {
             )}
           </div>
           <div className="mt-4 pt-3 border-t border-ursa-line-soft text-[0.78rem] text-muted-foreground">
-            <strong className="text-ursa-dark-roast">Tip:</strong> a day can hold more than
-            one concept (e.g. a Reel + a Story). Use the concept picker to stack them.
+            <strong className="text-ursa-dark-roast">
+              {t("content.content-calendar.section.4.tip-prefix")}
+            </strong>{" "}
+            {t("content.content-calendar.section.4.tip-body")}
           </div>
         </div>
 
@@ -623,11 +629,15 @@ export function ContentCalendarView() {
               <>
                 <DialogHeader>
                   <DialogTitle className="font-display text-[1.3rem] text-ursa-dark-roast">
-                    Week {plannerWeekNum + 1} · {DAYS[plannerDayNum]}
+                    {t("content.content-calendar.section.4.dialog-title", {
+                      week: plannerWeekNum + 1,
+                      day: t(`content.content-calendar.day.${DAYS[plannerDayNum]}`),
+                    })}
                   </DialogTitle>
                   <DialogDescription>
-                    Toggle concepts to assign. Currently {dayAssignments.length}{" "}
-                    assigned.
+                    {t("content.content-calendar.section.4.dialog-desc", {
+                      n: dayAssignments.length,
+                    })}
                   </DialogDescription>
                 </DialogHeader>
                 <div className="flex flex-col sm:flex-row gap-2 mb-3">
@@ -637,7 +647,7 @@ export function ContentCalendarView() {
                       className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
                     />
                     <Input
-                      placeholder="Search concepts…"
+                      placeholder={t("content.content-calendar.section.4.dialog-search-placeholder")}
                       value={plannerQuery}
                       onChange={(e) => setPlannerQuery(e.target.value)}
                       className="pl-9 h-8"
@@ -655,7 +665,7 @@ export function ContentCalendarView() {
                             : "bg-card text-ursa-medium-roast border-ursa-line hover:border-ursa-gold"
                         )}
                       >
-                        {f}
+                        {t(`content.content-calendar.filter.${f.toLowerCase()}`)}
                       </button>
                     ))}
                   </div>
@@ -712,9 +722,11 @@ export function ContentCalendarView() {
                 <DialogFooter>
                   <Button variant="ghost" onClick={clearDay}>
                     <Trash2 size={14} className="mr-2" />
-                    Clear day
+                    {t("content.content-calendar.section.4.dialog-clear")}
                   </Button>
-                  <Button onClick={() => setPlannerDay(null)}>Done</Button>
+                  <Button onClick={() => setPlannerDay(null)}>
+                    {t("content.content-calendar.section.4.dialog-done")}
+                  </Button>
                 </DialogFooter>
               </>
             )}
@@ -724,13 +736,12 @@ export function ContentCalendarView() {
 
       {/* Section 05 — Series tracker */}
       <ViewSection
-        badge="Section 05"
-        title="Series tracker"
-        meta="Log the last-posted date"
+        badge={t("content.content-calendar.section.5.badge")}
+        title={t("content.content-calendar.section.5.title")}
+        meta={t("content.content-calendar.section.5.meta")}
       >
-        <p className="text-[0.9rem] text-muted-foreground max-w-[64ch] mb-5">
-          The three repeatable series live or die on cadence. Use this log to record the
-          last time each was posted — anything older than its cadence is flagged overdue.
+        <p className="text-[0.9rem] text-muted-foreground max-w-[64ch] mb-5 m-0">
+          {t("content.content-calendar.section.5.intro")}
         </p>
         <Grid cols={3}>
           {REPEATABLE_SERIES.map((s) => {
@@ -757,7 +768,9 @@ export function ContentCalendarView() {
                     {s.cadence}
                   </Pill>
                   <Pill tone={overdue ? "stop" : "ok"}>
-                    {overdue ? "Overdue" : "On cadence"}
+                    {overdue
+                      ? t("content.content-calendar.section.5.overdue")
+                      : t("content.content-calendar.section.5.on-cadence")}
                   </Pill>
                 </div>
                 <h3 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">
@@ -768,7 +781,7 @@ export function ContentCalendarView() {
                 </p>
                 <div className="border-t border-ursa-line-soft pt-3 mt-auto">
                   <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground mb-1.5">
-                    Last posted
+                    {t("content.content-calendar.section.5.last-posted-label")}
                   </div>
                   <Input
                     type="date"
@@ -783,12 +796,12 @@ export function ContentCalendarView() {
                   />
                   <div className="text-[0.7rem] text-muted-foreground mt-1.5">
                     {lastPosted
-                      ? `Last: ${new Date(lastPosted).toLocaleDateString("en-GB", {
+                      ? `${t("content.content-calendar.section.5.last-prefix")} ${new Date(lastPosted).toLocaleDateString("en-GB", {
                           day: "numeric",
                           month: "short",
                           year: "numeric",
                         })}`
-                      : "Not logged yet"}
+                      : t("content.content-calendar.section.5.not-logged")}
                   </div>
                 </div>
               </Card>
@@ -796,10 +809,8 @@ export function ContentCalendarView() {
           })}
         </Grid>
 
-        <Callout tone="gold" title="Cadence is the strategy">
-          A series earns its place by being predictable — the audience learns to expect it.
-          One missed week costs two weeks of recovery. If a series slips twice in a month,
-          retire it and replace with a new concept from the library.
+        <Callout tone="gold" title={t("content.content-calendar.section.5.callout-title")}>
+          {t("content.content-calendar.section.5.callout-body")}
         </Callout>
       </ViewSection>
 
@@ -810,11 +821,10 @@ export function ContentCalendarView() {
             <BearMark size={40} className="text-ursa-dark-roast shrink-0 mt-1" />
             <div>
               <h3 className="font-display text-[1.4rem] font-semibold text-ursa-dark-roast mb-2 m-0">
-                Full viral content dossier
+                {t("content.content-calendar.closing.title")}
               </h3>
               <p className="text-[0.9rem] text-muted-foreground max-w-[58ch] m-0">
-                This tool complements Module 05. Open the printable HTML for the complete
-                concepts, scripts, briefs, UGC mechanisms, and amplification method.
+                {t("content.content-calendar.closing.body")}
               </p>
             </div>
           </div>
@@ -824,7 +834,7 @@ export function ContentCalendarView() {
               onClick={() => navigate("viral")}
               className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold-text hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
             >
-              Back to Module 05
+              {t("content.content-calendar.closing.back")}
               <ArrowRight size={14} />
             </button>
           </div>

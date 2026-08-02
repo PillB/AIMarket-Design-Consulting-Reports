@@ -157,21 +157,6 @@ const FLAVOUR_CATEGORIES: { name: string; notes: string[] }[] = [
   { name: "Body / Balance", notes: ["Heavy body", "Syrupy", "Balanced", "Smooth", "Clean", "Mild", "Bright"] },
 ];
 
-const PROCESS_META: Record<Process, { color: string; desc: string }> = {
-  Washed: {
-    color: "#3E6149",
-    desc: "Bean is stripped of fruit before fermentation and drying. Produces bright, clean, acidic cups where terroir speaks loudest.",
-  },
-  Natural: {
-    color: "#C16E4B",
-    desc: "Bean is dried inside the whole cherry. Produces heavier body, fruit-forward character, and sweeter, ferment-driven aromatics.",
-  },
-  Honey: {
-    color: "#B8924A",
-    desc: "Bean is dried with the sticky fruit mucilage left on (no skin). Produces syrupy body, balanced sweetness, and complex stone-fruit notes.",
-  },
-};
-
 const ALTITUDE_DATA = ORIGINS.map((o) => ({
   name: o.name,
   altitude: o.altitude,
@@ -214,41 +199,40 @@ export function OriginAtlasView() {
       <ViewHero
         eyebrow={t("content.view.origin-atlas.eyebrow")}
         title={<>{t("content.view.origin-atlas.title")}</>}
-        lede={
-          <>
-            A clickable map of the Peruvian coffee regions Ursa buys from — or could buy from. Tap any dot to walk through altitude, process, varietal, and the cup it produces. Utcubamba (gold-ringed) is the verified Filtrado Lonya origin.
-          </>
-        }
+        lede={<>{t("content.origin-atlas.hero.lede")}</>}
         meta={[
-          { label: "Origins", value: `${ORIGINS.length} plotted` },
-          { label: "Verified", value: "Utcubamba → Filtrado Lonya" },
-          { label: "Snapshot", value: "2026-08-01" },
+          { label: t("content.origin-atlas.meta.origins"), value: t("content.origin-atlas.meta.origins-value", { n: ORIGINS.length }) },
+          { label: t("content.origin-atlas.meta.verified"), value: t("content.origin-atlas.meta.verified-value") },
+          { label: t("content.origin-atlas.meta.snapshot"), value: t("content.origin-atlas.meta.snapshot-value") },
         ]}
         tone="forest"
       />
 
       {/* §1 — Stats + intro */}
       <ViewSection
-        badge="Atlas §1"
-        title="The map, at a glance"
-        meta="Peru's coffee belt runs along the eastern Andean slope"
+        badge={t("content.origin-atlas.section.1.badge")}
+        title={t("content.origin-atlas.section.1.title")}
+        meta={t("content.origin-atlas.section.1.meta")}
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <StatBlock value={String(ORIGINS.length)} label="Origins plotted" tone="forest" />
-          <StatBlock value="1,550–1,900 m" label="Altitude range" tone="gold" />
-          <StatBlock value="3" label="Processes (washed / natural / honey)" tone="forest" />
-          <StatBlock value="4" label="Varietals (Bourbon · Caturra · Catimor · Typica)" tone="gold" />
+          <StatBlock value={String(ORIGINS.length)} label={t("content.origin-atlas.stat.origins")} tone="forest" />
+          <StatBlock value="1,550–1,900 m" label={t("content.origin-atlas.stat.altitude")} tone="gold" />
+          <StatBlock value="3" label={t("content.origin-atlas.stat.processes")} tone="forest" />
+          <StatBlock value="4" label={t("content.origin-atlas.stat.varietals")} tone="gold" />
         </div>
-        <Callout tone="forest" title="What 'verified' means here">
-          Only <b>Utcubamba</b> is currently verified as a Ursa bean origin — it is poured as the <b>Filtrado Lonya</b>. The other five are realistic candidate origins for Ursa's roastery expansion, plotted here for sourcing education and as inputs to the menu's single-origin rotation. They are not yet on the menu.
+        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-5 m-0">
+          {t("content.origin-atlas.section.1.intro")}
+        </p>
+        <Callout tone="forest" title={t("content.origin-atlas.section.1.callout-title")}>
+          {t("content.origin-atlas.section.1.callout-body")}
         </Callout>
       </ViewSection>
 
       {/* §2 — Interactive map + detail panel */}
       <ViewSection
-        badge="Atlas §2"
-        title="Interactive origin map"
-        meta="Click any dot — Utcubamba wears the gold verified ring"
+        badge={t("content.origin-atlas.section.2.badge")}
+        title={t("content.origin-atlas.section.2.title")}
+        meta={t("content.origin-atlas.section.2.meta")}
       >
         <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-6">
           {/* Map card */}
@@ -257,7 +241,7 @@ export function OriginAtlasView() {
               <div className="flex items-center gap-2">
                 <Compass size={16} className="text-ursa-forest-deep" />
                 <span className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-forest-deep">
-                  Peru · coffee-belt origins
+                  {t("content.origin-atlas.section.2.compass-label")}
                 </span>
               </div>
               <Pill tone="gold">
@@ -375,7 +359,7 @@ export function OriginAtlasView() {
             {/* Origin selector fallback (accessibility / mobile-friendly list) */}
             <div className="mt-3">
               <div className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-muted-foreground mb-2">
-                Or pick from list
+                {t("content.origin-atlas.section.2.list-label")}
               </div>
               <div className="flex flex-wrap gap-2">
                 {ORIGINS.map((o) => (
@@ -406,7 +390,7 @@ export function OriginAtlasView() {
                     {selected.department}
                   </span>
                   {selected.verified && (
-                    <Pill tone="gold">Verified · Filtrado Lonya</Pill>
+                    <Pill tone="gold">{t("content.origin-atlas.section.2.verified-pill")}</Pill>
                   )}
                 </div>
                 <h3 className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 leading-tight">
@@ -422,25 +406,25 @@ export function OriginAtlasView() {
             <div className="grid grid-cols-2 gap-3 text-[0.86rem]">
               <div className="bg-ursa-dark-roast/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
                 <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep flex items-center gap-1">
-                  <Mountain size={10} /> Altitude
+                  <Mountain size={10} /> {t("content.origin-atlas.section.2.detail.altitude-label")}
                 </div>
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.altitude} m</div>
               </div>
               <div className="bg-ursa-gold/10 border border-ursa-gold/30 rounded-md px-3 py-2">
                 <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-medium-roast flex items-center gap-1">
-                  <Droplet size={10} /> Process
+                  <Droplet size={10} /> {t("content.origin-atlas.section.2.detail.process-label")}
                 </div>
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.process}</div>
               </div>
               <div className="bg-ursa-terracotta/10 border border-ursa-terracotta/30 rounded-md px-3 py-2">
                 <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-terracotta-text flex items-center gap-1">
-                  <Sparkles size={10} /> Varietal
+                  <Sparkles size={10} /> {t("content.origin-atlas.section.2.detail.varietal-label")}
                 </div>
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.varietal}</div>
               </div>
               <div className="bg-ursa-dark-roast/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
                 <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep flex items-center gap-1">
-                  <Coffee size={10} /> Ursa drink
+                  <Coffee size={10} /> {t("content.origin-atlas.section.2.detail.drink-label")}
                 </div>
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.drink}</div>
               </div>
@@ -449,7 +433,7 @@ export function OriginAtlasView() {
             {/* Tasting notes */}
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-muted-foreground mb-2">
-                Tasting notes
+                {t("content.origin-atlas.section.2.detail.notes-label")}
               </div>
               <div className="flex flex-wrap gap-2">
                 {selected.notes.map((n) => (
@@ -466,14 +450,14 @@ export function OriginAtlasView() {
             {/* Story */}
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-muted-foreground mb-1.5">
-                Story
+                {t("content.origin-atlas.section.2.detail.story-label")}
               </div>
               <p className="m-0 text-[0.9rem] text-foreground/85 leading-relaxed">{selected.story}</p>
             </div>
 
             <div className="mt-auto pt-1">
-              <Callout tone="forest" title={`${selected.process} process`}>
-                {PROCESS_META[selected.process].desc}
+              <Callout tone="forest" title={t("content.origin-atlas.section.2.detail.process-callout-title", { process: selected.process })}>
+                {t(`content.origin-atlas.process-meta.${selected.process.toLowerCase()}`)}
               </Callout>
             </div>
           </Card>
@@ -482,13 +466,13 @@ export function OriginAtlasView() {
 
       {/* §3 — Flavour wheel */}
       <ViewSection
-        badge="Atlas §3"
-        title="Flavour wheel"
-        meta="Origins plotted on tasting-note categories"
+        badge={t("content.origin-atlas.section.3.badge")}
+        title={t("content.origin-atlas.section.3.title")}
+        meta={t("content.origin-atlas.section.3.meta")}
       >
         <Card className="flex flex-col gap-4">
           <p className="text-[0.92rem] text-foreground/85 m-0">
-            Each column is a flavour category. Each chip beneath is an origin whose cup lands in that category. Click a chip to load that origin in the detail panel. Ursa's verified origin (Utcubamba) is highlighted in gold.
+            {t("content.origin-atlas.section.3.intro")}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {wheelData.map((cat) => (
@@ -530,13 +514,13 @@ export function OriginAtlasView() {
 
       {/* §4 — Seasonality */}
       <ViewSection
-        badge="Atlas §4"
-        title="Harvest seasonality"
-        meta="Peru harvest runs May–September; fresh-crop windows matter"
+        badge={t("content.origin-atlas.section.4.badge")}
+        title={t("content.origin-atlas.section.4.title")}
+        meta={t("content.origin-atlas.section.4.meta")}
       >
         <Card className="flex flex-col gap-4">
           <p className="text-[0.92rem] text-foreground/85 m-0">
-            Peru's coffee harvest typically runs May–September, with peak activity in June–August. Fresh-crop windows — when a region's coffee is at its brightest and most aromatic — fall in the 3–6 months after harvest. Planning single-origin features around fresh-crop arrival is a low-cost way to make the menu feel alive.
+            {t("content.origin-atlas.section.4.intro")}
           </p>
 
           <div className="overflow-x-auto">
@@ -597,10 +581,10 @@ export function OriginAtlasView() {
 
           <div className="flex items-center gap-4 flex-wrap">
             <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground flex items-center gap-1.5">
-              <span className="inline-block w-3 h-3 bg-ursa-forest-deep rounded-sm" /> Harvest month
+              <span className="inline-block w-3 h-3 bg-ursa-forest-deep rounded-sm" /> {t("content.origin-atlas.section.4.legend-harvest")}
             </span>
             <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground flex items-center gap-1.5">
-              <span className="inline-block w-3 h-3 bg-ursa-gold rounded-sm" /> Ursa verified origin
+              <span className="inline-block w-3 h-3 bg-ursa-gold rounded-sm" /> {t("content.origin-atlas.section.4.legend-verified")}
             </span>
           </div>
         </Card>
@@ -608,11 +592,14 @@ export function OriginAtlasView() {
 
       {/* §5 — Altitude comparison */}
       <ViewSection
-        badge="Atlas §5"
-        title="Altitude comparison"
-        meta="Higher altitude = denser bean = brighter cup"
+        badge={t("content.origin-atlas.section.5.badge")}
+        title={t("content.origin-atlas.section.5.title")}
+        meta={t("content.origin-atlas.section.5.meta")}
       >
         <Card className="flex flex-col gap-3">
+          <p className="text-[0.92rem] text-foreground/85 m-0">
+            {t("content.origin-atlas.section.5.intro")}
+          </p>
           <div className="h-[320px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
@@ -627,7 +614,7 @@ export function OriginAtlasView() {
                   tick={{ fill: "#6F4A2E", fontSize: 11 }}
                   stroke="#C9B68C"
                   label={{
-                    value: "Altitude (m above sea level)",
+                    value: t("content.origin-atlas.section.5.axis-label"),
                     position: "insideBottom",
                     offset: -2,
                     fill: "#6F4A2E",
@@ -664,17 +651,17 @@ export function OriginAtlasView() {
               </BarChart>
             </ResponsiveContainer>
           </div>
-          <Callout tone="gold" title="Why altitude matters">
-            Above ~1500 m, cooler nights slow cherry maturation, producing denser beans with more complex sugars. The result is brighter acidity, more aromatic complexity, and a cup that reads as &lsquo;specialty&rsquo; rather than &lsquo;commodity&rsquo;. All six origins in this atlas sit at or above 1550 m — the entry altitude for Peruvian specialty.
+          <Callout tone="gold" title={t("content.origin-atlas.section.5.callout-title")}>
+            {t("content.origin-atlas.section.5.callout-body")}
           </Callout>
         </Card>
       </ViewSection>
 
       {/* §6 — Educational note */}
       <ViewSection
-        badge="Atlas §6"
-        title="How altitude, process & varietal shape the cup"
-        meta="A short, accurate primer"
+        badge={t("content.origin-atlas.section.6.badge")}
+        title={t("content.origin-atlas.section.6.title")}
+        meta={t("content.origin-atlas.section.6.meta")}
       >
         <Grid cols={3}>
           <Card className="flex flex-col gap-2 h-full">
@@ -682,15 +669,15 @@ export function OriginAtlasView() {
               <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-dark-roast/10 text-ursa-forest-deep border border-ursa-forest-deep/25">
                 <Mountain size={18} />
               </span>
-              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Altitude</h4>
+              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">{t("content.origin-atlas.section.6.altitude-title")}</h4>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/85 leading-relaxed">
-              Higher altitude grows denser beans with more complex sugar chemistry. Below 1200 m you get soft, flat cups; 1200–1500 m brings body and sweetness; above 1500 m (specialty territory) you get bright acidity, floral aromatics, and clean fruit. All six origins plotted here sit at or above 1550 m.
+              {t("content.origin-atlas.section.6.altitude-body")}
             </p>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              <Pill tone="forest">+ Acidity</Pill>
-              <Pill tone="forest">+ Aromatics</Pill>
-              <Pill tone="forest">+ Density</Pill>
+              <Pill tone="forest">{t("content.origin-atlas.section.6.pill-acidity")}</Pill>
+              <Pill tone="forest">{t("content.origin-atlas.section.6.pill-aromatics")}</Pill>
+              <Pill tone="forest">{t("content.origin-atlas.section.6.pill-density")}</Pill>
             </div>
           </Card>
           <Card className="flex flex-col gap-2 h-full">
@@ -698,15 +685,15 @@ export function OriginAtlasView() {
               <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-gold/15 text-ursa-medium-roast border border-ursa-gold/40">
                 <Droplet size={18} />
               </span>
-              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Process</h4>
+              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">{t("content.origin-atlas.section.6.process-title")}</h4>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/85 leading-relaxed">
-              <b>Washed</b> removes the fruit before fermentation — bright, clean, acidic; lets terroir speak. <b>Natural</b> dries the cherry on the bean — heavy body, fruit-forward, sweeter, more ferment-driven. <b>Honey</b> sits in between — partial mucilage left on, syrupy body, balanced sweetness, more demanding to execute well.
+              {t("content.origin-atlas.section.6.process-body")}
             </p>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              <Pill tone="forest">Washed → bright</Pill>
-              <Pill tone="stop">Natural → heavy</Pill>
-              <Pill tone="gold">Honey → syrupy</Pill>
+              <Pill tone="forest">{t("content.origin-atlas.section.6.pill-washed")}</Pill>
+              <Pill tone="stop">{t("content.origin-atlas.section.6.pill-natural")}</Pill>
+              <Pill tone="gold">{t("content.origin-atlas.section.6.pill-honey")}</Pill>
             </div>
           </Card>
           <Card className="flex flex-col gap-2 h-full">
@@ -714,20 +701,20 @@ export function OriginAtlasView() {
               <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-terracotta/10 text-ursa-terracotta-text border border-ursa-terracotta/30">
                 <Sparkles size={18} />
               </span>
-              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Varietal</h4>
+              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">{t("content.origin-atlas.section.6.varietal-title")}</h4>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/85 leading-relaxed">
-              <b>Bourbon</b> — old, refined, sweet and complex (Utcubamba, La Coipa, Rodriguez de Mendoza). <b>Caturra</b> — Bourbon mutation, bright and clean, higher yield (Chirinos). <b>Typica</b> — the original Arabica base, elegant and balanced (Quillabamba). <b>Catimor</b> — Timor hybrid, hardy and productive but less complex (Satipo).
+              {t("content.origin-atlas.section.6.varietal-body")}
             </p>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              <Pill tone="gold">Bourbon → refined</Pill>
-              <Pill tone="forest">Typica → elegant</Pill>
-              <Pill tone="default">Catimor → hardy</Pill>
+              <Pill tone="gold">{t("content.origin-atlas.section.6.pill-bourbon")}</Pill>
+              <Pill tone="forest">{t("content.origin-atlas.section.6.pill-typica")}</Pill>
+              <Pill tone="default">{t("content.origin-atlas.section.6.pill-catimor")}</Pill>
             </div>
           </Card>
         </Grid>
-        <Callout tone="forest" title="How Ursa uses this atlas">
-          The atlas is an input to the menu's single-origin rotation, the seasonal &lsquo;Gramo del Mes&rsquo; feature, and the cupping-night curriculum. Ursa's verified origin (Utcubamba) anchors the Filtrado Lonya; the other five are realistic expansion candidates as the roastery grows its sourcing relationships.
+        <Callout tone="forest" title={t("content.origin-atlas.section.6.callout-title")}>
+          {t("content.origin-atlas.section.6.callout-body")}
         </Callout>
       </ViewSection>
 
@@ -737,19 +724,19 @@ export function OriginAtlasView() {
           <DossierLinkBanner moduleId="03-menu-and-product-development" />
           <div className="flex items-center gap-3 flex-wrap">
             <Pill tone="forest">
-              <Compass size={11} /> Atlas complete
+              <Compass size={11} /> {t("content.origin-atlas.section.7.atlas-complete")}
             </Pill>
             <button
               onClick={() => navigate("menu")}
               className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5"
             >
-              Menu & Product <ArrowRight size={12} />
+              {t("content.origin-atlas.section.7.menu-link")} <ArrowRight size={12} />
             </button>
             <button
               onClick={() => navigate("menu-studio")}
               className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5"
             >
-              Menu Engineering Studio <ArrowRight size={12} />
+              {t("content.origin-atlas.section.7.studio-link")} <ArrowRight size={12} />
             </button>
           </div>
         </div>

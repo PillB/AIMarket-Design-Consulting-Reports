@@ -49,64 +49,40 @@ import {
 } from "lucide-react";
 
 type Persona = {
-  name: string;
+  id: string;
   icon: React.ReactNode;
-  jtb: string;
-  signals: string[];
-  proof: string;
-  channels: string[];
-  offer: string;
-  metric: string;
+  signalCount: number;
+  channelCount: number;
   tone: "gold" | "terracotta" | "forest";
 };
 
 const PERSONAS: Persona[] = [
   {
-    name: "The Morning Regular",
+    id: "morning-regular",
     icon: <Coffee size={18} className="text-ursa-gold-text" />,
-    jtb:
-      "When I start my day in Miraflores, help me get a deliberately good cup faster than I could at home, with a face that remembers my order — without making me think.",
-    signals: ["Arrives 7:03–7:30am", "Orders the same drink", "Pays in under 90s"],
-    proof: "Ursa opens 07:30; the weighing ritual is fast because the barista already knows the dose.",
-    channels: ["Ursa Mañana subscription", "WhatsApp morning drop", "Barista recognition"],
-    offer: "S/. 20/month unlimited coffee 7–10am + 20% off sides",
-    metric: "Visits/week ≥ 3 · side attach ≥ 60%",
+    signalCount: 3,
+    channelCount: 3,
     tone: "gold",
   },
   {
-    name: "The Tourist Explorer",
+    id: "tourist-explorer",
     icon: <Compass size={18} className="text-ursa-terracotta-text" />,
-    jtb:
-      "When I'm visiting Lima for a few days, help me find a craft coffee spot I can recommend and tag — close to my hotel, with a story I can take home.",
-    signals: ["Walks in with a map", "Asks 'what's local?'", "Photographs the cup"],
-    proof: "8+ hotels within walking distance; the bear paw Reel trail and concierge cards make Ursa findable.",
-    channels: ["Hotel concierge cards", "Instagram Reels", "Google Business Profile", "Bear paw trail"],
-    offer: "Origin story card + bean sample to take home",
-    metric: "Tags @ursacoffeeperu · retail bean attach ≥ 25%",
+    signalCount: 3,
+    channelCount: 4,
     tone: "terracotta",
   },
   {
-    name: "The Remote Worker",
+    id: "remote-worker",
     icon: <Users size={18} className="text-ursa-forest-deep" />,
-    jtb:
-      "When I need to work outside my apartment for two hours, help me find a third place with reliable Wi-Fi and a quality second cup — without feeling rushed.",
-    signals: ["Laptop open", "Single drink + refill", "Stays 90+ minutes"],
-    proof: "Two-bar layout means a quiet side; the named-drink rotation gives a reason to come back tomorrow.",
-    channels: ["Coworking partnerships", "Google Maps", "Slow-hour pricing"],
-    offer: "Second-cup loyalty stamp + quiet-side seating",
-    metric: "Dwell time ≥ 90min · return within 7 days ≥ 40%",
+    signalCount: 3,
+    channelCount: 3,
     tone: "forest",
   },
   {
-    name: "The Coffee Curious",
+    id: "coffee-curious",
     icon: <Sparkles size={18} className="text-ursa-gold-text" />,
-    jtb:
-      "When I want to understand specialty coffee, help me learn enough to order with confidence — and tell my friends where beans come from.",
-    signals: ["Asks about origin", "Buys retail beans", "Attends cuppings"],
-    proof: "Story cards, 'gram of the week', and monthly cupping nights make the craft legible, not intimidating.",
-    channels: ["Monthly cupping night", "Gram of the week", "Origin atlas cards", "Workshops"],
-    offer: "Cata de Tres Orígenes tasting flight + bean bag",
-    metric: "Cupping attendance · retail bean repeat ≥ 30%",
+    signalCount: 3,
+    channelCount: 4,
     tone: "gold",
   },
 ];
@@ -305,18 +281,11 @@ export function GrowthView() {
       <ViewHero
         eyebrow={t("content.view.growth.eyebrow")}
         title={<>{t("content.view.growth.title")}</>}
-        lede={
-          <>
-            Positioning, jobs-to-be-done, message and offer architecture, channel coverage, and a
-            customer journey that turns first visitors into advocates — adapted from Hormozi's offer
-            discipline and Sutherland's perceived-value lens, with explicit "do not" lists so the
-            craft never gets diluted.
-          </>
-        }
+        lede={<>{t("content.growth.hero.lede")}</>}
         meta={[
-          { label: "Frameworks", value: "Hormozi + Sutherland adapted" },
-          { label: "Budget", value: "Lean / Moderate / Growth in PEN" },
-          { label: "Spirit", value: "Conservative refinement · no rebrand" },
+          { label: t("content.growth.hero.meta.frameworks"), value: "Hormozi + Sutherland adapted" },
+          { label: t("content.growth.hero.meta.budget"), value: "Lean / Moderate / Growth in PEN" },
+          { label: t("content.growth.hero.meta.spirit"), value: "Conservative refinement · no rebrand" },
         ]}
       />
 
@@ -325,29 +294,22 @@ export function GrowthView() {
       </ViewSection>
 
       {/* Positioning statement */}
-      <ViewSection badge="Positioning" title="One paragraph the whole plan must obey" meta="The north-star statement">
+      <ViewSection badge={t("content.growth.positioning.badge")} title={t("content.growth.positioning.title")} meta={t("content.growth.positioning.meta")}>
         <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
           <div className="flex items-start gap-4">
             <BearMark size={40} className="text-ursa-dark-roast shrink-0" />
             <div>
               <p className="font-display text-[1.15rem] md:text-[1.35rem] leading-[1.55] text-ursa-dark-roast m-0">
-                For the Miraflores resident or visitor who wants specialty coffee with a crafted,
-                artistic atmosphere, <strong>Ursa Coffee Roasters</strong> is the in-house roastery
-                where the <em>bear, the gram, and the green</em> mean every cup is deliberate.
-                Unlike the scaled chains and the award-credentialed tasting rooms that anchor Lima's
-                specialty scene, Ursa pairs its own roastery with the bear motif and the Art Nouveau
-                lean — the craft is visible, and so is the character.
+                {t("content.growth.positioning.paragraph")}
               </p>
               <p className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-muted-foreground mt-4 mb-0">
-                Bear · brand character &nbsp;·&nbsp; Gram · the weighing ritual &nbsp;·&nbsp; Green · origin + forest palette
+                {t("content.growth.positioning.caption")}
               </p>
             </div>
           </div>
         </Card>
-        <Callout tone="forest" title="If a tactic cannot be defended against this paragraph, it does not ship.">
-          Every channel, offer, and creative concept below is checked against this statement.
-          Tactics that dilute the bear, skip the gram, or override the green are explicitly marked{" "}
-          <em>do not</em>.
+        <Callout tone="forest" title={t("content.growth.positioning.callout.title")}>
+          {t("content.growth.positioning.callout.body")}
         </Callout>
 
         {/* Evidence / Risk / Test triple — grounds the positioning in the census */}
@@ -355,37 +317,37 @@ export function GrowthView() {
           <Card className="bg-ursa-foam">
             <div className="flex items-center gap-2 mb-2">
               <EvidenceTag status="partial" />
-              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Evidence supporting each claim</span>
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.positioning.card.evidence.heading")}</span>
             </div>
             <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">In-house roastery</strong> — Corner.inc editorial + CENSUS-1 cross-validates (Terrua, Punto Café, RAIZ all lean on visible roasting).</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Bear character</strong> — 0 of 18 census competitors use an animal/character identity. Ownable by absence.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Two-bar theatre</strong> — 0 of 18 census competitors operate a visible two-bar format. Arabica Espresso Bar is single-bar stand-up; the two-bar format is uncontested.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Art Nouveau</strong> — 0 of 18 use a coherent historical design language. Visual identity uncontested.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.evidence.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.evidence.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.evidence.3")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.evidence.4")}</span></li>
             </ul>
           </Card>
           <Card className="bg-ursa-cream">
             <div className="flex items-center gap-2 mb-2">
               <EvidenceTag status="gap" />
-              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Risks &amp; missing evidence</span>
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.positioning.card.risks.heading")}</span>
             </div>
             <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">No roast-log audit observed.</strong> The 'every gram is weighed' claim is only credible if documented. Risk: inconsistency undermines the visible-craft story.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Award-driven positioning is brittle.</strong> CAM Café 2025 top-5 is recent but annual; if Ursa drops out of the top-5 in 2026, the 'award-credentialed' framing weakens.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Review-volume gap.</strong> Ursa ~56 Google reviews (addagio aggregate) vs. Neira 911 and Puku Puku 658. Discovery gap is structural, not yet closed.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Producer relationships unverified.</strong> 'Specific origin stories' require documented farm relationships — no contract or purchase-price evidence surfaced.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.risks.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.risks.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.risks.3")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.risks.4")}</span></li>
             </ul>
           </Card>
           <Card>
             <div className="flex items-center gap-2 mb-2">
               <FlaskConical size={14} className="text-ursa-forest-deep" />
-              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Test method before full adoption</span>
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.positioning.card.test.heading")}</span>
             </div>
             <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
-              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>Run a 30-day 'weighed shot log' — every espresso weighed and recorded, sample audited weekly for ±0.3g tolerance. Cost: S/. 0 (log only).</span></li>
-              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>A/B test the positioning paragraph as the Instagram bio for 30 days vs. the current bio — measure profile clicks and DMS.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>Run a blind 'origin story' taste test: same coffee served with and without the Lonya story card. Measure perceived-quality delta (1–10).</span></li>
-              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>Walk-by census re-verification of Coffee Notes, Café Verde, OK Café (status uncertain) — 1 afternoon, S/. 0.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.test.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.test.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.test.3")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-forest-deep mt-1 shrink-0">›</span> <span>{t("content.growth.positioning.card.test.4")}</span></li>
             </ul>
           </Card>
         </Grid>

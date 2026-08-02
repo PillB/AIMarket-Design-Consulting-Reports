@@ -168,36 +168,12 @@ function classify(item: MenuItem): Quadrant {
 
 const QUADRANT_META: Record<
   Quadrant,
-  { label: string; icon: React.ReactNode; tone: "gold" | "forest" | "terracotta"; desc: string; action: string }
+  { icon: React.ReactNode; tone: "gold" | "forest" | "terracotta" }
 > = {
-  star: {
-    label: "Star",
-    icon: <Star size={14} />,
-    tone: "forest",
-    desc: "High margin + high popularity",
-    action: "Feature prominently. Train baristas to suggest. This is your menu's spine.",
-  },
-  puzzle: {
-    label: "Puzzle",
-    icon: <Puzzle size={14} />,
-    tone: "gold",
-    desc: "High margin + low popularity",
-    action: "The opportunity. Re-name, re-platform, re-pair. If it still doesn't move, kill it.",
-  },
-  plowhorse: {
-    label: "Plowhorse",
-    icon: <Truck size={14} />,
-    tone: "gold",
-    desc: "Low margin + high popularity",
-    action: "Customers love it. Don't kill it — engineer the cost. Find a cheaper insumo or raise the price 1 PEN.",
-  },
-  dog: {
-    label: "Dog",
-    icon: <Dog size={14} />,
-    tone: "terracotta",
-    desc: "Low margin + low popularity",
-    action: "Kill it. Or reformulate it as a seasonal special and let scarcity create demand.",
-  },
+  star: { icon: <Star size={14} />, tone: "forest" },
+  puzzle: { icon: <Puzzle size={14} />, tone: "gold" },
+  plowhorse: { icon: <Truck size={14} />, tone: "gold" },
+  dog: { icon: <Dog size={14} />, tone: "terracotta" },
 };
 
 // ---------------------------------------------------------------
@@ -401,19 +377,11 @@ export function MenuStudioView() {
       <ViewHero
         eyebrow={t("content.view.menu-studio.eyebrow")}
         title={t("content.view.menu-studio.title")}
-        lede={
-          <>
-            An interactive menu builder for café owners. Edit prices, costs, and prep times
-            across every item; watch the average margin, category breakdown, and Stars &amp;
-            Puzzles classification update live. Model the attach-rate that turns a drink into a
-            profitable ticket. Every number is editable — nothing here is invented, only
-            structured.
-          </>
-        }
+        lede={<>{t("content.menu-studio.lede")}</>}
         meta={[
-          { label: "Default menu", value: "12 Ursa items pre-loaded" },
-          { label: "Margin thresholds", value: "> 65% green · 55–65% gold · < 55% terracotta" },
-          { label: "Outputs", value: "Live metrics · matrix · export" },
+          { label: t("content.menu-studio.meta.default"), value: t("content.menu-studio.meta.default-value") },
+          { label: t("content.menu-studio.meta.thresholds"), value: t("content.menu-studio.meta.thresholds-value") },
+          { label: t("content.menu-studio.meta.outputs"), value: t("content.menu-studio.meta.outputs-value") },
         ]}
         tone="forest"
       />
@@ -424,29 +392,29 @@ export function MenuStudioView() {
 
       {/* ---------- Live metrics strip ---------- */}
       <ViewSection
-        badge="Section 01"
-        title="Live menu metrics"
-        meta="Updates as you edit"
+        badge={t("content.menu-studio.section.01.badge")}
+        title={t("content.menu-studio.section.01.title")}
+        meta={t("content.menu-studio.section.01.meta")}
       >
         <Grid cols={4}>
           <StatBlock
             value={`${metrics.count}`}
-            label="Items on the menu"
+            label={t("content.menu-studio.stat.count")}
             tone="forest"
           />
           <StatBlock
             value={metrics.count > 0 ? `${PEN(metrics.minPrice)}–${PEN(metrics.maxPrice)}` : "—"}
-            label="Menu price range (PEN)"
+            label={t("content.menu-studio.stat.range")}
             tone="gold"
           />
           <StatBlock
             value={metrics.count > 0 ? PEN(metrics.avgPrice) : "—"}
-            label="Average menu price"
+            label={t("content.menu-studio.stat.avg-price")}
             tone="forest"
           />
           <StatBlock
             value={`${metrics.avgMarginPct.toFixed(1)}%`}
-            label="Average margin %"
+            label={t("content.menu-studio.stat.avg-margin")}
             tone={marginTone(metrics.avgMarginPct) === "forest" ? "forest" : marginTone(metrics.avgMarginPct) === "gold" ? "gold" : "terracotta"}
           />
         </Grid>
@@ -456,7 +424,7 @@ export function MenuStudioView() {
           <Card>
             <div className="flex items-center justify-between mb-2">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0 flex items-center gap-2">
-                <Percent size={16} className="text-ursa-gold-text" /> Average margin progress
+                <Percent size={16} className="text-ursa-gold-text" /> {t("content.menu-studio.avg-margin.title")}
               </h4>
               <Pill tone={marginTone(metrics.avgMarginPct)}>
                 {metrics.avgMarginPct.toFixed(1)}%
@@ -465,26 +433,25 @@ export function MenuStudioView() {
             <ProgressBar value={metrics.avgMarginPct} tone={marginTone(metrics.avgMarginPct)} />
             <div className="flex justify-between mt-2 font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">
               <span>0%</span>
-              <span className="text-ursa-terracotta-text">55% threshold</span>
-              <span className="text-ursa-gold-text">65% healthy</span>
+              <span className="text-ursa-terracotta-text">{t("content.menu-studio.avg-margin.threshold-leak")}</span>
+              <span className="text-ursa-gold-text">{t("content.menu-studio.avg-margin.threshold-healthy")}</span>
               <span>100%</span>
             </div>
             <p className="text-[0.85rem] text-muted-foreground mt-3 m-0">
-              Specialty-coffee rule of thumb: blended menu margin should sit above 65%. Below 55%
-              and the menu leaks margin even when ticket size looks healthy.
+              {t("content.menu-studio.avg-margin.body")}
             </p>
           </Card>
 
           {/* Total prep time + category breakdown */}
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Clock size={16} className="text-ursa-gold-text" /> Total prep time &amp; category mix
+              <Clock size={16} className="text-ursa-gold-text" /> {t("content.menu-studio.prep.title")}
             </h4>
             <div className="flex items-baseline gap-3 mb-3">
               <span className="font-display text-3xl font-semibold text-ursa-dark-roast">
                 {metrics.totalPrepTime}
               </span>
-              <span className="text-[0.8rem] text-muted-foreground">sum of barista minutes per full round</span>
+              <span className="text-[0.8rem] text-muted-foreground">{t("content.menu-studio.prep.subtitle")}</span>
             </div>
             <div className="space-y-1.5 max-h-48 overflow-y-auto ursa-scroll pr-1">
               {CATEGORIES.map((c) => {
@@ -508,27 +475,28 @@ export function MenuStudioView() {
                 );
               })}
             </div>
+            <p className="text-[0.78rem] text-muted-foreground mt-3 m-0">
+              {t("content.menu-studio.prep.body")}
+            </p>
           </Card>
         </div>
       </ViewSection>
 
       {/* ---------- Menu builder ---------- */}
       <ViewSection
-        badge="Section 02"
-        title="Menu builder — edit every field"
-        meta="Add, remove, edit inline"
+        badge={t("content.menu-studio.section.02.badge")}
+        title={t("content.menu-studio.section.02.title")}
+        meta={t("content.menu-studio.section.02.meta")}
       >
         <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
           <p className="text-[0.92rem] text-muted-foreground max-w-[62ch] m-0">
-            Edit name, category, selling price (PEN), food cost (PEN), and prep time (min) for
-            each item. Toggle the popularity assumption to drive the Stars &amp; Puzzles matrix
-            in Section 04.
+            {t("content.menu-studio.section.02.intro")}
           </p>
           <Button
             onClick={addItem}
             className="bg-ursa-gold text-ursa-dark-roast border border-ursa-gold hover:bg-ursa-gold-soft hover:text-ursa-dark-roast"
           >
-            <Plus size={15} /> Add item
+            <Plus size={15} /> {t("content.menu-studio.section.02.button.add")}
           </Button>
         </div>
 
@@ -537,12 +505,12 @@ export function MenuStudioView() {
             <Table>
               <TableHeader>
                 <TableRow className="bg-ursa-cream hover:bg-ursa-cream">
-                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast min-w-[180px]">Name</TableHead>
-                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast min-w-[150px]">Category</TableHead>
-                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-right">Price (PEN)</TableHead>
-                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-right">Cost (PEN)</TableHead>
-                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-right">Prep (min)</TableHead>
-                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-center">Popular?</TableHead>
+                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast min-w-[180px]">{t("content.menu-studio.table.name")}</TableHead>
+                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast min-w-[150px]">{t("content.menu-studio.table.category")}</TableHead>
+                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-right">{t("content.menu-studio.table.price")}</TableHead>
+                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-right">{t("content.menu-studio.table.cost")}</TableHead>
+                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-right">{t("content.menu-studio.table.prep")}</TableHead>
+                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-center">{t("content.menu-studio.table.popular")}</TableHead>
                   <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast text-center w-12"></TableHead>
                 </TableRow>
               </TableHeader>
@@ -623,7 +591,7 @@ export function MenuStudioView() {
                 {items.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={7} className="text-center py-8 text-muted-foreground text-[0.9rem]">
-                      No items yet. Click <b className="text-ursa-dark-roast">Add item</b> to start.
+                      {t("content.menu-studio.section.02.empty")}
                     </TableCell>
                   </TableRow>
                 )}
@@ -632,27 +600,25 @@ export function MenuStudioView() {
           </div>
         </Card>
         <p className="text-[0.78rem] text-muted-foreground mt-3 m-0">
-          Default items are anchored to the verified Ursa menu (Ursagroni, Maracumango Coldbrew,
-          Filtrado Lonya) plus a reconstructed espresso bar. Costs are plausible benchmarks —
-          replace them with your actual roast logs and supplier invoices before quoting.
+          {t("content.menu-studio.section.02.footer")}
         </p>
       </ViewSection>
 
       {/* ---------- Margin analysis ---------- */}
       <ViewSection
-        badge="Section 03"
-        title="Margin analysis — sortable"
-        meta="Green > 65% · Gold 55–65% · Terracotta < 55%"
+        badge={t("content.menu-studio.section.03.badge")}
+        title={t("content.menu-studio.section.03.title")}
+        meta={t("content.menu-studio.section.03.meta")}
       >
         <Card className="p-0 overflow-hidden">
           <div className="overflow-x-auto ursa-scroll">
             <Table>
               <TableHeader>
                 <TableRow className="bg-ursa-cream hover:bg-ursa-cream">
-                  <SortableHead label="Item" sortKey="name" current={sortKey} dir={sortDir} onSort={toggleSort} align="left" />
-                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast">Category</TableHead>
-                  <SortableHead label="Price" sortKey="price" current={sortKey} dir={sortDir} onSort={toggleSort} align="right" />
-                  <SortableHead label="Cost" sortKey="price" current={sortKey} dir={sortDir} onSort={toggleSort} align="right" disabled />
+                  <SortableHead label={t("content.menu-studio.table.name")} sortKey="name" current={sortKey} dir={sortDir} onSort={toggleSort} align="left" />
+                  <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast">{t("content.menu-studio.table.category")}</TableHead>
+                  <SortableHead label={t("content.menu-studio.table.price")} sortKey="price" current={sortKey} dir={sortDir} onSort={toggleSort} align="right" />
+                  <SortableHead label={t("content.menu-studio.table.cost")} sortKey="price" current={sortKey} dir={sortDir} onSort={toggleSort} align="right" disabled />
                   <SortableHead label="Margin (PEN)" sortKey="marginPEN" current={sortKey} dir={sortDir} onSort={toggleSort} align="right" />
                   <SortableHead label="Margin %" sortKey="marginPct" current={sortKey} dir={sortDir} onSort={toggleSort} align="right" />
                   <TableHead className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-medium-roast min-w-[160px]">Visual</TableHead>
@@ -693,7 +659,7 @@ export function MenuStudioView() {
                             />
                           </div>
                           <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase w-12 text-right" style={{ color: pct > MARGIN_HIGH ? "var(--color-ursa-forest-deep)" : pct >= MARGIN_MID ? "var(--color-ursa-medium-roast)" : "var(--color-ursa-terracotta)" }}>
-                            {pct > MARGIN_HIGH ? "healthy" : pct >= MARGIN_MID ? "watch" : "leak"}
+                            {pct > MARGIN_HIGH ? t("content.menu-studio.margin.healthy") : pct >= MARGIN_MID ? t("content.menu-studio.margin.watch") : t("content.menu-studio.margin.leak")}
                           </span>
                         </div>
                       </TableCell>
@@ -703,7 +669,7 @@ export function MenuStudioView() {
                 {sortedItems.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={7} className="text-center py-8 text-muted-foreground">
-                      Add items above to see margin analysis.
+                      {t("content.menu-studio.section.03.empty")}
                     </TableCell>
                   </TableRow>
                 )}
@@ -712,29 +678,29 @@ export function MenuStudioView() {
           </div>
         </Card>
         <div className="mt-4 grid sm:grid-cols-3 gap-3">
-          <LegendChip tone="forest" label="Healthy · > 65% margin" />
-          <LegendChip tone="gold" label="Watch · 55–65% margin" />
-          <LegendChip tone="terracotta" label="Leak · < 55% margin" />
+          <LegendChip tone="forest" label={t("content.menu-studio.section.03.legend-healthy")} />
+          <LegendChip tone="gold" label={t("content.menu-studio.section.03.legend-watch")} />
+          <LegendChip tone="terracotta" label={t("content.menu-studio.section.03.legend-leak")} />
         </div>
       </ViewSection>
 
       {/* ---------- Attach-rate modeler ---------- */}
       <ViewSection
-        badge="Section 04"
-        title="Attach-rate modeler"
-        meta="Turn a drink into a ticket"
+        badge={t("content.menu-studio.section.04.badge")}
+        title={t("content.menu-studio.section.04.title")}
+        meta={t("content.menu-studio.section.04.meta")}
       >
         <div className="grid lg:grid-cols-[1fr_1.2fr] gap-6 items-start">
           {/* Controls */}
           <Card>
             <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-              <Wallet size={18} className="text-ursa-gold-text" /> Configure the pairing
+              <Wallet size={18} className="text-ursa-gold-text" /> {t("content.menu-studio.attach.title")}
             </h4>
 
             <div className="space-y-5">
               <div>
                 <Label className="font-label text-[0.72rem] tracking-[0.1em] uppercase text-ursa-dark-roast">
-                  Primary drink
+                  {t("content.menu-studio.attach.primary")}
                 </Label>
                 <Select value={primaryId} onValueChange={setPrimaryId}>
                   <SelectTrigger className="w-full mt-1.5 border-ursa-line-soft">
@@ -752,7 +718,7 @@ export function MenuStudioView() {
 
               <div>
                 <Label className="font-label text-[0.72rem] tracking-[0.1em] uppercase text-ursa-dark-roast">
-                  Side / pairing item
+                  {t("content.menu-studio.attach.side")}
                 </Label>
                 <Select value={sideId} onValueChange={setSideId}>
                   <SelectTrigger className="w-full mt-1.5 border-ursa-line-soft">
@@ -771,7 +737,7 @@ export function MenuStudioView() {
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <Label className="font-label text-[0.72rem] tracking-[0.1em] uppercase text-ursa-dark-roast">
-                    Primary volume (units sold)
+                    {t("content.menu-studio.attach.volume")}
                   </Label>
                   <span className="font-display font-semibold text-ursa-dark-roast">{primaryVolume}</span>
                 </div>
@@ -787,7 +753,7 @@ export function MenuStudioView() {
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <Label className="font-label text-[0.72rem] tracking-[0.1em] uppercase text-ursa-dark-roast">
-                    Attach rate (% of primary buyers who add the side)
+                    {t("content.menu-studio.attach.rate")}
                   </Label>
                   <span className="font-display font-semibold text-ursa-dark-roast">{attachRate}%</span>
                 </div>
@@ -799,19 +765,16 @@ export function MenuStudioView() {
                   onValueChange={(v) => setAttachRate(v[0])}
                 />
                 <div className="flex justify-between mt-2 font-label text-[0.62rem] tracking-[0.1em] uppercase text-muted-foreground">
-                  <span>0% · pure drink</span>
-                  <span>60% · Ursa Mañana target</span>
-                  <span>100% · always paired</span>
+                  <span>{t("content.menu-studio.attach.scale-0")}</span>
+                  <span>{t("content.menu-studio.attach.scale-60")}</span>
+                  <span>{t("content.menu-studio.attach.scale-100")}</span>
                 </div>
               </div>
             </div>
 
-            <Callout tone="gold" title="Why this matters">
+            <Callout tone="gold" title={t("content.menu-studio.attach.callout.title")}>
               <p className="m-0 text-[0.88rem]">
-                A S/. 18 Ursagroni at 75% margin looks healthy alone — but the ticket is what
-                pays the rent. If 60% of Ursagroni buyers also add a S/. 5 cookie (margin S/. 3.5),
-                every 100 Ursagronis becomes an extra S/. 210 in margin. The attach rate is the
-                single biggest lever on blended profitability.
+                {t("content.menu-studio.attach.callout.body")}
               </p>
             </Callout>
           </Card>
@@ -821,7 +784,7 @@ export function MenuStudioView() {
             <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="flex items-center justify-between mb-1">
                 <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
-                  Side-margin contribution
+                  {t("content.menu-studio.attach.contribution-label")}
                 </span>
                 <SectionBadge tone="gold">live</SectionBadge>
               </div>
@@ -829,32 +792,35 @@ export function MenuStudioView() {
                 {PEN(attachMarginTotal)}
               </div>
               <p className="text-[0.88rem] text-muted-foreground m-0">
-                From <b className="text-ursa-dark-roast">{sidesSold}</b> sides of{" "}
-                <b className="text-ursa-dark-roast">{side?.name ?? "—"}</b> sold alongside{" "}
-                <b className="text-ursa-dark-roast">{primaryVolume}</b>{" "}
-                <b className="text-ursa-dark-roast">{primary?.name ?? "—"}</b> at {attachRate}% attach.
+                {t("content.menu-studio.attach.contribution-body", {
+                  sides: sidesSold,
+                  side: side?.name ?? "—",
+                  volume: primaryVolume,
+                  primary: primary?.name ?? "—",
+                  rate: attachRate,
+                })}
               </p>
             </Card>
 
             <Grid cols={2}>
               <MiniStat
                 value={PEN(primaryRevenue)}
-                label="Primary revenue"
+                label={t("content.menu-studio.attach.mini.primary-revenue")}
                 icon={<Coffee size={14} />}
               />
               <MiniStat
                 value={PEN(attachRevenue)}
-                label="Attach revenue"
+                label={t("content.menu-studio.attach.mini.attach-revenue")}
                 icon={<Plus size={14} />}
               />
               <MiniStat
                 value={PEN(sideMarginPEN)}
-                label="Side margin / unit"
+                label={t("content.menu-studio.attach.mini.side-margin")}
                 icon={<TrendingUp size={14} />}
               />
               <MiniStat
                 value={`${blendedMarginPct.toFixed(1)}%`}
-                label="Blended margin %"
+                label={t("content.menu-studio.attach.mini.blended")}
                 icon={<Percent size={14} />}
                 tone={marginTone(blendedMarginPct)}
               />
@@ -863,7 +829,7 @@ export function MenuStudioView() {
             {/* Visual attach bar */}
             <Card>
               <h5 className="font-label text-[0.7rem] tracking-[0.14em] uppercase text-ursa-medium-roast m-0 mb-3">
-                Ticket composition
+                {t("content.menu-studio.attach.composition")}
               </h5>
               <div className="flex h-10 rounded-md overflow-hidden border border-ursa-line-soft">
                 <div
@@ -880,8 +846,8 @@ export function MenuStudioView() {
                 </div>
               </div>
               <div className="flex justify-between mt-2 font-label text-[0.66rem] tracking-[0.1em] uppercase">
-                <span className="text-ursa-forest-deep">Primary · {PEN(primaryRevenue)}</span>
-                <span className="text-ursa-medium-roast">Attach · {PEN(attachRevenue)}</span>
+                <span className="text-ursa-forest-deep">{t("content.menu-studio.attach.composition-primary")} · {PEN(primaryRevenue)}</span>
+                <span className="text-ursa-medium-roast">{t("content.menu-studio.attach.composition-attach")} · {PEN(attachRevenue)}</span>
               </div>
             </Card>
           </div>
@@ -890,48 +856,45 @@ export function MenuStudioView() {
 
       {/* ---------- Stars & Puzzles ---------- */}
       <ViewSection
-        badge="Section 05"
-        title="Stars & Puzzles — menu engineering matrix"
-        meta="Toggle popularity per item to reclassify"
+        badge={t("content.menu-studio.section.05.badge")}
+        title={t("content.menu-studio.section.05.title")}
+        meta={t("content.menu-studio.section.05.meta")}
       >
         <p className="text-[0.92rem] text-muted-foreground max-w-[68ch] mb-6">
-          Classic menu engineering (originally from <em>Menu Engineering: A Practical Guide to Improving Profitability</em>,
-          Kasavana &amp; Smith). Items are classified by margin (high/low, using the 55% threshold)
-          and popularity (your assumption, toggled in the builder). Each quadrant has a distinct
-          action — not a verdict.
+          {t("content.menu-studio.section.05.intro")}
         </p>
 
         <div className="grid lg:grid-cols-[1fr_1fr] gap-4">
           <QuadrantCard
             quadrant="star"
             items={quadrants.star}
-            title="Stars"
             tone="forest"
+            t={t}
           />
           <QuadrantCard
             quadrant="puzzle"
             items={quadrants.puzzle}
-            title="Puzzles"
             tone="gold"
+            t={t}
           />
           <QuadrantCard
             quadrant="plowhorse"
             items={quadrants.plowhorse}
-            title="Plowhorses"
             tone="gold"
+            t={t}
           />
           <QuadrantCard
             quadrant="dog"
             items={quadrants.dog}
-            title="Dogs"
             tone="terracotta"
+            t={t}
           />
         </div>
 
         {/* 2x2 visual matrix */}
         <Card className="mt-6 bg-ursa-foam">
           <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-            <Sparkles size={16} className="text-ursa-gold-text" /> The matrix at a glance
+            <Sparkles size={16} className="text-ursa-gold-text" /> {t("content.menu-studio.matrix.title")}
           </h4>
           <div className="relative grid grid-cols-2 grid-rows-2 gap-3 min-h-[280px]">
             {/* axes labels */}
@@ -941,8 +904,8 @@ export function MenuStudioView() {
             {/* Top-left: high margin, low popularity = Puzzle */}
             <MatrixCell
               tone="gold"
-              label="Puzzle"
-              desc="High margin · low popularity"
+              label={t("content.menu-studio.matrix.cell-puzzle")}
+              desc={t("content.menu-studio.matrix.desc-puzzle")}
               count={quadrants.puzzle.length}
               items={quadrants.puzzle}
               position="top-left"
@@ -950,8 +913,8 @@ export function MenuStudioView() {
             {/* Top-right: high margin, high popularity = Star */}
             <MatrixCell
               tone="forest"
-              label="Star"
-              desc="High margin · high popularity"
+              label={t("content.menu-studio.matrix.cell-star")}
+              desc={t("content.menu-studio.matrix.desc-star")}
               count={quadrants.star.length}
               items={quadrants.star}
               position="top-right"
@@ -959,8 +922,8 @@ export function MenuStudioView() {
             {/* Bottom-left: low margin, low popularity = Dog */}
             <MatrixCell
               tone="terracotta"
-              label="Dog"
-              desc="Low margin · low popularity"
+              label={t("content.menu-studio.matrix.cell-dog")}
+              desc={t("content.menu-studio.matrix.desc-dog")}
               count={quadrants.dog.length}
               items={quadrants.dog}
               position="bottom-left"
@@ -968,8 +931,8 @@ export function MenuStudioView() {
             {/* Bottom-right: low margin, high popularity = Plowhorse */}
             <MatrixCell
               tone="gold"
-              label="Plowhorse"
-              desc="Low margin · high popularity"
+              label={t("content.menu-studio.matrix.cell-plowhorse")}
+              desc={t("content.menu-studio.matrix.desc-plowhorse")}
               count={quadrants.plowhorse.length}
               items={quadrants.plowhorse}
               position="bottom-right"
@@ -977,48 +940,44 @@ export function MenuStudioView() {
 
             {/* axis labels */}
             <span className="absolute -left-1 top-1/2 -translate-y-1/2 -rotate-90 font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground whitespace-nowrap origin-center">
-              Margin →
+              {t("content.menu-studio.matrix.axis-margin")}
             </span>
             <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground whitespace-nowrap">
-              Popularity →
+              {t("content.menu-studio.matrix.axis-popularity")}
             </span>
             <span className="absolute -left-6 top-0 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
-              High
+              {t("content.menu-studio.matrix.axis-high")}
             </span>
             <span className="absolute -left-6 bottom-0 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
-              Low
+              {t("content.menu-studio.matrix.axis-low")}
             </span>
             <span className="absolute -top-5 left-0 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
-              Low
+              {t("content.menu-studio.matrix.axis-low")}
             </span>
             <span className="absolute -top-5 right-0 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
-              High
+              {t("content.menu-studio.matrix.axis-high")}
             </span>
           </div>
           <p className="text-[0.78rem] text-muted-foreground mt-8 m-0">
-            Threshold: margin ≥ 55% counts as <b className="text-ursa-dark-roast">high</b>. Popularity is the toggle in
-            the builder — set it honestly. A 12-item menu should aim for 3–4 Stars, 2–3 Puzzles to
-            promote, 2–3 Plowhorses to re-engineer, and 1–2 Dogs to retire.
+            {t("content.menu-studio.matrix.footer")}
           </p>
         </Card>
       </ViewSection>
 
       {/* ---------- Export ---------- */}
       <ViewSection
-        badge="Section 06"
-        title="Export the menu summary"
-        meta="Copy to clipboard"
+        badge={t("content.menu-studio.section.06.badge")}
+        title={t("content.menu-studio.section.06.title")}
+        meta={t("content.menu-studio.section.06.meta")}
       >
         <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
           <div className="flex flex-col md:flex-row md:items-center gap-5 justify-between">
             <div className="flex-1">
               <h4 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-                <BearMark size={28} className="text-ursa-dark-roast" /> Generate a text snapshot
+                <BearMark size={28} className="text-ursa-dark-roast" /> {t("content.menu-studio.export.title")}
               </h4>
               <p className="text-[0.9rem] text-muted-foreground m-0 max-w-[58ch]">
-                A plain-text export of every item, its margin, classification, and the attach-rate
-                projection. Useful for pasting into a Notion doc, a WhatsApp message to a partner,
-                or a printed prep sheet for the bar.
+                {t("content.menu-studio.export.body")}
               </p>
             </div>
             <Dialog open={exportOpen} onOpenChange={setExportOpen}>
@@ -1027,13 +986,13 @@ export function MenuStudioView() {
                   className="bg-ursa-gold text-ursa-dark-roast border border-ursa-gold hover:bg-ursa-gold-soft hover:text-ursa-dark-roast"
                   size="lg"
                 >
-                  <Copy size={16} /> Generate export
+                  <Copy size={16} /> {t("content.menu-studio.export.button")}
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl">
                 <DialogHeader>
                   <DialogTitle className="font-display text-2xl text-ursa-dark-roast flex items-center gap-2">
-                    <BearMark size={24} className="text-ursa-dark-roast" /> Menu export
+                    <BearMark size={24} className="text-ursa-dark-roast" /> {t("content.menu-studio.export.dialog-title")}
                   </DialogTitle>
                 </DialogHeader>
                 <ArtNouveauDivider className="my-2" />
@@ -1048,14 +1007,14 @@ export function MenuStudioView() {
                     onClick={() => setExportOpen(false)}
                     className="border-ursa-line text-muted-foreground"
                   >
-                    Close
+                    {t("content.menu-studio.export.close")}
                   </Button>
                   <Button
                     onClick={copyExport}
                     className="bg-ursa-dark-roast text-ursa-cream border border-ursa-forest-deep hover:bg-ursa-medium-roast hover:text-ursa-cream"
                   >
                     {copied ? <Check size={15} /> : <Copy size={15} />}
-                    {copied ? "Copied!" : "Copy to clipboard"}
+                    {copied ? t("content.menu-studio.export.copied") : t("content.menu-studio.export.copy")}
                   </Button>
                 </div>
               </DialogContent>
@@ -1064,18 +1023,15 @@ export function MenuStudioView() {
         </Card>
 
         <div className="grid sm:grid-cols-4 gap-3 mt-4">
-          <StatBlock value={`${metrics.count}`} label="Items in export" tone="forest" />
-          <StatBlock value={`${metrics.avgMarginPct.toFixed(1)}%`} label="Average margin" tone={marginTone(metrics.avgMarginPct) === "forest" ? "forest" : "gold"} />
-          <StatBlock value={`${quadrants.star.length}`} label="Stars on the menu" tone="forest" />
-          <StatBlock value={PEN(attachMarginTotal)} label="Attach contribution modelled" tone="gold" />
+          <StatBlock value={`${metrics.count}`} label={t("content.menu-studio.export.stat.items")} tone="forest" />
+          <StatBlock value={`${metrics.avgMarginPct.toFixed(1)}%`} label={t("content.menu-studio.export.stat.margin")} tone={marginTone(metrics.avgMarginPct) === "forest" ? "forest" : "gold"} />
+          <StatBlock value={`${quadrants.star.length}`} label={t("content.menu-studio.export.stat.stars")} tone="forest" />
+          <StatBlock value={PEN(attachMarginTotal)} label={t("content.menu-studio.export.stat.attach")} tone="gold" />
         </div>
 
-        <Callout tone="forest" title="How to read the export">
+        <Callout tone="forest" title={t("content.menu-studio.export.callout.title")}>
           <p className="m-0 text-[0.9rem]">
-            The export is a snapshot in time — re-generate it whenever you change a price or a
-            cost. Paste it into the next bar-shift briefing, or attach it to the monthly menu
-            review. The numbers are only as honest as the inputs; pair this export with the
-            actual roast logs before any pricing decision.
+            {t("content.menu-studio.export.callout.body")}
           </p>
         </Callout>
       </ViewSection>
@@ -1174,13 +1130,13 @@ function MiniStat({
 function QuadrantCard({
   quadrant,
   items,
-  title,
   tone,
+  t,
 }: {
   quadrant: Quadrant;
   items: MenuItem[];
-  title: string;
   tone: "forest" | "gold" | "terracotta";
+  t: (key: string, params?: Record<string, string | number>) => string;
 }) {
   const meta = QUADRANT_META[quadrant];
   const toneClasses = {
@@ -1193,6 +1149,9 @@ function QuadrantCard({
     gold: "bg-ursa-gold text-ursa-dark-roast border-ursa-gold",
     terracotta: "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta",
   };
+  const title = t(`content.menu-studio.quadrant.${quadrant}.label`);
+  const desc = t(`content.menu-studio.quadrant.${quadrant}.desc`);
+  const action = t(`content.menu-studio.quadrant.${quadrant}.action`);
   return (
     <div className={cn("border rounded-lg p-5", toneClasses[tone])}>
       <div className="flex items-center justify-between mb-3">
@@ -1207,12 +1166,12 @@ function QuadrantCard({
         </span>
       </div>
       <p className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground m-0 mb-2">
-        {meta.desc}
+        {desc}
       </p>
-      <p className="text-[0.85rem] text-ursa-dark-roast m-0 mb-3 leading-relaxed">{meta.action}</p>
+      <p className="text-[0.85rem] text-ursa-dark-roast m-0 mb-3 leading-relaxed">{action}</p>
       <div className="flex flex-wrap gap-1.5">
         {items.length === 0 && (
-          <span className="text-[0.78rem] text-muted-foreground italic">— none —</span>
+          <span className="text-[0.78rem] text-muted-foreground italic">{t("content.menu-studio.quadrant.none")}</span>
         )}
         {items.map((it) => (
           <span
