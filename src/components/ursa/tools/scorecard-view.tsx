@@ -24,26 +24,26 @@ import {
 
 // Mirrors the Bear Score widget surfaces (kept in sync manually)
 const BEAR_SCORE_SURFACES = [
-  { surface: "Instagram bio & tagline", score: 92, status: "verified" as const },
-  { surface: "Post & Reel covers", score: 68, status: "partial" as const },
-  { surface: "Caption language", score: 78, status: "partial" as const },
-  { surface: "Packaging (bean bags)", score: 85, status: "verified" as const },
-  { surface: "Cups & in-store collateral", score: 72, status: "partial" as const },
-  { surface: "Storefront & interior", score: 88, status: "verified" as const },
-  { surface: "Google Business Profile", score: 18, status: "gap" as const },
-  { surface: "TripAdvisor presence", score: 12, status: "gap" as const },
-  { surface: "Rappi / delivery menu", score: 64, status: "partial" as const },
-  { surface: "Website", score: 8, status: "gap" as const },
+  { surfaceKey: "ig-bio", score: 92, status: "verified" as const },
+  { surfaceKey: "post-covers", score: 68, status: "partial" as const },
+  { surfaceKey: "caption-language", score: 78, status: "partial" as const },
+  { surfaceKey: "packaging", score: 85, status: "verified" as const },
+  { surfaceKey: "cups-collateral", score: 72, status: "partial" as const },
+  { surfaceKey: "storefront", score: 88, status: "verified" as const },
+  { surfaceKey: "gbp", score: 18, status: "gap" as const },
+  { surfaceKey: "tripadvisor", score: 12, status: "gap" as const },
+  { surfaceKey: "rappi", score: 64, status: "partial" as const },
+  { surfaceKey: "website", score: 8, status: "gap" as const },
 ];
 
 const PILLARS = [
-  { name: "Bear motif", score: 76, icon: PawPrint, color: "var(--color-ursa-dark-roast)" },
-  { name: "Art Nouveau language", score: 82, icon: Coffee, color: "var(--color-ursa-gold)" },
-  { name: "Browns + greens palette", score: 84, icon: Coffee, color: "var(--color-ursa-forest-deep)" },
-  { name: "Roastery credibility", score: 90, icon: Scale, color: "var(--color-ursa-terracotta)" },
+  { nameKey: "bear", score: 76, icon: PawPrint, color: "var(--color-ursa-dark-roast)" },
+  { nameKey: "art-nouveau", score: 82, icon: Coffee, color: "var(--color-ursa-gold)" },
+  { nameKey: "palette", score: 84, icon: Coffee, color: "var(--color-ursa-forest-deep)" },
+  { nameKey: "roastery", score: 90, icon: Scale, color: "var(--color-ursa-terracotta)" },
 ];
 
-// Experiment status summary (mirrors experiments-view defaults)
+// Experiment status summary (mirrors experiments-view defaults — names stay as research-source data)
 const EXPERIMENT_SUMMARY = [
   { id: "EXP-01", name: "Story card on pour-over", status: "proposed" as const },
   { id: "EXP-02", name: "Google Business Profile claim", status: "proposed" as const },
@@ -59,10 +59,10 @@ const EXPERIMENT_SUMMARY = [
 ];
 
 const STATUS_META = {
-  proposed: { label: "Proposed", tone: "warn" as const, color: "var(--color-ursa-gold)" },
-  running: { label: "Running", tone: "forest" as const, color: "var(--color-ursa-forest-deep)" },
-  passed: { label: "Passed", tone: "ok" as const, color: "var(--color-ursa-forest-deep)" },
-  killed: { label: "Killed", tone: "stop" as const, color: "var(--color-ursa-terracotta)" },
+  proposed: { labelKey: "proposed", tone: "warn" as const, color: "var(--color-ursa-gold)" },
+  running: { labelKey: "running", tone: "forest" as const, color: "var(--color-ursa-forest-deep)" },
+  passed: { labelKey: "passed", tone: "ok" as const, color: "var(--color-ursa-forest-deep)" },
+  killed: { labelKey: "killed", tone: "stop" as const, color: "var(--color-ursa-terracotta)" },
 };
 
 export function ScorecardView() {
@@ -80,7 +80,10 @@ export function ScorecardView() {
     return c;
   }, []);
 
-  const spiritVerdict = { score: composite, label: composite >= 70 ? "Preserved" : composite >= 50 ? "Conditional" : "At risk" };
+  const spiritVerdictLabel =
+    composite >= 70 ? t("content.scorecard.experiments.status.passed") :
+    composite >= 50 ? t("content.scorecard.experiments.status.running") :
+    t("content.scorecard.experiments.status.killed");
 
   const headlineGrade =
     composite >= 80 ? { letter: "A", tone: "ok" as const, color: "var(--color-ursa-forest-deep)" } :
@@ -90,39 +93,38 @@ export function ScorecardView() {
 
   const summaryText = useMemo(() => {
     const lines = [
-      "URSA COFFEE — BRAND AUDIT SCORECARD",
-      "Compiled: 2026-08-01 · Miraflores, Lima",
-      "========================================",
+      t("content.scorecard.copy.title"),
+      t("content.scorecard.copy.compiled"),
+      t("content.scorecard.copy.divider"),
       "",
-      "OVERALL GRADE: " + headlineGrade.letter + " (" + composite + "/100)",
-      "Spirit verdict: " + spiritVerdict.label,
+      t("content.scorecard.copy.overall", { letter: headlineGrade.letter, composite }),
+      t("content.scorecard.copy.spirit-verdict", { verdict: spiritVerdictLabel }),
       "",
-      "BEAR SCORE (identity consistency)",
-      "  Surfaces average: " + bearOverall + "/100",
-      "  Pillars average:  " + pillarAvg + "/100",
-      "  Composite:        " + composite + "/100",
+      t("content.scorecard.copy.bear-score-section"),
+      t("content.scorecard.copy.surfaces-avg", { n: bearOverall }),
+      t("content.scorecard.copy.pillars-avg", { n: pillarAvg }),
+      t("content.scorecard.copy.composite", { n: composite }),
       "",
-      "BRAND PILLARS",
-      ...PILLARS.map((p) => "  " + p.name + ": " + p.score + "/100"),
+      t("content.scorecard.copy.brand-pillars-section"),
+      ...PILLARS.map((p) => "  " + t(`content.scorecard.pillar.${p.nameKey}.name`) + ": " + p.score + "/100"),
       "",
-      "SURFACE CONSISTENCY",
-      ...BEAR_SCORE_SURFACES.map((s) => "  " + s.surface.padEnd(34) + " " + s.score + "/100  [" + s.status + "]"),
+      t("content.scorecard.copy.surface-consistency-section"),
+      ...BEAR_SCORE_SURFACES.map((s) => "  " + t(`content.scorecard.surface.${s.surfaceKey}`).padEnd(34) + " " + s.score + "/100  [" + s.status + "]"),
       "",
-      "EXPERIMENT TRACKER (" + EXPERIMENT_SUMMARY.length + " total)",
-      "  Proposed: " + expCounts.proposed + " · Running: " + expCounts.running + " · Passed: " + expCounts.passed + " · Killed: " + expCounts.killed,
+      t("content.scorecard.copy.experiments-section", { n: EXPERIMENT_SUMMARY.length }),
+      t("content.scorecard.copy.experiments-detail", { p: expCounts.proposed, r: expCounts.running, pa: expCounts.passed, k: expCounts.killed }),
       "",
-      "TOP STRENGTH: " + [...BEAR_SCORE_SURFACES].sort((a, b) => b.score - a.score)[0].surface,
-      "BIGGEST GAP:  " + [...BEAR_SCORE_SURFACES].sort((a, b) => a.score - b.score)[0].surface,
+      t("content.scorecard.copy.top-strength", { name: t(`content.scorecard.surface.${[...BEAR_SCORE_SURFACES].sort((a, b) => b.score - a.score)[0].surfaceKey}`) }),
+      t("content.scorecard.copy.biggest-gap", { name: t(`content.scorecard.surface.${[...BEAR_SCORE_SURFACES].sort((a, b) => a.score - b.score)[0].surfaceKey}`) }),
       "",
-      "SPIRIT-PRESERVATION VERDICT",
-      "  The plan preserves the bear, the gram, and the green.",
-      "  Conservative refinement is the permanent system.",
-      "  Total rebrand is off the table.",
+      t("content.scorecard.copy.spirit-section"),
+      t("content.scorecard.copy.spirit-line-1"),
+      t("content.scorecard.copy.spirit-line-2"),
+      t("content.scorecard.copy.spirit-line-3"),
       "",
-      "— Compiled with the Ursa Brand Audit Scorecard",
     ];
     return lines.join("\n");
-  }, [composite, bearOverall, pillarAvg, headlineGrade, spiritVerdict, expCounts]);
+  }, [composite, bearOverall, pillarAvg, headlineGrade, spiritVerdictLabel, expCounts, t]);
 
   const copySummary = () => {
     navigator.clipboard.writeText(summaryText).then(() => {
@@ -140,17 +142,11 @@ export function ScorecardView() {
       <ViewHero
         eyebrow={t("content.view.scorecard.eyebrow")}
         title={t("content.view.scorecard.title")}
-        lede={
-          <>
-            A compilation of the Bear Score (identity consistency), the four brand pillars, the
-            experiment tracker status, and the spirit-preservation verdict. Print it, copy it, or
-            share it — this is the one-page executive view of where Ursa stands.
-          </>
-        }
+        lede={<>{t("content.scorecard.lede")}</>}
         meta={[
-          { label: "Grade", value: `${headlineGrade.letter} · ${composite}/100` },
-          { label: "Surfaces", value: `${BEAR_SCORE_SURFACES.length} scored` },
-          { label: "Experiments", value: `${EXPERIMENT_SUMMARY.length} tracked` },
+          { label: t("content.scorecard.meta.grade"), value: `${headlineGrade.letter} · ${composite}/100` },
+          { label: t("content.scorecard.meta.surfaces"), value: t("content.scorecard.meta.surfaces-value", { n: BEAR_SCORE_SURFACES.length }) },
+          { label: t("content.scorecard.meta.experiments"), value: t("content.scorecard.meta.experiments-value", { n: EXPERIMENT_SUMMARY.length }) },
         ]}
         tone="forest"
       />
@@ -158,13 +154,13 @@ export function ScorecardView() {
       <ViewSection>
         <div className="flex flex-wrap items-center gap-3 mb-2">
           <button onClick={() => window.print()} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream font-label text-[0.74rem] tracking-[0.12em] uppercase hover:bg-ursa-espresso transition shadow-lg no-print">
-            <Printer size={14} /> Print scorecard
+            <Printer size={14} /> {t("content.scorecard.action.print")}
           </button>
           <button onClick={copySummary} className={cn("inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase transition shadow-lg no-print", copied ? "bg-ursa-forest-deep text-ursa-cream" : "bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft")}>
-            {copied ? <><Check size={14} /> Copied</> : <><Download size={14} /> Copy as text</>}
+            {copied ? <><Check size={14} /> {t("content.scorecard.action.copied")}</> : <><Download size={14} /> {t("content.scorecard.action.copy")}</>}
           </button>
           <button onClick={() => navigate("brand")} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-ursa-line-soft text-muted-foreground font-label text-[0.74rem] tracking-[0.12em] uppercase hover:text-ursa-dark-roast hover:border-ursa-gold/60 transition no-print">
-            <FileText size={14} /> Full brand audit
+            <FileText size={14} /> {t("content.scorecard.action.full-audit")}
           </button>
         </div>
       </ViewSection>
@@ -177,32 +173,32 @@ export function ScorecardView() {
             <div className="flex items-center gap-3">
               <BearMark size={44} className="text-ursa-dark-roast ursa-breathe" />
               <div>
-                <h2 className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 leading-tight">Ursa Coffee Roasters</h2>
-                <p className="font-label text-[0.64rem] tracking-[0.2em] uppercase text-ursa-gold m-0 mt-1">Brand Audit Scorecard · 2026-08-01</p>
+                <h2 className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 leading-tight">{t("content.scorecard.card.title")}</h2>
+                <p className="font-label text-[0.64rem] tracking-[0.2em] uppercase text-ursa-gold m-0 mt-1">{t("content.scorecard.card.subtitle")}</p>
               </div>
             </div>
             <div className="text-right">
               <div className="font-display text-6xl font-semibold leading-none" style={{ color: headlineGrade.color }}>{headlineGrade.letter}</div>
-              <div className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground mt-1">{composite}/100 · {spiritVerdict.label}</div>
+              <div className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground mt-1">{t("content.scorecard.card.composite-meta", { composite, verdict: spiritVerdictLabel })}</div>
             </div>
           </div>
 
           {/* Top metrics row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-5 border-b border-ursa-line-soft">
-            <ScorecardMetric label="Bear Score" value={bearOverall} suffix="/100" tone="gold" />
-            <ScorecardMetric label="Pillars avg" value={pillarAvg} suffix="/100" tone="forest" />
-            <ScorecardMetric label="Experiments" value={EXPERIMENT_SUMMARY.length} suffix=" tracked" tone="terracotta" />
-            <ScorecardMetric label="Composite" value={composite} suffix="/100" tone={headlineGrade.tone === "ok" ? "forest" : headlineGrade.tone === "warn" ? "gold" : "terracotta"} />
+            <ScorecardMetric label={t("content.scorecard.metric.bear-score")} value={bearOverall} suffix="/100" tone="gold" />
+            <ScorecardMetric label={t("content.scorecard.metric.pillars-avg")} value={pillarAvg} suffix="/100" tone="forest" />
+            <ScorecardMetric label={t("content.scorecard.metric.experiments-tracked")} value={EXPERIMENT_SUMMARY.length} suffix={t("content.scorecard.metric.experiments-tracked-suffix")} tone="terracotta" />
+            <ScorecardMetric label={t("content.scorecard.metric.composite")} value={composite} suffix="/100" tone={headlineGrade.tone === "ok" ? "forest" : headlineGrade.tone === "warn" ? "gold" : "terracotta"} />
           </div>
 
           {/* Brand pillars */}
           <div className="py-5 border-b border-ursa-line-soft">
-            <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-4">Brand pillars</h3>
+            <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-4">{t("content.scorecard.pillars.title")}</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {PILLARS.map((p) => {
                 const Icon = p.icon;
                 return (
-                  <div key={p.name} className="text-center">
+                  <div key={p.nameKey} className="text-center">
                     <div className="relative w-16 h-16 mx-auto">
                       <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
                         <circle cx="18" cy="18" r="15.5" fill="none" stroke="var(--color-ursa-bg-alt)" strokeWidth="3" />
@@ -212,7 +208,7 @@ export function ScorecardView() {
                     </div>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <Icon size={11} style={{ color: p.color }} />
-                      <p className="font-label text-[0.58rem] tracking-[0.08em] uppercase text-muted-foreground m-0">{p.name}</p>
+                      <p className="font-label text-[0.58rem] tracking-[0.08em] uppercase text-muted-foreground m-0">{t(`content.scorecard.pillar.${p.nameKey}.name`)}</p>
                     </div>
                   </div>
                 );
@@ -225,17 +221,17 @@ export function ScorecardView() {
             <div className="rounded-lg bg-ursa-forest-deep/8 border border-ursa-forest-deep/20 p-4">
               <div className="flex items-center gap-1.5 mb-1">
                 <TrendingUp size={13} className="text-ursa-forest-deep" />
-                <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-forest-deep">Top strength</span>
+                <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-forest-deep">{t("content.scorecard.strength.title")}</span>
               </div>
-              <p className="font-display text-base font-semibold text-ursa-dark-roast m-0">{topStrength.surface}</p>
+              <p className="font-display text-base font-semibold text-ursa-dark-roast m-0">{t(`content.scorecard.surface.${topStrength.surfaceKey}`)}</p>
               <p className="font-label text-[0.72rem] text-ursa-forest-deep m-0 mt-0.5">{topStrength.score}/100</p>
             </div>
             <div className="rounded-lg bg-ursa-terracotta/8 border border-ursa-terracotta/25 p-4">
               <div className="flex items-center gap-1.5 mb-1">
                 <AlertTriangle size={13} className="text-ursa-terracotta" />
-                <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta">Biggest gap</span>
+                <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-terracotta">{t("content.scorecard.gap.title")}</span>
               </div>
-              <p className="font-display text-base font-semibold text-ursa-dark-roast m-0">{biggestGap.surface}</p>
+              <p className="font-display text-base font-semibold text-ursa-dark-roast m-0">{t(`content.scorecard.surface.${biggestGap.surfaceKey}`)}</p>
               <p className="font-label text-[0.72rem] text-ursa-terracotta m-0 mt-0.5">{biggestGap.score}/100</p>
             </div>
           </div>
@@ -243,13 +239,13 @@ export function ScorecardView() {
           {/* Experiment status summary */}
           <div className="py-5 border-b border-ursa-line-soft">
             <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-4 flex items-center gap-2">
-              <FlaskConical size={14} /> Experiment tracker — {EXPERIMENT_SUMMARY.length} experiments
+              <FlaskConical size={14} /> {t("content.scorecard.experiments.title", { n: EXPERIMENT_SUMMARY.length })}
             </h3>
             <div className="grid grid-cols-4 gap-2 mb-4">
               {(Object.keys(STATUS_META) as (keyof typeof STATUS_META)[]).map((s) => (
                 <div key={s} className="rounded-lg border border-ursa-line-soft bg-card p-3 text-center">
                   <div className="font-display text-2xl font-semibold leading-none" style={{ color: STATUS_META[s].color }}>{expCounts[s]}</div>
-                  <div className="font-label text-[0.56rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">{STATUS_META[s].label}</div>
+                  <div className="font-label text-[0.56rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">{t(`content.scorecard.experiments.status.${STATUS_META[s].labelKey}`)}</div>
                 </div>
               ))}
             </div>
@@ -266,7 +262,7 @@ export function ScorecardView() {
           {/* Spirit-preservation verdict */}
           <div className="py-5">
             <h3 className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold m-0 mb-3 flex items-center gap-2">
-              <Shield size={14} /> Spirit-preservation verdict
+              <Shield size={14} /> {t("content.scorecard.spirit.title")}
             </h3>
             <div className="rounded-lg bg-gradient-to-r from-ursa-forest-deep/10 to-ursa-gold/10 border border-ursa-gold/30 p-5">
               <div className="flex items-center gap-3 mb-2">
@@ -275,10 +271,9 @@ export function ScorecardView() {
                 <Coffee size={18} className="text-ursa-gold" />
                 <Scale size={18} className="text-ursa-forest-deep" />
               </div>
-              <p className="font-display text-lg font-semibold text-ursa-dark-roast m-0 mb-1">The plan preserves the bear, the gram, and the green.</p>
+              <p className="font-display text-lg font-semibold text-ursa-dark-roast m-0 mb-1">{t("content.scorecard.spirit.headline")}</p>
               <p className="text-[0.86rem] text-muted-foreground m-0">
-                Conservative refinement is the permanent system. Level 2 (distinctive growth) is a 6-month
-                reversible skin. Level 3 (experimental) is seasonal only. Total rebrand is explicitly off the table.
+                {t("content.scorecard.spirit.body")}
               </p>
             </div>
           </div>
@@ -286,23 +281,23 @@ export function ScorecardView() {
           {/* Footer */}
           <div className="pt-4 border-t border-ursa-line-soft flex items-center justify-between flex-wrap gap-2">
             <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0">
-              Compiled from public sources · Snapshot 2026-08-01
+              {t("content.scorecard.footer.snapshot")}
             </p>
-            <p className="font-display italic text-[0.78rem] text-ursa-medium-roast m-0">Un gramo a la vez</p>
+            <p className="font-display italic text-[0.78rem] text-ursa-medium-roast m-0">{t("content.scorecard.footer.tagline")}</p>
           </div>
         </Card>
       </ViewSection>
 
       {/* Surface breakdown — compact */}
-      <ViewSection badge="Detail" title="Surface consistency breakdown" meta={`${BEAR_SCORE_SURFACES.length} surfaces scored`}>
+      <ViewSection badge={t("content.scorecard.detail.badge")} title={t("content.scorecard.detail.title")} meta={t("content.scorecard.detail.meta", { n: BEAR_SCORE_SURFACES.length })}>
         <Grid cols={2}>
           {sortedDesc.map((s) => {
             const barColor = s.status === "verified" ? "var(--color-ursa-forest-deep)" : s.status === "partial" ? "var(--color-ursa-gold)" : "var(--color-ursa-terracotta)";
             return (
-              <Card key={s.surface} className="p-4 flex items-center gap-3">
+              <Card key={s.surfaceKey} className="p-4 flex items-center gap-3">
                 <EvidenceTag status={s.status} />
                 <div className="flex-1 min-w-0">
-                  <p className="font-display text-[0.9rem] font-semibold text-ursa-dark-roast m-0 leading-tight truncate">{s.surface}</p>
+                  <p className="font-display text-[0.9rem] font-semibold text-ursa-dark-roast m-0 leading-tight truncate">{t(`content.scorecard.surface.${s.surfaceKey}`)}</p>
                   <div className="flex items-center gap-2 mt-1.5">
                     <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                       <div className="h-full rounded-full" style={{ width: `${s.score}%`, background: barColor }} />

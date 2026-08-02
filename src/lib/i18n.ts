@@ -441,6 +441,8 @@ export const translations: Translations = {
       "competitors.table.col.weakness": "Weakness",
       "competitors.table.col.implication": "Ursa implication",
       "competitors.table.col.website": "Website",
+      "competitors.table.website-yes": "Yes",
+      "competitors.table.website-no": "No",
       "competitors.table.empty": "No competitors match these filters. Try resetting.",
       "competitors.table.note":
         "Ursa's row is highlighted in gold and pinned to the top so every comparison reads against the same baseline. The mechanism: a comparison without a fixed reference is just a list; pinning Ursa makes every other row a delta, which is what a decision-maker actually needs.",
@@ -511,6 +513,7 @@ export const translations: Translations = {
       "experiments.hero.meta.persistence": "Persistence",
       "experiments.hero.meta.persistence-value": "localStorage (per device)",
       "experiments.section.status": "Where the eleven experiments stand right now",
+      "experiments.section.status.badge": "Section 01 · Status",
       "experiments.section.status.meta": "Saved in your browser",
       "experiments.stat.total": "Total experiments tracked",
       "experiments.stat.proposed": "Proposed · awaiting launch",
@@ -528,6 +531,7 @@ export const translations: Translations = {
       "experiments.graduation.summary":
         "{passed} passed · {killed} killed · {active} still active or proposed.",
       "experiments.section.filter": "Filter the board by status",
+      "experiments.section.filter.badge": "Section 02 · Filter",
       "experiments.section.filter.meta": "{shown} of {total} shown",
       "experiments.filter.all": "All",
       "experiments.filter.proposed": "Proposed",
@@ -538,6 +542,7 @@ export const translations: Translations = {
       "experiments.filter.active-note":
         "Showing only experiments with status {status}. Change the filter to see others.",
       "experiments.section.cards": "Experiment cards — pick a status for each test",
+      "experiments.section.cards.badge": "Section 03 · Board",
       "experiments.section.cards.meta": "Click a card's selector to update",
       "experiments.section.cards.empty":
         "No experiments match the current filter. Try a different status above.",
@@ -551,6 +556,7 @@ export const translations: Translations = {
       "experiments.card.status.passed": "Graduated to a permanent channel.",
       "experiments.card.status.killed": "Stop rule hit — retired, not forgotten.",
       "experiments.section.cost": "Cost summary — exposure on Proposed + Running experiments",
+      "experiments.section.cost.badge": "Section 04 · Budget",
       "experiments.section.cost.meta": "Conservative range in PEN",
       "experiments.cost.exposure.label":
         "Estimated total exposure · {count} active or proposed",
@@ -568,6 +574,7 @@ export const translations: Translations = {
       "experiments.cost.cheapest.body":
         "Claiming the Google Business Profile costs nothing in cash and unlocks the directions call that turns a Google Maps search into a walked-in customer. If only one experiment is run in the first 72 hours, this is the one. The tracker lets you mark it Running immediately, then Passed the day directions calls appear in the GBP dashboard. The mechanism: directions is the one search intent that maps directly to a physical visit, so the listing is the cheapest bridge between intent and foot traffic.",
       "experiments.section.gantt": "90-day Gantt — when each experiment runs",
+      "experiments.section.gantt.badge": "Section 05 · Timeline",
       "experiments.section.gantt.meta": "Bars coloured by current status",
       "experiments.gantt.intro":
         "Each bar is positioned by the experiment's stop rule. The earliest stop rule fires on day 7 (the Google Business Profile claim); the latest runs to day 90 (the weekly cupping night). Use this view to see when, in the 90-day window, decisions land. A short bar is a fast decision; a long bar is a slow signal that needs the full window before you graduate or kill it.",
@@ -641,6 +648,12 @@ export const translations: Translations = {
       "style-guide.section.components.meta":
         "Pills · EvidenceTags · Callouts · Card · StatBlock · ProgressBar · BearMark · Divider · CupGlyph",
       "style-guide.components.pill.heading": "Pill · all tones",
+      "style-guide.components.pill.default": "Default",
+      "style-guide.components.pill.ok": "Ok · forest",
+      "style-guide.components.pill.warn": "Warn · gold",
+      "style-guide.components.pill.stop": "Stop · terracotta",
+      "style-guide.components.pill.forest": "Forest",
+      "style-guide.components.pill.gold": "Gold",
       "style-guide.components.pill.note":
         "Use tone=\"gold\" for emphasis only — never for body labels. The mechanism: gold is the accent that catches the eye, so it works as a highlight, not as a default. A grid full of gold pills reads as decoration, not as a system.",
       "style-guide.components.evidence.heading": "EvidenceTag · all statuses",
@@ -670,6 +683,9 @@ export const translations: Translations = {
         "Gold ring + shadow lift. Reserved for one item per grid — never two. The mechanism: highlight is a comparison cue, not a decoration; multiple highlights collapse the comparison.",
       "style-guide.components.progress.heading": "ProgressBar",
       "style-guide.components.statblock.heading": "StatBlock · three tones",
+      "style-guide.components.statblock.demo.1": "Instagram followers · verified",
+      "style-guide.components.statblock.demo.2": "Proposed subscription price",
+      "style-guide.components.statblock.demo.3": "Hotels within walking distance",
       "style-guide.components.bearmark.heading":
         "BearMark · ArtNouveauDivider · CupGlyph",
       "style-guide.components.bearmark.note":
@@ -4131,6 +4147,8 @@ export const translations: Translations = {
       "competitors.table.col.weakness": "Debilidad",
       "competitors.table.col.implication": "Implicancia para Ursa",
       "competitors.table.col.website": "Web",
+      "competitors.table.website-yes": "Sí",
+      "competitors.table.website-no": "No",
       "competitors.table.empty": "Ningún competidor coincide con estos filtros. Prueba reiniciar.",
       "competitors.table.note":
         "La fila de Ursa está resaltada en oro y fijada arriba para que cada comparación se lea contra el mismo baseline. El mecanismo: una comparación sin referencia fija es solo una lista; fijar a Ursa convierte cada otra fila en un delta, y el delta es lo que un tomador de decisiones realmente necesita.",
@@ -4199,6 +4217,7 @@ export const translations: Translations = {
       "experiments.hero.meta.persistence": "Persistencia",
       "experiments.hero.meta.persistence-value": "localStorage (por dispositivo)",
       "experiments.section.status": "Dónde están los once experimentos ahora",
+      "experiments.section.status.badge": "Sección 01 · Estado",
       "experiments.section.status.meta": "Guardado en tu navegador",
       "experiments.stat.total": "Experimentos totales registrados",
       "experiments.stat.proposed": "Propuestos · esperando lanzamiento",
@@ -4216,6 +4235,7 @@ export const translations: Translations = {
       "experiments.graduation.summary":
         "{passed} aprobados · {killed} cancelados · {active} aún activos o propuestos.",
       "experiments.section.filter": "Filtra el tablero por estado",
+      "experiments.section.filter.badge": "Sección 02 · Filtro",
       "experiments.section.filter.meta": "{shown} de {total} mostrados",
       "experiments.filter.all": "Todos",
       "experiments.filter.proposed": "Propuestos",
@@ -4226,6 +4246,7 @@ export const translations: Translations = {
       "experiments.filter.active-note":
         "Mostrando solo experimentos con estado {status}. Cambia el filtro para ver otros.",
       "experiments.section.cards": "Tarjetas de experimentos — elige un estado para cada prueba",
+      "experiments.section.cards.badge": "Sección 03 · Tablero",
       "experiments.section.cards.meta": "Toca el selector de una tarjeta para actualizar",
       "experiments.section.cards.empty":
         "Ningún experimento coincide con el filtro actual. Prueba otro estado arriba.",
@@ -4239,6 +4260,7 @@ export const translations: Translations = {
       "experiments.card.status.passed": "Graduado a canal permanente.",
       "experiments.card.status.killed": "Regla de corte cumplida — retirado, no olvidado.",
       "experiments.section.cost": "Resumen de costos — exposición en experimentos Propuestos + En curso",
+      "experiments.section.cost.badge": "Sección 04 · Presupuesto",
       "experiments.section.cost.meta": "Rango conservador en PEN",
       "experiments.cost.exposure.label":
         "Exposición total estimada · {count} activos o propuestos",
@@ -4256,6 +4278,7 @@ export const translations: Translations = {
       "experiments.cost.cheapest.body":
         "Reclamar el perfil de Google Business no cuesta nada en plata y desbloquea la llamada de directions que convierte una búsqueda en Google Maps en un cliente que camina al local. Si solo se corre un experimento en las primeras 72 horas, es este. El tracker te deja marcarlo En curso de inmediato, y Aprobado el día que aparezcan llamadas de directions en el panel de GBP. El mecanismo: directions es la única intención de búsqueda que mapea directo a una visita física, así que el listing es el puente más barato entre intención y tráfico a pie.",
       "experiments.section.gantt": "Gantt de 90 días — cuándo corre cada experimento",
+      "experiments.section.gantt.badge": "Sección 05 · Cronograma",
       "experiments.section.gantt.meta": "Barras coloreadas por estado actual",
       "experiments.gantt.intro":
         "Cada barra se posiciona según la regla de corte del experimento. La regla más temprana se dispara el día 7 (el reclamo del perfil de Google Business); la última corre hasta el día 90 (la noche de cata semanal). Usa esta vista para ver cuándo, en la ventana de 90 días, aterrizan las decisiones. Una barra corta es una decisión rápida; una barra larga es una señal lenta que necesita la ventana completa antes de que la apruebes o la mates.",
@@ -4328,6 +4351,12 @@ export const translations: Translations = {
       "style-guide.section.components.meta":
         "Pills · EvidenceTags · Callouts · Card · StatBlock · ProgressBar · BearMark · Divider · CupGlyph",
       "style-guide.components.pill.heading": "Pill · todos los tonos",
+      "style-guide.components.pill.default": "Default",
+      "style-guide.components.pill.ok": "Ok · forest",
+      "style-guide.components.pill.warn": "Warn · oro",
+      "style-guide.components.pill.stop": "Stop · terracota",
+      "style-guide.components.pill.forest": "Forest",
+      "style-guide.components.pill.gold": "Oro",
       "style-guide.components.pill.note":
         "Usa tone=\"gold\" solo para énfasis — nunca para etiquetas de cuerpo. El mecanismo: el oro es el acento que atrae la mirada, así que funciona como highlight, no como default. Una grilla llena de pills doradas se lee como decoración, no como sistema.",
       "style-guide.components.evidence.heading": "EvidenceTag · todos los estados",
@@ -4357,6 +4386,9 @@ export const translations: Translations = {
         "Anillo dorado + sombra elevada. Reservada para un ítem por grilla — nunca dos. El mecanismo: highlight es una pista de comparación, no una decoración; múltiples highlights colapsan la comparación.",
       "style-guide.components.progress.heading": "ProgressBar",
       "style-guide.components.statblock.heading": "StatBlock · tres tonos",
+      "style-guide.components.statblock.demo.1": "Seguidores en Instagram · verificado",
+      "style-guide.components.statblock.demo.2": "Precio propuesto de suscripción",
+      "style-guide.components.statblock.demo.3": "Hoteles a la redonda",
       "style-guide.components.bearmark.heading":
         "BearMark · ArtNouveauDivider · CupGlyph",
       "style-guide.components.bearmark.note":

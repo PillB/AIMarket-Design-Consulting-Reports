@@ -37,7 +37,7 @@ import { cn } from "@/lib/utils";
 type Status = "proposed" | "running" | "passed" | "killed";
 
 type StatusMeta = {
-  label: string;
+  labelKey: string;
   pillTone: "gold" | "forest" | "ok" | "stop";
   text: string;
   bg: string;
@@ -50,7 +50,7 @@ type StatusMeta = {
 
 const STATUS_META: Record<Status, StatusMeta> = {
   proposed: {
-    label: "Proposed",
+    labelKey: "content.experiments.filter.proposed",
     pillTone: "gold",
     text: "text-ursa-gold-text",
     bg: "bg-ursa-gold/8",
@@ -61,7 +61,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     icon: <CircleDot size={12} />,
   },
   running: {
-    label: "Running",
+    labelKey: "content.experiments.filter.running",
     pillTone: "forest",
     text: "text-ursa-forest-deep",
     bg: "bg-ursa-dark-roast/8",
@@ -72,7 +72,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     icon: <Play size={12} />,
   },
   passed: {
-    label: "Passed",
+    labelKey: "content.experiments.filter.passed",
     pillTone: "ok",
     text: "text-ursa-forest-deep",
     bg: "bg-ursa-dark-roast/12",
@@ -83,7 +83,7 @@ const STATUS_META: Record<Status, StatusMeta> = {
     icon: <Check size={12} />,
   },
   killed: {
-    label: "Killed",
+    labelKey: "content.experiments.filter.killed",
     pillTone: "stop",
     text: "text-ursa-terracotta-text",
     bg: "bg-ursa-terracotta/8",
@@ -115,12 +115,12 @@ const TIMELINE: Record<string, { start: number; end: number; phase: string }> = 
   "EXP-11": { start: 60, end: 90, phase: "Growth · 90-day" },
 };
 
-const FILTER_OPTIONS: { value: "all" | Status; label: string }[] = [
-  { value: "all", label: "All" },
-  { value: "proposed", label: "Proposed" },
-  { value: "running", label: "Running" },
-  { value: "passed", label: "Passed" },
-  { value: "killed", label: "Killed" },
+const FILTER_OPTIONS: { value: "all" | Status; labelKey: string }[] = [
+  { value: "all", labelKey: "content.experiments.filter.all" },
+  { value: "proposed", labelKey: "content.experiments.filter.proposed" },
+  { value: "running", labelKey: "content.experiments.filter.running" },
+  { value: "passed", labelKey: "content.experiments.filter.passed" },
+  { value: "killed", labelKey: "content.experiments.filter.killed" },
 ];
 
 /** Parse a cost range string like "S/. 1,200–3,000" into {min, max} numbers. */
@@ -278,26 +278,28 @@ export function ExperimentsView() {
         eyebrow={t("content.view.experiments.eyebrow")}
         tone="forest"
         title={<>{t("content.view.experiments.title")}</>}
-        lede={
-          <>
-            Track the eleven low-cost experiments from Module 07 against their stop rules. Move
-            each one from <strong>Proposed</strong> → <strong>Running</strong> →{" "}
-            <strong>Passed</strong> or <strong>Killed</strong>. Notes persist in your browser via
-            localStorage — no account, no server, no leak.
-          </>
-        }
+        lede={<>{t("content.experiments.hero.lede")}</>}
         meta={[
-          { label: "Experiments", value: `${EXPERIMENTS.length} tracked` },
-          { label: "Statuses", value: "Proposed · Running · Passed · Killed" },
-          { label: "Persistence", value: "localStorage (per device)" },
+          {
+            label: t("content.experiments.hero.meta.experiments"),
+            value: t("content.experiments.hero.meta.experiments-value", { n: EXPERIMENTS.length }),
+          },
+          {
+            label: t("content.experiments.hero.meta.statuses"),
+            value: t("content.experiments.hero.meta.statuses-value"),
+          },
+          {
+            label: t("content.experiments.hero.meta.persistence"),
+            value: t("content.experiments.hero.meta.persistence-value"),
+          },
         ]}
       />
 
       {/* Section 1 — Summary stats ============================================== */}
       <ViewSection
-        badge="Section 01 · Status"
+        badge={t("content.experiments.section.status.badge")}
         title={<>{t("content.experiments.section.status")}</>}
-        meta="Saved in your browser"
+        meta={t("content.experiments.section.status.meta")}
       >
         <Grid cols={4}>
           <StatBlock
@@ -325,7 +327,7 @@ export function ExperimentsView() {
         <div className="mt-6 grid sm:grid-cols-2 gap-5">
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <FlaskConical size={16} className="text-ursa-gold-text" /> Status legend
+              <FlaskConical size={16} className="text-ursa-gold-text" /> {t("content.experiments.legend.heading")}
             </h4>
             <ul className="m-0 p-0 list-none space-y-1.5">
               {STATUS_ORDER.map((s) => {
@@ -334,13 +336,10 @@ export function ExperimentsView() {
                   <li key={s} className="flex items-center gap-2.5">
                     <span className={cn("h-3 w-3 rounded-full", m.dot)} aria-hidden="true" />
                     <span className="font-label text-[0.7rem] tracking-[0.14em] uppercase text-ursa-dark-roast">
-                      {m.label}
+                      {t(m.labelKey)}
                     </span>
                     <span className="text-[0.82rem] text-muted-foreground">
-                      {s === "proposed" && "brief written, not yet live"}
-                      {s === "running" && "live, clock is ticking against the stop rule"}
-                      {s === "passed" && "graduated — becomes a permanent channel"}
-                      {s === "killed" && "stop rule hit — retired, not forgotten"}
+                      {t(`content.experiments.legend.${s}`)}
                     </span>
                   </li>
                 );
@@ -349,14 +348,14 @@ export function ExperimentsView() {
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Trophy size={16} className="text-ursa-gold-text" /> Graduation rate
+              <Trophy size={16} className="text-ursa-gold-text" /> {t("content.experiments.graduation.heading")}
             </h4>
             <div className="flex items-baseline gap-3 mb-2">
               <span className="font-display text-3xl font-semibold text-ursa-forest-deep">
                 {graduatedPct}%
               </span>
               <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">
-                of {EXPERIMENTS.length} experiments decided
+                {t("content.experiments.graduation.subtitle", { n: EXPERIMENTS.length })}
               </span>
             </div>
             <div className="h-2 bg-muted rounded-full overflow-hidden mb-3">
@@ -366,9 +365,14 @@ export function ExperimentsView() {
               />
             </div>
             <p className="text-[0.82rem] text-muted-foreground m-0">
-              <strong className="text-ursa-forest-deep">{counts.passed}</strong> passed ·{" "}
-              <strong className="text-ursa-terracotta-text">{counts.killed}</strong> killed ·{" "}
-              <strong>{activeCount}</strong> still active or proposed.
+              {t("content.experiments.graduation.summary", {
+                passed: counts.passed,
+                killed: counts.killed,
+                active: activeCount,
+              })}
+            </p>
+            <p className="text-[0.82rem] text-muted-foreground mt-3 m-0">
+              {t("content.experiments.graduation.note")}
             </p>
           </Card>
         </div>
@@ -376,9 +380,12 @@ export function ExperimentsView() {
 
       {/* Section 2 — Filter ==================================================== */}
       <ViewSection
-        badge="Section 02 · Filter"
+        badge={t("content.experiments.section.filter.badge")}
         title={<>{t("content.experiments.section.filter")}</>}
-        meta={`${filteredExperiments.length} of ${EXPERIMENTS.length} shown`}
+        meta={t("content.experiments.section.filter.meta", {
+          shown: filteredExperiments.length,
+          total: EXPERIMENTS.length,
+        })}
       >
         <div className="flex flex-wrap items-center gap-2">
           {FILTER_OPTIONS.map((opt) => {
@@ -400,7 +407,7 @@ export function ExperimentsView() {
                 )}
               >
                 <Filter size={12} />
-                {opt.label}
+                {t(opt.labelKey)}
                 <span
                   className={cn(
                     "inline-flex items-center justify-center min-w-[1.4rem] h-5 px-1.5 rounded-full font-body text-[0.66rem]",
@@ -420,30 +427,28 @@ export function ExperimentsView() {
               onClick={resetAll}
               className="font-label text-[0.7rem] tracking-[0.12em] uppercase border-ursa-terracotta/40 text-ursa-terracotta-text hover:bg-ursa-terracotta hover:text-ursa-cream"
             >
-              <RotateCcw size={12} className="mr-1.5" /> Reset all
+              <RotateCcw size={12} className="mr-1.5" /> {t("content.experiments.filter.reset")}
             </Button>
           </div>
         </div>
 
         {filter !== "all" && (
           <p className="text-[0.84rem] text-muted-foreground mt-3">
-            Showing only experiments with status{" "}
-            <strong className={STATUS_META[filter].text}>{STATUS_META[filter].label}</strong>.
-            Change the filter to see others.
+            {t("content.experiments.filter.active-note", { status: t(STATUS_META[filter].labelKey) })}
           </p>
         )}
       </ViewSection>
 
       {/* Section 3 — Experiment cards ========================================== */}
       <ViewSection
-        badge="Section 03 · Board"
+        badge={t("content.experiments.section.cards.badge")}
         title={<>{t("content.experiments.section.cards")}</>}
-        meta="Click a card's selector to update"
+        meta={t("content.experiments.section.cards.meta")}
       >
         {filteredExperiments.length === 0 ? (
           <Card className="bg-ursa-foam text-center">
             <p className="text-[0.95rem] text-muted-foreground m-0">
-              No experiments match the current filter. Try a different status above.
+              {t("content.experiments.section.cards.empty")}
             </p>
           </Card>
         ) : (
@@ -462,78 +467,76 @@ export function ExperimentsView() {
 
       {/* Section 4 — Cost summary ============================================== */}
       <ViewSection
-        badge="Section 04 · Budget"
+        badge={t("content.experiments.section.cost.badge")}
         title={<>{t("content.experiments.section.cost")}</>}
-        meta="Conservative range in PEN"
+        meta={t("content.experiments.section.cost.meta")}
       >
         <Grid cols={3}>
           <Card highlight className="bg-ursa-foam">
             <StatBlock
               value={`${PEN(costSummary.minTotal)} – ${PEN(costSummary.maxTotal)}`}
-              label={`Estimated total exposure · ${costSummary.count} active or proposed`}
+              label={t("content.experiments.cost.exposure.label", { count: costSummary.count })}
               tone="gold"
             />
             <p className="text-[0.82rem] text-muted-foreground mt-3 m-0">
-              Lower bound = the minimum cost per experiment. Upper bound = the maximum. The real
-              number lands somewhere in between once each test ships.
+              {t("content.experiments.cost.exposure.body")}
             </p>
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Banknote size={16} className="text-ursa-gold-text" /> What is counted
+              <Banknote size={16} className="text-ursa-gold-text" /> {t("content.experiments.cost.counted.heading")}
             </h4>
             <ul className="m-0 p-0 list-none space-y-1.5 text-[0.84rem] text-muted-foreground">
-              <li><strong className="text-ursa-gold-text">Proposed</strong> — exposure reserved in plan.</li>
-              <li><strong className="text-ursa-forest-deep">Running</strong> — exposure committed.</li>
+              <li>
+                <strong className="text-ursa-gold-text">{t("content.experiments.filter.proposed")}</strong>{" "}
+                {t("content.experiments.cost.counted.proposed")}
+              </li>
+              <li>
+                <strong className="text-ursa-forest-deep">{t("content.experiments.filter.running")}</strong>{" "}
+                {t("content.experiments.cost.counted.running")}
+              </li>
               <li className="text-muted-foreground/70 italic">
-                <strong>Passed / Killed</strong> are excluded — sunk.
+                <strong>{t("content.experiments.filter.passed")} / {t("content.experiments.filter.killed")}</strong>{" "}
+                {t("content.experiments.cost.counted.excluded")}
               </li>
             </ul>
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <AlertTriangle size={16} className="text-ursa-terracotta-text" /> Honest caveats
+              <AlertTriangle size={16} className="text-ursa-terracotta-text" /> {t("content.experiments.cost.caveats.heading")}
             </h4>
             <p className="text-[0.84rem] text-muted-foreground m-0">
-              Costs are scenario ranges, not invoices. Two experiments cost{" "}
-              <strong>S/. 0</strong> (EXP-02 GBP claim, EXP-10 TripAdvisor claiming) — they cost
-              attention, not money. The Subscription Calculator (Module 08) is the place to model
-              EXP-11&apos;s full economics.
+              {t("content.experiments.cost.caveats.body")}
             </p>
             <button
               onClick={() => navigate("calculator")}
               className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-ursa-gold/60 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.7rem] tracking-[0.1em] uppercase"
             >
-              <ArrowRight size={12} /> Model EXP-11 in calculator
+              <ArrowRight size={12} /> {t("content.experiments.cost.caveats.button")}
             </button>
           </Card>
         </Grid>
 
-        <Callout tone="forest" title="The single cheapest experiment">
-          <strong>EXP-02 — Google Business Profile claim</strong> costs nothing and unlocks
-          &ldquo;directions&rdquo; calls. If only one experiment is run in the first 72 hours, this
-          is the one. The tracker lets you mark it <em>Running</em> immediately, then{" "}
-          <em>Passed</em> the day &ldquo;directions&rdquo; calls appear.
+        <Callout tone="forest" title={t("content.experiments.cost.cheapest.title")}>
+          {t("content.experiments.cost.cheapest.body")}
         </Callout>
       </ViewSection>
 
       {/* Section 5 — Timeline (Gantt-like) ===================================== */}
       <ViewSection
-        badge="Section 05 · Timeline"
+        badge={t("content.experiments.section.gantt.badge")}
         title={<>{t("content.experiments.section.gantt")}</>}
-        meta="Bars coloured by current status"
+        meta={t("content.experiments.section.gantt.meta")}
       >
         <p className="text-[0.95rem] text-muted-foreground leading-relaxed max-w-[68ch] mb-6">
-          Each bar is positioned by the experiment&apos;s stop rule. The earliest stop rule fires
-          on day 7 (EXP-02 GBP); the latest runs to day 90 (EXP-06 cupping nights). Use this view
-          to see when, in the 90-day window, decisions land.
+          {t("content.experiments.gantt.intro")}
         </p>
 
         <div className="rounded-xl border border-ursa-line-soft bg-card p-4 md:p-5 overflow-x-auto">
           {/* Day axis */}
           <div className="grid items-center mb-2" style={{ gridTemplateColumns: "minmax(180px, 220px) 1fr" }}>
             <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground pr-3">
-              Experiment
+              {t("content.experiments.gantt.col.experiment")}
             </div>
             <div className="relative h-5">
               {[0, 15, 30, 45, 60, 75, 90].map((d) => (
@@ -542,7 +545,7 @@ export function ExperimentsView() {
                   className="absolute top-0 font-label text-[0.6rem] tracking-[0.1em] uppercase text-muted-foreground"
                   style={{ left: `${(d / 90) * 100}%`, transform: d === 0 ? "none" : "translateX(-50%)" }}
                 >
-                  Day {d}
+                  {t("content.experiments.gantt.day-label", { n: d })}
                 </span>
               ))}
             </div>
@@ -590,7 +593,7 @@ export function ExperimentsView() {
                         left: `${leftPct}%`,
                         width: `max(${widthPct}%, 36px)`,
                       }}
-                      title={`${e.id} · ${m.label} · day ${tl.start}–${tl.end}`}
+                      title={`${e.id} · ${t(m.labelKey)} · day ${tl.start}–${tl.end}`}
                     >
                       <span className="font-label text-[0.62rem] tracking-[0.08em] uppercase text-ursa-cream truncate font-semibold">
                         d{tl.start}–{tl.end}
@@ -608,34 +611,29 @@ export function ExperimentsView() {
               <span key={s} className="inline-flex items-center gap-2">
                 <span className={cn("h-2.5 w-4 rounded-sm", STATUS_META[s].bar)} />
                 <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">
-                  {STATUS_META[s].label}
+                  {t(STATUS_META[s].labelKey)}
                 </span>
               </span>
             ))}
             <span className="ml-auto font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">
-              Phase gridlines at days 30 · 60 · 90
+              {t("content.experiments.gantt.legend-phases")}
             </span>
           </div>
         </div>
 
-        <Callout tone="warn" title="Why some bars are short">
-          EXP-02 (GBP claim) is a 7-day test. EXP-05 (cookie pairing table sign) is a 14-day test.
-          Short bars are good — they tell you which decisions land first. A long bar like EXP-06
-          (cupping nights) is a slow signal: do not graduate or kill it before its second month.
+        <Callout tone="warn" title={t("content.experiments.gantt.short-bars.title")}>
+          {t("content.experiments.gantt.short-bars.body")}
         </Callout>
       </ViewSection>
 
       {/* Section 6 — Learning log ============================================== */}
       <ViewSection
-        badge="Section 06 · Notes"
-        title={<>Learning log — jot observations per experiment</>}
-        meta="Auto-saved in localStorage"
+        badge={t("content.experiments.section.notes.badge")}
+        title={<>{t("content.experiments.section.notes.title")}</>}
+        meta={t("content.experiments.section.notes.meta")}
       >
         <p className="text-[0.95rem] text-muted-foreground leading-relaxed max-w-[68ch] mb-6">
-          Notes persist on this device only. Use them for the things a status pill cannot capture:
-          a customer quote, a surprise metric, a moment the barista flagged something. When you
-          mark an experiment <strong>Passed</strong> or <strong>Killed</strong>, the note becomes
-          the rationale.
+          {t("content.experiments.notes.intro")}
         </p>
 
         <Grid cols={2}>
@@ -654,24 +652,24 @@ export function ExperimentsView() {
                     </span>
                   </div>
                   <Pill tone={m.pillTone}>
-                    <span className="inline-flex items-center gap-1">{m.icon}{m.label}</span>
+                    <span className="inline-flex items-center gap-1">{m.icon}{t(m.labelKey)}</span>
                   </Pill>
                 </div>
                 <Textarea
                   value={notes[e.id] ?? ""}
                   onChange={(ev) => updateNote(e.id, ev.target.value)}
-                  placeholder={`Observations for ${e.id} — what did customers say? what surprised you?`}
+                  placeholder={t("content.experiments.notes.placeholder", { id: e.id })}
                   className="min-h-[80px] resize-y font-body text-[0.85rem] bg-ursa-foam/50 border-ursa-line-soft focus-visible:ring-ursa-gold"
                 />
                 <div className="flex items-center justify-between text-[0.72rem] text-muted-foreground">
                   <span className="inline-flex items-center gap-1.5">
                     <NotebookPen size={11} />
                     {notes[e.id] && notes[e.id].trim().length > 0
-                      ? `${notes[e.id].trim().length} chars saved`
-                      : "empty"}
+                      ? t("content.experiments.notes.saved-chars", { n: notes[e.id].trim().length })
+                      : t("content.experiments.notes.empty")}
                   </span>
                   <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase">
-                    Stop rule · {e.stopRule}
+                    {t("content.experiments.notes.stop-rule-label")} · {e.stopRule}
                   </span>
                 </div>
               </Card>
@@ -679,10 +677,8 @@ export function ExperimentsView() {
           })}
         </Grid>
 
-        <Callout tone="ok" title="A note is worth a thousand dashboards">
-          The status pill tells you <em>what</em> happened. The note tells you <em>why</em>. A
-          graduate experiment without a note will be re-litigated at the next quarterly review —
-          write the rationale the day you mark it Passed or Killed.
+        <Callout tone="ok" title={t("content.experiments.notes.callout.title")}>
+          {t("content.experiments.notes.callout.body")}
         </Callout>
       </ViewSection>
 
@@ -695,13 +691,13 @@ export function ExperimentsView() {
               onClick={() => navigate("roadmap")}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-medium-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
-              <ArrowRight size={14} /> Read Module 07 Roadmap
+              <ArrowRight size={14} /> {t("content.experiments.section.crossref.button-roadmap")}
             </button>
             <button
               onClick={() => navigate("calculator")}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/60 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
-              <Banknote size={14} /> Subscription Calculator
+              <Banknote size={14} /> {t("content.experiments.section.crossref.button-calculator")}
             </button>
           </div>
         </div>
@@ -709,14 +705,26 @@ export function ExperimentsView() {
         <ArtNouveauDivider />
 
         <Grid cols={4}>
-          <StatBlock value={String(EXPERIMENTS.length)} label="Experiments tracked" tone="forest" />
-          <StatBlock value={String(activeCount)} label="Active or proposed now" tone="gold" />
+          <StatBlock
+            value={String(EXPERIMENTS.length)}
+            label={t("content.experiments.section.crossref.stat.1")}
+            tone="forest"
+          />
+          <StatBlock
+            value={String(activeCount)}
+            label={t("content.experiments.section.crossref.stat.2")}
+            tone="gold"
+          />
           <StatBlock
             value={`${PEN(costSummary.minTotal)}–${PEN(costSummary.maxTotal)}`}
-            label="Estimated exposure (PEN)"
+            label={t("content.experiments.section.crossref.stat.3")}
             tone="terracotta"
           />
-          <StatBlock value={`${graduatedPct}%`} label="Decided (passed or killed)" tone="forest" />
+          <StatBlock
+            value={`${graduatedPct}%`}
+            label={t("content.experiments.section.crossref.stat.4")}
+            tone="forest"
+          />
         </Grid>
       </ViewSection>
     </>
@@ -740,6 +748,7 @@ function ExperimentCard({
   status: Status;
   onStatusChange: (next: Status) => void;
 }) {
+  const { t } = useI18n();
   const m = STATUS_META[status];
   return (
     <Card className={cn("flex flex-col gap-3", m.border)}>
@@ -751,7 +760,7 @@ function ExperimentCard({
               {experiment.id}
             </span>
             <Pill tone={m.pillTone}>
-              <span className="inline-flex items-center gap-1">{m.icon}{m.label}</span>
+              <span className="inline-flex items-center gap-1">{m.icon}{t(m.labelKey)}</span>
             </Pill>
           </div>
           <h4 className="font-display text-[1.15rem] font-semibold text-ursa-dark-roast m-0 leading-snug">
@@ -763,7 +772,7 @@ function ExperimentCard({
       {/* Hypothesis */}
       <div className="rounded-lg bg-ursa-foam/60 border border-ursa-line-soft px-3.5 py-3">
         <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground block mb-1">
-          Hypothesis
+          {t("content.experiments.card.hypothesis")}
         </span>
         <p className="text-[0.9rem] text-ursa-dark-roast leading-relaxed m-0">
           {experiment.hypothesis}
@@ -774,13 +783,13 @@ function ExperimentCard({
       <div className="grid grid-cols-1 gap-2.5">
         <div className="flex items-baseline gap-2.5">
           <span className="inline-flex items-center gap-1.5 font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground shrink-0 w-20">
-            <Banknote size={11} /> Cost
+            <Banknote size={11} /> {t("content.experiments.card.cost")}
           </span>
           <Pill tone="gold">{experiment.cost}</Pill>
         </div>
         <div className="flex items-baseline gap-2.5">
           <span className="inline-flex items-center gap-1.5 font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground shrink-0 w-20">
-            <Target size={11} /> Metric
+            <Target size={11} /> {t("content.experiments.card.metric")}
           </span>
           <span className="text-[0.86rem] text-ursa-forest-deep leading-snug">
             {experiment.metric}
@@ -788,7 +797,7 @@ function ExperimentCard({
         </div>
         <div className="flex items-baseline gap-2.5">
           <span className="inline-flex items-center gap-1.5 font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground shrink-0 w-20">
-            <Crosshair size={11} /> Stop rule
+            <Crosshair size={11} /> {t("content.experiments.card.stop-rule")}
           </span>
           <span className="text-[0.84rem] text-ursa-terracotta-text italic leading-snug">
             {experiment.stopRule}
@@ -799,7 +808,7 @@ function ExperimentCard({
       {/* Status selector */}
       <div className="mt-auto pt-3 border-t border-ursa-line-soft">
         <label className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground block mb-1.5">
-          Status
+          {t("content.experiments.card.status")}
         </label>
         <div className="grid grid-cols-4 gap-1.5">
           {STATUS_ORDER.map((s) => {
@@ -810,7 +819,7 @@ function ExperimentCard({
                 key={s}
                 onClick={() => onStatusChange(s)}
                 aria-pressed={isActive}
-                title={`Mark as ${sm.label}`}
+                title={t(sm.labelKey)}
                 className={cn(
                   "inline-flex flex-col items-center justify-center gap-1 px-2 py-2 rounded-md border font-label text-[0.6rem] tracking-[0.1em] uppercase transition",
                   isActive
@@ -819,16 +828,13 @@ function ExperimentCard({
                 )}
               >
                 {sm.icon}
-                {sm.label}
+                {t(sm.labelKey)}
               </button>
             );
           })}
         </div>
         <p className="text-[0.72rem] text-muted-foreground mt-2 mb-0">
-          {status === "proposed" && "Brief is written. Not yet live."}
-          {status === "running" && "Live — the stop-rule clock is ticking."}
-          {status === "passed" && "Graduated to a permanent channel."}
-          {status === "killed" && "Stop rule hit — retired, not forgotten."}
+          {t(`content.experiments.card.status.${status}`)}
         </p>
       </div>
     </Card>

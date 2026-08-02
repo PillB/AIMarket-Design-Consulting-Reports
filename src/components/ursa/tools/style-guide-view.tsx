@@ -30,13 +30,14 @@ import {
   SwatchBook,
 } from "lucide-react";
 
+/** Radius tokens — visual values stay constant; the use label is translated. */
 const RADIUS_TOKENS = [
-  { token: "rounded-sm", value: "0.125rem", use: "Tight · chips, tags" },
-  { token: "rounded-md", value: "0.375rem", use: "Default · inputs, buttons" },
-  { token: "rounded-lg", value: "0.5rem", use: "Cards, callouts" },
-  { token: "rounded-xl", value: "0.75rem", use: "Surface cards" },
-  { token: "rounded-full", value: "9999px", use: "Pills, avatars" },
-];
+  { token: "rounded-sm", value: "0.125rem", key: "sm" },
+  { token: "rounded-md", value: "0.375rem", key: "md" },
+  { token: "rounded-lg", value: "0.5rem", key: "lg" },
+  { token: "rounded-xl", value: "0.75rem", key: "xl" },
+  { token: "rounded-full", value: "9999px", key: "full" },
+] as const;
 
 const SPACING_TOKENS = [
   { token: "gap-2", value: "0.5rem", px: 8 },
@@ -47,59 +48,13 @@ const SPACING_TOKENS = [
   { token: "gap-12", value: "3rem", px: 48 },
 ];
 
-const DOS_DONTS = [
-  {
-    kind: "do" as const,
-    text: "Keep the bear on cream, paper, or dark-roast surfaces — the gold catchlight reads clearly.",
-  },
-  {
-    kind: "do" as const,
-    text: "Use Cormorant Garamond for display headings and menu item names only.",
-  },
-  {
-    kind: "do" as const,
-    text: "Reserve gold (#B8924A) for emphasis — eyebrows, hairlines, the bear's catchlights.",
-  },
-  {
-    kind: "do" as const,
-    text: "Pair forest-deep green with cream for callouts and section backgrounds.",
-  },
-  {
-    kind: "do" as const,
-    text: "Use the ArtNouveauDivider only between major sections — never inside paragraphs.",
-  },
-  {
-    kind: "do" as const,
-    text: "Set Oswald labels at ≥ 0.66rem with tracking ≥ 0.12em — uppercase is required.",
-  },
-  {
-    kind: "dont" as const,
-    text: "Don't put the bear on blue or indigo — they break the browns-and-greens system.",
-  },
-  {
-    kind: "dont" as const,
-    text: "Don't use Cormorant Garamond for body text — its contrast hurts long-form readability.",
-  },
-  {
-    kind: "dont" as const,
-    text: "Don't tint the bear with colours outside the approved four (dark-roast, forest-deep, gold, terracotta).",
-  },
-  {
-    kind: "dont" as const,
-    text: "Don't use gold for large background fills — it loses its emphasis role.",
-  },
-  {
-    kind: "dont" as const,
-    text: "Don't introduce a second display face — three voices (Cormorant / Inter / Oswald) is the system.",
-  },
-  {
-    kind: "dont" as const,
-    text: "Don't use the bear as a decorative sticker without clear breathing room.",
-  },
-];
+/** Do / Don't items — structural only; text resolves via i18n. */
+const DO_KEYS = [1, 2, 3, 4, 5, 6] as const;
+const DONT_KEYS = [1, 2, 3, 4, 5, 6] as const;
 
 function CopyButton({ hex }: { hex: string }) {
   const [copied, setCopied] = useState(false);
+  const { t } = useI18n();
 
   const onCopy = async () => {
     try {
@@ -117,16 +72,16 @@ function CopyButton({ hex }: { hex: string }) {
     <button
       type="button"
       onClick={onCopy}
-      aria-label={`Copy ${hex} to clipboard`}
+      aria-label={t("content.style-guide.color.copy-aria", { hex })}
       className="inline-flex items-center gap-1.5 font-label text-[0.6rem] tracking-[0.1em] uppercase px-2 py-1 rounded-md border border-ursa-line-soft bg-ursa-foam text-ursa-dark-roast hover:bg-ursa-gold hover:text-ursa-dark-roast hover:border-ursa-gold transition"
     >
       {copied ? (
         <>
-          <Check size={11} /> Copied!
+          <Check size={11} /> {t("content.style-guide.color.copied-label")}
         </>
       ) : (
         <>
-          <Copy size={11} /> Copy hex
+          <Copy size={11} /> {t("content.style-guide.color.copy-label")}
         </>
       )}
     </button>
@@ -143,30 +98,31 @@ export function StyleGuideView() {
       <ViewHero
         eyebrow={t("content.view.style-guide.eyebrow")}
         title={<>{t("content.view.style-guide.title")}</>}
-        lede={
-          <>
-            An interactive reference for Ursa's verified design system. Copy any colour token, see every
-            type voice at scale, inspect each shared component in every tone, and check the bear mark across
-            approved sizes and backgrounds. The living counterpart to Module 01.
-          </>
-        }
+        lede={<>{t("content.style-guide.hero.lede")}</>}
         meta={[
-          { label: "Palette", value: `${PALETTE.length} tokens` },
-          { label: "Type", value: `${TYPOGRAPHY.length} voices` },
-          { label: "Mode", value: "Interactive · copy-to-clipboard" },
+          {
+            label: t("content.style-guide.hero.meta.palette"),
+            value: t("content.style-guide.hero.meta.palette-value", { n: PALETTE.length }),
+          },
+          {
+            label: t("content.style-guide.hero.meta.type"),
+            value: t("content.style-guide.hero.meta.type-value", { n: TYPOGRAPHY.length }),
+          },
+          {
+            label: t("content.style-guide.hero.meta.mode"),
+            value: t("content.style-guide.hero.meta.mode-value"),
+          },
         ]}
       />
 
       {/* 2. Color tokens — interactive swatches */}
       <ViewSection
-        badge="Color tokens"
-        title="The verified palette · click to copy"
-        meta={`${PALETTE.length} swatches · browns · greens · cream · gold`}
+        badge={t("content.style-guide.section.color.badge")}
+        title={t("content.style-guide.section.color.title")}
+        meta={t("content.style-guide.section.color.meta", { n: PALETTE.length })}
       >
         <p className="text-[1rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-6">
-          Every swatch below is an interactive token. Tap <em>Copy hex</em> to send the value to your
-          clipboard — a <strong>Copied!</strong> confirmation appears for 1.5 seconds. Use these exact
-          values; do not invent in-between tints.
+          {t("content.style-guide.section.color.intro")}
         </p>
         <Grid cols={4}>
           {PALETTE.map((c) => (
@@ -198,9 +154,9 @@ export function StyleGuideView() {
 
       {/* 3. Typography specimens */}
       <ViewSection
-        badge="Typography"
-        title="Type specimens · display, body, label"
-        meta="Cormorant Garamond · Inter · Oswald"
+        badge={t("content.style-guide.section.typography.badge")}
+        title={t("content.style-guide.section.typography.title")}
+        meta={t("content.style-guide.section.typography.meta")}
       >
         <Grid cols={3}>
           {TYPOGRAPHY.map((f) => (
@@ -215,7 +171,7 @@ export function StyleGuideView() {
               <div className="space-y-3">
                 <div>
                   <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground block mb-1">
-                    Display
+                    {t("content.style-guide.typography.label-display")}
                   </span>
                   <p className={`${f.className} text-[1.6rem] font-semibold text-ursa-dark-roast m-0 leading-tight`}>
                     {f.sample}
@@ -223,7 +179,7 @@ export function StyleGuideView() {
                 </div>
                 <div>
                   <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground block mb-1">
-                    Body
+                    {t("content.style-guide.typography.label-body")}
                   </span>
                   <p className={`${f.className} text-[0.95rem] text-ursa-dark-roast/85 m-0 leading-relaxed`}>
                     {f.sample}
@@ -231,7 +187,7 @@ export function StyleGuideView() {
                 </div>
                 <div>
                   <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground block mb-1">
-                    Label
+                    {t("content.style-guide.typography.label-label")}
                   </span>
                   <p className={`${f.className} text-[0.7rem] tracking-[0.16em] uppercase text-ursa-forest-deep m-0`}>
                     {f.sample}
@@ -247,7 +203,7 @@ export function StyleGuideView() {
         {/* Type scale demonstration */}
         <div className="bg-ursa-foam border border-ursa-line-soft rounded-xl p-6">
           <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-muted-foreground mb-4">
-            Type scale · applied
+            {t("content.style-guide.section.typography.scale-label")}
           </h4>
           <div className="space-y-3">
             <div className="flex items-baseline gap-3">
@@ -255,7 +211,7 @@ export function StyleGuideView() {
                 3.2rem
               </span>
               <p className="font-display text-[2rem] md:text-[2.4rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
-                Un gramo a la vez.
+                {t("content.style-guide.section.typography.scale-line-1")}
               </p>
             </div>
             <div className="flex items-baseline gap-3">
@@ -263,7 +219,7 @@ export function StyleGuideView() {
                 1.6rem
               </span>
               <p className="font-display text-[1.4rem] md:text-[1.6rem] font-medium text-ursa-medium-roast m-0 leading-tight">
-                Tostadores de café de especialidad
+                {t("content.style-guide.section.typography.scale-line-2")}
               </p>
             </div>
             <div className="flex items-baseline gap-3">
@@ -271,7 +227,7 @@ export function StyleGuideView() {
                 1.05rem
               </span>
               <p className="font-body text-[1.05rem] text-ursa-dark-roast/85 m-0 leading-relaxed max-w-[60ch]">
-                Specialty coffee, roasted in Miraflores. Every gram is weighed, every origin is named.
+                {t("content.style-guide.section.typography.scale-line-3")}
               </p>
             </div>
             <div className="flex items-baseline gap-3">
@@ -279,37 +235,42 @@ export function StyleGuideView() {
                 0.72rem
               </span>
               <p className="font-label text-[0.72rem] tracking-[0.18em] uppercase text-ursa-forest-deep m-0">
-                Espresso bar · Cold-brew bar · In-house roastery
+                {t("content.style-guide.section.typography.scale-line-4")}
               </p>
             </div>
           </div>
+
+          <p className="text-[0.84rem] text-muted-foreground mt-6 mb-0 max-w-[68ch] leading-relaxed">
+            {t("content.style-guide.typography.note")}
+          </p>
         </div>
       </ViewSection>
 
       {/* 4. Component library preview */}
       <ViewSection
-        badge="Component library"
-        title="A living style guide · every shared component, every tone"
-        meta="Pills · EvidenceTags · Callouts · Card · StatBlock · ProgressBar · BearMark · Divider · CupGlyph"
+        badge={t("content.style-guide.section.components.badge")}
+        title={t("content.style-guide.section.components.title")}
+        meta={t("content.style-guide.section.components.meta")}
       >
         <div className="space-y-6">
           {/* Pills — all tones */}
           <Card>
             <div className="flex items-center gap-2 mb-3">
               <Component size={16} className="text-ursa-gold-text" />
-              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">Pill · all tones</h4>
+              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">
+                {t("content.style-guide.components.pill.heading")}
+              </h4>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Pill tone="default">Default</Pill>
-              <Pill tone="ok">Ok · forest</Pill>
-              <Pill tone="warn">Warn · gold</Pill>
-              <Pill tone="stop">Stop · terracotta</Pill>
-              <Pill tone="forest">Forest</Pill>
-              <Pill tone="gold">Gold</Pill>
+              <Pill tone="default">{t("content.style-guide.components.pill.default")}</Pill>
+              <Pill tone="ok">{t("content.style-guide.components.pill.ok")}</Pill>
+              <Pill tone="warn">{t("content.style-guide.components.pill.warn")}</Pill>
+              <Pill tone="stop">{t("content.style-guide.components.pill.stop")}</Pill>
+              <Pill tone="forest">{t("content.style-guide.components.pill.forest")}</Pill>
+              <Pill tone="gold">{t("content.style-guide.components.pill.gold")}</Pill>
             </div>
             <p className="text-[0.8rem] text-muted-foreground mt-3 m-0">
-              Use <code className="text-ursa-forest-deep">tone="gold"</code> for emphasis only — never for
-              body labels.
+              {t("content.style-guide.components.pill.note")}
             </p>
           </Card>
 
@@ -317,7 +278,9 @@ export function StyleGuideView() {
           <Card>
             <div className="flex items-center gap-2 mb-3">
               <Component size={16} className="text-ursa-gold-text" />
-              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">EvidenceTag · all statuses</h4>
+              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">
+                {t("content.style-guide.components.evidence.heading")}
+              </h4>
             </div>
             <div className="flex flex-wrap gap-3 items-center">
               <EvidenceTag status="verified" />
@@ -326,8 +289,7 @@ export function StyleGuideView() {
               <EvidenceTag status="gap" />
             </div>
             <p className="text-[0.8rem] text-muted-foreground mt-3 m-0">
-              Every factual claim in the dossier carries one of these four statuses. See Sources &amp;
-              Evidence for the citation trail.
+              {t("content.style-guide.components.evidence.note")}
             </p>
           </Card>
 
@@ -335,42 +297,49 @@ export function StyleGuideView() {
           <Card>
             <div className="flex items-center gap-2 mb-2">
               <Component size={16} className="text-ursa-gold-text" />
-              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">Callout · all tones</h4>
+              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">
+                {t("content.style-guide.components.callout.heading")}
+              </h4>
             </div>
-            <Callout tone="gold" title="Gold · emphasis">
-              Used for strategic emphasis and recommendations — the recommended option in a choice.
+            <Callout tone="gold" title={t("content.style-guide.components.callout.gold.title")}>
+              {t("content.style-guide.components.callout.gold.body")}
             </Callout>
-            <Callout tone="ok" title="Ok · verified">
-              Used to confirm a verified fact or a positive outcome.
+            <Callout tone="ok" title={t("content.style-guide.components.callout.ok.title")}>
+              {t("content.style-guide.components.callout.ok.body")}
             </Callout>
-            <Callout tone="warn" title="Warn · caution">
-              Used for disambiguation, caveats, and reversible bets.
+            <Callout tone="warn" title={t("content.style-guide.components.callout.warn.title")}>
+              {t("content.style-guide.components.callout.warn.body")}
             </Callout>
-            <Callout tone="stop" title="Stop · guardrail">
-              Used for hard guardrails — things the plan explicitly does not do.
+            <Callout tone="stop" title={t("content.style-guide.components.callout.stop.title")}>
+              {t("content.style-guide.components.callout.stop.body")}
             </Callout>
-            <Callout tone="forest" title="Forest · spirit">
-              Used for the spirit-preservation principle and brand-identity guardrails.
+            <Callout tone="forest" title={t("content.style-guide.components.callout.forest.title")}>
+              {t("content.style-guide.components.callout.forest.body")}
             </Callout>
           </Card>
 
           {/* Card + StatBlock + ProgressBar */}
           <Grid cols={3}>
             <Card>
-              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-2">Card · default</h4>
+              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-2">
+                {t("content.style-guide.components.card.heading-default")}
+              </h4>
               <p className="text-[0.85rem] text-muted-foreground m-0">
-                Surface for grouped content. Use <code className="text-ursa-forest-deep">highlight</code> for
-                recommended items.
+                {t("content.style-guide.components.card.body-default")}
               </p>
             </Card>
             <Card highlight>
-              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-2">Card · highlighted</h4>
+              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-2">
+                {t("content.style-guide.components.card.heading-highlighted")}
+              </h4>
               <p className="text-[0.85rem] text-muted-foreground m-0">
-                Gold ring + shadow lift. Reserved for the single recommended option in a set.
+                {t("content.style-guide.components.card.body-highlighted")}
               </p>
             </Card>
             <Card>
-              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-3">ProgressBar</h4>
+              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-3">
+                {t("content.style-guide.components.progress.heading")}
+              </h4>
               <div className="space-y-2.5">
                 <ProgressBar value={88} tone="gold" />
                 <ProgressBar value={62} tone="forest" />
@@ -381,11 +350,13 @@ export function StyleGuideView() {
 
           {/* StatBlock row */}
           <Card>
-            <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-4">StatBlock · three tones</h4>
+            <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-4">
+              {t("content.style-guide.components.statblock.heading")}
+            </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <StatBlock value="4,746" label="Instagram followers · verified" tone="forest" />
-              <StatBlock value="S/. 20" label="Proposed subscription price" tone="gold" />
-              <StatBlock value="8+" label="Hotels within walking distance" tone="terracotta" />
+              <StatBlock value="4,746" label={t("content.style-guide.components.statblock.demo.1")} tone="forest" />
+              <StatBlock value="S/. 20" label={t("content.style-guide.components.statblock.demo.2")} tone="gold" />
+              <StatBlock value="8+" label={t("content.style-guide.components.statblock.demo.3")} tone="terracotta" />
             </div>
           </Card>
 
@@ -393,7 +364,9 @@ export function StyleGuideView() {
           <Card>
             <div className="flex items-center gap-2 mb-4">
               <Component size={16} className="text-ursa-gold-text" />
-              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">BearMark · ArtNouveauDivider · CupGlyph</h4>
+              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">
+                {t("content.style-guide.components.bearmark.heading")}
+              </h4>
             </div>
             <div className="flex flex-wrap items-center gap-6 mb-2">
               <div className="flex flex-col items-center gap-1">
@@ -419,7 +392,7 @@ export function StyleGuideView() {
             </div>
             <ArtNouveauDivider />
             <p className="text-[0.8rem] text-muted-foreground m-0 text-center">
-              The ornamental divider separates major sections only.
+              {t("content.style-guide.components.bearmark.note")}
             </p>
           </Card>
         </div>
@@ -427,15 +400,17 @@ export function StyleGuideView() {
 
       {/* 5. Spacing & radius */}
       <ViewSection
-        badge="Tokens"
-        title="Spacing & radius"
-        meta="The invisible grid that holds the brand together"
+        badge={t("content.style-guide.section.tokens.badge")}
+        title={t("content.style-guide.section.tokens.title")}
+        meta={t("content.style-guide.section.tokens.meta")}
       >
         <Grid cols={2}>
           <Card>
             <div className="flex items-center gap-2 mb-4">
               <Ruler size={16} className="text-ursa-gold-text" />
-              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">Radius</h4>
+              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">
+                {t("content.style-guide.section.tokens.radius.heading")}
+              </h4>
             </div>
             <ul className="space-y-3 m-0 p-0 list-none">
               {RADIUS_TOKENS.map((r) => (
@@ -451,7 +426,9 @@ export function StyleGuideView() {
                         {r.value}
                       </span>
                     </div>
-                    <p className="text-[0.78rem] text-muted-foreground m-0">{r.use}</p>
+                    <p className="text-[0.78rem] text-muted-foreground m-0">
+                      {t(`content.style-guide.radius.${r.token}.use`)}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -460,7 +437,9 @@ export function StyleGuideView() {
           <Card>
             <div className="flex items-center gap-2 mb-4">
               <Ruler size={16} className="text-ursa-gold-text" />
-              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">Spacing</h4>
+              <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">
+                {t("content.style-guide.section.tokens.spacing.heading")}
+              </h4>
             </div>
             <ul className="space-y-3 m-0 p-0 list-none">
               {SPACING_TOKENS.map((s) => (
@@ -483,21 +462,25 @@ export function StyleGuideView() {
             </ul>
           </Card>
         </Grid>
+
+        <p className="text-[0.84rem] text-muted-foreground mt-6 mb-0 max-w-[68ch] leading-relaxed">
+          {t("content.style-guide.section.tokens.note")}
+        </p>
       </ViewSection>
 
       {/* 6. Bear mark variants */}
       <ViewSection
-        badge="BearMark"
-        title="The bear, at every approved size and surface"
-        meta="24 · 32 · 48 · 64 · dark-roast + forest-deep · cream + dark"
+        badge={t("content.style-guide.section.bearmark.badge")}
+        title={t("content.style-guide.section.bearmark.title")}
+        meta={t("content.style-guide.section.bearmark.meta")}
       >
         <Grid cols={2}>
           {/* On cream */}
           <Card className="bg-ursa-cream">
             <div className="flex items-center justify-between mb-4">
-              <Pill tone="forest">On cream · #F4EBD9</Pill>
+              <Pill tone="forest">{t("content.style-guide.section.bearmark.cream.pill")}</Pill>
               <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
-                Default surface
+                {t("content.style-guide.section.bearmark.cream.label")}
               </span>
             </div>
             <div className="flex flex-wrap items-end gap-6">
@@ -523,9 +506,9 @@ export function StyleGuideView() {
           {/* On dark */}
           <Card className="bg-ursa-espresso border-ursa-espresso">
             <div className="flex items-center justify-between mb-4">
-              <Pill tone="gold">On dark · #211208</Pill>
+              <Pill tone="gold">{t("content.style-guide.section.bearmark.dark.pill")}</Pill>
               <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-ursa-cream/70">
-                Footer / hero overlay
+                {t("content.style-guide.section.bearmark.dark.label")}
               </span>
             </div>
             <div className="flex flex-wrap items-end gap-6">
@@ -549,31 +532,30 @@ export function StyleGuideView() {
           </Card>
         </Grid>
 
-        <Callout tone="forest" title="Bear-mark tint rules">
-          On cream and paper surfaces, use <strong>dark-roast</strong> at small sizes (≤ 32) and{" "}
-          <strong>forest-deep</strong> at large sizes (≥ 48). On dark surfaces (espresso, forest-deep), use{" "}
-          <strong>gold</strong> at small sizes and <strong>cream</strong> at large sizes. Terracotta is
-          approved only as a campaign accent — never as the default bear tint.
+        <Callout tone="forest" title={t("content.style-guide.section.bearmark.callout.title")}>
+          {t("content.style-guide.section.bearmark.callout.body")}
         </Callout>
       </ViewSection>
 
       {/* 7. Usage do's and don'ts */}
       <ViewSection
-        badge="Guardrails"
-        title="Usage do's and don'ts"
-        meta="The short list that keeps the brand intact"
+        badge={t("content.style-guide.section.guardrails.badge")}
+        title={t("content.style-guide.section.guardrails.title")}
+        meta={t("content.style-guide.section.guardrails.meta")}
       >
         <Grid cols={2}>
           <Card className="border-ursa-forest-deep/30">
             <div className="flex items-center gap-2 mb-4">
               <CheckCircle2 size={18} className="text-ursa-forest-deep" />
-              <h4 className="font-display text-[1.15rem] font-semibold text-ursa-dark-roast m-0">Do</h4>
+              <h4 className="font-display text-[1.15rem] font-semibold text-ursa-dark-roast m-0">
+                {t("content.style-guide.section.guardrails.do.heading")}
+              </h4>
             </div>
             <ul className="space-y-2.5 m-0 p-0 list-none">
-              {DOS_DONTS.filter((d) => d.kind === "do").map((d, i) => (
+              {DO_KEYS.map((i) => (
                 <li key={i} className="text-[0.88rem] text-ursa-dark-roast/85 leading-relaxed flex gap-2">
                   <CheckCircle2 size={14} className="text-ursa-forest-deep mt-0.5 shrink-0" />
-                  <span>{d.text}</span>
+                  <span>{t(`content.style-guide.section.guardrails.do.${i}`)}</span>
                 </li>
               ))}
             </ul>
@@ -581,13 +563,15 @@ export function StyleGuideView() {
           <Card className="border-ursa-terracotta/30">
             <div className="flex items-center gap-2 mb-4">
               <XCircle size={18} className="text-ursa-terracotta-text" />
-              <h4 className="font-display text-[1.15rem] font-semibold text-ursa-dark-roast m-0">Don't</h4>
+              <h4 className="font-display text-[1.15rem] font-semibold text-ursa-dark-roast m-0">
+                {t("content.style-guide.section.guardrails.dont.heading")}
+              </h4>
             </div>
             <ul className="space-y-2.5 m-0 p-0 list-none">
-              {DOS_DONTS.filter((d) => d.kind === "dont").map((d, i) => (
+              {DONT_KEYS.map((i) => (
                 <li key={i} className="text-[0.88rem] text-ursa-dark-roast/85 leading-relaxed flex gap-2">
                   <XCircle size={14} className="text-ursa-terracotta-text mt-0.5 shrink-0" />
-                  <span>{d.text}</span>
+                  <span>{t(`content.style-guide.section.guardrails.dont.${i}`)}</span>
                 </li>
               ))}
             </ul>
@@ -599,14 +583,12 @@ export function StyleGuideView() {
       <ViewSection>
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <SectionBadge>Reference</SectionBadge>
+            <SectionBadge>{t("content.style-guide.section.crossref.badge")}</SectionBadge>
             <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-3 mb-1">
-              Cross-reference the audit module
+              {t("content.style-guide.section.crossref.title")}
             </h3>
             <p className="text-[0.9rem] text-muted-foreground m-0 max-w-[58ch]">
-              This explorer is the interactive counterpart to Module 01. Open the audit for the full
-              consistent / inconsistent / distinctive / missing analysis and the three brand-evolution
-              levels.
+              {t("content.style-guide.section.crossref.body")}
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -615,7 +597,7 @@ export function StyleGuideView() {
               onClick={() => navigate("brand")}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
-              <SwatchBook size={14} /> Open Module 01 <ArrowRight size={14} />
+              <SwatchBook size={14} /> {t("content.style-guide.section.crossref.button")} <ArrowRight size={14} />
             </button>
           </div>
         </div>
@@ -623,17 +605,25 @@ export function StyleGuideView() {
         <ArtNouveauDivider />
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatBlock value={PALETTE.length.toString()} label="Copy-ready palette tokens" tone="forest" />
-          <StatBlock value={TYPOGRAPHY.length.toString()} label="Type voices, three roles each" tone="gold" />
-          <StatBlock value="4" label="BearMark approved sizes" tone="terracotta" />
-          <StatBlock value="12" label="Do / don't guardrails" tone="forest" />
+          <StatBlock
+            value={PALETTE.length.toString()}
+            label={t("content.style-guide.section.crossref.stat.1")}
+            tone="forest"
+          />
+          <StatBlock
+            value={TYPOGRAPHY.length.toString()}
+            label={t("content.style-guide.section.crossref.stat.2")}
+            tone="gold"
+          />
+          <StatBlock value="4" label={t("content.style-guide.section.crossref.stat.3")} tone="terracotta" />
+          <StatBlock value="12" label={t("content.style-guide.section.crossref.stat.4")} tone="forest" />
         </div>
 
         <div className="mt-6 flex items-center gap-3 text-muted-foreground">
           <Palette size={14} className="text-ursa-gold-text" />
           <Sparkles size={14} className="text-ursa-gold-text" />
           <span className="font-label text-[0.7rem] tracking-[0.14em] uppercase">
-            Verified · snapshot 2026-08-01 · Ursa Coffee Roasters, Miraflores
+            {t("content.style-guide.section.crossref.snapshot")}
           </span>
         </div>
       </ViewSection>

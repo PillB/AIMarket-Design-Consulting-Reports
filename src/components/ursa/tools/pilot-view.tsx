@@ -104,25 +104,20 @@ export function PilotView() {
 
   const finalWeek = weeks[weeks.length - 1];
   const verdict =
-    pilotTotals.netProfit > 500 ? { label: "On track", tone: "ok" as const, color: "var(--color-ursa-forest-deep)" } :
-    pilotTotals.netProfit > 0 ? { label: "Marginal — watch the trend", tone: "warn" as const, color: "var(--color-ursa-gold)" } :
-    { label: "Below break-even — revise", tone: "stop" as const, color: "var(--color-ursa-terracotta)" };
+    pilotTotals.netProfit > 500 ? { label: t("content.pilot.verdict.ok"), tone: "ok" as const, color: "var(--color-ursa-forest-deep)" } :
+    pilotTotals.netProfit > 0 ? { label: t("content.pilot.verdict.warn"), tone: "warn" as const, color: "var(--color-ursa-gold)" } :
+    { label: t("content.pilot.verdict.stop"), tone: "stop" as const, color: "var(--color-ursa-terracotta)" };
 
   return (
     <>
       <ViewHero
         eyebrow={t("content.view.pilot.eyebrow")}
         title={t("content.view.pilot.title")}
-        lede={
-          <>
-            A 12-week model for the subscription pilot. Adjust the inputs to model different scenarios —
-            net profit, side-attach, and cannibalization recalculate live as you edit.
-          </>
-        }
+        lede={<>{t("content.pilot.lede")}</>}
         meta={[
-          { label: "Pilot", value: "12 weeks" },
-          { label: "Cap", value: "50 subscribers" },
-          { label: "Stop rule", value: "Net profit < 0 at day 60" },
+          { label: t("content.pilot.meta.pilot"), value: t("content.pilot.meta.pilot-value") },
+          { label: t("content.pilot.meta.cap"), value: t("content.pilot.meta.cap-value") },
+          { label: t("content.pilot.meta.stop"), value: t("content.pilot.meta.stop-value") },
         ]}
         tone="gold"
       />
@@ -132,46 +127,46 @@ export function PilotView() {
       </ViewSection>
 
       {/* Headline pilot metrics */}
-      <ViewSection badge="Pilot totals" title="12-week projected outcome" meta="Live · recalculates on every input">
+      <ViewSection badge={t("content.pilot.section.01.badge")} title={t("content.pilot.section.01.title")} meta={t("content.pilot.section.01.meta")}>
         <Grid cols={4}>
           <Card highlight className="text-center">
             <div className="font-display text-4xl font-semibold leading-none" style={{ color: verdict.color }}>
               {PEN(pilotTotals.netProfit)}
             </div>
-            <div className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground mt-2">Net profit · 12 weeks</div>
+            <div className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground mt-2">{t("content.pilot.stat.net-profit")}</div>
             <Pill tone={verdict.tone} className="mt-2">{verdict.label}</Pill>
           </Card>
-          <StatBlock value={`${finalWeek.signups}`} label="Subscribers at week 12" tone="forest" />
-          <StatBlock value={PEN(pilotTotals.totalRevenue)} label="Subscription revenue collected" tone="gold" />
-          <StatBlock value={`${pilotTotals.totalCups.toLocaleString()}`} label="Cups served to subscribers" tone="terracotta" />
+          <StatBlock value={`${finalWeek.signups}`} label={t("content.pilot.stat.subscribers-w12")} tone="forest" />
+          <StatBlock value={PEN(pilotTotals.totalRevenue)} label={t("content.pilot.stat.sub-revenue")} tone="gold" />
+          <StatBlock value={`${pilotTotals.totalCups.toLocaleString()}`} label={t("content.pilot.stat.cups-served")} tone="terracotta" />
         </Grid>
 
         {/* Revenue breakdown bar */}
         <Card className="mt-5">
-          <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-3">Where the money comes from and goes</h4>
+          <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-3">{t("content.pilot.breakdown.title")}</h4>
           <div className="flex h-8 rounded-lg overflow-hidden border border-ursa-line-soft">
             <div className="h-full flex items-center justify-center text-ursa-espresso font-label text-[0.62rem]" style={{ width: `${(pilotTotals.totalRevenue / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100}%`, background: "var(--color-ursa-gold)" }}>
-              {((pilotTotals.totalRevenue / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100).toFixed(0)}% sub
+              {((pilotTotals.totalRevenue / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100).toFixed(0)}{t("content.pilot.breakdown.sub-label")}
             </div>
             <div className="h-full flex items-center justify-center text-ursa-cream font-label text-[0.62rem]" style={{ width: `${(pilotTotals.totalSideMargin / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100}%`, background: "var(--color-ursa-forest-deep)" }}>
-              {((pilotTotals.totalSideMargin / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100).toFixed(0)}% sides
+              {((pilotTotals.totalSideMargin / (pilotTotals.totalRevenue + pilotTotals.totalSideMargin)) * 100).toFixed(0)}{t("content.pilot.breakdown.sides-label")}
             </div>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 text-[0.8rem]">
             <div>
-              <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">Subscription revenue</span>
+              <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">{t("content.pilot.breakdown.stat.sub-revenue")}</span>
               <span className="font-display font-semibold text-ursa-gold-text">{PEN(pilotTotals.totalRevenue)}</span>
             </div>
             <div>
-              <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">Side margin</span>
+              <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">{t("content.pilot.breakdown.stat.side-margin")}</span>
               <span className="font-display font-semibold text-ursa-forest-deep">{PEN(pilotTotals.totalSideMargin)}</span>
             </div>
             <div>
-              <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">Coffee cost</span>
+              <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">{t("content.pilot.breakdown.stat.coffee-cost")}</span>
               <span className="font-display font-semibold text-ursa-terracotta-text">-{PEN(pilotTotals.totalCoffeeCost)}</span>
             </div>
             <div>
-              <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">Cannibalization loss</span>
+              <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground block">{t("content.pilot.breakdown.stat.cannibal-loss")}</span>
               <span className="font-display font-semibold text-ursa-terracotta-text">{PENd(pilotTotals.totalCannibalLoss)}</span>
             </div>
           </div>
@@ -181,19 +176,19 @@ export function PilotView() {
       <ArtNouveauDivider />
 
       {/* Per-subscriber economics */}
-      <ViewSection badge="Per subscriber" title="The economics of one subscriber" meta="Editable · drives the pilot totals">
+      <ViewSection badge={t("content.pilot.section.02.badge")} title={t("content.pilot.section.02.title")} meta={t("content.pilot.section.02.meta")}>
         <div className="grid lg:grid-cols-[1fr_1fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">
           {/* Inputs */}
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-              <DollarSign size={18} className="text-ursa-gold-text" /> Edit the inputs
+              <DollarSign size={18} className="text-ursa-gold-text" /> {t("content.pilot.inputs.title")}
             </h3>
             <div className="space-y-4">
-              <ParamInput label="Subscription price (monthly)" value={params.subPrice} onChange={(v) => updateParam("subPrice", v)} min={5} max={40} step={1} prefix="S/. " />
-              <ParamInput label="Marginal cost per cup" value={params.costPerCup} onChange={(v) => updateParam("costPerCup", v)} min={0.5} max={4} step={0.05} prefix="S/. " />
-              <ParamInput label="Visits per week" value={params.visitsPerWeek} onChange={(v) => updateParam("visitsPerWeek", v)} min={1} max={7} step={0.5} />
-              <ParamInput label="Side margin per attach" value={params.sideMargin} onChange={(v) => updateParam("sideMargin", v)} min={1} max={10} step={0.25} prefix="S/. " />
-              <ParamInput label="Avg. pre-subscription spend" value={params.avgPreSpend} onChange={(v) => updateParam("avgPreSpend", v)} min={6} max={30} step={0.5} prefix="S/. " />
+              <ParamInput label={t("content.pilot.field.sub-price.label")} value={params.subPrice} onChange={(v) => updateParam("subPrice", v)} min={5} max={40} step={1} prefix="S/. " />
+              <ParamInput label={t("content.pilot.field.cost-per-cup.label")} value={params.costPerCup} onChange={(v) => updateParam("costPerCup", v)} min={0.5} max={4} step={0.05} prefix="S/. " />
+              <ParamInput label={t("content.pilot.field.visits-week.label")} value={params.visitsPerWeek} onChange={(v) => updateParam("visitsPerWeek", v)} min={1} max={7} step={0.5} />
+              <ParamInput label={t("content.pilot.field.side-margin.label")} value={params.sideMargin} onChange={(v) => updateParam("sideMargin", v)} min={1} max={10} step={0.25} prefix="S/. " />
+              <ParamInput label={t("content.pilot.field.avg-spend-pre.label")} value={params.avgPreSpend} onChange={(v) => updateParam("avgPreSpend", v)} min={6} max={30} step={0.5} prefix="S/. " />
             </div>
           </Card>
 
@@ -201,23 +196,21 @@ export function PilotView() {
           <div className="space-y-4">
             <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="text-center">
-                <div className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground">Net profit per subscriber / month</div>
+                <div className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground">{t("content.pilot.outputs.net-profit-label")}</div>
                 <div className={cn("font-display text-5xl font-semibold leading-none mt-2", perSub.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
                   {PENd(perSub.netProfit)}
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3 mt-5 pt-4 border-t border-ursa-line-soft">
-                <Metric label="Visits/month" value={perSub.visitsMonth.toFixed(1)} />
-                <Metric label="Cups/month" value={perSub.cupsMonth.toFixed(0)} />
-                <Metric label="Coffee cost" value={PENd(perSub.coffeeCost)} tone="terracotta" />
-                <Metric label="Side margin" value={PENd(perSub.sideMarginTotal)} tone="forest" />
+                <Metric label={t("content.pilot.outputs.metric.visits-month")} value={perSub.visitsMonth.toFixed(1)} />
+                <Metric label={t("content.pilot.outputs.metric.cups-month")} value={perSub.cupsMonth.toFixed(0)} />
+                <Metric label={t("content.pilot.outputs.metric.coffee-cost")} value={PENd(perSub.coffeeCost)} tone="terracotta" />
+                <Metric label={t("content.pilot.outputs.metric.side-margin")} value={PENd(perSub.sideMarginTotal)} tone="forest" />
               </div>
             </Card>
-            <Callout tone="warn" title="The cannibalization line">
+            <Callout tone="warn" title={t("content.pilot.cannibal.title")}>
               <p className="m-0 text-[0.86rem]">
-                At 30% cannibalization, each subscriber who used to spend S/. {params.avgPreSpend} now costs the
-                café <strong>{PENd(perSub.cannibalAdjust)}</strong> in lost revenue. The pilot must attract new
-                regulars, not just convert existing ones.
+                {t("content.pilot.cannibal.body", { spend: params.avgPreSpend.toFixed(2), loss: PENd(perSub.cannibalAdjust) })}
               </p>
             </Callout>
           </div>
@@ -225,7 +218,7 @@ export function PilotView() {
       </ViewSection>
 
       {/* Weekly trajectory */}
-      <ViewSection badge="Trajectory" title="The 12-week sign-up curve" meta="Edit any week · watch the total move">
+      <ViewSection badge={t("content.pilot.section.03.badge")} title={t("content.pilot.section.03.title")} meta={t("content.pilot.section.03.meta")}>
         <Card className="p-4 md:p-6">
           {/* Trajectory chart */}
           <div className="flex items-end gap-1.5 md:gap-2 h-40 mb-4">
@@ -239,9 +232,9 @@ export function PilotView() {
                   <div
                     className={cn("w-full rounded-t-md transition-all duration-500 hover:brightness-110", isPeak ? "bg-gradient-to-t from-ursa-gold to-ursa-gold-soft" : "bg-gradient-to-t from-ursa-forest-deep to-ursa-forest")}
                     style={{ height: `${Math.max(4, heightPct)}%` }}
-                    title={`Week ${i + 1}: ${w.signups} subscribers`}
+                    title={t("content.pilot.trajectory.tooltip", { week: i + 1, n: w.signups })}
                   />
-                  <span className="font-label text-[0.52rem] tracking-[0.08em] uppercase text-muted-foreground mt-1">W{i + 1}</span>
+                  <span className="font-label text-[0.52rem] tracking-[0.08em] uppercase text-muted-foreground mt-1">{t("content.pilot.trajectory.week-label", { week: i + 1 })}</span>
                 </div>
               );
             })}
@@ -252,12 +245,12 @@ export function PilotView() {
             <table className="w-full border-collapse text-[0.82rem] min-w-[640px]">
               <thead>
                 <tr className="border-b-2 border-ursa-gold/30">
-                  <th className="text-left p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">Week</th>
-                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">Subscribers</th>
-                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">Visits/wk</th>
-                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">Side attach %</th>
-                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">Cannibal %</th>
-                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">Week profit</th>
+                  <th className="text-left p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.table.col.week")}</th>
+                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.table.col.subscribers")}</th>
+                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.table.col.visits-wk")}</th>
+                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.table.col.side-attach")}</th>
+                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.table.col.cannibal")}</th>
+                  <th className="text-right p-2 font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.table.col.week-profit")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -271,7 +264,7 @@ export function PilotView() {
                   const weekProfit = weekRevenue + weekSideMargin - weekCoffeeCost + weekCannibal;
                   return (
                     <tr key={i} className="border-b border-ursa-line-soft hover:bg-muted/30 transition">
-                      <td className="p-2 font-display font-semibold text-ursa-dark-roast">W{i + 1}</td>
+                      <td className="p-2 font-display font-semibold text-ursa-dark-roast">{t("content.pilot.trajectory.week-label", { week: i + 1 })}</td>
                       <td className="p-2 text-right">
                         <InlineNum value={w.signups} onChange={(v) => updateWeek(i, "signups", v)} />
                       </td>
@@ -297,30 +290,30 @@ export function PilotView() {
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
             <p className="text-[0.76rem] text-muted-foreground m-0">
               <Info size={11} className="inline mr-1 text-ursa-gold-text/60" />
-              Edit any cell to model a different trajectory. Week profit = sub revenue + side margin − coffee cost + cannibalization adjustment.
+              {t("content.pilot.table.hint")}
             </p>
             <button
               onClick={() => setWeeks(DEFAULT_WEEKS)}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-label text-[0.64rem] tracking-[0.1em] uppercase text-muted-foreground hover:text-ursa-terracotta-text transition"
             >
-              <RotateCcw size={12} /> Reset trajectory
+              <RotateCcw size={12} /> {t("content.pilot.trajectory.reset")}
             </button>
           </div>
         </Card>
       </ViewSection>
 
       {/* Stop rule + pilot health */}
-      <ViewSection badge="Pilot health" title="Stop rules and signals" meta="Check weekly · kill cleanly if a rule triggers">
+      <ViewSection badge={t("content.pilot.section.04.badge")} title={t("content.pilot.section.04.title")} meta={t("content.pilot.section.04.meta")}>
         <Grid cols={3}>
           <Card className="flex flex-col">
             <div className="flex items-center gap-2 mb-2">
               <AlertTriangle size={16} className="text-ursa-terracotta-text" />
-              <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">Stop rule 1</h4>
+              <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">{t("content.pilot.stop.1.title")}</h4>
             </div>
-            <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">Net profit per subscriber below zero after 60 days.</p>
+            <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">{t("content.pilot.stop.1.body")}</p>
             <div className="mt-auto pt-3">
               <div className="flex items-baseline justify-between mb-1">
-                <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">Current</span>
+                <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.stop.label.current")}</span>
                 <span className={cn("font-display font-semibold", perSub.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>{PENd(perSub.netProfit)}</span>
               </div>
               <ProgressBar value={Math.min(100, Math.max(0, (perSub.netProfit / 20) * 100))} tone={perSub.netProfit >= 0 ? "forest" : "terracotta"} />
@@ -329,12 +322,12 @@ export function PilotView() {
           <Card className="flex flex-col">
             <div className="flex items-center gap-2 mb-2">
               <AlertTriangle size={16} className="text-ursa-gold-text" />
-              <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">Stop rule 2</h4>
+              <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">{t("content.pilot.stop.2.title")}</h4>
             </div>
-            <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">Cannibalization exceeds 50% of subscribers.</p>
+            <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">{t("content.pilot.stop.2.body")}</p>
             <div className="mt-auto pt-3">
               <div className="flex items-baseline justify-between mb-1">
-                <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">Final week</span>
+                <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.stop.label.final-week")}</span>
                 <span className={cn("font-display font-semibold", finalWeek.cannibal <= 50 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>{finalWeek.cannibal}%</span>
               </div>
               <ProgressBar value={finalWeek.cannibal} tone={finalWeek.cannibal <= 50 ? "forest" : "terracotta"} />
@@ -343,12 +336,12 @@ export function PilotView() {
           <Card className="flex flex-col">
             <div className="flex items-center gap-2 mb-2">
               <AlertTriangle size={16} className="text-ursa-gold-text" />
-              <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">Stop rule 3</h4>
+              <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">{t("content.pilot.stop.3.title")}</h4>
             </div>
-            <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">Side attach rate below 40% after 30 days.</p>
+            <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">{t("content.pilot.stop.3.body")}</p>
             <div className="mt-auto pt-3">
               <div className="flex items-baseline justify-between mb-1">
-                <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">Final week</span>
+                <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground">{t("content.pilot.stop.label.final-week")}</span>
                 <span className={cn("font-display font-semibold", finalWeek.sideAttach >= 40 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>{finalWeek.sideAttach}%</span>
               </div>
               <ProgressBar value={finalWeek.sideAttach} tone={finalWeek.sideAttach >= 40 ? "forest" : "terracotta"} />
@@ -356,11 +349,9 @@ export function PilotView() {
           </Card>
         </Grid>
 
-        <Callout tone="forest" title="What a healthy pilot looks like">
+        <Callout tone="forest" title={t("content.pilot.health.title")}>
           <p className="m-0 text-[0.9rem]">
-            By week 12: 40–50 subscribers, side attach holding ≥ 55%, cannibalization stabilizing around 30–35%,
-            and net profit per subscriber above S/. 15. If those hold, the pilot graduates to a permanent channel.
-            If not, document what failed and why — the data is the asset, even if the pilot ends.
+            {t("content.pilot.health.body")}
           </p>
         </Callout>
       </ViewSection>
@@ -368,10 +359,10 @@ export function PilotView() {
       <ViewSection>
         <div className="flex flex-wrap gap-3">
           <button onClick={() => navigate("calculator")} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ursa-gold text-ursa-dark-roast font-label text-[0.74rem] tracking-[0.12em] uppercase hover:bg-ursa-gold-soft transition shadow-lg">
-            <Coffee size={14} /> Open the full calculator
+            <Coffee size={14} /> {t("content.pilot.button.calculator")}
           </button>
           <button onClick={() => navigate("experiments")} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep font-label text-[0.74rem] tracking-[0.12em] uppercase hover:bg-ursa-dark-roast hover:text-ursa-cream transition">
-            <Target size={14} /> View experiment tracker
+            <Target size={14} /> {t("content.pilot.button.experiments")}
           </button>
         </div>
       </ViewSection>
