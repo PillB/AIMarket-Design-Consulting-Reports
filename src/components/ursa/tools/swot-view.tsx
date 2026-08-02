@@ -36,7 +36,7 @@ const COMPETITORS: Competitor[] = [
     area: "Miraflores",
     distinctiveness: 88,
     reach: 32,
-    strength: "Bear motif + two-bar theatre + named-drink portmanteaus + in-house roastery + 'un gramo a la vez'",
+    strength: "Bear motif + two-bar theatre + named drinks (Ursagroni, Maracumango) + in-house roastery + 'un gramo a la vez'",
     weakness: "No website, unclaimed Google Business Profile, ~0 TripAdvisor reviews, no creator network yet",
     opportunity: "Own the bear-led craft niche in Miraflores before competitors copy the character angle",
     threat: "Distribution gap lets competitors capture search and review traffic that should be Ursa's",
@@ -178,10 +178,10 @@ const COMPETITORS: Competitor[] = [
 ];
 
 const QUADRANTS = {
-  topRight: { label: "Leaders", desc: "High craft + high reach — the benchmark to beat", color: "var(--color-ursa-forest-deep)" },
-  topLeft: { label: "Hidden gems", desc: "High craft + low reach — Ursa's neighbourhood", color: "var(--color-ursa-gold)" },
-  bottomRight: { label: "Scaled chains", desc: "Lower craft + high reach — the volume play", color: "var(--color-ursa-terracotta)" },
-  bottomLeft: { label: "Undifferentiated", desc: "Lower craft + low reach — vulnerable", color: "var(--color-ursa-sage)" },
+  topRight: { label: "Leaders", desc: "High craft + high reach — the benchmark to beat", color: "var(--color-ursa-forest-deep)", textColor: "var(--color-ursa-forest-deep)" },
+  topLeft: { label: "Hidden gems", desc: "High craft + low reach — Ursa's neighbourhood", color: "var(--color-ursa-gold)", textColor: "var(--color-ursa-gold-text)" },
+  bottomRight: { label: "Scaled chains", desc: "Lower craft + high reach — the volume play", color: "var(--color-ursa-terracotta)", textColor: "var(--color-ursa-terracotta-text)" },
+  bottomLeft: { label: "Undifferentiated", desc: "Lower craft + low reach — vulnerable", color: "var(--color-ursa-sage)", textColor: "var(--color-ursa-sage-text)" },
 };
 
 export function SwotView() {
@@ -224,7 +224,7 @@ export function SwotView() {
           <Card className="p-4 md:p-6">
             <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0 flex items-center gap-2">
-                <Swords size={18} className="text-ursa-gold" /> Distinctiveness × Reach
+                <Swords size={18} className="text-ursa-gold-text" /> Distinctiveness × Reach
               </h3>
               <div className="flex items-center gap-3 text-[0.7rem] text-muted-foreground">
                 <span className="flex items-center gap-1.5">
@@ -249,16 +249,16 @@ export function SwotView() {
               {/* Quadrant background tints */}
               <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 rounded-lg overflow-hidden border border-ursa-line-soft">
                 <div className="bg-ursa-gold/5 border-r border-b border-ursa-line-soft/50 relative">
-                  <span className="absolute top-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.topLeft.color }}>{QUADRANTS.topLeft.label}</span>
+                  <span className="absolute top-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.topLeft.textColor }}>{QUADRANTS.topLeft.label}</span>
                 </div>
-                <div className="bg-ursa-forest-deep/5 border-b border-ursa-line-soft/50 relative">
-                  <span className="absolute top-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.topRight.color }}>{QUADRANTS.topRight.label}</span>
+                <div className="bg-ursa-dark-roast/5 border-b border-ursa-line-soft/50 relative">
+                  <span className="absolute top-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.topRight.textColor }}>{QUADRANTS.topRight.label}</span>
                 </div>
-                <div className="bg-ursa-sage/8 border-r border-ursa-line-soft/50 relative">
-                  <span className="absolute bottom-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.bottomLeft.color }}>{QUADRANTS.bottomLeft.label}</span>
+                <div className="bg-muted border-r border-ursa-line-soft/50 relative">
+                  <span className="absolute bottom-2 left-2 font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: QUADRANTS.bottomLeft.textColor }}>{QUADRANTS.bottomLeft.label}</span>
                 </div>
                 <div className="bg-ursa-terracotta/5 relative">
-                  <span className="absolute bottom-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.bottomRight.color }}>{QUADRANTS.bottomRight.label}</span>
+                  <span className="absolute bottom-2 right-2 font-label text-[0.58rem] tracking-[0.14em] uppercase text-right" style={{ color: QUADRANTS.bottomRight.textColor }}>{QUADRANTS.bottomRight.label}</span>
                 </div>
               </div>
 
@@ -342,7 +342,7 @@ export function SwotView() {
               {/* Position readout */}
               <div className="grid grid-cols-2 gap-2 mb-4">
                 <div className="rounded-lg bg-ursa-foam border border-ursa-line-soft p-2.5 text-center">
-                  <div className="font-display text-xl font-semibold text-ursa-gold leading-none">{selectedComp.distinctiveness}</div>
+                  <div className="font-display text-xl font-semibold text-ursa-gold-text leading-none">{selectedComp.distinctiveness}</div>
                   <div className="font-label text-[0.54rem] tracking-[0.12em] uppercase text-muted-foreground mt-1">Distinctiveness</div>
                 </div>
                 <div className="rounded-lg bg-ursa-foam border border-ursa-line-soft p-2.5 text-center">
@@ -362,7 +362,7 @@ export function SwotView() {
 
             {/* Ursa implication */}
             <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
-              <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold m-0 mb-2 flex items-center gap-1.5">
+              <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-2 flex items-center gap-1.5">
                 <Info size={13} /> Implication for Ursa
               </h4>
               <p className="text-[0.88rem] text-ursa-dark-roast m-0 leading-relaxed font-medium">{selectedComp.ursaImplication}</p>
@@ -411,10 +411,10 @@ export function SwotView() {
 
 function SwotCell({ label, icon, tone, text }: { label: string; icon: React.ReactNode; tone: "forest" | "terracotta" | "gold" | "stop"; text: string }) {
   const tones = {
-    forest: "border-ursa-forest-deep/25 bg-ursa-forest-deep/5 text-ursa-forest-deep",
-    terracotta: "border-ursa-terracotta/25 bg-ursa-terracotta/5 text-ursa-terracotta",
-    gold: "border-ursa-gold/30 bg-ursa-gold/5 text-ursa-gold",
-    stop: "border-ursa-terracotta/30 bg-ursa-terracotta/8 text-ursa-terracotta",
+    forest: "border-ursa-forest-deep/25 bg-ursa-dark-roast/5 text-ursa-forest-deep",
+    terracotta: "border-ursa-terracotta/25 bg-ursa-terracotta/5 text-ursa-terracotta-text",
+    gold: "border-ursa-gold/30 bg-ursa-gold/5 text-ursa-gold-text",
+    stop: "border-ursa-terracotta/30 bg-ursa-terracotta/8 text-ursa-terracotta-text",
   };
   return (
     <div className={cn("rounded-lg border p-2.5", tones[tone])}>

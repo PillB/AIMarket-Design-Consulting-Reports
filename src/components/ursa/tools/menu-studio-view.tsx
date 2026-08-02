@@ -152,7 +152,7 @@ function marginTextClass(pct: number) {
   const t = marginTone(pct);
   if (t === "forest") return "text-ursa-forest-deep";
   if (t === "gold") return "text-ursa-medium-roast";
-  return "text-ursa-terracotta";
+  return "text-ursa-terracotta-text";
 }
 
 // Stars & Puzzles classification
@@ -456,7 +456,7 @@ export function MenuStudioView() {
           <Card>
             <div className="flex items-center justify-between mb-2">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0 flex items-center gap-2">
-                <Percent size={16} className="text-ursa-gold" /> Average margin progress
+                <Percent size={16} className="text-ursa-gold-text" /> Average margin progress
               </h4>
               <Pill tone={marginTone(metrics.avgMarginPct)}>
                 {metrics.avgMarginPct.toFixed(1)}%
@@ -465,8 +465,8 @@ export function MenuStudioView() {
             <ProgressBar value={metrics.avgMarginPct} tone={marginTone(metrics.avgMarginPct)} />
             <div className="flex justify-between mt-2 font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">
               <span>0%</span>
-              <span className="text-ursa-terracotta">55% threshold</span>
-              <span className="text-ursa-gold">65% healthy</span>
+              <span className="text-ursa-terracotta-text">55% threshold</span>
+              <span className="text-ursa-gold-text">65% healthy</span>
               <span>100%</span>
             </div>
             <p className="text-[0.85rem] text-muted-foreground mt-3 m-0">
@@ -478,7 +478,7 @@ export function MenuStudioView() {
           {/* Total prep time + category breakdown */}
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Clock size={16} className="text-ursa-gold" /> Total prep time &amp; category mix
+              <Clock size={16} className="text-ursa-gold-text" /> Total prep time &amp; category mix
             </h4>
             <div className="flex items-baseline gap-3 mb-3">
               <span className="font-display text-3xl font-semibold text-ursa-dark-roast">
@@ -613,7 +613,7 @@ export function MenuStudioView() {
                       <button
                         onClick={() => removeItem(it.id)}
                         aria-label={`Remove ${it.name}`}
-                        className="p-1.5 rounded-md text-muted-foreground hover:text-ursa-terracotta hover:bg-ursa-terracotta/10 transition"
+                        className="p-1.5 rounded-md text-muted-foreground hover:text-ursa-terracotta-text hover:bg-ursa-terracotta/10 transition"
                       >
                         <Trash2 size={14} />
                       </button>
@@ -728,7 +728,7 @@ export function MenuStudioView() {
           {/* Controls */}
           <Card>
             <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-              <Wallet size={18} className="text-ursa-gold" /> Configure the pairing
+              <Wallet size={18} className="text-ursa-gold-text" /> Configure the pairing
             </h4>
 
             <div className="space-y-5">
@@ -820,7 +820,7 @@ export function MenuStudioView() {
           <div className="space-y-4">
             <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="flex items-center justify-between mb-1">
-                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
+                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
                   Side-margin contribution
                 </span>
                 <SectionBadge tone="gold">live</SectionBadge>
@@ -931,7 +931,7 @@ export function MenuStudioView() {
         {/* 2x2 visual matrix */}
         <Card className="mt-6 bg-ursa-foam">
           <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-            <Sparkles size={16} className="text-ursa-gold" /> The matrix at a glance
+            <Sparkles size={16} className="text-ursa-gold-text" /> The matrix at a glance
           </h4>
           <div className="relative grid grid-cols-2 grid-rows-2 gap-3 min-h-[280px]">
             {/* axes labels */}
@@ -1052,7 +1052,7 @@ export function MenuStudioView() {
                   </Button>
                   <Button
                     onClick={copyExport}
-                    className="bg-ursa-forest-deep text-ursa-cream border border-ursa-forest-deep hover:bg-ursa-forest hover:text-ursa-cream"
+                    className="bg-ursa-dark-roast text-ursa-cream border border-ursa-forest-deep hover:bg-ursa-medium-roast hover:text-ursa-cream"
                   >
                     {copied ? <Check size={15} /> : <Copy size={15} />}
                     {copied ? "Copied!" : "Copy to clipboard"}
@@ -1156,11 +1156,11 @@ function MiniStat({
     neutral: "text-ursa-dark-roast",
     forest: "text-ursa-forest-deep",
     gold: "text-ursa-medium-roast",
-    terracotta: "text-ursa-terracotta",
+    terracotta: "text-ursa-terracotta-text",
   };
   return (
     <div className="bg-card border border-ursa-line-soft rounded-lg p-4">
-      <div className="flex items-center gap-2 text-ursa-gold mb-1">
+      <div className="flex items-center gap-2 text-ursa-gold-text mb-1">
         {icon}
         <span className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground">
           {label}
@@ -1184,12 +1184,12 @@ function QuadrantCard({
 }) {
   const meta = QUADRANT_META[quadrant];
   const toneClasses = {
-    forest: "border-ursa-forest-deep/40 bg-ursa-forest-deep/5",
+    forest: "border-ursa-forest-deep/40 bg-ursa-dark-roast/5",
     gold: "border-ursa-gold/50 bg-ursa-gold/8",
     terracotta: "border-ursa-terracotta/40 bg-ursa-terracotta/5",
   };
   const badgeTone = {
-    forest: "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep",
+    forest: "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep",
     gold: "bg-ursa-gold text-ursa-dark-roast border-ursa-gold",
     terracotta: "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta",
   };
@@ -1246,14 +1246,14 @@ function MatrixCell({
   position: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 }) {
   const toneBg = {
-    forest: "bg-ursa-forest-deep/10 border-ursa-forest-deep/30",
+    forest: "bg-ursa-dark-roast/10 border-ursa-forest-deep/30",
     gold: "bg-ursa-gold/15 border-ursa-gold/40",
     terracotta: "bg-ursa-terracotta/10 border-ursa-terracotta/30",
   };
   const toneText = {
     forest: "text-ursa-forest-deep",
     gold: "text-ursa-medium-roast",
-    terracotta: "text-ursa-terracotta",
+    terracotta: "text-ursa-terracotta-text",
   };
   const align = {
     "top-left": "items-start text-left",

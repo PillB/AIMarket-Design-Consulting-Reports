@@ -33,6 +33,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
   ];
 
   const isActive = (key: string) => currentRoute === key;
+  const routeLabel = (k: string) => t(`nav.routes.${k || "home"}`);
 
   const go = (key: string) => {
     navigate(key);
@@ -49,7 +50,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             className="flex items-center gap-3 text-left hover:opacity-90 transition shrink-0"
             aria-label={t("nav.go-dashboard")}
           >
-            <span className="w-11 h-11 rounded-full bg-ursa-cream grid place-items-center shadow-[inset_0_0_0_1px_var(--color-ursa-gold)] text-ursa-dark-roast ursa-breathe">
+            <span className="w-11 h-11 rounded-full grid place-items-center border-2 border-ursa-gold bg-ursa-cream text-ursa-dark-roast ursa-breathe">
               <BearMark size={30} />
             </span>
             <span className="hidden sm:block">
@@ -81,10 +82,10 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
                       onClick={() => go(k)}
                       className={cn(
                         "block w-full text-left px-4 py-2 font-label text-[0.72rem] tracking-[0.1em] uppercase hover:bg-white/10 transition",
-                        isActive(k) ? "text-ursa-gold bg-white/5" : "text-ursa-cream/90"
+                        isActive(k) ? "text-ursa-gold-text-soft bg-white/5" : "text-ursa-cream/90"
                       )}
                     >
-                      {ROUTES[k].label}
+                      {routeLabel(k)}
                     </button>
                   ))}
                 </div>
@@ -104,10 +105,10 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
                       onClick={() => go(k)}
                       className={cn(
                         "block w-full text-left px-4 py-2 font-label text-[0.72rem] tracking-[0.1em] uppercase hover:bg-white/10 transition",
-                        isActive(k) ? "text-ursa-gold bg-white/5" : "text-ursa-cream/90"
+                        isActive(k) ? "text-ursa-gold-text-soft bg-white/5" : "text-ursa-cream/90"
                       )}
                     >
-                      {ROUTES[k].label}
+                      {routeLabel(k)}
                     </button>
                   ))}
                 </div>
@@ -122,14 +123,15 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               {t("nav.ursa-manana")}
             </NavBtn>
 
+            <LanguageToggle className="ml-1" />
             <ThemeToggle className="ml-1" />
             <LanguageToggle className="ml-0.5" />
 
             <a
-              href="/dossier/index.html"
+              href="/AIMarket-Design-Consulting-Reports/dossier/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-soft hover:bg-ursa-gold hover:text-ursa-dark-roast transition flex items-center gap-1.5"
+              className="ml-1 px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-text-soft hover:bg-ursa-gold hover:text-ursa-dark-roast transition flex items-center gap-1.5"
             >
               {t("nav.static-dossier")} <ExternalLink size={12} />
             </a>
@@ -165,22 +167,22 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             <MobileSection title={t("nav.dossier-modules")}>
               {dossierKeys.map((k) => (
                 <MobileLink key={k} active={isActive(k)} onClick={() => go(k)}>
-                  {ROUTES[k].label}
+                  {routeLabel(k)}
                 </MobileLink>
               ))}
             </MobileSection>
             <MobileSection title={t("nav.interactive-tools")}>
               {toolKeys.map((k) => (
                 <MobileLink key={k} active={isActive(k)} onClick={() => go(k)}>
-                  {ROUTES[k].label}
+                  {routeLabel(k)}
                 </MobileLink>
               ))}
             </MobileSection>
             <a
-              href="/dossier/index.html"
+              href="/AIMarket-Design-Consulting-Reports/dossier/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-2.5 font-label text-[0.72rem] tracking-[0.1em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-soft"
+              className="flex items-center gap-2 px-3 py-2.5 font-label text-[0.72rem] tracking-[0.1em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-text-soft"
             >
               {t("nav.open-static-dossier")} <ExternalLink size={14} />
             </a>
@@ -216,7 +218,7 @@ function NavBtn({ children, active, onClick }: { children: React.ReactNode; acti
 function MobileSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-ursa-gold-soft mb-1.5 px-1">{title}</p>
+      <p className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft mb-1.5 px-1">{title}</p>
       <div className="flex flex-col gap-0.5">{children}</div>
     </div>
   );
@@ -280,7 +282,7 @@ export function UrsaFooter({ onPrint }: { onPrint?: () => void }) {
           {onPrint && (
             <button
               onClick={onPrint}
-              className="flex items-center gap-2 border border-ursa-gold-soft/40 text-ursa-gold-soft px-4 py-2 rounded-full font-label text-[0.7rem] tracking-[0.14em] uppercase hover:bg-ursa-gold hover:text-ursa-dark-roast transition shrink-0"
+              className="flex items-center gap-2 border border-ursa-gold-soft/40 text-ursa-gold-text-soft px-4 py-2 rounded-full font-label text-[0.7rem] tracking-[0.14em] uppercase hover:bg-ursa-gold hover:text-ursa-dark-roast transition shrink-0"
             >
               <Printer size={14} /> {t("actions.print-pdf")}
             </button>
@@ -293,7 +295,7 @@ export function UrsaFooter({ onPrint }: { onPrint?: () => void }) {
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <a href={href} className="text-ursa-cream/90 hover:text-ursa-gold-soft transition block">
+    <a href={href} className="text-ursa-cream/90 hover:text-ursa-gold-text-soft transition block">
       {children}
     </a>
   );

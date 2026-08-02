@@ -50,7 +50,7 @@ export function ViewHero({
         <span
           className={cn(
             "inline-block font-label text-[0.72rem] tracking-[0.28em] uppercase mb-4",
-            tone === "gold" ? "text-ursa-gold" : "text-ursa-forest-deep"
+            tone === "gold" ? "text-ursa-gold-text" : "text-ursa-forest-deep"
           )}
         >
           {eyebrow}
@@ -124,7 +124,7 @@ export function Card({
   highlight?: boolean;
 }) {
   const cls = cn(
-    "bg-card border rounded-xl p-6 h-full shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)] ursa-card-hover hover:border-ursa-gold/60 hover:shadow-[0_2px_0_rgba(59,36,23,0.08),0_16px_40px_-18px_rgba(59,36,23,0.28)]",
+    "bg-card border rounded-xl p-6 h-full min-w-0 overflow-hidden shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)] ursa-card-hover hover:border-ursa-gold/60 hover:shadow-[0_2px_0_rgba(59,36,23,0.08),0_16px_40px_-18px_rgba(59,36,23,0.28)]",
     href ? "block no-underline text-inherit" : "",
     highlight ? "border-ursa-gold shadow-[0_0_0_4px_rgba(184,146,74,0.15),0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-12px_rgba(59,36,23,0.18)]" : "border-ursa-line-soft",
     className
@@ -144,10 +144,10 @@ export function Card({
 export function DossierLinkBanner({ moduleId }: { moduleId: string }) {
   return (
     <a
-      href={`/dossier/${moduleId}.html`}
+      href={`/AIMarket-Design-Consulting-Reports/dossier/${moduleId}.html`}
       target="_blank"
       rel="noopener noreferrer"
-      className="no-print inline-flex items-center gap-2 text-[0.8rem] text-muted-foreground hover:text-ursa-gold transition border border-dashed border-ursa-line rounded-lg px-3 py-2"
+      className="no-print inline-flex items-center gap-2 text-[0.8rem] text-muted-foreground hover:text-ursa-gold-text transition border border-dashed border-ursa-line rounded-lg px-3 py-2"
     >
       <ExternalLink size={14} />
       Open the full printable HTML dossier for this module

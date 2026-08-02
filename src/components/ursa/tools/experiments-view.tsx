@@ -43,6 +43,7 @@ type StatusMeta = {
   bg: string;
   border: string;
   bar: string;
+  barText: string;
   dot: string;
   icon: React.ReactNode;
 };
@@ -51,10 +52,11 @@ const STATUS_META: Record<Status, StatusMeta> = {
   proposed: {
     label: "Proposed",
     pillTone: "gold",
-    text: "text-ursa-gold",
+    text: "text-ursa-gold-text",
     bg: "bg-ursa-gold/8",
     border: "border-ursa-gold/40",
     bar: "bg-ursa-gold",
+    barText: "text-ursa-espresso",
     dot: "bg-ursa-gold",
     icon: <CircleDot size={12} />,
   },
@@ -62,9 +64,10 @@ const STATUS_META: Record<Status, StatusMeta> = {
     label: "Running",
     pillTone: "forest",
     text: "text-ursa-forest-deep",
-    bg: "bg-ursa-forest-deep/8",
+    bg: "bg-ursa-dark-roast/8",
     border: "border-ursa-forest-deep/30",
     bar: "bg-ursa-forest-deep",
+    barText: "text-ursa-cream",
     dot: "bg-ursa-forest-deep",
     icon: <Play size={12} />,
   },
@@ -72,19 +75,21 @@ const STATUS_META: Record<Status, StatusMeta> = {
     label: "Passed",
     pillTone: "ok",
     text: "text-ursa-forest-deep",
-    bg: "bg-ursa-forest-deep/12",
+    bg: "bg-ursa-dark-roast/12",
     border: "border-ursa-forest-deep/45",
     bar: "bg-ursa-forest-deep",
+    barText: "text-ursa-cream",
     dot: "bg-ursa-forest-deep",
     icon: <Check size={12} />,
   },
   killed: {
     label: "Killed",
     pillTone: "stop",
-    text: "text-ursa-terracotta",
+    text: "text-ursa-terracotta-text",
     bg: "bg-ursa-terracotta/8",
     border: "border-ursa-terracotta/35",
     bar: "bg-ursa-terracotta",
+    barText: "text-ursa-espresso",
     dot: "bg-ursa-terracotta",
     icon: <X size={12} />,
   },
@@ -320,7 +325,7 @@ export function ExperimentsView() {
         <div className="mt-6 grid sm:grid-cols-2 gap-5">
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <FlaskConical size={16} className="text-ursa-gold" /> Status legend
+              <FlaskConical size={16} className="text-ursa-gold-text" /> Status legend
             </h4>
             <ul className="m-0 p-0 list-none space-y-1.5">
               {STATUS_ORDER.map((s) => {
@@ -344,7 +349,7 @@ export function ExperimentsView() {
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Trophy size={16} className="text-ursa-gold" /> Graduation rate
+              <Trophy size={16} className="text-ursa-gold-text" /> Graduation rate
             </h4>
             <div className="flex items-baseline gap-3 mb-2">
               <span className="font-display text-3xl font-semibold text-ursa-forest-deep">
@@ -362,7 +367,7 @@ export function ExperimentsView() {
             </div>
             <p className="text-[0.82rem] text-muted-foreground m-0">
               <strong className="text-ursa-forest-deep">{counts.passed}</strong> passed ·{" "}
-              <strong className="text-ursa-terracotta">{counts.killed}</strong> killed ·{" "}
+              <strong className="text-ursa-terracotta-text">{counts.killed}</strong> killed ·{" "}
               <strong>{activeCount}</strong> still active or proposed.
             </p>
           </Card>
@@ -390,8 +395,8 @@ export function ExperimentsView() {
                 className={cn(
                   "inline-flex items-center gap-2 px-4 py-2 rounded-full border font-label text-[0.72rem] tracking-[0.12em] uppercase transition",
                   isActive
-                    ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep"
-                    : "bg-card text-ursa-dark-roast border-ursa-line-soft hover:border-ursa-gold/60 hover:text-ursa-gold"
+                    ? "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep"
+                    : "bg-card text-ursa-dark-roast border-ursa-line-soft hover:border-ursa-gold/60 hover:text-ursa-gold-text"
                 )}
               >
                 <Filter size={12} />
@@ -413,7 +418,7 @@ export function ExperimentsView() {
               variant="outline"
               size="sm"
               onClick={resetAll}
-              className="font-label text-[0.7rem] tracking-[0.12em] uppercase border-ursa-terracotta/40 text-ursa-terracotta hover:bg-ursa-terracotta hover:text-ursa-cream"
+              className="font-label text-[0.7rem] tracking-[0.12em] uppercase border-ursa-terracotta/40 text-ursa-terracotta-text hover:bg-ursa-terracotta hover:text-ursa-cream"
             >
               <RotateCcw size={12} className="mr-1.5" /> Reset all
             </Button>
@@ -475,10 +480,10 @@ export function ExperimentsView() {
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Banknote size={16} className="text-ursa-gold" /> What is counted
+              <Banknote size={16} className="text-ursa-gold-text" /> What is counted
             </h4>
             <ul className="m-0 p-0 list-none space-y-1.5 text-[0.84rem] text-muted-foreground">
-              <li><strong className="text-ursa-gold">Proposed</strong> — exposure reserved in plan.</li>
+              <li><strong className="text-ursa-gold-text">Proposed</strong> — exposure reserved in plan.</li>
               <li><strong className="text-ursa-forest-deep">Running</strong> — exposure committed.</li>
               <li className="text-muted-foreground/70 italic">
                 <strong>Passed / Killed</strong> are excluded — sunk.
@@ -487,7 +492,7 @@ export function ExperimentsView() {
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <AlertTriangle size={16} className="text-ursa-terracotta" /> Honest caveats
+              <AlertTriangle size={16} className="text-ursa-terracotta-text" /> Honest caveats
             </h4>
             <p className="text-[0.84rem] text-muted-foreground m-0">
               Costs are scenario ranges, not invoices. Two experiments cost{" "}
@@ -497,7 +502,7 @@ export function ExperimentsView() {
             </p>
             <button
               onClick={() => navigate("calculator")}
-              className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-ursa-gold/60 text-ursa-gold hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.7rem] tracking-[0.1em] uppercase"
+              className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-ursa-gold/60 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.7rem] tracking-[0.1em] uppercase"
             >
               <ArrowRight size={12} /> Model EXP-11 in calculator
             </button>
@@ -641,7 +646,7 @@ export function ExperimentsView() {
               <Card key={e.id} className={cn("flex flex-col gap-2", m.border)}>
                 <div className="flex items-baseline justify-between gap-2">
                   <div className="flex items-baseline gap-2 min-w-0">
-                    <span className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-ursa-gold shrink-0">
+                    <span className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-ursa-gold-text shrink-0">
                       {e.id}
                     </span>
                     <span className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast truncate">
@@ -688,13 +693,13 @@ export function ExperimentsView() {
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => navigate("roadmap")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-forest transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-medium-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <ArrowRight size={14} /> Read Module 07 Roadmap
             </button>
             <button
               onClick={() => navigate("calculator")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/60 text-ursa-gold hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/60 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <Banknote size={14} /> Subscription Calculator
             </button>
@@ -742,7 +747,7 @@ function ExperimentCard({
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
           <div className="flex items-baseline gap-2 mb-1">
-            <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-gold">
+            <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-gold-text">
               {experiment.id}
             </span>
             <Pill tone={m.pillTone}>
@@ -785,7 +790,7 @@ function ExperimentCard({
           <span className="inline-flex items-center gap-1.5 font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground shrink-0 w-20">
             <Crosshair size={11} /> Stop rule
           </span>
-          <span className="text-[0.84rem] text-ursa-terracotta italic leading-snug">
+          <span className="text-[0.84rem] text-ursa-terracotta-text italic leading-snug">
             {experiment.stopRule}
           </span>
         </div>

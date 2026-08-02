@@ -385,11 +385,11 @@ export function OriginAtlasView() {
                     className={cn(
                       "font-label text-[0.7rem] tracking-[0.08em] uppercase px-2.5 py-1.5 rounded-md border transition",
                       o.id === selectedId
-                        ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep"
+                        ? "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep"
                         : "bg-ursa-paper text-ursa-dark-roast border-ursa-line-soft hover:border-ursa-gold"
                     )}
                   >
-                    {o.verified && <span className="text-ursa-gold mr-1">●</span>}
+                    {o.verified && <span className="text-ursa-gold-text mr-1">●</span>}
                     {o.name}
                   </button>
                 ))}
@@ -402,7 +402,7 @@ export function OriginAtlasView() {
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <div className="flex items-center gap-2 mb-1 flex-wrap">
-                  <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold">
+                  <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-text">
                     {selected.department}
                   </span>
                   {selected.verified && (
@@ -420,7 +420,7 @@ export function OriginAtlasView() {
 
             {/* Spec grid */}
             <div className="grid grid-cols-2 gap-3 text-[0.86rem]">
-              <div className="bg-ursa-forest-deep/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
+              <div className="bg-ursa-dark-roast/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
                 <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep flex items-center gap-1">
                   <Mountain size={10} /> Altitude
                 </div>
@@ -433,12 +433,12 @@ export function OriginAtlasView() {
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.process}</div>
               </div>
               <div className="bg-ursa-terracotta/10 border border-ursa-terracotta/30 rounded-md px-3 py-2">
-                <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-terracotta flex items-center gap-1">
+                <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-terracotta-text flex items-center gap-1">
                   <Sparkles size={10} /> Varietal
                 </div>
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast">{selected.varietal}</div>
               </div>
-              <div className="bg-ursa-forest-deep/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
+              <div className="bg-ursa-dark-roast/8 border border-ursa-forest-deep/20 rounded-md px-3 py-2">
                 <div className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-ursa-forest-deep flex items-center gap-1">
                   <Coffee size={10} /> Ursa drink
                 </div>
@@ -513,8 +513,8 @@ export function OriginAtlasView() {
                           o.verified
                             ? "bg-ursa-gold text-ursa-dark-roast border-ursa-gold hover:brightness-105"
                             : o.id === selectedId
-                            ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep"
-                            : "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30 hover:border-ursa-gold"
+                            ? "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep"
+                            : "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/30 hover:border-ursa-gold"
                         )}
                       >
                         {o.name}
@@ -562,13 +562,13 @@ export function OriginAtlasView() {
                     <button
                       onClick={() => setSelectedId(o.id)}
                       className={cn(
-                        "font-label text-[0.66rem] tracking-[0.06em] uppercase text-left pr-2 truncate transition hover:text-ursa-gold",
+                        "font-label text-[0.66rem] tracking-[0.06em] uppercase text-left pr-2 truncate transition hover:text-ursa-gold-text",
                         o.id === selectedId
                           ? "text-ursa-forest-deep font-semibold"
                           : "text-ursa-dark-roast"
                       )}
                     >
-                      {o.verified && <span className="text-ursa-gold mr-1">●</span>}
+                      {o.verified && <span className="text-ursa-gold-text mr-1">●</span>}
                       {o.name}
                     </button>
                     {MONTHS.map((_, i) => {
@@ -679,7 +679,7 @@ export function OriginAtlasView() {
         <Grid cols={3}>
           <Card className="flex flex-col gap-2 h-full">
             <div className="flex items-center gap-2">
-              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-forest-deep/10 text-ursa-forest-deep border border-ursa-forest-deep/25">
+              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-dark-roast/10 text-ursa-forest-deep border border-ursa-forest-deep/25">
                 <Mountain size={18} />
               </span>
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Altitude</h4>
@@ -711,7 +711,7 @@ export function OriginAtlasView() {
           </Card>
           <Card className="flex flex-col gap-2 h-full">
             <div className="flex items-center gap-2">
-              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-terracotta/10 text-ursa-terracotta border border-ursa-terracotta/30">
+              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-terracotta/10 text-ursa-terracotta-text border border-ursa-terracotta/30">
                 <Sparkles size={18} />
               </span>
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Varietal</h4>
@@ -741,13 +741,13 @@ export function OriginAtlasView() {
             </Pill>
             <button
               onClick={() => navigate("menu")}
-              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold transition inline-flex items-center gap-1.5"
+              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5"
             >
               Menu & Product <ArrowRight size={12} />
             </button>
             <button
               onClick={() => navigate("menu-studio")}
-              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold transition inline-flex items-center gap-1.5"
+              className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5"
             >
               Menu Engineering Studio <ArrowRight size={12} />
             </button>

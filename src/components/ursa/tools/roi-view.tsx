@@ -184,7 +184,7 @@ export function RoiView() {
           <div className="grid md:grid-cols-[1fr_280px] gap-6 items-center">
             <div>
               <div className="flex items-baseline justify-between mb-2">
-                <Label className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold">
+                <Label className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-text">
                   Conversion confidence
                 </Label>
                 <span className="font-display text-3xl font-semibold text-ursa-dark-roast leading-none">
@@ -290,7 +290,7 @@ export function RoiView() {
                       <td className="p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold text-ursa-dark-roast">
                         {isFinite(c.paybackMonths) ? c.paybackMonths.toFixed(1) : "—"}
                       </td>
-                      <td className={cn("p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold" : "text-ursa-terracotta")}>
+                      <td className={cn("p-3 text-right align-top border-b border-ursa-line-soft font-display font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold-text" : "text-ursa-terracotta-text")}>
                         {isFinite(c.roi) ? `${c.roi.toFixed(0)}%` : "∞"}
                       </td>
                     </tr>
@@ -346,7 +346,7 @@ export function RoiView() {
         <div className="grid md:grid-cols-3 gap-4 mt-6">
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Users size={16} className="text-ursa-gold" /> Customers modelled
+              <Users size={16} className="text-ursa-gold-text" /> Customers modelled
             </h4>
             <p className="font-display text-3xl font-semibold text-ursa-dark-roast m-0">
               {portfolio.totalCustomers.toFixed(0)}
@@ -363,7 +363,7 @@ export function RoiView() {
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
               <Target size={16} className="text-ursa-forest-deep" /> Profit / month
             </h4>
-            <p className={cn("font-display text-3xl font-semibold m-0", portfolio.totalRevenue - portfolio.totalSpend >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
+            <p className={cn("font-display text-3xl font-semibold m-0", portfolio.totalRevenue - portfolio.totalSpend >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta-text")}>
               {PEN(portfolio.totalRevenue - portfolio.totalSpend)}
             </p>
             <p className="text-[0.82rem] text-muted-foreground m-0 mt-1">
@@ -373,7 +373,7 @@ export function RoiView() {
           </Card>
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <CalendarClock size={16} className="text-ursa-gold" /> Payback horizon
+              <CalendarClock size={16} className="text-ursa-gold-text" /> Payback horizon
             </h4>
             <p className="font-display text-3xl font-semibold text-ursa-dark-roast m-0">
               {isFinite(portfolio.blendedPayback) ? portfolio.blendedPayback.toFixed(1) : "—"}
@@ -452,7 +452,7 @@ export function RoiView() {
         <div className="grid md:grid-cols-[1.2fr_1fr] gap-6 items-stretch">
           <Card className="bg-ursa-foam">
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
-              <Gauge size={18} className="text-ursa-gold" /> Revenue range across confidence bands
+              <Gauge size={18} className="text-ursa-gold-text" /> Revenue range across confidence bands
             </h3>
             <div className="space-y-4">
               <RangeBar
@@ -485,7 +485,7 @@ export function RoiView() {
           <div className="space-y-4">
             <Card>
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <Trophy size={16} className="text-ursa-gold" /> Best-performing channel
+                <Trophy size={16} className="text-ursa-gold-text" /> Best-performing channel
               </h4>
               {(() => {
                 const sorted = [...calced].sort((a, b) => (isFinite(b.roi) ? b.roi : Infinity) - (isFinite(a.roi) ? a.roi : Infinity));
@@ -505,7 +505,7 @@ export function RoiView() {
             </Card>
             <Card>
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <AlertTriangle size={16} className="text-ursa-terracotta" /> Weakest channel
+                <AlertTriangle size={16} className="text-ursa-terracotta-text" /> Weakest channel
               </h4>
               {(() => {
                 const sorted = [...calced]
@@ -541,7 +541,7 @@ export function RoiView() {
         <div className="grid md:grid-cols-2 gap-6">
           <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-ursa-forest-deep/15 border border-ursa-forest-deep flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-full bg-ursa-dark-roast/15 border border-ursa-forest-deep flex items-center justify-center shrink-0">
                 <Wallet size={18} className="text-ursa-forest-deep" />
               </div>
               <div>
@@ -554,7 +554,7 @@ export function RoiView() {
                 </p>
                 <button
                   onClick={() => navigate("budget")}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
                 >
                   <Wallet size={14} /> Open Budget Allocator <ArrowRight size={14} />
                 </button>
@@ -564,7 +564,7 @@ export function RoiView() {
           <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-full bg-ursa-gold/15 border border-ursa-gold flex items-center justify-center shrink-0">
-                <TrendingUp size={18} className="text-ursa-gold" />
+                <TrendingUp size={18} className="text-ursa-gold-text" />
               </div>
               <div>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1.5">
@@ -621,8 +621,8 @@ function RangeRow({
 }) {
   const tones = {
     forest: "text-ursa-forest-deep border-ursa-forest-deep",
-    gold: "text-ursa-gold border-ursa-gold",
-    terracotta: "text-ursa-terracotta border-ursa-terracotta",
+    gold: "text-ursa-gold-text border-ursa-gold",
+    terracotta: "text-ursa-terracotta-text border-ursa-terracotta",
   };
   return (
     <div
@@ -667,7 +667,7 @@ function RangeBar({
         <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">
           {label}
         </span>
-        <span className={cn("font-display text-lg font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold" : "text-ursa-terracotta")}>
+        <span className={cn("font-display text-lg font-semibold", tone === "forest" ? "text-ursa-forest-deep" : tone === "gold" ? "text-ursa-gold-text" : "text-ursa-terracotta-text")}>
           {PEN(value)}
         </span>
       </div>

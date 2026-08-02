@@ -3,7 +3,21 @@
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/hooks/use-i18n";
 
-/** Original geometric bear glyph — Art Nouveau-leaning, NOT a copy of the official logo. */
+/**
+ * Geometric bear glyph — OUTLINE ONLY (no fill), built from pentagons
+ * and hexagons. Art Nouveau–adjacent. NOT a copy of the official logo.
+ *
+ * The bear is rendered as stroked outlines with no fill color, so it
+ * works on any background without contrast issues. The stroke color
+ * is passed via `currentColor` (inherits from the parent's text color).
+ *
+ * Construction (viewBox 0 0 40 40):
+ *  - Two pentagonal ears (5-sided) with smaller pentagonal inner-ear outlines
+ *  - An octagonal faceted face (8-sided outline)
+ *  - Two hexagonal eyes (6-sided outlines)
+ *  - A hexagonal muzzle (6-sided outline)
+ *  - A pentagonal nose (5-sided) and a pentagonal mouth (5-sided)
+ */
 export function BearMark({
   className,
   size = 40,
@@ -11,6 +25,9 @@ export function BearMark({
   className?: string;
   size?: number;
 }) {
+  const SW = 1.8; // stroke width
+  const stroke = "currentColor";
+
   return (
     <svg
       viewBox="0 0 40 40"
@@ -19,24 +36,33 @@ export function BearMark({
       role="img"
       aria-label="Ursa bear mark"
       className={className}
+      fill="none"
     >
-      <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
-      <circle cx="13.5" cy="13" r="3.2" fill="currentColor" />
-      <circle cx="26.5" cy="13" r="3.2" fill="currentColor" />
-      <circle cx="13.5" cy="13" r="1.3" fill="var(--color-ursa-cream, #F4EBD9)" />
-      <circle cx="26.5" cy="13" r="1.3" fill="var(--color-ursa-cream, #F4EBD9)" />
-      <circle cx="20" cy="22" r="9.5" fill="currentColor" />
-      <ellipse cx="20" cy="25" rx="4" ry="3.2" fill="var(--color-ursa-cream, #F4EBD9)" />
-      <circle cx="16.5" cy="20.5" r="1.1" fill="var(--color-ursa-cream, #F4EBD9)" />
-      <circle cx="23.5" cy="20.5" r="1.1" fill="var(--color-ursa-cream, #F4EBD9)" />
-      <ellipse cx="20" cy="24" rx="1.1" ry="0.9" fill="var(--color-ursa-espresso, #211208)" />
-      <path
-        d="M17.5 26.5 Q20 28.5 22.5 26.5"
-        stroke="var(--color-ursa-espresso, #211208)"
-        strokeWidth="0.9"
-        fill="none"
-        strokeLinecap="round"
+      {/* Ears — pentagonal (7-pointed for wider shape), outline only */}
+      <polygon points="8,2 12,3 13,9 11,12 4,12 3,9 5,3" fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" />
+      <polygon points="32,2 35,3 37,9 36,12 29,12 27,9 28,3" fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" />
+      {/* Inner ear outlines — smaller pentagons */}
+      <polygon points="8,5 10,6 10,10 8,11 6,10 6,6" fill="none" stroke={stroke} strokeWidth={SW * 0.6} strokeLinejoin="round" />
+      <polygon points="32,5 34,6 34,10 32,11 30,10 30,6" fill="none" stroke={stroke} strokeWidth={SW * 0.6} strokeLinejoin="round" />
+
+      {/* Faceted face — octagonal outline */}
+      <polygon
+        points="11,11 29,11 34,16 33,24 28,31 20,34 12,31 7,24 6,16"
+        fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round"
       />
+
+      {/* Eyes — hexagonal outlines */}
+      <polygon points="14,16 17,17 17.5,19 16,20.5 13.5,20 13,18" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
+      <polygon points="26,16 27,18 26.5,20 24,20.5 22.5,19 23,17" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
+
+      {/* Muzzle — hexagonal outline */}
+      <polygon points="20,20 26,25 25,31 20,33 15,31 14,25" fill="none" stroke={stroke} strokeWidth={SW * 0.8} strokeLinejoin="round" />
+
+      {/* Nose — pentagonal outline */}
+      <polygon points="20,22 22.5,24 21,26 19,26 17.5,24" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
+
+      {/* Mouth — pentagonal outline */}
+      <polygon points="20,27 22.5,28.5 21.5,30.5 18.5,30.5 17.5,28.5" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
     </svg>
   );
 }
@@ -44,7 +70,7 @@ export function BearMark({
 /** Art Nouveau ornamental divider with a central flourish. */
 export function ArtNouveauDivider({ className }: { className?: string }) {
   return (
-    <div className={cn("flex items-center gap-3 text-ursa-gold my-8", className)} aria-hidden="true">
+    <div className={cn("flex items-center gap-3 text-ursa-gold-text my-8", className)} aria-hidden="true">
       <span className="flex-1 h-px bg-gradient-to-r from-transparent via-ursa-line to-transparent" />
       <svg width="48" height="16" viewBox="0 0 48 16" fill="none">
         <path d="M24 2 C20 6, 20 10, 24 14 C28 10, 28 6, 24 2 Z" fill="currentColor" opacity="0.7" />
@@ -57,23 +83,23 @@ export function ArtNouveauDivider({ className }: { className?: string }) {
   );
 }
 
-/** Coffee cup with steam — decorative accent. */
+/** Coffee cup with steam — decorative accent, faceted to match the geometric bear. */
 export function CupGlyph({ className, size = 24 }: { className?: string; size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
-      <path d="M6 12 H22 V18 C22 22.4 18.4 26 14 26 C9.6 26 6 22.4 6 18 Z" fill="currentColor" />
-      <path d="M22 13 H25 C27.2 13 29 14.8 29 17 C29 19.2 27.2 21 25 21 H22" stroke="currentColor" strokeWidth="1.6" fill="none" />
-      <path d="M11 4 C11 6 9.5 6 9.5 8" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" style={{ animation: "ursa-steam 2.5s ease-out infinite" }} />
-      <path d="M15 3 C15 5 13.5 5 13.5 7" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" style={{ animation: "ursa-steam 2.5s ease-out 0.6s infinite" }} />
+      <polygon points="6,11 22,11 21,17 20,25 12,26 8,25 7,17" fill="currentColor" />
+      <polyline points="22,12 25,12 27,14 27,18 25,20 22,20" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" strokeLinecap="round" />
+      <path d="M11 3 L11 5 L9.5 7 L9.5 9" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinejoin="round" strokeLinecap="round" style={{ animation: "ursa-steam 2.5s ease-out infinite" }} />
+      <path d="M15 2 L15 4 L13.5 6 L13.5 8" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinejoin="round" strokeLinecap="round" style={{ animation: "ursa-steam 2.5s ease-out 0.6s infinite" }} />
     </svg>
   );
 }
 
 export function SectionBadge({ children, tone = "gold" }: { children: React.ReactNode; tone?: "gold" | "forest" | "terracotta" }) {
   const tones = {
-    gold: "border-ursa-gold text-ursa-gold bg-ursa-paper",
+    gold: "border-ursa-gold text-ursa-gold-text bg-ursa-paper",
     forest: "border-ursa-forest-deep text-ursa-forest-deep bg-ursa-paper",
-    terracotta: "border-ursa-terracotta text-ursa-terracotta bg-ursa-paper",
+    terracotta: "border-ursa-terracotta text-ursa-terracotta-text bg-ursa-paper",
   };
   return (
     <span className={cn("inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full border", tones[tone])}>
@@ -108,11 +134,11 @@ export function Pill({
   className?: string;
 }) {
   const tones = {
-    default: "bg-muted text-ursa-medium-roast border-ursa-line-soft",
-    ok: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30",
-    warn: "bg-ursa-gold/15 text-ursa-medium-roast border-ursa-gold",
-    stop: "bg-ursa-terracotta/10 text-ursa-terracotta border-ursa-terracotta/30",
-    forest: "bg-ursa-forest-deep/8 text-ursa-forest-deep border-ursa-forest-deep/25",
+    default: "bg-muted text-ursa-forest-deep border-ursa-line-soft",
+    ok: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/30",
+    warn: "bg-ursa-gold/15 text-ursa-forest-deep border-ursa-gold",
+    stop: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+    forest: "bg-ursa-dark-roast/8 text-ursa-forest-deep border-ursa-forest-deep/25",
     gold: "bg-ursa-gold text-ursa-dark-roast border-ursa-gold",
   };
   return (
@@ -140,9 +166,9 @@ export function Callout({
     forest: "border-ursa-forest-deep",
   };
   return (
-    <div className={cn("border-l-4 bg-muted/60 px-5 py-4 rounded-r-lg my-5", tones[tone])}>
-      {title && <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-1.5">{title}</h4>}
-      <div className="text-[0.95rem] leading-relaxed">{children}</div>
+    <div className={cn("border-l-4 bg-muted/60 px-5 py-4 rounded-r-lg my-5 overflow-hidden break-words", tones[tone])}>
+      {title && <h4 className="font-display text-base font-semibold text-ursa-forest-deep mt-0 mb-1.5">{title}</h4>}
+      <div className="text-[0.95rem] leading-relaxed break-words overflow-wrap-anywhere">{children}</div>
     </div>
   );
 }
@@ -151,8 +177,8 @@ export function Callout({
 export function StatBlock({ value, label, tone = "forest" }: { value: string; label: string; tone?: "forest" | "gold" | "terracotta" }) {
   const tones = {
     forest: "text-ursa-forest-deep",
-    gold: "text-ursa-gold",
-    terracotta: "text-ursa-terracotta",
+    gold: "text-ursa-gold-text",
+    terracotta: "text-ursa-terracotta-text",
   };
   return (
     <div className="flex flex-col gap-1">
@@ -165,8 +191,8 @@ export function StatBlock({ value, label, tone = "forest" }: { value: string; la
 /** Progress bar. */
 export function ProgressBar({ value, tone = "gold" }: { value: number; tone?: "gold" | "forest" | "terracotta" }) {
   const tones = {
-    gold: "from-ursa-gold to-ursa-forest-deep",
-    forest: "from-ursa-forest to-ursa-forest-deep",
+    gold: "from-ursa-gold to-ursa-dark-roast",
+    forest: "from-ursa-medium-roast to-ursa-dark-roast",
     terracotta: "from-ursa-terracotta to-ursa-gold",
   };
   return (

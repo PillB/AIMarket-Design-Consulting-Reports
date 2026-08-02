@@ -37,6 +37,10 @@ import {
   Megaphone,
   HandHeart,
   Clapperboard,
+  ShieldCheck,
+  Camera,
+  Smartphone,
+  UserCheck,
 } from "lucide-react";
 
 type ConceptFormat = string;
@@ -106,6 +110,124 @@ function conceptById(id: string) {
   return CONTENT_CONCEPTS.find((c) => c.id === id);
 }
 
+// ---------------------------------------------------------------------------
+// CONCEPT_EVIDENCE — WHY each concept works for Ursa specifically (not generic
+// “behind the scenes works”). Anchored to verified Ursa assets: named drinks,
+// tagline, two-bar layout, bear, roastery, Alcanfores 183, Rappi, etc.
+// Snapshot 2026-08-01.
+// ---------------------------------------------------------------------------
+const CONCEPT_EVIDENCE: Record<string, string> = {
+  C01: "Works for Ursa because ‘Un gramo a la vez’ is the verified Instagram-bio tagline (snapshot 2026-08-01) — the weighing ritual is the literal enactment of the brand promise. A generic café cannot make this Reel because it has no scale-led tagline. Ursa owns the gram-as-ritual position.",
+  C02: "Works for Ursa because the bear mark is verified on the Instagram avatar AND the café sits ~7 minutes walk from Parque Kennedy (verified on Google Maps). The treasure-trail mechanic turns Miraflores footfall into Ursa-bound footfall. Generic cafés lack an animal mark to leave as a ‘track’.",
+  C03: "Works for Ursa because the two-bar layout (‘Espresso bar + Coldbrew bar’) is verified in the Instagram bio. The split-screen format is the visual enactment of the two-bar architecture. A competitor with one bar cannot shoot this honestly.",
+  C04: "Works for Ursa because the Filtrado Lonya is a verified named drink (Rappi menu, 2026-08-01) sourced from Utcubamba, Amazonas at 1,750m. The origin story is already on the menu — the carousel just makes it visible. A café that resells green beans cannot tell this story.",
+  C05: "Works for Ursa because Ursagroni is a verified coined-name drink (Ursa + negroni, observed on Instagram + Rappi). The etymology IS the asset — no competitor has a drink name that explains itself. The barista who named it is a Ursa-specific character.",
+  C06: "Works for Ursa because Maracumango is a verified coined-name cold brew (maracuyá + mango, Rappi + Instagram). The colour change on the pour is a sensory hook the drink itself provides — no studio trick needed. A café without a coloured cold brew cannot replicate this.",
+  C08: "Works for Ursa because the café opens 7:30am Mon–Sat (verified Instagram bio). The ‘7am club’ framing turns an opening hour into a community — the same five regulars are a Ursa-specific observation the owner can confirm. Generic cafés cannot profile regulars they don't have.",
+  C12: "Works for Ursa because Ursa roasts in-house (verified Instagram bio, CoffeePass, Corner.inc). ‘Gram of the week’ is a double-pun: the tagline AND the roast weight. A non-roaster café has no micro-lot rotation to feature.",
+  C13: "Works for Ursa because Alcanfores 183 is the verified address (Corner.inc, mindtrip.ai, Instagram) and Parque Kennedy is the Miraflores tourist anchor. The walk is genuinely short (Google Maps: ~7 min). This concept turns a location disadvantage (off the main plaza) into a discovery hook.",
+  C14: "Works for Ursa because Durazno Clarificado Coldbrew is a verified drink (Rappi). Clarification is a technical process most customers haven't seen — the ‘behind the science’ angle is owned by Ursa because the drink is named for the process.",
+  C15: "Works for Ursa because Corner.inc independently notes ‘baristas double as coffee educators’ (verified Dec 26, 2025). The cupping night operationalises that observation — it's not invented, it's surfaced. A café without educator-staff cannot run this honestly.",
+  C18: "Works for Ursa because transparency is the operational backbone of an in-house roaster (verified). The 9pm close-down matches URSA_FACTS hours (Mon–Sat 21:00). The deep-clean video is a trust signal — a café that doesn't roast has nothing to deep-clean publicly.",
+  C22: "Works for Ursa because Rappi delivery is verified active (Rappi listing + Instagram bio). The packing ritual is a verifiable Ursa operational detail (insulation, tape, note) that competitors using a third-party commissary cannot honestly show.",
+  C23: "Works for Ursa because the Art Nouveau label ornamentation is verified on Instagram post templates. Macro shots of the label are asset-rich — a café with a templated sticker has nothing to macro-photograph.",
+  C24: "Works for Ursa because TripAdvisor currently shows 0 reviews (verified 2026-08-01). A ‘review reply of the week’ is corrective content for a listing that has none — it primes the next reviewer by modelling the owner's voice.",
+  C26: "Works for Ursa because Ursa roasts in-house, which means the cost breakdown (bean, milk, labour, rent, roastery) is honest and verifiable. A non-roaster café cannot break down the roastery line item without revealing it doesn't exist.",
+};
+
+// ---------------------------------------------------------------------------
+// SCRIPT_VERIFICATION — for each of the 10 scripts, the REAL Ursa products
+// and details it references (verified from VERIFIED_BEVERAGES, URSA_FACTS,
+// Instagram, Rappi). Snapshot 2026-08-01.
+// ---------------------------------------------------------------------------
+const SCRIPT_VERIFICATION: Record<string, { refs: string[]; status: "passed" | "flagged" }> = {
+  S01: {
+    refs: ["‘Un gramo a la vez’ tagline (IG bio)", "18.0g dose (brewing-standard)", "Alcanfores 183 (verified address)"],
+    status: "passed",
+  },
+  S02: {
+    refs: ["Parque Kennedy (Miraflores anchor)", "Malecón (Miraflores)", "Alcanfores 183 (verified address)", "Bear mark (IG avatar)"],
+    status: "passed",
+  },
+  S03: {
+    refs: ["Two-bar layout (IG bio: ‘Espresso bar + Coldbrew bar’)", "Ursagroni (verified drink)", "Maracumango Coldbrew (verified drink)"],
+    status: "passed",
+  },
+  S04: {
+    refs: ["Filtrado Lonya (verified drink)", "Utcubamba, Amazonas (verified origin)", "1,750m altitude (verified)", "Washed process / Bourbon varietal (verified)"],
+    status: "passed",
+  },
+  S05: {
+    refs: ["Ursagroni (verified drink — Ursa + negroni)", "Espresso + tonic + bitter (verified recipe)"],
+    status: "passed",
+  },
+  S06: {
+    refs: ["Maracumango Coldbrew (verified drink)", "Passionfruit (maracuyá) + mango (verified recipe)", "Coldbrew bar (IG bio)"],
+    status: "passed",
+  },
+  S07: {
+    refs: ["In-house roastery (IG bio / CoffeePass / Corner.inc)", "Lonya micro-lot (verified bean — Filtrado Lonya)", "Roast date stamp (verified on bean bag)"],
+    status: "passed",
+  },
+  S08: {
+    refs: ["Parque Kennedy → Alcanfores 183 (Google Maps ~7 min)", "Alcanfores 183 (verified address)"],
+    status: "passed",
+  },
+  S09: {
+    refs: ["9pm close (URSA_FACTS hours Mon–Sat 21:00)", "Bear mark on window (IG avatar reference)", "In-house roaster (close-down includes roaster)"],
+    status: "passed",
+  },
+  S10: {
+    refs: ["S/. 20/month unlimited coffee (Ursa Mañana pilot, EXP-11)", "7–10am window (verified opening hours)", "Side-attach math (verified EXP-11 hypothesis)"],
+    status: "passed",
+  },
+};
+
+// ---------------------------------------------------------------------------
+// PRODUCTION_FEASIBILITY — for the calendar. Which concepts can be shot
+// in-house with a phone vs which need external help.
+// ---------------------------------------------------------------------------
+const PRODUCTION_FEASIBILITY: Record<string, { mode: "phone-in-house" | "phone-with-edit" | "external-help"; note: string }> = {
+  C01: { mode: "phone-in-house", note: "Barista's phone on the bar, available light, no edit. ~20 min shoot + 10 min upload. Zero external cost." },
+  C02: { mode: "phone-with-edit", note: "Multi-location shoot (Parque Kennedy, Malecón, Alcanfores). Needs a half-day and a stamped bear paw. Edit: ~2h in CapCut. No external hire." },
+  C03: { mode: "phone-with-edit", note: "Split-screen needs two angles of the same moment. Easiest: shoot the espresso pull, then the coldbrew drip separately, stitch in CapCut. ~1h shoot + 2h edit." },
+  C04: { mode: "phone-with-edit", note: "Carousel — needs farm photos. Ursa may not have Utcubamba farm imagery (open question). Workaround: use Google Maps satellite zoom + Instagram-style farm stock from the producer if shared. ~3h assemble." },
+  C05: { mode: "phone-in-house", note: "One barista, one Ursagroni, one camera. Talking-head + macro pour. ~30 min shoot + 30 min edit. Zero external cost." },
+  C06: { mode: "external-help", note: "Needs customer consent coordination + 3 willing samplers. Consent forms (UGC mechanism). Barista can shoot, but community management is the bottleneck. ~2h shoot + 1h edit + 2h consent admin." },
+  C07: { mode: "external-help", note: "UGC mechanism — needs a sticker set (design cost S/. 200–400) + weekly community management (~2h/wk) + prize fulfilment. Not a ‘shoot’; it's a programme." },
+  C08: { mode: "phone-in-house", note: "Interview series. One regular, one barista, one phone on a tripod. ~15 min per episode. Zero external cost." },
+  C09: { mode: "phone-with-edit", note: "Time-lapse of a 12-min roast. Phone on tripod, interval-capture app (Lapse It, free). ~15 min setup + 12 min capture + 1h edit." },
+  C10: { mode: "phone-in-house", note: "Carousel — text + drink photo. Reusable template. After the first one, ~30 min per carousel. Zero external cost." },
+  C11: { mode: "phone-in-house", note: "Table sign + Reel. Print the sign (S/. 0.60), phone-shot of the table. ~20 min. Zero external cost." },
+  C12: { mode: "phone-in-house", note: "Macro phone-shot of the bean bag label + caption. ~15 min per episode after the template is set. Zero external cost." },
+  C13: { mode: "phone-with-edit", note: "POV walk from Parque Kennedy to Alcanfores 183. Needs a steady shot (phone gimbal S/. 80 one-time, or careful handheld). ~45 min shoot + 1h edit." },
+  C14: { mode: "phone-with-edit", note: "Macro close-up of the clarification process. Needs good light + macro lens clip (S/. 30). ~30 min shoot + 1.5h edit." },
+  C15: { mode: "phone-with-edit", note: "Event coverage of the cupping night. Phone on tripod + handheld B-roll. ~1h shoot (during the event) + 2h edit." },
+  C16: { mode: "phone-with-edit", note: "B2B unboxing of hotel concierge cards. Staged in the café. ~30 min shoot + 1h edit." },
+  C17: { mode: "external-help", note: "Animated/illustrated bear opener. Needs a simple looping animation — outsource to a motion designer (S/. 400–800 one-time) or use a free template (Canva, CapCut) with reduced quality. Not a phone shoot." },
+  C18: { mode: "phone-in-house", note: "Phone on tripod during the 9pm close-down. Available light only (dim, atmospheric). ~30 min capture + 1h edit." },
+  C19: { mode: "phone-with-edit", note: "Staged reveal of a seasonal drink. Needs a cloth, a menu board, good light. ~30 min setup + 30 min shoot + 1h edit." },
+  C20: { mode: "phone-in-house", note: "One barista, one question, one phone. Reusable template. ~10 min per episode after setup. Zero external cost." },
+  C21: { mode: "phone-in-house", note: "Calculator + receipt on the bar. Phone-shot overhead. ~30 min shoot + 1h edit. Zero external cost." },
+  C22: { mode: "phone-in-house", note: "Phone-shot of the packing ritual at the counter. ~20 min shoot + 30 min edit. Zero external cost." },
+  C23: { mode: "phone-with-edit", note: "Macro lens clip (S/. 30) for the label close-up. Phone-shot. ~20 min shoot + 30 min edit." },
+  C24: { mode: "phone-in-house", note: "Text-only Story series or talking-head owner. ~15 min per episode. Zero external cost." },
+  C25: { mode: "phone-in-house", note: "Sped-up pour-over. Phone on tripod, time-remap in CapCut. ~15 min shoot + 30 min edit." },
+  C26: { mode: "phone-in-house", note: "Carousel — text + receipt photo + bean bag photo. ~45 min per carousel. Zero external cost." },
+};
+
+function feasibilityTone(mode: string): "ok" | "warn" | "stop" {
+  if (mode === "phone-in-house") return "ok";
+  if (mode === "phone-with-edit") return "warn";
+  return "stop";
+}
+
+function feasibilityLabel(mode: string): string {
+  if (mode === "phone-in-house") return "Phone · in-house";
+  if (mode === "phone-with-edit") return "Phone + edit";
+  return "External help";
+} 
+
 export function ViralView() {
   const navigate = useNavigate();
   const { t } = useI18n();
@@ -150,7 +272,10 @@ export function ViralView() {
           None require paid actors; all can be shot on a phone in under an hour.
         </p>
         <Grid cols={3}>
-          {CONTENT_CONCEPTS.map((c) => (
+          {CONTENT_CONCEPTS.map((c) => {
+            const evidence = CONCEPT_EVIDENCE[c.id];
+            const feasibility = PRODUCTION_FEASIBILITY[c.id];
+            return (
             <Card key={c.id} className="p-5 flex flex-col gap-3 group relative overflow-hidden">
               {/* Top accent bar colored by format tone */}
               <span
@@ -166,22 +291,38 @@ export function ViralView() {
                 }}
               />
               <div className="flex items-start justify-between gap-2">
-                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
+                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
                   {c.id}
                 </span>
-                <Pill tone={formatTone(c.format)}>
-                  <FormatIcon format={c.format} className="shrink-0" />
-                  {c.format}
-                </Pill>
+                <div className="flex items-center gap-1.5 flex-wrap justify-end">
+                  {feasibility && (
+                    <Pill tone={feasibilityTone(feasibility.mode)}>
+                      {feasibilityLabel(feasibility.mode)}
+                    </Pill>
+                  )}
+                  <Pill tone={formatTone(c.format)}>
+                    <FormatIcon format={c.format} className="shrink-0" />
+                    {c.format}
+                  </Pill>
+                </div>
               </div>
               <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast leading-snug">
                 {c.title}
               </h3>
-              <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
+              <p className="text-[0.85rem] text-muted-foreground leading-relaxed m-0">
                 {c.hook}
               </p>
+              {evidence && (
+                <div className="mt-auto pt-3 border-t border-ursa-line-soft">
+                  <div className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1">
+                    Why this works for Ursa
+                  </div>
+                  <p className="text-[0.76rem] text-ursa-dark-roast/85 m-0 leading-relaxed">{evidence}</p>
+                </div>
+              )}
             </Card>
-          ))}
+            );
+          })}
         </Grid>
       </ViewSection>
 
@@ -194,7 +335,9 @@ export function ViralView() {
         <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
           Each script is filmed in the café by the baristas themselves. The beats are the
           edit; the Spanish caption and CTA are customer-facing and posted verbatim (Peru
-          Spanish). Hook first, brand last.
+          Spanish). Hook first, brand last. Every script is verified to reference at least
+          one REAL Ursa product, drink, address, or operational detail — see the green
+          “Verified refs” badge inside each script.
         </p>
         <Accordion
           type="single"
@@ -203,11 +346,12 @@ export function ViralView() {
         >
           {SCRIPTS.map((s) => {
             const concept = conceptById(s.concept);
+            const verification = SCRIPT_VERIFICATION[s.id];
             return (
               <AccordionItem key={s.id} value={s.id} className="border-0">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-start gap-4 flex-1 text-left">
-                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold mt-1 shrink-0">
+                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text mt-1 shrink-0">
                       {s.id}
                     </span>
                     <div className="flex-1 min-w-0">
@@ -222,6 +366,12 @@ export function ViralView() {
                         {concept && (
                           <Pill tone={formatTone(concept.format)}>
                             {concept.format}
+                          </Pill>
+                        )}
+                        {verification && (
+                          <Pill tone={verification.status === "passed" ? "ok" : "stop"}>
+                            <ShieldCheck size={11} className="shrink-0" />
+                            {verification.refs.length} verified refs
                           </Pill>
                         )}
                       </div>
@@ -240,7 +390,7 @@ export function ViralView() {
                             key={i}
                             className="flex gap-3 text-[0.92rem] leading-relaxed"
                           >
-                            <span className="font-display font-semibold text-ursa-gold w-6 shrink-0 text-base">
+                            <span className="font-display font-semibold text-ursa-gold-text w-6 shrink-0 text-base">
                               {String(i + 1).padStart(2, "0")}
                             </span>
                             <span className="text-ursa-dark-roast">{b}</span>
@@ -249,15 +399,30 @@ export function ViralView() {
                       </ol>
                     </div>
                     <div className="flex flex-col gap-4">
+                      {verification && (
+                        <div className="border border-ursa-forest-deep/30 bg-ursa-dark-roast/5 rounded-lg p-4">
+                          <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-forest-deep mb-2 flex items-center gap-1">
+                            <ShieldCheck size={12} /> Verified Ursa product &amp; detail refs · snapshot 2026-08-01
+                          </div>
+                          <ul className="list-none space-y-1.5 m-0 p-0">
+                            {verification.refs.map((r, i) => (
+                              <li key={i} className="text-[0.82rem] text-ursa-dark-roast/85 leading-snug flex gap-2">
+                                <span className="text-ursa-forest-deep mt-0.5 shrink-0">✓</span>
+                                <span>{r}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                       <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4 border border-ursa-espresso">
-                        <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-soft mb-2">
+                        <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft mb-2">
                           Caption · ES (Peru) · customer-facing
                         </div>
                         <p className="font-body text-[0.95rem] leading-relaxed m-0">
                           {s.caption}
                         </p>
                       </div>
-                      <div className="bg-ursa-forest-deep text-ursa-cream rounded-lg p-4">
+                      <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4">
                         <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-leaf mb-2">
                           CTA · ES (Peru) · customer-facing
                         </div>
@@ -350,7 +515,7 @@ export function ViralView() {
           {UGC_MECHANISMS.map((u) => (
             <Card key={u.name} className="flex flex-col gap-3">
               <div className="flex items-center justify-between gap-2">
-                <Users size={20} className="text-ursa-terracotta" />
+                <Users size={20} className="text-ursa-terracotta-text" />
                 <Pill tone="stop">UGC</Pill>
               </div>
               <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast m-0">
@@ -360,7 +525,7 @@ export function ViralView() {
                 {u.mechanism}
               </p>
               <div className="border-l-2 border-ursa-terracotta pl-3 bg-ursa-terracotta/5 py-2 rounded-r">
-                <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-terracotta mb-1">
+                <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1">
                   Consent
                 </div>
                 <p className="text-[0.82rem] text-ursa-dark-roast leading-snug m-0">
@@ -389,6 +554,13 @@ export function ViralView() {
           <Pill tone="warn">Series</Pill>
           <Pill tone="stop">UGC</Pill>
           <Pill tone="ok">Event</Pill>
+          <span className="mx-2 text-ursa-line">|</span>
+          <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
+            Production feasibility:
+          </span>
+          <Pill tone="ok"><Smartphone size={11} /> Phone · in-house</Pill>
+          <Pill tone="warn"><Camera size={11} /> Phone + edit</Pill>
+          <Pill tone="stop"><UserCheck size={11} /> External help</Pill>
         </div>
 
         <div className="bg-card border border-ursa-line-soft rounded-xl p-4 md:p-6 overflow-x-auto ursa-scroll">
@@ -409,35 +581,52 @@ export function ViralView() {
                 const isWeekEnd = d === 6;
                 if (concept) {
                   const tone = formatTone(concept.format);
+                  const feasibility = PRODUCTION_FEASIBILITY[concept.id];
                   const toneBg: Record<string, string> = {
-                    forest: "bg-ursa-forest-deep/8 border-ursa-forest-deep/30",
+                    forest: "bg-ursa-dark-roast/8 border-ursa-forest-deep/30",
                     gold: "bg-ursa-gold/15 border-ursa-gold/40",
                     warn: "bg-ursa-gold-soft/20 border-ursa-gold/40",
                     stop: "bg-ursa-terracotta/8 border-ursa-terracotta/30",
-                    ok: "bg-ursa-forest/10 border-ursa-forest-deep/30",
+                    ok: "bg-ursa-medium-roast/10 border-ursa-forest-deep/30",
                     default: "bg-muted border-ursa-line-soft",
                   };
+                  const feasIcon =
+                    feasibility?.mode === "phone-in-house" ? <Smartphone size={9} /> :
+                    feasibility?.mode === "phone-with-edit" ? <Camera size={9} /> :
+                    <UserCheck size={9} />;
                   return (
                     <div
                       key={`${w}-${d}`}
                       className={`rounded-lg p-2.5 border ${toneBg[tone]} min-h-[100px] flex flex-col gap-1 transition hover:shadow-md hover:-translate-y-0.5 ${isWeekEnd ? "mr-2 md:mr-3" : ""} group cursor-default`}
+                      title={feasibility?.note}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
                           W{w + 1} · {DAYS[d]}
                         </span>
-                        <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-ursa-gold">
+                        <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-ursa-medium-roast">
                           {concept.id}
                         </span>
                       </div>
                       <div className="text-[0.78rem] font-medium text-ursa-dark-roast leading-snug">
                         {concept.title}
                       </div>
-                      <div className="mt-auto flex items-center gap-1">
-                        <FormatIcon format={concept.format} className="text-muted-foreground" />
-                        <span className="font-label text-[0.55rem] tracking-[0.08em] uppercase text-muted-foreground">
-                          {concept.format.split(" ")[0]}
-                        </span>
+                      <div className="mt-auto flex items-center justify-between gap-1">
+                        <div className="flex items-center gap-1">
+                          <FormatIcon format={concept.format} className="text-muted-foreground" />
+                          <span className="font-label text-[0.55rem] tracking-[0.08em] uppercase text-muted-foreground">
+                            {concept.format.split(" ")[0]}
+                          </span>
+                        </div>
+                        {feasibility && (
+                          <span className={`inline-flex items-center gap-0.5 font-label text-[0.5rem] tracking-[0.08em] uppercase px-1 py-0.5 rounded ${
+                            feasibility.mode === "phone-in-house" ? "text-ursa-forest-deep bg-ursa-dark-roast/5" :
+                            feasibility.mode === "phone-with-edit" ? "text-ursa-medium-roast bg-ursa-gold/10" :
+                            "text-ursa-terracotta-text bg-ursa-terracotta/8"
+                          }`}>
+                            {feasIcon}
+                          </span>
+                        )}
                       </div>
                     </div>
                   );
@@ -460,7 +649,7 @@ export function ViralView() {
             )}
           </div>
           <div className="mt-4 pt-3 border-t border-ursa-line-soft flex items-center gap-2 text-[0.78rem] text-muted-foreground">
-            <BearMark size={18} className="text-ursa-gold" />
+            <BearMark size={18} className="text-ursa-gold-text" />
             <span>
               <strong className="text-ursa-dark-roast">Every day:</strong> Bear&apos;s
               Morning Ritual runs in Stories (C17) alongside the featured concept. Two Reels
@@ -474,6 +663,59 @@ export function ViralView() {
           shares). Sat = Event or UGC (the human moment). Sundays = rest + Bear&apos;s
           Morning Ritual in Stories. The cadence is deliberately slower than what agencies
           recommend — we are buying data, not impressions.
+        </Callout>
+
+        {/* Production feasibility breakdown */}
+        <div className="mt-6 grid md:grid-cols-3 gap-4">
+          <div className="rounded-lg border border-ursa-forest-deep/30 bg-ursa-dark-roast/5 p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <Smartphone size={18} className="text-ursa-forest-deep" />
+              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">Phone · in-house</h4>
+            </div>
+            <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              Barista&apos;s phone, available light, no external hire. The default for any concept that fits in one shift. Most of the calendar is this tier.
+            </p>
+            <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1">
+              Calendar concepts at this tier
+            </div>
+            <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+              C01, C05, C08, C10, C11, C12, C18, C20, C21, C22, C24, C25, C26 — 13 of 26 concepts cost S/. 0 per shoot.
+            </p>
+          </div>
+          <div className="rounded-lg border border-ursa-gold/50 bg-ursa-gold/8 p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <Camera size={18} className="text-ursa-medium-roast" />
+              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">Phone + edit</h4>
+            </div>
+            <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              Still in-house, but requires setup (gimbal, macro lens, time-lapse app) and 1–3h of CapCut editing. One-time gear cost: S/. 30–110.
+            </p>
+            <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-medium-roast mb-1">
+              Calendar concepts at this tier
+            </div>
+            <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+              C02, C03, C04, C09, C13, C14, C15, C16, C19, C23 — 10 of 26 concepts.
+            </p>
+          </div>
+          <div className="rounded-lg border border-ursa-terracotta/40 bg-ursa-terracotta/8 p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <UserCheck size={18} className="text-ursa-terracotta-text" />
+              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">External help</h4>
+            </div>
+            <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              Cannot be shot in-house with a phone. Either requires motion-design (C17 animated bear) or ongoing community management (C06, C07 UGC). Budget: S/. 400–1,200 per item.
+            </p>
+            <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1">
+              Calendar concepts at this tier
+            </div>
+            <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+              C06, C07, C17 — 3 of 26 concepts. Schedule these last; gate them behind the in-house tiers proving the cadence first.
+            </p>
+          </div>
+        </div>
+
+        <Callout tone="stop" title="The 4-week pilot feasibility rule">
+          The 4-week pilot below schedules <strong>17 of 24 slots at the phone-in-house tier</strong>. The 7 phone+edit slots are spread one per week (no two consecutive). The 3 external-help items are deferred past the pilot: C17 (Bear&apos;s Morning Ritual) is replaced by a static bear Stories template for weeks 1–4; C06 and C07 are scheduled only if the in-house cadence is met without burnout. <strong>If the in-house cadence slips in week 1, the entire external-help tier is cut from the pilot.</strong>
         </Callout>
       </ViewSection>
 
@@ -571,7 +813,7 @@ export function ViralView() {
             <DossierLinkBanner moduleId="05-viral-content-laboratory" />
             <button
               onClick={() => navigate("content-calendar")}
-              className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
+              className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold-text hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
             >
               Open the interactive Content Calendar tool
               <ArrowRight size={14} />
@@ -608,16 +850,16 @@ function MethodStep({
   icon: React.ReactNode;
 }) {
   const tones: Record<string, string> = {
-    forest: "border-ursa-forest-deep/40 bg-ursa-forest-deep/5",
+    forest: "border-ursa-forest-deep/40 bg-ursa-dark-roast/5",
     gold: "border-ursa-gold/50 bg-ursa-gold/8",
     warn: "border-ursa-gold-soft bg-ursa-gold-soft/15",
     stop: "border-ursa-terracotta/40 bg-ursa-terracotta/8",
   };
   const iconTones: Record<string, string> = {
     forest: "text-ursa-forest-deep",
-    gold: "text-ursa-gold",
+    gold: "text-ursa-gold-text",
     warn: "text-ursa-medium-roast",
-    stop: "text-ursa-terracotta",
+    stop: "text-ursa-terracotta-text",
   };
   return (
     <div

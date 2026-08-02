@@ -94,10 +94,10 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-const PILLAR_META: Record<Pillar, { label: string; icon: typeof BearLucide; color: string; desc: string }> = {
-  bear: { label: "Bear", icon: BearLucide, color: "var(--color-ursa-dark-roast)", desc: "The mascot, the paw, the character" },
-  gram: { label: "Gram", icon: Scale, color: "var(--color-ursa-gold)", desc: "'Un gramo a la vez' — the weighing ritual" },
-  green: { label: "Green", icon: Coffee, color: "var(--color-ursa-forest-deep)", desc: "Palette, Art Nouveau, roastery craft" },
+const PILLAR_META: Record<Pillar, { label: string; icon: typeof BearLucide; color: string; textColor: string; desc: string }> = {
+  bear: { label: "Bear", icon: BearLucide, color: "var(--color-ursa-dark-roast)", textColor: "var(--color-ursa-dark-roast)", desc: "The mascot, the paw, the character" },
+  gram: { label: "Gram", icon: Scale, color: "var(--color-ursa-gold)", textColor: "var(--color-ursa-gold-text)", desc: "'Un gramo a la vez' — the weighing ritual" },
+  green: { label: "Green", icon: Coffee, color: "var(--color-ursa-forest-deep)", textColor: "var(--color-ursa-forest-deep)", desc: "Palette, Art Nouveau, roastery craft" },
 };
 
 export function SpiritCheckerView() {
@@ -192,7 +192,7 @@ export function SpiritCheckerView() {
           <div className="space-y-5">
             {/* Tactic input */}
             <Card>
-              <label className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-gold block mb-2">
+              <label className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-gold-text block mb-2">
                 Tactic to check
               </label>
               <input
@@ -212,7 +212,7 @@ export function SpiritCheckerView() {
             <Card>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0 flex items-center gap-2">
-                  <Shield size={18} className="text-ursa-gold" /> The {QUESTIONS.length} questions
+                  <Shield size={18} className="text-ursa-gold-text" /> The {QUESTIONS.length} questions
                 </h3>
                 <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">
                   {answeredCount}/{QUESTIONS.length} answered
@@ -234,14 +234,14 @@ export function SpiritCheckerView() {
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase" style={{ color: meta.color }}>{meta.label}</span>
+                            <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase" style={{ color: meta.textColor }}>{meta.label}</span>
                             <span className="font-label text-[0.56rem] tracking-[0.1em] uppercase text-muted-foreground">· weight {q.weight}</span>
                           </div>
                           <p className="font-display text-[0.95rem] font-semibold text-ursa-dark-roast m-0 leading-snug">
                             {i + 1}. {q.question}
                           </p>
                           <p className="text-[0.76rem] text-muted-foreground m-0 mt-1 leading-relaxed flex items-start gap-1">
-                            <Info size={11} className="mt-0.5 shrink-0 text-ursa-gold/60" /> {q.help}
+                            <Info size={11} className="mt-0.5 shrink-0 text-ursa-gold-text/60" /> {q.help}
                           </p>
                         </div>
                       </div>
@@ -253,9 +253,9 @@ export function SpiritCheckerView() {
                             ? (opt === "no" ? "ok" : opt === "yes" ? "stop" : "warn")
                             : (opt === "yes" ? "ok" : opt === "no" ? "stop" : "warn");
                           const toneCls = {
-                            ok: isActive ? "bg-ursa-forest-deep text-ursa-cream border-ursa-forest-deep" : "text-ursa-forest-deep border-ursa-forest-deep/30 hover:bg-ursa-forest-deep/10",
-                            stop: isActive ? "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta" : "text-ursa-terracotta border-ursa-terracotta/30 hover:bg-ursa-terracotta/10",
-                            warn: isActive ? "bg-ursa-gold text-ursa-dark-roast border-ursa-gold" : "text-ursa-gold border-ursa-gold/30 hover:bg-ursa-gold/10",
+                            ok: isActive ? "bg-ursa-dark-roast text-ursa-cream border-ursa-forest-deep" : "text-ursa-forest-deep border-ursa-forest-deep/30 hover:bg-ursa-dark-roast/10",
+                            stop: isActive ? "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta" : "text-ursa-terracotta-text border-ursa-terracotta/30 hover:bg-ursa-terracotta/10",
+                            warn: isActive ? "bg-ursa-gold text-ursa-dark-roast border-ursa-gold" : "text-ursa-gold-text border-ursa-gold/30 hover:bg-ursa-gold/10",
                           }[tone];
                           return (
                             <button
@@ -287,7 +287,7 @@ export function SpiritCheckerView() {
                 </button>
                 <button
                   onClick={() => { setAnswers({}); setSubmitted(false); }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-label text-[0.72rem] tracking-[0.1em] uppercase text-muted-foreground hover:text-ursa-terracotta transition"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-label text-[0.72rem] tracking-[0.1em] uppercase text-muted-foreground hover:text-ursa-terracotta-text transition"
                 >
                   <RotateCcw size={13} /> Clear answers
                 </button>
@@ -363,18 +363,18 @@ export function SpiritCheckerView() {
 
             {/* Example verdicts */}
             <Card className="bg-ursa-foam">
-              <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold m-0 mb-3">Verdict scale</h4>
+              <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-3">Verdict scale</h4>
               <ul className="space-y-2 m-0 p-0 list-none text-[0.82rem]">
                 <li className="flex items-start gap-2">
                   <Check size={14} className="text-ursa-forest-deep mt-0.5 shrink-0" />
                   <span><strong className="text-ursa-dark-roast">≥ 70% per pillar</strong> — spirit preserved, may ship.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <AlertTriangle size={14} className="text-ursa-gold mt-0.5 shrink-0" />
+                  <AlertTriangle size={14} className="text-ursa-gold-text mt-0.5 shrink-0" />
                   <span><strong className="text-ursa-dark-roast">50–69%</strong> — conditional; revise the weak pillar.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <X size={14} className="text-ursa-terracotta mt-0.5 shrink-0" />
+                  <X size={14} className="text-ursa-terracotta-text mt-0.5 shrink-0" />
                   <span><strong className="text-ursa-dark-roast">&lt; 50%</strong> — at risk; do not ship as-is.</span>
                 </li>
               </ul>

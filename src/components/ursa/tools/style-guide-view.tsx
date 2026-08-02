@@ -207,7 +207,7 @@ export function StyleGuideView() {
             <Card key={f.name} className="flex flex-col">
               <div className="flex items-center justify-between mb-3">
                 <Pill tone="forest">{f.role.split(" · ")[0]}</Pill>
-                <Type size={16} className="text-ursa-gold" />
+                <Type size={16} className="text-ursa-gold-text" />
               </div>
               <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-3">
                 {f.name}
@@ -296,7 +296,7 @@ export function StyleGuideView() {
           {/* Pills — all tones */}
           <Card>
             <div className="flex items-center gap-2 mb-3">
-              <Component size={16} className="text-ursa-gold" />
+              <Component size={16} className="text-ursa-gold-text" />
               <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">Pill · all tones</h4>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -316,7 +316,7 @@ export function StyleGuideView() {
           {/* EvidenceTags — all statuses */}
           <Card>
             <div className="flex items-center gap-2 mb-3">
-              <Component size={16} className="text-ursa-gold" />
+              <Component size={16} className="text-ursa-gold-text" />
               <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">EvidenceTag · all statuses</h4>
             </div>
             <div className="flex flex-wrap gap-3 items-center">
@@ -334,7 +334,7 @@ export function StyleGuideView() {
           {/* Callouts — all tones */}
           <Card>
             <div className="flex items-center gap-2 mb-2">
-              <Component size={16} className="text-ursa-gold" />
+              <Component size={16} className="text-ursa-gold-text" />
               <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">Callout · all tones</h4>
             </div>
             <Callout tone="gold" title="Gold · emphasis">
@@ -392,7 +392,7 @@ export function StyleGuideView() {
           {/* BearMark + Divider + CupGlyph */}
           <Card>
             <div className="flex items-center gap-2 mb-4">
-              <Component size={16} className="text-ursa-gold" />
+              <Component size={16} className="text-ursa-gold-text" />
               <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">BearMark · ArtNouveauDivider · CupGlyph</h4>
             </div>
             <div className="flex flex-wrap items-center gap-6 mb-2">
@@ -414,8 +414,8 @@ export function StyleGuideView() {
               </div>
               <div className="h-12 w-px bg-ursa-line-soft" />
               <CupGlyph size={32} className="text-ursa-forest-deep" />
-              <CupGlyph size={40} className="text-ursa-gold" />
-              <CupGlyph size={48} className="text-ursa-terracotta" />
+              <CupGlyph size={40} className="text-ursa-gold-text" />
+              <CupGlyph size={48} className="text-ursa-terracotta-text" />
             </div>
             <ArtNouveauDivider />
             <p className="text-[0.8rem] text-muted-foreground m-0 text-center">
@@ -434,14 +434,14 @@ export function StyleGuideView() {
         <Grid cols={2}>
           <Card>
             <div className="flex items-center gap-2 mb-4">
-              <Ruler size={16} className="text-ursa-gold" />
+              <Ruler size={16} className="text-ursa-gold-text" />
               <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">Radius</h4>
             </div>
             <ul className="space-y-3 m-0 p-0 list-none">
               {RADIUS_TOKENS.map((r) => (
                 <li key={r.token} className="flex items-center gap-3">
                   <span
-                    className={`${r.token} bg-ursa-forest-deep h-10 w-10 shrink-0 inline-block`}
+                    className={`${r.token} bg-ursa-dark-roast h-10 w-10 shrink-0 inline-block`}
                     aria-hidden="true"
                   />
                   <div className="flex-1 min-w-0">
@@ -459,7 +459,7 @@ export function StyleGuideView() {
           </Card>
           <Card>
             <div className="flex items-center gap-2 mb-4">
-              <Ruler size={16} className="text-ursa-gold" />
+              <Ruler size={16} className="text-ursa-gold-text" />
               <h4 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0">Spacing</h4>
             </div>
             <ul className="space-y-3 m-0 p-0 list-none">
@@ -530,11 +530,11 @@ export function StyleGuideView() {
             </div>
             <div className="flex flex-wrap items-end gap-6">
               <div className="flex flex-col items-center gap-1.5">
-                <BearMark size={24} className="text-ursa-gold" />
+                <BearMark size={24} className="text-ursa-gold-text" />
                 <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-ursa-cream/70">24 · gold</span>
               </div>
               <div className="flex flex-col items-center gap-1.5">
-                <BearMark size={32} className="text-ursa-gold" />
+                <BearMark size={32} className="text-ursa-gold-text" />
                 <span className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-ursa-cream/70">32 · gold</span>
               </div>
               <div className="flex flex-col items-center gap-1.5">
@@ -580,13 +580,13 @@ export function StyleGuideView() {
           </Card>
           <Card className="border-ursa-terracotta/30">
             <div className="flex items-center gap-2 mb-4">
-              <XCircle size={18} className="text-ursa-terracotta" />
+              <XCircle size={18} className="text-ursa-terracotta-text" />
               <h4 className="font-display text-[1.15rem] font-semibold text-ursa-dark-roast m-0">Don't</h4>
             </div>
             <ul className="space-y-2.5 m-0 p-0 list-none">
               {DOS_DONTS.filter((d) => d.kind === "dont").map((d, i) => (
                 <li key={i} className="text-[0.88rem] text-ursa-dark-roast/85 leading-relaxed flex gap-2">
-                  <XCircle size={14} className="text-ursa-terracotta mt-0.5 shrink-0" />
+                  <XCircle size={14} className="text-ursa-terracotta-text mt-0.5 shrink-0" />
                   <span>{d.text}</span>
                 </li>
               ))}
@@ -613,7 +613,7 @@ export function StyleGuideView() {
             <DossierLinkBanner moduleId="01-brand-audit-and-design-system" />
             <button
               onClick={() => navigate("brand")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
             >
               <SwatchBook size={14} /> Open Module 01 <ArrowRight size={14} />
             </button>
@@ -630,8 +630,8 @@ export function StyleGuideView() {
         </div>
 
         <div className="mt-6 flex items-center gap-3 text-muted-foreground">
-          <Palette size={14} className="text-ursa-gold" />
-          <Sparkles size={14} className="text-ursa-gold" />
+          <Palette size={14} className="text-ursa-gold-text" />
+          <Sparkles size={14} className="text-ursa-gold-text" />
           <span className="font-label text-[0.7rem] tracking-[0.14em] uppercase">
             Verified · snapshot 2026-08-01 · Ursa Coffee Roasters, Miraflores
           </span>

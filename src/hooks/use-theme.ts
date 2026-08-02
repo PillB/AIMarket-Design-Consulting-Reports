@@ -80,5 +80,8 @@ export function useTheme() {
     window.dispatchEvent(new Event("ursa-theme-change"));
   }, []);
 
+  // mounted: true on client (useSyncExternalStore already handles the
+  // server/client difference; ThemeToggle uses a stable placeholder
+  // when the snapshot is the server default "light")
   return { theme, toggle, mounted: true };
 }

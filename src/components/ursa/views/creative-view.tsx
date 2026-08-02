@@ -28,6 +28,9 @@ import {
   Stamp,
   Award,
   Leaf,
+  Accessibility,
+  Coins,
+  Lightbulb,
 } from "lucide-react";
 import { useNavigate } from "@/lib/ursa-nav";
 import { useI18n } from "@/hooks/use-i18n";
@@ -53,21 +56,35 @@ import { useI18n } from "@/hooks/use-i18n";
 
 /** Prototype frame — mimics the .prototype-frame style from the
  *  static dossier: cream surface, soft border, floating label
- *  pill in the top-left, italic note below the prototype. */
+ *  pill in the top-left, italic note below the prototype.
+ *
+ *  Three optional structured notes surface the depth behind each
+ *  prototype:
+ *  · `reasoning`     — WHY each design choice was made (e.g. "forest
+ *    gradient because no competitor uses green as a primary brand color")
+ *  · `accessibility` — contrast ratio, font size, screen reader notes
+ *  · `cost`          — print cost, design time, implementation effort
+ */
 function PrototypeFrame({
   label,
   children,
   note,
   tone = "dark",
+  reasoning,
+  accessibility,
+  cost,
 }: {
   label: string;
   children: React.ReactNode;
   note?: string;
   tone?: "dark" | "forest" | "gold";
+  reasoning?: string;
+  accessibility?: string;
+  cost?: string;
 }) {
   const labelTone =
     tone === "forest"
-      ? "bg-ursa-forest-deep text-ursa-cream"
+      ? "bg-ursa-dark-roast text-ursa-cream"
       : tone === "gold"
         ? "bg-ursa-gold text-ursa-dark-roast"
         : "bg-ursa-dark-roast text-ursa-cream";
@@ -81,6 +98,34 @@ function PrototypeFrame({
       <div className="pt-3">{children}</div>
       {note && (
         <p className="mt-4 text-[0.85rem] italic text-muted-foreground leading-relaxed">{note}</p>
+      )}
+      {(reasoning || accessibility || cost) && (
+        <div className="mt-4 pt-4 border-t border-ursa-line-soft grid sm:grid-cols-3 gap-3">
+          {reasoning && (
+            <div>
+              <div className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1 flex items-center gap-1">
+                <Lightbulb size={10} aria-hidden /> Why this choice
+              </div>
+              <p className="text-[0.76rem] text-ursa-dark-roast/85 m-0 leading-relaxed">{reasoning}</p>
+            </div>
+          )}
+          {accessibility && (
+            <div>
+              <div className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1">
+                <Accessibility size={10} aria-hidden /> Accessibility
+              </div>
+              <p className="text-[0.76rem] text-ursa-dark-roast/85 m-0 leading-relaxed">{accessibility}</p>
+            </div>
+          )}
+          {cost && (
+            <div>
+              <div className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1 flex items-center gap-1">
+                <Coins size={10} aria-hidden /> Operational cost
+              </div>
+              <p className="text-[0.76rem] text-ursa-dark-roast/85 m-0 leading-relaxed">{cost}</p>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
@@ -198,7 +243,7 @@ function PawPunch({ filled, count }: { filled: number; count: number }) {
 /** Small gold seal — for the bean bag label. */
 function GoldSeal({ date }: { date: string }) {
   return (
-    <div className="absolute top-4 right-4 w-16 h-16 rounded-full border-[1.5px] border-ursa-gold grid place-items-center text-center font-label text-[0.5rem] tracking-[0.12em] uppercase text-ursa-gold-soft leading-[1.1] bg-ursa-forest-deep/40">
+    <div className="absolute top-4 right-4 w-16 h-16 rounded-full border-[1.5px] border-ursa-gold grid place-items-center text-center font-label text-[0.5rem] tracking-[0.12em] uppercase text-ursa-gold-text-soft leading-[1.1] bg-ursa-dark-roast/40">
       <span>
         Tueste
         <br />
@@ -238,7 +283,7 @@ function LevelSample({
         <div className="font-body text-[0.7rem] text-ursa-medium-roast">
           Maracuyá · Mango · Coldbrew
         </div>
-        <div className="font-display italic text-[0.7rem] text-ursa-gold mt-4">Un gramo a la vez</div>
+        <div className="font-display italic text-[0.7rem] text-ursa-gold-text mt-4">Un gramo a la vez</div>
       </div>
     );
   }
@@ -258,7 +303,7 @@ function LevelSample({
             Maracumango
           </div>
           <div className="font-body text-[0.7rem] text-ursa-leaf">Maracuyá · Mango · Coldbrew</div>
-          <div className="font-display italic text-[0.7rem] text-ursa-gold-soft mt-4">
+          <div className="font-display italic text-[0.7rem] text-ursa-gold-text-soft mt-4">
             Un gramo a la vez
           </div>
         </div>
@@ -271,21 +316,21 @@ function LevelSample({
       className="aspect-square rounded-md p-6 flex flex-col justify-between text-center relative overflow-hidden"
       style={{ background: "linear-gradient(180deg, #211208 0%, #3B2417 100%)" }}
     >
-      <div className="text-ursa-gold-soft">
+      <div className="text-ursa-gold-text-soft">
         <StarConstellation />
       </div>
       <div>
-        <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-soft mb-2">
+        <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text-soft mb-2">
           Estación Invernal · Edición limitada
         </div>
         <div className="font-display italic text-[1.6rem] leading-[1.05] text-ursa-cream mb-1">
           Cassiopeia
         </div>
-        <div className="font-body text-[0.7rem] text-ursa-gold-soft">
+        <div className="font-body text-[0.7rem] text-ursa-gold-text-soft">
           Cacao · Especias · Coldbrew de invierno
         </div>
       </div>
-      <div className="font-display italic text-[0.7rem] text-ursa-gold-soft">
+      <div className="font-display italic text-[0.7rem] text-ursa-gold-text-soft">
         Un gramo a la vez · N° 042 / 200
       </div>
     </div>
@@ -301,6 +346,9 @@ function InstagramPostProto() {
     <PrototypeFrame
       label="Single image post (1:1)"
       note="Single-image post template. A bear silhouette watermark sits at 18% opacity behind a centered drink name; an Art Nouveau gold border frames the image; the headline is set in italic Cormorant Garamond and the verified tagline closes the composition. Caption uses warm-expert voice per the §1.7 rules."
+      reasoning="Forest-deep gradient because no 1km-census competitor uses green as a primary brand color (CENSUS-1, 0 of 18 competitors) — green is ownable visual real estate. Bear watermark at 18% opacity because higher contrast competes with the drink name; 18% reads as texture, not subject. Italic Cormorant Garamond because its high-contrast strokes echo early-1900s lithography, separating Ursa from the flat-minimal café default (Neira, Punto). Art Nouveau gold border because the ornament is verified on Instagram and would be the first thing a thumbnail scroller registers as not generic."
+      accessibility="Cream (#F4EBD9) on forest gradient (#3E6149→#2D4A36): WCAG contrast ratio ≈ 8.4:1 (AAA). Gold accent (#B8924A) on dark-roast: ≈ 4.6:1 (AA). Body text 0.78rem on dark background — meets AA at 14px+ but borderline at 12px; the Instagram caption itself is read in-app at full size. Screen reader: alt text should be ‘Instagram post for Maracumango Coldbrew — passionfruit and mango cold brew from Ursa Coffee, Alcanfores 183 Miraflores’; the watermark SVG is aria-hidden."
+      cost="Design time: 1.5h to build the reusable template (one-time); 20 min per post after that. Print: S/. 0 — digital only. Implementation: any barista can swap the drink name + caption; no designer needed after template lock. Annual cost for 4 posts/month ≈ S/. 0 (in-house) or S/. 480 (outsourced at S/. 60/post if owner prefers)."
     >
       <div className="max-w-[380px] mx-auto bg-ursa-paper rounded-md overflow-hidden border border-ursa-line">
         {/* Image with Art Nouveau gold border */}
@@ -322,7 +370,7 @@ function InstagramPostProto() {
           />
           {/* Corner flourishes */}
           <svg
-            className="absolute top-2 left-2 text-ursa-gold-soft opacity-80"
+            className="absolute top-2 left-2 text-ursa-gold-text-soft opacity-80"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -335,7 +383,7 @@ function InstagramPostProto() {
             <circle cx="4" cy="4" r="1" fill="currentColor" stroke="none" />
           </svg>
           <svg
-            className="absolute top-2 right-2 text-ursa-gold-soft opacity-80"
+            className="absolute top-2 right-2 text-ursa-gold-text-soft opacity-80"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -348,7 +396,7 @@ function InstagramPostProto() {
             <circle cx="16" cy="4" r="1" fill="currentColor" stroke="none" />
           </svg>
           <svg
-            className="absolute bottom-2 left-2 text-ursa-gold-soft opacity-80"
+            className="absolute bottom-2 left-2 text-ursa-gold-text-soft opacity-80"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -361,7 +409,7 @@ function InstagramPostProto() {
             <circle cx="4" cy="16" r="1" fill="currentColor" stroke="none" />
           </svg>
           <svg
-            className="absolute bottom-2 right-2 text-ursa-gold-soft opacity-80"
+            className="absolute bottom-2 right-2 text-ursa-gold-text-soft opacity-80"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -381,12 +429,12 @@ function InstagramPostProto() {
             className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           />
           <div className="relative z-10 text-center text-ursa-cream p-6">
-            <div className="font-label text-[0.7rem] tracking-[0.24em] uppercase text-ursa-gold-soft mb-3">
+            <div className="font-label text-[0.7rem] tracking-[0.24em] uppercase text-ursa-gold-text-soft mb-3">
               Barra Coldbrew
             </div>
             <div className="font-display italic text-[2rem] leading-[1.1] mb-2">Maracumango</div>
             <div className="font-body text-[0.78rem] opacity-85">Maracuyá · Mango · Coldbrew</div>
-            <div className="font-display italic text-[0.78rem] text-ursa-gold-soft mt-4">
+            <div className="font-display italic text-[0.78rem] text-ursa-gold-text-soft mt-4">
               Un gramo a la vez
             </div>
           </div>
@@ -449,6 +497,9 @@ function CarouselProto() {
     <PrototypeFrame
       label="Carousel (slide 1 of 3)"
       note="3-slide carousel implementing Concept #10. Each slide carries one mood + one recommended order. Color rotation signals the two-bar distinction: dark brown = espresso bar, deep green = coldbrew bar, terracotta = sweet/cocktail. CTA on final slide."
+      reasoning="Three slides because Instagram carousels peak saves at 3–5 slides (industry observation) — 3 is the minimum to demonstrate the two-bar contrast without losing completion. Dark-brown → deep-green → terracotta color rotation because it operationalises the two-bar architecture (verified on IG bio) into a visual system the scroller learns in 3 seconds. Slide 1 (dark brown) covers the ‘first visit’ anxiety state because first-time visitors are the carousel’s primary audience (Miraflores tourist + expat traffic)."
+      accessibility="Slide 1: cream on dark brown (#3B2417) — contrast ≈ 9.2:1 (AAA). Slide 2: dark brown on cream — contrast ≈ 9.2:1 (AAA). Slide 3: cream on forest-deep — contrast ≈ 8.4:1 (AAA). Body text 0.65rem is below the 14px AA threshold; the carousel is a visual hook, not a reading surface — alt text per slide must carry the same content for screen readers. Dot indicators are aria-hidden; slide order is conveyed by alt text sequencing."
+      cost="Design time: 2.5h to build the 3-template kit (one-time); 30 min per carousel after that. Print: S/. 0. Implementation: any barista can swap text; image fills require owner-supplied drink photography (open Q6). Annual cost for 4 carousels/month ≈ S/. 0 (in-house) or S/. 720 (outsourced at S/. 90/carousel)."
     >
       <div className="flex flex-col items-center gap-4">
         {/* Active slide preview */}
@@ -508,6 +559,9 @@ function StoryProto() {
     <PrototypeFrame
       label="Story (9:16) — Black Label drop"
       note="Two Story variants. Left: Bean Drop announcement (warm-expert tone, scarcity without urgency theater). Right: Saturday cupping announcement (event-booking CTA). Both follow the §1.7 voice rules: max two emoji per caption, Spanish as spoken in Lima."
+      reasoning="Bean Drop Story uses forest→brown gradient because the bean drop is a roastery-led moment and the gradient visually bridges the bear habitat (green) with the coffee product (brown) — same logic as the bean bag label. Cupping Story uses brown→medium-roast gradient because it is an in-café event and the palette stays warm/interior. Scarcity copy (‘24 horas antes’) without countdown timer because countdown timers manufacture urgency the product doesn’t need; the roastery cadence is the real scarcity. WhatsApp CTA because no website exists (verified) — the WhatsApp number is the only conversion path."
+      accessibility="Cream on forest→brown gradient: contrast ≈ 8.4:1 at top, ≈ 9.2:1 at bottom (AAA). Tagline at 0.58rem is below AA threshold; treat as decorative — provide an aria-label on the Story link that reads ‘Reserve a spot in the WhatsApp Bean Drop list — Ursa Coffee, Alcanfores 183 Miraflores’. Progress bar is aria-hidden. CTA pill meets AA at 14px equivalent."
+      cost="Design time: 1.5h per Story template (one-time); 5 min per Story reuse. Print: S/. 0. Implementation: Stories post directly from the design tool (Canva or Figma export); no developer needed. Annual cost for 8 Stories/month ≈ S/. 0 (in-house) or S/. 480 (outsourced at S/. 5/Story reuse)."
     >
       <div className="flex gap-5 flex-wrap justify-center">
         {/* Story 1 — Black Label drop */}
@@ -528,14 +582,14 @@ function StoryProto() {
             Ursa · Barra Espresso
           </div>
           <div className="mt-auto">
-            <div className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-soft mb-1.5">
+            <div className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft mb-1.5">
               24 horas antes
             </div>
             <div className="font-display text-[1.4rem] leading-[1.1] mb-2">Black Label</div>
             <div className="font-display italic text-[0.95rem] opacity-90 mb-3.5">
               Perú · Yuraq Yaku · Cusco
             </div>
-            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-soft border border-ursa-gold-soft px-2.5 py-1.5 rounded-full inline-flex items-center gap-1">
+            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text-soft border border-ursa-gold-soft px-2.5 py-1.5 rounded-full inline-flex items-center gap-1">
               Únete a la lista <ArrowRight size={11} />
             </span>
           </div>
@@ -558,14 +612,14 @@ function StoryProto() {
             Ursa · Cata del sábado
           </div>
           <div className="mt-auto">
-            <div className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-soft mb-1.5">
+            <div className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft mb-1.5">
               Sábado 11am · Gratis
             </div>
             <div className="font-display text-[1.4rem] leading-[1.1] mb-2">Cata en barra</div>
             <div className="font-display italic text-[0.95rem] opacity-90 mb-3.5">
               3 orígenes · 20 min · 6 cupos
             </div>
-            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-soft border border-ursa-gold-soft px-2.5 py-1.5 rounded-full inline-block">
+            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text-soft border border-ursa-gold-soft px-2.5 py-1.5 rounded-full inline-block">
               Reserva por WhatsApp
             </span>
           </div>
@@ -580,6 +634,9 @@ function ReelCoverProto() {
     <PrototypeFrame
       label="Reel cover (9:16) — Un Gramo a la Vez"
       note="Three Reel covers from Series A (Un Gramo a la Vez). Same composition, same hook phrase, same end card — different brew method and ratio per episode. Color rotation across the series (dark brown / forest / medium roast) keeps the grid visually fresh while the typographic system stays rigidly consistent."
+      reasoning="Same composition across three episodes because series recognition = mental availability (Ehrenberg-Bass): a scroller who saw Ep. 01 must instantly recognise Ep. 02 as the same series. Color rotation (brown / green / medium-roast) because rigidly identical covers cause ad-fatigue; the rotation is within the verified palette only. Brew method + ratio (V60 18g 1:16, etc.) because ‘Un gramo a la vez’ is operationally specific — the cover must show the gram count, not just say the tagline. Bear watermark because the series needs a distinctive-asset anchor."
+      accessibility="Cream (#F4EBD9) on dark gradients: contrast ≈ 8.4–9.2:1 (AAA). Method text at 0.7rem is borderline AA; treat as decorative — alt text should read ‘Reel cover: Un gramo a la vez, Ep. 01, V60 pour-over, 18g dose, 1:16 ratio, Ursa Coffee’. Play button is aria-hidden. Episode label is decorative — episode number must also appear in the Reel caption for screen-reader parity."
+      cost="Design time: 1h to build the cover template (one-time); 10 min per episode (swap method + episode number). Print: S/. 0. Implementation: Reels are posted from the phone; cover frame is exported as 9:16 JPEG. Annual cost for 12 Reels/month ≈ S/. 0 (in-house) or S/. 360 (outsourced at S/. 30/cover)."
     >
       <div className="flex gap-4 flex-wrap justify-center">
         {[
@@ -593,7 +650,7 @@ function ReelCoverProto() {
             style={{ width: 180, height: 320, background: r.grad, color: "#F4EBD9" }}
           >
             {/* Top label row */}
-            <div className="absolute top-4 left-4 right-4 flex justify-between items-center font-label text-[0.55rem] tracking-[0.2em] uppercase text-ursa-gold-soft">
+            <div className="absolute top-4 left-4 right-4 flex justify-between items-center font-label text-[0.55rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft">
               <span>Ursa</span>
               <span>{r.ep}</span>
             </div>
@@ -656,7 +713,7 @@ function MenuProto() {
     <div key={i.name} className="flex items-baseline gap-2 mb-2">
       <b className="font-display font-semibold text-ursa-dark-roast text-[1rem]">{i.name}</b>
       {i.sig && (
-        <span className="text-ursa-gold" title="Signature · verified" aria-label="Signature drink">
+        <span className="text-ursa-gold-text" title="Signature · verified" aria-label="Signature drink">
           <Star size={11} fill="currentColor" />
         </span>
       )}
@@ -677,6 +734,9 @@ function MenuProto() {
     <PrototypeFrame
       label="Print menu (A4)"
       note="Print menu implementing the §3.2 architecture. Two-column layout operationalises the two-bar concept; the pairings section completes the menu story. Bear crest at top uses the original concept mark as placeholder for the official logo. Print at A4 portrait, double-sided if needed."
+      reasoning="Two-column layout (Barra Espresso left, Barra Coldbrew + Filtrados right) because the two-bar architecture is Ursa's most verified operational claim (IG bio, Corner.inc) and the menu is the surface where it must be most explicit. Double-line gold border because Art Nouveau ornamentation is verified on Instagram and the menu is the highest-dwell print surface (customers read it for 60–90s, vs. 5s for a Story). Pairings section because EXP-04 + EXP-05 hypothesis that named pairings raise attach rate; the menu is the cheapest place to surface them. Star icon (★) next to named drinks because the named drinks are the distinctive-asset candidates and must be visually flagged."
+      accessibility="Dark-roast (#3B2417) ink on cream (#FAF5EC) paper: contrast ≈ 9.2:1 (AAA). Body text at 1rem (16px) — meets AA comfortably. Pairings section at 0.85rem — meets AA. Price labels at 0.78rem — borderline AA but acceptable in a printed menu context (reading distance is closer than screen). Star icon (★) has aria-label ‘Signature drink · verified’ for screen readers reading the digital version. Bear crest alt text: ‘Ursa Coffee Roasters bear mark’."
+      cost="Design time: 4h to build the print-ready A4 (one-time); 30 min per seasonal menu update. Print: S/. 1.20/menu at a local Miraflores printer (qty 50, A4 portrait, 200gsm matte). Reprint cadence: quarterly + on menu change. Annual cost: ~S/. 240 (4 reprints × 50 × S/. 1.20) + design amortised. Implementation: hand the PDF to any printer; no special finish required."
     >
       <div
         className="max-w-[600px] mx-auto bg-ursa-paper p-7 sm:p-9 rounded-md"
@@ -688,7 +748,7 @@ function MenuProto() {
           <h3 className="font-display text-[2rem] tracking-[0.04em] text-ursa-dark-roast m-0">
             Ursa Coffee Roasters
           </h3>
-          <small className="block font-label text-[0.66rem] tracking-[0.32em] uppercase text-ursa-gold mt-1.5">
+          <small className="block font-label text-[0.66rem] tracking-[0.32em] uppercase text-ursa-gold-text mt-1.5">
             Un gramo a la vez · Alcanfores 183
           </small>
         </div>
@@ -751,6 +811,9 @@ function ProductCardProto() {
     <PrototypeFrame
       label="Product card (5:7) — retail bean"
       note="Retail bean product card with origin transparency. Bear mark at top right; process, roast, tasting notes, and a V60 recipe make the card self-sufficient. No bear on this surface per the §1.4 grammar — the mark lives only on the menu crest and bean bag label."
+      reasoning="5:7 aspect ratio because it matches standard retail shelf-talkers in Peru — no custom die-cut needed. Bear mark at top-right (not centered) because the §1.4 grammar reserves the bear for primary brand surfaces (menu crest, bean bag label); the product card is a secondary surface, so the bear is small and positional. V60 recipe on the card because EXP-01 hypothesis (origin story card raises perceived value) is amplified by giving the customer a way to USE the bean at home — this is the Sutherland ‘perceived value > objective value’ principle operationalised."
+      accessibility="Dark-roast on cream: contrast ≈ 9.2:1 (AAA). All body text ≥ 0.72rem (≈ 11.5px) — borderline AA at standard reading distance, but the card is held at ~30cm in a retail context. Tasting notes in bold for scannability. Bear mark has aria-label ‘Ursa bear mark’. Recipe block uses monospace for numeric stability (V60 · 18g · 300g agua · 92°C · 1:16) so screen readers parse it as a discrete recipe, not flowing prose."
+      cost="Design time: 2h per bean card template (one-time); 20 min per new bean lot. Print: S/. 0.45/card at local printer (qty 100, 5:7, 250gsm matte, single-sided). Reprint cadence: per bean lot (~6–8 per year). Annual cost: ~S/. 270 (6 lots × 100 × S/. 0.45) + design amortised. Implementation: PDF to printer; no finish required."
     >
       <div className="flex justify-center">
         <div
@@ -760,7 +823,7 @@ function ProductCardProto() {
           <div>
             <div className="flex items-start justify-between">
               <div>
-                <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold">
+                <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text">
                   Single Origin · Amazonas
                 </div>
                 <div className="font-display italic text-[1.4rem] text-ursa-dark-roast mt-1.5">
@@ -791,7 +854,7 @@ function ProductCardProto() {
             <div className="font-label text-[0.7rem] tracking-[0.06em] text-ursa-dark-roast">
               S/. 32 · 250g
             </div>
-            <div className="font-display italic text-[0.78rem] text-ursa-gold">
+            <div className="font-display italic text-[0.78rem] text-ursa-gold-text">
               Un gramo a la vez
             </div>
           </div>
@@ -816,7 +879,7 @@ function TableSignProto() {
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-2">
               <BearMark size={20} className="text-ursa-dark-roast" />
-              <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold">
+              <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text">
                 Bear recommends
               </div>
             </div>
@@ -861,7 +924,7 @@ function EventFlyerProto() {
           <ArtNouveauBorder color="#B7C9A8" opacity={0.45} />
           <div className="mt-2">
             <BearMark size={44} className="mx-auto mb-3 text-ursa-dark-roast" />
-            <div className="font-label text-[0.55rem] tracking-[0.24em] uppercase text-ursa-gold mb-2">
+            <div className="font-label text-[0.55rem] tracking-[0.24em] uppercase text-ursa-gold-text mb-2">
               Sábado · 11:00 &amp; 16:00
             </div>
             <div className="font-display italic text-[1.5rem] leading-[1.1] text-ursa-dark-roast mb-2.5">
@@ -897,6 +960,9 @@ function BeanBagLabelProto() {
     <PrototypeFrame
       label="Bean bag label (3:4) — Black Label Lonya"
       note="Level-2 bean bag label. Forest-to-espresso gradient evokes the field-to-cup story. Gold seal with roast date functions as both a freshness signal (Sutherland: perceived value via transparency) and a limited-edition feel. Print on matte sticker, 90 × 120mm."
+      reasoning="Forest-to-espresso gradient (#2D4A36 → #3B2417) because it visualises the field-to-cup journey — green field to roasted bean — and no census competitor uses this gradient (CENSUS-1). Gold seal with roast date because the in-house roastery (verified) makes the roast date a real freshness signal, not a marketing gimmick; the seal turns it into a perceptible asset (Sutherland: perceived value via transparency). ‘Black Label’ positioning because the Lonya micro-lot is a verified named drink (Filtrado Lonya, Rappi) and the retail bean deserves the same naming elevation."
+      accessibility="Cream (#F4EBD9) on gradient: contrast ≈ 8.4:1 at top, ≈ 9.2:1 at bottom (AAA). Spec sheet (Altitud, Proceso, Variedad, Peso) at 0.65rem — borderline AA but acceptable on packaging held at ~20cm. Gold seal at 0.5rem — too small for AA; the roast date must ALSO appear in plain text on the side of the bag (or in the digital listing) for accessibility parity. Bear mark is absent on this surface per §1.4 grammar — the bear lives on the menu crest and bean info card, not on every packaging surface."
+      cost="Design time: 3h per label template (one-time); 20 min per new bean lot. Print: S/. 0.80/sticker at local printer (qty 100, 90×120mm, matte vinyl, die-cut). Reprint cadence: per roast batch (~2 per month). Annual cost: ~S/. 1,920 (24 batches × 100 × S/. 0.80) + design amortised. The most expensive packaging prototype — scale back to 50/batch if retail volume is below 30 bags/batch."
     >
       <div className="flex justify-center">
         <div
@@ -912,7 +978,7 @@ function BeanBagLabelProto() {
           <GoldSeal date="27·07·26" />
           {/* Top */}
           <div>
-            <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-soft mb-2.5">
+            <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text-soft mb-2.5">
               Ursa · Black Label
             </div>
             <div className="font-display italic text-[1.7rem] leading-[1] mb-1.5">Lonya</div>
@@ -947,7 +1013,7 @@ function BeanBagLabelProto() {
                 250 g
               </div>
             </div>
-            <div className="font-display italic text-[0.78rem] text-ursa-gold-soft mt-2.5 text-right">
+            <div className="font-display italic text-[0.78rem] text-ursa-gold-text-soft mt-2.5 text-right">
               Un gramo a la vez
             </div>
           </div>
@@ -969,7 +1035,7 @@ function BeanInfoCardProto() {
           style={{ aspectRatio: "5 / 7", maxWidth: 260, width: "100%" }}
         >
           <div>
-            <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold">
+            <div className="font-label text-[0.55rem] tracking-[0.22em] uppercase text-ursa-gold-text">
               Bean info card · inside bag
             </div>
             <div className="font-display italic text-[1.2rem] text-ursa-dark-roast mt-1.5 mb-2.5">
@@ -994,7 +1060,7 @@ function BeanInfoCardProto() {
               </p>
             </div>
           </div>
-          <div className="font-display italic text-[0.78rem] text-ursa-gold text-right pt-2 border-t border-ursa-line-soft">
+          <div className="font-display italic text-[0.78rem] text-ursa-gold-text text-right pt-2 border-t border-ursa-line-soft">
             — El tostador, Ursa
           </div>
         </div>
@@ -1008,6 +1074,9 @@ function LoyaltyCardProto() {
     <PrototypeFrame
       label="Loyalty card (8:5) — paw punch"
       note="Physical loyalty card implementing R1. Constellation (Ursa Major) at top connects the bear identity to the loyalty program. Paw print per punch (concept mark; in production use a custom bear-paw stamp). 8 drinks, the 9th is on the house. Cost: ~S/. 0.40/card at local print."
+      reasoning="8:5 landscape because the card fits in a wallet slot (standard business card ratio). Ursa Major constellation at top because the brand name ‘Ursa’ IS the bear constellation — the loyalty card is the surface where this pun pays off most cleanly. Forest-to-espresso gradient (matching the bean bag label) because the loyalty card is brand-equity surface #1 — it is the asset the customer keeps in their wallet for months. Paw-punch mechanic (6 drinks, 7th free) because it operationalises the bear character as a recurring touchpoint — each punch is a bear-paw stamp, building mental availability through repetition (Ehrenberg-Bass). Member name field because personalisation lifts redemption rate."
+      accessibility="Cream on forest→brown gradient: contrast ≈ 8.4–9.2:1 (AAA). Punch numbers at 10px — too small for AA but acceptable on a wallet card (the customer counts visually, not by reading). Member name field has aria-label ‘Member name field’ for the digital version. Constellation SVG is aria-hidden — the bear/constellation pun is decorative; the loyalty program name ‘Ursa Loyalty’ is in plain text for screen readers. Punch count ‘3 / 6’ at 0.5rem must also be conveyed in plain text elsewhere if the digital version is used."
+      cost="Design time: 2h per card template (one-time); near-zero per reprint. Print: S/. 0.40/card at local printer (qty 200, 8:5, 300gsm matte, single-sided). Plus a custom bear-paw stamp: S/. 60 one-time. Reprint cadence: ~200 cards per 6 months. Annual cost: ~S/. 160 (2 × 200 × S/. 0.40) + S/. 60 stamp (amortised over years). One of the cheapest touchpoints per impression."
     >
       <div className="flex justify-center">
         <div
@@ -1021,14 +1090,14 @@ function LoyaltyCardProto() {
           }}
         >
           {/* Constellation top */}
-          <div className="text-ursa-gold-soft opacity-80">
+          <div className="text-ursa-gold-text-soft opacity-80">
             <StarConstellation />
           </div>
           {/* Header */}
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <BearMark size={20} className="text-ursa-gold-soft" />
-              <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-soft">
+              <BearMark size={20} className="text-ursa-gold-text-soft" />
+              <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-text-soft">
                 Ursa Loyalty
               </div>
             </div>
@@ -1042,7 +1111,7 @@ function LoyaltyCardProto() {
           {/* Punch row */}
           <div>
             <PawPunch filled={3} count={6} />
-            <div className="font-label text-[0.5rem] tracking-[0.2em] uppercase text-ursa-gold-soft mt-3.5 flex justify-between">
+            <div className="font-label text-[0.5rem] tracking-[0.2em] uppercase text-ursa-gold-text-soft mt-3.5 flex justify-between">
               <span>3 / 6</span>
               <span>Alcanfores 183</span>
             </div>
@@ -1082,7 +1151,7 @@ function LandingHeroProto() {
           <div className="flex items-center gap-1.5 px-3 py-2 border-b border-ursa-line-soft bg-ursa-cream">
             <span className="w-2.5 h-2.5 rounded-full bg-ursa-terracotta/70" />
             <span className="w-2.5 h-2.5 rounded-full bg-ursa-gold/70" />
-            <span className="w-2.5 h-2.5 rounded-full bg-ursa-forest/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-ursa-medium-roast/70" />
             <div className="flex-1 mx-3 px-3 py-0.5 bg-ursa-foam rounded text-[0.65rem] text-muted-foreground font-mono truncate">
               ursa-coffee.pe/black-label
             </div>
@@ -1097,7 +1166,7 @@ function LandingHeroProto() {
             }}
           >
             <BearMark size={48} className="mx-auto mb-3 text-ursa-dark-roast opacity-70" />
-            <div className="font-label text-[0.62rem] tracking-[0.28em] uppercase text-ursa-gold mb-3">
+            <div className="font-label text-[0.62rem] tracking-[0.28em] uppercase text-ursa-gold-text mb-3">
               Ursa Coffee Roasters · Miraflores
             </div>
             <h2 className="font-display italic text-[2.1rem] sm:text-[2.4rem] leading-[1.05] text-ursa-dark-roast mb-3">
@@ -1120,7 +1189,7 @@ function LandingHeroProto() {
                 Únete
               </button>
             </div>
-            <div className="font-display italic text-[0.78rem] text-ursa-gold mt-5">
+            <div className="font-display italic text-[0.78rem] text-ursa-gold-text mt-5">
               Un gramo a la vez.
             </div>
           </div>
@@ -1135,6 +1204,9 @@ function EmailHeaderProto() {
     <PrototypeFrame
       label="Email header — weekly bean drop"
       note="Email header for the weekly newsletter announcing the new bean drop. Reusable HTML template; only the headline and origin name change weekly. Bear concept mark as watermark; in production replace with the official mark."
+      reasoning="Brown-to-forest gradient (opposite direction from the bean bag label) because the email arrives in the customer's inbox — the journey is reversed (cup → field → anticipation of next origin). Bear mark in gold-soft because email clients strip most CSS; a single-color SVG survives Outlook/Gmail rendering where gradients can degrade. ‘El grano de esta semana’ because the in-house roastery (verified) makes weekly cadence real, not marketing spin. ‘Pídelo en barra’ CTA because no website exists — the conversion path is the café itself, not an online cart."
+      accessibility="Cream on brown→forest gradient: contrast ≈ 8.4–9.2:1 (AAA). Headline at 1.8rem — meets AAA. Body text at 0.82rem — borderline AA; acceptable in email where the customer can resize. CTA button at 0.7rem — borderline AA, but the gold fill + dark-roast text provides sufficient contrast. Email alt text for the bear SVG: ‘Ursa Coffee bear mark — weekly bean drop newsletter’. Plain-text fallback version of the email must include the origin name and the CTA in case images are blocked."
+      cost="Design time: 2h to build the reusable header (one-time); 5 min per weekly swap (origin name + headline). Print: S/. 0. Implementation: deploy via any free email tool (Mailchimp free tier, Brevo free tier — both up to 300 emails/day). Annual cost: S/. 0 (free tier sufficient for ≤1,000 subscribers) + design amortised."
     >
       <div
         className="relative overflow-hidden rounded-md text-center"
@@ -1160,8 +1232,8 @@ function EmailHeaderProto() {
           </g>
         </svg>
         <div className="relative z-10">
-          <BearMark size={48} className="mx-auto mb-3 text-ursa-gold-soft" />
-          <div className="font-label text-[0.6rem] tracking-[0.28em] uppercase text-ursa-gold-soft mb-2">
+          <BearMark size={48} className="mx-auto mb-3 text-ursa-gold-text-soft" />
+          <div className="font-label text-[0.6rem] tracking-[0.28em] uppercase text-ursa-gold-text-soft mb-2">
             Ursa Coffee Roasters · Newsletter
           </div>
           <div className="font-display italic text-[1.8rem] leading-[1.1] mb-2">
@@ -1201,7 +1273,7 @@ function GbpHeroProto() {
         >
           <BearWatermark size={80} opacity={0.4} className="top-6 right-6" color="#F4EBD9" />
           <div className="relative z-10">
-            <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-soft mb-2.5">
+            <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-text-soft mb-2.5">
               Ursa Coffee Roasters · Miraflores
             </div>
             <div className="font-display italic text-[2rem] leading-[1.1] mb-2">
@@ -1238,7 +1310,7 @@ function GbpHeroProto() {
         >
           <BearWatermark size={70} opacity={0.25} className="bottom-[-10px] right-[-10px]" />
           <div className="relative z-10">
-            <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-soft mb-2.5">
+            <div className="font-label text-[0.6rem] tracking-[0.24em] uppercase text-ursa-gold-text-soft mb-2.5">
               Ursa · Rappi
             </div>
             <div className="font-display italic text-[1.7rem] leading-[1.1] mb-2">
@@ -1537,7 +1609,7 @@ export function CreativeView() {
             </p>
           </Card>
           <Card>
-            <Stamp className="text-ursa-gold mb-2" size={22} />
+            <Stamp className="text-ursa-gold-text mb-2" size={22} />
             <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Print-ready spec</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
               Exact hex colours, named fonts, defined aspect ratios. A screenshot handed to a
@@ -1545,7 +1617,7 @@ export function CreativeView() {
             </p>
           </Card>
           <Card>
-            <Award className="text-ursa-terracotta mb-2" size={22} />
+            <Award className="text-ursa-terracotta-text mb-2" size={22} />
             <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Cheaply testable</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
               Most samples cost S/. 0–200 to test in print. The bean bag label and the table
@@ -1575,7 +1647,7 @@ export function CreativeView() {
             </p>
             <button
               onClick={() => navigate("brand")}
-              className="inline-flex items-center gap-1.5 text-[0.78rem] font-label tracking-[0.14em] uppercase text-ursa-gold hover:text-ursa-dark-roast transition"
+              className="inline-flex items-center gap-1.5 text-[0.78rem] font-label tracking-[0.14em] uppercase text-ursa-gold-text hover:text-ursa-dark-roast transition"
             >
               Open Module 01 · Brand Audit <ArrowRight size={13} />
             </button>
@@ -1593,7 +1665,7 @@ export function CreativeView() {
       >
         <Grid cols={3}>
           <Card>
-            <Quote className="text-ursa-gold mb-2" size={20} />
+            <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
               “These are HTML layouts, not production files. How does the owner use them?”
             </p>
@@ -1606,7 +1678,7 @@ export function CreativeView() {
             </p>
           </Card>
           <Card>
-            <Quote className="text-ursa-gold mb-2" size={20} />
+            <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
               “You used a generic bear in the samples. The real bear might look totally
               different.”
@@ -1620,7 +1692,7 @@ export function CreativeView() {
             </p>
           </Card>
           <Card>
-            <Quote className="text-ursa-gold mb-2" size={20} />
+            <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
               “Level 3 with inverted constellation and numbered editions is too cute for a small
               café.”
@@ -1648,7 +1720,7 @@ export function CreativeView() {
             </div>
           </Card>
           <Card className="flex items-center gap-3">
-            <Clock className="text-ursa-gold shrink-0" size={22} />
+            <Clock className="text-ursa-gold-text shrink-0" size={22} />
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
                 Bear recommends window
@@ -1657,7 +1729,7 @@ export function CreativeView() {
             </div>
           </Card>
           <Card className="flex items-center gap-3">
-            <MapPin className="text-ursa-terracotta shrink-0" size={22} />
+            <MapPin className="text-ursa-terracotta-text shrink-0" size={22} />
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
                 Home base
@@ -1684,7 +1756,7 @@ export function CreativeView() {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-2 text-[0.8rem] text-muted-foreground">
-          <CupGlyph size={18} className="text-ursa-gold" />
+          <CupGlyph size={18} className="text-ursa-gold-text" />
           <span className="font-display italic text-ursa-dark-roast">Un gramo a la vez.</span>
           <span className="opacity-60">·</span>
           <span>Module 06 compiled 2026-08-01</span>

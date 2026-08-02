@@ -304,7 +304,7 @@ export function ContentCalendarView() {
                     "font-label text-[0.66rem] tracking-[0.14em] uppercase px-3 py-1.5 rounded-full border transition",
                     active
                       ? "bg-ursa-dark-roast text-ursa-cream border-ursa-dark-roast"
-                      : "bg-card text-ursa-medium-roast border-ursa-line hover:border-ursa-gold hover:text-ursa-gold"
+                      : "bg-card text-ursa-medium-roast border-ursa-line hover:border-ursa-gold hover:text-ursa-gold-text"
                   )}
                 >
                   {f}
@@ -327,7 +327,7 @@ export function ContentCalendarView() {
                 className="text-left bg-card border border-ursa-line-soft rounded-xl p-5 hover:border-ursa-gold hover:shadow-[0_8px_24px_-12px_rgba(59,36,23,0.28)] transition group flex flex-col gap-3 cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
+                  <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
                     {c.id}
                   </span>
                   <Pill tone={formatTone(c.format)}>{c.format}</Pill>
@@ -338,7 +338,7 @@ export function ContentCalendarView() {
                 <p className="text-[0.85rem] text-muted-foreground leading-relaxed m-0 line-clamp-3">
                   {c.hook}
                 </p>
-                <span className="mt-auto text-[0.7rem] font-label tracking-[0.14em] uppercase text-ursa-gold opacity-0 group-hover:opacity-100 transition">
+                <span className="mt-auto text-[0.7rem] font-label tracking-[0.14em] uppercase text-ursa-gold-text opacity-0 group-hover:opacity-100 transition">
                   View details →
                 </span>
               </button>
@@ -355,7 +355,7 @@ export function ContentCalendarView() {
               <>
                 <DialogHeader>
                   <div className="flex items-center justify-between gap-2 mb-1">
-                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
+                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
                       {dialogConcept.id}
                     </span>
                     <Pill tone={formatTone(dialogConcept.format)}>
@@ -426,7 +426,7 @@ export function ContentCalendarView() {
               <AccordionItem key={s.id} value={s.id} className="border-0">
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-start gap-4 flex-1 text-left">
-                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold mt-1 shrink-0">
+                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text mt-1 shrink-0">
                       {s.id}
                     </span>
                     <div className="flex-1 min-w-0">
@@ -460,7 +460,7 @@ export function ContentCalendarView() {
                             key={i}
                             className="flex gap-3 text-[0.95rem] leading-relaxed"
                           >
-                            <span className="font-display font-semibold text-ursa-gold w-6 shrink-0 text-base">
+                            <span className="font-display font-semibold text-ursa-gold-text w-6 shrink-0 text-base">
                               {String(i + 1).padStart(2, "0")}
                             </span>
                             <span className="text-ursa-dark-roast">{b}</span>
@@ -471,13 +471,13 @@ export function ContentCalendarView() {
                     <div className="flex flex-col gap-4">
                       <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4 border border-ursa-espresso">
                         <div className="flex items-center justify-between mb-2 gap-2">
-                          <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-soft">
+                          <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft">
                             Caption · ES Peru
                           </div>
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="h-7 text-ursa-gold-soft hover:text-ursa-cream hover:bg-ursa-espresso/40"
+                            className="h-7 text-ursa-gold-text-soft hover:text-ursa-cream hover:bg-ursa-espresso/40"
                             onClick={() => copyCaption(s.id, s.caption)}
                           >
                             {copiedId === s.id ? (
@@ -497,7 +497,7 @@ export function ContentCalendarView() {
                           {s.caption}
                         </p>
                       </div>
-                      <div className="bg-ursa-forest-deep text-ursa-cream rounded-lg p-4">
+                      <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4">
                         <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-leaf mb-2">
                           CTA · ES Peru
                         </div>
@@ -569,7 +569,7 @@ export function ContentCalendarView() {
                         W{w + 1} · {DAYS[d]}
                       </span>
                       {ids.length > 0 && (
-                        <span className="font-label text-[0.55rem] tracking-[0.1em] uppercase text-ursa-gold">
+                        <span className="font-label text-[0.55rem] tracking-[0.1em] uppercase text-ursa-gold-text">
                           {ids.length}
                         </span>
                       )}
@@ -588,7 +588,7 @@ export function ContentCalendarView() {
                               key={id}
                               className="text-[0.72rem] leading-tight line-clamp-2"
                             >
-                              <span className="font-label text-[0.55rem] text-ursa-gold mr-1">
+                              <span className="font-label text-[0.55rem] text-ursa-gold-text mr-1">
                                 {c.id}
                               </span>
                               <span className="text-ursa-dark-roast">{c.title}</span>
@@ -688,7 +688,7 @@ export function ContentCalendarView() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold">
+                            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text">
                               {c.id}
                             </span>
                             <Pill
@@ -822,7 +822,7 @@ export function ContentCalendarView() {
             <DossierLinkBanner moduleId="05-viral-content-laboratory" />
             <button
               onClick={() => navigate("viral")}
-              className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
+              className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold-text hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
             >
               Back to Module 05
               <ArrowRight size={14} />

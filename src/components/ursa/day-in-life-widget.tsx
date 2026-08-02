@@ -41,6 +41,17 @@ const TONE_COLORS = {
   winding: "var(--color-ursa-forest)",
 };
 
+// Text-safe variants — the bright TONE_COLORS above are designed for fills /
+// strokes and fail WCAG AA when used as text on a light card surface. The
+// *-text tokens are the same hue family but darker, so the large display
+// time numerals (text-3xl) on the active-phase card remain legible.
+const TONE_TEXT_COLORS = {
+  calm: "var(--color-ursa-sage-text)",
+  rising: "var(--color-ursa-gold-text)",
+  peak: "var(--color-ursa-terracotta-text)",
+  winding: "var(--color-ursa-forest-deep)",
+};
+
 export function DayInTheLifeWidget() {
   const [hovered, setHovered] = useState<number | null>(null);
   const [currentHour, setCurrentHour] = useState<number | null>(null);
@@ -85,7 +96,7 @@ export function DayInTheLifeWidget() {
             <BearMark size={20} className="text-ursa-dark-roast" /> Un día en Alcanfores 183
           </h3>
           {nowInTimeline && (
-            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold flex items-center gap-1.5">
+            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-ursa-terracotta ursa-breathe" /> Ahora en Lima
             </span>
           )}
@@ -149,7 +160,7 @@ export function DayInTheLifeWidget() {
               style={{ left: `${((currentHour - 7.5) / (21 - 7.5)) * 100}%` }}
             >
               <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-ursa-terracotta border-2 border-card" />
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-label text-[0.55rem] tracking-[0.08em] uppercase text-ursa-terracotta whitespace-nowrap">
+              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-label text-[0.6rem] tracking-[0.08em] uppercase whitespace-nowrap bg-ursa-terracotta text-ursa-espresso px-1.5 py-0.5 rounded font-bold">
                 {Math.floor(currentHour)}:{String(Math.round((currentHour % 1) * 60)).padStart(2, "0")}
               </div>
             </div>
@@ -172,7 +183,7 @@ export function DayInTheLifeWidget() {
         <div className="grid md:grid-cols-[auto_1fr_auto] gap-4 md:gap-6 items-start">
           {/* Time block */}
           <div className="flex md:flex-col items-baseline md:items-start gap-2 md:gap-0">
-            <span className="font-display text-3xl font-semibold leading-none" style={{ color: TONE_COLORS[active.tone] }}>
+            <span className="font-display text-3xl font-semibold leading-none" style={{ color: TONE_TEXT_COLORS[active.tone] }}>
               {Math.floor(active.hour)}:{String(Math.round((active.hour % 1) * 60)).padStart(2, "0")}
             </span>
             <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground">{active.label}</span>
@@ -234,7 +245,7 @@ function Insight({ label, value, highlight = false }: { label: string; value: st
   return (
     <div className={cn("rounded-lg p-2.5 border", highlight ? "bg-ursa-gold/10 border-ursa-gold/40" : "bg-ursa-foam/60 border-ursa-line-soft")}>
       <div className="font-label text-[0.56rem] tracking-[0.14em] uppercase text-muted-foreground">{label}</div>
-      <p className={cn("font-display text-[0.85rem] font-semibold m-0 mt-0.5", highlight ? "text-ursa-gold" : "text-ursa-dark-roast")}>{value}</p>
+      <p className={cn("font-display text-[0.85rem] font-semibold m-0 mt-0.5", highlight ? "text-ursa-gold-text" : "text-ursa-dark-roast")}>{value}</p>
     </div>
   );
 }

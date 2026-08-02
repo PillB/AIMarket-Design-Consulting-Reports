@@ -49,13 +49,43 @@ type Competitor = (typeof COMPETITORS)[number];
 
 /** Ursa's own profile for side-by-side comparison. */
 const URSA_PROFILE: Competitor & { isUrsa?: boolean } = {
+  id: "URSA",
   name: "Ursa Coffee Roasters",
   area: "Miraflores (single site)",
-  strength: "Bear + Art Nouveau craft; in-house roastery; two bars; named-drink portmanteaus",
-  weakness: "No website yet; single-site; smaller retail reach than chains",
+  address: "Alcanfores 183, Miraflores, Lima 15074",
+  street: "Alcanfores",
+  distanceMeters: 0,
+  distanceBand: "same-street",
+  type: "Independent specialty (single-site roaster)",
+  subtype: "Specialty roastery + two-bar theatre",
+  googleRating: 4.5,
+  googleReviewCount: 56,
+  tripAdvisorRating: null,
+  tripAdvisorReviewCount: 0,
+  status: "operating",
+  positioning:
+    "Single-site specialty roaster on Alcanfores. Bear-led brand, Art Nouveau craft language, two-bar theatre (espresso + coldbrew), named drinks (Ursagroni, Maracumango) (Ursagroni, Maracumango), 'Un gramo a la vez' ethos. CAM Café 2025 top-5.",
+  strength: "Bear + Art Nouveau craft; in-house roastery; two bars; named drinks (Ursagroni, Maracumango); Aeropress champion (Paulo Sierra); CAM Café 2025 top-5",
+  weakness: "No website yet; single-site; smaller retail reach than chains; TripAdvisor footprint near-zero",
   ursaImplication: "Baseline — protect the bear, close the website gap, scale craft without diluting identity.",
   hasWebsite: false,
   isUrsa: true,
+  reviewThemes: {
+    praise: [
+      "best espresso in Lima (@flying__espresso, Instagram)",
+      "Aeropress champion — Paulo Sierra (@rutadelcafeperuano)",
+      "CAM Café 2025 top-5",
+      "cozy and craft-led (Corner.inc editorial)",
+      "high-quality, specialty; friendly staff (NovaCircle)",
+    ],
+    complaints: [
+      "limited seating at peak (NovaCircle)",
+      "prices slightly higher than average (NovaCircle)",
+      "TripAdvisor footprint ~0 reviews",
+    ],
+    sampleSizeNote:
+      "Ursa-specific reviews: 8 real mentions found across Instagram + editorial. Google aggregate 4.5/5 (56 reviews via addagio.io). Sample small but non-zero — see CUSTOMER_REVIEWS in ursa-data.ts.",
+  },
 };
 
 /** Combined list with Ursa prepended for the table & matrix. */
@@ -92,14 +122,23 @@ const VERDICT: Record<string, "lead" | "match" | "trail"> = {
 /** Matrix positions (scale 0–100, craft 0–100). Scale = retail reach; Craft = distinctiveness of identity. */
 const MATRIX_POSITIONS: Record<string, { scale: number; craft: number }> = {
   "Ursa Coffee Roasters": { scale: 12, craft: 95 },
-  "Punto Café": { scale: 38, craft: 55 },
+  // Same-street & in-catchment direct competitors
+  "Milenaria Cafe": { scale: 20, craft: 40 },
+  "Coffee Notes": { scale: 8, craft: 35 },
+  "Estación 329": { scale: 25, craft: 65 },
   "Neira Café Lab": { scale: 82, craft: 48 },
-  "Bisetti": { scale: 28, craft: 80 },
-  "Puku Puku": { scale: 75, craft: 50 },
+  "Arabica Espresso Bar": { scale: 18, craft: 45 },
+  "Punto Café": { scale: 38, craft: 55 },
   "Terrua": { scale: 30, craft: 85 },
-  "True Artisan": { scale: 22, craft: 52 },
-  "Café Verde": { scale: 30, craft: 45 },
-  "Puku Puku / Urqu / Origen / Cate / Arabica": { scale: 55, craft: 50 },
+  "Cate Tasting Room": { scale: 28, craft: 60 },
+  "Café Verde": { scale: 22, craft: 38 },
+  "El Pan de la Chola": { scale: 45, craft: 50 },
+  "Puku Puku": { scale: 75, craft: 50 },
+  "True Artisan Cafe": { scale: 22, craft: 52 },
+  "OK Café": { scale: 10, craft: 40 },
+  "Amauta Coffee": { scale: 15, craft: 42 },
+  // Lima-wide benchmark competitors
+  "Bisetti": { scale: 28, craft: 80 },
   "Ciclos": { scale: 18, craft: 48 },
   "RAIZ": { scale: 22, craft: 70 },
   "Milimetrica Coffee Co": { scale: 15, craft: 38 },
@@ -113,7 +152,7 @@ const VERDICT_META = {
     label: "Ursa leads",
     pill: "ok" as const,
     text: "text-ursa-forest-deep",
-    bg: "bg-ursa-forest-deep/8",
+    bg: "bg-ursa-dark-roast/8",
     border: "border-ursa-forest-deep/25",
     dot: "bg-ursa-forest-deep",
     desc: "Ursa holds an advantage on this axis.",
@@ -130,7 +169,7 @@ const VERDICT_META = {
   trail: {
     label: "Ursa trails",
     pill: "stop" as const,
-    text: "text-ursa-terracotta",
+    text: "text-ursa-terracotta-text",
     bg: "bg-ursa-terracotta/10",
     border: "border-ursa-terracotta/30",
     dot: "bg-ursa-terracotta",
@@ -258,7 +297,7 @@ export function CompetitorsView() {
         </Grid>
         <p className="text-[0.85rem] text-muted-foreground mt-5 mb-0 max-w-[80ch]">
           The distinctiveness score is qualitative — it is the share of competitors against which Ursa holds a clear
-          positional lead (the bear, the two-bar theatre, the portmanteau naming system, the Art Nouveau craft
+          positional lead (the bear, the two-bar theatre, the named-drink convention, the Art Nouveau craft
           language). It is not a market-share metric.
         </p>
       </ViewSection>
@@ -314,7 +353,7 @@ export function CompetitorsView() {
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-ursa-line-soft">
-            <Filter size={13} className="text-ursa-gold" />
+            <Filter size={13} className="text-ursa-gold-text" />
             <span className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-muted-foreground">
               Showing
             </span>
@@ -332,7 +371,7 @@ export function CompetitorsView() {
                 setSortKey("name");
                 setSortDir("asc");
               }}
-              className="ml-auto font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-terracotta hover:text-ursa-dark-roast transition"
+              className="ml-auto font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-terracotta-text hover:text-ursa-dark-roast transition"
             >
               Reset all
             </button>
@@ -354,7 +393,7 @@ export function CompetitorsView() {
                   <TableHead className="pl-4">
                     <button
                       onClick={() => toggleSort("name")}
-                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold transition"
+                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold-text transition"
                     >
                       Name <SortIcon k="name" sortKey={sortKey} sortDir={sortDir} />
                     </button>
@@ -362,7 +401,7 @@ export function CompetitorsView() {
                   <TableHead>
                     <button
                       onClick={() => toggleSort("area")}
-                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold transition"
+                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold-text transition"
                     >
                       Area <SortIcon k="area" sortKey={sortKey} sortDir={sortDir} />
                     </button>
@@ -373,7 +412,7 @@ export function CompetitorsView() {
                   <TableHead>
                     <button
                       onClick={() => toggleSort("site")}
-                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold transition"
+                      className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-dark-roast hover:text-ursa-gold-text transition"
                     >
                       Website <SortIcon k="site" sortKey={sortKey} sortDir={sortDir} />
                     </button>
@@ -481,13 +520,13 @@ export function CompetitorsView() {
                 <div className="absolute top-2 left-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-forest-deep/70 max-w-[8rem] leading-tight">
                   High craft · Low scale<br />Niche specialists
                 </div>
-                <div className="absolute top-2 right-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold/80 text-right max-w-[9rem] leading-tight">
+                <div className="absolute top-2 right-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold-text/80 text-right max-w-[9rem] leading-tight">
                   High craft · High scale<br />Category leaders
                 </div>
                 <div className="absolute bottom-2 left-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground max-w-[9rem] leading-tight">
                   Low craft · Low scale<br />Undifferentiated
                 </div>
-                <div className="absolute bottom-2 right-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta/80 text-right max-w-[9rem] leading-tight">
+                <div className="absolute bottom-2 right-2 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta-text/80 text-right max-w-[9rem] leading-tight">
                   Low craft · High scale<br />Chains
                 </div>
 
@@ -560,7 +599,7 @@ export function CompetitorsView() {
           <div className="space-y-4">
             <Card className="bg-ursa-foam">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <Target size={16} className="text-ursa-gold" /> How to read this
+                <Target size={16} className="text-ursa-gold-text" /> How to read this
               </h3>
               <ul className="space-y-2.5 m-0 p-0 list-none text-[0.88rem]">
                 <li className="flex gap-2">
@@ -606,7 +645,7 @@ export function CompetitorsView() {
                   <div>
                     <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">{c.name}</h3>
                     <div className="flex items-center gap-1.5 text-[0.74rem] text-muted-foreground">
-                      <MapPin size={11} className="text-ursa-gold" />
+                      <MapPin size={11} className="text-ursa-gold-text" />
                       <span className="font-label tracking-[0.06em] uppercase">{c.area}</span>
                     </div>
                   </div>
@@ -653,13 +692,13 @@ export function CompetitorsView() {
         <div className="flex flex-wrap items-center gap-3 mt-6">
           <button
             onClick={() => navigate("market")}
-            className="inline-flex items-center gap-2 bg-ursa-forest-deep text-ursa-cream font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-dark-roast transition"
+            className="inline-flex items-center gap-2 bg-ursa-dark-roast text-ursa-cream font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-espresso transition"
           >
             <Compass size={14} /> Open Module 02 (full analysis)
           </button>
           <button
             onClick={() => navigate("brand")}
-            className="inline-flex items-center gap-2 border border-ursa-gold text-ursa-gold font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-gold hover:text-ursa-dark-roast transition"
+            className="inline-flex items-center gap-2 border border-ursa-gold text-ursa-gold-text font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-gold hover:text-ursa-dark-roast transition"
           >
             <BearMark size={14} className="text-current" /> Open Brand Audit
           </button>

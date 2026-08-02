@@ -153,7 +153,7 @@ export function DashboardView() {
                 <Pill tone="forest">{t("common.module")} {m.num}</Pill>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-1.5 flex items-center gap-1.5">
                   {m.title}
-                  <ArrowRight size={15} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  <ArrowRight size={15} className="text-ursa-gold-text opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </h3>
                 <p className="text-[0.85rem] text-muted-foreground m-0">{m.desc}</p>
               </button>
@@ -231,6 +231,15 @@ export function DashboardView() {
           <Reveal delay={160}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h9.title")}</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h9.body")}</p>
+          </Card></Reveal>
+          <Reveal delay={0}><Card highlight>
+            <div className="flex items-center gap-2 mb-2">
+              <Pill tone="gold">NEW</Pill>
+            </div>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-1.5">
+              <ArrowRight size={16} className="text-ursa-gold-text" /> 10 · Ursa is now an award-recognized café
+            </h3>
+            <p className="text-[0.9rem] text-muted-foreground m-0">Ursa placed in the top 5 of the CAM Café Perú EXPERIENCE 2025 competition (Specialty Coffee Shop category), alongside Monótono Coffee (1st) and Punto Café (2nd). A specialized jury visited 40+ establishments across 17 districts. This upgrades Ursa&rsquo;s competitive position from &ldquo;unrecognized&rdquo; to &ldquo;award-recognized&rdquo; — the distribution gap (Module 02) is no longer about quality, it&rsquo;s about visibility.</p>
           </Card></Reveal>
         </Grid>
       </ViewSection>

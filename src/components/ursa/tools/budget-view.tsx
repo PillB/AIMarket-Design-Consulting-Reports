@@ -44,6 +44,8 @@ const DAYS_PER_MONTH = 30;
 
 const SCENARIO_TONES = ["forest", "gold", "terracotta"] as const;
 const SCENARIO_ACCENT_HEX = ["#2D4A36", "#B8924A", "#C16E4B"];
+// Text-compliant variants for inline text colors (gold/terracotta fills fail AA on light bg).
+const SCENARIO_ACCENT_TEXT_HEX = ["#2D4A36", "#706228", "#984A2E"];
 const CHART_COLORS = [
   "#B8924A", // gold
   "#2D4A36", // forest deep
@@ -175,7 +177,7 @@ export function BudgetView() {
                 className={cn(
                   "px-4 py-2.5 rounded-lg border font-label text-[0.74rem] tracking-[0.12em] uppercase transition",
                   isActive
-                    ? "text-ursa-cream shadow-[0_8px_24px_-12px_rgba(59,36,23,0.4)]"
+                    ? `${i === 0 ? "text-ursa-cream" : "text-ursa-espresso"} shadow-[0_8px_24px_-12px_rgba(59,36,23,0.4)]`
                     : "bg-ursa-paper text-ursa-medium-roast border-ursa-line-soft hover:-translate-y-0.5"
                 )}
                 style={isActive ? { background: SCENARIO_ACCENT_HEX[i], borderColor: SCENARIO_ACCENT_HEX[i] } : {}}
@@ -197,7 +199,7 @@ export function BudgetView() {
           <Card>
             <div className="flex items-center justify-between mb-1">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-0 flex items-center gap-2">
-                <Wallet size={18} className="text-ursa-gold" /> {active.name} · line items
+                <Wallet size={18} className="text-ursa-gold-text" /> {active.name} · line items
               </h3>
               <Pill tone={SCENARIO_TONES[activeIdx]}>{active.items.length} items</Pill>
             </div>
@@ -229,7 +231,7 @@ export function BudgetView() {
                   <button
                     onClick={() => removeItem(i)}
                     aria-label={`Remove ${it.item}`}
-                    className="w-8 h-8 rounded-md flex items-center justify-center text-muted-foreground hover:text-ursa-terracotta hover:bg-ursa-terracotta/10 transition"
+                    className="w-8 h-8 rounded-md flex items-center justify-center text-muted-foreground hover:text-ursa-terracotta-text hover:bg-ursa-terracotta/10 transition"
                   >
                     <Trash2 size={14} />
                   </button>
@@ -265,7 +267,7 @@ export function BudgetView() {
                 </div>
                 <Button
                   onClick={addCustomItem}
-                  className="bg-ursa-forest-deep hover:bg-ursa-dark-roast text-ursa-cream h-9 px-3"
+                  className="bg-ursa-dark-roast hover:bg-ursa-espresso text-ursa-cream h-9 px-3"
                 >
                   <Plus size={14} className="mr-1" /> Add
                 </Button>
@@ -277,7 +279,7 @@ export function BudgetView() {
           <div className="space-y-5">
             <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
               <div className="flex items-center justify-between mb-1">
-                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">
+                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
                   Live monthly total · {active.name}
                 </span>
                 <EvidenceTag status="verified" />
@@ -291,7 +293,7 @@ export function BudgetView() {
               <p className="text-[0.85rem] text-muted-foreground m-0">
                 Original baseline: <strong className="text-ursa-dark-roast">{PEN(originalTotal)}</strong>
                 {" · "}
-                <span className={delta > 0 ? "text-ursa-terracotta" : delta < 0 ? "text-ursa-forest-deep" : "text-muted-foreground"}>
+                <span className={delta > 0 ? "text-ursa-terracotta-text" : delta < 0 ? "text-ursa-forest-deep" : "text-muted-foreground"}>
                   {delta > 0 ? "+" : ""}
                   {PEN(delta)}
                 </span>
@@ -314,7 +316,7 @@ export function BudgetView() {
 
             <Card className="bg-ursa-foam">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <Calendar size={16} className="text-ursa-gold" /> Per-day breakdown
+                <Calendar size={16} className="text-ursa-gold-text" /> Per-day breakdown
               </h4>
               <div className="space-y-2">
                 <div className="flex justify-between text-[0.85rem]">
@@ -349,7 +351,7 @@ export function BudgetView() {
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1 flex items-center gap-2">
-              <PiggyBank size={18} className="text-ursa-gold" /> Spend by line item
+              <PiggyBank size={18} className="text-ursa-gold-text" /> Spend by line item
             </h3>
             <p className="text-[0.85rem] text-muted-foreground mb-4 m-0">
               Each slice is one line item. Edit the cost above and watch the chart redraw.
@@ -384,8 +386,11 @@ export function BudgetView() {
                     }}
                   />
                   <Legend
-                    wrapperStyle={{ fontSize: "0.78rem", color: "var(--color-ursa-medium-roast)" }}
+                    wrapperStyle={{ fontSize: "0.78rem" }}
                     iconType="circle"
+                    formatter={(value: string) => (
+                      <span style={{ color: "var(--color-ursa-medium-roast)" }}>{value}</span>
+                    )}
                   />
                 </PieChart>
               </ResponsiveContainer>
@@ -449,7 +454,7 @@ export function BudgetView() {
                     <th
                       key={s.name}
                       className="text-left p-3 font-label text-[0.72rem] tracking-[0.1em] uppercase border-b border-ursa-line"
-                      style={{ color: SCENARIO_ACCENT_HEX[i] }}
+                      style={{ color: SCENARIO_ACCENT_TEXT_HEX[i] }}
                     >
                       {s.name}
                     </th>
@@ -504,7 +509,7 @@ export function BudgetView() {
           <Card className="bg-gradient-to-br from-ursa-foam to-ursa-cream">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-full bg-ursa-gold/15 border border-ursa-gold flex items-center justify-center shrink-0">
-                <TrendingUp size={18} className="text-ursa-gold" />
+                <TrendingUp size={18} className="text-ursa-gold-text" />
               </div>
               <div>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1.5">
@@ -519,13 +524,13 @@ export function BudgetView() {
                 <div className="flex flex-wrap gap-3">
                   <button
                     onClick={() => navigate("roi")}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
                   >
                     <TrendingUp size={14} /> Open the ROI Dashboard <ArrowRight size={14} />
                   </button>
                   <button
                     onClick={() => navigate("growth")}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/40 text-ursa-gold hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold/40 text-ursa-gold-text hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
                   >
                     Back to Module 04
                   </button>
@@ -535,12 +540,12 @@ export function BudgetView() {
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <AlertTriangle size={16} className="text-ursa-terracotta" /> What this tool does not do
+              <AlertTriangle size={16} className="text-ursa-terracotta-text" /> What this tool does not do
             </h4>
             <ul className="space-y-1.5 m-0 p-0 list-none text-[0.85rem] text-muted-foreground">
-              <li className="flex gap-2"><span className="text-ursa-terracotta mt-1">›</span> It does not model revenue or payback — see ROI Dashboard.</li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta mt-1">›</span> It does not persist edits across reloads — this is a scratchpad.</li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta mt-1">›</span> It does not enforce a total cap — set your own discipline.</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not model revenue or payback — see ROI Dashboard.</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not persist edits across reloads — this is a scratchpad.</li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1">›</span> It does not enforce a total cap — set your own discipline.</li>
             </ul>
           </Card>
         </div>
@@ -585,7 +590,7 @@ function TableRow({
                 ? "text-[0.82rem] text-foreground/85"
                 : "text-ursa-medium-roast"
           )}
-          style={tone === "strong" ? { color: SCENARIO_ACCENT_HEX[i] } : {}}
+          style={tone === "strong" ? { color: SCENARIO_ACCENT_TEXT_HEX[i] } : {}}
         >
           {render(s)}
         </td>
