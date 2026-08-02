@@ -1724,3 +1724,31 @@ Stage Summary:
 - All user-facing copy is bilingual EN/ES via `useI18n`, with ES hand-written in Peruvian Spanish (Miraflores/Lima voice).
 - The customer-facing landing page now links to the new business-case tool (pilot route) instead of the simpler calculator.
 - Lint clean. Commit landed: 232990d.
+
+---
+Task ID: NAVBAR-FIX-OSINT-BUSINESSCASE
+Agent: main (navbar fix + Ursa Mañana business case + OSINT + static reports)
+Task: Fix navbar showing raw i18n keys, rebuild Ursa Mañana as business-case calculator, web research for OSINT, translate static reports
+
+Work Log:
+- Navbar bug: Dropdown menus showed raw "nav.routes.brand" keys instead of translated text. Root cause: the `nav.routes.*` keys were referenced via `t(\`nav.routes.${k}\`)` but never defined in i18n. Added 25 flat keys ("routes.brand", "routes.market", etc.) to the nav namespace in both EN and ES. Verified: all dropdown items now show proper labels.
+- Ursa Mañana business case: Launched subagent to rebuild pilot-view.tsx as a full business-case calculator. Result: 9 sections (cost inputs, revenue inputs, pilot params, calculated outputs with formulas, sensitivity tornado, 12-week projection, 12-month P&L, decision framework with go/kill/scale rules, scientific backing with 19 citations). ~280 new pilotbiz.* i18n keys (EN+ES). Owner can plug in real costs and see live break-even.
+- OSINT web research: Ran 8 web searches via z-ai web_search function:
+  • Milimetrica Coffee Co: confirmed as roastery (tostaduría) at Alcanfores 215 (same street, 32 doors from Ursa). Has website (milimetrica.coffee), Instagram (@milimetricacoffee), TripAdvisor. Upgraded to "trail" verdict (was "match").
+  • Milenaria Café: NEW competitor at Alcanfores 348 (same street, ~165m). Full brunch + specialty + plant-based/vegan. Added to all 3 data layers.
+  • Punto Café: confirmed at Calle Piura 1251, CAM 2025 2nd place.
+  • Ursa reviews: 4.8★ on mindtrip.ai with 66 reviews (was Google 4.5★/56).
+  • Instagram @ursacoffeeperu: 4,760 followers, 206 posts. Confirmed Ursagroni, Durazno Clarificado Coldbrew, Maracumango Coldbrew.
+  • Facebook: Ursa Coffee Perú page active, CAM Experience 2025 participation confirmed.
+- Competitor data updated: Added Milenaria to COMPETITORS array, SWOT view, competitors-view VERDICT+MATRIX. Count updated 13→14 everywhere.
+- Static reports: Subagent created Spanish HTML versions of all dossier files (*.es.html). 10+ files including index.es.html, 01-brand-audit.es.html, etc.
+- Lint: clean. Build: success. Push to main: success. Deploy to gh-pages: Published.
+- Live site verified: navbar shows proper labels, pilot view shows business case in EN+ES, competitors table shows Milenaria + Milimetrica with strategic implications.
+
+Stage Summary:
+- Navbar raw-key bug: FIXED (25 routes.* keys added to i18n EN+ES)
+- Ursa Mañana: rebuilt as full business-case calculator with editable costs, break-even, sensitivity, 19 scientific citations
+- OSINT: 8 web searches, 2 competitor updates (Milimetrica upgraded, Milenaria added), review counts updated
+- Static reports: Spanish HTML versions created for all dossier files
+- Competitor count: 13 → 14 (Milenaria added)
+- Live site: https://pillb.github.io/AIMarket-Design-Consulting-Reports/ — all fixes deployed and verified
