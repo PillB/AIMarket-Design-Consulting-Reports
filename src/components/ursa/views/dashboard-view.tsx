@@ -26,7 +26,7 @@ export function DashboardView() {
   const tools = [
     { key: "calculator", num: "08", title: "Subscription Economics Calculator", desc: "Interactive: edit every input and see live profit, break-even, free-cup capacity, sensitivity table, and cannibalization model. The Ursa Mañana S/. 20/month idea.", featured: true, icon: Calculator },
     { key: "menu-studio", num: "T1", title: "Menu Engineering Studio", desc: "Build a menu category by category with live margin analysis, ingredient overlap, and attach-rate modelling.", icon: Utensils },
-    { key: "competitors", num: "T2", title: "Competitor Intelligence Dashboard", desc: "Filterable comparison matrix of 13 Miraflores and Lima competitors with strengths, weaknesses, and Ursa implications.", icon: Swords },
+    { key: "competitors", num: "T2", title: "Competitor Intelligence Dashboard", desc: "Filterable comparison matrix of 14 Miraflores and Lima competitors with strengths, weaknesses, and Ursa implications.", icon: Swords },
     { key: "content-calendar", num: "T3", title: "Content Calendar & Scripts", desc: "Browse 26 concepts, read 10 full scripts, and lay out a four-week pilot calendar with a drag-friendly planner.", icon: Calendar },
     { key: "experiments", num: "T4", title: "Experiment Tracker", desc: "Track every experiment with status, cost, metric, and stop rule. Update status as you run each test.", icon: FlaskConical },
     { key: "style-guide", num: "T5", title: "Brand Style Guide Explorer", desc: "Inspect the verified Ursa palette, typography, and components with copy-to-clipboard tokens.", icon: SwatchBook },
@@ -35,7 +35,7 @@ export function DashboardView() {
     { key: "roi", num: "T8", title: "ROI Dashboard", desc: "Model return on each marketing channel with payback period and confidence ranges.", icon: TrendingUp },
     { key: "campaign-builder", num: "T9", title: "Campaign Builder", desc: "A 6-step wizard: offer → audience → channel → metric → budget → summary. Outputs a copyable plain-text brief with a stop rule.", icon: Wand2 },
     { key: "spirit-checker", num: "T10", title: "Spirit-Preservation Checker", desc: "Validate any new tactic against the bear, the gram, and the green. 8 questions, 3 pillars, one verdict.", icon: Shield },
-    { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 13 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
+    { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 14 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
     { key: "pilot", num: "T12", title: "Ursa Mañana Pilot Dashboard", desc: "12-week subscription pilot dashboard: sign-ups, side-attach, cannibalization, and net profit. Adjust the inputs to model different scenarios.", icon: Activity },
     { key: "scorecard", num: "T13", title: "Brand Audit Scorecard", desc: "One-page executive compilation: Bear Score, brand pillars, experiment status, and the spirit-preservation verdict. Print or copy as text.", icon: Award, featured: false },
   ];

@@ -124,7 +124,8 @@ const VERDICT: Record<string, "lead" | "match" | "trail"> = {
   "Puku Puku / Urqu / Origen / Cate / Arabica": "lead",
   "Ciclos": "lead",
   "RAIZ": "match",
-  "Milimetrica Coffee Co": "match",
+  "Milimetrica Coffee Co": "trail",
+  "Milenaria Café": "match",
   "Dulce Ciudad": "lead",
   "Caficulto": "match",
 };
@@ -151,7 +152,8 @@ const MATRIX_POSITIONS: Record<string, { scale: number; craft: number }> = {
   "Bisetti": { scale: 28, craft: 80 },
   "Ciclos": { scale: 18, craft: 48 },
   "RAIZ": { scale: 22, craft: 70 },
-  "Milimetrica Coffee Co": { scale: 15, craft: 38 },
+  "Milimetrica Coffee Co": { scale: 18, craft: 42 },
+  "Milenaria Café": { scale: 25, craft: 48 },
   "Dulce Ciudad": { scale: 12, craft: 32 },
   "Caficulto": { scale: 20, craft: 42 },
 };

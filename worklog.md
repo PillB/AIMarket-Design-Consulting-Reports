@@ -1697,3 +1697,30 @@ Stage Summary:
 - i18n.ts: 8265 lines (from 689) — comprehensive bilingual coverage
 - Live site deployed and validated at https://pillb.github.io/AIMarket-Design-Consulting-Reports/
 - 13+ commits pushed across the 10 groups + deployment
+
+---
+Task ID: URSAMANANA-BUSINESSCASE
+Agent: general-purpose (Ursa Mañana business case rebuild)
+Task: Rebuild Ursa Mañana as full business-case calculator with editable costs, break-even, sensitivity, science backing
+
+Work Log:
+- Read worklog.md, pilot-view.tsx (427 lines), calculator-view.tsx (447 lines), landing-view.tsx (368 lines), view-shell.tsx, ursa-brand.tsx, and relevant i18n.ts sections to understand existing architecture, translation structure, and design tokens.
+- Designed the comprehensive business-case calculator with 9 sections + headline + actions: (1) Cost structure, (2) Revenue structure, (3) Pilot parameters, (4) Calculated outputs with formulas visible, (5) Sensitivity analysis (tornado diagram), (6) 12-week projection, (7) 12-month P&L, (8) Decision framework (go/kill/scale + risk register), (9) Scientific backing (5 tabs of citations).
+- Added ~280 new i18n keys under the `pilotbiz.*` namespace in both EN and ES to /home/z/my-project/src/lib/i18n.ts. ES copy hand-written in Peruvian Spanish (Miraflores/Lima voice, "oso", "Alcanfores", "cesantía", "tope", etc.). Keys inserted after the existing `pilot.button.experiments` line in both language blocks.
+- Rewrote /home/z/my-project/src/components/ursa/tools/pilot-view.tsx completely (now ~830 lines, was 427). All calculations live via useMemo. Used shadcn/ui Input, Label, Slider, Tabs as required. Every output row shows its formula in a code-styled cell so the owner can trace any number back to its inputs. Currency is Peruvian Sol (S/.) throughout. No blue/indigo colors; uses Ursa palette (gold/forest/terracotta/espresso/cream). BearMark not used in this tool but the brand Pill/Callout/EvidenceTag components used. Sticky footer comes from the existing UrsaLayout (UrsaFooter in page.tsx).
+- Computation pipeline: pure `compute(inputs)` function returns roast cost/cup, labor/cup, variable cost/cup, visits/month, cups/month, coffee cost/month, side margin/month, retail margin/month, gross profit, cannibal loss, net profit, contribution margin, break-even subs, LTV (12-month geometric sum), LTV:CAC (CAC = S/. 15).
+- Sensitivity (tornado): one-at-a-time flex of 7 variables (green bean ±20%, attach ±10pp, side margin ±20%, visits ±0.5, cannibal ±10pp, churn ±5pp, sub-price ±S/.2). Results sorted by swing (largest first); rendered as tornado bars + numeric table.
+- Weekly projection: ramp curve generator (linear / S-curve saturating exponential / aggressive). Owner can override any week's sign-ups; reset button restores the curve. Cumulative net tracks break-even week (highlighted with ▲ marker).
+- 12-month P&L: months 1-3 use pilot ramp end-of-month subscriber count; months 4-8 add +5 net new/month; months 9-12 add +10 net new/month; cap at 200. Churn applied to active base in scale phase. Year-1 totals row in tfoot.
+- Decision framework: three cards (go/kill/scale) each with live checkmarks comparing current inputs to the criteria thresholds. Risk register table with 5 pre-filled risks, each with probability badge (High/Medium/Low), impact text, and mitigation.
+- Scientific backing: 5 tabs (Subscription economics, Coffee unit economics, Behavioral economics, Pricing psychology, Break-even & sensitivity methods). 19 citations total — Recurly 2023, Chargebee, SCA food-cost guideline & roast yield & barista time-and-motion, Kivetz/Urminsky/Zheng 2006 (endowed progress), Nunes & Drèze 2006 (goal gradient), Thaler 1985 (mental accounting), Dreze & Nunes 2009 (experiential rewards), Thomas & Morwitz 2005 (charm pricing), Ariely 2008 (price anchoring), Gourville 1998 (9×9 rule), Dolan & Simon 1996 (price bracketing), Horngren/Datar/Rajan 2015 (contribution margin), Eschenbach 1992 (tornado diagrams), Saltelli et al. 2008 (Monte Carlo / global sensitivity analysis), Ries 2011 (Lean Startup build-measure-learn).
+- Updated /home/z/my-project/src/components/ursa/views/landing-view.tsx: changed the two "Ver las matemáticas" / "Abrir la calculadora completa" CTAs to navigate("pilot") (the new comprehensive business case). Kept the existing calculator route intact (the simpler tool still exists as #/calculator).
+- Phase 5 (lint): `bun run lint` exits 0 — clean. No new TypeScript errors introduced in pilot-view.tsx or i18n.ts (verified via `bun run tsc --noEmit` filtered to those files).
+- Phase 6 (commit): single commit, 5 files changed, +1684 / −274 lines.
+
+Stage Summary:
+- The `#/pilot` route is now a full business-case calculator with 9 sections covering cost inputs (7 editable), revenue inputs (10 editable), pilot parameters (ramp preset + cap + duration), 16 calculated outputs (each with formula displayed), tornado sensitivity across 7 variables, editable 12-week projection with break-even detection, 12-month P&L with year-1 totals, go/kill/scale decision framework with live criteria checks + 5-risk register, and a 5-tab science backing panel citing 19 published sources.
+- Every number the owner sees is traceable to its formula and inputs — the model is a position to argue with, not a forecast to believe.
+- All user-facing copy is bilingual EN/ES via `useI18n`, with ES hand-written in Peruvian Spanish (Miraflores/Lima voice).
+- The customer-facing landing page now links to the new business-case tool (pilot route) instead of the simpler calculator.
+- Lint clean. Commit landed: 232990d.

@@ -390,7 +390,7 @@ export const translations: Translations = {
       /* Market */
       "view.market.eyebrow": "Module 02 · Market, Competitors & Customer Voice",
       "view.market.title":
-        "Thirteen Miraflores and Lima competitors, mapped — and the one space none of them owns.",
+        "Fourteen Miraflores and Lima competitors, mapped — and the one space none of them owns.",
 
       /* Menu */
       "view.menu.eyebrow": "Module 03 · Menu & Product Development",
@@ -456,7 +456,7 @@ export const translations: Translations = {
       "view.competitors.eyebrow": "Extra Tool T2 · Interactive",
       "view.competitors.title": "Competitor Intelligence Dashboard.",
       "competitors.lede":
-        "A filterable comparison matrix of the thirteen Miraflores and Lima competitors, plus Ursa's own profile pinned to the top of the table. Sort by name, area, or website presence; filter the set; read each head-to-head verdict; and see where every player sits on the scale-vs-craft quadrant. The decision this dashboard supports is narrow: where Ursa should lean in, where it should hold, and where it should not compete head-on. Use it to choose battles, not to chase rivals.",
+        "A filterable comparison matrix of the fourteen Miraflores and Lima competitors, plus Ursa's own profile pinned to the top of the table. Sort by name, area, or website presence; filter the set; read each head-to-head verdict; and see where every player sits on the scale-vs-craft quadrant. The decision this dashboard supports is narrow: where Ursa should lean in, where it should hold, and where it should not compete head-on. Use it to choose battles, not to chase rivals.",
       "competitors.stat.tracked": "Competitors tracked",
       "competitors.stat.website": "Operate a website",
       "competitors.stat.miraflores": "Miraflores presence (incl. clusters)",
@@ -4684,7 +4684,7 @@ export const translations: Translations = {
 
       "view.market.eyebrow": "Módulo 02 · Mercado, Competidores y Voz del Cliente",
       "view.market.title":
-        "Trece competidores de Miraflores y Lima, mapeados — y el único espacio que ninguno ocupa.",
+        "Catorce competidores de Miraflores y Lima, mapeados — y el único espacio que ninguno ocupa.",
 
       "view.menu.eyebrow": "Módulo 03 · Carta y Desarrollo de Producto",
       "view.menu.title":
@@ -4742,7 +4742,7 @@ export const translations: Translations = {
       "view.competitors.eyebrow": "Herramienta T2 · Interactiva",
       "view.competitors.title": "Tablero de Inteligencia Competitiva.",
       "competitors.lede":
-        "Una matriz de comparación filtrable de los trece competidores de Miraflores y Lima, más el perfil de Ursa fijado en la parte superior de la tabla. Ordena por nombre, zona o presencia web; filtra el conjunto; lee cada veredicto cabeza a cabeza; y mira dónde se sitúa cada jugador en el cuadrante escala versus craft. La decisión que respalda este tablero es acotada: dónde debe inclinarse Ursa, dónde sostener y dónde no competir de frente. Úsalo para elegir batallas, no para perseguir rivales.",
+        "Una matriz de comparación filtrable de los catorce competidores de Miraflores y Lima, más el perfil de Ursa fijado en la parte superior de la tabla. Ordena por nombre, zona o presencia web; filtra el conjunto; lee cada veredicto cabeza a cabeza; y mira dónde se sitúa cada jugador en el cuadrante escala versus craft. La decisión que respalda este tablero es acotada: dónde debe inclinarse Ursa, dónde sostener y dónde no competir de frente. Úsalo para elegir batallas, no para perseguir rivales.",
       "competitors.stat.tracked": "Competidores registrados",
       "competitors.stat.website": "Tienen sitio web",
       "competitors.stat.miraflores": "Presencia en Miraflores (incl. clústeres)",
