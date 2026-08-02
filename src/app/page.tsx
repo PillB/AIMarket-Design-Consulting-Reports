@@ -135,6 +135,8 @@ export default function Home() {
           <UrsaFooter onPrint={() => window.print()} />
           <ScrollProgress />
           <CommandPalette />
+          {/* Spacer to prevent floating Quick Jump button from covering footer content */}
+          <div className="h-16 no-print" aria-hidden="true" />
         </div>
 
     </NavContext.Provider>

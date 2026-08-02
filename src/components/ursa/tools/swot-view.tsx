@@ -243,13 +243,15 @@ export function SwotView() {
               </div>
             </div>
 
-            {/* The plot area */}
-            <div className="relative aspect-square md:aspect-[4/3] w-full">
-              {/* Axis labels */}
-              <span className="absolute -left-2 top-1/2 -translate-y-1/2 -rotate-90 font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground whitespace-nowrap origin-center" style={{ left: "-28px" }}>
+            {/* The plot area with axis labels */}
+            <div className="relative w-full pl-8 pb-8">
+              <div className="relative aspect-square md:aspect-[4/3] w-full">
+              {/* Y-axis label — positioned to the left, rotated, no clipping */}
+              <span className="absolute top-1/2 -translate-y-1/2 -rotate-90 font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground whitespace-nowrap origin-center" style={{ left: "-32px" }}>
                 {t("content.swot.matrix.axis-y")}
               </span>
-              <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground whitespace-nowrap">
+              {/* X-axis label — positioned below, centered, no overlap */}
+              <span className="absolute left-1/2 -translate-x-1/2 font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground whitespace-nowrap" style={{ bottom: "-24px" }}>
                 {t("content.swot.matrix.axis-x")}
               </span>
 
@@ -329,6 +331,7 @@ export function SwotView() {
                   </div>
                 </div>
               ))}
+            </div>
             </div>
           </Card>
 

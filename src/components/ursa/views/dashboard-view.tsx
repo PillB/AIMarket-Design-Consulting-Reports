@@ -59,22 +59,22 @@ export function DashboardView() {
       {/* Quick facts + spirit preservation */}
       <ViewSection>
         <Grid cols={2}>
-          <div>
+          <div className="flex flex-col gap-4">
             <SectionBadge>{t("badges.read-me-first")}</SectionBadge>
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-ursa-dark-roast mt-3 mb-3">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-ursa-dark-roast mt-0 mb-3">
               {t("content.dashboard.section.how-to-use")}
             </h2>
-            <p className="text-[0.97rem] leading-relaxed text-foreground/85 mb-3">
+            <p className="text-[0.97rem] leading-relaxed text-foreground/85 mb-0">
               {t("content.dashboard.how-to-use.p1")}
             </p>
-            <p className="text-[0.97rem] leading-relaxed text-muted-foreground">
+            <p className="text-[0.97rem] leading-relaxed text-muted-foreground mb-0">
               {t("content.dashboard.how-to-use.p2")}
             </p>
             <Callout tone="forest" title={t("content.dashboard.how-to-use.callout-title")}>
               {t("content.dashboard.how-to-use.callout")}
             </Callout>
           </div>
-          <div className="space-y-4">
+          <div className="flex flex-col gap-4">
             <Card className="bg-ursa-foam">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
                 <BearMark size={22} className="text-ursa-dark-roast" /> {t("common.verified-at-snapshot")}
