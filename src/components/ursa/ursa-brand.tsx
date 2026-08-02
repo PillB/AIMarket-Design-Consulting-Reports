@@ -163,7 +163,7 @@ export function Pill({
   className,
 }: {
   children: React.ReactNode;
-  tone?: "default" | "ok" | "warn" | "stop" | "forest" | "gold";
+  tone?: "default" | "ok" | "warn" | "stop" | "forest" | "gold" | "terracotta";
   className?: string;
 }) {
   const tones = {
@@ -173,6 +173,7 @@ export function Pill({
     stop: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
     forest: "bg-ursa-dark-roast/8 text-ursa-forest-deep border-ursa-forest-deep/25",
     gold: "bg-ursa-gold text-ursa-dark-roast border-ursa-gold",
+    terracotta: "bg-ursa-terracotta/12 text-ursa-terracotta-text border-ursa-terracotta/30",
   };
   return (
     <span className={cn("inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.12em] uppercase px-2.5 py-1 rounded-full border", tones[tone], className)}>

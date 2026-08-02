@@ -70,12 +70,14 @@ function PawStamp({ filled, size = 28 }: { filled: boolean; size?: number }) {
 // Names, sources, findings, applications and recommendations are resolved via t()
 // under content.loyalty.principle.{id}.{field}. The icon and tone stay inline as
 // presentation data.
-const PRINCIPLES = [
-  { id: "endowed-progress", icon: Sparkles, tone: "gold" as const },
-  { id: "endowment", icon: Heart, tone: "forest" as const },
-  { id: "goal-gradient", icon: TrendingUp, tone: "terracotta" as const },
-  { id: "loss-aversion", icon: Scale, tone: "terracotta" as const },
-  { id: "small-wins", icon: Brain, tone: "gold" as const },
+type Tone = "gold" | "forest" | "terracotta";
+
+const PRINCIPLES: { id: string; icon: typeof Sparkles; tone: Tone }[] = [
+  { id: "endowed-progress", icon: Sparkles, tone: "gold" },
+  { id: "endowment", icon: Heart, tone: "forest" },
+  { id: "goal-gradient", icon: TrendingUp, tone: "terracotta" },
+  { id: "loss-aversion", icon: Scale, tone: "terracotta" },
+  { id: "small-wins", icon: Brain, tone: "gold" },
 ];
 
 // --- Evidence library cards (meta-analyses + adoption + success cases) ----

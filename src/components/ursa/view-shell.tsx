@@ -84,15 +84,17 @@ export function ViewSection({
   badge,
   title,
   meta,
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
   badge?: string;
   title?: React.ReactNode;
   meta?: string;
+  id?: string;
 }) {
   return (
-    <section className={cn("py-12 border-b border-ursa-line-soft", className)}>
+    <section id={id} className={cn("py-12 border-b border-ursa-line-soft", className)}>
       <div className="max-w-[1180px] mx-auto px-4 md:px-6">
         {(badge || title) && (
           <div className="flex items-baseline gap-4 flex-wrap mb-6">
