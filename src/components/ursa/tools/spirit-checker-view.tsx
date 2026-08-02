@@ -2,13 +2,12 @@
 
 import { useState, useMemo } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
-import { BearMark, Pill, Callout, ArtNouveauDivider, ProgressBar } from "../ursa-brand";
-import { useNavigate } from "@/lib/ursa-nav";
+import { BearMark, Pill, Callout, ProgressBar } from "../ursa-brand";
 import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 import {
   Shield, Check, X, AlertTriangle, RotateCcw, PawPrint as BearLucide,
-  Scale, Coffee, Sparkles, ArrowRight, Info,
+  Scale, Coffee, Info,
 } from "lucide-react";
 
 /**
@@ -29,79 +28,30 @@ type Pillar = "bear" | "gram" | "green";
 type Question = {
   id: string;
   pillar: Pillar;
-  question: string;
-  help: string;
   // "yes" = preserves/strengthens, "no" = erodes, "neutral" = n/a
   weight: number; // how much this question matters (1-3)
 };
 
 const QUESTIONS: Question[] = [
-  {
-    id: "q1",
-    pillar: "bear",
-    question: "Does the tactic use or feature the bear motif (mascot, paw, character)?",
-    help: "The bear is Ursa's most ownable asset — no Lima competitor has an animal character.",
-    weight: 3,
-  },
-  {
-    id: "q2",
-    pillar: "bear",
-    question: "Could the tactic be mistaken for a generic café's tactic if you removed the bear?",
-    help: "If yes, the tactic is not bear-anchored — it leans on commodity rather than identity.",
-    weight: 2,
-  },
-  {
-    id: "q3",
-    pillar: "gram",
-    question: "Does the tactic reinforce the 'one gram at a time' weighing ritual or patient craft?",
-    help: "The gram is the craft ethos — visible weighing, deliberate preparation, no shortcuts.",
-    weight: 3,
-  },
-  {
-    id: "q4",
-    pillar: "gram",
-    question: "Does the tactic rush or commodify the coffee (e.g. 'fastest cup', 'no wait')?",
-    help: "Speed-as-vendor erodes the gram pillar. Efficiency is fine; 'fastest' is not.",
-    weight: 2,
-  },
-  {
-    id: "q5",
-    pillar: "green",
-    question: "Does the tactic use the verified palette (browns, greens, cream, gold)?",
-    help: "No blue, no indigo — the palette is a deliberate non-default choice.",
-    weight: 2,
-  },
-  {
-    id: "q6",
-    pillar: "green",
-    question: "Does the tactic respect the Art Nouveau / crafted visual language?",
-    help: "Art Nouveau = ornamental borders, serif display type, botanical motifs, gold accents.",
-    weight: 2,
-  },
-  {
-    id: "q7",
-    pillar: "green",
-    question: "Does the tactic reference the in-house roastery or two-bar theatre?",
-    help: "The roastery on the floor and the espresso+coldbrew bars are the craft proof.",
-    weight: 3,
-  },
-  {
-    id: "q8",
-    pillar: "bear",
-    question: "Would a regular recognize this as 'something Ursa would do'?",
-    help: "The regular's recognition is the real brand test — not the owner's intent.",
-    weight: 2,
-  },
+  { id: "q1", pillar: "bear", weight: 3 },
+  { id: "q2", pillar: "bear", weight: 2 },
+  { id: "q3", pillar: "gram", weight: 3 },
+  { id: "q4", pillar: "gram", weight: 2 },
+  { id: "q5", pillar: "green", weight: 2 },
+  { id: "q6", pillar: "green", weight: 2 },
+  { id: "q7", pillar: "green", weight: 3 },
+  { id: "q8", pillar: "bear", weight: 2 },
 ];
 
-const PILLAR_META: Record<Pillar, { label: string; icon: typeof BearLucide; color: string; textColor: string; desc: string }> = {
-  bear: { label: "Bear", icon: BearLucide, color: "var(--color-ursa-dark-roast)", textColor: "var(--color-ursa-dark-roast)", desc: "The mascot, the paw, the character" },
-  gram: { label: "Gram", icon: Scale, color: "var(--color-ursa-gold)", textColor: "var(--color-ursa-gold-text)", desc: "'Un gramo a la vez' — the weighing ritual" },
-  green: { label: "Green", icon: Coffee, color: "var(--color-ursa-forest-deep)", textColor: "var(--color-ursa-forest-deep)", desc: "Palette, Art Nouveau, roastery craft" },
+const PILLAR_META: Record<Pillar, { labelKey: string; descKey: string; icon: typeof BearLucide; color: string; textColor: string }> = {
+  bear: { labelKey: "content.spirit-checker.pillar.bear.label", descKey: "content.spirit-checker.pillar.bear.desc", icon: BearLucide, color: "var(--color-ursa-dark-roast)", textColor: "var(--color-ursa-dark-roast)" },
+  gram: { labelKey: "content.spirit-checker.pillar.gram.label", descKey: "content.spirit-checker.pillar.gram.desc", icon: Scale, color: "var(--color-ursa-gold)", textColor: "var(--color-ursa-gold-text)" },
+  green: { labelKey: "content.spirit-checker.pillar.green.label", descKey: "content.spirit-checker.pillar.green.desc", icon: Coffee, color: "var(--color-ursa-forest-deep)", textColor: "var(--color-ursa-forest-deep)" },
 };
 
+const qKey = (id: string, field: string) => `content.spirit-checker.q.${id}.${field}`;
+
 export function SpiritCheckerView() {
-  const navigate = useNavigate();
   const { t } = useI18n();
   const [tactic, setTactic] = useState("");
   const [answers, setAnswers] = useState<Record<string, "yes" | "no" | "neutral" | undefined>>({});
@@ -147,22 +97,22 @@ export function SpiritCheckerView() {
 
   const verdictMeta = {
     preserved: {
-      label: "Spirit preserved",
+      labelKey: "content.spirit-checker.verdict.preserved.label",
+      descKey: "content.spirit-checker.verdict.preserved.desc",
       tone: "ok" as const,
       color: "var(--color-ursa-forest-deep)",
-      desc: "The tactic protects all three pillars. It may ship — document why it passed.",
     },
     conditional: {
-      label: "Conditional — revise before shipping",
+      labelKey: "content.spirit-checker.verdict.conditional.label",
+      descKey: "content.spirit-checker.verdict.conditional.desc",
       tone: "warn" as const,
       color: "var(--color-ursa-gold)",
-      desc: "One or more pillars are below the safe threshold. Revise the tactic to strengthen the weak pillar, then re-check.",
     },
     "at-risk": {
-      label: "At risk — do not ship as-is",
+      labelKey: "content.spirit-checker.verdict.at-risk.label",
+      descKey: "content.spirit-checker.verdict.at-risk.desc",
       tone: "stop" as const,
       color: "var(--color-ursa-terracotta)",
-      desc: "A pillar is badly eroded. This tactic would dilute Ursa's identity. Kill it or rethink it from the bear, the gram, or the green.",
     },
   };
 
@@ -171,17 +121,11 @@ export function SpiritCheckerView() {
       <ViewHero
         eyebrow={t("content.view.spirit-checker.eyebrow")}
         title={t("content.view.spirit-checker.title")}
-        lede={
-          <>
-            Before any new tactic ships, run it through this checker. Eight questions across three
-            identity pillars (Bear, Gram, Green) produce a composite score and a verdict. The rule is
-            simple: if a tactic erodes any pillar below 50%, it does not ship without revision.
-          </>
-        }
+        lede={<>{t("content.spirit-checker.hero.lede")}</>}
         meta={[
-          { label: "Pillars", value: "Bear · Gram · Green" },
-          { label: "Questions", value: `${QUESTIONS.length}` },
-          { label: "Threshold", value: "≥ 50% per pillar" },
+          { label: t("content.spirit-checker.meta.pillars"), value: t("content.spirit-checker.meta.pillars-value") },
+          { label: t("content.spirit-checker.meta.questions"), value: t("content.spirit-checker.meta.questions-value") },
+          { label: t("content.spirit-checker.meta.threshold"), value: t("content.spirit-checker.meta.threshold-value") },
         ]}
         tone="forest"
       />
@@ -193,18 +137,18 @@ export function SpiritCheckerView() {
             {/* Tactic input */}
             <Card>
               <label className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-gold-text block mb-2">
-                Tactic to check
+                {t("content.spirit-checker.tactic.label")}
               </label>
               <input
                 type="text"
                 value={tactic}
                 onChange={(e) => setTactic(e.target.value)}
-                placeholder="e.g. 'Happy hour: 2-for-1 espressos from 5–7pm'"
-                aria-label="Tactic to check"
+                placeholder={t("content.spirit-checker.tactic.placeholder")}
+                aria-label={t("content.spirit-checker.tactic.label")}
                 className="w-full h-11 px-4 rounded-lg border border-ursa-line bg-ursa-foam text-ursa-dark-roast placeholder:text-muted-foreground/60 focus:outline-none focus:border-ursa-gold focus:ring-2 focus:ring-ursa-gold/20 transition font-body"
               />
               <p className="text-[0.78rem] text-muted-foreground mt-2 m-0">
-                Describe the tactic in one line. Then answer the {QUESTIONS.length} questions below honestly — the checker only works if you do.
+                {t("content.spirit-checker.tactic.helper", { n: QUESTIONS.length })}
               </p>
             </Card>
 
@@ -212,10 +156,10 @@ export function SpiritCheckerView() {
             <Card>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0 flex items-center gap-2">
-                  <Shield size={18} className="text-ursa-gold-text" /> The {QUESTIONS.length} questions
+                  <Shield size={18} className="text-ursa-gold-text" /> {t("content.spirit-checker.questions.title", { n: QUESTIONS.length })}
                 </h3>
                 <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">
-                  {answeredCount}/{QUESTIONS.length} answered
+                  {t("content.spirit-checker.questions.counter", { n: answeredCount, total: QUESTIONS.length })}
                 </span>
               </div>
               <ProgressBar value={(answeredCount / QUESTIONS.length) * 100} tone="gold" />
@@ -226,6 +170,8 @@ export function SpiritCheckerView() {
                   const meta = PILLAR_META[q.pillar];
                   const Icon = meta.icon;
                   const isErode = q.id === "q2" || q.id === "q4";
+                  const pillarLabel = t(meta.labelKey);
+                  const pillarDesc = t(meta.descKey);
                   return (
                     <div key={q.id} className="rounded-lg border border-ursa-line-soft bg-ursa-foam/50 p-4">
                       <div className="flex items-start gap-3 mb-3">
@@ -234,14 +180,14 @@ export function SpiritCheckerView() {
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase" style={{ color: meta.textColor }}>{meta.label}</span>
-                            <span className="font-label text-[0.56rem] tracking-[0.1em] uppercase text-muted-foreground">· weight {q.weight}</span>
+                            <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase" style={{ color: meta.textColor }}>{pillarLabel}</span>
+                            <span className="font-label text-[0.56rem] tracking-[0.1em] uppercase text-muted-foreground">· {t("content.spirit-checker.weight.label", { n: q.weight })}</span>
                           </div>
                           <p className="font-display text-[0.95rem] font-semibold text-ursa-dark-roast m-0 leading-snug">
-                            {i + 1}. {q.question}
+                            {i + 1}. {t(qKey(q.id, "question"))}
                           </p>
                           <p className="text-[0.76rem] text-muted-foreground m-0 mt-1 leading-relaxed flex items-start gap-1">
-                            <Info size={11} className="mt-0.5 shrink-0 text-ursa-gold-text/60" /> {q.help}
+                            <Info size={11} className="mt-0.5 shrink-0 text-ursa-gold-text/60" /> {t(qKey(q.id, "help"))}
                           </p>
                         </div>
                       </div>
@@ -257,6 +203,11 @@ export function SpiritCheckerView() {
                             stop: isActive ? "bg-ursa-terracotta text-ursa-cream border-ursa-terracotta" : "text-ursa-terracotta-text border-ursa-terracotta/30 hover:bg-ursa-terracotta/10",
                             warn: isActive ? "bg-ursa-gold text-ursa-dark-roast border-ursa-gold" : "text-ursa-gold-text border-ursa-gold/30 hover:bg-ursa-gold/10",
                           }[tone];
+                          const optLabel = opt === "yes"
+                            ? t("content.spirit-checker.option.yes")
+                            : opt === "no"
+                              ? t("content.spirit-checker.option.no")
+                              : t("content.spirit-checker.option.na");
                           return (
                             <button
                               key={opt}
@@ -267,7 +218,7 @@ export function SpiritCheckerView() {
                                 toneCls
                               )}
                             >
-                              {opt === "yes" ? "Yes" : opt === "no" ? "No" : "N/A"}
+                              {optLabel}
                             </button>
                           );
                         })}
@@ -283,13 +234,13 @@ export function SpiritCheckerView() {
                   disabled={!allAnswered}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft transition shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                  <Shield size={14} /> Check the spirit
+                  <Shield size={14} /> {t("content.spirit-checker.action.check")}
                 </button>
                 <button
                   onClick={() => { setAnswers({}); setSubmitted(false); }}
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-label text-[0.72rem] tracking-[0.1em] uppercase text-muted-foreground hover:text-ursa-terracotta-text transition"
                 >
-                  <RotateCcw size={13} /> Clear answers
+                  <RotateCcw size={13} /> {t("content.spirit-checker.action.clear")}
                 </button>
               </div>
             </Card>
@@ -300,7 +251,7 @@ export function SpiritCheckerView() {
             <Card highlight className={cn(submitted && score.verdict === "at-risk" && "border-ursa-terracotta")}>
               <div className="flex items-center gap-2 mb-4">
                 <BearMark size={22} className="text-ursa-dark-roast ursa-breathe" />
-                <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Spirit score</h3>
+                <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">{t("content.spirit-checker.score.title")}</h3>
               </div>
 
               {/* Composite */}
@@ -308,17 +259,17 @@ export function SpiritCheckerView() {
                 <div className="font-display text-5xl font-semibold leading-none" style={{ color: submitted ? verdictMeta[score.verdict].color : "var(--color-ursa-line)" }}>
                   {submitted ? score.composite : "—"}
                 </div>
-                <div className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-muted-foreground mt-2">Composite / 100</div>
+                <div className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-muted-foreground mt-2">{t("content.spirit-checker.score.composite-label")}</div>
               </div>
 
               {submitted ? (
                 <div className="mb-4">
-                  <Pill tone={verdictMeta[score.verdict].tone} className="mb-2">{verdictMeta[score.verdict].label}</Pill>
-                  <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">{verdictMeta[score.verdict].desc}</p>
+                  <Pill tone={verdictMeta[score.verdict].tone} className="mb-2">{t(verdictMeta[score.verdict].labelKey)}</Pill>
+                  <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">{t(verdictMeta[score.verdict].descKey)}</p>
                 </div>
               ) : (
                 <p className="text-[0.84rem] text-muted-foreground m-0 mb-4 italic">
-                  Answer all {QUESTIONS.length} questions, then click "Check the spirit".
+                  {t("content.spirit-checker.action.prompt", { n: QUESTIONS.length })}
                 </p>
               )}
 
@@ -329,11 +280,13 @@ export function SpiritCheckerView() {
                   const Icon = meta.icon;
                   const val = score[p as "bear" | "gram" | "green"];
                   const pillarTone = val >= 70 ? "var(--color-ursa-forest-deep)" : val >= 50 ? "var(--color-ursa-gold)" : "var(--color-ursa-terracotta)";
+                  const pillarLabel = t(meta.labelKey);
+                  const pillarDesc = t(meta.descKey);
                   return (
                     <div key={p}>
                       <div className="flex items-center justify-between mb-1">
                         <span className="flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.12em] uppercase text-muted-foreground">
-                          <Icon size={12} style={{ color: meta.color }} /> {meta.label}
+                          <Icon size={12} style={{ color: meta.color }} /> {pillarLabel}
                         </span>
                         <span className="font-display text-[0.9rem] font-semibold tabular-nums" style={{ color: submitted ? pillarTone : "var(--color-ursa-line)" }}>
                           {submitted ? val : "—"}
@@ -345,7 +298,7 @@ export function SpiritCheckerView() {
                           style={{ width: submitted ? `${val}%` : "0%", background: pillarTone }}
                         />
                       </div>
-                      <p className="text-[0.7rem] text-muted-foreground m-0 mt-1">{meta.desc}</p>
+                      <p className="text-[0.7rem] text-muted-foreground m-0 mt-1">{pillarDesc}</p>
                     </div>
                   );
                 })}
@@ -353,29 +306,27 @@ export function SpiritCheckerView() {
             </Card>
 
             {/* The rule */}
-            <Callout tone="forest" title="The spirit-preservation rule">
+            <Callout tone="forest" title={t("content.spirit-checker.callout.rule.title")}>
               <p className="m-0 text-[0.86rem]">
-                If a tactic forces a choice between protecting Ursa&apos;s identity and chasing a generic
-                growth play, this dossier always chooses the bear, the gram, and the green. A pillar
-                below 50% is a red line — not a suggestion.
+                {t("content.spirit-checker.callout.rule.body")}
               </p>
             </Callout>
 
             {/* Example verdicts */}
             <Card className="bg-ursa-foam">
-              <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-3">Verdict scale</h4>
+              <h4 className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-3">{t("content.spirit-checker.scale.title")}</h4>
               <ul className="space-y-2 m-0 p-0 list-none text-[0.82rem]">
                 <li className="flex items-start gap-2">
                   <Check size={14} className="text-ursa-forest-deep mt-0.5 shrink-0" />
-                  <span><strong className="text-ursa-dark-roast">≥ 70% per pillar</strong> — spirit preserved, may ship.</span>
+                  <span><strong className="text-ursa-dark-roast">{t("content.spirit-checker.scale.preserved")}</strong></span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertTriangle size={14} className="text-ursa-gold-text mt-0.5 shrink-0" />
-                  <span><strong className="text-ursa-dark-roast">50–69%</strong> — conditional; revise the weak pillar.</span>
+                  <span><strong className="text-ursa-dark-roast">{t("content.spirit-checker.scale.conditional")}</strong></span>
                 </li>
                 <li className="flex items-start gap-2">
                   <X size={14} className="text-ursa-terracotta-text mt-0.5 shrink-0" />
-                  <span><strong className="text-ursa-dark-roast">&lt; 50%</strong> — at risk; do not ship as-is.</span>
+                  <span><strong className="text-ursa-dark-roast">{t("content.spirit-checker.scale.at-risk")}</strong></span>
                 </li>
               </ul>
             </Card>

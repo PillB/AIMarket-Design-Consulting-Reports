@@ -414,8 +414,11 @@ export const translations: Translations = {
       "competitors.stat.miraflores": "Miraflores presence (incl. clusters)",
       "competitors.stat.distinctiveness": "Ursa distinctiveness score",
       "competitors.meta.rows": "Rows",
+      "competitors.meta.rows-value": "{n} (incl. Ursa)",
       "competitors.meta.filterable": "Filterable by",
+      "competitors.meta.filterable-value": "Area · Website · Name",
       "competitors.meta.source": "Source",
+      "competitors.meta.source-value": "Module 02 snapshot",
       "competitors.summary.caption":
         "The distinctiveness score is qualitative — it is the share of competitors against which Ursa holds a clear positional lead (the bear, the two-bar theatre, the named-drink convention, the Art Nouveau craft language). It is not a market-share metric. The mechanism: market share would require POS data we do not have; positional distinctiveness only requires observing what each competitor visibly does, which is public. Treat the number as a directional read on how crowded Ursa's position is, not as a number to optimise.",
       "competitors.section.filter.badge": "Filter controls",
@@ -424,7 +427,15 @@ export const translations: Translations = {
       "competitors.filter.search-label": "Search by name",
       "competitors.filter.search-placeholder": "e.g. Punto, Bisetti, Puku…",
       "competitors.filter.area-label": "Area",
+      "competitors.filter.area.all": "All",
+      "competitors.filter.area.miraflores": "Miraflores",
+      "competitors.filter.area.barranco": "Barranco",
+      "competitors.filter.area.multiple-lima": "Multiple Lima",
+      "competitors.filter.area.lima": "Lima",
       "competitors.filter.website-label": "Has website",
+      "competitors.filter.website.all": "All",
+      "competitors.filter.website.yes": "Yes",
+      "competitors.filter.website.no": "No",
       "competitors.filter.showing-label": "Showing",
       "competitors.filter.pill-competitors": "{n} competitors",
       "competitors.filter.pill-website": "Website: {value}",
@@ -785,6 +796,285 @@ export const translations: Translations = {
       "view.scorecard.eyebrow": "Extra Tool T13 · One-page executive compilation",
       "view.scorecard.title":
         "Brand Audit Scorecard — the whole picture on one page",
+
+      /* ---- Tool T9 · Campaign Builder (deepened body copy + section copy) ---- */
+      "campaign-builder.hero.lede":
+        "Which campaign does Ursa ship next, and how does it stay honest? This wizard walks the owner through six steps — offer, audience, channel, metric, budget, summary — drawing each option from the verified Ursa playbook (six offers, six audiences, eight channels, six metrics that recur across Modules 03, 04, and 05). The output is a plain-text brief with the offer, the audience, the channel, the success metric, the monthly budget, and a stop rule baked in. Copy it, hand it to whoever runs the campaign — a barista, a creator, or yourself — and let the stop rule, not the day's mood, decide whether to scale or kill.",
+      "campaign-builder.meta.steps": "Steps",
+      "campaign-builder.meta.steps-value": "6 · offer → brief",
+      "campaign-builder.meta.source": "Source",
+      "campaign-builder.meta.source-value": "Verified Ursa playbook",
+      "campaign-builder.meta.output": "Output",
+      "campaign-builder.meta.output-value": "Copyable text brief",
+
+      "campaign-builder.step.offer.label": "Offer",
+      "campaign-builder.step.audience.label": "Audience",
+      "campaign-builder.step.channel.label": "Channel",
+      "campaign-builder.step.metric.label": "Metric",
+      "campaign-builder.step.budget.label": "Budget",
+      "campaign-builder.step.summary.label": "Summary",
+
+      "campaign-builder.step.offer.title": "Pick the offer",
+      "campaign-builder.step.offer.desc":
+        "What is the customer actually getting? Each offer is anchored truthfully against the à la carte total — if the anchor cannot be defended in one sentence, it is a discount dressed as an offer, not a real offer.",
+      "campaign-builder.step.audience.title": "Pick the audience",
+      "campaign-builder.step.audience.desc":
+        "Who is this campaign for? Each persona maps to a distinct job to be done — a morning ritual, a tourist discovery, a remote-work session, an origin curiosity, an office wholesale need, a hotel guest's first cup. Pick one; a campaign that targets everyone targets no one.",
+      "campaign-builder.step.channel.title": "Pick the channel",
+      "campaign-builder.step.channel.desc":
+        "Where will the audience encounter the offer? Match the channel's reach and cost to the budget — free channels (Google Business Profile, WhatsApp) before paid, owned (Instagram) before rented (Meta ads), in-store (events, cuppings) before outbound. A channel that costs S/. 0 and reaches the right person always beats a channel that costs S/. 1,800 and reaches the wrong one.",
+      "campaign-builder.step.metric.title": "Pick the metric",
+      "campaign-builder.step.metric.desc":
+        "How will you know it worked? Pick one primary metric and one target — a basket of metrics makes it impossible to decide whether to scale or kill. The brief builds the stop rule automatically from the target.",
+      "campaign-builder.step.budget.title": "Set the monthly budget",
+      "campaign-builder.step.budget.desc":
+        "Match the channel cost to a realistic monthly spend. Lean starts at S/. 500; Growth can reach S/. 3,000. The discipline: pick a number the café can sustain for 90 days without flinching — cutting a campaign in week six wastes the first six weeks and breaks the stop rule's measurement window.",
+      "campaign-builder.step.budget.label-monthly": "Monthly budget",
+      "campaign-builder.step.budget.lean": "Lean · S/. 500",
+      "campaign-builder.step.budget.growth": "Growth · S/. 3,000",
+      "campaign-builder.step.budget.tier-lean": "Lean",
+      "campaign-builder.step.budget.tier-moderate": "Moderate",
+      "campaign-builder.step.budget.tier-growth": "Growth",
+
+      "campaign-builder.step.summary.title": "Your campaign brief",
+      "campaign-builder.step.summary.desc":
+        "The brief is the contract between the owner and whoever runs the campaign. If the operator cannot repeat the offer, audience, channel, metric, budget, and stop rule from the brief alone, the brief is too long — trim it. Copy and hand off.",
+
+      "campaign-builder.offer.ursamanana.name": "Ursa Mañana subscription",
+      "campaign-builder.offer.ursamanana.desc": "S/. 20/month unlimited coffee Mon–Fri 7–10am + 20% off morning sides",
+      "campaign-builder.offer.ursamanana.anchor": "S/. 20/mo vs S/. 60/mo à la carte",
+      "campaign-builder.offer.tasting.name": "Cata de Tres Orígenes flight",
+      "campaign-builder.offer.tasting.desc": "Three pour-overs + bean sample + story card",
+      "campaign-builder.offer.tasting.anchor": "S/. 28 vs S/. 42 à la carte",
+      "campaign-builder.offer.pairing.name": "Bear recommends pairing",
+      "campaign-builder.offer.pairing.desc": "Named drink + cookie or financier combo at 15% off",
+      "campaign-builder.offer.pairing.anchor": "S/. 18 vs S/. 21 à la carte",
+      "campaign-builder.offer.hotelcard.name": "Hotel concierge origin card",
+      "campaign-builder.offer.hotelcard.desc": "Branded card + first-cup-free coupon for 8 hotels",
+      "campaign-builder.offer.hotelcard.anchor": "Free first cup vs S/. 14 regular",
+      "campaign-builder.offer.gramweek.name": "Gram of the Week bean drop",
+      "campaign-builder.offer.gramweek.desc": "Weekly microlot highlight + retail bean discount",
+      "campaign-builder.offer.gramweek.anchor": "S/. 38 bean bag vs S/. 48 retail",
+      "campaign-builder.offer.cupping.name": "Monthly cupping night",
+      "campaign-builder.offer.cupping.desc": "Guided cupping of 4 origins + pastry pairing",
+      "campaign-builder.offer.cupping.anchor": "S/. 35 ticket vs S/. 70 value",
+
+      "campaign-builder.audience.morning.name": "The Morning Regular",
+      "campaign-builder.audience.morning.desc": "Lives or works in Miraflores; arrives 7–8am; wants a fast, deliberate cup.",
+      "campaign-builder.audience.tourist.name": "The Tourist Explorer",
+      "campaign-builder.audience.tourist.desc": "Visiting Lima for 2–4 days; wants a craft spot to tag and recommend.",
+      "campaign-builder.audience.remote.name": "The Remote Worker",
+      "campaign-builder.audience.remote.desc": "Needs a third place with Wi-Fi for 90+ min; values a quiet side.",
+      "campaign-builder.audience.curious.name": "The Coffee Curious",
+      "campaign-builder.audience.curious.desc": "Wants to learn origin and process; buys retail beans; attends cuppings.",
+      "campaign-builder.audience.office.name": "Office / B2B",
+      "campaign-builder.audience.office.desc": "Coworking space or office manager sourcing beans for 10–30 people.",
+      "campaign-builder.audience.hotel.name": "Hotel concierge / guest",
+      "campaign-builder.audience.hotel.desc": "Concierge recommending cafés; guests within walking distance.",
+
+      "campaign-builder.channel.instagram.name": "Instagram Reels + Stories",
+      "campaign-builder.channel.instagram.reach": "4.7k followers + discovery",
+      "campaign-builder.channel.instagram.cost": "S/. 0 (in-house)",
+      "campaign-builder.channel.meta.name": "Meta paid social (3km radius)",
+      "campaign-builder.channel.meta.reach": "10–30k impressions",
+      "campaign-builder.channel.meta.cost": "S/. 600–1,800/mo",
+      "campaign-builder.channel.creator.name": "Creator pilot (3 micro-creators)",
+      "campaign-builder.channel.creator.reach": "5–30k each",
+      "campaign-builder.channel.creator.cost": "S/. 1,200–3,000",
+      "campaign-builder.channel.google.name": "Google Business Profile",
+      "campaign-builder.channel.google.reach": "Maps + search",
+      "campaign-builder.channel.google.cost": "S/. 0 (owned)",
+      "campaign-builder.channel.whatsapp.name": "WhatsApp consent list",
+      "campaign-builder.channel.whatsapp.reach": "Existing customers",
+      "campaign-builder.channel.whatsapp.cost": "S/. 0–150",
+      "campaign-builder.channel.hotel.name": "Hotel concierge cards (8 properties)",
+      "campaign-builder.channel.hotel.reach": "Tourist guests",
+      "campaign-builder.channel.hotel.cost": "S/. 200–400",
+      "campaign-builder.channel.rappi.name": "Rappi menu + bundles",
+      "campaign-builder.channel.rappi.reach": "Delivery users",
+      "campaign-builder.channel.rappi.cost": "S/. 0–400",
+      "campaign-builder.channel.event.name": "In-store event / cupping",
+      "campaign-builder.channel.event.reach": "15–30 attendees",
+      "campaign-builder.channel.event.cost": "S/. 200–560",
+
+      "campaign-builder.metric.visits.name": "Store visits",
+      "campaign-builder.metric.visits.desc": "Foot traffic attributable to the campaign",
+      "campaign-builder.metric.visits.target": "+15% vs baseline",
+      "campaign-builder.metric.profile.name": "Profile visits / saves",
+      "campaign-builder.metric.profile.desc": "Instagram profile views + post saves",
+      "campaign-builder.metric.profile.target": "+30% vs baseline",
+      "campaign-builder.metric.aov.name": "Average ticket",
+      "campaign-builder.metric.aov.desc": "Spend per transaction during campaign window",
+      "campaign-builder.metric.aov.target": "+S/. 2–4",
+      "campaign-builder.metric.repeat.name": "Repeat visits (7-day)",
+      "campaign-builder.metric.repeat.desc": "% returning within 7 days of first visit",
+      "campaign-builder.metric.repeat.target": "≥ 35%",
+      "campaign-builder.metric.tags.name": "UGC tags / mentions",
+      "campaign-builder.metric.tags.desc": "@ursacoffeeperu tags per week",
+      "campaign-builder.metric.tags.target": "≥ 5/week",
+      "campaign-builder.metric.reviews.name": "Google / TripAdvisor reviews",
+      "campaign-builder.metric.reviews.desc": "New reviews per month",
+      "campaign-builder.metric.reviews.target": "≥ 8/mo",
+
+      "campaign-builder.brief.title": "Running brief",
+      "campaign-builder.brief.row.offer": "Offer",
+      "campaign-builder.brief.row.audience": "Audience",
+      "campaign-builder.brief.row.channel": "Channel",
+      "campaign-builder.brief.row.metric": "Metric",
+      "campaign-builder.brief.row.budget": "Budget",
+      "campaign-builder.brief.hint-all-set": "All set. The brief updates as you choose.",
+      "campaign-builder.brief.hint-select": "Select {step} to continue.",
+
+      "campaign-builder.brief.output.header": "URSA COFFEE — CAMPAIGN BRIEF",
+      "campaign-builder.brief.output.offer-label": "OFFER",
+      "campaign-builder.brief.output.audience-label": "AUDIENCE",
+      "campaign-builder.brief.output.channel-label": "CHANNEL",
+      "campaign-builder.brief.output.metric-label": "METRIC",
+      "campaign-builder.brief.output.budget-label": "BUDGET",
+      "campaign-builder.brief.output.reach-label": "Reach",
+      "campaign-builder.brief.output.cost-label": "Cost",
+      "campaign-builder.brief.output.target-label": "target",
+      "campaign-builder.brief.output.stop-rule-label": "STOP RULE",
+      "campaign-builder.brief.output.stop-rule-template": "Kill if {metric} does not lift by {target} in 30 days.",
+      "campaign-builder.brief.output.footer": "— Compiled with the Ursa Campaign Builder",
+
+      "campaign-builder.action.reset": "Reset",
+      "campaign-builder.action.back": "Back",
+      "campaign-builder.action.next": "Next",
+      "campaign-builder.action.view-roadmap": "View roadmap",
+      "campaign-builder.action.copy": "Copy brief",
+      "campaign-builder.action.copied": "Copied",
+
+      "campaign-builder.callout.stop-rule.title": "The stop rule is the discipline",
+      "campaign-builder.callout.stop-rule.body":
+        "Every brief ends with a stop rule: kill the campaign if the metric has not lifted by its target within 30 days. Thirty days is the shortest window in which Instagram's algorithm, Google Business Profile's behavioural signal, and a Miraflores regular's habit can all register change. Doubling down on a campaign that has not lifted — 'just give it another week' — is the single most common way small-budget marketing fails. Document what did not work and move on; the next campaign inherits the learning, not the spend.",
+
+      /* ---- Tool T10 · Spirit Checker (deepened body copy + section copy) ---- */
+      "spirit-checker.hero.lede":
+        "Before any new tactic ships — a happy hour, a paid social creative, a Rappi bundle, a new menu item — run it through this checker. Eight questions across Ursa's three identity pillars (Bear, Gram, Green) produce a composite score and a verdict. The framework's premise: the bear, the gram, and the green are not aesthetic preferences but the moat — competitors can copy the offer and outspend on distribution, but they cannot copy the character. The rule is the red line: if a tactic erodes any pillar below 50%, it does not ship without revision. The limitation: the checker scores tactics, not taste — a high score on a tone-deaf tactic is still a tone-deaf tactic.",
+      "spirit-checker.meta.pillars": "Pillars",
+      "spirit-checker.meta.pillars-value": "Bear · Gram · Green",
+      "spirit-checker.meta.questions": "Questions",
+      "spirit-checker.meta.questions-value": "8 · weighted 1–3",
+      "spirit-checker.meta.threshold": "Threshold",
+      "spirit-checker.meta.threshold-value": "≥ 50% per pillar",
+
+      "spirit-checker.tactic.label": "Tactic to check",
+      "spirit-checker.tactic.placeholder": "e.g. 'Happy hour: 2-for-1 espressos from 5–7pm'",
+      "spirit-checker.tactic.helper":
+        "Describe the tactic in one line. Then answer the {n} questions below honestly — the checker only works if you do.",
+
+      "spirit-checker.questions.title": "The {n} questions",
+      "spirit-checker.questions.counter": "{n}/{total} answered",
+
+      "spirit-checker.q.q1.question": "Does the tactic use or feature the bear motif (mascot, paw, character)?",
+      "spirit-checker.q.q1.help":
+        "The bear is Ursa's most ownable asset — no Lima competitor has an animal character. Using it is not decoration; it is the cheapest brand reinforcement available.",
+      "spirit-checker.q.q2.question": "Could the tactic be mistaken for a generic café's tactic if you removed the bear?",
+      "spirit-checker.q.q2.help":
+        "If yes, the tactic is not bear-anchored — it leans on commodity rather than identity. A Reel that could be reposted by any Lima café is a Reel that has not earned Ursa's name.",
+      "spirit-checker.q.q3.question": "Does the tactic reinforce the 'one gram at a time' weighing ritual or patient craft?",
+      "spirit-checker.q.q3.help":
+        "The gram is the craft ethos — visible weighing, deliberate preparation, no shortcuts. Showing the scale, naming the dose, slowing the pour: each is a small reinforcement of the ritual.",
+      "spirit-checker.q.q4.question": "Does the tactic rush or commodify the coffee (e.g. 'fastest cup', 'no wait')?",
+      "spirit-checker.q.q4.help":
+        "Speed-as-vendor erodes the gram pillar. Efficiency behind the bar is fine; promising 'the fastest cup' to the customer is not — it frames the wrong variable.",
+      "spirit-checker.q.q5.question": "Does the tactic use the verified palette (browns, greens, cream, gold)?",
+      "spirit-checker.q.q5.help":
+        "No blue, no indigo — the palette is a deliberate non-default choice. Defaulting to Instagram-blue or generic café-beige on a single asset quietly trains the eye to expect less of Ursa.",
+      "spirit-checker.q.q6.question": "Does the tactic respect the Art Nouveau / crafted visual language?",
+      "spirit-checker.q.q6.help":
+        "Art Nouveau = ornamental borders, serif display type (Cormorant Garamond), botanical motifs, gold accents. A tactic that drops these for sans-serif and flat-color is not modernising; it is de-identifying.",
+      "spirit-checker.q.q7.question": "Does the tactic reference the in-house roastery or two-bar theatre?",
+      "spirit-checker.q.q7.help":
+        "The roastery on the floor and the espresso+coldbrew bars are the craft proof — the only in-shop asset no competitor can stage in a week. A tactic that ignores both is leaving the strongest evidence on the table.",
+      "spirit-checker.q.q8.question": "Would a regular recognize this as 'something Ursa would do'?",
+      "spirit-checker.q.q8.help":
+        "The regular's recognition is the real brand test — not the owner's intent. If a tactic needs explaining to a regular, it has already failed the recognition test; revise before shipping.",
+
+      "spirit-checker.option.yes": "Yes",
+      "spirit-checker.option.no": "No",
+      "spirit-checker.option.na": "N/A",
+
+      "spirit-checker.weight.label": "weight {n}",
+
+      "spirit-checker.pillar.bear.label": "Bear",
+      "spirit-checker.pillar.bear.desc": "The mascot, the paw, the character",
+      "spirit-checker.pillar.gram.label": "Gram",
+      "spirit-checker.pillar.gram.desc": "'Un gramo a la vez' — the weighing ritual",
+      "spirit-checker.pillar.green.label": "Green",
+      "spirit-checker.pillar.green.desc": "Palette, Art Nouveau, roastery craft",
+
+      "spirit-checker.action.check": "Check the spirit",
+      "spirit-checker.action.clear": "Clear answers",
+      "spirit-checker.action.prompt":
+        "Answer all {n} questions, then click \"Check the spirit\".",
+
+      "spirit-checker.score.title": "Spirit score",
+      "spirit-checker.score.composite-label": "Composite / 100",
+
+      "spirit-checker.verdict.preserved.label": "Spirit preserved",
+      "spirit-checker.verdict.preserved.desc":
+        "The tactic protects all three pillars. It may ship — document why it passed in one line, so the next tactic inherits the reasoning rather than just the verdict.",
+      "spirit-checker.verdict.conditional.label": "Conditional — revise before shipping",
+      "spirit-checker.verdict.conditional.desc":
+        "One or more pillars sit below the safe threshold. The tactic does not ship as-is — revise it to strengthen the weakest pillar, then re-check. Skipping the revision and shipping anyway is the failure mode this checker exists to prevent.",
+      "spirit-checker.verdict.at-risk.label": "At risk — do not ship as-is",
+      "spirit-checker.verdict.at-risk.desc":
+        "A pillar is badly eroded. This tactic would dilute Ursa's identity even if it lifted the metric it set out to lift. Kill it, or rethink it starting from one of the three pillars — bear, gram, or green — and re-check before bringing it back.",
+
+      "spirit-checker.callout.rule.title": "The spirit-preservation rule",
+      "spirit-checker.callout.rule.body":
+        "When a tactic forces a choice between protecting Ursa's identity and chasing a generic growth play, this dossier always chooses the bear, the gram, and the green. The reasoning is not aesthetic preference but economics: the identity is the moat, and a moat eroded for a quarter's growth cannot be rebuilt in the next. A pillar below 50% is a red line — not a suggestion.",
+
+      "spirit-checker.scale.title": "Verdict scale",
+      "spirit-checker.scale.preserved": "≥ 70% per pillar — spirit preserved, may ship.",
+      "spirit-checker.scale.conditional": "50–69% — conditional; revise the weak pillar.",
+      "spirit-checker.scale.at-risk": "< 50% — at risk; do not ship as-is.",
+
+      /* ---- Tool T11 · SWOT Matrix (deepened body copy + section copy) ---- */
+      "swot.hero.lede":
+        "A 2×2 plot of {n} Miraflores and Lima competitors on the two axes the dossier actually researched: Brand distinctiveness (bear, gram, green, Art Nouveau, in-house roastery — the assets verified in Module 01) versus Distribution reach (locations, channels, review presence — the footprint verified in Module 02). The scores are research-judgement, not market-share data: a 50 midpoint separates 'high' from 'low' on each axis, and the relative positions matter more than the absolute numbers. Click any dot to read its SWOT and the implication for Ursa. What is not on this chart: price, revenue, headcount — those would change the analysis, and are deliberately excluded because Ursa cannot act on them today.",
+      "swot.meta.competitors": "Competitors",
+      "swot.meta.competitors-value": "{n} plotted",
+      "swot.meta.axes": "Axes",
+      "swot.meta.axes-value": "Distinctiveness × Reach",
+      "swot.meta.ursa": "Ursa",
+      "swot.meta.ursa-value": "High craft · low reach",
+
+      "swot.matrix.title": "Distinctiveness × Reach",
+      "swot.matrix.legend-ursa": "Ursa",
+      "swot.matrix.legend-competitor": "Competitors",
+      "swot.matrix.axis-y": "Distinctiveness →",
+      "swot.matrix.axis-x": "Distribution reach →",
+
+      "swot.quadrant.top-right.label": "Leaders",
+      "swot.quadrant.top-right.desc":
+        "High craft + high reach — the benchmark Ursa is moving toward.",
+      "swot.quadrant.top-left.label": "Hidden gems",
+      "swot.quadrant.top-left.desc":
+        "High craft + low reach — Ursa's neighbourhood; the gap is distribution, not identity.",
+      "swot.quadrant.bottom-right.label": "Scaled chains",
+      "swot.quadrant.bottom-right.desc":
+        "Lower craft + high reach — the volume play; reach without an identity moat.",
+      "swot.quadrant.bottom-left.label": "Undifferentiated",
+      "swot.quadrant.bottom-left.desc":
+        "Lower craft + low reach — vulnerable; the closest competitors on Ursa's block sit here.",
+
+      "swot.readout.distinctiveness": "Distinctiveness",
+      "swot.readout.reach": "Reach",
+
+      "swot.swot-cell.strengths": "Strengths",
+      "swot.swot-cell.weaknesses": "Weaknesses",
+      "swot.swot-cell.opportunities": "Opportunities",
+      "swot.swot-cell.threats": "Threats",
+
+      "swot.ursa-implication.heading": "Implication for Ursa",
+      "swot.quick-switch.heading": "Jump to",
+
+      "swot.callout.takeaway.title": "The strategic read",
+      "swot.callout.takeaway.body":
+        "Ursa sits in the Hidden gems quadrant — high distinctiveness, low reach. The plan's job is to move Ursa rightward without dropping downward. Rightward is concrete: claim the Google Business Profile (free, same-day, recovers search traffic that today lands on Punto Café and Neira), ship the creator pilot (builds reach with the bear as the asset), and run the hotel concierge pipeline (tourist demand already walking past Alcanfores 183). Downward is the failure mode: chain-feel service, retail-bean commoditisation, or paid acquisition before the organic foundation is laid. No competitor occupies Ursa's space; the gap is distribution, not identity.",
 
       /* ---- Module 05 · Viral Content Laboratory (deepened body copy) ---- */
       "viral.lede":
@@ -4120,8 +4410,11 @@ export const translations: Translations = {
       "competitors.stat.miraflores": "Presencia en Miraflores (incl. clústeres)",
       "competitors.stat.distinctiveness": "Puntaje de distintividad de Ursa",
       "competitors.meta.rows": "Filas",
+      "competitors.meta.rows-value": "{n} (incl. Ursa)",
       "competitors.meta.filterable": "Filtrable por",
+      "competitors.meta.filterable-value": "Zona · Web · Nombre",
       "competitors.meta.source": "Fuente",
+      "competitors.meta.source-value": "Snapshot del Módulo 02",
       "competitors.summary.caption":
         "El puntaje de distintividad es cualitativo — es la proporción de competidores frente a los cuales Ursa tiene una ventaja posicional clara (el oso, el teatro de las dos barras, la convención de bebidas con nombre, el lenguaje craft Art Nouveau). No es una métrica de cuota de mercado. El mecanismo: la cuota de mercado requeriría datos del POS que no tenemos; la distintividad posicional solo requiere observar lo que cada competidor hace visiblemente, y eso es público. Toma el número como una lectura direccional de qué tan poblada está la posición de Ursa, no como un número a optimizar.",
       "competitors.section.filter.badge": "Controles de filtro",
@@ -4130,7 +4423,15 @@ export const translations: Translations = {
       "competitors.filter.search-label": "Buscar por nombre",
       "competitors.filter.search-placeholder": "ej. Punto, Bisetti, Puku…",
       "competitors.filter.area-label": "Zona",
+      "competitors.filter.area.all": "Todas",
+      "competitors.filter.area.miraflores": "Miraflores",
+      "competitors.filter.area.barranco": "Barranco",
+      "competitors.filter.area.multiple-lima": "Múltiples Lima",
+      "competitors.filter.area.lima": "Lima",
       "competitors.filter.website-label": "Tiene web",
+      "competitors.filter.website.all": "Todos",
+      "competitors.filter.website.yes": "Sí",
+      "competitors.filter.website.no": "No",
       "competitors.filter.showing-label": "Mostrando",
       "competitors.filter.pill-competitors": "{n} competidores",
       "competitors.filter.pill-website": "Web: {value}",
@@ -4481,6 +4782,285 @@ export const translations: Translations = {
         "Herramienta T13 · Compilación ejecutiva de una página",
       "view.scorecard.title":
         "Tarjeta de Auditoría de Marca — toda la imagen en una página",
+
+      /* ---- Herramienta T9 · Constructor de Campañas (cuerpo profundizado + copy de sección) ---- */
+      "campaign-builder.hero.lede":
+        "¿Qué campaña lanza Ursa a continuación, y cómo se mantiene honesta? Este asistente camina al dueño por seis pasos — oferta, audiencia, canal, métrica, presupuesto, brief — tomando cada opción del playbook verificado de Ursa (seis ofertas, seis audiencias, ocho canales, seis métricas que se repiten a lo largo de los Módulos 03, 04 y 05). La salida es un brief de texto plano con la oferta, la audiencia, el canal, la métrica de éxito, el presupuesto mensual y una regla de parada ya embebida. Cópialo, pásaselo a quien ejecuta la campaña — un barista, un creador, o tú mismo — y deja que la regla de parada, no el ánimo del día, decida si escalar o matar.",
+      "campaign-builder.meta.steps": "Pasos",
+      "campaign-builder.meta.steps-value": "6 · oferta → brief",
+      "campaign-builder.meta.source": "Fuente",
+      "campaign-builder.meta.source-value": "Playbook verificado de Ursa",
+      "campaign-builder.meta.output": "Salida",
+      "campaign-builder.meta.output-value": "Brief de texto copiable",
+
+      "campaign-builder.step.offer.label": "Oferta",
+      "campaign-builder.step.audience.label": "Audiencia",
+      "campaign-builder.step.channel.label": "Canal",
+      "campaign-builder.step.metric.label": "Métrica",
+      "campaign-builder.step.budget.label": "Presupuesto",
+      "campaign-builder.step.summary.label": "Brief",
+
+      "campaign-builder.step.offer.title": "Elige la oferta",
+      "campaign-builder.step.offer.desc":
+        "¿Qué recibe realmente el cliente? Cada oferta está anclada con verdad contra el total à la carte — si el ancla no se puede defender en una sola frase, es un descuento disfrazado de oferta, no una oferta real.",
+      "campaign-builder.step.audience.title": "Elige la audiencia",
+      "campaign-builder.step.audience.desc":
+        "¿Para quién es esta campaña? Cada persona mapea a un job-to-be-done distinto — un ritual matutino, un descubrimiento turístico, una sesión de trabajo remoto, una curiosidad de origen, una necesidad mayorista de oficina, la primera taza de un huésped. Elige una; una campaña que apunta a todos no apunta a nadie.",
+      "campaign-builder.step.channel.title": "Elige el canal",
+      "campaign-builder.step.channel.desc":
+        "¿Dónde se encontrará la audiencia con la oferta? Empareja el alcance y el costo del canal con el presupuesto — canales gratuitos (Google Business Profile, WhatsApp) antes que pagados, propios (Instagram) antes que alquilados (Meta ads), en local (eventos, catas) antes que outbound. Un canal que cuesta S/. 0 y llega a la persona correcta siempre le gana a uno que cuesta S/. 1,800 y llega a la persona equivocada.",
+      "campaign-builder.step.metric.title": "Elige la métrica",
+      "campaign-builder.step.metric.desc":
+        "¿Cómo sabrás que funcionó? Elige una métrica primaria y un objetivo — una canasta de métricas hace imposible decidir si escalar o matar. El brief construye la regla de parada automáticamente a partir del objetivo.",
+      "campaign-builder.step.budget.title": "Define el presupuesto mensual",
+      "campaign-builder.step.budget.desc":
+        "Empareja el costo del canal con un gasto mensual realista. Lean arranca en S/. 500; Growth puede llegar a S/. 3,000. La disciplina: elige un número que la cafetería pueda sostener 90 días sin titubear — cortar una campaña en la semana seis desperdicia las primeras seis semanas y rompe la ventana de medición de la regla de parada.",
+      "campaign-builder.step.budget.label-monthly": "Presupuesto mensual",
+      "campaign-builder.step.budget.lean": "Lean · S/. 500",
+      "campaign-builder.step.budget.growth": "Growth · S/. 3,000",
+      "campaign-builder.step.budget.tier-lean": "Lean",
+      "campaign-builder.step.budget.tier-moderate": "Moderado",
+      "campaign-builder.step.budget.tier-growth": "Growth",
+
+      "campaign-builder.step.summary.title": "Tu brief de campaña",
+      "campaign-builder.step.summary.desc":
+        "El brief es el contrato entre el dueño y quien ejecuta la campaña. Si el operador no puede repetir la oferta, audiencia, canal, métrica, presupuesto y regla de parada a partir del brief solo, el brief está muy largo — recórtalo. Copia y entrega.",
+
+      "campaign-builder.offer.ursamanana.name": "Suscripción Ursa Mañana",
+      "campaign-builder.offer.ursamanana.desc": "S/. 20/mes café ilimitado Lun–Vie 7–10am + 20% off en acompañamientos matutinos",
+      "campaign-builder.offer.ursamanana.anchor": "S/. 20/mes vs S/. 60/mes à la carte",
+      "campaign-builder.offer.tasting.name": "Cata de Tres Orígenes",
+      "campaign-builder.offer.tasting.desc": "Tres pour-over + muestra de grano + tarjeta de historia",
+      "campaign-builder.offer.tasting.anchor": "S/. 28 vs S/. 42 à la carte",
+      "campaign-builder.offer.pairing.name": "El oso recomienda pairing",
+      "campaign-builder.offer.pairing.desc": "Bebida con nombre + combo de cookie o financier con 15% off",
+      "campaign-builder.offer.pairing.anchor": "S/. 18 vs S/. 21 à la carte",
+      "campaign-builder.offer.hotelcard.name": "Tarjeta de origen para conserjes",
+      "campaign-builder.offer.hotelcard.desc": "Tarjeta con marca + cupón de primera taza gratis para 8 hoteles",
+      "campaign-builder.offer.hotelcard.anchor": "Primera taza gratis vs S/. 14 regular",
+      "campaign-builder.offer.gramweek.name": "Gramo de la Semana",
+      "campaign-builder.offer.gramweek.desc": "Destacado semanal de microlote + descuento en grano retail",
+      "campaign-builder.offer.gramweek.anchor": "S/. 38 bolsa de grano vs S/. 48 retail",
+      "campaign-builder.offer.cupping.name": "Cata mensual nocturna",
+      "campaign-builder.offer.cupping.desc": "Cata guiada de 4 orígenes + pairing de pastelería",
+      "campaign-builder.offer.cupping.anchor": "S/. 35 ticket vs S/. 70 valor",
+
+      "campaign-builder.audience.morning.name": "El Regular Matutino",
+      "campaign-builder.audience.morning.desc": "Vive o trabaja en Miraflores; llega 7–8am; quiere una taza rápida y deliberada.",
+      "campaign-builder.audience.tourist.name": "El Turista Explorador",
+      "campaign-builder.audience.tourist.desc": "De visita en Lima por 2–4 días; quiere un local de autoría para etiquetar y recomendar.",
+      "campaign-builder.audience.remote.name": "El Remote Worker",
+      "campaign-builder.audience.remote.desc": "Necesita un tercer lugar con Wi-Fi por 90+ min; valora un lado tranquilo.",
+      "campaign-builder.audience.curious.name": "El Curioso del Café",
+      "campaign-builder.audience.curious.desc": "Quiere aprender origen y proceso; compra grano retail; va a catas.",
+      "campaign-builder.audience.office.name": "Oficina / B2B",
+      "campaign-builder.audience.office.desc": "Coworking o gerente de oficina abasteciéndose de grano para 10–30 personas.",
+      "campaign-builder.audience.hotel.name": "Conserje de hotel / huésped",
+      "campaign-builder.audience.hotel.desc": "Conserje recomendando cafeterías; huéspedes a distancia caminable.",
+
+      "campaign-builder.channel.instagram.name": "Instagram Reels + Stories",
+      "campaign-builder.channel.instagram.reach": "4.7k seguidores + descubrimiento",
+      "campaign-builder.channel.instagram.cost": "S/. 0 (in-house)",
+      "campaign-builder.channel.meta.name": "Meta paid social (radio 3km)",
+      "campaign-builder.channel.meta.reach": "10–30k impresiones",
+      "campaign-builder.channel.meta.cost": "S/. 600–1,800/mes",
+      "campaign-builder.channel.creator.name": "Piloto de creadores (3 micro-creadores)",
+      "campaign-builder.channel.creator.reach": "5–30k cada uno",
+      "campaign-builder.channel.creator.cost": "S/. 1,200–3,000",
+      "campaign-builder.channel.google.name": "Google Business Profile",
+      "campaign-builder.channel.google.reach": "Maps + búsqueda",
+      "campaign-builder.channel.google.cost": "S/. 0 (propio)",
+      "campaign-builder.channel.whatsapp.name": "Lista de WhatsApp con consentimiento",
+      "campaign-builder.channel.whatsapp.reach": "Clientes existentes",
+      "campaign-builder.channel.whatsapp.cost": "S/. 0–150",
+      "campaign-builder.channel.hotel.name": "Tarjetas para conserjes (8 hoteles)",
+      "campaign-builder.channel.hotel.reach": "Huéspedes turistas",
+      "campaign-builder.channel.hotel.cost": "S/. 200–400",
+      "campaign-builder.channel.rappi.name": "Menú + bundles en Rappi",
+      "campaign-builder.channel.rappi.reach": "Usuarios de delivery",
+      "campaign-builder.channel.rappi.cost": "S/. 0–400",
+      "campaign-builder.channel.event.name": "Evento en local / cata",
+      "campaign-builder.channel.event.reach": "15–30 asistentes",
+      "campaign-builder.channel.event.cost": "S/. 200–560",
+
+      "campaign-builder.metric.visits.name": "Visitas al local",
+      "campaign-builder.metric.visits.desc": "Tráfico atribuible a la campaña",
+      "campaign-builder.metric.visits.target": "+15% vs baseline",
+      "campaign-builder.metric.profile.name": "Visitas / guardados de perfil",
+      "campaign-builder.metric.profile.desc": "Vistas al perfil de Instagram + guardados de post",
+      "campaign-builder.metric.profile.target": "+30% vs baseline",
+      "campaign-builder.metric.aov.name": "Ticket promedio",
+      "campaign-builder.metric.aov.desc": "Gasto por transacción durante la ventana de campaña",
+      "campaign-builder.metric.aov.target": "+S/. 2–4",
+      "campaign-builder.metric.repeat.name": "Visitas repetidas (7 días)",
+      "campaign-builder.metric.repeat.desc": "% que vuelve dentro de 7 días de la primera visita",
+      "campaign-builder.metric.repeat.target": "≥ 35%",
+      "campaign-builder.metric.tags.name": "Tags / menciones UGC",
+      "campaign-builder.metric.tags.desc": "Tags a @ursacoffeeperu por semana",
+      "campaign-builder.metric.tags.target": "≥ 5/semana",
+      "campaign-builder.metric.reviews.name": "Reseñas Google / TripAdvisor",
+      "campaign-builder.metric.reviews.desc": "Reseñas nuevas por mes",
+      "campaign-builder.metric.reviews.target": "≥ 8/mes",
+
+      "campaign-builder.brief.title": "Brief en vivo",
+      "campaign-builder.brief.row.offer": "Oferta",
+      "campaign-builder.brief.row.audience": "Audiencia",
+      "campaign-builder.brief.row.channel": "Canal",
+      "campaign-builder.brief.row.metric": "Métrica",
+      "campaign-builder.brief.row.budget": "Presupuesto",
+      "campaign-builder.brief.hint-all-set": "Todo listo. El brief se actualiza mientras eliges.",
+      "campaign-builder.brief.hint-select": "Elige {step} para continuar.",
+
+      "campaign-builder.brief.output.header": "URSA COFFEE — BRIEF DE CAMPAÑA",
+      "campaign-builder.brief.output.offer-label": "OFERTA",
+      "campaign-builder.brief.output.audience-label": "AUDIENCIA",
+      "campaign-builder.brief.output.channel-label": "CANAL",
+      "campaign-builder.brief.output.metric-label": "MÉTRICA",
+      "campaign-builder.brief.output.budget-label": "PRESUPUESTO",
+      "campaign-builder.brief.output.reach-label": "Alcance",
+      "campaign-builder.brief.output.cost-label": "Costo",
+      "campaign-builder.brief.output.target-label": "objetivo",
+      "campaign-builder.brief.output.stop-rule-label": "REGLA DE PARADA",
+      "campaign-builder.brief.output.stop-rule-template": "Mata si {metric} no sube {target} en 30 días.",
+      "campaign-builder.brief.output.footer": "— Compilado con el Constructor de Campañas de Ursa",
+
+      "campaign-builder.action.reset": "Reiniciar",
+      "campaign-builder.action.back": "Atrás",
+      "campaign-builder.action.next": "Siguiente",
+      "campaign-builder.action.view-roadmap": "Ver roadmap",
+      "campaign-builder.action.copy": "Copiar brief",
+      "campaign-builder.action.copied": "Copiado",
+
+      "campaign-builder.callout.stop-rule.title": "La regla de parada es la disciplina",
+      "campaign-builder.callout.stop-rule.body":
+        "Cada brief termina con una regla de parada: mata la campaña si la métrica no ha subido su objetivo en 30 días. Treinta días es la ventana más corta en la que el algoritmo de Instagram, la señal de comportamiento de Google Business Profile y el hábito de un regular de Miraflores pueden registrar cambio. Duplicar la apuesta en una campaña que no levantó — «dale otra semana» — es la forma más común en que el marketing de presupuesto chico falla. Documenta lo que no funcionó y avanza; la próxima campaña hereda el aprendizaje, no el gasto.",
+
+      /* ---- Herramienta T10 · Verificador del Espíritu (cuerpo profundizado + copy de sección) ---- */
+      "spirit-checker.hero.lede":
+        "Antes de que cualquier táctica nueva salga — un happy hour, un creative de paid social, un bundle de Rappi, un ítem nuevo de carta — pásala por este verificador. Ocho preguntas a lo largo de los tres pilares de identidad de Ursa (Oso, Gramo, Verde) producen un puntaje compuesto y un veredicto. La premisa del marco: el oso, el gramo y el verde no son preferencias estéticas sino el foso — los competidores pueden copiar la oferta y gastar más en distribución, pero no pueden copiar el personaje. La regla es la línea roja: si una táctica erosiona cualquier pilar por debajo de 50%, no sale sin revisión. La limitación: el verificador puntúa tácticas, no gusto — un puntaje alto en una táctica fuera de tono sigue siendo una táctica fuera de tono.",
+      "spirit-checker.meta.pillars": "Pilares",
+      "spirit-checker.meta.pillars-value": "Oso · Gramo · Verde",
+      "spirit-checker.meta.questions": "Preguntas",
+      "spirit-checker.meta.questions-value": "8 · peso 1–3",
+      "spirit-checker.meta.threshold": "Umbral",
+      "spirit-checker.meta.threshold-value": "≥ 50% por pilar",
+
+      "spirit-checker.tactic.label": "Táctica a verificar",
+      "spirit-checker.tactic.placeholder": "ej. «Happy hour: 2×1 en espressos de 5–7pm»",
+      "spirit-checker.tactic.helper":
+        "Describe la táctica en una línea. Luego responde las {n} preguntas de abajo con honestidad — el verificador solo funciona si lo haces.",
+
+      "spirit-checker.questions.title": "Las {n} preguntas",
+      "spirit-checker.questions.counter": "{n}/{total} respondidas",
+
+      "spirit-checker.q.q1.question": "¿La táctica usa o muestra el motivo del oso (mascota, huella, personaje)?",
+      "spirit-checker.q.q1.help":
+        "El oso es el activo más apropiable de Ursa — ningún competidor en Lima tiene un personaje animal. Usarlo no es decoración; es el refuerzo de marca más barato disponible.",
+      "spirit-checker.q.q2.question": "¿La táctica podría confundirse con la de una cafetería genérica si le quitaras el oso?",
+      "spirit-checker.q.q2.help":
+        "Si sí, la táctica no está anclada en el oso — se apoya en commodity en vez de en identidad. Un Reel que cualquier cafetería de Lima podría republicar es un Reel que no se ha ganado el nombre de Ursa.",
+      "spirit-checker.q.q3.question": "¿La táctica refuerza el ritual de pesaje «un gramo a la vez» o la artesanía paciente?",
+      "spirit-checker.q.q3.help":
+        "El gramo es el ethos de craft — pesaje visible, preparación deliberada, sin atajos. Mostrar la balanza, nombrar la dosis, bajar el ritmo del pour: cada uno es un pequeño refuerzo del ritual.",
+      "spirit-checker.q.q4.question": "¿La táctica acelera o commodifica el café (p.ej. «la taza más rápida», «sin espera»)?",
+      "spirit-checker.q.q4.help":
+        "La velocidad como promesa de vendedor erosiona el pilar del gramo. La eficiencia detrás de la barra está bien; prometer «la taza más rápida» al cliente no — enmarca la variable equivocada.",
+      "spirit-checker.q.q5.question": "¿La táctica usa la paleta verificada (cafés, verdes, crema, oro)?",
+      "spirit-checker.q.q5.help":
+        "Nada de azul, nada de índigo — la paleta es una elección no-default deliberada. Caer en Instagram-azul o en café-beige genérico en un solo asset entrena al ojo para esperar menos de Ursa.",
+      "spirit-checker.q.q6.question": "¿La táctica respeta el lenguaje visual Art Nouveau / artesanal?",
+      "spirit-checker.q.q6.help":
+        "Art Nouveau = bordes ornamentales, tipografía display serif (Cormorant Garamond), motivos botánicos, acentos en oro. Una táctica que los cambia por sans-serif y color plano no se está modernizando; se está de-identificando.",
+      "spirit-checker.q.q7.question": "¿La táctica hace referencia a la tostadora propia o al teatro de dos barras?",
+      "spirit-checker.q.q7.help":
+        "La tostadora en el piso y las barras de espresso + coldbrew son la prueba de craft — el único activo en el local que ningún competidor puede montar en una semana. Una táctica que ignora ambas está dejando la evidencia más fuerte sobre la mesa.",
+      "spirit-checker.q.q8.question": "¿Un regular reconocería esto como «algo que Ursa haría»?",
+      "spirit-checker.q.q8.help":
+        "El reconocimiento del regular es la prueba real de marca — no la intención del dueño. Si una táctica necesita explicación para un regular, ya falló la prueba de reconocimiento; revisa antes de lanzar.",
+
+      "spirit-checker.option.yes": "Sí",
+      "spirit-checker.option.no": "No",
+      "spirit-checker.option.na": "N/A",
+
+      "spirit-checker.weight.label": "peso {n}",
+
+      "spirit-checker.pillar.bear.label": "Oso",
+      "spirit-checker.pillar.bear.desc": "La mascota, la huella, el personaje",
+      "spirit-checker.pillar.gram.label": "Gramo",
+      "spirit-checker.pillar.gram.desc": "«Un gramo a la vez» — el ritual de pesaje",
+      "spirit-checker.pillar.green.label": "Verde",
+      "spirit-checker.pillar.green.desc": "Paleta, Art Nouveau, craft de tostadora",
+
+      "spirit-checker.action.check": "Verifica el espíritu",
+      "spirit-checker.action.clear": "Limpiar respuestas",
+      "spirit-checker.action.prompt":
+        "Responde las {n} preguntas, luego toca «Verifica el espíritu».",
+
+      "spirit-checker.score.title": "Puntaje del espíritu",
+      "spirit-checker.score.composite-label": "Compuesto / 100",
+
+      "spirit-checker.verdict.preserved.label": "Espíritu preservado",
+      "spirit-checker.verdict.preserved.desc":
+        "La táctica protege los tres pilares. Puede salir — documenta en una línea por qué pasó, para que la próxima táctica herede el razonamiento y no solo el veredicto.",
+      "spirit-checker.verdict.conditional.label": "Condicional — revisa antes de lanzar",
+      "spirit-checker.verdict.conditional.desc":
+        "Uno o más pilares están bajo el umbral seguro. La táctica no sale así — revísala para fortalecer el pilar más débil y vuelve a verificar. Saltarse la revisión y lanzar igual es el modo de fracaso que este verificador existe para prevenir.",
+      "spirit-checker.verdict.at-risk.label": "En riesgo — no lanzar así",
+      "spirit-checker.verdict.at-risk.desc":
+        "Un pilar está mal erosionado. Esta táctica diluiría la identidad de Ursa incluso si levantara la métrica que se propuso levantar. Mátala, o replanteala empezando por uno de los tres pilares — oso, gramo o verde — y vuelve a verificar antes de traerla de vuelta.",
+
+      "spirit-checker.callout.rule.title": "La regla de preservación del espíritu",
+      "spirit-checker.callout.rule.body":
+        "Cuando una táctica obliga a elegir entre proteger la identidad de Ursa y perseguir una jugada de crecimiento genérica, este dossier siempre elige al oso, el gramo y el verde. El razonamiento no es preferencia estética sino economía: la identidad es el foso, y un foso erosionado por el crecimiento de un trimestre no se puede reconstruir en el siguiente. Un pilar bajo 50% es una línea roja — no una sugerencia.",
+
+      "spirit-checker.scale.title": "Escala de veredicto",
+      "spirit-checker.scale.preserved": "≥ 70% por pilar — espíritu preservado, puede salir.",
+      "spirit-checker.scale.conditional": "50–69% — condicional; revisa el pilar débil.",
+      "spirit-checker.scale.at-risk": "< 50% — en riesgo; no lanzar así.",
+
+      /* ---- Herramienta T11 · Matriz SWOT (cuerpo profundizado + copy de sección) ---- */
+      "swot.hero.lede":
+        "Un gráfico 2×2 de {n} competidores de Miraflores y Lima sobre los dos ejes que el dossier realmente investigó: Distintividad de marca (oso, gramo, verde, Art Nouveau, tostadora propia — los activos verificados en el Módulo 01) versus Alcance de distribución (locales, canales, presencia de reseñas — la huella verificada en el Módulo 02). Los puntajes son juicio de investigación, no datos de market-share: un punto medio de 50 separa «alto» de «bajo» en cada eje, y las posiciones relativas importan más que los números absolutos. Toca cualquier punto para leer su SWOT y la implicación para Ursa. Lo que no está en este gráfico: precio, revenue, headcount — cambiarían el análisis, y se excluyen a propósito porque Ursa no puede actuar sobre ellos hoy.",
+      "swot.meta.competitors": "Competidores",
+      "swot.meta.competitors-value": "{n} graficados",
+      "swot.meta.axes": "Ejes",
+      "swot.meta.axes-value": "Distintividad × Alcance",
+      "swot.meta.ursa": "Ursa",
+      "swot.meta.ursa-value": "Alto craft · bajo alcance",
+
+      "swot.matrix.title": "Distintividad × Alcance",
+      "swot.matrix.legend-ursa": "Ursa",
+      "swot.matrix.legend-competitor": "Competidores",
+      "swot.matrix.axis-y": "Distintividad →",
+      "swot.matrix.axis-x": "Alcance de distribución →",
+
+      "swot.quadrant.top-right.label": "Líderes",
+      "swot.quadrant.top-right.desc":
+        "Alto craft + alto alcance — el benchmark hacia el que se mueve Ursa.",
+      "swot.quadrant.top-left.label": "Joyas ocultas",
+      "swot.quadrant.top-left.desc":
+        "Alto craft + bajo alcance — el barrio de Ursa; la brecha es distribución, no identidad.",
+      "swot.quadrant.bottom-right.label": "Cadenas escaladas",
+      "swot.quadrant.bottom-right.desc":
+        "Menor craft + alto alcance — la jugada de volumen; alcance sin foso de identidad.",
+      "swot.quadrant.bottom-left.label": "Indiferenciados",
+      "swot.quadrant.bottom-left.desc":
+        "Menor craft + bajo alcance — vulnerables; los competidores más cercanos en la cuadra de Ursa están acá.",
+
+      "swot.readout.distinctiveness": "Distintividad",
+      "swot.readout.reach": "Alcance",
+
+      "swot.swot-cell.strengths": "Fortalezas",
+      "swot.swot-cell.weaknesses": "Debilidades",
+      "swot.swot-cell.opportunities": "Oportunidades",
+      "swot.swot-cell.threats": "Amenazas",
+
+      "swot.ursa-implication.heading": "Implicación para Ursa",
+      "swot.quick-switch.heading": "Saltar a",
+
+      "swot.callout.takeaway.title": "La lectura estratégica",
+      "swot.callout.takeaway.body":
+        "Ursa está en el cuadrante de Joyas ocultas — alta distintividad, bajo alcance. El trabajo del plan es mover a Ursa hacia la derecha sin bajarla. Hacia la derecha es concreto: reclamar el Google Business Profile (gratis, el mismo día, recupera tráfico de búsqueda que hoy aterriza en Punto Café y Neira), lanzar el piloto de creadores (construye alcance con el oso como activo), y correr el pipeline de conserjes de hotel (demanda turística que ya camina por Alcanfores 183). Hacia abajo es el modo de fracaso: servicio con feel de cadena, commoditización de grano retail, o adquisición pagada antes de que la base orgánica esté puesta. Ningún competidor ocupa el espacio de Ursa; la brecha es distribución, no identidad.",
 
       /* ---- Módulo 05 · Laboratorio de Contenido Viral (copy profundizado) ---- */
       "viral.lede":

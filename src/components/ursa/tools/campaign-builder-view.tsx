@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
-import { BearMark, Pill, Callout, ArtNouveauDivider } from "../ursa-brand";
+import { BearMark, Callout, ArtNouveauDivider } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
 import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 import {
   ArrowRight, ArrowLeft, Check, RotateCcw, Target, Users, Megaphone,
-  TrendingUp, Wallet, FileText, Sparkles, Coffee, Compass, Heart, Star,
+  TrendingUp, Wallet, FileText,
 } from "lucide-react";
 
 /**
@@ -17,57 +17,57 @@ import {
  * State is local; the summary can be copied to clipboard.
  */
 
-type Offer = { id: string; name: string; desc: string; anchor: string };
-type Audience = { id: string; name: string; desc: string };
-type Channel = { id: string; name: string; reach: string; cost: string };
-type Metric = { id: string; name: string; desc: string; target: string };
+type Offer = { id: string };
+type Audience = { id: string };
+type Channel = { id: string };
+type Metric = { id: string };
 
 const OFFERS: Offer[] = [
-  { id: "ursamanana", name: "Ursa Mañana subscription", desc: "S/. 20/month unlimited coffee 7–10am + 20% off sides", anchor: "S/. 20/mo vs S/. 60/mo à la carte" },
-  { id: "tasting", name: "Cata de Tres Orígenes flight", desc: "Three pour-overs + bean sample + story card", anchor: "S/. 28 vs S/. 42 à la carte" },
-  { id: " pairing", name: "Bear recommends pairing", desc: "Named drink + cookie/financier combo at 15% off", anchor: "S/. 18 vs S/. 21 à la carte" },
-  { id: "hotelcard", name: "Hotel concierge origin card", desc: "Branded card + first-cup-free coupon for 8 hotels", anchor: "Free first cup vs S/. 14 regular" },
-  { id: "gramweek", name: "Gram of the Week bean drop", desc: "Weekly microlot highlight + retail bean discount", anchor: "S/. 38 bean bag vs S/. 48 retail" },
-  { id: "cupping", name: "Monthly cupping night", desc: "Guided cupping of 4 origins + pastry pairing", anchor: "S/. 35 ticket vs S/. 70 value" },
+  { id: "ursamanana" },
+  { id: "tasting" },
+  { id: "pairing" },
+  { id: "hotelcard" },
+  { id: "gramweek" },
+  { id: "cupping" },
 ];
 
 const AUDIENCES: Audience[] = [
-  { id: "morning", name: "The Morning Regular", desc: "Lives/works in Miraflores; arrives 7–8am; wants a fast, deliberate cup." },
-  { id: "tourist", name: "The Tourist Explorer", desc: "Visiting Lima for 2–4 days; wants a craft spot to tag and recommend." },
-  { id: "remote", name: "The Remote Worker", desc: "Needs a third place with Wi-Fi for 90+ min; values a quiet side." },
-  { id: "curious", name: "The Coffee Curious", desc: "Wants to learn origin/process; buys retail beans; attends cuppings." },
-  { id: "office", name: "Office / B2B", desc: "Coworking space or office manager sourcing beans for 10–30 people." },
-  { id: "hotel", name: "Hotel concierge / guest", desc: "Concierge recommending cafés; guests within walking distance." },
+  { id: "morning" },
+  { id: "tourist" },
+  { id: "remote" },
+  { id: "curious" },
+  { id: "office" },
+  { id: "hotel" },
 ];
 
 const CHANNELS: Channel[] = [
-  { id: "instagram", name: "Instagram Reels + Stories", reach: "4.7k followers + discovery", cost: "S/. 0 (in-house)" },
-  { id: "meta", name: "Meta paid social (3km radius)", reach: "10–30k impressions", cost: "S/. 600–1,800/mo" },
-  { id: "creator", name: "Creator pilot (3 micro-creators)", reach: "5–30k each", cost: "S/. 1,200–3,000" },
-  { id: "google", name: "Google Business Profile", reach: "Maps + search", cost: "S/. 0 (owned)" },
-  { id: "whatsapp", name: "WhatsApp consent list", reach: "Existing customers", cost: "S/. 0–150" },
-  { id: "hotel", name: "Hotel concierge cards (8 properties)", reach: "Tourist guests", cost: "S/. 200–400" },
-  { id: "rappi", name: "Rappi menu + bundles", reach: "Delivery users", cost: "S/. 0–400" },
-  { id: "event", name: "In-store event / cupping", reach: "15–30 attendees", cost: "S/. 200–560" },
+  { id: "instagram" },
+  { id: "meta" },
+  { id: "creator" },
+  { id: "google" },
+  { id: "whatsapp" },
+  { id: "hotel" },
+  { id: "rappi" },
+  { id: "event" },
 ];
 
 const METRICS: Metric[] = [
-  { id: "visits", name: "Store visits", desc: "Foot traffic attributable to the campaign", target: "+15% vs baseline" },
-  { id: "profile", name: "Profile visits / saves", desc: "Instagram profile views + post saves", target: "+30% vs baseline" },
-  { id: "aov", name: "Average ticket", desc: "Spend per transaction during campaign window", target: "+S/. 2–4" },
-  { id: "repeat", name: "Repeat visits (7-day)", desc: "% returning within 7 days of first visit", target: "≥ 35%" },
-  { id: "tags", name: "UGC tags / mentions", desc: "@ursacoffeeperu tags per week", target: "≥ 5/week" },
-  { id: "reviews", name: "Google/TripAdvisor reviews", desc: "New reviews per month", target: "≥ 8/mo" },
+  { id: "visits" },
+  { id: "profile" },
+  { id: "aov" },
+  { id: "repeat" },
+  { id: "tags" },
+  { id: "reviews" },
 ];
 
-const STEPS = [
-  { id: "offer", label: "Offer", icon: Target },
-  { id: "audience", label: "Audience", icon: Users },
-  { id: "channel", label: "Channel", icon: Megaphone },
-  { id: "metric", label: "Metric", icon: TrendingUp },
-  { id: "budget", label: "Budget", icon: Wallet },
-  { id: "summary", label: "Summary", icon: FileText },
-];
+const STEP_IDS = ["offer", "audience", "channel", "metric", "budget", "summary"] as const;
+const STEP_ICONS = [Target, Users, Megaphone, TrendingUp, Wallet, FileText];
+
+const offerKey = (id: string, field: string) => `content.campaign-builder.offer.${id}.${field}`;
+const audienceKey = (id: string, field: string) => `content.campaign-builder.audience.${id}.${field}`;
+const channelKey = (id: string, field: string) => `content.campaign-builder.channel.${id}.${field}`;
+const metricKey = (id: string, field: string) => `content.campaign-builder.metric.${id}.${field}`;
+const stepKey = (id: string, field: string) => `content.campaign-builder.step.${id}.${field}`;
 
 export function CampaignBuilderView() {
   const navigate = useNavigate();
@@ -97,33 +97,43 @@ export function CampaignBuilderView() {
     setBudget(800);
   };
 
-  const selectedOffer = OFFERS.find((o) => o.id === offer);
-  const selectedAudience = AUDIENCES.find((a) => a.id === audience);
-  const selectedChannel = CHANNELS.find((c) => c.id === channel);
-  const selectedMetric = METRICS.find((m) => m.id === metric);
+  const selectedOfferName = offer ? t(offerKey(offer, "name")) : null;
+  const selectedOfferDesc = offer ? t(offerKey(offer, "desc")) : null;
+  const selectedOfferAnchor = offer ? t(offerKey(offer, "anchor")) : null;
+  const selectedAudienceName = audience ? t(audienceKey(audience, "name")) : null;
+  const selectedAudienceDesc = audience ? t(audienceKey(audience, "desc")) : null;
+  const selectedChannelName = channel ? t(channelKey(channel, "name")) : null;
+  const selectedChannelReach = channel ? t(channelKey(channel, "reach")) : null;
+  const selectedChannelCost = channel ? t(channelKey(channel, "cost")) : null;
+  const selectedMetricName = metric ? t(metricKey(metric, "name")) : null;
+  const selectedMetricDesc = metric ? t(metricKey(metric, "desc")) : null;
+  const selectedMetricTarget = metric ? t(metricKey(metric, "target")) : null;
 
   const summaryText = () => {
     const lines = [
-      "URSA COFFEE — CAMPAIGN BRIEF",
+      t("content.campaign-builder.brief.output.header"),
       "============================",
       "",
-      `OFFER:     ${selectedOffer?.name ?? "—"} (${selectedOffer?.anchor ?? ""})`,
-      `           ${selectedOffer?.desc ?? ""}`,
+      `${t("content.campaign-builder.brief.output.offer-label")}:     ${selectedOfferName ?? "—"} (${selectedOfferAnchor ?? ""})`,
+      `           ${selectedOfferDesc ?? ""}`,
       "",
-      `AUDIENCE:  ${selectedAudience?.name ?? "—"}`,
-      `           ${selectedAudience?.desc ?? ""}`,
+      `${t("content.campaign-builder.brief.output.audience-label")}:  ${selectedAudienceName ?? "—"}`,
+      `           ${selectedAudienceDesc ?? ""}`,
       "",
-      `CHANNEL:   ${selectedChannel?.name ?? "—"}`,
-      `           Reach: ${selectedChannel?.reach ?? "—"} · Cost: ${selectedChannel?.cost ?? "—"}`,
+      `${t("content.campaign-builder.brief.output.channel-label")}:   ${selectedChannelName ?? "—"}`,
+      `           ${t("content.campaign-builder.brief.output.reach-label")}: ${selectedChannelReach ?? "—"} · ${t("content.campaign-builder.brief.output.cost-label")}: ${selectedChannelCost ?? "—"}`,
       "",
-      `METRIC:    ${selectedMetric?.name ?? "—"} (target: ${selectedMetric?.target ?? "—"})`,
-      `           ${selectedMetric?.desc ?? ""}`,
+      `${t("content.campaign-builder.brief.output.metric-label")}:    ${selectedMetricName ?? "—"} (${t("content.campaign-builder.brief.output.target-label")}: ${selectedMetricTarget ?? "—"})`,
+      `           ${selectedMetricDesc ?? ""}`,
       "",
-      `BUDGET:    S/. ${budget}/month`,
+      `${t("content.campaign-builder.brief.output.budget-label")}:    S/. ${budget}/${t("content.campaign-builder.step.budget.label-monthly").toLowerCase()}`,
       "",
-      `STOP RULE: Kill if ${selectedMetric?.name?.toLowerCase() ?? "metric"} does not lift by ${selectedMetric?.target ?? "target"} in 30 days.`,
+      `${t("content.campaign-builder.brief.output.stop-rule-label")}: ${t("content.campaign-builder.brief.output.stop-rule-template", {
+        metric: (selectedMetricName ?? t("content.campaign-builder.step.metric.label")).toLowerCase(),
+        target: selectedMetricTarget ?? "—",
+      })}`,
       "",
-      "— Compiled with the Ursa Campaign Builder",
+      t("content.campaign-builder.brief.output.footer"),
     ];
     return lines.join("\n");
   };
@@ -135,22 +145,22 @@ export function CampaignBuilderView() {
     });
   };
 
+  const STEPS = STEP_IDS.map((id, i) => ({
+    id,
+    label: t(stepKey(id, "label")),
+    icon: STEP_ICONS[i],
+  }));
+
   return (
     <>
       <ViewHero
         eyebrow={t("content.view.campaign-builder.eyebrow")}
         title={t("content.view.campaign-builder.title")}
-        lede={
-          <>
-            A step-by-step wizard that assembles a campaign brief by connecting an offer to an audience, a channel,
-            a success metric, and a budget. Each choice is drawn from the verified Ursa playbook. The output is a
-            plain-text brief you can copy and hand to a barista, a creator, or yourself.
-          </>
-        }
+        lede={<>{t("content.campaign-builder.hero.lede")}</>}
         meta={[
-          { label: "Steps", value: "6" },
-          { label: "Source", value: "Verified Ursa data" },
-          { label: "Output", value: "Copyable text brief" },
+          { label: t("content.campaign-builder.meta.steps"), value: t("content.campaign-builder.meta.steps-value") },
+          { label: t("content.campaign-builder.meta.source"), value: t("content.campaign-builder.meta.source-value") },
+          { label: t("content.campaign-builder.meta.output"), value: t("content.campaign-builder.meta.output-value") },
         ]}
         tone="gold"
       />
@@ -183,7 +193,7 @@ export function CampaignBuilderView() {
             );
           })}
           <button onClick={reset} className="ml-auto shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-full font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground hover:text-ursa-terracotta-text transition">
-            <RotateCcw size={12} /> Reset
+            <RotateCcw size={12} /> {t("content.campaign-builder.action.reset")}
           </button>
         </div>
 
@@ -192,46 +202,72 @@ export function CampaignBuilderView() {
           {/* Main step area */}
           <Card className="min-h-[400px]">
             {step === 0 && (
-              <StepShell title="Pick the offer" desc="What is the customer actually getting? Anchor truthfully against the à la carte total." icon={<Target size={20} className="text-ursa-gold-text" />}>
+              <StepShell title={t(stepKey("offer", "title"))} desc={t(stepKey("offer", "desc"))} icon={<Target size={20} className="text-ursa-gold-text" />}>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {OFFERS.map((o) => (
-                    <OptionCard key={o.id} selected={offer === o.id} onClick={() => setOffer(o.id)} title={o.name} desc={o.desc} badge={o.anchor} />
+                    <OptionCard
+                      key={o.id}
+                      selected={offer === o.id}
+                      onClick={() => setOffer(o.id)}
+                      title={t(offerKey(o.id, "name"))}
+                      desc={t(offerKey(o.id, "desc"))}
+                      badge={t(offerKey(o.id, "anchor"))}
+                    />
                   ))}
                 </div>
               </StepShell>
             )}
             {step === 1 && (
-              <StepShell title="Pick the audience" desc="Who is this campaign for? Each persona has a distinct job to be done." icon={<Users size={20} className="text-ursa-gold-text" />}>
+              <StepShell title={t(stepKey("audience", "title"))} desc={t(stepKey("audience", "desc"))} icon={<Users size={20} className="text-ursa-gold-text" />}>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {AUDIENCES.map((a) => (
-                    <OptionCard key={a.id} selected={audience === a.id} onClick={() => setAudience(a.id)} title={a.name} desc={a.desc} />
+                    <OptionCard
+                      key={a.id}
+                      selected={audience === a.id}
+                      onClick={() => setAudience(a.id)}
+                      title={t(audienceKey(a.id, "name"))}
+                      desc={t(audienceKey(a.id, "desc"))}
+                    />
                   ))}
                 </div>
               </StepShell>
             )}
             {step === 2 && (
-              <StepShell title="Pick the channel" desc="Where will the audience encounter the offer? Match reach and cost to the budget." icon={<Megaphone size={20} className="text-ursa-gold-text" />}>
+              <StepShell title={t(stepKey("channel", "title"))} desc={t(stepKey("channel", "desc"))} icon={<Megaphone size={20} className="text-ursa-gold-text" />}>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {CHANNELS.map((c) => (
-                    <OptionCard key={c.id} selected={channel === c.id} onClick={() => setChannel(c.id)} title={c.name} desc={`${c.reach} · ${c.cost}`} />
+                    <OptionCard
+                      key={c.id}
+                      selected={channel === c.id}
+                      onClick={() => setChannel(c.id)}
+                      title={t(channelKey(c.id, "name"))}
+                      desc={`${t(channelKey(c.id, "reach"))} · ${t(channelKey(c.id, "cost"))}`}
+                    />
                   ))}
                 </div>
               </StepShell>
             )}
             {step === 3 && (
-              <StepShell title="Pick the metric" desc="How will you know it worked? One primary metric, one target, one stop rule." icon={<TrendingUp size={20} className="text-ursa-gold-text" />}>
+              <StepShell title={t(stepKey("metric", "title"))} desc={t(stepKey("metric", "desc"))} icon={<TrendingUp size={20} className="text-ursa-gold-text" />}>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {METRICS.map((m) => (
-                    <OptionCard key={m.id} selected={metric === m.id} onClick={() => setMetric(m.id)} title={m.name} desc={m.desc} badge={m.target} />
+                    <OptionCard
+                      key={m.id}
+                      selected={metric === m.id}
+                      onClick={() => setMetric(m.id)}
+                      title={t(metricKey(m.id, "name"))}
+                      desc={t(metricKey(m.id, "desc"))}
+                      badge={t(metricKey(m.id, "target"))}
+                    />
                   ))}
                 </div>
               </StepShell>
             )}
             {step === 4 && (
-              <StepShell title="Set the monthly budget" desc="Match the channel cost to a realistic monthly spend. Lean starts at S/. 500; growth can reach S/. 3,000." icon={<Wallet size={20} className="text-ursa-gold-text" />}>
+              <StepShell title={t(stepKey("budget", "title"))} desc={t(stepKey("budget", "desc"))} icon={<Wallet size={20} className="text-ursa-gold-text" />}>
                 <div className="max-w-md">
                   <div className="flex items-baseline justify-between mb-3">
-                    <span className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-muted-foreground">Monthly budget</span>
+                    <span className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-muted-foreground">{t(stepKey("budget", "label-monthly"))}</span>
                     <span className="font-display text-4xl font-semibold text-ursa-dark-roast">S/. {budget}</span>
                   </div>
                   <input
@@ -244,19 +280,19 @@ export function CampaignBuilderView() {
                     className="w-full h-2 bg-muted rounded-full appearance-none cursor-pointer accent-ursa-gold"
                   />
                   <div className="flex justify-between font-label text-[0.6rem] tracking-[0.1em] uppercase text-muted-foreground mt-2">
-                    <span>Lean · S/. 500</span>
-                    <span>Growth · S/. 3,000</span>
+                    <span>{t("content.campaign-builder.step.budget.lean")}</span>
+                    <span>{t("content.campaign-builder.step.budget.growth")}</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2 mt-4">
-                    <BudgetTier label="Lean" amount={500} current={budget} onClick={setBudget} />
-                    <BudgetTier label="Moderate" amount={1200} current={budget} onClick={setBudget} />
-                    <BudgetTier label="Growth" amount={2500} current={budget} onClick={setBudget} />
+                    <BudgetTier label={t("content.campaign-builder.step.budget.tier-lean")} amount={500} current={budget} onClick={setBudget} />
+                    <BudgetTier label={t("content.campaign-builder.step.budget.tier-moderate")} amount={1200} current={budget} onClick={setBudget} />
+                    <BudgetTier label={t("content.campaign-builder.step.budget.tier-growth")} amount={2500} current={budget} onClick={setBudget} />
                   </div>
                 </div>
               </StepShell>
             )}
             {step === 5 && (
-              <StepShell title="Your campaign brief" desc="Copy this plain-text brief and hand it to whoever runs the campaign." icon={<FileText size={20} className="text-ursa-gold-text" />}>
+              <StepShell title={t(stepKey("summary", "title"))} desc={t(stepKey("summary", "desc"))} icon={<FileText size={20} className="text-ursa-gold-text" />}>
                 <div className="relative">
                   <pre className="bg-ursa-espresso text-ursa-cream rounded-xl p-5 text-[0.82rem] leading-relaxed font-mono whitespace-pre-wrap overflow-x-auto ursa-scroll border border-ursa-gold/30">
 {summaryText()}
@@ -268,13 +304,12 @@ export function CampaignBuilderView() {
                       copied ? "bg-ursa-dark-roast text-ursa-cream" : "bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft"
                     )}
                   >
-                    {copied ? <><Check size={12} /> Copied</> : "Copy brief"}
+                    {copied ? <><Check size={12} /> {t("content.campaign-builder.action.copied")}</> : t("content.campaign-builder.action.copy")}
                   </button>
                 </div>
-                <Callout tone="forest" title="Stop rule built in">
+                <Callout tone="forest" title={t("content.campaign-builder.callout.stop-rule.title")}>
                   <p className="m-0 text-[0.88rem]">
-                    Every brief includes a stop rule: kill the campaign if the metric does not hit its target in 30 days.
-                    No doubling down on what isn&apos;t working — document and move on.
+                    {t("content.campaign-builder.callout.stop-rule.body")}
                   </p>
                 </Callout>
               </StepShell>
@@ -284,20 +319,20 @@ export function CampaignBuilderView() {
           {/* Sidebar — running summary */}
           <Card className="bg-ursa-foam lg:sticky lg:top-24">
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <BearMark size={18} className="text-ursa-dark-roast" /> Running brief
+              <BearMark size={18} className="text-ursa-dark-roast" /> {t("content.campaign-builder.brief.title")}
             </h3>
             <div className="space-y-3 text-[0.85rem]">
-              <BriefRow label="Offer" value={selectedOffer?.name} tone="gold" />
-              <BriefRow label="Audience" value={selectedAudience?.name} tone="terracotta" />
-              <BriefRow label="Channel" value={selectedChannel?.name} tone="forest" />
-              <BriefRow label="Metric" value={selectedMetric?.name} tone="gold" />
-              <BriefRow label="Budget" value={budget ? `S/. ${budget}/mo` : null} tone="forest" />
+              <BriefRow label={t("content.campaign-builder.brief.row.offer")} value={selectedOfferName} tone="gold" />
+              <BriefRow label={t("content.campaign-builder.brief.row.audience")} value={selectedAudienceName} tone="terracotta" />
+              <BriefRow label={t("content.campaign-builder.brief.row.channel")} value={selectedChannelName} tone="forest" />
+              <BriefRow label={t("content.campaign-builder.brief.row.metric")} value={selectedMetricName} tone="gold" />
+              <BriefRow label={t("content.campaign-builder.brief.row.budget")} value={budget ? `S/. ${budget}/mo` : null} tone="forest" />
             </div>
             <ArtNouveauDivider className="my-4" />
             <p className="text-[0.76rem] text-muted-foreground m-0">
               {canAdvance() || step === 5
-                ? "All set. The brief updates as you choose."
-                : `Select ${STEPS[step].label.toLowerCase()} to continue.`}
+                ? t("content.campaign-builder.brief.hint-all-set")
+                : t("content.campaign-builder.brief.hint-select", { step: STEPS[step].label.toLowerCase() })}
             </p>
           </Card>
         </div>
@@ -309,7 +344,7 @@ export function CampaignBuilderView() {
             disabled={step === 0}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase border border-ursa-line-soft text-muted-foreground hover:text-ursa-dark-roast hover:border-ursa-gold/60 transition disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            <ArrowLeft size={14} /> Back
+            <ArrowLeft size={14} /> {t("content.campaign-builder.action.back")}
           </button>
           {step < STEPS.length - 1 ? (
             <button
@@ -317,14 +352,14 @@ export function CampaignBuilderView() {
               disabled={!canAdvance()}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft transition disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
             >
-              Next <ArrowRight size={14} />
+              {t("content.campaign-builder.action.next")} <ArrowRight size={14} />
             </button>
           ) : (
             <button
               onClick={() => navigate("roadmap")}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-label text-[0.74rem] tracking-[0.12em] uppercase bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition shadow-lg"
             >
-              View roadmap <ArrowRight size={14} />
+              {t("content.campaign-builder.action.view-roadmap")} <ArrowRight size={14} />
             </button>
           )}
         </div>

@@ -91,12 +91,22 @@ const URSA_PROFILE: Competitor & { isUrsa?: boolean } = {
 /** Combined list with Ursa prepended for the table & matrix. */
 const ALL_ROWS = [URSA_PROFILE, ...COMPETITORS];
 
-/** Filter options. */
-const AREA_OPTIONS = ["All", "Miraflores", "Barranco", "Multiple Lima", "Lima"] as const;
-type AreaFilter = (typeof AREA_OPTIONS)[number];
+/** Filter options — value drives filter logic; keySuffix drives the display label. */
+const AREA_OPTIONS = [
+  { value: "All", keySuffix: "all" },
+  { value: "Miraflores", keySuffix: "miraflores" },
+  { value: "Barranco", keySuffix: "barranco" },
+  { value: "Multiple Lima", keySuffix: "multiple-lima" },
+  { value: "Lima", keySuffix: "lima" },
+] as const;
+type AreaFilter = (typeof AREA_OPTIONS)[number]["value"];
 
-const SITE_OPTIONS = ["All", "Yes", "No"] as const;
-type SiteFilter = (typeof SITE_OPTIONS)[number];
+const SITE_OPTIONS = [
+  { value: "All", keySuffix: "all" },
+  { value: "Yes", keySuffix: "yes" },
+  { value: "No", keySuffix: "no" },
+] as const;
+type SiteFilter = (typeof SITE_OPTIONS)[number]["value"];
 
 /** Sort keys. */
 type SortKey = "name" | "area" | "site" | null;
@@ -281,9 +291,9 @@ export function CompetitorsView() {
         title={<>{t("content.view.competitors.title")}</>}
         lede={<>{t("content.competitors.lede")}</>}
         meta={[
-          { label: t("content.competitors.meta.rows"), value: `${COMPETITORS.length + 1} (incl. Ursa)` },
-          { label: t("content.competitors.meta.filterable"), value: "Area · Website · Name" },
-          { label: t("content.competitors.meta.source"), value: "Module 02 snapshot" },
+          { label: t("content.competitors.meta.rows"), value: t("content.competitors.meta.rows-value", { n: COMPETITORS.length + 1 }) },
+          { label: t("content.competitors.meta.filterable"), value: t("content.competitors.meta.filterable-value") },
+          { label: t("content.competitors.meta.source"), value: t("content.competitors.meta.source-value") },
         ]}
       />
 
@@ -329,7 +339,9 @@ export function CompetitorsView() {
                 </SelectTrigger>
                 <SelectContent>
                   {AREA_OPTIONS.map((a) => (
-                    <SelectItem key={a} value={a}>{a}</SelectItem>
+                    <SelectItem key={a.value} value={a.value}>
+                      {t(`content.competitors.filter.area.${a.keySuffix}`)}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -344,7 +356,9 @@ export function CompetitorsView() {
                 </SelectTrigger>
                 <SelectContent>
                   {SITE_OPTIONS.map((s) => (
-                    <SelectItem key={s} value={s}>{s}</SelectItem>
+                    <SelectItem key={s.value} value={s.value}>
+                      {t(`content.competitors.filter.website.${s.keySuffix}`)}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -357,9 +371,15 @@ export function CompetitorsView() {
             </span>
             <Pill tone="forest">{t("content.competitors.filter.pill-competitors", { n: visibleCompetitors.length })}</Pill>
             <Pill tone={siteFilter === "All" ? "default" : siteFilter === "Yes" ? "ok" : "stop"}>
-              {t("content.competitors.filter.pill-website", { value: siteFilter })}
+              {t("content.competitors.filter.pill-website", {
+                value: t(`content.competitors.filter.website.${SITE_OPTIONS.find((s) => s.value === siteFilter)?.keySuffix ?? "all"}`),
+              })}
             </Pill>
-            <Pill tone={areaFilter === "All" ? "default" : "gold"}>{t("content.competitors.filter.pill-area", { value: areaFilter })}</Pill>
+            <Pill tone={areaFilter === "All" ? "default" : "gold"}>
+              {t("content.competitors.filter.pill-area", {
+                value: t(`content.competitors.filter.area.${AREA_OPTIONS.find((a) => a.value === areaFilter)?.keySuffix ?? "all"}`),
+              })}
+            </Pill>
             {search && <Pill tone="default">{t("content.competitors.filter.pill-search", { value: search })}</Pill>}
             <button
               onClick={() => {
