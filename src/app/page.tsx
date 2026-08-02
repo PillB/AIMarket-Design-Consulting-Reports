@@ -28,6 +28,7 @@ import { SpiritCheckerView } from "@/components/ursa/tools/spirit-checker-view";
 import { SwotView } from "@/components/ursa/tools/swot-view";
 import { PilotView } from "@/components/ursa/tools/pilot-view";
 import { ScorecardView } from "@/components/ursa/tools/scorecard-view";
+import { LoyaltyView } from "@/components/ursa/tools/loyalty-view";
 import { CommandPalette } from "@/components/ursa/command-palette";
 import { ScrollProgress } from "@/components/ursa/scroll-progress";
 import { useEffect } from "react";
@@ -113,6 +114,8 @@ export default function Home() {
         return <PilotView />;
       case "scorecard":
         return <ScorecardView />;
+      case "loyalty":
+        return <LoyaltyView />;
       case "sources":
         return <SourcesView />;
       case "landing":

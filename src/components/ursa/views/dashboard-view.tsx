@@ -7,7 +7,7 @@ import { DayInTheLifeWidget } from "../day-in-life-widget";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
 import { useI18n } from "@/hooks/use-i18n";
-import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2, Activity, Award } from "lucide-react";
+import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2, Activity, Award, CreditCard } from "lucide-react";
 
 export function DashboardView() {
   const navigate = useNavigate();
@@ -38,6 +38,7 @@ export function DashboardView() {
     { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 14 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
     { key: "pilot", num: "T12", title: "Ursa Mañana Pilot Dashboard", desc: "12-week subscription pilot dashboard: sign-ups, side-attach, cannibalization, and net profit. Adjust the inputs to model different scenarios.", icon: Activity },
     { key: "scorecard", num: "T13", title: "Brand Audit Scorecard", desc: "One-page executive compilation: Bear Score, brand pillars, experiment status, and the spirit-preservation verdict. Print or copy as text.", icon: Award, featured: false },
+    { key: "loyalty", num: "T14", title: "Loyalty Card Analysis", desc: "The itsloyaleats digital wallet card: 8-visit mechanic, behavioral-science backing, unit economics, and competitor comparison.", icon: CreditCard, featured: false },
   ];
 
   return (
