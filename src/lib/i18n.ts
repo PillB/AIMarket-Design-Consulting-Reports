@@ -1336,6 +1336,40 @@ export const translations: Translations = {
       "growth.message.pillar.honest-origin.promise": "We tell you where the bean came from, specifically.",
       "growth.message.pillar.patient-continuity.title": "Patient Continuity",
       "growth.message.pillar.patient-continuity.promise": "Reasons to return weekly, not just once.",
+
+      /* Pillar proofs, evidence, risk (resolved by pillar id) */
+      "growth.message.pillar.visible-craft.proof.1": "In-house roaster visible from the bar",
+      "growth.message.pillar.visible-craft.proof.2": "'Un gramo a la vez' as the weighing ritual",
+      "growth.message.pillar.visible-craft.proof.3": "Baristas trained to talk origin, altitude, process",
+      "growth.message.pillar.visible-craft.evidence":
+        "Corner.inc editorial praises Ursa's 'visible roasting equipment creates a workshop feel.' Terrua (513 Google reviews, 4.6★) and Punto Café (CAM 2025 2nd place) both lean on visible roastery/in-house roasting as the credibility signal that converts walk-ins. In the 1km competitor census, 4 of 14 in-catchment competitors make roastery visibility central to their positioning.",
+      "growth.message.pillar.visible-craft.risk":
+        "'Visible craft' without consistency is hollow. If Ursa's roast consistency slips (no documented QC protocol surfaced in research), the visible roaster becomes a liability — customers see the inconsistency, not the craft. Missing evidence: no roast-log audit, no extraction-yield log observed in public sources.",
+
+      "growth.message.pillar.ownable-atmosphere.proof.1": "Bear motif as a recurring character",
+      "growth.message.pillar.ownable-atmosphere.proof.2": "Two-bar theatre: espresso + cold brew side by side",
+      "growth.message.pillar.ownable-atmosphere.proof.3": "Coined drink names: Ursagroni, Maracumango (the other two named drinks — Filtrado Lonya, Durazno Clarificado — use origin/descriptive labels, not coined names)",
+      "growth.message.pillar.ownable-atmosphere.evidence":
+        "The 1km competitor census of 18 competitors: 0 use an animal or character identity; 0 operate a visible two-bar format; 0 use coined drink names. 'Amauta' is the closest analogue — a heritage word, not a character. The bear + two-bar + coined-name trio is uncontested in the catchment.",
+      "growth.message.pillar.ownable-atmosphere.risk":
+        "Atmosphere is ownable only as long as it is legible. If the bear is treated as decoration rather than character (no consistent voice, no recurring role), competitors can copy the surface (an animal mascot) without copying the meaning. Risk: bear identity becomes a logo, not a character.",
+
+      "growth.message.pillar.honest-origin.proof.1": "Filtrado Lonya line with farm + altitude (Utcubamba, Amazonas, 1,750m, Bourbon lavado)",
+      "growth.message.pillar.honest-origin.proof.2": "'Gram of the week' micro-lot highlight",
+      "growth.message.pillar.honest-origin.proof.3": "Quarterly origin transparency report",
+      "growth.message.pillar.honest-origin.evidence":
+        "The 1km competitor census: Café Verde (possibly closed) was the cautionary case — generic 'sustainability' messaging without specifics. RAIZ and Terrua own farm-to-cup depth, but Terrua's single-origin (Villa Rica only) is a narrow terroir story. Ursa's Filtrado Lonya line (multi-origin, named lot, named altitude) is uncontested in the catchment.",
+      "growth.message.pillar.honest-origin.risk":
+        "'Specific' is only credible if the named farm relationship is real and ongoing. If Ursa cannot document the producer relationship behind each Lonya lot (contract, purchase price, visit date), the story degrades into marketing. Missing evidence: no producer-relationship documentation surfaced in public sources.",
+
+      "growth.message.pillar.patient-continuity.proof.1": "Seasonal drink rotation (Lonya origins)",
+      "growth.message.pillar.patient-continuity.proof.2": "Ursa Mañana subscription pilot (S/. 20/mo, capped at 50)",
+      "growth.message.pillar.patient-continuity.proof.3": "Monthly cupping nights + named-drink drops",
+      "growth.message.pillar.patient-continuity.evidence":
+        "The 1km competitor census: Bisetti owns 'escuela de café' (formal education); Puku Puku owns 'microlotes' retail (S/.49 bag); no competitor owns a subscription + cupping + named-drink drop cadence. CoffeePass Perú listing validates Ursa already participates in Lima's loyalty infrastructure.",
+      "growth.message.pillar.patient-continuity.risk":
+        "Continuity promises erode the moment a weekly cadence is missed. If the cupping night skips a month, or the named-drink drop is late, the rhythm breaks and the promise feels performative. Risk: subscription cannibalizes full-price visits if attach rate < 60% (see Module 08 model).",
+
       "growth.message.callout.title":
         "Do not split the pillars across channels — every channel must carry the same promise",
       "growth.message.callout.body":

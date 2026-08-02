@@ -354,14 +354,17 @@ export function GrowthView() {
       </ViewSection>
 
       {/* Personas & JTBD — interactive expandable cards */}
-      <ViewSection badge="Audience" title="Who we are serving — and the job each one hires Ursa to do" meta="Four primary personas · click to expand">
+      <ViewSection badge={t("content.growth.audience.badge")} title={t("content.growth.audience.title")} meta={t("content.growth.audience.meta")}>
         <Grid cols={2}>
           {PERSONAS.map((p, idx) => {
             const expanded = expandedPersona === idx;
             const accent = p.tone === "gold" ? "var(--color-ursa-gold-text)" : p.tone === "terracotta" ? "var(--color-ursa-terracotta-text)" : "var(--color-ursa-forest-deep)";
+            const personaKey = (field: string) => `content.growth.audience.persona.${p.id}.${field}`;
+            const signals = Array.from({ length: p.signalCount }, (_, i) => t(personaKey(`signal.${i + 1}`)));
+            const channels = Array.from({ length: p.channelCount }, (_, i) => t(personaKey(`channel.${i + 1}`)));
             return (
               <Card
-                key={p.name}
+                key={p.id}
                 className="flex flex-col gap-3 cursor-pointer border-t-2 overflow-hidden"
                 >
                 <span className="block h-1 -mx-6 -mt-6 mb-1" style={{ background: accent }} />
@@ -377,17 +380,17 @@ export function GrowthView() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">{p.name}</h3>
+                      <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">{t(personaKey("name"))}</h3>
                       <ChevronDown size={18} className={cn("text-muted-foreground transition-transform shrink-0", expanded && "rotate-180")} />
                     </div>
                     <p className="text-[0.9rem] italic text-ursa-medium-roast leading-relaxed mb-2 m-0">
-                      &ldquo;{p.jtb}&rdquo;
+                      &ldquo;{t(personaKey("jtb"))}&rdquo;
                     </p>
                   </div>
                 </button>
                 {/* Always-visible signals */}
                 <div className="flex flex-wrap gap-1.5 pl-[60px]">
-                  {p.signals.map((s) => (
+                  {signals.map((s) => (
                     <span key={s} className="font-label text-[0.6rem] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full border text-muted-foreground bg-ursa-foam" style={{ borderColor: `${accent}30` }}>
                       {s}
                     </span>
@@ -397,13 +400,13 @@ export function GrowthView() {
                 {expanded && (
                   <div className="pl-[60px] space-y-3 ursa-fade-up border-t border-ursa-line-soft pt-3 mt-1">
                     <div>
-                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase block mb-1" style={{ color: accent }}>Proof point</span>
-                      <p className="text-[0.84rem] text-muted-foreground m-0">{p.proof}</p>
+                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase block mb-1" style={{ color: accent }}>{t("content.growth.audience.detail.proof")}</span>
+                      <p className="text-[0.84rem] text-muted-foreground m-0">{t(personaKey("proof"))}</p>
                     </div>
                     <div>
-                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase block mb-1" style={{ color: accent }}>Channels that reach them</span>
+                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase block mb-1" style={{ color: accent }}>{t("content.growth.audience.detail.channels")}</span>
                       <div className="flex flex-wrap gap-1.5">
-                        {p.channels.map((ch) => (
+                        {channels.map((ch) => (
                           <span key={ch} className="font-label text-[0.62rem] tracking-[0.06em] px-2 py-0.5 rounded border" style={{ borderColor: `${accent}30`, color: "var(--color-ursa-dark-roast)", background: `${accent}08` }}>
                             {ch}
                           </span>
@@ -412,12 +415,12 @@ export function GrowthView() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="rounded-lg p-2.5 border" style={{ borderColor: `${accent}25`, background: `${accent}06` }}>
-                        <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase block mb-0.5" style={{ color: accent }}>Offer for them</span>
-                        <p className="text-[0.8rem] text-ursa-dark-roast m-0 leading-snug">{p.offer}</p>
+                        <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase block mb-0.5" style={{ color: accent }}>{t("content.growth.audience.detail.offer-for")}</span>
+                        <p className="text-[0.8rem] text-ursa-dark-roast m-0 leading-snug">{t(personaKey("offer"))}</p>
                       </div>
                       <div className="rounded-lg p-2.5 border border-ursa-line-soft bg-ursa-foam">
-                        <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase block mb-0.5 text-muted-foreground">Success metric</span>
-                        <p className="text-[0.8rem] text-ursa-dark-roast m-0 leading-snug font-medium">{p.metric}</p>
+                        <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase block mb-0.5 text-muted-foreground">{t("content.growth.audience.detail.success-metric")}</span>
+                        <p className="text-[0.8rem] text-ursa-dark-roast m-0 leading-snug font-medium">{t(personaKey("metric"))}</p>
                       </div>
                     </div>
                   </div>
@@ -428,12 +431,12 @@ export function GrowthView() {
         </Grid>
 
         {/* Census-grounding evidence for each persona — verifies signals are not invented */}
-        <Callout tone="forest" title="Each persona's signals are grounded in the 1km census (CENSUS-1), not invented">
+        <Callout tone="forest" title={t("content.growth.audience.callout.title")}>
           <div className="space-y-2.5 text-[0.86rem] m-0">
-            <p className="m-0"><strong className="text-ursa-dark-roast">Morning Regular —</strong> grounded in CENSUS-1 finding that Milenaria Cafe (same street, 170m) opens 6:30am and is praised for early opening; Ursa opens 7:30am, so the 7:03–7:30am window is the very first pre-work slot Ursa can serve. The 'orders the same drink' signal mirrors Ursa's own Instagram evidence (repeated-customer comments) and the @rutadelcafeperuano reel citing return visits. <em>Risk:</em> we have no POS data on actual arrival-time distribution — the 7:03–7:30am window is inferred from opening hours, not from observed transaction timestamps.</p>
-            <p className="m-0"><strong className="text-ursa-dark-roast">Tourist Explorer —</strong> grounded in CENSUS-1 count of 8+ hotels within walking distance (Miraflores hotel district around Parque Kennedy). Bear paw Reel trail and concierge cards are the proposed channel, not yet executed. <em>Risk:</em> the 'walks in with a map / asks what's local / photographs the cup' signals are persona hypotheses, not observed behaviours. Validate via a 30-day concierge-card pilot before scaling.</p>
-            <p className="m-0"><strong className="text-ursa-dark-roast">Remote Worker —</strong> grounded in NovaCircle pros/cons flagging 'seating can be limited during peak hours' + 'crowded, especially on weekends.' The two-bar layout (espresso bar + coldbrew bar) is the architectural basis for a 'quiet side,' but no floor-plan evidence confirms the coldbrew side is actually quieter. <em>Risk:</em> the 90+ min dwell metric assumes Ursa tolerates laptop users; current operating model unclear on whether lingerers are welcomed or discouraged.</p>
-            <p className="m-0"><strong className="text-ursa-dark-roast">Coffee Curious —</strong> grounded in CENSUS-1 finding that Bisetti owns 'escuela de café' (formal education) and Terrua's US$25 tasting flight validates demand for paid tasting. Ursa's Aeropress champion Paulo Sierra (@rutadelcafeperuano, 564 likes) is direct credibility evidence for the education channel. <em>Risk:</em> cupping attendance is a leading metric only — no historical attendance baseline to compare against.</p>
+            <p className="m-0">{t("content.growth.audience.callout.morning")}</p>
+            <p className="m-0">{t("content.growth.audience.callout.tourist")}</p>
+            <p className="m-0">{t("content.growth.audience.callout.remote")}</p>
+            <p className="m-0">{t("content.growth.audience.callout.coffee")}</p>
           </div>
         </Callout>
 
@@ -442,24 +445,24 @@ export function GrowthView() {
           <Card className="bg-ursa-cream">
             <div className="flex items-center gap-2 mb-2">
               <FlaskConical size={14} className="text-ursa-forest-deep" />
-              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">How to validate the personas before scaling offers against them</span>
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.audience.card.validate.heading")}</span>
             </div>
             <ul className="space-y-1.5 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">2-week POS audit</strong> — tag every transaction with daypart + repeat-customer flag. Cost: S/. 0 (POS export). Confirms Morning Regular + Remote Worker mix.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Hotel-concierge card pilot</strong> — 8 hotels, 30 days, unique coupon code per hotel. Cost: ~S/. 200 print. Confirms Tourist Explorer conversion rate.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">First cupping night sign-up sheet</strong> — count attendees + email opt-ins. Cost: S/. 0. Confirms Coffee Curious depth.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.audience.card.validate.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.audience.card.validate.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.audience.card.validate.3")}</span></li>
             </ul>
           </Card>
           <Card>
             <div className="flex items-center gap-2 mb-2">
               <EvidenceTag status="partial" />
-              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">What evidence is missing</span>
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.audience.card.missing.heading")}</span>
             </div>
             <ul className="space-y-1.5 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>No Ursa-specific customer survey or interview transcript surfaced — personas are inferred from competitor behaviour + Ursa's own Instagram signals, not from primary customer research.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>No POS data on dwell time, daypart distribution, or repeat-purchase cadence — these are proposed metrics, not yet baselines.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>No demographic data (age, income, residence) on Ursa's actual customer base — persona sketches are behavioural, not demographic.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>Fix: commission a 4-week customer intercept survey (n≈50) before scaling any persona-specific offer.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>{t("content.growth.audience.card.missing.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>{t("content.growth.audience.card.missing.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>{t("content.growth.audience.card.missing.3")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-terracotta-text mt-1 shrink-0">›</span> <span>{t("content.growth.audience.card.missing.4")}</span></li>
             </ul>
           </Card>
         </Grid>
