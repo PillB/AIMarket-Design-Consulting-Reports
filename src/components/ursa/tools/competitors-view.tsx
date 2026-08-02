@@ -84,6 +84,9 @@ const VERDICT: Record<string, "lead" | "match" | "trail"> = {
   "Puku Puku / Urqu / Origen / Cate / Arabica": "lead",
   "Ciclos": "lead",
   "RAIZ": "match",
+  "Milimetrica Coffee Co": "match",
+  "Dulce Ciudad": "lead",
+  "Caficulto": "match",
 };
 
 /** Matrix positions (scale 0–100, craft 0–100). Scale = retail reach; Craft = distinctiveness of identity. */
@@ -99,6 +102,9 @@ const MATRIX_POSITIONS: Record<string, { scale: number; craft: number }> = {
   "Puku Puku / Urqu / Origen / Cate / Arabica": { scale: 55, craft: 50 },
   "Ciclos": { scale: 18, craft: 48 },
   "RAIZ": { scale: 22, craft: 70 },
+  "Milimetrica Coffee Co": { scale: 15, craft: 38 },
+  "Dulce Ciudad": { scale: 12, craft: 32 },
+  "Caficulto": { scale: 20, craft: 42 },
 };
 
 /** Verdict label & styling. */
@@ -236,7 +242,7 @@ export function CompetitorsView() {
         title={<>{t("content.view.competitors.title")}</>}
         lede={
           <>
-            A filterable comparison matrix of the ten Miraflores and Lima competitors, plus Ursa's own profile pinned
+            A filterable comparison matrix of the thirteen Miraflores and Lima competitors, plus Ursa's own profile pinned
             to the top of the table. Sort by name, area, or website presence; filter the set; read each head-to-head
             verdict; and see where every player sits on the scale-vs-craft quadrant.
           </>

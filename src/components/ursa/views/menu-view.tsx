@@ -621,9 +621,9 @@ export function MenuView() {
               <p className="m-0">
                 The named drinks (<em>Ursagroni</em>, <em>Durazno Clarificado Coldbrew</em>,{" "}
                 <em>Maracumango Coldbrew</em>, <em>Filtrado Lonya</em>) and the verified food items
-                (financier, empanada, cookies) come from public Instagram and Facebook posts
-                (Sources S1, S2). Standard espresso-bar items and their prices are reconstructed
-                from the Rappi delivery menu (Source S3, snapshot {URSA_FACTS.snapshot}).
+                (financier, empanada, cookies) come from public Instagram and Facebook posts.
+                Standard espresso-bar items and their prices are reconstructed
+                from the Rappi delivery menu (snapshot {URSA_FACTS.snapshot}).
               </p>
             </Callout>
             <Callout tone="warn" title="Exact prices may change">
@@ -631,7 +631,7 @@ export function MenuView() {
                 Prices marked <span className="font-label text-ursa-medium-roast">*</span> are
                 inferred from category positioning where the Rappi snapshot did not list them
                 directly. Confirm at the bar before quoting in any external material. The
-                pairing prices (La Ursa, La Lonya, La Maracumango) follow the dossier prototype
+                pairing prices (La Ursa, La Lonya, La Maracumango) follow the dossier design
                 and assume à la carte totals.
               </p>
             </Callout>
@@ -947,9 +947,9 @@ export function MenuView() {
           <StatBlock value="S/. 5–140" label="Full price envelope across menu + proposals" tone="forest" />
         </div>
         <p className="text-[0.78rem] text-muted-foreground mt-6 max-w-3xl">
-          <strong>Disclaimer:</strong> Reconstructed menu prices are sourced from the Rappi
-          snapshot (Source S3, {URSA_FACTS.snapshot}) and public Instagram/Facebook posts (Sources
-          S1, S2). Prices marked <span className="font-label">*</span> are inferred from category
+          <strong>About these prices:</strong> Reconstructed menu prices are sourced from the Rappi
+          delivery snapshot ({URSA_FACTS.snapshot}) and public Instagram and Facebook posts.
+          Prices marked <span className="font-label">*</span> are inferred from category
           positioning. Proposal pricing is in scenario ranges and must be validated against
           Ursa's actual roast logs and supplier invoices before any go-to-market.
         </p>

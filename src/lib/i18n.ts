@@ -193,7 +193,7 @@ export const translations: Translations = {
       "module-03": "03 · Menu & Product",
       "module-04": "04 · Growth & Retention",
       "module-05": "05 · Viral Content Lab",
-      "module-06": "06 · Creative Prototypes",
+      "module-06": "06 · Creative Campaigns",
       "module-07": "07 · Roadmap & KPIs",
       "module-08": "08 · Subscription & Calculator",
       sources: "Sources & Evidence",
@@ -211,7 +211,7 @@ export const translations: Translations = {
       "module-03": "03 · Carta y Producto",
       "module-04": "04 · Crecimiento y Retención",
       "module-05": "05 · Lab de Contenido Viral",
-      "module-06": "06 · Prototipos Creativos",
+      "module-06": "06 · Campañas Creativas",
       "module-07": "07 · Hoja de Ruta y KPIs",
       "module-08": "08 · Suscripción y Calculadora",
       sources: "Fuentes y Evidencia",
@@ -324,7 +324,7 @@ export const translations: Translations = {
       /* Market */
       "view.market.eyebrow": "Module 02 · Market, Competitors & Customer Voice",
       "view.market.title":
-        "Ten Miraflores and Lima competitors, mapped — and the one space none of them owns.",
+        "Thirteen Miraflores and Lima competitors, mapped — and the one space none of them owns.",
 
       /* Menu */
       "view.menu.eyebrow": "Module 03 · Menu & Product Development",
@@ -342,8 +342,8 @@ export const translations: Translations = {
         "Short-form video, written for the bear, the two bars, and a Miraflores block.",
 
       /* Creative */
-      "view.creative.eyebrow": "Module 06 · Creative Campaign Prototypes",
-      "view.creative.title-line1": "Prototypes you can click, copy,",
+      "view.creative.eyebrow": "Module 06 · Creative Campaign Samples",
+      "view.creative.title-line1": "Samples you can click, copy,",
       "view.creative.title-line2": "and hand to a printer.",
 
       /* Roadmap */
@@ -357,7 +357,7 @@ export const translations: Translations = {
         "Every claim in this dossier is traceable to a public source.",
 
       /* Landing — Spanish on both sides (already Spanish) */
-      "view.landing.eyebrow": "Customer-facing prototype · Spanish (Peru) · For review",
+      "view.landing.eyebrow": "Ursa Mañana · Spanish (Peru)",
       "view.landing.title": "Ursa Mañana — tu café de la mañana, por S/. 20 al mes.",
 
       /* Calculator */
@@ -417,7 +417,7 @@ export const translations: Translations = {
         "Competitor SWOT Matrix — where Ursa stands, and where it can move",
 
       /* Pilot */
-      "view.pilot.eyebrow": "Extra Tool T12 · Interactive pilot simulator",
+      "view.pilot.eyebrow": "Extra Tool T12 · Pilot dashboard",
       "view.pilot.title":
         "Ursa Mañana Pilot Dashboard — track the S/. 20/month subscription as it runs",
 
@@ -536,7 +536,7 @@ export const translations: Translations = {
 
       "view.market.eyebrow": "Módulo 02 · Mercado, Competidores y Voz del Cliente",
       "view.market.title":
-        "Diez competidores de Miraflores y Lima, mapeados — y el único espacio que ninguno ocupa.",
+        "Trece competidores de Miraflores y Lima, mapeados — y el único espacio que ninguno ocupa.",
 
       "view.menu.eyebrow": "Módulo 03 · Carta y Desarrollo de Producto",
       "view.menu.title":
@@ -550,8 +550,8 @@ export const translations: Translations = {
       "view.viral.title":
         "Video corto, escrito para el oso, las dos barras y una cuadra de Miraflores.",
 
-      "view.creative.eyebrow": "Módulo 06 · Prototipos de Campañas Creativas",
-      "view.creative.title-line1": "Prototipos que puedes cliquear, copiar",
+      "view.creative.eyebrow": "Módulo 06 · Muestras de Campañas Creativas",
+      "view.creative.title-line1": "Muestras que puedes cliquear, copiar",
       "view.creative.title-line2": "y entregar a la impresión.",
 
       "view.roadmap.eyebrow": "Módulo 07 · Hoja de Ruta de Implementación y KPIs",
@@ -563,7 +563,7 @@ export const translations: Translations = {
         "Cada afirmación en este dossier es rastreable a una fuente pública.",
 
       "view.landing.eyebrow":
-        "Prototipo orientado al cliente · Español (Perú) · Para revisión",
+        "Ursa Mañana · Español (Perú)",
       "view.landing.title": "Ursa Mañana — tu café de la mañana, por S/. 20 al mes.",
 
       "view.calculator.eyebrow":
@@ -611,7 +611,7 @@ export const translations: Translations = {
       "view.swot.title":
         "Matriz SWOT de Competidores — dónde está Ursa y hacia dónde puede moverse",
 
-      "view.pilot.eyebrow": "Herramienta T12 · Simulador interactivo del piloto",
+      "view.pilot.eyebrow": "Herramienta T12 · Tablero del piloto",
       "view.pilot.title":
         "Tablero del Piloto Ursa Mañana — sigue la suscripción de S/. 20/mes mientras corre",
 

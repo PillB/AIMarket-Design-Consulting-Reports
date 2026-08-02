@@ -138,6 +138,30 @@ export const COMPETITORS = [
     ursaImplication: "Origin stories via Filtrado Lonya line",
     hasWebsite: true,
   },
+  {
+    name: "Milimetrica Coffee Co",
+    area: "Miraflores · 35m from Ursa",
+    strength: "Closest competitor — same block, shared foot traffic; specialty focus",
+    weakness: "Limited brand distinctiveness; no roastery theatre or craft identity",
+    ursaImplication: "Win the immediate-block comparison through bear identity, two-bar theatre, and roastery presence",
+    hasWebsite: false,
+  },
+  {
+    name: "Dulce Ciudad",
+    area: "Miraflores · 50m from Ursa",
+    strength: "Very close proximity; catches passing foot traffic on the same street",
+    weakness: "Generic café positioning; no roastery or origin narrative",
+    ursaImplication: "Lead on roastery visibility and named-drink storytelling to differentiate within the same block",
+    hasWebsite: false,
+  },
+  {
+    name: "Caficulto",
+    area: "Miraflores · 83m from Ursa",
+    strength: "Coffee-focused naming; close enough to share the coffee-destination block",
+    weakness: "Limited brand identity beyond the name; small scale",
+    ursaImplication: "Compete on craft atmosphere and the two-bar experience rather than naming alone",
+    hasWebsite: false,
+  },
 ];
 
 export const CUSTOMER_VOICE = [

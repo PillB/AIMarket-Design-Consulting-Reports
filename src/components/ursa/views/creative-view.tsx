@@ -1285,12 +1285,12 @@ export function CreativeView() {
         }
         lede={
           <>
-            Working HTML, CSS, and SVG prototypes for fifteen touchpoints — social posts,
+            Working HTML, CSS, and SVG samples for fifteen touchpoints — social posts,
             carousels, Stories, Reel covers, posters, menus, product cards, table signs, loyalty
             cards, packaging labels, bean info cards, event materials, Google and delivery
             imagery, landing pages, and email headers. The official logo is never altered or
             counterfeited; the geometric bear glyph used throughout is an original concept mark
-            for prototype demonstration only.
+            used as a placeholder in this dossier.
           </>
         }
         meta={[
@@ -1301,16 +1301,16 @@ export function CreativeView() {
       />
 
       {/* Top disclaimer */}
-      <ViewSection badge="6.0 · Read first" title="Asset disclaimer — read before any production">
+      <ViewSection badge="6.0 · Read first" title="Before production — read first">
         <Callout tone="stop" title="Original concept mark — not the official logo">
           <p>
             The geometric bear glyph used throughout this module is an{" "}
-            <strong>original concept mark</strong> designed for dossier navigation and prototype
-            demonstration. It is <strong>not</strong> the official Ursa Coffee Roasters logo. The
-            official logo must be sourced from the owner-supplied asset pack (open question Q6 in
-            Sources &amp; Evidence) before any production artwork is finalized. All prototypes
-            below use the concept mark as a placeholder; in production, the official mark replaces
-            it. No prototype in this module alters, parodies, or counterfeits the official logo.
+            <strong>original concept mark</strong> designed for dossier navigation. It is{" "}
+            <strong>not</strong> the official Ursa Coffee Roasters logo. The official logo must be
+            sourced from the owner-supplied asset pack (open question Q6 in Sources &amp; Evidence)
+            before any production artwork is finalized. All samples below use the concept mark as a
+            placeholder; in production, the official mark replaces it. No sample in this module
+            alters, parodies, or counterfeits the official logo.
           </p>
         </Callout>
       </ViewSection>
@@ -1321,10 +1321,10 @@ export function CreativeView() {
       <ViewSection
         badge="6.1 · Brand evolution"
         title="Three brand-evolution levels — visual comparison"
-        meta="Same prototype · three intensities"
+        meta="Same format · three intensities"
       >
         <p className="text-[0.95rem] text-muted-foreground mb-6 max-w-[68ch] leading-relaxed">
-          The three evolution levels from §1.9 are visualised below using the same prototype
+          The three evolution levels from §1.9 are visualised below using the same format
           (single-image social post) so the difference is immediately visible at thumbnail size —
           where 90% of social impressions happen.
         </p>
@@ -1411,12 +1411,12 @@ export function CreativeView() {
 
       {/* Prototype tabs */}
       <ViewSection
-        badge="6.2 · Prototypes"
+        badge="6.2 · Samples"
         title="Fifteen touchpoints, four families"
         meta="HTML · CSS · SVG"
       >
         <p className="text-[0.95rem] text-muted-foreground mb-5 max-w-[68ch] leading-relaxed">
-          Each prototype below is a working HTML/CSS/SVG mockup. Screenshots at 2× resolution
+          Each sample below is a working HTML/CSS/SVG layout. Screenshots at 2× resolution
           produce production-grade JPEGs for social; for print, the HTML serves as a precise spec
           for any designer or printer (exact hex colours, named fonts, defined aspect ratios).
         </p>
@@ -1516,11 +1516,11 @@ export function CreativeView() {
       {/* Closing summary + stats */}
       <ViewSection
         badge="6.3 · Recap"
-        title="What these prototypes prove"
+        title="What these samples show"
         meta="Spirit preserved · risk minimised"
       >
         <Grid cols={4}>
-          <StatBlock value="15" label="Touchpoints prototyped — social, print, packaging, digital" tone="forest" />
+          <StatBlock value="15" label="Touchpoints designed — social, print, packaging, digital" tone="forest" />
           <StatBlock value="3" label="Brand-evolution levels with a confirmed recommendation" tone="gold" />
           <StatBlock value="0" label="Alterations or counterfeits of the official Ursa logo" tone="terracotta" />
           <StatBlock value="1" label="Original concept mark used as a placeholder throughout" tone="forest" />
@@ -1531,7 +1531,7 @@ export function CreativeView() {
             <ShieldCheck className="text-ursa-forest-deep mb-2" size={22} />
             <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Identity protected</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Every prototype preserves the bear, the Art Nouveau craft language, the two-bar
+              Every sample preserves the bear, the Art Nouveau craft language, the two-bar
               architecture, and the verified tagline. No generic growth tactic is allowed to break
               the bear.
             </p>
@@ -1541,24 +1541,24 @@ export function CreativeView() {
             <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Print-ready spec</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
               Exact hex colours, named fonts, defined aspect ratios. A screenshot handed to a
-              printer is enough. Browser print-to-PDF validates every prototype.
+              printer is enough. Browser print-to-PDF validates every sample.
             </p>
           </Card>
           <Card>
             <Award className="text-ursa-terracotta mb-2" size={22} />
             <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Cheaply testable</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Most prototypes cost S/. 0–200 to test in print. The bean bag label and the table
+              Most samples cost S/. 0–200 to test in print. The bean bag label and the table
               sign together cover the origin story and pairing tests for under S/. 100.
             </p>
           </Card>
         </Grid>
 
         <div className="mt-6 grid sm:grid-cols-[2fr_1fr] gap-5 items-start">
-          <Callout tone="forest" title="Why prototypes, not just descriptions">
+          <Callout tone="forest" title="Why samples, not just descriptions">
             <p>
               A description of a “forest-green Story with a gold CTA” leaves twenty decisions
-              unresolved. A prototype resolves all twenty. The owner can hold a screenshot next
+              unresolved. A sample resolves all twenty. The owner can hold a screenshot next
               to a printer&apos;s sample and say “match this” — and the result will be the
               dossier, not a translator&apos;s interpretation of it.
             </p>
@@ -1571,7 +1571,7 @@ export function CreativeView() {
               </h4>
             </div>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed mb-3">
-              Cross-check any prototype against the brand audit before production.
+              Cross-check any sample against the brand audit before production.
             </p>
             <button
               onClick={() => navigate("brand")}
@@ -1595,10 +1595,10 @@ export function CreativeView() {
           <Card>
             <Quote className="text-ursa-gold mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
-              “These are HTML prototypes, not production files. How does the owner use them?”
+              “These are HTML layouts, not production files. How does the owner use them?”
             </p>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Each prototype is print-ready via the browser&apos;s print-to-PDF function. For
+              Each sample is print-ready via the browser&apos;s print-to-PDF function. For
               social, screenshots at 2× resolution produce production-grade JPEGs. For packaging
               and print, the HTML/CSS serves as a precise spec — exact hex colours, named fonts,
               defined aspect ratios. The owner can hand a screenshot to a printer and say
@@ -1608,14 +1608,14 @@ export function CreativeView() {
           <Card>
             <Quote className="text-ursa-gold mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
-              “You used a generic bear in the prototypes. The real bear might look totally
+              “You used a generic bear in the samples. The real bear might look totally
               different.”
             </p>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
               Correct — and stated explicitly in the asset disclaimer at the top of this module.
               The geometric bear used here is a placeholder concept mark. The owner-supplied asset
               pack (open question Q6) is required before any production artwork is finalized.
-              Once the official bear is sourced, it replaces the concept mark in every prototype
+              Once the official bear is sourced, it replaces the concept mark in every sample
               without changing layout, palette, or typography.
             </p>
           </Card>
@@ -1676,7 +1676,7 @@ export function CreativeView() {
       <ViewSection badge="6.5 · Full dossier" title="Open the printable HTML dossier">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-[0.95rem] text-muted-foreground max-w-[58ch] leading-relaxed">
-            The static dossier for Module 06 contains the same prototypes in a single printable
+            The static dossier for Module 06 contains the same samples in a single printable
             HTML page, plus the asset disclaimer and the skeptical revision pass. Open it to
             print, screenshot, or hand to a printer.
           </p>

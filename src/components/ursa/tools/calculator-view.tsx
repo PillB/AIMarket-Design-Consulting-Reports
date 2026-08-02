@@ -411,7 +411,7 @@ export function CalculatorView() {
           <StatBlock value={isFinite(calc.recoverMonths) ? `${calc.recoverMonths.toFixed(1)} mo` : "kill"} label="Cannibalization recovery time" tone="terracotta" />
         </div>
         <p className="text-[0.78rem] text-muted-foreground mt-6 max-w-3xl">
-          <strong>Disclaimer:</strong> This calculator is a decision-support tool, not a financial guarantee. Marginal
+          <strong>How to read this:</strong> This calculator is a decision-support tool, not a financial guarantee. Marginal
           cost per cup depends on roast yield, milk usage, and waste; verify against Ursa's actual roast logs before
           scaling. Virality and subscriber growth are not assumed — the pilot is designed to measure them.
         </p>

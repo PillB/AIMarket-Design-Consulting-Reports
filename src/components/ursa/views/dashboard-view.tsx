@@ -19,14 +19,14 @@ export function DashboardView() {
     { key: "menu", num: "03", title: "Menu & Product Development", desc: "Reconstructs Ursa's current menu, then proposes new products across coffee, cold, seasonal, pastry, retail, experiences, and subscriptions." },
     { key: "growth", num: "04", title: "Marketing, Growth & Retention Plan", desc: "Integrated plan: positioning, JTBD, message and offer architecture, acquisition, creators, delivery, loyalty, reviews. Adapts Hormozi and Sutherland." },
     { key: "viral", num: "05", title: "Viral Content Laboratory", desc: "26 original content concepts, 10 complete scripts, 3 repeatable series, 3 creator briefs, 3 UGC mechanisms, and a four-week pilot calendar." },
-    { key: "creative", num: "06", title: "Creative Campaign Prototypes", desc: "HTML/CSS/SVG prototypes for social posts, carousels, Stories, menus, packaging labels, bean cards, event materials, landing pages, and email." },
+    { key: "creative", num: "06", title: "Creative Campaigns", desc: "HTML/CSS/SVG samples for social posts, carousels, Stories, menus, packaging labels, bean cards, event materials, landing pages, and email." },
     { key: "roadmap", num: "07", title: "Implementation Roadmap & KPIs", desc: "First-72-hours, 30/60/90-day plans, and a 12-month innovation roadmap. Each workstream has owners, dependencies, metrics, and stopping rules." },
   ];
 
   const tools = [
     { key: "calculator", num: "08", title: "Subscription Economics Calculator", desc: "Interactive: edit every input and see live profit, break-even, free-cup capacity, sensitivity table, and cannibalization model. The Ursa Mañana S/. 20/month idea.", featured: true, icon: Calculator },
     { key: "menu-studio", num: "T1", title: "Menu Engineering Studio", desc: "Build a menu category by category with live margin analysis, ingredient overlap, and attach-rate modelling.", icon: Utensils },
-    { key: "competitors", num: "T2", title: "Competitor Intelligence Dashboard", desc: "Filterable comparison matrix of 10 Miraflores and Lima competitors with strengths, weaknesses, and Ursa implications.", icon: Swords },
+    { key: "competitors", num: "T2", title: "Competitor Intelligence Dashboard", desc: "Filterable comparison matrix of 13 Miraflores and Lima competitors with strengths, weaknesses, and Ursa implications.", icon: Swords },
     { key: "content-calendar", num: "T3", title: "Content Calendar & Scripts", desc: "Browse 26 concepts, read 10 full scripts, and lay out a four-week pilot calendar with a drag-friendly planner.", icon: Calendar },
     { key: "experiments", num: "T4", title: "Experiment Tracker", desc: "Track every experiment with status, cost, metric, and stop rule. Update status as you run each test.", icon: FlaskConical },
     { key: "style-guide", num: "T5", title: "Brand Style Guide Explorer", desc: "Inspect the verified Ursa palette, typography, and components with copy-to-clipboard tokens.", icon: SwatchBook },
@@ -35,8 +35,8 @@ export function DashboardView() {
     { key: "roi", num: "T8", title: "ROI Dashboard", desc: "Model return on each marketing channel with payback period and confidence ranges.", icon: TrendingUp },
     { key: "campaign-builder", num: "T9", title: "Campaign Builder", desc: "A 6-step wizard: offer → audience → channel → metric → budget → summary. Outputs a copyable plain-text brief with a stop rule.", icon: Wand2 },
     { key: "spirit-checker", num: "T10", title: "Spirit-Preservation Checker", desc: "Validate any new tactic against the bear, the gram, and the green. 8 questions, 3 pillars, one verdict.", icon: Shield },
-    { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 10 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
-    { key: "pilot", num: "T12", title: "Ursa Mañana Pilot Dashboard", desc: "12-week subscription pilot simulator: sign-ups, side-attach, cannibalization, and net profit. Replaces inputs with real data when the pilot runs.", icon: Activity },
+    { key: "swot", num: "T11", title: "Competitor SWOT Matrix", desc: "Interactive 2×2 plot of 13 competitors on distinctiveness × reach. Click any dot for its SWOT and the Ursa implication.", icon: Grid2x2 },
+    { key: "pilot", num: "T12", title: "Ursa Mañana Pilot Dashboard", desc: "12-week subscription pilot dashboard: sign-ups, side-attach, cannibalization, and net profit. Adjust the inputs to model different scenarios.", icon: Activity },
     { key: "scorecard", num: "T13", title: "Brand Audit Scorecard", desc: "One-page executive compilation: Bear Score, brand pillars, experiment status, and the spirit-preservation verdict. Print or copy as text.", icon: Award, featured: false },
   ];
 
