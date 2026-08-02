@@ -125,7 +125,6 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
 
             <LanguageToggle className="ml-1" />
             <ThemeToggle className="ml-1" />
-            <LanguageToggle className="ml-0.5" />
 
             <a
               href="/AIMarket-Design-Consulting-Reports/dossier/index.html"

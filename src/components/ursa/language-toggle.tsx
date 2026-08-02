@@ -1,6 +1,5 @@
 "use client";
 
-import { Languages } from "lucide-react";
 import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 
@@ -8,6 +7,9 @@ import { cn } from "@/lib/utils";
  * Language toggle button for the header. Cycles between English (en)
  * and Spanish (es). Persists the choice in localStorage and updates
  * the <html lang="…"> attribute via the hook.
+ *
+ * Shows only the next-language code ("EN" or "ES") as clean text — no
+ * icon, to avoid any visual ambiguity at small sizes.
  */
 export function LanguageToggle({ className }: { className?: string }) {
   const { lang, toggle, t } = useI18n();
@@ -21,15 +23,12 @@ export function LanguageToggle({ className }: { className?: string }) {
       aria-label={ariaLabel}
       title={ariaLabel}
       className={cn(
-        "relative w-9 h-9 rounded-full flex items-center justify-center transition-colors border font-label text-[0.66rem] tracking-[0.08em] font-semibold",
+        "relative w-9 h-9 rounded-full flex items-center justify-center transition-colors border font-label text-[0.7rem] tracking-[0.06em] font-semibold",
         "border-ursa-gold-soft/40 text-ursa-gold-soft hover:bg-ursa-gold hover:text-ursa-dark-roast",
         className
       )}
     >
-      <span className="flex items-center gap-1">
-        <Languages size={14} className="hidden sm:block" />
-        {next}
-      </span>
+      {next}
     </button>
   );
 }
