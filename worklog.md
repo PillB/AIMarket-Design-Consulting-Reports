@@ -1967,3 +1967,36 @@ Stage Summary:
 - Release gate: PASSED
 - Commits: 085f9fb (Spanish fixes), 82fa355 (QA docs)
 - Live site: https://pillb.github.io/AIMarket-Design-Consulting-Reports/
+
+---
+Task ID: SWOT-TRANSLATE
+Agent: general-purpose (SWOT competitor data → Peruvian Spanish)
+Task: Translate ALL competitor data in the SWOT view from English to Peruvian Spanish
+
+Work Log:
+- Read /home/z/my-project/worklog.md for context (prior SWOT work: 13→14 competitors via Milenaria addition; all UI chrome already translated via content.swot.* i18n keys).
+- Read /home/z/my-project/src/components/ursa/tools/swot-view.tsx (433 lines) and confirmed:
+  • All UI chrome (ViewHero eyebrow/title/lede, meta labels, matrix title, axis labels, quadrant labels+descriptions, readout labels, SWOT cell labels, Ursa implication heading, quick-switch heading, callout title+body) was already wrapped in `t()` calls using `content.swot.*` keys.
+  • Verified the existing i18n.ts has all those keys in BOTH the EN block (lines 1144-1185) and the ES block (lines 5755-5796). No new i18n keys needed.
+  • The inline COMPETITORS array (14 entries: Ursa, Punto Café, Neira Café Lab, Bisetti, Puku Puku, Terrua, Ciclos, RAIZ, Café Verde, True Artisan, Milimetrica Coffee Co, Milenaria Café, Dulce Ciudad, Caficulto) was 100% English across area/strength/weakness/opportunity/threat/ursaImplication fields — the only remaining English in the file.
+- Translated all 14 competitor entries inline in swot-view.tsx via a single MultiEdit (14 edits × 5 fields = 70 string replacements + 1 area translation: "Multiple Lima" → "Varios puntos de Lima" for Puku Puku).
+- Translation rules followed:
+  • Hand-crafted Peruvian Spanish — warm, direct, no translated-corporate tone.
+  • Preserved proper nouns: Ursa, Alcanfores, Miraflores, Barranco, Bisetti, Puku Puku, Neira, Terrua, Ursagroni, Maracumango, Filtrado Lonya, Art Nouveau, WorkCafé, Instagram, TripAdvisor, Google Business Profile, Premios Somos, RAIZ, True Artisan, Milimetrica, Milenaria, Dulce Ciudad, Caficulto, Ciclos, Punto Café, Café Verde.
+  • Preserved "un gramo a la vez" tagline (wrapped in « » Spanish quotes).
+  • Preserved US$25 (Terrua's actual dollar pricing — task's "Use S/." rule applies to Ursa's own prices, which were already in S/.).
+  • Used « » Spanish quotation marks around quoted concepts: «escuela de café», «microlotes», «artisan», «café recién tostado», «un gramo a la vez».
+  • Used S/. for Ursa's prices (S/. 15 entry / S/. 35 premium depth — already in source).
+- BearMark left as outline-only (no fills introduced — verified by inspecting the file; BearMark component was unchanged).
+- useI18n from @/hooks/use-i18n already in use; no imports changed.
+- NO test code added. NO i18n.ts changes needed.
+
+Verification:
+- `bun run lint` → EXIT 0 (only the BABEL informational note about i18n.ts >500KB, which is not a lint error).
+- `bun run build` → ✓ Compiled successfully in 11.0s; static pages generated (3/3). Build succeeded.
+
+Stage Summary:
+- All 14 SWOT competitor entries translated to Peruvian Spanish inline (the English version is preserved in git history per task instructions).
+- All UI chrome was already bilingual via existing content.swot.* i18n keys (EN+ES blocks); no new keys needed.
+- Lint clean. Build succeeds. Single commit landed: d38c384 "Translate all SWOT competitor data and UI chrome to Spanish" (1 file changed, +71 / −71 lines).
+- The SWOT view at #/swot now reads end-to-end in Peruvian Spanish when the language toggle is set to ES — competitor names, area tags, strength/weakness/opportunity/threat prose, Ursa implications, matrix labels, quadrant descriptions, axis labels, and the strategic takeaway callout all render in Spanish.
