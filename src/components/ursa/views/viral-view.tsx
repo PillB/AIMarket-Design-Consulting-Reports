@@ -222,11 +222,11 @@ function feasibilityTone(mode: string): "ok" | "warn" | "stop" {
   return "stop";
 }
 
-function feasibilityLabel(mode: string): string {
-  if (mode === "phone-in-house") return "Phone · in-house";
-  if (mode === "phone-with-edit") return "Phone + edit";
-  return "External help";
-} 
+function feasibilityLabel(mode: string, t: (k: string) => string): string {
+  if (mode === "phone-in-house") return t("content.viral.feasibility-label.phone");
+  if (mode === "phone-with-edit") return t("content.viral.feasibility-label.edit");
+  return t("content.viral.feasibility-label.external");
+}
 
 export function ViralView() {
   const navigate = useNavigate();
@@ -237,39 +237,30 @@ export function ViralView() {
       <ViewHero
         eyebrow={t("content.view.viral.eyebrow")}
         title={<>{t("content.view.viral.title")}</>}
-        lede={
-          <>
-            Twenty-six content concepts and ten production-ready scripts — every one anchored in a verified Ursa asset: the named drinks, the in-house roastery, the bear mark, and Alcanfores 183. Built to learn cheaply, not to chase virality.
-          </>
-        }
+        lede={<>{t("content.viral.lede")}</>}
         meta={[
-          { label: "Concepts", value: "26" },
-          { label: "Scripts", value: "10" },
-          { label: "Series", value: "3" },
-          { label: "Pilot", value: "4 weeks" },
+          { label: t("content.viral.meta.concepts"), value: "26" },
+          { label: t("content.viral.meta.scripts"), value: "10" },
+          { label: t("content.viral.meta.series"), value: "3" },
+          { label: t("content.viral.meta.pilot"), value: t("content.viral.meta.pilot-value") },
         ]}
       />
 
       {/* Disclaimer callout — prominent, immediately under hero */}
       <ViewSection className="border-b-0 pt-0 -mt-2">
-        <Callout tone="stop" title="A disclaimer before we start">
-          <strong>Virality is not guaranteed.</strong> This system is designed to{" "}
-          <em>learn cheaply</em>: post small, measure honestly, amplify what works, and
-          kill what doesn&apos;t. No agency retainers, no bought followers, no fabricated
-          reactions — only the bear, the bar, and the data we earn.
+        <Callout tone="stop" title={t("content.viral.disclaimer.title")}>
+          {t("content.viral.disclaimer.body")}
         </Callout>
       </ViewSection>
 
       {/* Section 01 — 26 content concepts */}
       <ViewSection
         badge="Section 01"
-        title="The 26 content concepts"
-        meta="Browse · assign · reuse"
+        title={t("content.viral.section.01.title")}
+        meta={t("content.viral.section.01.meta")}
       >
         <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
-          Each concept is small, filmable in-house, and rooted in a real Ursa detail — a
-          named drink, the weighing ritual, a Miraflores landmark, or the bear itself.
-          None require paid actors; all can be shot on a phone in under an hour.
+          {t("content.viral.section.01.lede")}
         </p>
         <Grid cols={3}>
           {CONTENT_CONCEPTS.map((c) => {
@@ -297,7 +288,7 @@ export function ViralView() {
                 <div className="flex items-center gap-1.5 flex-wrap justify-end">
                   {feasibility && (
                     <Pill tone={feasibilityTone(feasibility.mode)}>
-                      {feasibilityLabel(feasibility.mode)}
+                      {feasibilityLabel(feasibility.mode, t)}
                     </Pill>
                   )}
                   <Pill tone={formatTone(c.format)}>
@@ -315,7 +306,7 @@ export function ViralView() {
               {evidence && (
                 <div className="mt-auto pt-3 border-t border-ursa-line-soft">
                   <div className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1">
-                    Why this works for Ursa
+                    {t("content.viral.section.01.why-ursa")}
                   </div>
                   <p className="text-[0.76rem] text-ursa-dark-roast/85 m-0 leading-relaxed">{evidence}</p>
                 </div>
@@ -329,15 +320,11 @@ export function ViralView() {
       {/* Section 02 — 10 complete scripts */}
       <ViewSection
         badge="Section 02"
-        title="Ten production-ready scripts"
-        meta="Beats · Spanish caption · CTA"
+        title={t("content.viral.section.02.title")}
+        meta={t("content.viral.section.02.meta")}
       >
         <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
-          Each script is filmed in the café by the baristas themselves. The beats are the
-          edit; the Spanish caption and CTA are customer-facing and posted verbatim (Peru
-          Spanish). Hook first, brand last. Every script is verified to reference at least
-          one REAL Ursa product, drink, address, or operational detail — see the green
-          “Verified refs” badge inside each script.
+          {t("content.viral.section.02.lede")}
         </p>
         <Accordion
           type="single"
@@ -371,7 +358,7 @@ export function ViralView() {
                         {verification && (
                           <Pill tone={verification.status === "passed" ? "ok" : "stop"}>
                             <ShieldCheck size={11} className="shrink-0" />
-                            {verification.refs.length} verified refs
+                            {t("content.viral.section.02.verified-refs").replace("{n}", String(verification.refs.length))}
                           </Pill>
                         )}
                       </div>
@@ -382,7 +369,7 @@ export function ViralView() {
                   <div className="grid md:grid-cols-2 gap-6 pt-2">
                     <div>
                       <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-forest-deep mb-3">
-                        Beats
+                        {t("content.viral.section.02.beats")}
                       </div>
                       <ol className="list-none space-y-2.5 m-0 p-0">
                         {s.beats.map((b, i) => (
@@ -402,7 +389,7 @@ export function ViralView() {
                       {verification && (
                         <div className="border border-ursa-forest-deep/30 bg-ursa-dark-roast/5 rounded-lg p-4">
                           <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-forest-deep mb-2 flex items-center gap-1">
-                            <ShieldCheck size={12} /> Verified Ursa product &amp; detail refs · snapshot 2026-08-01
+                            <ShieldCheck size={12} /> {t("content.viral.section.02.verified-detail")}
                           </div>
                           <ul className="list-none space-y-1.5 m-0 p-0">
                             {verification.refs.map((r, i) => (
@@ -416,7 +403,7 @@ export function ViralView() {
                       )}
                       <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4 border border-ursa-espresso">
                         <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft mb-2">
-                          Caption · ES (Peru) · customer-facing
+                          {t("content.viral.section.02.caption-label")}
                         </div>
                         <p className="font-body text-[0.95rem] leading-relaxed m-0">
                           {s.caption}
@@ -424,7 +411,7 @@ export function ViralView() {
                       </div>
                       <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4">
                         <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-leaf mb-2">
-                          CTA · ES (Peru) · customer-facing
+                          {t("content.viral.section.02.cta-label")}
                         </div>
                         <p className="font-body text-[0.95rem] leading-relaxed m-0">
                           {s.cta}
@@ -442,9 +429,12 @@ export function ViralView() {
       {/* Section 03 — 3 repeatable series */}
       <ViewSection
         badge="Section 03"
-        title="Three repeatable series"
-        meta="Rhythm beats one-offs"
+        title={t("content.viral.section.03.title")}
+        meta={t("content.viral.section.03.meta")}
       >
+        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
+          {t("content.viral.section.03.lede")}
+        </p>
         <Grid cols={3}>
           {REPEATABLE_SERIES.map((s) => (
             <Card key={s.name} className="flex flex-col gap-3">
@@ -462,7 +452,7 @@ export function ViralView() {
               </p>
               <div className="border-t border-ursa-line-soft pt-3 mt-auto">
                 <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground mb-0.5">
-                  Episodes
+                  {t("content.viral.section.03.episodes")}
                 </div>
                 <div className="text-[0.85rem] text-ursa-dark-roast">{s.episodes}</div>
               </div>
@@ -474,13 +464,11 @@ export function ViralView() {
       {/* Section 04 — 3 creator briefs */}
       <ViewSection
         badge="Section 04"
-        title="Three creator briefs"
-        meta="Briefs, not briefcases"
+        title={t("content.viral.section.04.title")}
+        meta={t("content.viral.section.04.meta")}
       >
         <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
-          Three creator archetypes, briefed with the same assets and the same rules: lead
-          with the bear, the craft, or the subscription — never with a discount. The metric
-          is the only thing that matters; follower count is a proxy, not the goal.
+          {t("content.viral.section.04.lede")}
         </p>
         <Grid cols={3}>
           {CREATOR_BRIFS.map((b) => (
@@ -488,13 +476,13 @@ export function ViralView() {
               <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast leading-snug m-0">
                 {b.name}
               </h3>
-              <BriefRow label="Objective" value={b.objective} />
-              <BriefRow label="Deliverable" value={b.deliverable} />
-              <BriefRow label="Key message" value={b.keyMessage} />
-              <BriefRow label="Assets provided" value={b.assetsProvided} />
+              <BriefRow label={t("content.viral.section.04.brief.objective")} value={b.objective} />
+              <BriefRow label={t("content.viral.section.04.brief.deliverable")} value={b.deliverable} />
+              <BriefRow label={t("content.viral.section.04.brief.key-message")} value={b.keyMessage} />
+              <BriefRow label={t("content.viral.section.04.brief.assets")} value={b.assetsProvided} />
               <div className="border-t border-ursa-gold/30 bg-ursa-gold/10 -mx-6 -mb-6 px-6 py-3 rounded-b-xl mt-auto">
                 <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-medium-roast mb-0.5">
-                  Metric
+                  {t("content.viral.section.04.brief.metric")}
                 </div>
                 <div className="text-[0.88rem] text-ursa-dark-roast font-medium">
                   {b.metric}
@@ -508,9 +496,12 @@ export function ViralView() {
       {/* Section 05 — 3 UGC mechanisms */}
       <ViewSection
         badge="Section 05"
-        title="Three UGC mechanisms"
-        meta="Consent first · always"
+        title={t("content.viral.section.05.title")}
+        meta={t("content.viral.section.05.meta")}
       >
+        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
+          {t("content.viral.section.05.lede")}
+        </p>
         <Grid cols={3}>
           {UGC_MECHANISMS.map((u) => (
             <Card key={u.name} className="flex flex-col gap-3">
@@ -526,7 +517,7 @@ export function ViralView() {
               </p>
               <div className="border-l-2 border-ursa-terracotta pl-3 bg-ursa-terracotta/5 py-2 rounded-r">
                 <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1">
-                  Consent
+                  {t("content.viral.section.05.consent")}
                 </div>
                 <p className="text-[0.82rem] text-ursa-dark-roast leading-snug m-0">
                   {u.consent}
@@ -542,12 +533,12 @@ export function ViralView() {
       {/* Section 06 — Four-week pilot calendar */}
       <ViewSection
         badge="Section 06"
-        title="The four-week pilot calendar"
-        meta="One concept per day · daily Stories"
+        title={t("content.viral.section.06.title")}
+        meta={t("content.viral.section.06.meta")}
       >
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
-            Format key:
+            {t("content.viral.section.06.format-key")}
           </span>
           <Pill tone="forest">Reel</Pill>
           <Pill tone="gold">Carousel</Pill>
@@ -556,11 +547,11 @@ export function ViralView() {
           <Pill tone="ok">Event</Pill>
           <span className="mx-2 text-ursa-line">|</span>
           <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
-            Production feasibility:
+            {t("content.viral.section.06.production-key")}
           </span>
-          <Pill tone="ok"><Smartphone size={11} /> Phone · in-house</Pill>
-          <Pill tone="warn"><Camera size={11} /> Phone + edit</Pill>
-          <Pill tone="stop"><UserCheck size={11} /> External help</Pill>
+          <Pill tone="ok"><Smartphone size={11} /> {t("content.viral.feasibility-label.phone")}</Pill>
+          <Pill tone="warn"><Camera size={11} /> {t("content.viral.feasibility-label.edit")}</Pill>
+          <Pill tone="stop"><UserCheck size={11} /> {t("content.viral.feasibility-label.external")}</Pill>
         </div>
 
         <div className="bg-card border border-ursa-line-soft rounded-xl p-4 md:p-6 overflow-x-auto ursa-scroll">
@@ -641,7 +632,7 @@ export function ViralView() {
                       W{w + 1} · {DAYS[d]}
                     </span>
                     <span className="text-[0.7rem] text-muted-foreground italic text-center">
-                      Rest day · Stories only
+                      {t("content.viral.section.06.rest-day")}
                     </span>
                   </div>
                 );
@@ -651,18 +642,13 @@ export function ViralView() {
           <div className="mt-4 pt-3 border-t border-ursa-line-soft flex items-center gap-2 text-[0.78rem] text-muted-foreground">
             <BearMark size={18} className="text-ursa-gold-text" />
             <span>
-              <strong className="text-ursa-dark-roast">Every day:</strong> Bear&apos;s
-              Morning Ritual runs in Stories (C17) alongside the featured concept. Two Reels
-              per week is the maximum sustainable pace for one barista with a phone.
+              {t("content.viral.section.06.every-day-body")}
             </span>
           </div>
         </div>
 
-        <Callout tone="gold" title="Why this cadence">
-          Mon/Wed/Fri = Reels (the discovery engine). Tue/Thu = Carousels (saves and
-          shares). Sat = Event or UGC (the human moment). Sundays = rest + Bear&apos;s
-          Morning Ritual in Stories. The cadence is deliberately slower than what agencies
-          recommend — we are buying data, not impressions.
+        <Callout tone="gold" title={t("content.viral.section.06.cadence.title")}>
+          {t("content.viral.section.06.cadence.body")}
         </Callout>
 
         {/* Production feasibility breakdown */}
@@ -670,93 +656,90 @@ export function ViralView() {
           <div className="rounded-lg border border-ursa-forest-deep/30 bg-ursa-dark-roast/5 p-5">
             <div className="flex items-center gap-2 mb-2">
               <Smartphone size={18} className="text-ursa-forest-deep" />
-              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">Phone · in-house</h4>
+              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">{t("content.viral.section.06.feasibility.phone.title")}</h4>
             </div>
             <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed mb-3">
-              Barista&apos;s phone, available light, no external hire. The default for any concept that fits in one shift. Most of the calendar is this tier.
+              {t("content.viral.section.06.feasibility.phone.body")}
             </p>
             <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1">
-              Calendar concepts at this tier
+              {t("content.viral.section.06.feasibility.list-label")}
             </div>
             <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
-              C01, C05, C08, C10, C11, C12, C18, C20, C21, C22, C24, C25, C26 — 13 of 26 concepts cost S/. 0 per shoot.
+              {t("content.viral.section.06.feasibility.phone.list")}
             </p>
           </div>
           <div className="rounded-lg border border-ursa-gold/50 bg-ursa-gold/8 p-5">
             <div className="flex items-center gap-2 mb-2">
               <Camera size={18} className="text-ursa-medium-roast" />
-              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">Phone + edit</h4>
+              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">{t("content.viral.section.06.feasibility.edit.title")}</h4>
             </div>
             <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed mb-3">
-              Still in-house, but requires setup (gimbal, macro lens, time-lapse app) and 1–3h of CapCut editing. One-time gear cost: S/. 30–110.
+              {t("content.viral.section.06.feasibility.edit.body")}
             </p>
             <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-medium-roast mb-1">
-              Calendar concepts at this tier
+              {t("content.viral.section.06.feasibility.list-label")}
             </div>
             <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
-              C02, C03, C04, C09, C13, C14, C15, C16, C19, C23 — 10 of 26 concepts.
+              {t("content.viral.section.06.feasibility.edit.list")}
             </p>
           </div>
           <div className="rounded-lg border border-ursa-terracotta/40 bg-ursa-terracotta/8 p-5">
             <div className="flex items-center gap-2 mb-2">
               <UserCheck size={18} className="text-ursa-terracotta-text" />
-              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">External help</h4>
+              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">{t("content.viral.section.06.feasibility.external.title")}</h4>
             </div>
             <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed mb-3">
-              Cannot be shot in-house with a phone. Either requires motion-design (C17 animated bear) or ongoing community management (C06, C07 UGC). Budget: S/. 400–1,200 per item.
+              {t("content.viral.section.06.feasibility.external.body")}
             </p>
             <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1">
-              Calendar concepts at this tier
+              {t("content.viral.section.06.feasibility.list-label")}
             </div>
             <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
-              C06, C07, C17 — 3 of 26 concepts. Schedule these last; gate them behind the in-house tiers proving the cadence first.
+              {t("content.viral.section.06.feasibility.external.list")}
             </p>
           </div>
         </div>
 
-        <Callout tone="stop" title="The 4-week pilot feasibility rule">
-          The 4-week pilot below schedules <strong>17 of 24 slots at the phone-in-house tier</strong>. The 7 phone+edit slots are spread one per week (no two consecutive). The 3 external-help items are deferred past the pilot: C17 (Bear&apos;s Morning Ritual) is replaced by a static bear Stories template for weeks 1–4; C06 and C07 are scheduled only if the in-house cadence is met without burnout. <strong>If the in-house cadence slips in week 1, the entire external-help tier is cut from the pilot.</strong>
+        <Callout tone="stop" title={t("content.viral.section.06.rule.title")}>
+          {t("content.viral.section.06.rule.body")}
         </Callout>
       </ViewSection>
 
       {/* Section 07 — Test & amplification method */}
       <ViewSection
         badge="Section 07"
-        title="The test & amplification method"
-        meta="48h · 2× · 3× · kill at 14d"
+        title={t("content.viral.section.07.title")}
+        meta={t("content.viral.section.07.meta")}
       >
         <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
-          Every post has a 48-hour window. We don&apos;t optimise for likes. We optimise for{" "}
-          <strong>saves</strong>, <strong>shares</strong>, and{" "}
-          <strong>profile visits</strong> — the only signals that predict a future
-          customer.
+          {t("content.viral.section.07.lede")}
         </p>
         <div className="grid md:grid-cols-4 gap-4">
           <MethodStep
             n="01"
-            title="Post & wait 48h"
-            body="Post on the cadence above. Measure saves, shares, and profile visits in the first 48 hours. Establish a rolling baseline after the first 6 posts."
+            title={t("content.viral.section.07.step01.title")}
+            body={t("content.viral.section.07.step01.body")}
             tone="forest"
             icon={<PlayCircle size={18} />}
           />
           <MethodStep
             n="02"
-            title="2× baseline → boost"
-            body="If a post beats the baseline by 2×, boost it with S/. 50–150 paid. Stop spend when cost-per-save exceeds S/. 4."
+            title={t("content.viral.section.07.step02.title")}
+            body={t("content.viral.section.07.step02.body")}
             tone="gold"
             icon={<TrendingUp size={18} />}
           />
           <MethodStep
             n="03"
-            title="3× baseline → commission"
-            body="If a post beats the baseline by 3×, commission a follow-up within 7 days: same character, same format, a new angle. The bear just gave you a hit — make another."
+            title={t("content.viral.section.07.step03.title")}
+            body={t("content.viral.section.07.step03.body")}
             tone="warn"
             icon={<Sparkles size={18} />}
           />
           <MethodStep
             n="04"
-            title="Below baseline at 14d → kill"
-            body="Anything below baseline after 14 days is killed — no second guesses, no boosting. Replace with a new concept from the 26."
+            title={t("content.viral.section.07.step04.title")}
+            body={t("content.viral.section.07.step04.body")}
             tone="stop"
             icon={<XCircle size={18} />}
           />
@@ -766,30 +749,28 @@ export function ViralView() {
           <Card className="p-5">
             <StatBlock
               value="48h"
-              label="Window to measure saves / shares / profile visits"
+              label={t("content.viral.section.07.stat01")}
               tone="forest"
             />
           </Card>
           <Card className="p-5">
             <StatBlock
               value="S/. 50–150"
-              label="Paid boost budget per 2× winner"
+              label={t("content.viral.section.07.stat02")}
               tone="gold"
             />
           </Card>
           <Card className="p-5">
             <StatBlock
               value="14d"
-              label="Kill threshold for sub-baseline posts"
+              label={t("content.viral.section.07.stat03")}
               tone="terracotta"
             />
           </Card>
         </div>
 
-        <Callout tone="forest" title="What we don't measure">
-          Likes. Follower count. Reach. These are vanity metrics that don&apos;t predict a
-          customer walking into Alcanfores 183. Saves, shares, profile visits, and
-          directions clicks do.
+        <Callout tone="forest" title={t("content.viral.section.07.callout.title")}>
+          {t("content.viral.section.07.callout.body")}
         </Callout>
       </ViewSection>
 
@@ -800,12 +781,10 @@ export function ViralView() {
             <BearMark size={40} className="text-ursa-dark-roast shrink-0 mt-1" />
             <div>
               <h3 className="font-display text-[1.4rem] font-semibold text-ursa-dark-roast mb-2 m-0">
-                The full viral dossier
+                {t("content.viral.closing.title")}
               </h3>
               <p className="text-[0.9rem] text-muted-foreground max-w-[58ch] m-0">
-                Open the printable HTML for the complete Module 05 — concepts, scripts,
-                series, briefs, UGC mechanisms, the pilot calendar, and the amplification
-                method.
+                {t("content.viral.closing.body")}
               </p>
             </div>
           </div>
@@ -815,7 +794,7 @@ export function ViralView() {
               onClick={() => navigate("content-calendar")}
               className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold-text hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
             >
-              Open the interactive Content Calendar tool
+              {t("content.viral.closing.cta")}
               <ArrowRight size={14} />
             </button>
           </div>

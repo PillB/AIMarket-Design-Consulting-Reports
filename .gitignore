@@ -16,3 +16,6 @@ dev.log
 server.log
 # Skills directory
 /skills/tool-results/
+
+# Tool result scratch files
+/tool-results/

@@ -962,7 +962,7 @@ function BeanBagLabelProto() {
       note="Level-2 bean bag label. Forest-to-espresso gradient evokes the field-to-cup story. Gold seal with roast date functions as both a freshness signal (Sutherland: perceived value via transparency) and a limited-edition feel. Print on matte sticker, 90 × 120mm."
       reasoning="Forest-to-espresso gradient (#2D4A36 → #3B2417) because it visualises the field-to-cup journey — green field to roasted bean — and no census competitor uses this gradient (CENSUS-1). Gold seal with roast date because the in-house roastery (verified) makes the roast date a real freshness signal, not a marketing gimmick; the seal turns it into a perceptible asset (Sutherland: perceived value via transparency). ‘Black Label’ positioning because the Lonya micro-lot is a verified named drink (Filtrado Lonya, Rappi) and the retail bean deserves the same naming elevation."
       accessibility="Cream (#F4EBD9) on gradient: contrast ≈ 8.4:1 at top, ≈ 9.2:1 at bottom (AAA). Spec sheet (Altitud, Proceso, Variedad, Peso) at 0.65rem — borderline AA but acceptable on packaging held at ~20cm. Gold seal at 0.5rem — too small for AA; the roast date must ALSO appear in plain text on the side of the bag (or in the digital listing) for accessibility parity. Bear mark is absent on this surface per §1.4 grammar — the bear lives on the menu crest and bean info card, not on every packaging surface."
-      cost="Design time: 3h per label template (one-time); 20 min per new bean lot. Print: S/. 0.80/sticker at local printer (qty 100, 90×120mm, matte vinyl, die-cut). Reprint cadence: per roast batch (~2 per month). Annual cost: ~S/. 1,920 (24 batches × 100 × S/. 0.80) + design amortised. The most expensive packaging prototype — scale back to 50/batch if retail volume is below 30 bags/batch."
+      cost="Design time: 3h per label template (one-time); 20 min per new bean lot. Print: S/. 0.80/sticker at local printer (qty 100, 90×120mm, matte vinyl, die-cut). Reprint cadence: per roast batch (~2 per month). Annual cost: ~S/. 1,920 (24 batches × 100 × S/. 0.80) + design amortised. The most expensive packaging sample — scale back to 50/batch if retail volume is below 30 bags/batch."
     >
       <div className="flex justify-center">
         <div
@@ -1355,34 +1355,19 @@ export function CreativeView() {
             {t("content.view.creative.title-line2")}
           </>
         }
-        lede={
-          <>
-            Working HTML, CSS, and SVG samples for fifteen touchpoints — social posts,
-            carousels, Stories, Reel covers, posters, menus, product cards, table signs, loyalty
-            cards, packaging labels, bean info cards, event materials, Google and delivery
-            imagery, landing pages, and email headers. The official logo is never altered or
-            counterfeited; the geometric bear glyph used throughout is an original concept mark
-            used as a placeholder in this dossier.
-          </>
-        }
+        lede={<>{t("content.creative.lede")}</>}
         meta={[
-          { label: "Evolution", value: "Three levels" },
-          { label: "Recommendation", value: "Conservative refinement recommended" },
-          { label: "Logo", value: "No counterfeiting" },
+          { label: t("content.creative.meta.evolution"), value: t("content.creative.meta.evolution-value") },
+          { label: t("content.creative.meta.recommendation"), value: t("content.creative.meta.recommendation-value") },
+          { label: t("content.creative.meta.logo"), value: t("content.creative.meta.logo-value") },
         ]}
       />
 
       {/* Top disclaimer */}
-      <ViewSection badge="6.0 · Read first" title="Before production — read first">
-        <Callout tone="stop" title="Original concept mark — not the official logo">
+      <ViewSection badge={t("content.creative.read-first.badge")} title={t("content.creative.read-first.title")}>
+        <Callout tone="stop" title={t("content.creative.read-first.callout-title")}>
           <p>
-            The geometric bear glyph used throughout this module is an{" "}
-            <strong>original concept mark</strong> designed for dossier navigation. It is{" "}
-            <strong>not</strong> the official Ursa Coffee Roasters logo. The official logo must be
-            sourced from the owner-supplied asset pack (open question Q6 in Sources &amp; Evidence)
-            before any production artwork is finalized. All samples below use the concept mark as a
-            placeholder; in production, the official mark replaces it. No sample in this module
-            alters, parodies, or counterfeits the official logo.
+            {t("content.creative.read-first.body")}
           </p>
         </Callout>
       </ViewSection>
@@ -1391,90 +1376,76 @@ export function CreativeView() {
 
       {/* Brand evolution levels */}
       <ViewSection
-        badge="6.1 · Brand evolution"
-        title="Three brand-evolution levels — visual comparison"
-        meta="Same format · three intensities"
+        badge={t("content.creative.section.6-1.badge")}
+        title={t("content.creative.section.6-1.title")}
+        meta={t("content.creative.section.6-1.meta")}
       >
         <p className="text-[0.95rem] text-muted-foreground mb-6 max-w-[68ch] leading-relaxed">
-          The three evolution levels from §1.9 are visualised below using the same format
-          (single-image social post) so the difference is immediately visible at thumbnail size —
-          where 90% of social impressions happen.
+          {t("content.creative.section.6-1.lede")}
         </p>
 
         <Grid cols={3}>
           {/* Level 1 */}
           <Card className="flex flex-col">
             <div className="flex items-center justify-between mb-3">
-              <Pill tone="ok">Level 1 · Conservative</Pill>
-              <SectionBadge tone="forest">Recommended permanent</SectionBadge>
+              <Pill tone="ok">{t("content.creative.section.6-1.level1.pill")}</Pill>
+              <SectionBadge tone="forest">{t("content.creative.section.6-1.level1.badge")}</SectionBadge>
             </div>
             <LevelSample level={1} tone="ok" />
             <h3 className="font-display text-[1.15rem] text-ursa-dark-roast mt-3 mb-1">
-              Paper, typography, tagline
+              {t("content.creative.section.6-1.level1.title")}
             </h3>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Paper background, no watermark, no flourish. Identity carried entirely by
-              typography and tagline. Lowest risk. Permanent system from day one.
+              {t("content.creative.section.6-1.level1.body")}
             </p>
             <div className="mt-auto pt-3 flex gap-1.5 flex-wrap">
-              <Pill tone="forest">No watermark</Pill>
-              <Pill tone="default">Type-led</Pill>
+              <Pill tone="forest">{t("content.creative.section.6-1.level1.tag1")}</Pill>
+              <Pill tone="default">{t("content.creative.section.6-1.level1.tag2")}</Pill>
             </div>
           </Card>
 
           {/* Level 2 */}
           <Card highlight className="flex flex-col">
             <div className="flex items-center justify-between mb-3">
-              <Pill tone="warn">Level 2 · Distinctive</Pill>
-              <SectionBadge tone="gold">6-month skin</SectionBadge>
+              <Pill tone="warn">{t("content.creative.section.6-1.level2.pill")}</Pill>
+              <SectionBadge tone="gold">{t("content.creative.section.6-1.level2.badge")}</SectionBadge>
             </div>
             <LevelSample level={2} tone="warn" />
             <h3 className="font-display text-[1.15rem] text-ursa-dark-roast mt-3 mb-1">
-              Forest gradient + bear watermark
+              {t("content.creative.section.6-1.level2.title")}
             </h3>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Forest gradient, bear silhouette watermark at 16%, accent shifts to leaf green.
-              Distinctive at thumbnail size. Recommended growth skin from month 4.
+              {t("content.creative.section.6-1.level2.body")}
             </p>
             <div className="mt-auto pt-3 flex gap-1.5 flex-wrap">
-              <Pill tone="warn">16% watermark</Pill>
-              <Pill tone="forest">Thumbnail-ownable</Pill>
+              <Pill tone="warn">{t("content.creative.section.6-1.level2.tag1")}</Pill>
+              <Pill tone="forest">{t("content.creative.section.6-1.level2.tag2")}</Pill>
             </div>
           </Card>
 
           {/* Level 3 */}
           <Card className="flex flex-col">
             <div className="flex items-center justify-between mb-3">
-              <Pill tone="stop">Level 3 · Experimental</Pill>
-              <SectionBadge tone="terracotta">Seasonal only</SectionBadge>
+              <Pill tone="stop">{t("content.creative.section.6-1.level3.pill")}</Pill>
+              <SectionBadge tone="terracotta">{t("content.creative.section.6-1.level3.badge")}</SectionBadge>
             </div>
             <LevelSample level={3} tone="stop" />
             <h3 className="font-display text-[1.15rem] text-ursa-dark-roast mt-3 mb-1">
-              Constellation + numbered edition
+              {t("content.creative.section.6-1.level3.title")}
             </h3>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Espresso-black background, inverted Ursa Major constellation as the bear&apos;s
-              celestial cousin, numbered limited edition. Summer / winter season only — never a
-              permanent register.
+              {t("content.creative.section.6-1.level3.body")}
             </p>
             <div className="mt-auto pt-3 flex gap-1.5 flex-wrap">
-              <Pill tone="stop">Numbered N° / 200</Pill>
-              <Pill tone="default">Seasonal</Pill>
+              <Pill tone="stop">{t("content.creative.section.6-1.level3.tag1")}</Pill>
+              <Pill tone="default">{t("content.creative.section.6-1.level3.tag2")}</Pill>
             </div>
           </Card>
         </Grid>
 
-        <Callout tone="ok" title="Recommendation — confirmed">
+        <Callout tone="ok" title={t("content.creative.section.6-1.recommendation.title")}>
           <p>
-            <strong>
-              Level 1 as the permanent system, Level 2 as a growth skin from month 4, Level 3 only
-              as seasonal expression.
-            </strong>{" "}
-            The visual comparison makes the reason clear: Level 1 protects identity at zero risk,
-            Level 2 makes Ursa unmistakable at thumbnail size (where 90% of social impressions
-            happen), and Level 3 stretches the system for limited periods without breaking it.
-            Skipping Level 1 in pursuit of Level 2 is the single most common reason rebrands fail;
-            this plan does not skip.
+            {t("content.creative.section.6-1.recommendation.body")}
           </p>
         </Callout>
       </ViewSection>
@@ -1483,14 +1454,12 @@ export function CreativeView() {
 
       {/* Prototype tabs */}
       <ViewSection
-        badge="6.2 · Samples"
-        title="Fifteen touchpoints, four families"
-        meta="HTML · CSS · SVG"
+        badge={t("content.creative.section.6-2.badge")}
+        title={t("content.creative.section.6-2.title")}
+        meta={t("content.creative.section.6-2.meta")}
       >
         <p className="text-[0.95rem] text-muted-foreground mb-5 max-w-[68ch] leading-relaxed">
-          Each sample below is a working HTML/CSS/SVG layout. Screenshots at 2× resolution
-          produce production-grade JPEGs for social; for print, the HTML serves as a precise spec
-          for any designer or printer (exact hex colours, named fonts, defined aspect ratios).
+          {t("content.creative.section.6-2.lede")}
         </p>
 
         <Tabs defaultValue="social" className="w-full">
@@ -1499,25 +1468,25 @@ export function CreativeView() {
               value="social"
               className="data-[state=active]:bg-ursa-dark-roast data-[state=active]:text-ursa-cream gap-1.5 px-3 py-1.5 text-[0.78rem]"
             >
-              <ImageIcon size={13} /> Social
+              <ImageIcon size={13} /> {t("content.creative.section.6-2.tab.social")}
             </TabsTrigger>
             <TabsTrigger
               value="print"
               className="data-[state=active]:bg-ursa-dark-roast data-[state=active]:text-ursa-cream gap-1.5 px-3 py-1.5 text-[0.78rem]"
             >
-              <Printer size={13} /> Print
+              <Printer size={13} /> {t("content.creative.section.6-2.tab.print")}
             </TabsTrigger>
             <TabsTrigger
               value="packaging"
               className="data-[state=active]:bg-ursa-dark-roast data-[state=active]:text-ursa-cream gap-1.5 px-3 py-1.5 text-[0.78rem]"
             >
-              <Package size={13} /> Packaging
+              <Package size={13} /> {t("content.creative.section.6-2.tab.packaging")}
             </TabsTrigger>
             <TabsTrigger
               value="digital"
               className="data-[state=active]:bg-ursa-dark-roast data-[state=active]:text-ursa-cream gap-1.5 px-3 py-1.5 text-[0.78rem]"
             >
-              <MonitorSmartphone size={13} /> Digital
+              <MonitorSmartphone size={13} /> {t("content.creative.section.6-2.tab.digital")}
             </TabsTrigger>
           </TabsList>
 
@@ -1587,69 +1556,62 @@ export function CreativeView() {
 
       {/* Closing summary + stats */}
       <ViewSection
-        badge="6.3 · Recap"
-        title="What these samples show"
-        meta="Spirit preserved · risk minimised"
+        badge={t("content.creative.section.6-3.badge")}
+        title={t("content.creative.section.6-3.title")}
+        meta={t("content.creative.section.6-3.meta")}
       >
         <Grid cols={4}>
-          <StatBlock value="15" label="Touchpoints designed — social, print, packaging, digital" tone="forest" />
-          <StatBlock value="3" label="Brand-evolution levels with a confirmed recommendation" tone="gold" />
-          <StatBlock value="0" label="Alterations or counterfeits of the official Ursa logo" tone="terracotta" />
-          <StatBlock value="1" label="Original concept mark used as a placeholder throughout" tone="forest" />
+          <StatBlock value="15" label={t("content.creative.section.6-3.stat1")} tone="forest" />
+          <StatBlock value="3" label={t("content.creative.section.6-3.stat2")} tone="gold" />
+          <StatBlock value="0" label={t("content.creative.section.6-3.stat3")} tone="terracotta" />
+          <StatBlock value="1" label={t("content.creative.section.6-3.stat4")} tone="forest" />
         </Grid>
 
         <Grid cols={3}>
           <Card>
             <ShieldCheck className="text-ursa-forest-deep mb-2" size={22} />
-            <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Identity protected</h4>
+            <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">{t("content.creative.section.6-3.card1.title")}</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Every sample preserves the bear, the Art Nouveau craft language, the two-bar
-              architecture, and the verified tagline. No generic growth tactic is allowed to break
-              the bear.
+              {t("content.creative.section.6-3.card1.body")}
             </p>
           </Card>
           <Card>
             <Stamp className="text-ursa-gold-text mb-2" size={22} />
-            <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Print-ready spec</h4>
+            <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">{t("content.creative.section.6-3.card2.title")}</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Exact hex colours, named fonts, defined aspect ratios. A screenshot handed to a
-              printer is enough. Browser print-to-PDF validates every sample.
+              {t("content.creative.section.6-3.card2.body")}
             </p>
           </Card>
           <Card>
             <Award className="text-ursa-terracotta-text mb-2" size={22} />
-            <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Cheaply testable</h4>
+            <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">{t("content.creative.section.6-3.card3.title")}</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Most samples cost S/. 0–200 to test in print. The bean bag label and the table
-              sign together cover the origin story and pairing tests for under S/. 100.
+              {t("content.creative.section.6-3.card3.body")}
             </p>
           </Card>
         </Grid>
 
         <div className="mt-6 grid sm:grid-cols-[2fr_1fr] gap-5 items-start">
-          <Callout tone="forest" title="Why samples, not just descriptions">
+          <Callout tone="forest" title={t("content.creative.section.6-3.callout.title")}>
             <p>
-              A description of a “forest-green Story with a gold CTA” leaves twenty decisions
-              unresolved. A sample resolves all twenty. The owner can hold a screenshot next
-              to a printer&apos;s sample and say “match this” — and the result will be the
-              dossier, not a translator&apos;s interpretation of it.
+              {t("content.creative.section.6-3.callout.body")}
             </p>
           </Callout>
           <Card>
             <div className="flex items-center gap-2 mb-2">
               <Leaf size={16} className="text-ursa-forest-deep" />
               <h4 className="font-display text-[1.05rem] text-ursa-dark-roast m-0">
-                Verify the spirit
+                {t("content.creative.section.6-3.spirit.title")}
               </h4>
             </div>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed mb-3">
-              Cross-check any sample against the brand audit before production.
+              {t("content.creative.section.6-3.spirit.body")}
             </p>
             <button
               onClick={() => navigate("brand")}
               className="inline-flex items-center gap-1.5 text-[0.78rem] font-label tracking-[0.14em] uppercase text-ursa-gold-text hover:text-ursa-dark-roast transition"
             >
-              Open Module 01 · Brand Audit <ArrowRight size={13} />
+              {t("content.creative.section.6-3.spirit.cta")} <ArrowRight size={13} />
             </button>
           </Card>
         </div>
@@ -1659,50 +1621,36 @@ export function CreativeView() {
 
       {/* Skeptical revision pass — adapted from dossier §6.14 */}
       <ViewSection
-        badge="6.4 · Skeptical pass"
-        title="Three skeptic questions, answered"
-        meta="Pre-empts the obvious objections"
+        badge={t("content.creative.section.6-4.badge")}
+        title={t("content.creative.section.6-4.title")}
+        meta={t("content.creative.section.6-4.meta")}
       >
         <Grid cols={3}>
           <Card>
             <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
-              “These are HTML layouts, not production files. How does the owner use them?”
+              {t("content.creative.section.6-4.q1.quote")}
             </p>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Each sample is print-ready via the browser&apos;s print-to-PDF function. For
-              social, screenshots at 2× resolution produce production-grade JPEGs. For packaging
-              and print, the HTML/CSS serves as a precise spec — exact hex colours, named fonts,
-              defined aspect ratios. The owner can hand a screenshot to a printer and say
-              “match this”.
+              {t("content.creative.section.6-4.q1.body")}
             </p>
           </Card>
           <Card>
             <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
-              “You used a generic bear in the samples. The real bear might look totally
-              different.”
+              {t("content.creative.section.6-4.q2.quote")}
             </p>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Correct — and stated explicitly in the asset disclaimer at the top of this module.
-              The geometric bear used here is a placeholder concept mark. The owner-supplied asset
-              pack (open question Q6) is required before any production artwork is finalized.
-              Once the official bear is sourced, it replaces the concept mark in every sample
-              without changing layout, palette, or typography.
+              {t("content.creative.section.6-4.q2.body")}
             </p>
           </Card>
           <Card>
             <Quote className="text-ursa-gold-text mb-2" size={20} />
             <p className="font-display italic text-[0.95rem] text-ursa-dark-roast mb-2 leading-snug">
-              “Level 3 with inverted constellation and numbered editions is too cute for a small
-              café.”
+              {t("content.creative.section.6-4.q3.quote")}
             </p>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
-              Fair concern — which is why Level 3 is restricted to seasonal expression and
-              explicitly recommended as optional. If the owner finds it too cute, the plan
-              degrades gracefully: Level 1 + Level 2 alone produce a complete, distinctive system.
-              Level 3 exists only for the moment the owner wants to celebrate a season, an
-              anniversary, or a limited origin.
+              {t("content.creative.section.6-4.q3.body")}
             </p>
           </Card>
         </Grid>
@@ -1712,10 +1660,10 @@ export function CreativeView() {
             <CalendarDays className="text-ursa-forest-deep shrink-0" size={22} />
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
-                Cupping nights
+                {t("content.creative.section.6-4.event1.label")}
               </div>
               <div className="font-display text-[1rem] text-ursa-dark-roast">
-                First Saturday · monthly
+                {t("content.creative.section.6-4.event1.value")}
               </div>
             </div>
           </Card>
@@ -1723,19 +1671,19 @@ export function CreativeView() {
             <Clock className="text-ursa-gold-text shrink-0" size={22} />
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
-                Bear recommends window
+                {t("content.creative.section.6-4.event2.label")}
               </div>
-              <div className="font-display text-[1rem] text-ursa-dark-roast">7:30–10:00am</div>
+              <div className="font-display text-[1rem] text-ursa-dark-roast">{t("content.creative.section.6-4.event2.value")}</div>
             </div>
           </Card>
           <Card className="flex items-center gap-3">
             <MapPin className="text-ursa-terracotta-text shrink-0" size={22} />
             <div>
               <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
-                Home base
+                {t("content.creative.section.6-4.event3.label")}
               </div>
               <div className="font-display text-[1rem] text-ursa-dark-roast">
-                Alcanfores 183, Miraflores
+                {t("content.creative.section.6-4.event3.value")}
               </div>
             </div>
           </Card>
@@ -1745,12 +1693,10 @@ export function CreativeView() {
       <ArtNouveauDivider />
 
       {/* Dossier link banner */}
-      <ViewSection badge="6.5 · Full dossier" title="Open the printable HTML dossier">
+      <ViewSection badge={t("content.creative.section.6-5.badge")} title={t("content.creative.section.6-5.title")}>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-[0.95rem] text-muted-foreground max-w-[58ch] leading-relaxed">
-            The static dossier for Module 06 contains the same samples in a single printable
-            HTML page, plus the asset disclaimer and the skeptical revision pass. Open it to
-            print, screenshot, or hand to a printer.
+            {t("content.creative.section.6-5.body")}
           </p>
           <DossierLinkBanner moduleId="06-creative-campaign-prototypes" />
         </div>
@@ -1759,7 +1705,7 @@ export function CreativeView() {
           <CupGlyph size={18} className="text-ursa-gold-text" />
           <span className="font-display italic text-ursa-dark-roast">Un gramo a la vez.</span>
           <span className="opacity-60">·</span>
-          <span>Module 06 compiled 2026-08-01</span>
+          <span>{t("content.creative.section.6-5.compiled")}</span>
         </div>
       </ViewSection>
     </>

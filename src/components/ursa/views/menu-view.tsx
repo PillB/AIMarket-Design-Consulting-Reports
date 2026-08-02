@@ -40,11 +40,11 @@ import { useI18n } from "@/hooks/use-i18n";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD } from "@/lib/ursa-data";
 
 // ---------------------------------------------------------------
-// Reconstructed current menu — modelled on the .ursa-menu prototype
+// Reconstructed current menu — modelled on the .ursa-menu design
 // (double border, centered crest, dotted leaders, label-font prices).
 // Verified items come from VERIFIED_BEVERAGES / VERIFIED_FOOD.
 // Standard espresso-bar items are reconstructed from the Rappi
-// snapshot (Source S3, 2026-08-01). Prices marked * are inferred
+// delivery snapshot (2026-08-01). Prices marked * are inferred
 // from category positioning and should be confirmed at the bar.
 // ---------------------------------------------------------------
 
@@ -194,7 +194,7 @@ const PROPOSALS: Proposal[] = [
     customerNeed:
       "Coffee Curious + Morning Regular who want an intense, low-milk afternoon/evening coffee. The job: 'help me end my day with something deliberate, not a quick coffee.' Addresses the afternoon daypart (3–6pm) where Ursa's current menu has no signature drink.",
     evidence:
-      "CENSUS-1: Arabica Espresso Bar owns the stand-up purist espresso niche; Neira's champion-quality drinks are praised but unnamed. No competitor in the 18-business census offers a honey-ristretto signature — the slot is uncontested. Honey is a Peruvian staple (non-imported), reinforcing the origin-story pillar.",
+      "Arabica Espresso Bar owns the stand-up purist espresso niche; Neira's champion-quality drinks are praised but unnamed. No competitor in the 18-business census offers a honey-ristretto signature — the slot is uncontested. Honey is a Peruvian staple (non-imported), reinforcing the origin-story pillar.",
     brandFit:
       "Perfecto — el nombre es un nombre de la casa (Oso + negro del Black Label). Refuerza el personaje sin apartarse del café.",
     tasteConcept:
@@ -224,7 +224,7 @@ const PROPOSALS: Proposal[] = [
     customerNeed:
       "Tourist Explorer + Coffee Curious who want a photogenic, ownable cup. The job: 'give me something I can't get anywhere else in Lima, that I want to photograph and share.' Directly addresses the @ursacoffeeperu tag rate metric.",
     evidence:
-      "CENSUS-1: 0 of 18 competitors use a custom cup shape as a brand asset. The Art Nouveau half-moon form is uncontested. Tourist-Explorer persona validated by 8+ hotels within walking distance (CENSUS-1) — photo-worthy drinks travel further than generic ones.",
+      "0 of 18 competitors in the census use a custom cup shape as a brand asset. The Art Nouveau half-moon form is uncontested. The Tourist-Explorer persona is validated by 8+ hotels within walking distance of the catchment — photo-worthy drinks travel further than generic ones.",
     brandFit:
       "Fuerte — la forma de media luna es visualmente ownable y fotogénica; ya pertenece al lenguaje visual de Ursa.",
     tasteConcept:

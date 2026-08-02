@@ -83,7 +83,7 @@ export function useI18n() {
   }, [setLang]);
 
   const t = useCallback(
-    (key: string) => translate(lang, key),
+    (key: string, params?: Record<string, string | number>) => translate(lang, key, params),
     [lang],
   );
 
