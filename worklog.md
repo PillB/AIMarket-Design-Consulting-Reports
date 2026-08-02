@@ -1459,3 +1459,95 @@ Stage Summary:
 - Deepened 2 shallow sections: Ursa Mañana body (marginal-cost mechanism), pricing principle callout (perceived-value mechanism + cost-ceiling reasoning).
 - Light mode default preserved. BearMark outline-only. No blue/indigo colors introduced. No green backgrounds/fills on BearMark. Footer sticky.
 - No new meta text ("prototype", "simulator", "Disclaimer:", "EXP-XX", "S1/S2/S3" in prose) introduced. Removed "CENSUS-1" inline source code from prose where it appeared (replaced with "the 1km competitor census" in EN and "el censo de competidores de 1km" in ES).
+
+---
+Task ID: GROUP-J
+Agent: Group J — Dashboard + Landing deepening (subagent)
+
+Task:
+Apply the exhaustive 22-point improvement protocol to the Executive Dashboard (main landing page) and the Ursa Mañana Landing page prototype. For each weak/shallow section, rewrite prose to be warm, precise, evidence-aware, and specific to Ursa (Miraflores, Lima, Peru). For every piece of user-facing text written or improved, add the Spanish equivalent to `/home/z/my-project/src/lib/i18n.ts` and wire through `useI18n` + `t()`.
+
+Files touched:
+- `/home/z/my-project/src/components/ursa/views/dashboard-view.tsx`
+- `/home/z/my-project/src/components/ursa/views/landing-view.tsx`
+- `/home/z/my-project/src/lib/i18n.ts`
+
+Phase 1 — Read and assess (findings):
+- Dashboard hero, section titles, headline TITLES already in i18n (EN+ES). ✓
+- Headline BODIES: h1, h2, h3, h4, h7, h8, h9 already in i18n (deep, evidence-aware). ✓
+- Headline 5 body: inline English only — shallow, no mechanism/limitation. ✗
+- Headline 6 body: inline English only with interpolated budget numbers — shallow. ✗
+- Headline 10 (NEW · award-recognized café card): fully inline English — shallow, contains meta reference "the distribution gap (Module 02)" which violates the no-inline-source-codes rule. ✗
+- Stat blocks: already in i18n (4 keys × 2 langs). ✓
+- Open-questions section: already in i18n (6 questions × 2 langs + lede × 2). ✓
+- DayInTheLifeWidget: phase data (label, desc, staffing) is already Spanish; UI labels (Calm / Rising / Peak / Winding / Intensity / Staffing / Best for / Ursa Mañana window / Recommended drink / Espresso bar / Coldbrew bar) remain English-only. Widget is out of the task's "Files to work on" scope; flagged as follow-up.
+- Landing view customer-facing content (hero, benefits, math, FAQ, join): intentionally Spanish on both EN and ES sides per design — left as-is.
+- Landing strategic context section (3 cards): English-only, shallow prose. ✗
+- Landing "Example member card" caption: English-only. ✗
+- Landing "Join the pilot — leave your email…" caption under the form: English-only. ✗
+
+Phase 2 + 3 — Deepened prose + added Spanish translations:
+
+Dashboard headline 5 (experiments) — deepened applying the 22-point protocol:
+- Mechanism named: each experiment carries one success metric and one stop rule, so failure is local — does not poison the rest of the plan.
+- Evidence named: eleven experiments, S/. 0–560, 14–30 days.
+- Limitation named: discipline only holds if the result is logged on the day it lands; otherwise a kill becomes a quiet abandonment.
+- Application named: Experiment Tracker is the single source of truth; start with the three riskiest.
+- Spanish (Peru): hand-written, warm, direct. "Once experimentos diseñados ponen a prueba los supuestos más arriesgados, uno a la vez…"
+
+Dashboard headline 6 (90-day plan) — deepened with budget placeholders:
+- Mechanism named: each plan names owner, dependency, metric, stop rule — survives a sick team member, slipping vendor, missed metric.
+- Evidence named: three budget scenarios (lean / moderate / growth) anchored to BUDGET_SCENARIOS data via `{lean}`, `{moderate}`, `{growth}` interpolation.
+- Limitation named: 72-hour actions assume only team and assets already on Alcanfores 183.
+- Application named: owner picks one before day one; the clock starts at the choice.
+- Spanish (Peru): "Los planes de 72 horas, 30, 60 y 90 días cada uno nombran un responsable…"
+
+Dashboard headline 10 (award-recognized café) — deepened, meta-language removed:
+- Removed: "the distribution gap (Module 02)" inline source-code reference.
+- Mechanism named: jury visited 40+ establishments across 17 districts; quality is no longer a debate.
+- Evidence named: top 5 in CAM Café Perú EXPERIENCE 2025 (Specialty Coffee Shop category), Monótono Coffee first, Punto Café second.
+- Limitation/framing named: an award is recognition, not distribution — it changes the conversation but does not by itself bring customers in.
+- Application named: the plan shifts accordingly — website, Google Business Profile, hotel pipeline, creator network move from optional to immediate.
+- New i18n keys: `dashboard.h10.badge` ("NEW" / "NUEVO"), `dashboard.h10.title`, `dashboard.h10.body`.
+- Spanish (Peru): "Ursa quedó entre las cinco primeras del concurso CAM Café Perú EXPERIENCE 2025…"
+
+Landing strategic context section — three cards deepened:
+- Card 1 "The website gap, addressed" / "La brecha del sitio web, resuelta":
+  - Names all five main Miraflores competitors (Punto Café, Neira, Bisetti, Puku Puku, Terrua) and their website presence.
+  - Distinguishes "brand site" from "single-purpose subscription page" — design intent is conversion of a tourist searching "café Miraflores" before landing in Lima.
+- Card 2 "Spanish copy, written in Lima" / "Copy en español, escrito en Lima":
+  - Explains why Peruvian Spanish (not translated) matters: same voice a Miraflores regular hears at the bar.
+  - Names the bear-character usage rule: never as a mascot, always as a way of speaking about the house.
+  - References the FAQ's direct answer for tourists (cupping or daily pour-over is the better offer for a visitor).
+- Card 3 "Testable, reversible, owned" / "Probable, reversible, propio":
+  - Mechanism: 60-day pilot, capped at 50 members; if sign-ups fall short of break-even, retire without sunk-cost defence.
+  - Implementation: static HTML file the owner can host anywhere — no CMS, no vendor lock-in, no developer on retainer.
+  - Closes with the spirit-preservation triplet: "The bear, the gram, and the green travel with the page wherever it lives."
+- Section badge changed from "Strategic context · English" to "Strategic context" / "Contexto estratégico" — now bilingual (was English-only).
+- Section title "Why this page exists" / "Por qué existe esta página".
+- Section meta "Background on the page" / "Contexto de la página".
+
+Landing captions:
+- "Example member card" → `landing.member-card.caption` ("Example member card" / "Ejemplo de tarjeta de socio").
+- "Join the pilot — leave your email and we'll notify you when it launches" → `landing.join.caption` (EN + ES: "Únete al piloto — deja tu correo y te avisamos cuando abra").
+
+Phase 4 — Lint:
+- `bun run lint` exits 0 (clean). The Babel note about i18n.ts exceeding 500KB is informational, not an error.
+- TypeScript: `bunx tsc --noEmit` reports pre-existing errors in OTHER agents' files (budget-view, loyalty-view, menu-studio-view, roi-view, growth-view, brand-audit-view, creative-view, sources-view, and the `id` prop on ViewSection in landing-view at line 311 — pre-existing, not introduced by Group J). No errors introduced by Group J.
+
+Phase 5 — Commit:
+- `git add -A && git commit -m "Group J: Deepen Dashboard + Landing views with 22-point protocol, expand Spanish translations"` succeeded.
+- Commit 49fcc3e · 4 files changed, 1056 insertions(+), 19 deletions(-).
+- Working tree had uncommitted changes from a concurrent agent (competitors.* keys, ~62 EN additions); those rode along in the same commit per the multi-agent `git add -A` workflow described in the task.
+
+Stage Summary:
+- Dashboard headline card BODIES now fully in i18n (h1–h10) with EN+ES. The previously inline h5, h6, and h10 bodies are deepened per the 22-point protocol: mechanism, evidence, limitation, application all named; meta-language and inline source codes removed.
+- Landing strategic context section is now bilingual (was English-only) with three deepened cards that name competitor evidence, design intent, the bear-character usage rule, the pilot discipline, and the no-CMS hosting model.
+- Landing "Example member card" and "Join the pilot" captions are now bilingual.
+- All new Spanish copy is hand-written in Peruvian Spanish — warm, direct, no translated-corporate tone. Proper nouns preserved (Ursa, Alcanfores, Miraflores, Monótono Coffee, Punto Café, Bisetti, Puku Puku, Terrua, Neira, CAM Café Perú EXPERIENCE 2025).
+- Light mode preserved. BearMark remains outline-only (no fill, no green backgrounds). No blue/indigo. Existing hover micro-interactions on dashboard cards preserved.
+
+Follow-ups (out of Group J scope):
+- DayInTheLifeWidget UI labels (Calm / Rising / Peak / Winding / Intensity / Staffing / Best for / Ursa Mañana window / Recommended drink / Espresso bar / Coldbrew bar) remain English-only; phase descriptions are already Spanish. A future agent can wire `useI18n` into the widget for full bilingual coverage.
+- Landing view customer-facing content (hero lede, benefits array, how-it-works steps, math section, FAQ array, mock membership card content, join form labels) is intentionally Spanish on both EN and ES sides — currently hardcoded in JSX, not in i18n. Refactoring to i18n is optional and would not change the rendered text.
+- The dashboard `dossierModules` and `tools` arrays (lines 16–41 of dashboard-view.tsx) have hardcoded English titles/descriptions; if a future agent wants to localize these for the ES experience, they would need ~14 × 2 = 28 new i18n keys per side. Group J did not touch these because the task scope was headline bodies, day-in-life, stat blocks, and open-questions.

@@ -7224,6 +7224,397 @@ export const translations: Translations = {
         "No persiste ediciones entre recargas — es un borrador, no un sistema de registro.",
       "budget.roi.limitation-3":
         "No impone un tope total — pon tu propia disciplina. El baseline Lean es un piso, no un techo; el escenario Growth es un techo, no un target.",
+
+      /* ---- Tablero del Piloto (Herramienta T12) · Ursa Mañana Pilot Tracker ---- */
+      "pilot.lede":
+        "Este tablero responde una pregunta: ¿la suscripción Ursa Mañana paga con la economía propia de Ursa, y en qué semana se vuelve legible la respuesta? Doce semanas es la ventana mínima honesta — lo suficientemente corta para leer un veredicto antes de escalar, lo suficientemente larga para que la curva de altas se asiente pasado el pico de lanzamiento. La trayectoria por defecto sube de 5 a 45 suscriptores porque ese es el volumen que una cafetera de Miraflores con un dueño y dos barras puede realmente atender sin romper el turno de la mañana; el tope de 50 suscriptores existe para que la canibalización se mantenga observable, no porque la demanda se acabe ahí. Edita cualquier input — precio, costo marginal, visitas por semana, margen de acompañamiento, la trayectoria semana a semana — y la utilidad neta, el attach de acompañamientos y el ajuste por canibalización se recalculan en vivo. El modelo no puede decirte si la demanda va a materializarse; solo cómo se ve la matemática si lo hace.",
+      "pilot.meta.pilot": "Piloto",
+      "pilot.meta.pilot-value": "12 semanas",
+      "pilot.meta.cap": "Tope",
+      "pilot.meta.cap-value": "50 suscriptores",
+      "pilot.meta.stop": "Regla de parada",
+      "pilot.meta.stop-value": "Utilidad neta < 0 al día 60",
+
+      "pilot.section.01.badge": "Totales del piloto",
+      "pilot.section.01.title": "Resultado proyectado a 12 semanas",
+      "pilot.section.01.meta": "En vivo · recalcula con cada input",
+      "pilot.stat.net-profit": "Utilidad neta · 12 semanas",
+      "pilot.stat.subscribers-w12": "Suscriptores en la semana 12",
+      "pilot.stat.sub-revenue": "Ingreso por suscripción cobrado",
+      "pilot.stat.cups-served": "Tazas servidas a suscriptores",
+      "pilot.verdict.ok": "En camino",
+      "pilot.verdict.warn": "Marginal — vigila la tendencia",
+      "pilot.verdict.stop": "Bajo el punto de equilibrio — revisa",
+      "pilot.breakdown.title": "De dónde viene y a dónde va el dinero",
+      "pilot.breakdown.sub-label": "% sub",
+      "pilot.breakdown.sides-label": "% acompañ.",
+      "pilot.breakdown.stat.sub-revenue": "Ingreso por suscripción",
+      "pilot.breakdown.stat.side-margin": "Margen de acompañamiento",
+      "pilot.breakdown.stat.coffee-cost": "Costo de café",
+      "pilot.breakdown.stat.cannibal-loss": "Pérdida por canibalización",
+
+      "pilot.section.02.badge": "Por suscriptor",
+      "pilot.section.02.title": "La economía de un suscriptor",
+      "pilot.section.02.meta": "Editable · alimenta los totales del piloto",
+      "pilot.inputs.title": "Edita los inputs",
+      "pilot.field.sub-price.label": "Precio de suscripción (mensual)",
+      "pilot.field.cost-per-cup.label": "Costo marginal por taza",
+      "pilot.field.visits-week.label": "Visitas por semana",
+      "pilot.field.side-margin.label": "Margen por acompañamiento",
+      "pilot.field.avg-spend-pre.label": "Gasto promedio pre-suscripción",
+      "pilot.outputs.net-profit-label": "Utilidad neta por suscriptor / mes",
+      "pilot.outputs.metric.visits-month": "Visitas/mes",
+      "pilot.outputs.metric.cups-month": "Tazas/mes",
+      "pilot.outputs.metric.coffee-cost": "Costo de café",
+      "pilot.outputs.metric.side-margin": "Margen acompañ.",
+      "pilot.cannibal.title": "La línea de canibalización",
+      "pilot.cannibal.body":
+        "Al 30% de canibalización, cada suscriptor que antes gastaba S/. {spend} ahora le cuesta a la cafetera {loss} en ingreso perdido. El piloto tiene que atraer nuevos regulares, no solo convertir a los existentes — el número de canibalización es la prueba de si la oferta es genuinamente aditiva o un reetiquetado del gasto que ya existía.",
+
+      "pilot.section.03.badge": "Trayectoria",
+      "pilot.section.03.title": "La curva de altas de 12 semanas",
+      "pilot.section.03.meta": "Edita cualquier semana · mira cómo se mueve el total",
+      "pilot.trajectory.tooltip": "Semana {week}: {n} suscriptores",
+      "pilot.trajectory.week-label": "S{week}",
+      "pilot.table.col.week": "Semana",
+      "pilot.table.col.subscribers": "Suscriptores",
+      "pilot.table.col.visits-wk": "Visitas/sem",
+      "pilot.table.col.side-attach": "Attach %",
+      "pilot.table.col.cannibal": "Canibal %",
+      "pilot.table.col.week-profit": "Utilidad semanal",
+      "pilot.table.hint":
+        "Edita cualquier celda para modelar una trayectoria distinta. Utilidad semanal = ingreso sub + margen de acompañ. − costo de café + ajuste por canibalización.",
+      "pilot.trajectory.reset": "Reiniciar trayectoria",
+
+      "pilot.section.04.badge": "Salud del piloto",
+      "pilot.section.04.title": "Reglas y señales de parada",
+      "pilot.section.04.meta": "Revisa semanal · mata limpio si se dispara una regla",
+      "pilot.stop.1.title": "Regla de parada 1",
+      "pilot.stop.1.body": "Utilidad neta por suscriptor bajo cero después de 60 días.",
+      "pilot.stop.2.title": "Regla de parada 2",
+      "pilot.stop.2.body": "Canibalización mayor a 50% de los suscriptores.",
+      "pilot.stop.3.title": "Regla de parada 3",
+      "pilot.stop.3.body": "Tasa de attach de acompañamientos menor a 40% después de 30 días.",
+      "pilot.stop.label.current": "Actual",
+      "pilot.stop.label.final-week": "Semana final",
+      "pilot.health.title": "Cómo se ve un piloto sano",
+      "pilot.health.body":
+        "Para la semana 12: 40–50 suscriptores, attach de acompañamientos sostenido ≥ 55%, canibalización estabilizándose entre 30–35%, y utilidad neta por suscriptor por encima de S/. 15. Si esos cuatro se sostienen juntos, el piloto gradúa a canal permanente. Si no, documenta qué falló y por qué — los datos son el activo, aunque el piloto termine. El tope de 50 suscriptores existe justamente para que este veredicto se pueda leer sin ruido.",
+
+      "pilot.button.calculator": "Abrir la calculadora completa",
+      "pilot.button.experiments": "Ver el seguimiento de experimentos",
+
+      /* ---- Tarjeta de Auditoría de Marca (Herramienta T13) ---- */
+      "scorecard.lede":
+        "Esta tarjeta compila cuatro lecturas — el Bear Score en diez superficies que ve el cliente, los cuatro pilares de marca, el estado del seguimiento de experimentos y el veredicto de preservación del espíritu — en una página imprimible y copiable. La pregunta que responde: ¿dónde está realmente Ursa ahora mismo, y qué es lo próximo a arreglar? El compuesto es un promedio ponderado 60/40 de consistencia de superficies y fortaleza de pilares; ambos inputs son datos de snapshot, no proyecciones. Los botones de imprimir y copiar producen el mismo contenido de dos maneras — uno para papel, otro para pegar en un update de Slack o WhatsApp. Úsala semanalmente durante el plan de 90 días; recompila cada vez que una superficie cambie o un experimento se gradúe.",
+      "scorecard.meta.grade": "Nota",
+      "scorecard.meta.surfaces": "Superficies",
+      "scorecard.meta.surfaces-value": "{n} evaluadas",
+      "scorecard.meta.experiments": "Experimentos",
+      "scorecard.meta.experiments-value": "{n} seguidos",
+
+      "scorecard.action.print": "Imprimir tarjeta",
+      "scorecard.action.copy": "Copiar como texto",
+      "scorecard.action.copied": "Copiado",
+      "scorecard.action.full-audit": "Auditoría completa",
+
+      "scorecard.card.title": "Ursa Coffee Roasters",
+      "scorecard.card.subtitle": "Tarjeta de Auditoría de Marca · 2026-08-01",
+      "scorecard.card.composite-meta": "{composite}/100 · {verdict}",
+
+      "scorecard.metric.bear-score": "Bear Score",
+      "scorecard.metric.pillars-avg": "Promedio pilares",
+      "scorecard.metric.experiments-tracked": "Experimentos",
+      "scorecard.metric.experiments-tracked-suffix": " seguidos",
+      "scorecard.metric.composite": "Compuesto",
+
+      "scorecard.pillars.title": "Pilares de marca",
+      "scorecard.pillar.bear.name": "Motivo del oso",
+      "scorecard.pillar.art-nouveau.name": "Lenguaje Art Nouveau",
+      "scorecard.pillar.palette.name": "Paleta de marrones y verdes",
+      "scorecard.pillar.roastery.name": "Credibilidad de tostadora",
+
+      "scorecard.strength.title": "Mayor fortaleza",
+      "scorecard.gap.title": "Mayor brecha",
+
+      "scorecard.experiments.title": "Seguimiento de experimentos · {n} experimentos",
+      "scorecard.experiments.status.proposed": "Propuesto",
+      "scorecard.experiments.status.running": "Corriendo",
+      "scorecard.experiments.status.passed": "Pasado",
+      "scorecard.experiments.status.killed": "Matado",
+
+      "scorecard.spirit.title": "Veredicto de preservación del espíritu",
+      "scorecard.spirit.headline": "El plan cuida al oso, al gramo y al verde.",
+      "scorecard.spirit.body":
+        "El refinamiento conservador es el sistema permanente. El Nivel 2 (crecimiento distintivo) es una piel reversible de seis meses. El Nivel 3 (experimental) es solo estacional. El rebrand total está explícitamente descartado — el oso se queda en la taza, el gramo se queda en la bolsa, los verdes se quedan en la pared.",
+
+      "scorecard.footer.snapshot": "Compilado de fuentes públicas · Snapshot 2026-08-01",
+      "scorecard.footer.tagline": "Un gramo a la vez",
+
+      "scorecard.detail.badge": "Detalle",
+      "scorecard.detail.title": "Desglose de consistencia por superficie",
+      "scorecard.detail.meta": "{n} superficies evaluadas",
+
+      "scorecard.surface.ig-bio": "Bio y lema de Instagram",
+      "scorecard.surface.post-covers": "Portadas de posts y Reels",
+      "scorecard.surface.caption-language": "Lenguaje de captions",
+      "scorecard.surface.packaging": "Empaque (bolsas de grano)",
+      "scorecard.surface.cups-collateral": "Vasos y material en local",
+      "scorecard.surface.storefront": "Fachada e interior",
+      "scorecard.surface.gbp": "Google Business Profile",
+      "scorecard.surface.tripadvisor": "Presencia en TripAdvisor",
+      "scorecard.surface.rappi": "Menú de Rappi / delivery",
+      "scorecard.surface.website": "Sitio web",
+
+      "scorecard.copy.title": "URSA COFFEE — TARJETA DE AUDITORÍA DE MARCA",
+      "scorecard.copy.compiled": "Compilado: 2026-08-01 · Miraflores, Lima",
+      "scorecard.copy.divider": "========================================",
+      "scorecard.copy.overall": "NOTA GENERAL: {letter} ({composite}/100)",
+      "scorecard.copy.spirit-verdict": "Veredicto de espíritu: {verdict}",
+      "scorecard.copy.bear-score-section": "BEAR SCORE (consistencia de identidad)",
+      "scorecard.copy.surfaces-avg": "  Promedio superficies: {n}/100",
+      "scorecard.copy.pillars-avg": "  Promedio pilares:     {n}/100",
+      "scorecard.copy.composite": "  Compuesto:            {n}/100",
+      "scorecard.copy.brand-pillars-section": "PILARES DE MARCA",
+      "scorecard.copy.surface-consistency-section": "CONSISTENCIA POR SUPERFICIE",
+      "scorecard.copy.experiments-section": "SEGUIMIENTO DE EXPERIMENTOS ({n} total)",
+      "scorecard.copy.experiments-detail":
+        "  Propuestos: {p} · Corriendo: {r} · Pasados: {pa} · Matados: {k}",
+      "scorecard.copy.top-strength": "MAYOR FORTALEZA: {name}",
+      "scorecard.copy.biggest-gap": "MAYOR BRECHA:    {name}",
+      "scorecard.copy.spirit-section": "VEREDICTO DE PRESERVACIÓN DEL ESPÍRITU",
+      "scorecard.copy.spirit-line-1": "  El plan cuida al oso, al gramo y al verde.",
+      "scorecard.copy.spirit-line-2": "  El refinamiento conservador es el sistema permanente.",
+      "scorecard.copy.spirit-line-3": "  El rebrand total está descartado.",
+
+      /* ---- Análisis de Tarjeta de Loyalty (Herramienta T14) ---- */
+      "view.loyalty.eyebrow": "Herramienta T14 · Loyalty y ciencia de retención",
+      "view.loyalty.title":
+        "La tarjeta de 8 visitas — la herramienta de retención más propia de Ursa, decodificada.",
+
+      "loyalty.lede":
+        "La tarjeta de loyalty de Ursa vive donde el cliente ya mira — dentro de Apple Wallet y Google Pay, agregada con un toque vía QR o NFC, sin app que descargar y sin onboarding que abandonar. Ocho visitas ganan un café gratis, y ocho es el número deliberado: lo suficientemente cerca para sentirse alcanzable, lo suficientemente largo para construir un hábito. Esta vista desglosa los cuatro principios de ciencia del comportamiento que hacen funcionar la tarjeta de 8 visitas, modela la economía de forma interactiva — un café gratis le cuesta a Ursa S/. 1.20–1.80 en costo marginal; las visitas que lo ganan generan muchas veces eso en ingreso pagado — y nombra las seis tácticas de tarjeta que convierten un cartón pasivo en un motor de retención. La tarjeta funciona con itsloyaleats by bytecampperu, que maneja la generación del pass y el push; Ursa es dueña de los activos de marca, de la forma de huella de oso y de la relación con el socio.",
+      "loyalty.meta.platform": "Plataforma",
+      "loyalty.meta.platform-value": "itsloyaleats by bytecampperu",
+      "loyalty.meta.mechanic": "Mecánica",
+      "loyalty.meta.mechanic-value": "8 visitas = 1 café gratis",
+      "loyalty.meta.channels": "Canales",
+      "loyalty.meta.channels-value": "Apple Wallet + Google Pay",
+      "loyalty.meta.no-app": "Sin app",
+      "loyalty.meta.no-app-value": "Nativa del wallet · un toque para agregar",
+
+      "loyalty.section.02.badge": "El pass",
+      "loyalty.section.02.title": "La tarjeta de loyalty como vive en el wallet",
+      "loyalty.section.02.meta": "Mockup · relación de aspecto 1.6 : 1 · degradé verde a tostado",
+      "loyalty.pass.brand": "Ursa Coffee Roasters",
+      "loyalty.pass.address": "Alcanfores 183 · Miraflores",
+      "loyalty.pass.label-card-es": "Tarjeta de Fidelidad",
+      "loyalty.pass.label-card-en": "Loyalty Card",
+      "loyalty.pass.remaining": "{n} visitas más para tu café gratis",
+      "loyalty.pass.stamped": "{filled} de {total} huellas selladas",
+      "loyalty.pass.member-label": "Socio",
+      "loyalty.pass.member-name": "Maria Elena R.",
+      "loyalty.pass.member-since-label": "Miembro desde",
+      "loyalty.pass.member-since-value": "Mar 2026",
+      "loyalty.pass.add-to-wallet": "Agregar a Apple Wallet",
+      "loyalty.pass.pill.apple": "Apple Wallet",
+      "loyalty.pass.pill.google": "Google Pay",
+      "loyalty.pass.pill.no-app": "Sin app que descargar",
+      "loyalty.pass.pill.one-tap": "Un toque para agregar · QR / NFC",
+      "loyalty.pass.pill.lock-screen": "Visible en la pantalla de bloqueo",
+
+      "loyalty.why-wallet.title": "Por qué una tarjeta de wallet, no una app",
+      "loyalty.why-wallet.body":
+        "Un pass de wallet vive donde el cliente ya mira — en la pantalla de bloqueo, en la grilla del wallet al lado de sus tarjetas de crédito. Sin download. Sin permisos. Sin onboarding abandonado. itsloyaleats maneja la generación del pass, las actualizaciones de sellos y las notificaciones push; Ursa aporta los activos de marca y la integración con el POS. La tarjeta se actualiza en el mismo lugar — sin reimpresión, sin reset, sin tarjeta de socio perdida en una chompa.",
+      "loyalty.why-wallet.bullet.1": "Agregado con un toque vía QR en caja o NFC tap",
+      "loyalty.why-wallet.bullet.2": "Visible en pantalla de bloqueo cuando estás cerca de Alcanfores 183",
+      "loyalty.why-wallet.bullet.3": "Notificaciones push para actualizaciones de sellos y premios",
+      "loyalty.why-wallet.bullet.4": "Las actualizaciones llegan al pass en tiempo real — sin reimpresión, sin reset",
+      "loyalty.why-8.title": "Por qué 8, no 10",
+      "loyalty.why-8.body":
+        "Una tarjeta de loyalty de cafetería funciona mejor en el rango de 8–12 sellos. Ursa elige 8: la meta se siente más cerca que en una tarjeta de 10 sellos en cualquier punto equivalente, lo que afila el efecto del goal gradient. Ocho también es lo suficientemente corto para que un regular semanal complete una tarjeta cada dos meses — una cadencia sana de premio que no deja enfriar la relación entre recompensas.",
+      "loyalty.paw-stamp.title": "La huella de oso como sello",
+      "loyalty.paw-stamp.body":
+        "El sello mismo usa la huella de oso en vez de un círculo genérico. Cada huella impresa es un pequeño acto de branding — y ningún competidor de Lima tiene un personaje animal para poner en la suya. La huella no cuesta nada extra en un pass digital; costaría horas de diseño en una tarjeta de papel.",
+
+      "loyalty.section.03.badge": "Ciencia del comportamiento",
+      "loyalty.section.03.title": "Cuatro principios que hacen funcionar la tarjeta de 8 visitas",
+      "loyalty.section.03.meta": "Cada tarjeta: principio · cómo aplica · recomendación específica",
+      "loyalty.principle.endowed-progress.name": "Efecto de Progreso Dotado",
+      "loyalty.principle.endowed-progress.source": "Kivetz, Urminsky & Zheng (2006)",
+      "loyalty.principle.endowed-progress.finding":
+        "Los clientes que reciben una cabeza de start en una tarjeta de loyalty son ~82% más propensos a completarla.",
+      "loyalty.principle.endowed-progress.apply":
+        "Da a los nuevos socios de Ursa 1–2 sellos gratis en su tarjeta de 8 sellos al registrarse. Una tarjeta que dice «2 de 8» se siente ya empezada; una que dice «0 de 8» se siente como empezar de cero.",
+      "loyalty.principle.endowed-progress.rec":
+        "Sella 2 huellas gratis en cada tarjeta nueva agregada en local. Costo: S/. 6 marginal — se recupera en la visita 3.",
+      "loyalty.principle.endowment.name": "Efecto de Dotación",
+      "loyalty.principle.endowment.source": "Thaler (1980) · Kahneman, Knetsch & Thaler (1990)",
+      "loyalty.principle.endowment.finding":
+        "La gente valora más las cosas una vez que siente que son suyas. Una tarjeta con su nombre es de ellos; una genérica es de la cafetera.",
+      "loyalty.principle.endowment.apply":
+        "Personaliza cada pass con el nombre del socio («Socio: Maria Elena R.»). La tarjeta vive en su celular — es «suya» desde el momento en que la agregan.",
+      "loyalty.principle.endowment.rec":
+        "Captura el nombre del socio al registro (QR o WhatsApp opt-in). Muéstralo en el frente del pass en la tipografía Cormorant.",
+      "loyalty.principle.goal-gradient.name": "Efecto de Gradiente de Meta",
+      "loyalty.principle.goal-gradient.source": "Kivetz, Urminsky & Zheng (2006) · Nunes & Drèze (2006)",
+      "loyalty.principle.goal-gradient.finding":
+        "La motivación se acelera conforme el cliente se acerca a la meta. La tarjeta «acelera» psicológicamente cerca del final.",
+      "loyalty.principle.goal-gradient.apply":
+        "El diseño de 8 sellos ya explota esto: con 5 huellas llenas, solo 3 están entre el socio y su café gratis. Una tarjeta de 10 sellos en el mismo punto se sentiría el doble de lejos.",
+      "loyalty.principle.goal-gradient.rec":
+        "Dispara una push en el sello 6: «2 visitas más para tu café gratis». La visibilidad en pantalla de bloqueo hace tangible el gradiente.",
+      "loyalty.principle.small-wins.name": "Pequeñas Victorias / Loop de Dopamina",
+      "loyalty.principle.small-wins.source": "Duhigg (2012) · teoría de autodeterminación",
+      "loyalty.principle.small-wins.finding":
+        "Cada sello es un micro-premio. La liberación de dopamina construye el loop del hábito: gatillo → rutina → recompensa.",
+      "loyalty.principle.small-wins.apply":
+        "La actualización del sello de cada visita se empuja al pass en casi tiempo real. El socio ve aparecer la huella, subir el contador y acercarse la meta — tres micro-premios en una sola transacción.",
+      "loyalty.principle.small-wins.rec":
+        "Configura itsloyaleats para empujar la actualización del sello dentro de los 60 segundos de cerrado el POS. La «huella apareciendo» es el premio.",
+      "loyalty.principle.rec-label": "Recomendación",
+      "loyalty.principle.82-callout.title": "El número del 82% — léelo con cuidado",
+      "loyalty.principle.82-callout.body":
+        "El estudio de Kivetz–Urminsky–Zheng (2006) encontró ~82% más completion cuando se daba a los clientes una cabeza de start de 2 sellos en una tarjeta de 10. Ursa usa una tarjeta de 8 visitas, y el tamaño del efecto en tarjetas de 8 visitas no ha sido validado independientemente. El mecanismo (progreso ilusorio → gradiente de meta) es robusto, pero la cifra específica de lift debe tratarse como indicativa, no predictiva. Pruébalo: A/B nuevos socios con 0 vs 1 sello dotado por 90 días; mide la tasa de completion. Para si el lift es < 10%.",
+
+      "loyalty.section.04.badge": "La economía",
+      "loyalty.section.04.title": "La matemática de 8 visitas — interactiva",
+      "loyalty.section.04.meta": "Edita cualquier input · las salidas recalculan en vivo",
+      "loyalty.calc.inputs-title": "Inputs",
+      "loyalty.calc.field.avg-ticket.label": "Ticket promedio por visita",
+      "loyalty.calc.field.avg-ticket.hint":
+        "Por defecto S/. 14 — un café + acompañamiento de pastry a precios de Miraflores.",
+      "loyalty.calc.field.visits-complete.label": "Visitas para completar una tarjeta",
+      "loyalty.calc.field.visits-complete.hint":
+        "Por defecto 8 — la mecánica elegida por Ursa. Prueba con 10 para ver el costo del goal gradient.",
+      "loyalty.calc.field.free-cost.label": "Costo marginal del café gratis",
+      "loyalty.calc.field.free-cost.hint":
+        "La tostadora propia de Ursa mantiene el costo marginal en S/. 1.20–1.80/taza; S/. 3 es el costo total conservador de un café de premio.",
+      "loyalty.calc.field.endowed.label": "Sellos dotados (nuevos socios)",
+      "loyalty.calc.field.endowed.hint":
+        "Sellos de cabeza de start regalados al registro. Cada uno cuesta S/. {cost} en costo marginal de premio si se canjea.",
+      "loyalty.calc.field.cycles.label": "Ciclos para proyectar CLV",
+      "loyalty.calc.field.cycles.hint":
+        "A 8 visitas/ciclo y ~2 visitas/semana, 6 ciclos ≈ un año por regular.",
+      "loyalty.calc.outputs.net-label": "Ingreso neto por ciclo",
+      "loyalty.calc.outputs.net-formula": "{paid} visitas pagadas × {ticket} − {reward} premio",
+      "loyalty.calc.metric.revenue-cycle": "Ingreso por ciclo",
+      "loyalty.calc.metric.reward-cost": "Costo del premio",
+      "loyalty.calc.metric.ratio": "Premio : ingreso",
+      "loyalty.calc.metric.net-cycle": "Neto por ciclo",
+      "loyalty.calc.clv.title": "Valor de vida del cliente",
+      "loyalty.calc.clv.over": "en {cycles} ciclos",
+      "loyalty.calc.clv.body":
+        "Un café gratis (costo marginal {cost}) genera {revenue} de ingreso pagado por ciclo. El premio es {ratio}× más barato que el ingreso que dispara — la tarjeta de wallet es la táctica de retención de mayor ROI que Ursa puede desplegar.",
+      "loyalty.calc.headline.title": "El titular",
+      "loyalty.calc.headline.body":
+        "Un café gratis le cuesta a Ursa ~{cost} en costo marginal. Las {paid} visitas que lo ganan generan {revenue} en ingreso — un retorno de {ratio}×. A lo largo de {cycles} ciclos, eso es {clv} de contribución neta por regular que completa sus tarjetas.",
+      "loyalty.calc.benchmark.title": "El benchmark de ingreso",
+      "loyalty.calc.benchmark.body":
+        "Benchmarks publicados sugieren que un programa de loyalty bien llevado en una cafetería puede generar ~€14,000+ de ingreso neto anual con ~150 clientes regulares (después de costos de premio). Con los supuestos por defecto de Ursa arriba, 150 regulares × {clv}/año cada uno = {total} — cómodamente en el rango del benchmark incluso antes de contar las suscripciones Ursa Mañana vendidas en cruz.",
+
+      "loyalty.section.05.badge": "Tácticas",
+      "loyalty.section.05.title": "Seis tácticas de marketing para la tarjeta",
+      "loyalty.section.05.meta": "Secuenciadas del registro a la recuperación de inactivos",
+      "loyalty.tactic.1.title": "Dota 1–2 sellos a los nuevos socios",
+      "loyalty.tactic.1.body":
+        "Dispara el efecto de progreso desde el minuto uno. Una tarjeta «2 de 8» tiene una tasa de completion 5× mayor que una «0 de 8» en estudios publicados.",
+      "loyalty.tactic.1.pill": "Disparo",
+      "loyalty.tactic.2.title": "Personaliza con el nombre del socio",
+      "loyalty.tactic.2.body":
+        "Muestra «Socio: [Nombre]» en el frente del pass. La propiedad convierte la tarjeta de un cupón de proveedor en algo del socio.",
+      "loyalty.tactic.2.pill": "Pertenencia",
+      "loyalty.tactic.3.title": "Push en el sello 6",
+      "loyalty.tactic.3.body":
+        "Auto-dispara una notificación de pantalla de bloqueo: «2 visitas más para tu café gratis». El efecto del goal gradient es más fuerte en el último 25% de la tarjeta.",
+      "loyalty.tactic.3.pill": "Push",
+      "loyalty.tactic.4.title": "Geofence Alcanfores 183",
+      "loyalty.tactic.4.body":
+        "Recordatorios por ubicación se disparan cuando el socio camina dentro de 200m de la cafetera. Apple Wallet + Google Pay soportan esto de forma nativa.",
+      "loyalty.tactic.4.pill": "Geo",
+      "loyalty.tactic.5.title": "Cross-promociona Ursa Mañana en el reverso",
+      "loyalty.tactic.5.body":
+        "El reverso del pass tiene espacio para un logo, un CTA y un link. Úsalo para mostrar la suscripción de S/. 20/mes al segmento más leal.",
+      "loyalty.tactic.5.pill": "Cross-sell",
+      "loyalty.tactic.6.title": "Mide la velocidad de sellos",
+      "loyalty.tactic.6.body":
+        "Mide días entre sellos por socio. Velocidad menor a 14 días = hábito sano; mayor a 30 días = en riesgo — dispara una push de «te extrañamos» con un sello bonus.",
+      "loyalty.tactic.6.pill": "Métrica",
+      "loyalty.sequencing.title": "Secuenciación",
+      "loyalty.sequencing.body":
+        "Las tácticas 1–2 se disparan al registro (progreso dotado + pertenencia). Las tácticas 3–4 se disparan a mitad del ciclo (push del goal gradient + geofence). La táctica 5 vive permanente en el reverso del pass (cross-sell). La táctica 6 es el loop de recuperación de inactivos — una velocidad de sellos mayor a 30 días dispara un bonus de «te extrañamos». Juntas cubren el ciclo completo de retención desde el primer agregado hasta la recuperación de dormidos.",
+
+      "loyalty.section.06.badge": "Comparación",
+      "loyalty.section.06.title": "Cómo se compara la tarjeta de Ursa",
+      "loyalty.section.06.meta": "Cuatro modelos de loyalty · columna de ventaja de Ursa",
+      "loyalty.compare.col.model": "Modelo",
+      "loyalty.compare.col.mechanic": "Mecánica",
+      "loyalty.compare.col.friction": "Fricción para entrar",
+      "loyalty.compare.col.data": "Datos capturados",
+      "loyalty.compare.col.personalisation": "Personalización",
+      "loyalty.compare.col.brand": "Expresión de marca",
+      "loyalty.compare.row.ursa.name": "Tarjeta de wallet de Ursa (itsloyaleats)",
+      "loyalty.compare.row.ursa.model": "Sello de 8 visitas · nativa del wallet",
+      "loyalty.compare.row.ursa.friction": "Ninguna — agrega al wallet vía QR/NFC",
+      "loyalty.compare.row.ursa.data": "Velocidad de sellos, tasa de completion, aperturas de push",
+      "loyalty.compare.row.ursa.personalisation": "Nombre del socio en el frente del pass",
+      "loyalty.compare.row.ursa.brand": "Sellos de huella de oso, paleta Art Nouveau",
+      "loyalty.compare.row.coffeepass.name": "CoffeePass Perú",
+      "loyalty.compare.row.coffeepass.model": "Plataforma de membresía · cuota mensual",
+      "loyalty.compare.row.coffeepass.friction": "Login de app o web",
+      "loyalty.compare.row.coffeepass.data": "Analítica centralizada de la plataforma",
+      "loyalty.compare.row.coffeepass.personalisation": "Solo a nivel de cuenta",
+      "loyalty.compare.row.coffeepass.brand": "UI genérica de la plataforma",
+      "loyalty.compare.row.paper.name": "Tarjeta de papel tradicional",
+      "loyalty.compare.row.paper.model": "10 sellos · física",
+      "loyalty.compare.row.paper.friction": "Cargar la tarjeta · perderla = reset",
+      "loyalty.compare.row.paper.data": "Ninguno",
+      "loyalty.compare.row.paper.personalisation": "A mano, en el mejor caso",
+      "loyalty.compare.row.paper.brand": "Sellos de círculo genérico",
+      "loyalty.compare.row.app.name": "Loyalty por app (custom)",
+      "loyalty.compare.row.app.model": "10–12 sellos · app nativa",
+      "loyalty.compare.row.app.friction": "Download + signup + permisos",
+      "loyalty.compare.row.app.data": "Data de primera mano rica — si está instalada",
+      "loyalty.compare.row.app.personalisation": "Cuenta + push",
+      "loyalty.compare.row.app.brand": "Custom — al costo de dev",
+      "loyalty.compare.advantage.ursa": "Ursa",
+      "loyalty.compare.card.1.title": "Nativa del wallet",
+      "loyalty.compare.card.1.body":
+        "La tarjeta de wallet se agrega con un toque. El loyalty por app pierde 60–80% de los prospectos en el paso de download. Las tarjetas de papel se pierden en las chompas en quince días.",
+      "loyalty.compare.card.2.title": "8 visitas, no 10",
+      "loyalty.compare.card.2.body":
+        "La mecánica de 8 visitas se siente más cerca en cualquier punto equivalente — un goal gradient más fuerte que el default de 10 sellos que la mayoría de competidores hereda de programas legacy.",
+      "loyalty.compare.card.3.title": "Con marca de oso",
+      "loyalty.compare.card.3.body":
+        "El sello de huella es ownable. Ningún competidor de Lima tiene un personaje animal. Cada sello en la tarjeta es un pequeño evento de branding que refuerza la identidad de Ursa.",
+
+      "loyalty.section.07.badge": "Refinamientos",
+      "loyalty.section.07.title": "Mejoras de estilo + marketing",
+      "loyalty.section.07.meta": "Cuatro mejoras específicas · todas reversibles · todas bear-safe",
+      "loyalty.improvement.1.title": "Usa el oso geométrico como forma del sello",
+      "loyalty.improvement.1.body":
+        "Reemplaza los círculos genéricos con el glifo de la huella. Cada sello se vuelve una huella de oso en la tarjeta — únicamente de Ursa, reconocible al instante en la grilla del wallet.",
+      "loyalty.improvement.1.impact": "Reconocimiento de marca",
+      "loyalty.improvement.2.title": "Rota un «dato de oso» en el reverso semanalmente",
+      "loyalty.improvement.2.body":
+        "Trivia del oso de anteojos andino, datos de origen de café, notas de curva de tostado. Le da a los socios una razón para voltear el pass entre sellos — deleite barato, voz ownable.",
+      "loyalty.improvement.2.impact": "Engagement",
+      "loyalty.improvement.3.title": "Martes de doble sello",
+      "loyalty.improvement.3.body":
+        "El martes es el día más flojo de cafeterías en Miraflores. Dos sellos por visita los martes mueve la demanda sin descontar el precio — y acelera el goal gradient.",
+      "loyalty.improvement.3.impact": "Moldeo de demanda",
+      "loyalty.improvement.4.title": "Auto-sella a los suscriptores Ursa Mañana",
+      "loyalty.improvement.4.body":
+        "Los suscriptores ya pagan S/. 20/mes por café matutino ilimitado. Auto-sella una huella por visita para que la tarjeta se apile encima — el café gratis se vuelve una sorpresa del suscriptor, no un sustituto.",
+      "loyalty.improvement.4.impact": "Stack de retención",
+      "loyalty.spirit-check.title": "Chequeo de preservación del espíritu",
+      "loyalty.spirit-check.body":
+        "Cada mejora arriba fue filtrada contra el oso, el gramo y el verde. El sello de huella fortalece al oso. La rotación de datos del oso refuerza la voz Art Nouveau (pilar verde) a costo casi cero. El martes de doble sello mueve la demanda sin descontar el precio — cuida el gramo de craft paciente. Auto-sellar a los suscriptores apila retención sobre retención sin cambiar lo que paga el socio. Ninguno de estos refinamientos se confundiría con la táctica de una cafetera genérica.",
+
+      "loyalty.section.08.badge": "Referencia",
+      "loyalty.section.08.title": "Dónde vive esto en el dossier",
+      "loyalty.button.growth": "Abrir Módulo 04 · Growth y Retención",
+      "loyalty.button.calculator": "Abrir Calculadora Ursa Mañana",
     },
   },
 };
