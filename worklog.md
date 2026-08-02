@@ -2000,3 +2000,47 @@ Stage Summary:
 - All UI chrome was already bilingual via existing content.swot.* i18n keys (EN+ES blocks); no new keys needed.
 - Lint clean. Build succeeds. Single commit landed: d38c384 "Translate all SWOT competitor data and UI chrome to Spanish" (1 file changed, +71 / −71 lines).
 - The SWOT view at #/swot now reads end-to-end in Peruvian Spanish when the language toggle is set to ES — competitor names, area tags, strength/weakness/opportunity/threat prose, Ursa implications, matrix labels, quadrant descriptions, axis labels, and the strategic takeaway callout all render in Spanish.
+
+---
+Task ID: COMPETITORS-TRANSLATE
+Agent: general-purpose (Competitors Intelligence Dashboard data → Peruvian Spanish)
+Task: Translate ALL English text in the Competitors Intelligence Dashboard view from English to Peruvian Spanish
+
+Work Log:
+- Read /home/z/my-project/worklog.md for context (prior competitors-view work: 22-entry census with Ursa pinned at top; all UI chrome already translated via content.competitors.* i18n keys in both EN and ES blocks).
+- Read /home/z/my-project/src/components/ursa/tools/competitors-view.tsx (745 lines) and confirmed:
+  • All UI chrome (ViewHero eyebrow/title/lede, meta labels, stat labels, section badges/titles/meta, filter labels, area/website filter options, table column headers, website yes/no pills, table empty state + note, matrix quadrant labels + axis labels + guide list + open-quadrant callout, head-to-head implication label + verdict labels/descriptions, synthesis callouts + buttons, dossier badge) was already wrapped in `t()` calls using `content.competitors.*` keys (verified in EN block lines 516-616 and ES block lines 5137-5237 of i18n.ts).
+  • The URSA_PROFILE inline block (lines 51-89) had English text across area, type, subtype, positioning, strength, weakness, ursaImplication, and reviewThemes fields.
+  • The COMPETITORS array in ursa-data.ts (shared with market-view) held English source-of-truth for area/strength/weakness/ursaImplication across all 22 entries (C01-C18 plus 4 late additions without ids).
+- Designed an i18n key scheme: `content.competitors.data.{competitorName}.{field}` where the competitor's display name (including spaces and accents) is the key suffix. This keeps the lookup unambiguous even for near-duplicate names like «Milenaria Cafe» (C01) versus «Milenaria Café» (no-id late entry) — the accented é differentiates the keys.
+- Added 92 new i18n keys per language (184 total = 23 entries × 4 fields) covering area, strength, weakness, and ursaImplication for Ursa + all 22 competitors. Inserted into i18n.ts:
+  • EN block: after line 616 (after `competitors.section.dossier.badge`), before the Content Calendar block.
+  • ES block: after line 5358 (after the ES `competitors.section.dossier.badge`), before the Content Calendar ES block.
+- Translated URSA_PROFILE inline non-displayed fields to Spanish (type, subtype, positioning, reviewThemes.praise[], complaints[], sampleSizeNote) — these aren't rendered by competitors-view but the task asked to translate ALL fields. Displayed fields (area, strength, weakness, ursaImplication) kept as English source-of-truth inline since `t()` overrides them at render.
+- Added a `dataKey(name, field)` helper at module scope in competitors-view.tsx (lines 94-103) that builds the i18n key from a competitor's name and field name. Kept the lookup logic colocated with the data semantics.
+- Wired the table render (lines 485-498) to use `t(dataKey(c.name, "area"|"strength"|"weakness"|"ursaImplication"))` for the four data cells.
+- Wired the head-to-head cards (lines 677, 689) to use `t(dataKey(c.name, "area"))` and `t(dataKey(c.name, "ursaImplication"))` for the area label and implication box.
+- Left the filter logic (`matchesArea` at line 224, `inMiraflores` count at line 295) using the raw `c.area` English source-of-truth — the filter must work on a stable string regardless of language toggle, and the displayed area is now driven by `t()`.
+- Translation rules followed:
+  • Hand-crafted Peruvian Spanish — warm, direct, no translated-corporate tone.
+  • Preserved proper nouns: Ursa, Alcanfores, Miraflores, Barranco, Bisetti, Puku Puku, Neira, Terrua, Ursagroni, Maracumango, Filtrado Lonya, Art Nouveau, WorkCafé, Instagram, TripAdvisor, Google Business Profile, Premios Somos, RAIZ, True Artisan, Milimetrica, Milenaria, Dulce Ciudad, Caficulto, Ciclos, Punto Café, Café Verde, Harrysson Neira, Paulo Sierra, Villa Rica, Fundo San Josefa, La Marzocco, Corner.inc, NovaCircle, CAM Café.
+  • Preserved «Un gramo a la vez» tagline (wrapped in « » Spanish quotes).
+  • Used S/. for Ursa's prices (S/.25-35 entry, S/.60-90 premium depth vs. Terrua). Kept US$25 for Terrua's actual dollar-denominated pricing — that's the source-of-truth price, not Ursa's.
+  • Used « » Spanish quotation marks around quoted concepts: «no es barato», «escuela de café», «microlotes», «artisan», «sostenibilidad», «verde», «tarea», «tercer lugar», «homework», «third place», «all-day brunch», «cozy + cordial + calidad», «de especialidad», «limpia», «Amauta», «Un gramo a la vez».
+- BearMark left as outline-only (no fills introduced — BearMark component was unchanged; the only BearMark usages are size 9, 14, 18, 22 inline icons).
+- useI18n from @/hooks/use-i18n already imported and used; no imports changed.
+- NO test code added. NO ursa-data.ts changes (English source-of-truth preserved for market-view's continued use).
+
+Verification:
+- `bun run lint` → EXIT 0 (only the BABEL informational note about i18n.ts >500KB, which is not a lint error).
+- `bun run build` → ✓ Compiled successfully in 11.2s; static pages generated (3/3). Build succeeded.
+- Verified key count: `grep -c "competitors.data\." src/lib/i18n.ts` → 184 (92 EN + 92 ES = 23 entries × 4 fields × 2 languages).
+- Spot-checked the Milenaria disambiguation: `competitors.data.Milenaria Cafe.area` (no accent, C01) and `competitors.data.Milenaria Café.area` (accent, late entry) are distinct keys in both EN and ES blocks.
+
+Stage Summary:
+- All 23 competitor data entries (Ursa + 22 competitors) now have bilingual i18n keys for area, strength, weakness, and ursaImplication.
+- URSA_PROFILE inline non-displayed fields (type, subtype, positioning, reviewThemes) translated to Spanish inline.
+- competitors-view.tsx table and head-to-head cards now render data via `t(dataKey(...))` — language toggle switches both chrome AND data.
+- Lint clean. Build succeeds. Single commit landed: b0f238a "Translate all competitors-view data and UI chrome to Spanish" (2 files changed, +269 / −18 lines).
+- The Competitors Intelligence Dashboard at #/competitors now reads end-to-end in Peruvian Spanish when the language toggle is set to ES — filter labels, column headers, table data (area, strength, weakness, Ursa implication), matrix labels, head-to-head verdicts and implications, synthesis callouts, and the dossier badge all render in Spanish. The filter logic continues to work on the English source-of-truth in ursa-data.ts, so filtering is stable across language toggles.
+- The new i18n keys are also available to market-view.tsx (which still reads `c.strength`/`c.weakness`/`c.ursaImplication` directly from ursa-data.ts as English) — market-view can be wired to these same keys in a future task without further i18n.ts changes.

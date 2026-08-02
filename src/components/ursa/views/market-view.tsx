@@ -196,19 +196,19 @@ function CompetitorCard({
           <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">
             <ThumbsUp size={11} /> {t("content.market.competitor.strength")}
           </div>
-          <p className="m-0 text-foreground/85">{c.strength}</p>
+          <p className="m-0 text-foreground/85">{t(`content.competitors.data.${c.name}.strength`)}</p>
         </div>
         <div>
           <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta-text mb-0.5">
             <Frown size={11} /> {t("content.market.competitor.weakness")}
           </div>
-          <p className="m-0 text-foreground/85">{c.weakness}</p>
+          <p className="m-0 text-foreground/85">{t(`content.competitors.data.${c.name}.weakness`)}</p>
         </div>
         <div className="bg-ursa-dark-roast/5 border border-ursa-forest-deep/15 rounded-md px-3 py-2">
           <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">
             <Compass size={11} /> {t("content.market.competitor.ursa-implication")}
           </div>
-          <p className="m-0 text-ursa-dark-roast font-medium">{c.ursaImplication}</p>
+          <p className="m-0 text-ursa-dark-roast font-medium">{t(`content.competitors.data.${c.name}.ursaImplication`)}</p>
         </div>
       </div>
     </Card>
