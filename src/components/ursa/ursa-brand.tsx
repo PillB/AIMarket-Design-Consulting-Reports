@@ -4,19 +4,19 @@ import { cn } from "@/lib/utils";
 import { useI18n } from "@/hooks/use-i18n";
 
 /**
- * Geometric bear glyph — OUTLINE ONLY (no fill), built from pentagons
- * and hexagons. Art Nouveau–adjacent. NOT a copy of the official logo.
+ * Geometric bear glyph — OUTLINE ONLY (no fill), built from hexagons
+ * and soft curves. Art Nouveau–adjacent. NOT a copy of the official logo.
  *
  * The bear is rendered as stroked outlines with no fill color, so it
  * works on any background without contrast issues. The stroke color
  * is passed via `currentColor` (inherits from the parent's text color).
  *
  * Construction (viewBox 0 0 40 40):
- *  - Two pentagonal ears (5-sided) with smaller pentagonal inner-ear outlines
- *  - An octagonal faceted face (8-sided outline)
- *  - Two hexagonal eyes (6-sided outlines)
- *  - A hexagonal muzzle (6-sided outline)
- *  - A pentagonal nose (5-sided) and a pentagonal mouth (5-sided)
+ *  - Two rounded hexagonal ears with inner-ear crescents
+ *  - A soft faceted face (rounded octagonal outline)
+ *  - Two almond eye outlines
+ *  - A rounded muzzle outline
+ *  - A pentagonal nose and a gentle split-mouth (two soft curves meeting at center)
  */
 export function BearMark({
   className,
@@ -38,31 +38,64 @@ export function BearMark({
       className={className}
       fill="none"
     >
-      {/* Ears — pentagonal (7-pointed for wider shape), outline only */}
-      <polygon points="8,2 12,3 13,9 11,12 4,12 3,9 5,3" fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" />
-      <polygon points="32,2 35,3 37,9 36,12 29,12 27,9 28,3" fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" />
-      {/* Inner ear outlines — smaller pentagons */}
-      <polygon points="8,5 10,6 10,10 8,11 6,10 6,6" fill="none" stroke={stroke} strokeWidth={SW * 0.6} strokeLinejoin="round" />
-      <polygon points="32,5 34,6 34,10 32,11 30,10 30,6" fill="none" stroke={stroke} strokeWidth={SW * 0.6} strokeLinejoin="round" />
-
-      {/* Faceted face — octagonal outline */}
-      <polygon
-        points="11,11 29,11 34,16 33,24 28,31 20,34 12,31 7,24 6,16"
-        fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round"
+      {/* Ears — rounded hexagonal outlines, wider and softer */}
+      <path
+        d="M 7 3 Q 3 4 3 9 Q 3 12 6 12 Q 10 12 12 10 Q 13 7 12 4 Q 10 2 7 3 Z"
+        fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" strokeLinecap="round"
+      />
+      <path
+        d="M 33 3 Q 37 4 37 9 Q 37 12 34 12 Q 30 12 28 10 Q 27 7 28 4 Q 30 2 33 3 Z"
+        fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" strokeLinecap="round"
+      />
+      {/* Inner ear — crescent shapes (soft, not geometric) */}
+      <path
+        d="M 8 6 Q 6 7 6.5 10 Q 8 10.5 9.5 9.5 Q 10 7.5 9 6 Q 8 5.5 8 6 Z"
+        fill="none" stroke={stroke} strokeWidth={SW * 0.55} strokeLinejoin="round" strokeLinecap="round"
+      />
+      <path
+        d="M 32 6 Q 34 7 33.5 10 Q 32 10.5 30.5 9.5 Q 30 7.5 31 6 Q 32 5.5 32 6 Z"
+        fill="none" stroke={stroke} strokeWidth={SW * 0.55} strokeLinejoin="round" strokeLinecap="round"
       />
 
-      {/* Eyes — hexagonal outlines */}
-      <polygon points="14,16 17,17 17.5,19 16,20.5 13.5,20 13,18" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
-      <polygon points="26,16 27,18 26.5,20 24,20.5 22.5,19 23,17" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
+      {/* Face — soft rounded outline (not rigid octagon) */}
+      <path
+        d="M 11 11 Q 20 10 29 11 Q 34 14 34 19 Q 33 26 28 31 Q 20 34 12 31 Q 7 26 6 19 Q 6 14 11 11 Z"
+        fill="none" stroke={stroke} strokeWidth={SW} strokeLinejoin="round" strokeLinecap="round"
+      />
 
-      {/* Muzzle — hexagonal outline */}
-      <polygon points="20,20 26,25 25,31 20,33 15,31 14,25" fill="none" stroke={stroke} strokeWidth={SW * 0.8} strokeLinejoin="round" />
+      {/* Eyes — almond-shaped outlines (gentler than hexagons) */}
+      <path
+        d="M 13 17 Q 15 16 17 17 Q 17 19 15.5 20 Q 13.5 19.5 13 18 Q 12.5 17 13 17 Z"
+        fill="none" stroke={stroke} strokeWidth={SW * 0.65} strokeLinejoin="round" strokeLinecap="round"
+      />
+      <path
+        d="M 23 17 Q 25 16 27 17 Q 27.5 17 27 18 Q 26.5 19.5 24.5 20 Q 23 19 23 17 Z"
+        fill="none" stroke={stroke} strokeWidth={SW * 0.65} strokeLinejoin="round" strokeLinecap="round"
+      />
 
-      {/* Nose — pentagonal outline */}
-      <polygon points="20,22 22.5,24 21,26 19,26 17.5,24" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
+      {/* Muzzle — soft rounded outline */}
+      <path
+        d="M 20 21 Q 25 22 26 26 Q 25 31 20 33 Q 15 31 14 26 Q 15 22 20 21 Z"
+        fill="none" stroke={stroke} strokeWidth={SW * 0.75} strokeLinejoin="round" strokeLinecap="round"
+      />
 
-      {/* Mouth — pentagonal outline */}
-      <polygon points="20,27 22.5,28.5 21.5,30.5 18.5,30.5 17.5,28.5" fill="none" stroke={stroke} strokeWidth={SW * 0.7} strokeLinejoin="round" />
+      {/* Nose — soft triangular outline (rounded) */}
+      <path
+        d="M 17.5 23 Q 20 22 22.5 23 Q 22 25.5 20 26 Q 18 25.5 17.5 23 Z"
+        fill="none" stroke={stroke} strokeWidth={SW * 0.65} strokeLinejoin="round" strokeLinecap="round"
+      />
+
+      {/* Mouth — gentle split: two soft curves meeting at center bottom.
+          Replaces the awkward "O" pentagon with a naturalistic w-shape. */}
+      <path
+        d="M 16 28 Q 18 29.5 20 28.5 Q 22 29.5 24 28"
+        fill="none" stroke={stroke} strokeWidth={SW * 0.65} strokeLinejoin="round" strokeLinecap="round"
+      />
+      {/* Subtle chin line — gives the muzzle a finished base */}
+      <path
+        d="M 17 30.5 Q 20 31.5 23 30.5"
+        fill="none" stroke={stroke} strokeWidth={SW * 0.4} strokeLinejoin="round" strokeLinecap="round" opacity="0.5"
+      />
     </svg>
   );
 }

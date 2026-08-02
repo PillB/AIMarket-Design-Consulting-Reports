@@ -126,30 +126,35 @@ function StatusPill({ status, t }: { status: string; t: (key: string) => string 
   );
 }
 
-/** Rating cell — shows ★ rating + review count, or em-dash if null. */
+/** Rating cell — shows ★ rating + review count, or em-dash if null/undefined/invalid. */
 function RatingCell({
   rating,
   count,
   t,
 }: {
-  rating: number | null;
-  count: number | null;
+  rating: number | null | undefined;
+  count: number | null | undefined;
   t: (key: string) => string;
 }) {
-  if (rating === null && count === null) return <span className="text-muted-foreground/60">—</span>;
+  // Ultra-safe: coerce to number, validate, fallback gracefully
+  const r = typeof rating === "number" ? rating : typeof rating === "string" ? parseFloat(rating) : NaN;
+  const c = typeof count === "number" ? count : typeof count === "string" ? parseInt(count, 10) : NaN;
+  const hasRating = isFinite(r) && !isNaN(r);
+  const hasCount = isFinite(c) && !isNaN(c);
+  if (!hasRating && !hasCount) return <span className="text-muted-foreground/60">—</span>;
   return (
     <div className="flex flex-col leading-tight">
-      {rating !== null ? (
+      {hasRating ? (
         <span className="font-medium text-ursa-dark-roast flex items-center gap-0.5">
           <Star size={10} className="text-ursa-gold-text fill-ursa-gold" />
-          {rating.toFixed(1)}
+          {r.toFixed(1)}
         </span>
       ) : (
         <span className="text-muted-foreground/60 text-[0.78rem]">—</span>
       )}
-      {count !== null ? (
+      {hasCount ? (
         <span className="text-[0.66rem] text-muted-foreground tracking-[0.02em]">
-          {count} {t("content.market.reviews-suffix")}
+          {c} {t("content.market.reviews-suffix")}
         </span>
       ) : null}
     </div>
@@ -705,7 +710,7 @@ export function MarketView() {
                   {r.platform}
                 </div>
                 <div className="font-display text-lg font-semibold text-ursa-dark-roast leading-none">
-                  {r.rating !== null ? `${r.rating}★` : "—"}
+                  {r.rating != null && typeof r.rating === "number" ? `${r.rating}★` : "—"}
                 </div>
                 <div className="font-label text-[0.66rem] tracking-[0.04em] text-ursa-gold-text mt-0.5">
                   {r.reviewCount} {t("content.market.reviews-suffix")}
