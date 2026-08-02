@@ -46,6 +46,9 @@ import {
   Megaphone,
   Handshake,
   FlaskConical,
+  Lightbulb,
+  BookOpen,
+  Quote,
 } from "lucide-react";
 
 type Persona = {
@@ -209,6 +212,19 @@ const FUNNEL_STAGES = [
   { id: "retain", tone: "var(--color-ursa-forest-deep)", nameKey: "content.growth.channels.funnel.retain.name", descKey: "content.growth.channels.funnel.retain.desc" },
   { id: "advocate", tone: "var(--color-ursa-terracotta-text)", nameKey: "content.growth.channels.funnel.advocate.name", descKey: "content.growth.channels.funnel.advocate.desc" },
 ] as const;
+
+// Objection-handling rows (CONVERSION-3) — the top five objections Ursa will
+// hear at the bar, mapped to the research-backed response, the framework
+// cited, and the influence principle the response activates. Each row pulls
+// all four fields from i18n so EN/ES render correctly. Tone alternates so
+// the table reads as a rhythm rather than a wall of text.
+const OBJECTIONS = [
+  { id: 1, tone: "terracotta" as const },
+  { id: 2, tone: "forest" as const },
+  { id: 3, tone: "gold" as const },
+  { id: 4, tone: "forest" as const },
+  { id: 5, tone: "terracotta" as const },
+];
 
 export function GrowthView() {
   const navigate = useNavigate();
@@ -538,6 +554,90 @@ export function GrowthView() {
         </Grid>
         <Callout tone="gold" title={t("content.growth.sutherland.callout2.title")}>
           {t("content.growth.sutherland.callout2.body")}
+        </Callout>
+      </ViewSection>
+
+      {/* Customer objections & responses (CONVERSION-3) -----------------------
+          Five objections mapped to a research-backed response, framework, and
+          influence principle. Cites Rackham (1988) SPIN, Dixon & Adamson
+          (2011) Challenger Sale, and Cialdini (2007) Influence. */}
+      <ViewSection badge={t("content.growth.objections.badge")} title={t("content.growth.objections.title")} meta={t("content.growth.objections.meta")}>
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] mb-6 m-0">
+          {t("content.growth.objections.lede")}
+        </p>
+
+        {/* Objection/response rows */}
+        <div className="space-y-3 mb-6">
+          {OBJECTIONS.map((o) => {
+            const accent = o.tone === "gold" ? "var(--color-ursa-gold-text)" : o.tone === "terracotta" ? "var(--color-ursa-terracotta-text)" : "var(--color-ursa-forest-deep)";
+            const k = (field: string) => `content.growth.objections.item.${o.id}.${field}`;
+            return (
+              <Card key={o.id} className="overflow-hidden p-0">
+                <div className="grid md:grid-cols-[1fr_1.4fr] gap-0">
+                  {/* Left column: the objection */}
+                  <div className="p-5 border-b md:border-b-0 md:border-r border-ursa-line-soft" style={{ background: `${accent}08` }}>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="w-7 h-7 rounded-md grid place-items-center shrink-0" style={{ background: `${accent}18`, color: accent }}>
+                        <Quote size={14} />
+                      </span>
+                      <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase" style={{ color: accent }}>
+                        {t("content.growth.objections.label.objection")} {o.id}
+                      </span>
+                    </div>
+                    <p className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0 mb-0 leading-snug">
+                      {t(k("objection"))}
+                    </p>
+                    {/* Framework + principle tags under the objection */}
+                    <div className="flex flex-wrap gap-1.5 mt-3">
+                      <span className="font-label text-[0.56rem] tracking-[0.12em] uppercase px-1.5 py-0.5 rounded border bg-card text-ursa-forest-deep border-ursa-forest-deep/30 flex items-center gap-1">
+                        <BookOpen size={10} /> {t(k("framework"))}
+                      </span>
+                    </div>
+                  </div>
+                  {/* Right column: the response + principle */}
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="w-7 h-7 rounded-md grid place-items-center shrink-0 bg-ursa-gold/15 text-ursa-gold-text">
+                        <Lightbulb size={14} />
+                      </span>
+                      <span className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-ursa-gold-text">
+                        {t("content.growth.objections.label.response")}
+                      </span>
+                    </div>
+                    <p className="text-[0.9rem] text-foreground/85 leading-relaxed m-0 mb-3">
+                      {t(k("response"))}
+                    </p>
+                    <div className="flex items-center gap-1.5 pt-3 border-t border-ursa-line-soft">
+                      <Sparkles size={12} className="text-ursa-terracotta-text shrink-0" />
+                      <span className="font-label text-[0.56rem] tracking-[0.12em] uppercase text-muted-foreground">
+                        {t("content.growth.objections.label.principle")}:
+                      </span>
+                      <span className="font-label text-[0.6rem] tracking-[0.06em] text-ursa-dark-roast font-medium">
+                        {t(k("principle"))}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Framework explainer — the three research traditions behind the responses */}
+        <Card className="bg-ursa-foam mb-6">
+          <div className="flex items-start gap-3">
+            <span className="w-9 h-9 rounded-md grid place-items-center bg-ursa-forest-deep/12 text-ursa-forest-deep shrink-0">
+              <BookOpen size={18} />
+            </span>
+            <div className="min-w-0">
+              <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.growth.objections.science.title")}</h3>
+              <p className="text-[0.88rem] text-foreground/85 leading-relaxed m-0">{t("content.growth.objections.science.body")}</p>
+            </div>
+          </div>
+        </Card>
+
+        <Callout tone="forest" title={t("content.growth.objections.callout.title")}>
+          <p className="m-0 text-[0.88rem]">{t("content.growth.objections.callout.body")}</p>
         </Callout>
       </ViewSection>
 

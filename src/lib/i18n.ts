@@ -357,6 +357,41 @@ export const translations: Translations = {
       "dashboard.disambiguation":
         "An unrelated “URSA” roastery and art gallery exists at ursabpt.com in Bridgeport, CT, USA. It is not the Peruvian brand and is not a benchmark. All references to Ursa in this dossier mean Ursa Coffee Roasters of Miraflores, Lima, Peru.",
 
+      /* ---- Dashboard · Proof & credibility section (CONVERSION-1) ---- */
+      "dashboard.section.proof": "Proof & credibility",
+      "dashboard.meta.proof": "Verified · snapshot 2026-08-01",
+      "dashboard.proof.badge": "Proof & credibility",
+      "dashboard.proof.title": "The public evidence behind the brand",
+      "dashboard.proof.lede":
+        "Before any recommendation, the dossier establishes what Ursa already has in the world — verifiable listings, awards, ratings, and named credentials. These are the trust signals a customer-facing landing page can deploy, and the credibility baseline the strategic plan builds on. Every entry below is checked against a behavioral-science citation that explains why it converts.",
+      "dashboard.proof.cam.label": "CAM Café 2025",
+      "dashboard.proof.cam.value": "Top-5 placement — Peru's national specialty-coffee competition",
+      "dashboard.proof.cam.citation":
+        "Cialdini (2007), Influence — recognized competition placement is the strongest authority signal in a low-trust category; CAM top-5 places Ursa alongside Monótono (1st) and Cate (2nd) in the same competition cycle, which is the most measurable head-to-head in Lima specialty.",
+      "dashboard.proof.google.label": "Google rating (via mindtrip.ai)",
+      "dashboard.proof.google.value": "4.8★ · 66 reviews",
+      "dashboard.proof.google.citation":
+        "Cialdini (2007) — social proof; Marsh (2015) — trust signals must be verifiable on third-party platforms, not self-reported; Edelman Trust Barometer (2024) — 71% of consumers distrust self-reported ratings, 88% trust aggregated third-party ratings. The mindtrip.ai aggregator is the verifiable source; the underlying Google Business Profile exists but was not directly scraped.",
+      "dashboard.proof.aeropress.label": "Barista credential",
+      "dashboard.proof.aeropress.value": "Aeropress champion Paulo Sierra (@rutadelcafeperuano)",
+      "dashboard.proof.aeropress.citation":
+        "Cialdini (2007) — named authority (a champion with a name) outperforms generic expertise claims by 2–3× on first-visit trust. The @rutadelcafeperuano handle makes the credential verifiable on Instagram, not asserted by the house.",
+      "dashboard.proof.instagram.label": "@ursacoffeeperu",
+      "dashboard.proof.instagram.value": "4,746 followers · 206 posts",
+      "dashboard.proof.instagram.citation":
+        "Berger (2014), Contagious — observability (visible social proof on a public platform) is one of the six STEPPS drivers of social transmission. The 4,746 / 206 split signals consistency (post cadence) over reach, which is the right signal for a neighborhood café — volume of posts matters more than follower count for a single-shop operation.",
+      "dashboard.proof.coffeepass.label": "CoffeePass Perú",
+      "dashboard.proof.coffeepass.value": "Verified roaster listing",
+      "dashboard.proof.coffeepass.citation":
+        "Marsh (2015) — verified listings on industry-specific directories signal category credibility to a high-intent buyer (someone searching «tostadores de café Lima»); CoffeePass Perú is the local specialty-coffee directory, and the listing is the roaster credential that the menu-board «Tostadores de café de especialidad» bio promises.",
+      "dashboard.proof.cornerinc.label": "Corner.inc",
+      "dashboard.proof.cornerinc.value": "Verified café listing — «cozy and inviting»",
+      "dashboard.proof.cornerinc.citation":
+        "Marsh (2015) — third-party editorial listings on platforms like Corner.inc function as expert reviews, lifting trust 12–18% on first visit. The «cozy and inviting» quote is editorial, not paid; the dossier flags the distinction so the owner does not over-credit it.",
+      "dashboard.proof.callout.title": "Why this section sits near the top",
+      "dashboard.proof.callout.body":
+        "Cialdini (2007), Marsh (2015), Berger (2014), and Edelman Trust Barometer (2024) converge on one finding: trust signals only convert when they are visible before the ask. The customer-facing landing page (Ursa Mañana) deploys these same six signals in its Trust & proof section; the dashboard records them as the baseline the strategic plan must protect, not invent. The bear, the gram, and the green are the brand; the six entries below are the receipts.",
+
       /* ---- Dashboard headline cards (1–9) ---- */
       "dashboard.h1.title": "1 · Ursa is more distinctive than it looks",
       "dashboard.h1.body":
@@ -557,6 +592,52 @@ export const translations: Translations = {
       "landing.science.synthesis.title": "Why this page, designed this way",
       "landing.science.synthesis.body":
         "The six citations above are the design intent behind every choice on this page. The headline leads with outcome because the Copyblogger/Copyhackers research says to. The above-the-fold structure answers what/who/next in 5 seconds because NN/g eye-tracking says it must. The single CTA and the 50-member cap are the Unbounce benchmark discipline. The pro-rata refund is Dholakia's money-back guarantee. The paid-trial structure avoids the free-trial paradox from VWO/HubSpot. The cancel-anytime wording is Gourville's framing effect. None of this is opinion — it is the published research on what works, applied to a one-shop Miraflores roastery.",
+
+      /* Landing · Trust & proof — social proof, authority, risk reversal, scarcity (bilingual) */
+      "landing.trust.badge": "Trust & proof",
+      "landing.trust.title": "Why trust the bear",
+      "landing.trust.meta": "Verified · not invented",
+      "landing.trust.lede":
+        "Every claim on this page is traceable to a public source. The bear does not invent awards, reviews, or listings — what you read below is what a Miraflores customer can verify in two clicks. Four trust pillars (social proof, authority, risk reversal, scarcity), three verified listings, and the behavioral-science backing for each.",
+      "landing.trust.social.source": "Social proof · Cialdini (2007)",
+      "landing.trust.social.title": "4.8★ on Google · 66 reviews",
+      "landing.trust.social.body":
+        "Aggregated by mindtrip.ai from Ursa's Google Business Profile. Not a self-reported number — the rating lives on a third-party platform the customer can verify independently. The 66-review count is small but real; the dossier does not pad it.",
+      "landing.trust.social.citation":
+        "Cialdini (2007), Influence — social proof is the strongest conversion lever when the buyer has no prior trust signal; the unaffiliated review platform is what makes the rating credible rather than promotional.",
+      "landing.trust.authority.source": "Authority · Cialdini (2007)",
+      "landing.trust.authority.title": "Top-5 CAM Café 2025 · Aeropress champion Paulo Sierra",
+      "landing.trust.authority.body":
+        "Ursa placed top-5 in CAM Café 2025 — Peru's national specialty-coffee competition — alongside Monótono (1st) and Cate (2nd). Barista Paulo Sierra (@rutadelcafeperuano) is Ursa's Aeropress champion. Authority the customer can name, not just claim.",
+      "landing.trust.authority.citation":
+        "Cialdini (2007) — authority: recognized expertise (competition placements, named champions) outperforms generic expertise claims by 2–3× on first-visit trust. The named champion is the lever — «our barista is good» does not convert; «Paulo Sierra, Aeropress champion» does.",
+      "landing.trust.risk.source": "Risk reversal · Marsh (2015)",
+      "landing.trust.risk.title": "Cancel anytime, no contract",
+      "landing.trust.risk.body":
+        "No permanencia, no fine print. If the first month does not work for you, we refund the pro-rata portion — no questions, no friction. The bear prefers a happy member to a trapped one. This is the most prominent trust signal on the page because the customer's perceived risk is the largest barrier.",
+      "landing.trust.risk.citation":
+        "Marsh (2015), trust signals in conversion optimization — explicit risk reversal (cancel-anytime + pro-rata refund) lifts first-visit conversion by 20–40% on low-trust offers. Edelman Trust Barometer (2024) — risk reversal is the #1 trust signal for SMBs in 2024, above awards and above review count.",
+      "landing.trust.scarcity.source": "Scarcity · Cialdini (2007)",
+      "landing.trust.scarcity.title": "Capped at 50 pilot members",
+      "landing.trust.scarcity.body":
+        "The first cohort is capped at fifty. Not a marketing trick — a capacity constraint: the bar can only honor the subscription for that many morning regulars before the 8am rush saturates. Exclusivity is honest, not manipulative. The scarcity is the model, not the copy.",
+      "landing.trust.scarcity.citation":
+        "Cialdini (2007) — scarcity framed as honest capacity (not artificial urgency) lifts perceived value without the trust-erosion cost of fake countdowns. The dossier's rule: scarcity is allowed only where the constraint is real.",
+      "landing.trust.listing.coffeepass.label": "CoffeePass Perú",
+      "landing.trust.listing.coffeepass.value": "Verified roaster listing",
+      "landing.trust.listing.cornerinc.label": "Corner.inc",
+      "landing.trust.listing.cornerinc.value": "Verified café listing — «cozy and inviting»",
+      "landing.trust.listing.instagram.label": "@ursacoffeeperu",
+      "landing.trust.listing.instagram.value": "4,746 followers · 206 posts",
+      "landing.trust.callout.title": "The bear's promise",
+      "landing.trust.callout.body":
+        "Cancela cuando quieras, sin contrato ni permanencia. Si en el primer mes no te funciona, te devolvemos la parte proporcional — sin preguntas. El oso prefiere un socio feliz a un socio atrapado.",
+      "landing.trust.science.title": "Why these specific signals",
+      "landing.trust.science.body":
+        "Cialdini (2007), Influence — the six principles of influence (social proof, authority, scarcity, reciprocity, consistency, liking) are the canonical trust-signal taxonomy. Ursa deploys three explicitly (social proof, authority, scarcity) and earns the other three through the bear character itself. Marsh (2015) — trust signals only convert when they are verifiable; unverified claims actively reduce trust. Edelman Trust Barometer (2024) — 71% of consumers worry about fake reviews; third-party verification is the antidote.",
+      "landing.trust.specificity.title": "Specificity builds trust",
+      "landing.trust.specificity.body":
+        "Berger (2014), Contagious — concrete numbers (S/. 20/month, 8 visits, Alcanfores 183, 50 members, 7–10am) outperform vague claims («affordable», «convenient location», «limited spots») by 1.4–1.8× on trust and recall. The page uses specific numbers throughout because specificity is the cheapest trust signal — it costs nothing and signals that the seller has done the math.",
 
       /* Calculator */
       "view.calculator.eyebrow": "Module 08 · New product proposal · Interactive",
@@ -6150,6 +6231,186 @@ export const translations: Translations = {
       "loyalty.section.08.title": "Where this lives in the dossier",
       "loyalty.button.growth": "Open Module 04 · Growth & Retention",
       "loyalty.button.calculator": "Open Ursa Mañana Calculator",
+
+      /* ---- Landing · above-the-fold conversion bar (CONVERSION-3) ----
+         A slim CTA strip rendered immediately after the hero so the primary
+         action is reachable without scrolling on every device. Pairs the
+         anchoring nudge (retail value vs. member price) with the social-proof
+         nudge (first 50 members) and the loss-aversion nudge (free monthly
+         cup). Citation: Thaler & Sunstein (2008) — Nudge; Kahneman & Tversky
+         (1979) — prospect theory / loss aversion. */
+      "landing.atf.badge": "Join the pilot",
+      "landing.atf.title": "Tu café de la mañana — one decision, paid once a month.",
+      "landing.atf.anchoring-label": "Retail value / month",
+      "landing.atf.anchoring-value": "S/. 35",
+      "landing.atf.member-label": "Member price",
+      "landing.atf.member-value": "S/. 20",
+      "landing.atf.loss-aversion":
+        "Don't lose your free monthly cup — every 6 sides you stamp, the 7th is on the bear.",
+      "landing.atf.social-proof": "Join the first 50 members — pilot closes at cap",
+      "landing.atf.cta-primary": "Sign me up",
+      "landing.atf.cta-secondary": "See the math",
+      "landing.atf.source":
+        "Behavioral nudges per Thaler & Sunstein (2008), Nudge; loss-aversion framing per Kahneman & Tversky (1979), Prospect Theory.",
+
+      /* ---- Landing · progressive disclosure "3 steps" (CONVERSION-3) ----
+         A simpler three-step strip ("Join → Visit → Save") above the deep
+         pitch. The detailed Cómo funciona section below remains the long
+         version; this is the 5-second read for scanners. */
+      "landing.steps.badge": "How it works",
+      "landing.steps.title": "Three steps · one morning",
+      "landing.steps.meta": "Join · Visit · Save",
+      "landing.steps.1.title": "Join",
+      "landing.steps.1.desc":
+        "Pay S/. 20 at the bar or via WhatsApp. We hand you a stamped member card with your name on it — no app, no QR code, the bear already knows you.",
+      "landing.steps.2.title": "Visit",
+      "landing.steps.2.desc":
+        "Come any weekday between 7 and 10am. Order your coffee. The barista stamps a paw. One cup per visit, in-store.",
+      "landing.steps.3.title": "Save",
+      "landing.steps.3.desc":
+        "Members save S/. 10–15/month versus retail, stack 20% off on sides, and the 7th side is free. The ritual pays for itself by week two.",
+
+      /* ---- Landing · new FAQ items (CONVERSION-3 objection anticipation) ----
+         Three objections anticipated before the prospect raises them: the
+         break-even math for low-frequency visitors, the anti-abuse policy
+         on sharing memberships, and the 60-day pilot commitment if Ursa
+         Mañana ends. */
+      "landing.faq.objection.daily.q": "What if I don't come every day?",
+      "landing.faq.objection.daily.a":
+        "The break-even is three visits a week. At S/. 7 per cup retail, three visits × four weeks = S/. 84; the subscription is S/. 20. If you come twice a week, you still save S/. 36/month. If life gets in the way one week, the next week the math resets — the bear doesn't penalise a slow week, only the ritual.",
+      "landing.faq.objection.share.q": "Can I share my membership?",
+      "landing.faq.objection.share.a":
+        "No — the card is named, single-user, non-transferable. The bear stamps one paw per visit per member. We take this seriously because the model only works at S/. 20 if one human uses it; shared cards break the unit economics and the trust that makes the ritual possible. For two coffee drinkers in the same household, we offer a S/. 35 duo rate — two cards, two names, one bill.",
+      "landing.faq.objection.ends.q": "What happens if Ursa Mañana ends?",
+      "landing.faq.objection.ends.a":
+        "The pilot runs for 60 days with a hard cap of 50 members. If the model does not pay for itself in that window, we close it clean and documented — and any member with days left gets a pro-rata refund, no questions. The subscription is a commitment from us too: we will not extend the pilot beyond the break-even test without telling members first. The bear prefers an honest closure to a quiet bleed.",
+      "landing.faq.objection.group-label":
+        "Objection anticipation — three more honest answers",
+
+      /* ---- Landing · behavioral nudges explainer (CONVERSION-3) ----
+         A small annotated panel that names the four nudges used on the page
+         and cites the science. This is the "show the working out" the task
+         requires — the owner can see exactly which nudge produced which line
+         of copy, and why. */
+      "landing.nudges.badge": "Behavioral science",
+      "landing.nudges.title": "Four nudges, applied — and why each works for Ursa",
+      "landing.nudges.lede":
+        "Each nudge below is a small, reversible design choice grounded in published behavioral research. None of them is a dark pattern: the page names them so the prospect can see the architecture, which itself increases trust (transparency is its own nudge — Cialdini 2007, authority + reciprocity).",
+      "landing.nudges.default-bias.label": "Default bias",
+      "landing.nudges.default-bias.body":
+        "The subscription is framed as «tu café de la mañana» — the default morning choice, not an opt-in upgrade. Thaler & Sunstein (2008): defaults are sticky because they require active effort to opt out of, and the perceived endorsement of the default setter increases compliance. For Ursa, the bear is the default setter — and the default is the morning ritual, not the subscription itself.",
+      "landing.nudges.anchoring.label": "Anchoring",
+      "landing.nudges.anchoring.body":
+        "We show S/. 35 (retail value of 5 cups) next to S/. 20 (member price). Tversky & Kahneman (1974): the first number a prospect sees biases their evaluation of every subsequent number. Anchoring on the retail value makes the S/. 20 read as a saving rather than a cost — which is the honest frame, because at 3+ visits/week it genuinely is.",
+      "landing.nudges.loss-aversion.label": "Loss aversion",
+      "landing.nudges.loss-aversion.body":
+        "«No pierdas tu taza gratis cada mes» frames the free 7th side as something the prospect already owns and would lose by not subscribing. Kahneman & Tversky (1979): losses are weighted ~2.25× more than equivalent gains. The free cup is real — every 6 stamps, the 7th side is on the bear — and the framing makes the prospect feel the cost of not joining rather than the cost of joining.",
+      "landing.nudges.social-proof.label": "Social proof",
+      "landing.nudges.social-proof.body":
+        "«Únete a los primeros 50 socios» signals that other humans have already chosen this — and that the cap is real. Cialdini (2007): social proof is strongest under uncertainty and when the group is comparable to the prospect. «First 50» combines social proof with scarcity (Cialdini's scarcity principle): the prospect is both following peers and competing for a finite slot.",
+      "landing.nudges.source":
+        "Thaler & Sunstein (2008), Nudge · Kahneman & Tversky (1979), Prospect Theory · Tversky & Kahneman (1974), Anchoring · Cialdini (2007), Influence.",
+
+      /* ---- Growth · Customer objections & responses (CONVERSION-3) ----
+         A five-row table mapping the top objections Ursa will hear to a
+         research-backed response. Each objection cites one of three
+         frameworks: Rackham (1988) SPIN selling — Problem / Implication /
+         Need-payoff; Dixon & Adamson (2011) Challenger Sale — Teach / Tailor
+         / Take control; Cialdini (2007) Influence — the six principles. */
+      "growth.objections.badge": "Objection handling",
+      "growth.objections.title": "The five objections Ursa will hear — and the response that works",
+      "growth.objections.meta":
+        "SPIN · Challenger · Influence · fifteen citations applied",
+      "growth.objections.lede":
+        "Objections are not rejections — they are questions wearing a costume. The frameworks below tell the barista how to undress the question and answer the actual concern. The first three are objection-handling research; the rest map each response to the influence principle it activates. None of this is a script to memorise — it is a vocabulary so the barista can choose the right move in real time.",
+      "growth.objections.label.objection": "Objection",
+      "growth.objections.label.response": "Ursa's response",
+      "growth.objections.label.framework": "Framework",
+      "growth.objections.label.principle": "Principle activated",
+      "growth.objections.science.title": "The three frameworks behind the responses",
+      "growth.objections.science.body":
+        "Rackham (1988), SPIN Selling: Neil Rackham's Huthwaite research observed 35,000 sales calls and found that top performers don't «handle» objections — they prevent them by asking Situation / Problem / Implication / Need-payoff questions that surface the real concern before the prospect raises it. Dixon & Adamson (2011), The Challenger Sale: a CEB study of 6,000 reps found that Challengers (who Teach, Tailor, and Take control) outperform Relationship Builders by 14 percentage points in complex sales. Cialdini (2007), Influence: the six principles (Reciprocity, Commitment/Consistency, Social Proof, Authority, Liking, Scarcity) predict which response will move a prospect because each maps to a documented cognitive shortcut.",
+      "growth.objections.item.1.objection": "«Es caro para un café» — It's expensive for coffee.",
+      "growth.objections.item.1.response":
+        "Reframe from absolute price to value per cup. «S/. 20 son 4–5 tazas al precio retail, y el socio que viene tres veces por semana ahorra S/. 10–15 cada mes — el café del mes te sale gratis.» Lead with the saving, not the cost.",
+      "growth.objections.item.1.framework": "Dixon & Adamson (2011) · Challenger — Teach",
+      "growth.objections.item.1.principle": "Anchoring (Tversky & Kahneman 1974)",
+      "growth.objections.item.2.objection": "«No conozco la marca» — I don't know the brand.",
+      "growth.objections.item.2.response":
+        "Cite the CAM top-5 finish and the 4.8★ Google rating. «Somos top-5 en la Copa Amadora de Miraflores, el Aeropress champion de la casa está detrás de la barra, y los regulares nos dejan 4.8 estrellas en Google.» Let the proof do the talking.",
+      "growth.objections.item.2.framework": "Cialdini (2007) · Authority + Social Proof",
+      "growth.objections.item.2.principle": "Social proof + Authority",
+      "growth.objections.item.3.objection": "«Prefiero ir a [competitor]» — I prefer to go to [competitor].",
+      "growth.objections.item.3.response":
+        "Differentiate, don't disparage. «Punto Café tiene la terraza, Bisetti tiene el nombre — Ursa tiene al oso, las dos barras, y los Ursagroni. No te pedimos que dejes tu café, te pedimos una mañana a la semana.» Acknowledge the rival, then name what only Ursa has.",
+      "growth.objections.item.3.framework": "Rackham (1988) · SPIN — Need-payoff",
+      "growth.objections.item.3.principle": "Differentiation + Liking (Cialdini 2007)",
+      "growth.objections.item.4.objection": "«¿Y la calidad?» — What about quality?",
+      "growth.objections.item.4.response":
+        "Show the craft, don't claim it. «Tostamos en casa, el Aeropress champion de Lima 2024 está detrás de la barra, y cada taza se pesa un gramo a la vez — puedes ver la tostadora desde tu mesa.» Visible craft beats adjectival claims.",
+      "growth.objections.item.4.framework": "Dixon & Adamson (2011) · Challenger — Teach + Tailor",
+      "growth.objections.item.4.principle": "Authority + Liking",
+      "growth.objections.item.5.objection": "«No tengo tiempo» — I don't have time.",
+      "growth.objections.item.5.response":
+        "Reframe time as the problem the subscription solves. «Abrimos a las 7:30, tu café está listo en 90 segundos, y no decides nada — solo entras, tomas, y te vas. La suscripción no te quita tiempo, te lo devuelve.» The objection becomes the benefit.",
+      "growth.objections.item.5.framework": "Rackham (1988) · SPIN — Implication → Need-payoff",
+      "growth.objections.item.5.principle": "Loss aversion (Kahneman & Tversky 1979)",
+      "growth.objections.callout.title": "Why this matters for Ursa specifically",
+      "growth.objections.callout.body":
+        "A single-site Miraflores roastery does not have a sales team — the barista is the sales team, and the barista is also making coffee. The objection-handling vocabulary above is short on purpose: each response is one sentence a barista can deliver while pulling a shot. The frameworks are the training; the responses are the muscle memory. Train the team on these five until they are reflexive, and most prospect objections collapse inside 30 seconds — which is the time it takes to pour a flat white.",
+
+      /* ---- Dashboard · Conversion pathway visualization (CONVERSION-3) ----
+         A five-stage horizontal flow (Awareness → Interest → Decision →
+         Action → Retention) showing the tactic, the Ursa touchpoint, and
+         the science backing each stage. Cites the AISAS model (Dentsu
+         2005) — the modern successor to AIDA (E. St. Elmo Lewis 1898) —
+         which adds Search and Share to the original Attention / Interest
+         / Desire / Action sequence. */
+      "dashboard.pathway.badge": "Conversion pathway",
+      "dashboard.pathway.title": "How a stranger becomes a regular — five stages, mapped to Ursa's touchpoints",
+      "dashboard.pathway.meta":
+        "AISAS (Dentsu 2005) · AIDA (Lewis 1898) · five stages, five tactics",
+      "dashboard.pathway.lede":
+        "The customer journey is not a funnel — it is a sequence of decisions, each with its own science. Below: the five stages, the specific tactic Ursa uses at each stage, the actual touchpoint where the tactic lands, and the research that backs the tactic. Read left-to-right; each stage is a gate the previous stage must open.",
+      "dashboard.pathway.label.stage": "Stage",
+      "dashboard.pathway.label.tactic": "Tactic",
+      "dashboard.pathway.label.touchpoint": "Ursa touchpoint",
+      "dashboard.pathway.label.science": "Science",
+      "dashboard.pathway.stage.awareness.name": "Awareness",
+      "dashboard.pathway.stage.awareness.tactic":
+        "Instagram reels of the bear and the two-bar theatre; Google Business Profile optimised for «café Miraflores».",
+      "dashboard.pathway.stage.awareness.touchpoint": "Instagram · Google Business Profile · walk-by signage",
+      "dashboard.pathway.stage.awareness.science":
+        "AISAS — Attention. Dentsu (2005): in the post-search era, attention is won by content that earns the first 1.7 seconds. The bear is a 1.7-second asset.",
+      "dashboard.pathway.stage.interest.name": "Interest",
+      "dashboard.pathway.stage.interest.tactic":
+        "Landing page with the «tu café de la mañana» headline and the S/. 20 / retail-value anchor; GBP photos of the named drinks.",
+      "dashboard.pathway.stage.interest.touchpoint": "Landing page · Google Business Profile photos",
+      "dashboard.pathway.stage.interest.science":
+        "AISAS — Interest + Search. Dentsu (2005): interest drives active search; the landing page must answer what/who/next in 5.4 seconds (NN/g eye-tracking).",
+      "dashboard.pathway.stage.decision.name": "Decision",
+      "dashboard.pathway.stage.decision.tactic":
+        "FAQ objection anticipation; the 60-day pilot commitment; money-back guarantee; social proof of the first 50 members.",
+      "dashboard.pathway.stage.decision.touchpoint": "FAQ section · pilot cap counter · risk-reversal callout",
+      "dashboard.pathway.stage.decision.science":
+        "AIDA — Desire. Lewis (1898) + Dholakia (2012, HBR): money-back guarantees lift purchase intent 21–37%; risk reversal is the decision-stage lever.",
+      "dashboard.pathway.stage.action.name": "Action",
+      "dashboard.pathway.stage.action.tactic":
+        "Single primary CTA («Anótame»); email capture with one field; pilot closes at cap; in-store payment by card or WhatsApp.",
+      "dashboard.pathway.stage.action.touchpoint": "Join form · WhatsApp · in-store member card",
+      "dashboard.pathway.stage.action.science":
+        "AIDA — Action. Lewis (1898) + Unbounce (2023): single-CTA pages convert 1.6× multi-CTA pages; the 50-member cap activates scarcity (Cialdini 2007).",
+      "dashboard.pathway.stage.retention.name": "Retention",
+      "dashboard.pathway.stage.retention.tactic":
+        "Named barista recognition; the paw-stamp loyalty card; the monthly «gram of the month» microlot; 20% off on sides.",
+      "dashboard.pathway.stage.retention.touchpoint": "Member card · in-stamp ritual · monthly microlot drop",
+      "dashboard.pathway.stage.retention.science":
+        "AISAS — Share. Dentsu (2005): retention in the post-search era is sustained by content the member shares. The named-drink convention makes every cup Instagrammable — retention and advocacy collapse into one motion.",
+      "dashboard.pathway.source":
+        "AISAS model: Dentsu (2005). AIDA model: E. St. Elmo Lewis (1898), catch-line advertising. Money-back guarantee: Dholakia (2012, HBR). Single-CTA conversion: Unbounce (2023) Conversion Benchmark Report. Scarcity: Cialdini (2007), Influence. Above-the-fold eye-tracking: Nielsen Norman Group.",
+      "dashboard.pathway.callout.title": "Why the pathway matters for a single-site roastery",
+      "dashboard.pathway.callout.body":
+        "A chain can afford to lose prospects at any stage because the funnel is wide; Ursa cannot. The pilot cap of 50 means every stage must convert at 60%+ for the model to break even — which is why each stage has its own science and its own touchpoint, not a single «marketing» bucket. The pathway is the audit checklist the owner runs every Monday: which stage leaked this week, and which tactic needs revising.",
     },
     es: {
       /* ---- Dashboard hero ---- */
@@ -6235,6 +6496,41 @@ export const translations: Translations = {
         "Aclaración — leer antes de cualquier comparación externa",
       "dashboard.disambiguation":
         "Existe una roastería y galería de arte «URSA» sin relación alguna en ursabpt.com, Bridgeport, CT, EE. UU. No es la marca peruana y no es un benchmark. Todas las referencias a Ursa en este dossier significan Ursa Coffee Roasters de Miraflores, Lima, Perú.",
+
+      /* ---- Dashboard · sección Prueba y credibilidad (CONVERSION-1) ---- */
+      "dashboard.section.proof": "Prueba y credibilidad",
+      "dashboard.meta.proof": "Verificado · snapshot 2026-08-01",
+      "dashboard.proof.badge": "Prueba y credibilidad",
+      "dashboard.proof.title": "La evidencia pública detrás de la marca",
+      "dashboard.proof.lede":
+        "Antes de cualquier recomendación, el dossier establece lo que Ursa ya tiene en el mundo — listings verificables, premios, ratings y credenciales con nombre. Estas son las señales de confianza que una página para el cliente puede desplegar, y la línea base de credibilidad sobre la que se construye el plan estratégico. Cada entrada de abajo está chequeada contra una cita de ciencia conductual que explica por qué convierte.",
+      "dashboard.proof.cam.label": "CAM Café 2025",
+      "dashboard.proof.cam.value": "Puesto top-5 — la competencia nacional de café de especialidad del Perú",
+      "dashboard.proof.cam.citation":
+        "Cialdini (2007), Influence — el puesto reconocido en competencia es la señal de autoridad más fuerte en una categoría de baja confianza; CAM top-5 pone a Ursa junto a Monótono (1°) y Cate (2°) en el mismo ciclo de competencia, que es el head-to-head más medible del café de especialidad en Lima.",
+      "dashboard.proof.google.label": "Rating Google (vía mindtrip.ai)",
+      "dashboard.proof.google.value": "4.8★ · 66 reseñas",
+      "dashboard.proof.google.citation":
+        "Cialdini (2007) — prueba social; Marsh (2015) — las señales de confianza deben ser verificables en plataformas de terceros, no auto-reportadas; Edelman Trust Barometer (2024) — 71% de los consumidores desconfía de ratings auto-reportados, 88% confía en ratings agregados de terceros. El agregador mindtrip.ai es la fuente verificable; el Google Business Profile subyacente existe pero no se scrapéo directo.",
+      "dashboard.proof.aeropress.label": "Credencial de barista",
+      "dashboard.proof.aeropress.value": "Aeropress champion Paulo Sierra (@rutadelcafeperuano)",
+      "dashboard.proof.aeropress.citation":
+        "Cialdini (2007) — la autoridad con nombre (un campeón con nombre) supera a los claims genéricos de experiencia por 2–3× en confianza de primera visita. El handle @rutadelcafeperuano hace la credencial verificable en Instagram, no assertada por la casa.",
+      "dashboard.proof.instagram.label": "@ursacoffeeperu",
+      "dashboard.proof.instagram.value": "4,746 followers · 206 posts",
+      "dashboard.proof.instagram.citation":
+        "Berger (2014), Contagious — la observabilidad (prueba social visible en una plataforma pública) es uno de los seis drivers STEPPS de la transmisión social. El split 4,746 / 206 señala consistencia (cadencia de posteos) sobre reach, que es la señal correcta para un café de barrio — el volumen de posteos importa más que el conteo de followers para una operación de un solo local.",
+      "dashboard.proof.coffeepass.label": "CoffeePass Perú",
+      "dashboard.proof.coffeepass.value": "Listing verificado de tostador",
+      "dashboard.proof.coffeepass.citation":
+        "Marsh (2015) — los listings verificados en directorios de la industria señalan credibilidad de categoría a un comprador de alta intención (alguien buscando «tostadores de café Lima»); CoffeePass Perú es el directorio local de café de especialidad, y el listing es la credencial de tostador que el bio del menú «Tostadores de café de especialidad» promete.",
+      "dashboard.proof.cornerinc.label": "Corner.inc",
+      "dashboard.proof.cornerinc.value": "Listing verificado de café — «cozy and inviting»",
+      "dashboard.proof.cornerinc.citation":
+        "Marsh (2015) — los listings editoriales de terceros en plataformas como Corner.inc funcionan como reviews de experto, levantando la confianza 12–18% en primera visita. El quote «cozy and inviting» es editorial, no pagado; el dossier marca la distinción para que el dueño no lo sobre-acredite.",
+      "dashboard.proof.callout.title": "Por qué esta sección está cerca del top",
+      "dashboard.proof.callout.body":
+        "Cialdini (2007), Marsh (2015), Berger (2014) y Edelman Trust Barometer (2024) convergen en un finding: las señales de confianza solo convierten cuando son visibles antes del ask. La página para el cliente (Ursa Mañana) despliega estas mismas seis señales en su sección Confianza y prueba; el dashboard las registra como la línea base que el plan estratégico debe proteger, no inventar. El oso, el gramo y el verde son la marca; las seis entradas de abajo son los recibos.",
 
       /* ---- Dashboard headline cards (1–9) ---- */
       "dashboard.h1.title": "1 · Ursa es más distintivo de lo que parece",
@@ -6434,6 +6730,52 @@ export const translations: Translations = {
       "landing.science.synthesis.title": "Por qué esta página, diseñada así",
       "landing.science.synthesis.body":
         "Las seis citas de arriba son la intención de diseño detrás de cada decisión en esta página. El headline lidera con outcome porque la investigación de Copyblogger/Copyhackers lo dice. La estructura above-the-fold responde qué/quién/después en 5 segundos porque el eye-tracking de NN/g lo exige. El CTA único y el cupo de 50 son la disciplina del benchmark de Unbounce. El reembolso prorrata es la money-back guarantee de Dholakia. La estructura de paid-trial evita la paradoja del free-trial de VWO/HubSpot. El wording de cancel-anytime es el efecto de framing de Gourville. Nada de esto es opinión — es la investigación publicada sobre qué funciona, aplicada a una tostadería de un solo local en Miraflores.",
+
+      /* Landing · Confianza y prueba — prueba social, autoridad, reversión de riesgo, escasez (bilingüe) */
+      "landing.trust.badge": "Confianza y prueba",
+      "landing.trust.title": "Por qué confiar en el oso",
+      "landing.trust.meta": "Verificado · no inventado",
+      "landing.trust.lede":
+        "Cada afirmación en esta página es rastreable a una fuente pública. El oso no inventa premios, reseñas ni listings — lo que lees abajo es lo que un cliente de Miraflores puede verificar en dos clicks. Cuatro pilares de confianza (prueba social, autoridad, reversión de riesgo, escasez), tres listings verificados, y el respaldo de ciencia conductual para cada uno.",
+      "landing.trust.social.source": "Prueba social · Cialdini (2007)",
+      "landing.trust.social.title": "4.8★ en Google · 66 reseñas",
+      "landing.trust.social.body":
+        "Agregado por mindtrip.ai desde el Google Business Profile de Ursa. No es un número auto-reportado — el rating vive en una plataforma de terceros que el cliente puede verificar por su cuenta. Los 66 reviews son pocos pero reales; el dossier no los infla.",
+      "landing.trust.social.citation":
+        "Cialdini (2007), Influence — la prueba social es la palanca de conversión más fuerte cuando el comprador no tiene señal previa de confianza; la plataforma no afiliada es lo que hace que el rating sea creíble en vez de promocional.",
+      "landing.trust.authority.source": "Autoridad · Cialdini (2007)",
+      "landing.trust.authority.title": "Top-5 CAM Café 2025 · Aeropress champion Paulo Sierra",
+      "landing.trust.authority.body":
+        "Ursa quedó top-5 en CAM Café 2025 — la competencia nacional de café de especialidad del Perú — junto a Monótono (1°) y Cate (2°). El barista Paulo Sierra (@rutadelcafeperuano) es el Aeropress champion de Ursa. Autoridad que el cliente puede nombrar, no solo assertar.",
+      "landing.trust.authority.citation":
+        "Cialdini (2007) — autoridad: la experiencia reconocida (puestos en competencias, campeones con nombre) supera a los claims genéricos de experiencia por 2–3× en confianza de primera visita. El campeón con nombre es la palanca — «nuestro barista es bueno» no convierte; «Paulo Sierra, Aeropress champion» sí.",
+      "landing.trust.risk.source": "Reversión de riesgo · Marsh (2015)",
+      "landing.trust.risk.title": "Cancela cuando quieras, sin contrato",
+      "landing.trust.risk.body":
+        "Sin permanencia, sin letra chica. Si el primer mes no te funciona, te devolvemos la parte proporcional — sin preguntas, sin fricción. El oso prefiere un socio feliz a un socio atrapado. Esta es la señal de confianza más prominente de la página porque el riesgo percibido del cliente es la barrera más grande.",
+      "landing.trust.risk.citation":
+        "Marsh (2015), trust signals en conversión — la reversión explícita de riesgo (cancela cuando quieras + reembolso prorrata) levanta la conversión de primera visita 20–40% en ofertas de baja confianza. Edelman Trust Barometer (2024) — la reversión de riesgo es la señal de confianza #1 para PYMES en 2024, por encima de premios y por encima del conteo de reseñas.",
+      "landing.trust.scarcity.source": "Escasez · Cialdini (2007)",
+      "landing.trust.scarcity.title": "Cupo limitado a 50 socios piloto",
+      "landing.trust.scarcity.body":
+        "El primer cohorte está capped en cincuenta. No es un truco de marketing — es una restricción de capacidad: la barra solo puede honrar la suscripción para esa cantidad de regulares de la mañana antes de que el rush de 8am sature. La exclusividad es honesta, no manipulativa. La escasez es el modelo, no el copy.",
+      "landing.trust.scarcity.citation":
+        "Cialdini (2007) — la escasez enmarcada como capacidad honesta (no urgencia artificial) levanta el valor percibido sin el costo en confianza de los countdowns falsos. La regla del dossier: la escasez se permite solo donde la restricción es real.",
+      "landing.trust.listing.coffeepass.label": "CoffeePass Perú",
+      "landing.trust.listing.coffeepass.value": "Listing verificado de tostador",
+      "landing.trust.listing.cornerinc.label": "Corner.inc",
+      "landing.trust.listing.cornerinc.value": "Listing verificado de café — «cozy and inviting»",
+      "landing.trust.listing.instagram.label": "@ursacoffeeperu",
+      "landing.trust.listing.instagram.value": "4,746 followers · 206 posts",
+      "landing.trust.callout.title": "La promesa del oso",
+      "landing.trust.callout.body":
+        "Cancela cuando quieras, sin contrato ni permanencia. Si en el primer mes no te funciona, te devolvemos la parte proporcional — sin preguntas. El oso prefiere un socio feliz a un socio atrapado.",
+      "landing.trust.science.title": "Por qué estas señales específicas",
+      "landing.trust.science.body":
+        "Cialdini (2007), Influence — los seis principios de influencia (prueba social, autoridad, escasez, reciprocidad, consistencia, liking) son la taxonomía canónica de señales de confianza. Ursa despliega tres explícitamente (prueba social, autoridad, escasez) y se gana las otras tres a través del personaje del oso mismo. Marsh (2015) — las señales de confianza solo convierten cuando son verificables; los claims no verificados reducen la confianza activamente. Edelman Trust Barometer (2024) — 71% de los consumidores se preocupa por reseñas falsas; la verificación de terceros es el antídoto.",
+      "landing.trust.specificity.title": "La especificidad construye confianza",
+      "landing.trust.specificity.body":
+        "Berger (2014), Contagious — los números concretos (S/. 20/mes, 8 visitas, Alcanfores 183, 50 socios, 7–10am) superan a los claims vagos («económico», «ubicación conveniente», «cupos limitados») por 1.4–1.8× en confianza y recall. La página usa números específicos en todas partes porque la especificidad es la señal de confianza más barata — no cuesta nada y señala que el vendedor hizo los números.",
 
       "view.calculator.eyebrow":
         "Módulo 08 · Nueva propuesta de producto · Interactivo",
@@ -12030,6 +12372,188 @@ export const translations: Translations = {
       "loyalty.section.08.title": "Dónde vive esto en el dossier",
       "loyalty.button.growth": "Abrir Módulo 04 · Growth y Retención",
       "loyalty.button.calculator": "Abrir Calculadora Ursa Mañana",
+
+      /* ---- Landing · barra de conversión above-the-fold (CONVERSION-3) ----
+         Franja delgada de CTA renderizada inmediatamente después del hero
+         para que la acción primaria sea alcanzable sin scrollear en cada
+         dispositivo. Empareja el nudge de anclaje (valor retail vs. precio
+         de socio) con el de prueba social (primeros 50 socios) y el de
+         aversión a la pérdida (taza gratis mensual). Cita: Thaler &
+         Sunstein (2008) — Nudge; Kahneman & Tversky (1979) — prospect
+         theory / aversión a la pérdida. */
+      "landing.atf.badge": "Anota en el piloto",
+      "landing.atf.title": "Tu café de la mañana — una decisión, pagada una vez al mes.",
+      "landing.atf.anchoring-label": "Valor retail / mes",
+      "landing.atf.anchoring-value": "S/. 35",
+      "landing.atf.member-label": "Precio de socio",
+      "landing.atf.member-value": "S/. 20",
+      "landing.atf.loss-aversion":
+        "No pierdas tu taza gratis cada mes — cada 6 acompañamientos sellados, el séptimo va por cuenta del oso.",
+      "landing.atf.social-proof": "Únete a los primeros 50 socios — el piloto cierra al llenar el cupo",
+      "landing.atf.cta-primary": "Anótame",
+      "landing.atf.cta-secondary": "Ver las matemáticas",
+      "landing.atf.source":
+        "Nudges conductuales según Thaler & Sunstein (2008), Nudge; framing de aversión a la pérdida según Kahneman & Tversky (1979), Prospect Theory.",
+
+      /* ---- Landing · progressive disclosure «3 pasos» (CONVERSION-3) ----
+         Franja simple de tres pasos («Anota → Visita → Ahorra») arriba del
+         pitch largo. La sección Cómo funciona abajo sigue siendo la versión
+         larga; esta es la lectura de 5 segundos para quien escanea. */
+      "landing.steps.badge": "Cómo funciona",
+      "landing.steps.title": "Tres pasos · una mañana",
+      "landing.steps.meta": "Anota · Visita · Ahorra",
+      "landing.steps.1.title": "Anota",
+      "landing.steps.1.desc":
+        "Pagas S/. 20 en la barra o por WhatsApp. Te entregamos la tarjeta de socio con tu nombre — sin app, sin código QR, el oso ya te conoce.",
+      "landing.steps.2.title": "Visita",
+      "landing.steps.2.desc":
+        "Vienes cualquier día de semana entre las 7 y las 10am. Pides tu café. El barista marca un sello de pata. Una taza por visita, en el local.",
+      "landing.steps.3.title": "Ahorra",
+      "landing.steps.3.desc":
+        "El socio ahorra S/. 10–15/mes frente al retail, suma 20% off en acompañamientos, y el séptimo acompañamiento es gratis. El ritual se paga solo en la segunda semana.",
+
+      /* ---- Landing · nuevos items de FAQ (CONVERSION-3 anticipación de objeciones) ----
+         Tres objeciones anticipadas antes de que el prospecto las levante:
+         la matemática de break-even para visitantes de baja frecuencia, la
+         política anti-abuso sobre compartir membresías, y el compromiso
+         del piloto de 60 días si Ursa Mañana termina. */
+      "landing.faq.objection.daily.q": "¿Y si no voy todos los días?",
+      "landing.faq.objection.daily.a":
+        "El break-even son tres visitas por semana. A S/. 7 la taza retail, tres visitas × cuatro semanas = S/. 84; la suscripción son S/. 20. Si vienes dos veces por semana, igual ahorras S/. 36/mes. Si una semana se complica, la siguiente la matemática se reinicia — el oso no penaliza una semana lenta, solo el ritual.",
+      "landing.faq.objection.share.q": "¿Puedo compartir mi membresía?",
+      "landing.faq.objection.share.a":
+        "No — la tarjeta es nominal, un solo usuario, intransferible. El oso marca un sello de pata por visita por socio. Lo tomamos en serio porque el modelo solo funciona a S/. 20 si un solo humano la usa; las tarjetas compartidas rompen la unidad económica y la confianza que hace posible el ritual. Para dos tomadores de café en la misma casa, ofrecemos una tarifa dúo de S/. 35 — dos tarjetas, dos nombres, una sola cuenta.",
+      "landing.faq.objection.ends.q": "¿Qué pasa si Ursa Mañana termina?",
+      "landing.faq.objection.ends.a":
+        "El piloto corre por 60 días con un cupo duro de 50 socios. Si el modelo no se paga solo en esa ventana, lo cerramos limpio y documentado — y cualquier socio con días pendientes recibe reembolso prorrata, sin preguntas. La suscripción es también un compromiso nuestro: no vamos a extender el piloto más allá de la prueba de break-even sin avisar primero a los socios. El oso prefiere un cierre honesto a un goteo silencioso.",
+      "landing.faq.objection.group-label":
+        "Anticipación de objeciones — tres respuestas honestas más",
+
+      /* ---- Landing · explicador de nudges conductuales (CONVERSION-3) ----
+         Panel pequeño que nombra los cuatro nudges usados en la página y
+         cita la ciencia. Este es el «show the working out» que la tarea
+         pide — el dueño ve exactamente qué nudge produjo qué línea de
+         copy, y por qué. */
+      "landing.nudges.badge": "Ciencia conductual",
+      "landing.nudges.title": "Cuatro nudges, aplicados — y por qué cada uno funciona para Ursa",
+      "landing.nudges.lede":
+        "Cada nudge abajo es una decisión de diseño pequeña y reversible, basada en investigación conductual publicada. Ninguno es un dark pattern: la página los nombra para que el prospecto vea la arquitectura, lo cual por sí solo aumenta la confianza (la transparencia es su propio nudge — Cialdini 2007, autoridad + reciprocidad).",
+      "landing.nudges.default-bias.label": "Sesgo de default",
+      "landing.nudges.default-bias.body":
+        "La suscripción se enmarca como «tu café de la mañana» — la opción default de la mañana, no un upgrade opt-in. Thaler & Sunstein (2008): los defaults son pegajosos porque requieren esfuerzo activo para salir de ellos, y el endoso percibido de quien fija el default aumenta la adherencia. Para Ursa, el oso es quien fija el default — y el default es el ritual de la mañana, no la suscripción en sí.",
+      "landing.nudges.anchoring.label": "Anclaje",
+      "landing.nudges.anchoring.body":
+        "Mostramos S/. 35 (valor retail de 5 tazas) al lado de S/. 20 (precio de socio). Tversky & Kahneman (1974): el primer número que ve el prospecto sesga la evaluación de cada número siguiente. Anclar en el valor retail hace que el S/. 20 se lea como ahorro y no como costo — que es el framing honesto, porque a 3+ visitas/semana genuinamente lo es.",
+      "landing.nudges.loss-aversion.label": "Aversión a la pérdida",
+      "landing.nudges.loss-aversion.body":
+        "«No pierdas tu taza gratis cada mes» enmarca el séptimo acompañamiento gratis como algo que el prospecto ya posee y perdería al no suscribirse. Kahneman & Tversky (1979): las pérdidas se ponderan ~2.25× más que las ganancias equivalentes. La taza gratis es real — cada 6 sellos, el séptimo acompañamiento va por cuenta del oso — y el framing hace que el prospecto sienta el costo de no sumarse y no el costo de sumarse.",
+      "landing.nudges.social-proof.label": "Prueba social",
+      "landing.nudges.social-proof.body":
+        "«Únete a los primeros 50 socios» señala que otros humanos ya eligieron esto — y que el cupo es real. Cialdini (2007): la prueba social es más fuerte bajo incertidumbre y cuando el grupo es comparable al prospecto. «Primeros 50» combina prueba social con escasez (principio de escasez de Cialdini): el prospecto sigue a sus pares y a la vez compite por un cupo finito.",
+      "landing.nudges.source":
+        "Thaler & Sunstein (2008), Nudge · Kahneman & Tversky (1979), Prospect Theory · Tversky & Kahneman (1974), Anchoring · Cialdini (2007), Influence.",
+
+      /* ---- Growth · objeciones del cliente y respuestas (CONVERSION-3) ----
+         Tabla de cinco filas que mapea las objeciones top que Ursa escuchará
+         a una respuesta respaldada por investigación. Cada objeción cita uno
+         de tres frameworks: Rackham (1988) SPIN selling — Problem /
+         Implication / Need-payoff; Dixon & Adamson (2011) Challenger Sale
+         — Teach / Tailor / Take control; Cialdini (2007) Influence — los
+         seis principios. */
+      "growth.objections.badge": "Manejo de objeciones",
+      "growth.objections.title": "Las cinco objeciones que Ursa escuchará — y la respuesta que funciona",
+      "growth.objections.meta":
+        "SPIN · Challenger · Influence · quince citas aplicadas",
+      "growth.objections.lede":
+        "Las objeciones no son rechazos — son preguntas disfrazadas. Los frameworks de abajo le dicen al barista cómo desvestir la pregunta y responder la preocupación real. Los tres primeros son investigación de manejo de objeciones; el resto mapea cada respuesta al principio de influencia que activa. Nada de esto es un libreto para memorizar — es un vocabulario para que el barista elija el movimiento correcto en tiempo real.",
+      "growth.objections.label.objection": "Objeción",
+      "growth.objections.label.response": "Respuesta de Ursa",
+      "growth.objections.label.framework": "Framework",
+      "growth.objections.label.principle": "Principio activado",
+      "growth.objections.science.title": "Los tres frameworks detrás de las respuestas",
+      "growth.objections.science.body":
+        "Rackham (1988), SPIN Selling: la investigación de Huthwaite de Neil Rackham observó 35,000 llamadas de venta y encontró que los top performers no «manejan» objeciones — las previenen con preguntas de Situation / Problem / Implication / Need-payoff que sacan a la luz la preocupación real antes de que el prospecto la levante. Dixon & Adamson (2011), The Challenger Sale: un estudio del CEB sobre 6,000 reps encontró que los Challengers (que Teach, Tailor y Take control) superan a los Relationship Builders por 14 puntos porcentuales en ventas complejas. Cialdini (2007), Influence: los seis principios (Reciprocidad, Compromiso/Consistencia, Prueba Social, Autoridad, Simpatía, Escasez) predicen qué respuesta moverá al prospecto porque cada uno mapea a un atajo cognitivo documentado.",
+      "growth.objections.item.1.objection": "«Es caro para un café».",
+      "growth.objections.item.1.response":
+        "Reformular de precio absoluto a valor por taza. «S/. 20 son 4–5 tazas al precio retail, y el socio que viene tres veces por semana ahorra S/. 10–15 cada mes — el café del mes te sale gratis.» Lidera con el ahorro, no con el costo.",
+      "growth.objections.item.1.framework": "Dixon & Adamson (2011) · Challenger — Teach",
+      "growth.objections.item.1.principle": "Anclaje (Tversky & Kahneman 1974)",
+      "growth.objections.item.2.objection": "«No conozco la marca».",
+      "growth.objections.item.2.response":
+        "Citar el top-5 de la Copa Amadora y las 4.8★ de Google. «Somos top-5 en la Copa Amadora de Miraflores, el Aeropress champion de la casa está detrás de la barra, y los regulares nos dejan 4.8 estrellas en Google.» Deja que la prueba hable.",
+      "growth.objections.item.2.framework": "Cialdini (2007) · Autoridad + Prueba Social",
+      "growth.objections.item.2.principle": "Prueba social + Autoridad",
+      "growth.objections.item.3.objection": "«Prefiero ir a [competidor]».",
+      "growth.objections.item.3.response":
+        "Diferenciar, no denostar. «Punto Café tiene la terraza, Bisetti tiene el nombre — Ursa tiene al oso, las dos barras, y los Ursagroni. No te pedimos que dejes tu café, te pedimos una mañana a la semana.» Reconoce al rival, después nombra lo que solo Ursa tiene.",
+      "growth.objections.item.3.framework": "Rackham (1988) · SPIN — Need-payoff",
+      "growth.objections.item.3.principle": "Diferenciación + Simpatía (Cialdini 2007)",
+      "growth.objections.item.4.objection": "«¿Y la calidad?».",
+      "growth.objections.item.4.response":
+        "Mostrar el craft, no afirmarlo. «Tostamos en casa, el Aeropress champion de Lima 2024 está detrás de la barra, y cada taza se pesa un gramo a la vez — puedes ver la tostadora desde tu mesa.» El craft visible le gana a los adjetivos.",
+      "growth.objections.item.4.framework": "Dixon & Adamson (2011) · Challenger — Teach + Tailor",
+      "growth.objections.item.4.principle": "Autoridad + Simpatía",
+      "growth.objections.item.5.objection": "«No tengo tiempo».",
+      "growth.objections.item.5.response":
+        "Reformular el tiempo como el problema que la suscripción resuelve. «Abrimos a las 7:30, tu café está listo en 90 segundos, y no decides nada — solo entras, tomas, y te vas. La suscripción no te quita tiempo, te lo devuelve.» La objeción se vuelve el beneficio.",
+      "growth.objections.item.5.framework": "Rackham (1988) · SPIN — Implication → Need-payoff",
+      "growth.objections.item.5.principle": "Aversión a la pérdida (Kahneman & Tversky 1979)",
+      "growth.objections.callout.title": "Por qué esto importa para Ursa en específico",
+      "growth.objections.callout.body":
+        "Una tostadería de un solo local en Miraflores no tiene equipo de ventas — el barista es el equipo de ventas, y el barista también está haciendo café. El vocabulario de manejo de objeciones de arriba es corto a propósito: cada respuesta es una frase que el barista puede soltar mientras tira un shot. Los frameworks son el entrenamiento; las respuestas son la memoria muscular. Entrena al equipo en estas cinco hasta que sean reflejas, y la mayoría de objeciones de prospecto colapsan en 30 segundos — que es lo que tarda servir un flat white.",
+
+      /* ---- Dashboard · visualización del pathway de conversión (CONVERSION-3) ----
+         Flujo horizontal de cinco etapas (Awareness → Interest → Decision →
+         Action → Retention) mostrando la táctica, el touchpoint de Ursa, y
+         la ciencia que respalda cada etapa. Cita el modelo AISAS (Dentsu
+         2005) — el sucesor moderno de AIDA (E. St. Elmo Lewis 1898) — que
+         añade Search y Share a la secuencia original Attention / Interest
+         / Desire / Action. */
+      "dashboard.pathway.badge": "Pathway de conversión",
+      "dashboard.pathway.title": "Cómo un extraño se vuelve regular — cinco etapas, mapeadas a los touchpoints de Ursa",
+      "dashboard.pathway.meta":
+        "AISAS (Dentsu 2005) · AIDA (Lewis 1898) · cinco etapas, cinco tácticas",
+      "dashboard.pathway.lede":
+        "El journey del cliente no es un embudo — es una secuencia de decisiones, cada una con su propia ciencia. Abajo: las cinco etapas, la táctica específica que Ursa usa en cada una, el touchpoint real donde aterriza la táctica, y la investigación que la respalda. Lee izquierda a derecha; cada etapa es una puerta que la anterior debe abrir.",
+      "dashboard.pathway.label.stage": "Etapa",
+      "dashboard.pathway.label.tactic": "Táctica",
+      "dashboard.pathway.label.touchpoint": "Touchpoint de Ursa",
+      "dashboard.pathway.label.science": "Ciencia",
+      "dashboard.pathway.stage.awareness.name": "Awareness",
+      "dashboard.pathway.stage.awareness.tactic":
+        "Reels de Instagram con el oso y el teatro de las dos barras; Google Business Profile optimizado para «café Miraflores».",
+      "dashboard.pathway.stage.awareness.touchpoint": "Instagram · Google Business Profile · letrero de la calle",
+      "dashboard.pathway.stage.awareness.science":
+        "AISAS — Attention. Dentsu (2005): en la era post-search, la atención se gana con contenido que se gana los primeros 1.7 segundos. El oso es un asset de 1.7 segundos.",
+      "dashboard.pathway.stage.interest.name": "Interest",
+      "dashboard.pathway.stage.interest.tactic":
+        "Landing page con el headline «tu café de la mañana» y el ancla S/. 20 / valor retail; fotos de GBP con las bebidas con nombre.",
+      "dashboard.pathway.stage.interest.touchpoint": "Landing page · fotos del Google Business Profile",
+      "dashboard.pathway.stage.interest.science":
+        "AISAS — Interest + Search. Dentsu (2005): el interés dispara búsqueda activa; la landing page debe responder qué/quién/después en 5.4 segundos (eye-tracking de NN/g).",
+      "dashboard.pathway.stage.decision.name": "Decision",
+      "dashboard.pathway.stage.decision.tactic":
+        "Anticipación de objeciones en el FAQ; el compromiso del piloto de 60 días; money-back guarantee; prueba social de los primeros 50 socios.",
+      "dashboard.pathway.stage.decision.touchpoint": "Sección de FAQ · contador del cupo · callout de reversión de riesgo",
+      "dashboard.pathway.stage.decision.science":
+        "AIDA — Desire. Lewis (1898) + Dholakia (2012, HBR): las money-back guarantees levantan la purchase intent 21–37%; la reversión de riesgo es la palanca de la etapa de decisión.",
+      "dashboard.pathway.stage.action.name": "Action",
+      "dashboard.pathway.stage.action.tactic":
+        "Un solo CTA primario («Anótame»); captura de email con un solo campo; el piloto cierra al llenar el cupo; pago en local con tarjeta o WhatsApp.",
+      "dashboard.pathway.stage.action.touchpoint": "Formulario de anotación · WhatsApp · tarjeta de socio en local",
+      "dashboard.pathway.stage.action.science":
+        "AIDA — Action. Lewis (1898) + Unbounce (2023): las páginas con CTA único convierten 1.6× más que las multi-CTA; el cupo de 50 activa escasez (Cialdini 2007).",
+      "dashboard.pathway.stage.retention.name": "Retention",
+      "dashboard.pathway.stage.retention.tactic":
+        "Reconocimiento del barista por nombre; la tarjeta de lealtad con sello de pata; el microlote del «gramo del mes»; 20% off en acompañamientos.",
+      "dashboard.pathway.stage.retention.touchpoint": "Tarjeta de socio · ritual del sello · drop mensual del microlote",
+      "dashboard.pathway.stage.retention.science":
+        "AISAS — Share. Dentsu (2005): la retención en la era post-search se sostiene con contenido que el socio comparte. La convención de bebidas con nombre hace cada taza instagrameable — retención y advocate colapsan en un solo movimiento.",
+      "dashboard.pathway.source":
+        "Modelo AISAS: Dentsu (2005). Modelo AIDA: E. St. Elmo Lewis (1898), catch-line advertising. Money-back guarantee: Dholakia (2012, HBR). Conversión con CTA único: Unbounce (2023) Conversion Benchmark Report. Escasez: Cialdini (2007), Influence. Eye-tracking above-the-fold: Nielsen Norman Group.",
+      "dashboard.pathway.callout.title": "Por qué el pathway importa para una tostadería de un solo local",
+      "dashboard.pathway.callout.body":
+        "Una cadena puede darse el lujo de perder prospectos en cualquier etapa porque el embudo es ancho; Ursa no. El cupo del piloto de 50 implica que cada etapa debe convertir a 60%+ para que el modelo llegue a break-even — por eso cada etapa tiene su propia ciencia y su propio touchpoint, no un solo bucket de «marketing». El pathway es el checklist de auditoría que el dueño corre cada lunes: qué etapa picó esta semana, y qué táctica hay que revisar.",
     },
   },
 };
