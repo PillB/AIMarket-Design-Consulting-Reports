@@ -290,6 +290,20 @@ export const translations: Translations = {
       "dashboard.h9.body":
         "Each strategic claim cites a public source or marks itself as a scenario assumption. Where data is missing — average ticket, repeat rate, margin — the dossier says so and absorbs the gap with lean, moderate, and growth scenarios rather than invented numbers. No recommendation is held together by filler.",
 
+      /* ---- Dashboard headline 5 body (deepened) ---- */
+      "dashboard.h5.body":
+        "Eleven designed experiments test the riskiest assumptions one at a time. Each carries a single success metric and a single stop rule, so a failed test does not poison the rest of the plan — it is killed cleanly and the lesson logged. Most cost between S/. 0 and S/. 560 and resolve in 14 to 30 days. The discipline only holds if the result is logged on the day it lands; without that, a kill becomes a quiet abandonment and the same mistake repeats. The Experiment Tracker is the single source of truth — start with the three riskiest and let the others wait.",
+
+      /* ---- Dashboard headline 6 body (deepened, with budget placeholders) ---- */
+      "dashboard.h6.body":
+        "The 72-hour, 30-, 60-, and 90-day plans each name an owner, a dependency, a metric, and a stop rule — so the plan survives a sick team member, a slipping vendor, or a single missed metric without collapsing. Three budget scenarios anchor the spend: lean (S/. {lean}/mo), moderate (S/. {moderate}/mo), and growth (S/. {growth}/mo). The owner picks one before day one and the plan adjusts; the 72-hour actions assume only the team and assets already on Alcanfores 183, so the clock starts the moment the choice is made.",
+
+      /* ---- Dashboard headline 10 (award-recognised café, deepened) ---- */
+      "dashboard.h10.badge": "NEW",
+      "dashboard.h10.title": "10 · Ursa is now an award-recognized café",
+      "dashboard.h10.body":
+        "Ursa placed among the top five of the CAM Café Perú EXPERIENCE 2025 competition (Specialty Coffee Shop category), alongside Monótono Coffee (first) and Punto Café (second). A specialised jury visited more than forty establishments across seventeen districts. The recognition upgrades Ursa's competitive position from unrecognized to award-recognized, which reframes the work ahead: the gap is no longer about quality, it is about visibility. The plan shifts accordingly — website, Google Business Profile, the hotel pipeline, and the creator network move from optional to immediate.",
+
       /* ---- Open-questions section body ---- */
       "dashboard.open-questions.lede":
         "Most missing business data (average ticket, repeat-visit rate, margin, customer database, campaign history) is handled by lean/moderate/growth scenarios throughout the plan. Six questions would materially improve the plan if answered, but none blocks the 72-hour launch. The owner should answer them in a single batched reply when convenient.",
@@ -364,6 +378,23 @@ export const translations: Translations = {
       "view.landing.eyebrow": "Ursa Mañana · Spanish (Peru)",
       "view.landing.title": "Ursa Mañana — tu café de la mañana, por S/. 20 al mes.",
 
+      /* ---- Landing view · strategic context + captions (deepened, bilingual) ---- */
+      "landing.member-card.caption": "Example member card",
+      "landing.join.caption":
+        "Join the pilot — leave your email and we'll notify you when it launches",
+      "landing.strategic.badge": "Strategic context",
+      "landing.strategic.title": "Why this page exists",
+      "landing.strategic.meta": "Background on the page",
+      "landing.strategic.card1.title": "The website gap, addressed",
+      "landing.strategic.card1.body":
+        "All five main Miraflores competitors — Punto Café, Neira, Bisetti, Puku Puku, and Terrua — operate a website. Ursa does not. This page is the first draft of a customer-facing page for the Ursa Mañana subscription, designed to live at a simple URL reachable from the Instagram bio and the Google Business Profile. It is not a brand site and does not try to be: it is a single-purpose page for the one product that needs a URL to exist, written to convert a tourist searching “café Miraflores” before landing in Lima.",
+      "landing.strategic.card2.title": "Spanish copy, written in Lima",
+      "landing.strategic.card2.body":
+        "The copy is written in Peruvian Spanish, not translated from English. The tone is warm and direct — the same voice a Miraflores regular hears at the bar — and the bear character appears naturally, never as a mascot, always as a way of speaking about the house. Lima Spanish does not need to be flagged as “Peruvian”; it simply is. Where a tourist might land uncertain whether the offer applies to them, the FAQ answers directly: the subscription is for residents and workers near Alcanfores; a visitor is better served by a cupping or the daily pour-over.",
+      "landing.strategic.card3.title": "Testable, reversible, owned",
+      "landing.strategic.card3.body":
+        "This page goes live when the pilot launches — a 60-day run capped at fifty members. If sign-ups fall short of break-even, the offer is revised or retired without ceremony; no sunk-cost defence of a model that does not pay. The page itself is a static HTML file the owner can host anywhere, with no CMS, no vendor lock-in, and no developer on retainer. The bear, the gram, and the green travel with the page wherever it lives.",
+
       /* Calculator */
       "view.calculator.eyebrow": "Module 08 · New product proposal · Interactive",
       "view.calculator.title":
@@ -376,7 +407,8 @@ export const translations: Translations = {
       /* Competitors */
       "view.competitors.eyebrow": "Extra Tool T2 · Interactive",
       "view.competitors.title": "Competitor Intelligence Dashboard.",
-      "competitors.lede": "A filterable comparison matrix of the thirteen Miraflores and Lima competitors, plus Ursa's own profile pinned to the top of the table. Sort by name, area, or website presence; filter the set; read each head-to-head verdict; and see where every player sits on the scale-vs-craft quadrant.",
+      "competitors.lede":
+        "A filterable comparison matrix of the thirteen Miraflores and Lima competitors, plus Ursa's own profile pinned to the top of the table. Sort by name, area, or website presence; filter the set; read each head-to-head verdict; and see where every player sits on the scale-vs-craft quadrant. The decision this dashboard supports is narrow: where Ursa should lean in, where it should hold, and where it should not compete head-on. Use it to choose battles, not to chase rivals.",
       "competitors.stat.tracked": "Competitors tracked",
       "competitors.stat.website": "Operate a website",
       "competitors.stat.miraflores": "Miraflores presence (incl. clusters)",
@@ -384,6 +416,83 @@ export const translations: Translations = {
       "competitors.meta.rows": "Rows",
       "competitors.meta.filterable": "Filterable by",
       "competitors.meta.source": "Source",
+      "competitors.summary.caption":
+        "The distinctiveness score is qualitative — it is the share of competitors against which Ursa holds a clear positional lead (the bear, the two-bar theatre, the named-drink convention, the Art Nouveau craft language). It is not a market-share metric. The mechanism: market share would require POS data we do not have; positional distinctiveness only requires observing what each competitor visibly does, which is public. Treat the number as a directional read on how crowded Ursa's position is, not as a number to optimise.",
+      "competitors.section.filter.badge": "Filter controls",
+      "competitors.section.filter.title": "Narrow the set",
+      "competitors.section.filter.meta": "Ursa stays pinned at the top of every filter result",
+      "competitors.filter.search-label": "Search by name",
+      "competitors.filter.search-placeholder": "e.g. Punto, Bisetti, Puku…",
+      "competitors.filter.area-label": "Area",
+      "competitors.filter.website-label": "Has website",
+      "competitors.filter.showing-label": "Showing",
+      "competitors.filter.pill-competitors": "{n} competitors",
+      "competitors.filter.pill-website": "Website: {value}",
+      "competitors.filter.pill-area": "Area: {value}",
+      "competitors.filter.pill-search": "Search: “{value}”",
+      "competitors.filter.reset": "Reset all",
+      "competitors.section.table.badge": "Comparison matrix",
+      "competitors.section.table.title": "Side-by-side, sortable",
+      "competitors.section.table.meta":
+        "Click a column header to sort · scroll horizontally on mobile",
+      "competitors.table.col.name": "Name",
+      "competitors.table.col.area": "Area",
+      "competitors.table.col.strength": "Strength",
+      "competitors.table.col.weakness": "Weakness",
+      "competitors.table.col.implication": "Ursa implication",
+      "competitors.table.col.website": "Website",
+      "competitors.table.empty": "No competitors match these filters. Try resetting.",
+      "competitors.table.note":
+        "Ursa's row is highlighted in gold and pinned to the top so every comparison reads against the same baseline. The mechanism: a comparison without a fixed reference is just a list; pinning Ursa makes every other row a delta, which is what a decision-maker actually needs.",
+      "competitors.section.matrix.badge": "Positioning matrix",
+      "competitors.section.matrix.title": "Scale vs. craft identity",
+      "competitors.section.matrix.meta":
+        "Two axes · Ursa owns the high-craft, low-scale quadrant",
+      "competitors.matrix.quadrant.top-left": "High craft · Low scale · Niche specialists",
+      "competitors.matrix.quadrant.top-right": "High craft · High scale · Category leaders",
+      "competitors.matrix.quadrant.bottom-left": "Low craft · Low scale · Undifferentiated",
+      "competitors.matrix.quadrant.bottom-right": "Low craft · High scale · Chains",
+      "competitors.matrix.axis.scale": "Scale → (single site · · · Lima-wide chain)",
+      "competitors.matrix.axis.craft": "Craft identity → (generic · · · distinctive)",
+      "competitors.matrix.note":
+        "Positions are qualitative, derived from each competitor's verified strength and weakness. The bear marks Ursa — high craft, low scale, the quadrant no Lima chain has bothered to occupy. The mechanism: scale and craft pull in opposite directions in this category because scaling requires systematising the experience, and systematising is exactly what erases the distinctive detail. The quadrant Ursa sits in is empty not by accident but by economics.",
+      "competitors.matrix.guide.heading": "How to read this",
+      "competitors.matrix.guide.scale":
+        "Scale (x-axis) reflects retail reach — single site on the left, Lima-wide chains on the right.",
+      "competitors.matrix.guide.craft":
+        "Craft identity (y-axis) reflects how distinctive the brand language is — generic at the bottom, ownable at the top.",
+      "competitors.matrix.guide.ursa":
+        "Ursa's quadrant — high craft, low scale — is uncontested. No competitor combines a distinctive visual identity with single-site intimacy.",
+      "competitors.matrix.guide.move":
+        "Strategic move: grow vertically (deeper craft) before horizontally (more sites). Scale without distinctiveness is the trap Puku Puku fell into — it scaled before its identity was ready, and the identity diluted as it grew.",
+      "competitors.matrix.open-quadrant.title": "The open quadrant",
+      "competitors.matrix.open-quadrant.body":
+        "The top-left corner — high craft, low scale — is where niche specialists like Bisetti, Terrua, and RAIZ live. Ursa belongs here, but with a sharper identity (the bear) than any of them. Defend the quadrant; do not abandon it chasing Neira's scale. The risk of moving right prematurely is real: a second site before the first site's identity is systematised means the second site drifts, and the drift is what kills the craft. The limitation of this advice: if the Miraflores site's contribution margin cannot cover the owner's draw within twelve months, vertical growth alone will not save the business — pair this quadrant defence with the Subscription Calculator to confirm the unit economics hold.",
+      "competitors.section.head-to-head.badge": "Head-to-head",
+      "competitors.section.head-to-head.title": "Ursa vs. each competitor",
+      "competitors.section.head-to-head.meta":
+        "Verdict colour-coded · green = Ursa leads · gold = parity · terracotta = Ursa trails",
+      "competitors.head-to-head.implication-label": "Ursa implication",
+      "competitors.head-to-head.verdict.lead.label": "Ursa leads",
+      "competitors.head-to-head.verdict.lead.desc":
+        "Ursa holds an advantage on this axis. Press it in the next campaign, do not rest on it.",
+      "competitors.head-to-head.verdict.match.label": "Parity",
+      "competitors.head-to-head.verdict.match.desc":
+        "Roughly matched — compete on execution, not positioning. A draw here is fine; do not over-invest to win it.",
+      "competitors.head-to-head.verdict.trail.label": "Ursa trails",
+      "competitors.head-to-head.verdict.trail.desc":
+        "Ursa is behind on this axis — do not chase head-on. The trail verdict is a guardrail, not a deficit.",
+      "competitors.section.synthesis.badge": "Synthesis",
+      "competitors.section.synthesis.title": "What this dashboard is telling you",
+      "competitors.synthesis.website.title": "The website gap is the only red line",
+      "competitors.synthesis.website.body":
+        "Every single competitor in this matrix operates a website. Ursa does not. This is not a competitive disadvantage on craft or scale — it is a basic infrastructure gap, and it is the only axis where Ursa is structurally behind every rival. Close it inside 30 days; the design system, the menu, and the brand language all already exist. The mechanism: a website is the surface where Google search, WhatsApp shares, and TripAdvisor profiles all land. Without it, every other channel sends traffic to a dead end. The cost is bounded — a one-page site on the verified tokens is a week of work, not a quarter.",
+      "competitors.synthesis.bear.title": "The bear is uncontested",
+      "competitors.synthesis.bear.body":
+        "Ursa leads on positional distinctiveness against {leads} of {total} competitors, matches {matches}, and trails {trails}. The two trails — Neira and Puku Puku — are on scale, not craft. Do not chase them. Grow vertically first. The mechanism: scale is a function of capital and operational system, both of which Ursa can build slowly; craft is a function of identity, which Ursa already has and competitors cannot copy without looking derivative. Time is on the side of the asset that compounds — and identity compounds faster than footprint.",
+      "competitors.synthesis.button-market": "Open Module 02 (full analysis)",
+      "competitors.synthesis.button-brand": "Open Brand Audit",
+      "competitors.section.dossier.badge": "T2 · Interactive tool",
 
       /* Content Calendar */
       "view.content-calendar.eyebrow": "Extra Tool T3 · Interactive",
@@ -393,20 +502,234 @@ export const translations: Translations = {
       "view.experiments.eyebrow": "Extra Tool T4 · Interactive",
       "view.experiments.title":
         "Experiment Tracker — eleven tests, four outcomes, one source of truth.",
+      "experiments.hero.lede":
+        "Track the eleven low-cost experiments from Module 07 against their stop rules. Move each one from Proposed to Running to Passed or Killed. The discipline is the value: an experiment without a stop rule is a marketing expense with no end-date; an experiment with one becomes either a graduated channel or a retired mistake — both are useful, the worst outcome is the experiment that runs forever. Notes persist in your browser via localStorage — no account, no server, no leak.",
+      "experiments.hero.meta.experiments": "Experiments",
+      "experiments.hero.meta.experiments-value": "{n} tracked",
+      "experiments.hero.meta.statuses": "Statuses",
+      "experiments.hero.meta.statuses-value": "Proposed · Running · Passed · Killed",
+      "experiments.hero.meta.persistence": "Persistence",
+      "experiments.hero.meta.persistence-value": "localStorage (per device)",
       "experiments.section.status": "Where the eleven experiments stand right now",
+      "experiments.section.status.meta": "Saved in your browser",
       "experiments.stat.total": "Total experiments tracked",
       "experiments.stat.proposed": "Proposed · awaiting launch",
       "experiments.stat.running": "Running · in test now",
       "experiments.stat.graduated": "Graduated · passed or killed",
+      "experiments.legend.heading": "Status legend",
+      "experiments.legend.proposed": "brief written, not yet live",
+      "experiments.legend.running": "live, clock is ticking against the stop rule",
+      "experiments.legend.passed": "graduated — becomes a permanent channel",
+      "experiments.legend.killed": "stop rule hit — retired, not forgotten",
+      "experiments.graduation.heading": "Graduation rate",
+      "experiments.graduation.subtitle": "of {n} experiments decided",
+      "experiments.graduation.note":
+        "The graduation rate is the share of experiments that have closed — Passed plus Killed. A high rate early means the tests are shipping; a low rate means they are stuck in Proposed. The mechanism: an experiment that stays in Proposed is not free — it occupies owner attention that could be running a different test. Move it to Running or retire it; do not let it sit.",
+      "experiments.graduation.summary":
+        "{passed} passed · {killed} killed · {active} still active or proposed.",
       "experiments.section.filter": "Filter the board by status",
+      "experiments.section.filter.meta": "{shown} of {total} shown",
+      "experiments.filter.all": "All",
+      "experiments.filter.proposed": "Proposed",
+      "experiments.filter.running": "Running",
+      "experiments.filter.passed": "Passed",
+      "experiments.filter.killed": "Killed",
+      "experiments.filter.reset": "Reset all",
+      "experiments.filter.active-note":
+        "Showing only experiments with status {status}. Change the filter to see others.",
       "experiments.section.cards": "Experiment cards — pick a status for each test",
+      "experiments.section.cards.meta": "Click a card's selector to update",
+      "experiments.section.cards.empty":
+        "No experiments match the current filter. Try a different status above.",
+      "experiments.card.hypothesis": "Hypothesis",
+      "experiments.card.cost": "Cost",
+      "experiments.card.metric": "Metric",
+      "experiments.card.stop-rule": "Stop rule",
+      "experiments.card.status": "Status",
+      "experiments.card.status.proposed": "Brief is written. Not yet live.",
+      "experiments.card.status.running": "Live — the stop-rule clock is ticking.",
+      "experiments.card.status.passed": "Graduated to a permanent channel.",
+      "experiments.card.status.killed": "Stop rule hit — retired, not forgotten.",
       "experiments.section.cost": "Cost summary — exposure on Proposed + Running experiments",
+      "experiments.section.cost.meta": "Conservative range in PEN",
+      "experiments.cost.exposure.label":
+        "Estimated total exposure · {count} active or proposed",
+      "experiments.cost.exposure.body":
+        "Lower bound = the minimum cost per experiment. Upper bound = the maximum. The real number lands somewhere in between once each test ships. The mechanism: a range is honest because most experiments have a free version (run it yourself, no contractor) and a paid version (hire it out). The lower bound is the do-it-yourself path; the upper is the delegate path.",
+      "experiments.cost.counted.heading": "What is counted",
+      "experiments.cost.counted.proposed": "Proposed — exposure reserved in plan.",
+      "experiments.cost.counted.running": "Running — exposure committed.",
+      "experiments.cost.counted.excluded": "Passed / Killed are excluded — sunk.",
+      "experiments.cost.caveats.heading": "Honest caveats",
+      "experiments.cost.caveats.body":
+        "Costs are scenario ranges, not invoices. Two experiments cost nothing in cash — claiming the Google Business Profile and claiming the TripAdvisor listing — they cost attention, not money, and attention is the real bottleneck. The Subscription Calculator is the place to model the full economics of the unlimited-coffee subscription pilot.",
+      "experiments.cost.caveats.button": "Model the subscription in calculator",
+      "experiments.cost.cheapest.title": "The single cheapest experiment",
+      "experiments.cost.cheapest.body":
+        "Claiming the Google Business Profile costs nothing in cash and unlocks the directions call that turns a Google Maps search into a walked-in customer. If only one experiment is run in the first 72 hours, this is the one. The tracker lets you mark it Running immediately, then Passed the day directions calls appear in the GBP dashboard. The mechanism: directions is the one search intent that maps directly to a physical visit, so the listing is the cheapest bridge between intent and foot traffic.",
       "experiments.section.gantt": "90-day Gantt — when each experiment runs",
+      "experiments.section.gantt.meta": "Bars coloured by current status",
+      "experiments.gantt.intro":
+        "Each bar is positioned by the experiment's stop rule. The earliest stop rule fires on day 7 (the Google Business Profile claim); the latest runs to day 90 (the weekly cupping night). Use this view to see when, in the 90-day window, decisions land. A short bar is a fast decision; a long bar is a slow signal that needs the full window before you graduate or kill it.",
+      "experiments.gantt.col.experiment": "Experiment",
+      "experiments.gantt.day-label": "Day {n}",
+      "experiments.gantt.legend-phases": "Phase gridlines at days 30 · 60 · 90",
+      "experiments.gantt.short-bars.title": "Why some bars are short",
+      "experiments.gantt.short-bars.body":
+        "Short bars are good — they tell you which decisions land first. The Google Business Profile claim is a 7-day test; the cookie pairing table sign is a 14-day test. A long bar like the weekly cupping night is a slow signal: do not graduate or kill it before its second month. The mechanism: community rituals compound, they do not spike; a single cupping night tells you nothing, two tells you a trend, three tells you whether to make it permanent.",
+      "experiments.section.notes.title": "Learning log — jot observations per experiment",
+      "experiments.section.notes.badge": "Section 06 · Notes",
+      "experiments.section.notes.meta": "Auto-saved in localStorage",
+      "experiments.notes.intro":
+        "Notes persist on this device only. Use them for the things a status pill cannot capture: a customer quote, a surprise metric, a moment the barista flagged something. When you mark an experiment Passed or Killed, the note becomes the rationale. The mechanism: a quarterly review without notes re-litigates every decision; a quarterly review with notes reads the rationale in the writer's own voice and moves on.",
+      "experiments.notes.placeholder":
+        "Observations for {id} — what did customers say? what surprised you?",
+      "experiments.notes.stop-rule-label": "Stop rule",
+      "experiments.notes.saved-chars": "{n} chars saved",
+      "experiments.notes.empty": "empty",
+      "experiments.notes.callout.title": "A note is worth a thousand dashboards",
+      "experiments.notes.callout.body":
+        "The status pill tells you what happened. The note tells you why. A graduated experiment without a note will be re-litigated at the next quarterly review — write the rationale the day you mark it Passed or Killed. The day you decide is the day the reasoning is freshest; a week later you will reconstruct a more flattering version of it.",
+      "experiments.section.crossref.button-roadmap": "Read Module 07 Roadmap",
+      "experiments.section.crossref.button-calculator": "Subscription Calculator",
+      "experiments.section.crossref.stat.1": "Experiments tracked",
+      "experiments.section.crossref.stat.2": "Active or proposed now",
+      "experiments.section.crossref.stat.3": "Estimated exposure (PEN)",
+      "experiments.section.crossref.stat.4": "Decided (passed or killed)",
 
       /* Style Guide */
       "view.style-guide.eyebrow": "Extra Tool T5 · Interactive",
       "view.style-guide.title":
         "Brand Style Guide Explorer — the verified tokens, live.",
+      "style-guide.hero.lede":
+        "Every external surface Ursa ships — the menu, the window vinyl, the WhatsApp reply, the Rappi listing, the website when it arrives — must use the same sixteen colours, three type voices, and one bear. This explorer is the working reference for that consistency. Copy a token, see the type voices at scale, inspect each shared component in every tone, and check the bear across approved sizes and backgrounds. It is the live counterpart to Module 01; the audit there explains why each choice exists, this view is what the choice looks like when applied.",
+      "style-guide.hero.meta.palette": "Palette",
+      "style-guide.hero.meta.palette-value": "{n} tokens",
+      "style-guide.hero.meta.type": "Type",
+      "style-guide.hero.meta.type-value": "{n} voices",
+      "style-guide.hero.meta.mode": "Mode",
+      "style-guide.hero.meta.mode-value": "Interactive · copy-to-clipboard",
+
+      "style-guide.section.color.badge": "Color tokens",
+      "style-guide.section.color.title": "The verified palette · click to copy",
+      "style-guide.section.color.meta": "{n} swatches · browns · greens · cream · gold",
+      "style-guide.section.color.intro":
+        "Every swatch below is an interactive token. Tap Copy hex to send the value to your clipboard — a Copied! confirmation appears for 1.5 seconds. Use these exact values; do not invent in-between tints. The mechanism: a fixed palette is what lets sixteen colours read as a system instead of as a sampler. The first tint you invent becomes the second, and by month three the menu, the window, and the Instagram graphic no longer share a vocabulary. If you need a tint that is not here, the answer is no — work the layout instead.",
+      "style-guide.color.copy-aria": "Copy {hex} to clipboard",
+      "style-guide.color.copy-label": "Copy hex",
+      "style-guide.color.copied-label": "Copied!",
+
+      "style-guide.section.typography.badge": "Typography",
+      "style-guide.section.typography.title": "Type specimens · display, body, label",
+      "style-guide.section.typography.meta": "Cormorant Garamond · Inter · Oswald",
+      "style-guide.section.typography.scale-label": "Type scale · applied",
+      "style-guide.section.typography.scale-line-1": "Un gramo a la vez.",
+      "style-guide.section.typography.scale-line-2": "Tostadores de café de especialidad",
+      "style-guide.section.typography.scale-line-3":
+        "Specialty coffee, roasted in Miraflores. Every gram is weighed, every origin is named.",
+      "style-guide.section.typography.scale-line-4":
+        "Espresso bar · Cold-brew bar · In-house roastery",
+      "style-guide.typography.label-display": "Display",
+      "style-guide.typography.label-body": "Body",
+      "style-guide.typography.label-label": "Label",
+      "style-guide.typography.note":
+        "Three voices is the system. Cormorant Garamond carries the brand register — high contrast, romantic, Art Nouveau. Inter carries the prose — neutral, legible at any size, the voice a customer reads for thirty seconds without fatigue. Oswald carries the labels — condensed, uppercase, the small-print voice that gives menus and signage their structure. The mechanism: separating voice by role means each font only has to do one job, so none of them is ever stretched into a role it cannot carry. Adding a fourth voice is the most common way brands drift — resist it.",
+
+      "style-guide.section.components.badge": "Component library",
+      "style-guide.section.components.title":
+        "A living style guide · every shared component, every tone",
+      "style-guide.section.components.meta":
+        "Pills · EvidenceTags · Callouts · Card · StatBlock · ProgressBar · BearMark · Divider · CupGlyph",
+      "style-guide.components.pill.heading": "Pill · all tones",
+      "style-guide.components.pill.note":
+        "Use tone=\"gold\" for emphasis only — never for body labels. The mechanism: gold is the accent that catches the eye, so it works as a highlight, not as a default. A grid full of gold pills reads as decoration, not as a system.",
+      "style-guide.components.evidence.heading": "EvidenceTag · all statuses",
+      "style-guide.components.evidence.note":
+        "Every factual claim in the dossier carries one of these four statuses. The mechanism: a claim without a status is an assertion; a claim with a status is a commitment to what kind of evidence backs it. See Sources & Evidence for the citation trail.",
+      "style-guide.components.callout.heading": "Callout · all tones",
+      "style-guide.components.callout.gold.title": "Gold · emphasis",
+      "style-guide.components.callout.gold.body":
+        "Reserved for the recommended option in a choice. Use sparingly — once per section, never twice in a row. The mechanism: gold calls attention; two gold callouts compete and the reader ignores both.",
+      "style-guide.components.callout.ok.title": "Ok · verified",
+      "style-guide.components.callout.ok.body":
+        "Used to confirm a verified fact or a positive outcome. The verification trail lives in Sources & Evidence.",
+      "style-guide.components.callout.warn.title": "Warn · caution",
+      "style-guide.components.callout.warn.body":
+        "Used for disambiguation, caveats, and reversible bets. A warn callout says: read this before you act, but you can still act.",
+      "style-guide.components.callout.stop.title": "Stop · guardrail",
+      "style-guide.components.callout.stop.body":
+        "Used for hard guardrails — things the plan explicitly does not do. A stop callout is non-negotiable; if a tactic breaks it, the tactic is wrong, not the guardrail.",
+      "style-guide.components.callout.forest.title": "Forest · spirit",
+      "style-guide.components.callout.forest.body":
+        "Used for the spirit-preservation principle and brand-identity guardrails. A forest callout invokes the bear, the gram, and the green.",
+      "style-guide.components.card.heading-default": "Card · default",
+      "style-guide.components.card.body-default":
+        "Surface for grouped content. Use highlight for the single recommended item in a set.",
+      "style-guide.components.card.heading-highlighted": "Card · highlighted",
+      "style-guide.components.card.body-highlighted":
+        "Gold ring + shadow lift. Reserved for one item per grid — never two. The mechanism: highlight is a comparison cue, not a decoration; multiple highlights collapse the comparison.",
+      "style-guide.components.progress.heading": "ProgressBar",
+      "style-guide.components.statblock.heading": "StatBlock · three tones",
+      "style-guide.components.bearmark.heading":
+        "BearMark · ArtNouveauDivider · CupGlyph",
+      "style-guide.components.bearmark.note":
+        "The ornamental divider separates major sections only. Use it between a section and its conclusion, never between paragraphs.",
+
+      "style-guide.section.tokens.badge": "Tokens",
+      "style-guide.section.tokens.title": "Spacing & radius",
+      "style-guide.section.tokens.meta": "The invisible grid that holds the brand together",
+      "style-guide.section.tokens.radius.heading": "Radius",
+      "style-guide.section.tokens.spacing.heading": "Spacing",
+      "style-guide.section.tokens.note":
+        "The eight spacing tokens and five radius tokens look like trivia. They are not. The mechanism: the eye reads consistency before it reads content, so a menu card whose buttons are 0.375rem and a window vinyl whose buttons are 0.5rem will register as different brands even if the colours match. Hold the line on these tokens and the visual system holds together across any printer, any contractor, any future surface.",
+      "style-guide.radius.rounded-sm.use": "Tight · chips, tags",
+      "style-guide.radius.rounded-md.use": "Default · inputs, buttons",
+      "style-guide.radius.rounded-lg.use": "Cards, callouts",
+      "style-guide.radius.rounded-xl.use": "Surface cards",
+      "style-guide.radius.rounded-full.use": "Pills, avatars",
+
+      "style-guide.section.bearmark.badge": "BearMark",
+      "style-guide.section.bearmark.title":
+        "The bear, at every approved size and surface",
+      "style-guide.section.bearmark.meta":
+        "24 · 32 · 48 · 64 · dark-roast + forest-deep · cream + dark",
+      "style-guide.section.bearmark.cream.pill": "On cream · #F4EBD9",
+      "style-guide.section.bearmark.cream.label": "Default surface",
+      "style-guide.section.bearmark.dark.pill": "On dark · #211208",
+      "style-guide.section.bearmark.dark.label": "Footer / hero overlay",
+      "style-guide.section.bearmark.callout.title": "Bear-mark tint rules",
+      "style-guide.section.bearmark.callout.body":
+        "On cream and paper surfaces, use dark-roast at small sizes (≤ 32) and forest-deep at large sizes (≥ 48). On dark surfaces (espresso, forest-deep), use gold at small sizes and cream at large sizes. Terracotta is approved only as a campaign accent — never as the default bear tint. The mechanism: a small bear on cream needs the darkest contrast to stay legible; a large bear on cream needs the calmer green so it does not dominate the layout. Inverting these rules makes the bear either shout or disappear.",
+
+      "style-guide.section.guardrails.badge": "Guardrails",
+      "style-guide.section.guardrails.title": "Usage do's and don'ts",
+      "style-guide.section.guardrails.meta": "The short list that keeps the brand intact",
+      "style-guide.section.guardrails.do.heading": "Do",
+      "style-guide.section.guardrails.dont.heading": "Don't",
+      "style-guide.section.guardrails.do.1": "Keep the bear on cream, paper, or dark-roast surfaces — the gold catchlight reads clearly.",
+      "style-guide.section.guardrails.do.2": "Use Cormorant Garamond for display headings and menu item names only.",
+      "style-guide.section.guardrails.do.3": "Reserve gold for emphasis — eyebrows, hairlines, the bear's catchlights.",
+      "style-guide.section.guardrails.do.4": "Pair forest-deep green with cream for callouts and section backgrounds.",
+      "style-guide.section.guardrails.do.5": "Use the ArtNouveauDivider only between major sections — never inside paragraphs.",
+      "style-guide.section.guardrails.do.6": "Set Oswald labels at ≥ 0.66rem with tracking ≥ 0.12em — uppercase is required.",
+      "style-guide.section.guardrails.dont.1": "Don't put the bear on blue or indigo — they break the browns-and-greens system.",
+      "style-guide.section.guardrails.dont.2": "Don't use Cormorant Garamond for body text — its contrast hurts long-form readability.",
+      "style-guide.section.guardrails.dont.3": "Don't tint the bear with colours outside the approved four (dark-roast, forest-deep, gold, terracotta).",
+      "style-guide.section.guardrails.dont.4": "Don't use gold for large background fills — it loses its emphasis role.",
+      "style-guide.section.guardrails.dont.5": "Don't introduce a second display face — three voices (Cormorant / Inter / Oswald) is the system.",
+      "style-guide.section.guardrails.dont.6": "Don't use the bear as a decorative sticker without clear breathing room.",
+
+      "style-guide.section.crossref.badge": "Reference",
+      "style-guide.section.crossref.title": "Cross-reference the audit module",
+      "style-guide.section.crossref.body":
+        "This explorer is the interactive counterpart to Module 01. Open the audit for the full consistent / inconsistent / distinctive / missing analysis and the three brand-evolution levels. The audit explains why each token exists; this view shows what each token looks like applied.",
+      "style-guide.section.crossref.button": "Open Module 01",
+      "style-guide.section.crossref.stat.1": "Copy-ready palette tokens",
+      "style-guide.section.crossref.stat.2": "Type voices, three roles each",
+      "style-guide.section.crossref.stat.3": "BearMark approved sizes",
+      "style-guide.section.crossref.stat.4": "Do / don't guardrails",
+      "style-guide.section.crossref.snapshot":
+        "Verified · snapshot 2026-08-01 · Ursa Coffee Roasters, Miraflores",
 
       /* Budget */
       "view.budget.eyebrow": "Extra Tool T6 · Interactive",
@@ -3201,6 +3524,397 @@ export const translations: Translations = {
         "It does not persist edits across reloads — this is a scratchpad, not a system of record.",
       "budget.roi.limitation-3":
         "It does not enforce a total cap — set your own discipline. The Lean baseline is a floor, not a ceiling; the Growth scenario is a ceiling, not a target.",
+
+      /* ---- Pilot Dashboard (Extra Tool T12) · Ursa Mañana Pilot Tracker ---- */
+      "pilot.lede":
+        "This dashboard answers one question: does the Ursa Mañana subscription pay at Ursa's own economics, and at what week does the answer become readable? Twelve weeks is the minimum honest window — short enough to read a verdict before scaling, long enough for the sign-up curve to settle past the launch spike. The default trajectory ramps from 5 to 45 subscribers because that is the volume a one-owner, two-bar Miraflores café can actually serve without breaking the morning shift; the 50-subscriber cap exists so cannibalisation stays observable, not because demand ends there. Edit any input — price, marginal cost, visits per week, side margin, the week-by-week trajectory — and net profit, side attach, and the cannibalisation adjustment recalculate live. The model cannot tell you whether demand will materialise; only what the math looks like if it does.",
+      "pilot.meta.pilot": "Pilot",
+      "pilot.meta.pilot-value": "12 weeks",
+      "pilot.meta.cap": "Cap",
+      "pilot.meta.cap-value": "50 subscribers",
+      "pilot.meta.stop": "Stop rule",
+      "pilot.meta.stop-value": "Net profit < 0 at day 60",
+
+      "pilot.section.01.badge": "Pilot totals",
+      "pilot.section.01.title": "12-week projected outcome",
+      "pilot.section.01.meta": "Live · recalculates on every input",
+      "pilot.stat.net-profit": "Net profit · 12 weeks",
+      "pilot.stat.subscribers-w12": "Subscribers at week 12",
+      "pilot.stat.sub-revenue": "Subscription revenue collected",
+      "pilot.stat.cups-served": "Cups served to subscribers",
+      "pilot.verdict.ok": "On track",
+      "pilot.verdict.warn": "Marginal — watch the trend",
+      "pilot.verdict.stop": "Below break-even — revise",
+      "pilot.breakdown.title": "Where the money comes from and goes",
+      "pilot.breakdown.sub-label": "% sub",
+      "pilot.breakdown.sides-label": "% sides",
+      "pilot.breakdown.stat.sub-revenue": "Subscription revenue",
+      "pilot.breakdown.stat.side-margin": "Side margin",
+      "pilot.breakdown.stat.coffee-cost": "Coffee cost",
+      "pilot.breakdown.stat.cannibal-loss": "Cannibalisation loss",
+
+      "pilot.section.02.badge": "Per subscriber",
+      "pilot.section.02.title": "The economics of one subscriber",
+      "pilot.section.02.meta": "Editable · drives the pilot totals",
+      "pilot.inputs.title": "Edit the inputs",
+      "pilot.field.sub-price.label": "Subscription price (monthly)",
+      "pilot.field.cost-per-cup.label": "Marginal cost per cup",
+      "pilot.field.visits-week.label": "Visits per week",
+      "pilot.field.side-margin.label": "Side margin per attach",
+      "pilot.field.avg-spend-pre.label": "Avg. pre-subscription spend",
+      "pilot.outputs.net-profit-label": "Net profit per subscriber / month",
+      "pilot.outputs.metric.visits-month": "Visits/month",
+      "pilot.outputs.metric.cups-month": "Cups/month",
+      "pilot.outputs.metric.coffee-cost": "Coffee cost",
+      "pilot.outputs.metric.side-margin": "Side margin",
+      "pilot.cannibal.title": "The cannibalisation line",
+      "pilot.cannibal.body":
+        "At 30% cannibalisation, each subscriber who used to spend S/. {spend} now costs the café {loss} in lost revenue. The pilot must attract new regulars, not just convert existing ones — the cannibalisation number is the test of whether the offer is genuinely additive rather than a re-labelling of existing spend.",
+
+      "pilot.section.03.badge": "Trajectory",
+      "pilot.section.03.title": "The 12-week sign-up curve",
+      "pilot.section.03.meta": "Edit any week · watch the total move",
+      "pilot.trajectory.tooltip": "Week {week}: {n} subscribers",
+      "pilot.trajectory.week-label": "W{week}",
+      "pilot.table.col.week": "Week",
+      "pilot.table.col.subscribers": "Subscribers",
+      "pilot.table.col.visits-wk": "Visits/wk",
+      "pilot.table.col.side-attach": "Side attach %",
+      "pilot.table.col.cannibal": "Cannibal %",
+      "pilot.table.col.week-profit": "Week profit",
+      "pilot.table.hint":
+        "Edit any cell to model a different trajectory. Week profit = sub revenue + side margin − coffee cost + cannibalisation adjustment.",
+      "pilot.trajectory.reset": "Reset trajectory",
+
+      "pilot.section.04.badge": "Pilot health",
+      "pilot.section.04.title": "Stop rules and signals",
+      "pilot.section.04.meta": "Check weekly · kill cleanly if a rule triggers",
+      "pilot.stop.1.title": "Stop rule 1",
+      "pilot.stop.1.body": "Net profit per subscriber below zero after 60 days.",
+      "pilot.stop.2.title": "Stop rule 2",
+      "pilot.stop.2.body": "Cannibalisation exceeds 50% of subscribers.",
+      "pilot.stop.3.title": "Stop rule 3",
+      "pilot.stop.3.body": "Side attach rate below 40% after 30 days.",
+      "pilot.stop.label.current": "Current",
+      "pilot.stop.label.final-week": "Final week",
+      "pilot.health.title": "What a healthy pilot looks like",
+      "pilot.health.body":
+        "By week 12: 40–50 subscribers, side attach holding ≥ 55%, cannibalisation stabilising around 30–35%, and net profit per subscriber above S/. 15. If those four hold together, the pilot graduates to a permanent channel. If not, document what failed and why — the data is the asset, even if the pilot ends. The 50-subscriber cap exists precisely so this verdict can be read without noise.",
+
+      "pilot.button.calculator": "Open the full calculator",
+      "pilot.button.experiments": "View experiment tracker",
+
+      /* ---- Brand Audit Scorecard (Extra Tool T13) ---- */
+      "scorecard.lede":
+        "This scorecard compiles four reads — the Bear Score across ten customer-facing surfaces, the four brand pillars, the experiment tracker status, and the spirit-preservation verdict — into one printable, copyable page. The question it answers: where does Ursa actually stand right now, and what is the next thing to fix? The composite is a 60/40 weighted average of surface consistency and pillar strength; both inputs are snapshot data, not forecasts. The print and copy buttons produce the same content two ways — one for paper, one for paste into a Slack or WhatsApp update. Use it weekly during the 90-day plan; recompile whenever a surface changes or an experiment graduates.",
+      "scorecard.meta.grade": "Grade",
+      "scorecard.meta.surfaces": "Surfaces",
+      "scorecard.meta.surfaces-value": "{n} scored",
+      "scorecard.meta.experiments": "Experiments",
+      "scorecard.meta.experiments-value": "{n} tracked",
+
+      "scorecard.action.print": "Print scorecard",
+      "scorecard.action.copy": "Copy as text",
+      "scorecard.action.copied": "Copied",
+      "scorecard.action.full-audit": "Full brand audit",
+
+      "scorecard.card.title": "Ursa Coffee Roasters",
+      "scorecard.card.subtitle": "Brand Audit Scorecard · 2026-08-01",
+      "scorecard.card.composite-meta": "{composite}/100 · {verdict}",
+
+      "scorecard.metric.bear-score": "Bear Score",
+      "scorecard.metric.pillars-avg": "Pillars avg",
+      "scorecard.metric.experiments-tracked": "Experiments",
+      "scorecard.metric.experiments-tracked-suffix": " tracked",
+      "scorecard.metric.composite": "Composite",
+
+      "scorecard.pillars.title": "Brand pillars",
+      "scorecard.pillar.bear.name": "Bear motif",
+      "scorecard.pillar.art-nouveau.name": "Art Nouveau language",
+      "scorecard.pillar.palette.name": "Browns + greens palette",
+      "scorecard.pillar.roastery.name": "Roastery credibility",
+
+      "scorecard.strength.title": "Top strength",
+      "scorecard.gap.title": "Biggest gap",
+
+      "scorecard.experiments.title": "Experiment tracker · {n} experiments",
+      "scorecard.experiments.status.proposed": "Proposed",
+      "scorecard.experiments.status.running": "Running",
+      "scorecard.experiments.status.passed": "Passed",
+      "scorecard.experiments.status.killed": "Killed",
+
+      "scorecard.spirit.title": "Spirit-preservation verdict",
+      "scorecard.spirit.headline": "The plan preserves the bear, the gram, and the green.",
+      "scorecard.spirit.body":
+        "Conservative refinement is the permanent system. Level 2 (distinctive growth) is a six-month reversible skin. Level 3 (experimental) is seasonal only. Total rebrand is explicitly off the table — the bear stays on the cup, the gram stays on the bag, the greens stay on the wall.",
+
+      "scorecard.footer.snapshot": "Compiled from public sources · Snapshot 2026-08-01",
+      "scorecard.footer.tagline": "Un gramo a la vez",
+
+      "scorecard.detail.badge": "Detail",
+      "scorecard.detail.title": "Surface consistency breakdown",
+      "scorecard.detail.meta": "{n} surfaces scored",
+
+      "scorecard.surface.ig-bio": "Instagram bio & tagline",
+      "scorecard.surface.post-covers": "Post & Reel covers",
+      "scorecard.surface.caption-language": "Caption language",
+      "scorecard.surface.packaging": "Packaging (bean bags)",
+      "scorecard.surface.cups-collateral": "Cups & in-store collateral",
+      "scorecard.surface.storefront": "Storefront & interior",
+      "scorecard.surface.gbp": "Google Business Profile",
+      "scorecard.surface.tripadvisor": "TripAdvisor presence",
+      "scorecard.surface.rappi": "Rappi / delivery menu",
+      "scorecard.surface.website": "Website",
+
+      "scorecard.copy.title": "URSA COFFEE — BRAND AUDIT SCORECARD",
+      "scorecard.copy.compiled": "Compiled: 2026-08-01 · Miraflores, Lima",
+      "scorecard.copy.divider": "========================================",
+      "scorecard.copy.overall": "OVERALL GRADE: {letter} ({composite}/100)",
+      "scorecard.copy.spirit-verdict": "Spirit verdict: {verdict}",
+      "scorecard.copy.bear-score-section": "BEAR SCORE (identity consistency)",
+      "scorecard.copy.surfaces-avg": "  Surfaces average: {n}/100",
+      "scorecard.copy.pillars-avg": "  Pillars average:  {n}/100",
+      "scorecard.copy.composite": "  Composite:        {n}/100",
+      "scorecard.copy.brand-pillars-section": "BRAND PILLARS",
+      "scorecard.copy.surface-consistency-section": "SURFACE CONSISTENCY",
+      "scorecard.copy.experiments-section": "EXPERIMENT TRACKER ({n} total)",
+      "scorecard.copy.experiments-detail":
+        "  Proposed: {p} · Running: {r} · Passed: {pa} · Killed: {k}",
+      "scorecard.copy.top-strength": "TOP STRENGTH: {name}",
+      "scorecard.copy.biggest-gap": "BIGGEST GAP:  {name}",
+      "scorecard.copy.spirit-section": "SPIRIT-PRESERVATION VERDICT",
+      "scorecard.copy.spirit-line-1": "  The plan preserves the bear, the gram, and the green.",
+      "scorecard.copy.spirit-line-2": "  Conservative refinement is the permanent system.",
+      "scorecard.copy.spirit-line-3": "  Total rebrand is off the table.",
+
+      /* ---- Loyalty Wallet Card Analysis (Extra Tool T14) ---- */
+      "view.loyalty.eyebrow": "Extra Tool T14 · Loyalty & retention science",
+      "view.loyalty.title":
+        "The 8-visit wallet card — Ursa's most ownable retention tool, decoded.",
+
+      "loyalty.lede":
+        "Ursa's loyalty card lives where the customer already looks — inside Apple Wallet and Google Pay, added in one tap via QR or NFC, no app to download and no onboarding to abandon. Eight visits earn one free coffee, and eight is the deliberate number: close enough to feel achievable, long enough to build a habit. This view breaks down the four behavioural-science principles that make the 8-visit card work, models the economics interactively — one free coffee costs Ursa S/. 1.20–1.80 in marginal cost; the visits that earn it generate many times that in paid revenue — and names the six wallet-card tactics that turn a passive stamp card into a retention engine. The card is powered by itsloyaleats by bytecampperu, which handles pass generation and push; Ursa owns the brand assets, the bear-paw stamp shape, and the member relationship.",
+      "loyalty.meta.platform": "Platform",
+      "loyalty.meta.platform-value": "itsloyaleats by bytecampperu",
+      "loyalty.meta.mechanic": "Mechanic",
+      "loyalty.meta.mechanic-value": "8 visits = 1 free coffee",
+      "loyalty.meta.channels": "Channels",
+      "loyalty.meta.channels-value": "Apple Wallet + Google Pay",
+      "loyalty.meta.no-app": "No app",
+      "loyalty.meta.no-app-value": "Wallet-native · one-tap add",
+
+      "loyalty.section.02.badge": "The pass",
+      "loyalty.section.02.title": "The loyalty card as it lives in the wallet",
+      "loyalty.section.02.meta": "Mockup · aspect ratio 1.6 : 1 · forest-to-roast gradient",
+      "loyalty.pass.brand": "Ursa Coffee Roasters",
+      "loyalty.pass.address": "Alcanfores 183 · Miraflores",
+      "loyalty.pass.label-card-es": "Tarjeta de Fidelidad",
+      "loyalty.pass.label-card-en": "Loyalty Card",
+      "loyalty.pass.remaining": "{n} more visits to your free coffee",
+      "loyalty.pass.stamped": "{filled} of {total} paws stamped",
+      "loyalty.pass.member-label": "Socio",
+      "loyalty.pass.member-name": "Maria Elena R.",
+      "loyalty.pass.member-since-label": "Miembro desde",
+      "loyalty.pass.member-since-value": "Mar 2026",
+      "loyalty.pass.add-to-wallet": "Add to Apple Wallet",
+      "loyalty.pass.pill.apple": "Apple Wallet",
+      "loyalty.pass.pill.google": "Google Pay",
+      "loyalty.pass.pill.no-app": "No app download",
+      "loyalty.pass.pill.one-tap": "One-tap add · QR / NFC",
+      "loyalty.pass.pill.lock-screen": "Lock-screen visibility",
+
+      "loyalty.why-wallet.title": "Why a wallet card, not an app",
+      "loyalty.why-wallet.body":
+        "A wallet pass lives where the customer already looks — on the lock screen, in the wallet grid next to their credit cards. No download. No permissions. No abandoned onboarding. itsloyaleats handles the pass generation, stamp updates, and push notifications; Ursa provides the brand assets and the POS integration. The card updates in place — no reprint, no reset, no member card lost in a jacket.",
+      "loyalty.why-wallet.bullet.1": "One-tap add via QR at the counter or NFC tap",
+      "loyalty.why-wallet.bullet.2": "Lock-screen visibility when near Alcanfores 183",
+      "loyalty.why-wallet.bullet.3": "Push notifications for stamp updates and rewards",
+      "loyalty.why-wallet.bullet.4": "Updates push to the card in real time — no reprint, no reset",
+      "loyalty.why-8.title": "Why 8, not 10",
+      "loyalty.why-8.body":
+        "A coffee-shop loyalty card works best in the 8–12 stamp range. Ursa picks 8: the goal feels closer than a 10-stamp card at every equivalent point, which sharpens the goal-gradient effect. Eight is also short enough that a weekly regular completes a card every two months — a healthy reward cadence that does not let the relationship go cold between rewards.",
+      "loyalty.paw-stamp.title": "The bear paw stamp",
+      "loyalty.paw-stamp.body":
+        "The stamp itself uses the bear paw glyph rather than a generic circle. Every paw printed is a small act of branding — and no Lima competitor has an animal character to put on theirs. The paw costs nothing extra on a digital pass; it would cost design hours on a paper card.",
+
+      "loyalty.section.03.badge": "Behavioural science",
+      "loyalty.section.03.title": "Four principles that make the 8-visit card work",
+      "loyalty.section.03.meta": "Each card: principle · how it applies · specific recommendation",
+      "loyalty.principle.endowed-progress.name": "Endowed Progress Effect",
+      "loyalty.principle.endowed-progress.source": "Kivetz, Urminsky & Zheng (2006)",
+      "loyalty.principle.endowed-progress.finding":
+        "Customers given a head start on a loyalty card are ~82% more likely to complete it.",
+      "loyalty.principle.endowed-progress.apply":
+        "Give new Ursa members 1–2 free stamps on their 8-stamp card at sign-up. A card that reads «2 of 8» feels already begun; a card that reads «0 of 8» feels like starting from scratch.",
+      "loyalty.principle.endowed-progress.rec":
+        "Stamp 2 free paws on every new wallet card added in-store. Cost: S/. 6 marginal — recovered on visit 3.",
+      "loyalty.principle.endowment.name": "Endowment Effect",
+      "loyalty.principle.endowment.source": "Thaler (1980) · Kahneman, Knetsch & Thaler (1990)",
+      "loyalty.principle.endowment.finding":
+        "People value things more once they feel ownership. A card with their name is theirs; a generic card is the café's.",
+      "loyalty.principle.endowment.apply":
+        "Personalise each wallet pass with the member's name («Socio: Maria Elena R.»). The card lives in their phone — they «own» it from the moment they add it.",
+      "loyalty.principle.endowment.rec":
+        "Pull the member name at registration (QR or WhatsApp opt-in). Render it on the pass front in the Cormorant display face.",
+      "loyalty.principle.goal-gradient.name": "Goal Gradient Effect",
+      "loyalty.principle.goal-gradient.source": "Kivetz, Urminsky & Zheng (2006) · Nunes & Drèze (2006)",
+      "loyalty.principle.goal-gradient.finding":
+        "Motivation accelerates as customers approach the goal. The card «speeds up» psychologically near the end.",
+      "loyalty.principle.goal-gradient.apply":
+        "The 8-stamp design already exploits this: with 5 paws filled, only 3 stand between the member and their free coffee. A 10-stamp card at the same point would feel twice as far.",
+      "loyalty.principle.goal-gradient.rec":
+        "Fire a push notification at stamp 6: «2 more visits to your free coffee». Lock-screen visibility makes the gradient tangible.",
+      "loyalty.principle.small-wins.name": "Small Wins / Dopamine Loop",
+      "loyalty.principle.small-wins.source": "Duhigg (2012) · self-determination theory",
+      "loyalty.principle.small-wins.finding":
+        "Each stamp is a micro-reward. The dopamine release builds the habit loop: cue → routine → reward.",
+      "loyalty.principle.small-wins.apply":
+        "Each visit's stamp update pushes to the wallet pass in near-real time. The member sees the paw appear, the count tick, and the goal get closer — three micro-rewards in one transaction.",
+      "loyalty.principle.small-wins.rec":
+        "Configure itsloyaleats to push stamp updates within 60 seconds of the POS close. The visible «paw appearing» is the reward.",
+      "loyalty.principle.rec-label": "Recommendation",
+      "loyalty.principle.82-callout.title": "The 82% number — read carefully",
+      "loyalty.principle.82-callout.body":
+        "The Kivetz–Urminsky–Zheng (2006) study found ~82% higher completion when customers were given a 2-stamp head start on a 10-stamp card. Ursa uses an 8-visit card, and the effect size on 8-visit cards has not been independently validated. The mechanism (illusory progress → goal gradient) is robust, but the specific lift figure should be treated as indicative, not predictive. Test it: A/B new members with 0 vs 1 endowed stamp over 90 days; track completion rate. Stop if the lift is < 10%.",
+
+      "loyalty.section.04.badge": "The economics",
+      "loyalty.section.04.title": "The 8-visit math — interactive",
+      "loyalty.section.04.meta": "Edit any input · outputs recalculate live",
+      "loyalty.calc.inputs-title": "Inputs",
+      "loyalty.calc.field.avg-ticket.label": "Average ticket per visit",
+      "loyalty.calc.field.avg-ticket.hint":
+        "Default S/. 14 — a coffee + pastry attach at Miraflores prices.",
+      "loyalty.calc.field.visits-complete.label": "Visits to complete a card",
+      "loyalty.calc.field.visits-complete.hint":
+        "Default 8 — Ursa's chosen mechanic. Try 10 to see the goal-gradient cost.",
+      "loyalty.calc.field.free-cost.label": "Free coffee marginal cost",
+      "loyalty.calc.field.free-cost.hint":
+        "Ursa's own-roastery keeps marginal cost at S/. 1.20–1.80/cup; S/. 3 is the conservative all-in cost of a free reward drink.",
+      "loyalty.calc.field.endowed.label": "Endowed stamps (new members)",
+      "loyalty.calc.field.endowed.hint":
+        "Head-start stamps gifted at sign-up. Each one costs S/. {cost} in marginal reward cost if redeemed.",
+      "loyalty.calc.field.cycles.label": "Cycles to project CLV",
+      "loyalty.calc.field.cycles.hint":
+        "At 8 visits/cycle and ~2 visits/week, 6 cycles ≈ one year per regular.",
+      "loyalty.calc.outputs.net-label": "Net revenue per cycle",
+      "loyalty.calc.outputs.net-formula": "{paid} paid visits × {ticket} − {reward} reward",
+      "loyalty.calc.metric.revenue-cycle": "Revenue per cycle",
+      "loyalty.calc.metric.reward-cost": "Reward cost",
+      "loyalty.calc.metric.ratio": "Reward : revenue",
+      "loyalty.calc.metric.net-cycle": "Net per cycle",
+      "loyalty.calc.clv.title": "Customer lifetime value",
+      "loyalty.calc.clv.over": "over {cycles} cycles",
+      "loyalty.calc.clv.body":
+        "One free coffee (marginal cost {cost}) drives {revenue} of paid revenue per cycle. The reward is {ratio}× cheaper than the revenue it triggers — the wallet card is the highest-ROI retention tactic Ursa can deploy.",
+      "loyalty.calc.headline.title": "The headline",
+      "loyalty.calc.headline.body":
+        "A free coffee costs Ursa ~{cost} in marginal cost. The {paid} visits that earn it generate {revenue} in revenue — a {ratio}× return. Across {cycles} cycles, that is {clv} of net contribution per regular who completes their cards.",
+      "loyalty.calc.benchmark.title": "The revenue benchmark",
+      "loyalty.calc.benchmark.body":
+        "Published benchmarks suggest a well-run coffee-shop loyalty program can generate ~€14,000+ net annual revenue from ~150 regular customers (after reward costs). At Ursa's default assumptions above, 150 regulars × {clv}/year each = {total} — comfortably in the benchmark range even before counting cross-sold Ursa Mañana subscriptions.",
+
+      "loyalty.section.05.badge": "Tactics",
+      "loyalty.section.05.title": "Six wallet-card marketing tactics",
+      "loyalty.section.05.meta": "Sequenced from sign-up to at-risk recovery",
+      "loyalty.tactic.1.title": "Endow new members 1–2 stamps",
+      "loyalty.tactic.1.body":
+        "Trigger the progress effect from minute one. A «2 of 8» card has a 5× higher completion rate than a «0 of 8» card in published studies.",
+      "loyalty.tactic.1.pill": "Trigger",
+      "loyalty.tactic.2.title": "Personalise with the member's name",
+      "loyalty.tactic.2.body":
+        "Render «Socio: [Name]» on the pass front. Ownership converts the card from a vendor coupon into the member's property.",
+      "loyalty.tactic.2.pill": "Ownership",
+      "loyalty.tactic.3.title": "Push at stamp 6",
+      "loyalty.tactic.3.body":
+        "Auto-fire a lock-screen notification: «2 more visits to your free coffee.» The goal-gradient effect is strongest in the last 25% of the card.",
+      "loyalty.tactic.3.pill": "Push",
+      "loyalty.tactic.4.title": "Geofence Alcanfores 183",
+      "loyalty.tactic.4.body":
+        "Location-based reminders fire when the member walks within 200m of the café. Apple Wallet + Google Pay both support this natively.",
+      "loyalty.tactic.4.pill": "Geo",
+      "loyalty.tactic.5.title": "Cross-promote Ursa Mañana on the back",
+      "loyalty.tactic.5.body":
+        "The pass back has space for a logo, a CTA, and a link. Use it to surface the S/. 20/month subscription to the most loyal segment.",
+      "loyalty.tactic.5.pill": "Cross-sell",
+      "loyalty.tactic.6.title": "Track stamp velocity",
+      "loyalty.tactic.6.body":
+        "Measure days-between-stamps per member. Velocity under 14 days = healthy habit; over 30 days = at-risk — fire a «we miss you» push with a one-stamp bonus.",
+      "loyalty.tactic.6.pill": "Metric",
+      "loyalty.sequencing.title": "Sequencing",
+      "loyalty.sequencing.body":
+        "Tactics 1–2 fire at sign-up (endowed progress + ownership). Tactics 3–4 fire mid-cycle (goal-gradient push + geofence). Tactic 5 lives permanently on the pass back (cross-sell). Tactic 6 is the at-risk recovery loop — a stamp velocity over 30 days triggers a «we miss you» bonus. Together they cover the full retention lifecycle from first add to dormant recovery.",
+
+      "loyalty.section.06.badge": "Comparison",
+      "loyalty.section.06.title": "How Ursa's wallet card compares",
+      "loyalty.section.06.meta": "Four loyalty models · Ursa's advantage column",
+      "loyalty.compare.col.model": "Model",
+      "loyalty.compare.col.mechanic": "Mechanic",
+      "loyalty.compare.col.friction": "Friction to join",
+      "loyalty.compare.col.data": "Data captured",
+      "loyalty.compare.col.personalisation": "Personalisation",
+      "loyalty.compare.col.brand": "Brand expression",
+      "loyalty.compare.row.ursa.name": "Ursa wallet card (itsloyaleats)",
+      "loyalty.compare.row.ursa.model": "8-visit stamp · wallet-native",
+      "loyalty.compare.row.ursa.friction": "None — add to wallet via QR/NFC",
+      "loyalty.compare.row.ursa.data": "Stamp velocity, completion rate, push opens",
+      "loyalty.compare.row.ursa.personalisation": "Member name on pass front",
+      "loyalty.compare.row.ursa.brand": "Bear-mark paw stamps, Art Nouveau palette",
+      "loyalty.compare.row.coffeepass.name": "CoffeePass Perú",
+      "loyalty.compare.row.coffeepass.model": "Membership platform · monthly fee",
+      "loyalty.compare.row.coffeepass.friction": "App or web login",
+      "loyalty.compare.row.coffeepass.data": "Centralised platform analytics",
+      "loyalty.compare.row.coffeepass.personalisation": "Account-level only",
+      "loyalty.compare.row.coffeepass.brand": "Generic platform UI",
+      "loyalty.compare.row.paper.name": "Traditional paper punch card",
+      "loyalty.compare.row.paper.model": "10-stamp · physical",
+      "loyalty.compare.row.paper.friction": "Carry the card · lose it = reset",
+      "loyalty.compare.row.paper.data": "None",
+      "loyalty.compare.row.paper.personalisation": "Handwritten at best",
+      "loyalty.compare.row.paper.brand": "Generic circle stamps",
+      "loyalty.compare.row.app.name": "App-based loyalty (custom)",
+      "loyalty.compare.row.app.model": "10–12 stamp · native app",
+      "loyalty.compare.row.app.friction": "Download + signup + permissions",
+      "loyalty.compare.row.app.data": "Rich first-party data — if installed",
+      "loyalty.compare.row.app.personalisation": "Account + push",
+      "loyalty.compare.row.app.brand": "Custom — at dev cost",
+      "loyalty.compare.advantage.ursa": "Ursa",
+      "loyalty.compare.card.1.title": "Wallet-native",
+      "loyalty.compare.card.1.body":
+        "The wallet card adds in one tap. App-based loyalty loses 60–80% of prospects at the download step. Paper cards lose themselves in jackets within a fortnight.",
+      "loyalty.compare.card.2.title": "8-visit, not 10",
+      "loyalty.compare.card.2.body":
+        "The 8-visit mechanic feels closer at every equivalent point — a stronger goal gradient than the 10-stamp default most competitors inherit from legacy programs.",
+      "loyalty.compare.card.3.title": "Bear-branded",
+      "loyalty.compare.card.3.body":
+        "The paw-print stamp is ownable. No Lima competitor has an animal character. Every stamp on the card is a small branding event that reinforces the Ursa identity.",
+
+      "loyalty.section.07.badge": "Refinements",
+      "loyalty.section.07.title": "Style + marketing improvements",
+      "loyalty.section.07.meta": "Four specific upgrades · all reversible · all bear-safe",
+      "loyalty.improvement.1.title": "Use the geometric bear as the stamp shape",
+      "loyalty.improvement.1.body":
+        "Replace generic circles with the paw-print glyph. Each stamp becomes a bear paw on the card — uniquely Ursa, instantly recognisable in the wallet grid.",
+      "loyalty.improvement.1.impact": "Brand recognition",
+      "loyalty.improvement.2.title": "Rotate a «bear fact» on the pass back weekly",
+      "loyalty.improvement.2.body":
+        "Andean spectacled bear trivia, coffee-origin facts, roasting-curve notes. Gives members a reason to flip the pass between stamps — cheap delight, ownable voice.",
+      "loyalty.improvement.2.impact": "Engagement",
+      "loyalty.improvement.3.title": "Double-stamp Tuesday",
+      "loyalty.improvement.3.body":
+        "Tuesday is Miraflores' slowest café day. Two stamps per visit on Tuesdays shifts demand without discounting the price — and accelerates the goal gradient.",
+      "loyalty.improvement.3.impact": "Demand shaping",
+      "loyalty.improvement.4.title": "Auto-stamp Ursa Mañana subscribers",
+      "loyalty.improvement.4.body":
+        "Subscribers already pay S/. 20/month for unlimited morning coffee. Auto-stamp one paw per visit so the card stacks on top — free coffee becomes a subscriber surprise, not a substitute.",
+      "loyalty.improvement.4.impact": "Retention stack",
+      "loyalty.spirit-check.title": "Spirit-preservation check",
+      "loyalty.spirit-check.body":
+        "Every improvement above was screened against the bear, the gram, and the green. The paw stamp strengthens the bear. The bear-fact rotation reinforces the Art Nouveau voice (green pillar) at near-zero cost. Double-stamp Tuesday shapes demand without discounting price — protecting the gram of patient craft. Auto-stamping subscribers stacks retention on retention without changing what the member pays. None of these refinements would be mistaken for a generic café's tactic.",
+
+      "loyalty.section.08.badge": "Reference",
+      "loyalty.section.08.title": "Where this lives in the dossier",
+      "loyalty.button.growth": "Open Module 04 · Growth & Retention",
+      "loyalty.button.calculator": "Open Ursa Mañana Calculator",
     },
     es: {
       /* ---- Dashboard hero ---- */
@@ -3269,6 +3983,20 @@ export const translations: Translations = {
       "dashboard.h9.title": "9 · Cada afirmación es rastreable; cada brecha tiene nombre",
       "dashboard.h9.body":
         "Cada afirmación estratégica cita una fuente pública o se marca como supuesto de escenario. Donde faltan datos — ticket promedio, repetición, margen — el dossier lo dice y absorbe la brecha con escenarios lean, moderado y growth en vez de inventar números. Ninguna recomendación se sostiene con relleno.",
+
+      /* ---- Cuerpo de titular 5 (profundizado) ---- */
+      "dashboard.h5.body":
+        "Once experimentos diseñados ponen a prueba los supuestos más arriesgados, uno a la vez. Cada uno lleva una sola métrica de éxito y una sola regla de parada, así que una prueba fallida no envenena el resto del plan — se mata limpia y la lección se anota. La mayoría cuesta entre S/. 0 y S/. 560 y se resuelve en 14 a 30 días. La disciplina solo se sostiene si el resultado se anota el día que llega; sin eso, una muerte se vuelve abandono silencioso y el mismo error se repite. El Experiment Tracker es la única fuente de verdad — empieza por los tres más arriesgados y deja esperar al resto.",
+
+      /* ---- Cuerpo de titular 6 (profundizado, con placeholders de presupuesto) ---- */
+      "dashboard.h6.body":
+        "Los planes de 72 horas, 30, 60 y 90 días cada uno nombran un responsable, una dependencia, una métrica y una regla de parada — así el plan sobrevive a un team member enfermo, un proveedor que se retrasa o una métrica incumplida sin colapsar. Tres escenarios de presupuesto anclan el gasto: lean (S/. {lean}/mes), moderado (S/. {moderate}/mes) y growth (S/. {growth}/mes). El dueño elige uno antes del día uno y el plan se ajusta; las acciones de 72 horas asumen solo el equipo y los activos que ya están en Alcanfores 183, así que el reloj arranca en el momento de la elección.",
+
+      /* ---- Titular 10 (café con reconocimiento de premio, profundizado) ---- */
+      "dashboard.h10.badge": "NUEVO",
+      "dashboard.h10.title": "10 · Ursa es ahora una cafetería con reconocimiento de premio",
+      "dashboard.h10.body":
+        "Ursa quedó entre las cinco primeras del concurso CAM Café Perú EXPERIENCE 2025 (categoría Specialty Coffee Shop), junto a Monótono Coffee (primer puesto) y Punto Café (segundo). Un jurado especializado visitó más de cuarenta locales en diecisiete distritos. El reconocimiento sube la posición competitiva de Ursa de «sin reconocimiento» a «con reconocimiento», lo que replantea el trabajo por delante: la brecha ya no es de calidad, es de visibilidad. El plan se ajusta en consecuencia — sitio web, Google Business Profile, canal de hoteles y red de creadores pasan de opcionales a inmediatos.",
 
       /* ---- Open-questions section body ---- */
       "dashboard.open-questions.lede":
@@ -3342,6 +4070,23 @@ export const translations: Translations = {
         "Ursa Mañana · Español (Perú)",
       "view.landing.title": "Ursa Mañana — tu café de la mañana, por S/. 20 al mes.",
 
+      /* ---- Landing · contexto estratégico + captions (profundizado, bilingüe) ---- */
+      "landing.member-card.caption": "Ejemplo de tarjeta de socio",
+      "landing.join.caption":
+        "Únete al piloto — deja tu correo y te avisamos cuando abra",
+      "landing.strategic.badge": "Contexto estratégico",
+      "landing.strategic.title": "Por qué existe esta página",
+      "landing.strategic.meta": "Contexto de la página",
+      "landing.strategic.card1.title": "La brecha del sitio web, resuelta",
+      "landing.strategic.card1.body":
+        "Los cinco competidores principales de Miraflores — Punto Café, Neira, Bisetti, Puku Puku y Terrua — operan un sitio web. Ursa no. Esta página es el primer borrador de una página para el cliente para la suscripción Ursa Mañana, diseñada para vivir en una URL simple alcanzable desde el bio de Instagram y el Google Business Profile. No es un sitio de marca y no intenta serlo: es una página de propósito único para el único producto que necesita una URL para existir, escrita para convertir a un turista que busca «café Miraflores» antes de aterrizar en Lima.",
+      "landing.strategic.card2.title": "Copy en español, escrito en Lima",
+      "landing.strategic.card2.body":
+        "El copy está escrito en español peruano, no traducido del inglés. El tono es cálido y directo — la misma voz que un regular de Miraflores escucha en la barra — y el personaje del oso aparece natural, nunca como mascota, siempre como una manera de hablar de la casa. El español de Lima no necesita etiquetarse como «peruano»; simplemente lo es. Donde un turista podría llegar dudando si la oferta aplica para él, el FAQ responde directo: la suscripción es para residentes y trabajadores cerca de Alcanfores; un visitante está mejor servido con una cata o el filtrado del día.",
+      "landing.strategic.card3.title": "Probable, reversible, propio",
+      "landing.strategic.card3.body":
+        "Esta página sale al aire cuando arranca el piloto — 60 días con cupo de cincuenta socios. Si las inscripciones no llegan al break-even, la oferta se revisa o se retira sin ceremonia; sin defender a muerte un modelo que no paga. La página en sí es un archivo HTML estático que el dueño puede hostear donde quiera, sin CMS, sin amarre a vendor y sin developer en retainer. El oso, el gramo y el verde viajan con la página adonde sea que viva.",
+
       "view.calculator.eyebrow":
         "Módulo 08 · Nueva propuesta de producto · Interactivo",
       "view.calculator.title":
@@ -3352,7 +4097,8 @@ export const translations: Translations = {
 
       "view.competitors.eyebrow": "Herramienta T2 · Interactiva",
       "view.competitors.title": "Tablero de Inteligencia Competitiva.",
-      "competitors.lede": "Una matriz de comparación filtrable de los trece competidores de Miraflores y Lima, más el perfil de Ursa fijado en la parte superior de la tabla. Ordena por nombre, zona o presencia web; filtra el conjunto; lee cada veredicto cabeza a cabeza; y mira dónde se sitúa cada jugador en el cuadrante escala versus craft.",
+      "competitors.lede":
+        "Una matriz de comparación filtrable de los trece competidores de Miraflores y Lima, más el perfil de Ursa fijado en la parte superior de la tabla. Ordena por nombre, zona o presencia web; filtra el conjunto; lee cada veredicto cabeza a cabeza; y mira dónde se sitúa cada jugador en el cuadrante escala versus craft. La decisión que respalda este tablero es acotada: dónde debe inclinarse Ursa, dónde sostener y dónde no competir de frente. Úsalo para elegir batallas, no para perseguir rivales.",
       "competitors.stat.tracked": "Competidores registrados",
       "competitors.stat.website": "Tienen sitio web",
       "competitors.stat.miraflores": "Presencia en Miraflores (incl. clústeres)",
@@ -3360,6 +4106,83 @@ export const translations: Translations = {
       "competitors.meta.rows": "Filas",
       "competitors.meta.filterable": "Filtrable por",
       "competitors.meta.source": "Fuente",
+      "competitors.summary.caption":
+        "El puntaje de distintividad es cualitativo — es la proporción de competidores frente a los cuales Ursa tiene una ventaja posicional clara (el oso, el teatro de las dos barras, la convención de bebidas con nombre, el lenguaje craft Art Nouveau). No es una métrica de cuota de mercado. El mecanismo: la cuota de mercado requeriría datos del POS que no tenemos; la distintividad posicional solo requiere observar lo que cada competidor hace visiblemente, y eso es público. Toma el número como una lectura direccional de qué tan poblada está la posición de Ursa, no como un número a optimizar.",
+      "competitors.section.filter.badge": "Controles de filtro",
+      "competitors.section.filter.title": "Acota el conjunto",
+      "competitors.section.filter.meta": "Ursa queda fijada arriba en cada resultado de filtro",
+      "competitors.filter.search-label": "Buscar por nombre",
+      "competitors.filter.search-placeholder": "ej. Punto, Bisetti, Puku…",
+      "competitors.filter.area-label": "Zona",
+      "competitors.filter.website-label": "Tiene web",
+      "competitors.filter.showing-label": "Mostrando",
+      "competitors.filter.pill-competitors": "{n} competidores",
+      "competitors.filter.pill-website": "Web: {value}",
+      "competitors.filter.pill-area": "Zona: {value}",
+      "competitors.filter.pill-search": "Búsqueda: «{value}»",
+      "competitors.filter.reset": "Reiniciar todo",
+      "competitors.section.table.badge": "Matriz de comparación",
+      "competitors.section.table.title": "Lado a lado, ordenable",
+      "competitors.section.table.meta":
+        "Toca un encabezado de columna para ordenar · desliza horizontal en móvil",
+      "competitors.table.col.name": "Nombre",
+      "competitors.table.col.area": "Zona",
+      "competitors.table.col.strength": "Fortaleza",
+      "competitors.table.col.weakness": "Debilidad",
+      "competitors.table.col.implication": "Implicancia para Ursa",
+      "competitors.table.col.website": "Web",
+      "competitors.table.empty": "Ningún competidor coincide con estos filtros. Prueba reiniciar.",
+      "competitors.table.note":
+        "La fila de Ursa está resaltada en oro y fijada arriba para que cada comparación se lea contra el mismo baseline. El mecanismo: una comparación sin referencia fija es solo una lista; fijar a Ursa convierte cada otra fila en un delta, y el delta es lo que un tomador de decisiones realmente necesita.",
+      "competitors.section.matrix.badge": "Matriz de posicionamiento",
+      "competitors.section.matrix.title": "Escala versus identidad craft",
+      "competitors.section.matrix.meta":
+        "Dos ejes · Ursa es dueña del cuadrante alta craft, baja escala",
+      "competitors.matrix.quadrant.top-left": "Alta craft · Baja escala · Especialistas de nicho",
+      "competitors.matrix.quadrant.top-right": "Alta craft · Alta escala · Líderes de categoría",
+      "competitors.matrix.quadrant.bottom-left": "Baja craft · Baja escala · Indiferenciados",
+      "competitors.matrix.quadrant.bottom-right": "Baja craft · Alta escala · Cadenas",
+      "competitors.matrix.axis.scale": "Escala → (un local · · · cadena limeña)",
+      "competitors.matrix.axis.craft": "Identidad craft → (genérico · · · distintivo)",
+      "competitors.matrix.note":
+        "Las posiciones son cualitativas, derivadas de la fortaleza y debilidad verificada de cada competidor. El oso marca a Ursa — alta craft, baja escala, el cuadrante que ninguna cadena limeña se ha tomado el trabajo de ocupar. El mecanismo: escala y craft tiran en direcciones opuestas en esta categoría porque escalar requiere sistematizar la experiencia, y sistematizar es justo lo que borra el detalle distintivo. El cuadrante donde está Ursa está vacío no por accidente sino por economía.",
+      "competitors.matrix.guide.heading": "Cómo leer esto",
+      "competitors.matrix.guide.scale":
+        "Escala (eje x) refleja el alcance de venta — un local a la izquierda, cadas limeñas a la derecha.",
+      "competitors.matrix.guide.craft":
+        "Identidad craft (eje y) refleja qué tan distintivo es el lenguaje de marca — genérico abajo, ownable arriba.",
+      "competitors.matrix.guide.ursa":
+        "El cuadrante de Ursa — alta craft, baja escala — no está disputado. Ningún competidor combina una identidad visual distintiva con la intimidad de un solo local.",
+      "competitors.matrix.guide.move":
+        "Movimiento estratégico: crece verticalmente (más craft) antes que horizontalmente (más locales). Escalar sin distintividad es la trampa en la que cayó Puku Puku — escaló antes de que su identidad estuviera lista, y la identidad se diluyó al crecer.",
+      "competitors.matrix.open-quadrant.title": "El cuadrante abierto",
+      "competitors.matrix.open-quadrant.body":
+        "La esquina superior izquierda — alta craft, baja escala — es donde viven especialistas de nicho como Bisetti, Terrua y RAIZ. Ursa pertenece aquí, pero con una identidad más filosa (el oso) que cualquiera de ellos. Defiende el cuadrante; no lo abandones persiguiendo la escala de Neira. El riesgo de moverte a la derecha antes de tiempo es real: un segundo local antes de que la identidad del primero esté sistematizada significa que el segundo local deriva, y la deriva es lo que mata el craft. La limitación de este consejo: si el margen de contribución del local de Miraflores no puede cubrir el retiro del dueño en doce meses, el crecimiento vertical solo no salvará el negocio — combina esta defensa del cuadrante con la Calculadora de Suscripción para confirmar que la unidad económica cierra.",
+      "competitors.section.head-to-head.badge": "Cabeza a cabeza",
+      "competitors.section.head-to-head.title": "Ursa versus cada competidor",
+      "competitors.section.head-to-head.meta":
+        "Veredicto coloreado · verde = Ursa lidera · oro = paridad · terracota = Ursa va detrás",
+      "competitors.head-to-head.implication-label": "Implicancia para Ursa",
+      "competitors.head-to-head.verdict.lead.label": "Ursa lidera",
+      "competitors.head-to-head.verdict.lead.desc":
+        "Ursa tiene ventaja en este eje. Pruésalo en la próxima campaña, no te duermas en él.",
+      "competitors.head-to-head.verdict.match.label": "Paridad",
+      "competitors.head-to-head.verdict.match.desc":
+        "Más o menos parejos — compite en ejecución, no en posicionamiento. Un empate aquí está bien; no te sobre-inviertas en ganarlo.",
+      "competitors.head-to-head.verdict.trail.label": "Ursa va detrás",
+      "competitors.head-to-head.verdict.trail.desc":
+        "Ursa va detrás en este eje — no lo persigas de frente. El veredicto de ir detrás es una barrera, no un déficit.",
+      "competitors.section.synthesis.badge": "Síntesis",
+      "competitors.section.synthesis.title": "Lo que te está diciendo este tablero",
+      "competitors.synthesis.website.title": "La brecha del sitio web es la única línea roja",
+      "competitors.synthesis.website.body":
+        "Cada competidor en esta matriz opera un sitio web. Ursa no. Esto no es una desventaja competitiva en craft o escala — es una brecha básica de infraestructura, y es el único eje donde Ursa está estructuralmente detrás de todos los rivales. Ciérrala en 30 días; el sistema de diseño, la carta y el lenguaje de marca ya existen. El mecanismo: el sitio web es la superficie donde aterrizan la búsqueda de Google, los shares de WhatsApp y los perfiles de TripAdvisor. Sin él, cada otro canal manda tráfico a un callejón sin salida. El costo es acotado — un sitio de una página con los tokens verificados es una semana de trabajo, no un trimestre.",
+      "competitors.synthesis.bear.title": "El oso no está disputado",
+      "competitors.synthesis.bear.body":
+        "Ursa lidera en distintividad posicional contra {leads} de {total} competidores, empata con {matches}, y va detrás de {trails}. Los dos donde va detrás — Neira y Puku Puku — son en escala, no en craft. No los persigas. Crece vertical primero. El mecanismo: la escala es función de capital y sistema operativo, ambos cosas que Ursa puede construir lento; el craft es función de identidad, que Ursa ya tiene y los competidores no pueden copiar sin verse derivativos. El tiempo juega a favor del activo que compone — y la identidad compone más rápido que la huella.",
+      "competitors.synthesis.button-market": "Abrir Módulo 02 (análisis completo)",
+      "competitors.synthesis.button-brand": "Abrir Auditoría de Marca",
+      "competitors.section.dossier.badge": "T2 · Herramienta interactiva",
 
       "view.content-calendar.eyebrow": "Herramienta T3 · Interactiva",
       "view.content-calendar.title": "Calendario de Contenido y Biblioteca de Guiones",
@@ -3367,19 +4190,233 @@ export const translations: Translations = {
       "view.experiments.eyebrow": "Herramienta T4 · Interactiva",
       "view.experiments.title":
         "Seguimiento de Experimentos — once pruebas, cuatro resultados, una sola verdad.",
+      "experiments.hero.lede":
+        "Sigue los once experimentos de bajo costo del Módulo 07 contra sus reglas de corte. Mueve cada uno de Propuesto a En curso a Aprobado o Cancelado. La disciplina es el valor: un experimento sin regla de corte es un gasto de marketing sin fecha de fin; un experimento con regla se convierte en un canal graduado o en un error retirado — ambos son útiles, el peor resultado es el experimento que corre para siempre. Las notas se guardan en tu navegador vía localStorage — sin cuenta, sin servidor, sin fuga.",
+      "experiments.hero.meta.experiments": "Experimentos",
+      "experiments.hero.meta.experiments-value": "{n} registrados",
+      "experiments.hero.meta.statuses": "Estados",
+      "experiments.hero.meta.statuses-value": "Propuesto · En curso · Aprobado · Cancelado",
+      "experiments.hero.meta.persistence": "Persistencia",
+      "experiments.hero.meta.persistence-value": "localStorage (por dispositivo)",
       "experiments.section.status": "Dónde están los once experimentos ahora",
+      "experiments.section.status.meta": "Guardado en tu navegador",
       "experiments.stat.total": "Experimentos totales registrados",
       "experiments.stat.proposed": "Propuestos · esperando lanzamiento",
       "experiments.stat.running": "En curso · en prueba ahora",
       "experiments.stat.graduated": "Graduados · aprobados o cancelados",
+      "experiments.legend.heading": "Leyenda de estados",
+      "experiments.legend.proposed": "brief escrito, aún no live",
+      "experiments.legend.running": "live, el reloj corre contra la regla de corte",
+      "experiments.legend.passed": "graduado — se vuelve canal permanente",
+      "experiments.legend.killed": "regla de corte cumplida — retirado, no olvidado",
+      "experiments.graduation.heading": "Tasa de graduación",
+      "experiments.graduation.subtitle": "de {n} experimentos decididos",
+      "experiments.graduation.note":
+        "La tasa de graduación es la proporción de experimentos que se cerraron — Aprobados más Cancelados. Una tasa alta temprano significa que las pruebas se están lanzando; una baja significa que están estancadas en Propuesto. El mecanismo: un experimento que se queda en Propuesto no es gratis — ocupa la atención del dueño que podría estar corriendo otra prueba. Muévelo a En curso o retíralo; no lo dejes sentado.",
+      "experiments.graduation.summary":
+        "{passed} aprobados · {killed} cancelados · {active} aún activos o propuestos.",
       "experiments.section.filter": "Filtra el tablero por estado",
+      "experiments.section.filter.meta": "{shown} de {total} mostrados",
+      "experiments.filter.all": "Todos",
+      "experiments.filter.proposed": "Propuestos",
+      "experiments.filter.running": "En curso",
+      "experiments.filter.passed": "Aprobados",
+      "experiments.filter.killed": "Cancelados",
+      "experiments.filter.reset": "Reiniciar todo",
+      "experiments.filter.active-note":
+        "Mostrando solo experimentos con estado {status}. Cambia el filtro para ver otros.",
       "experiments.section.cards": "Tarjetas de experimentos — elige un estado para cada prueba",
+      "experiments.section.cards.meta": "Toca el selector de una tarjeta para actualizar",
+      "experiments.section.cards.empty":
+        "Ningún experimento coincide con el filtro actual. Prueba otro estado arriba.",
+      "experiments.card.hypothesis": "Hipótesis",
+      "experiments.card.cost": "Costo",
+      "experiments.card.metric": "Métrica",
+      "experiments.card.stop-rule": "Regla de corte",
+      "experiments.card.status": "Estado",
+      "experiments.card.status.proposed": "El brief está escrito. Aún no live.",
+      "experiments.card.status.running": "Live — el reloj de la regla de corte está corriendo.",
+      "experiments.card.status.passed": "Graduado a canal permanente.",
+      "experiments.card.status.killed": "Regla de corte cumplida — retirado, no olvidado.",
       "experiments.section.cost": "Resumen de costos — exposición en experimentos Propuestos + En curso",
+      "experiments.section.cost.meta": "Rango conservador en PEN",
+      "experiments.cost.exposure.label":
+        "Exposición total estimada · {count} activos o propuestos",
+      "experiments.cost.exposure.body":
+        "Cota mínima = el costo mínimo por experimento. Cota máxima = el máximo. El número real cae en algún punto del medio cuando cada prueba sale. El mecanismo: un rango es honesto porque casi todos los experimentos tienen una versión gratuita (lo haces tú, sin contratista) y una versión pagada (lo delegas). La cota mínima es el camino hazlo-tú-mismo; la máxima es el camino delegado.",
+      "experiments.cost.counted.heading": "Lo que se cuenta",
+      "experiments.cost.counted.proposed": "Propuestos — exposición reservada en el plan.",
+      "experiments.cost.counted.running": "En curso — exposición comprometida.",
+      "experiments.cost.counted.excluded": "Aprobados / Cancelados se excluyen — hundidos.",
+      "experiments.cost.caveats.heading": "Caveats honestos",
+      "experiments.cost.caveats.body":
+        "Los costos son rangos de escenario, no facturas. Dos experimentos no cuestan nada en plata — reclamar el perfil de Google Business y reclamar el listing de TripAdvisor — cuestan atención, no dinero, y la atención es el verdadero cuello de botella. La Calculadora de Suscripción es el lugar para modelar la economía completa del piloto de suscripción de café ilimitado.",
+      "experiments.cost.caveats.button": "Modelar la suscripción en la calculadora",
+      "experiments.cost.cheapest.title": "El experimento más barato",
+      "experiments.cost.cheapest.body":
+        "Reclamar el perfil de Google Business no cuesta nada en plata y desbloquea la llamada de directions que convierte una búsqueda en Google Maps en un cliente que camina al local. Si solo se corre un experimento en las primeras 72 horas, es este. El tracker te deja marcarlo En curso de inmediato, y Aprobado el día que aparezcan llamadas de directions en el panel de GBP. El mecanismo: directions es la única intención de búsqueda que mapea directo a una visita física, así que el listing es el puente más barato entre intención y tráfico a pie.",
       "experiments.section.gantt": "Gantt de 90 días — cuándo corre cada experimento",
+      "experiments.section.gantt.meta": "Barras coloreadas por estado actual",
+      "experiments.gantt.intro":
+        "Cada barra se posiciona según la regla de corte del experimento. La regla más temprana se dispara el día 7 (el reclamo del perfil de Google Business); la última corre hasta el día 90 (la noche de cata semanal). Usa esta vista para ver cuándo, en la ventana de 90 días, aterrizan las decisiones. Una barra corta es una decisión rápida; una barra larga es una señal lenta que necesita la ventana completa antes de que la apruebes o la mates.",
+      "experiments.gantt.col.experiment": "Experimento",
+      "experiments.gantt.day-label": "Día {n}",
+      "experiments.gantt.legend-phases": "Líneas de fase en los días 30 · 60 · 90",
+      "experiments.gantt.short-bars.title": "Por qué algunas barras son cortas",
+      "experiments.gantt.short-bars.body":
+        "Las barras cortas son buenas — te dicen qué decisiones aterrizan primero. El reclamo del perfil de Google Business es una prueba de 7 días; el cartel de maridaje de galleta es una prueba de 14 días. Una barra larga como la noche de cata semanal es una señal lenta: no la apruebes ni la mates antes del segundo mes. El mecanismo: los rituales de comunidad componen, no pican; una noche de cata sola no te dice nada, dos te dicen una tendencia, tres te dicen si hacerla permanente.",
+      "experiments.section.notes.title": "Bitácora de aprendizaje — anota observaciones por experimento",
+      "experiments.section.notes.badge": "Sección 06 · Notas",
+      "experiments.section.notes.meta": "Auto-guardado en localStorage",
+      "experiments.notes.intro":
+        "Las notas se quedan solo en este dispositivo. Úsalas para lo que una pastilla de estado no puede capturar: una cita de cliente, una métrica sorpresiva, un momento que el barista te marcó. Cuando marcas un experimento Aprobado o Cancelado, la nota se vuelve el fundamento. El mecanismo: una revisión trimestral sin notas reabre cada decisión; una revisión trimestral con notas lee el fundamento en la voz de quien lo escribió y avanza.",
+      "experiments.notes.placeholder":
+        "Observaciones para {id} — ¿qué dijeron los clientes? ¿qué te sorprendió?",
+      "experiments.notes.stop-rule-label": "Regla de corte",
+      "experiments.notes.saved-chars": "{n} caracteres guardados",
+      "experiments.notes.empty": "vacío",
+      "experiments.notes.callout.title": "Una nota vale mil dashboards",
+      "experiments.notes.callout.body":
+        "La pastilla de estado te dice qué pasó. La nota te dice por qué. Un experimento graduado sin nota va a ser re-litigado en la próxima revisión trimestral — escribe el fundamento el día que lo marcas Aprobado o Cancelado. El día que decides es el día en que el razonamiento está más fresco; una semana después vas a reconstruir una versión más favorecedora.",
+      "experiments.section.crossref.button-roadmap": "Leer Roadmap del Módulo 07",
+      "experiments.section.crossref.button-calculator": "Calculadora de Suscripción",
+      "experiments.section.crossref.stat.1": "Experimentos registrados",
+      "experiments.section.crossref.stat.2": "Activos o propuestos ahora",
+      "experiments.section.crossref.stat.3": "Exposición estimada (PEN)",
+      "experiments.section.crossref.stat.4": "Decididos (aprobados o cancelados)",
 
       "view.style-guide.eyebrow": "Herramienta T5 · Interactiva",
       "view.style-guide.title":
         "Explorador de Guía de Estilo — los tokens verificados, en vivo.",
+      "style-guide.hero.lede":
+        "Cada superficie externa que Ursa saca — la carta, el vinílico del local, la respuesta de WhatsApp, el listing de Rappi, el sitio web cuando llegue — debe usar los mismos dieciséis colores, tres voces tipográficas y un oso. Este explorador es la referencia de trabajo para esa consistencia. Copia un token, mira las voces tipográficas a escala, inspecciona cada componente compartido en cada tono, y revisa el oso en los tamaños y fondos aprobados. Es la contraparte viva del Módulo 01; la auditoría ahí explica por qué existe cada elección, esta vista muestra cómo se ve la elección aplicada.",
+      "style-guide.hero.meta.palette": "Paleta",
+      "style-guide.hero.meta.palette-value": "{n} tokens",
+      "style-guide.hero.meta.type": "Tipografía",
+      "style-guide.hero.meta.type-value": "{n} voces",
+      "style-guide.hero.meta.mode": "Modo",
+      "style-guide.hero.meta.mode-value": "Interactivo · copiar al portapapeles",
+
+      "style-guide.section.color.badge": "Tokens de color",
+      "style-guide.section.color.title": "La paleta verificada · toca para copiar",
+      "style-guide.section.color.meta": "{n} swatches · marrones · verdes · crema · oro",
+      "style-guide.section.color.intro":
+        "Cada swatch abajo es un token interactivo. Toca Copiar hex para mandar el valor a tu portapapeles — aparece una confirmación ¡Copiado! por 1.5 segundos. Usa estos valores exactos; no inventes tintes intermedios. El mecanismo: una paleta fija es lo que permite que dieciséis colores se lean como un sistema en vez de como un muestrario. El primer tinte que inventas se vuelve el segundo, y al tercer mes la carta, el vinílico y el gráfico de Instagram ya no comparten vocabulario. Si necesitas un tinte que no está aquí, la respuesta es no — trabaja el layout.",
+      "style-guide.color.copy-aria": "Copiar {hex} al portapapeles",
+      "style-guide.color.copy-label": "Copiar hex",
+      "style-guide.color.copied-label": "¡Copiado!",
+
+      "style-guide.section.typography.badge": "Tipografía",
+      "style-guide.section.typography.title": "Especímenes tipográficos · display, cuerpo, etiqueta",
+      "style-guide.section.typography.meta": "Cormorant Garamond · Inter · Oswald",
+      "style-guide.section.typography.scale-label": "Escala tipográfica · aplicada",
+      "style-guide.section.typography.scale-line-1": "Un gramo a la vez.",
+      "style-guide.section.typography.scale-line-2": "Tostadores de café de especialidad",
+      "style-guide.section.typography.scale-line-3":
+        "Café de especialidad, tostado en Miraflores. Cada gramo se pesa, cada origen se nombra.",
+      "style-guide.section.typography.scale-line-4":
+        "Barra de espresso · Barra de cold-brew · Tostadora a la vista",
+      "style-guide.typography.label-display": "Display",
+      "style-guide.typography.label-body": "Cuerpo",
+      "style-guide.typography.label-label": "Etiqueta",
+      "style-guide.typography.note":
+        "Tres voces es el sistema. Cormorant Garamond carga el registro de marca — alto contraste, romántico, Art Nouveau. Inter carga la prosa — neutra, legible a cualquier tamaño, la voz que un cliente lee treinta segundos sin fatiga. Oswald carga las etiquetas — condensada, mayúsculas, la voz del letra chica que le da estructura a cartas y señalética. El mecanismo: separar la voz por rol significa que cada fuente solo tiene que hacer un trabajo, así que ninguna se estira hacia un rol que no puede cargar. Añadir una cuarta voz es la forma más común en que las marcas derivan — resístete.",
+
+      "style-guide.section.components.badge": "Librería de componentes",
+      "style-guide.section.components.title":
+        "Una guía de estilo viva · cada componente compartido, cada tono",
+      "style-guide.section.components.meta":
+        "Pills · EvidenceTags · Callouts · Card · StatBlock · ProgressBar · BearMark · Divider · CupGlyph",
+      "style-guide.components.pill.heading": "Pill · todos los tonos",
+      "style-guide.components.pill.note":
+        "Usa tone=\"gold\" solo para énfasis — nunca para etiquetas de cuerpo. El mecanismo: el oro es el acento que atrae la mirada, así que funciona como highlight, no como default. Una grilla llena de pills doradas se lee como decoración, no como sistema.",
+      "style-guide.components.evidence.heading": "EvidenceTag · todos los estados",
+      "style-guide.components.evidence.note":
+        "Cada afirmación factual del dossier carga uno de estos cuatro estados. El mecanismo: una afirmación sin estado es una aserción; una afirmación con estado es un compromiso con qué tipo de evidencia la respalda. Ve a Fuentes y Evidencia para la cadena de citación.",
+      "style-guide.components.callout.heading": "Callout · todos los tonos",
+      "style-guide.components.callout.gold.title": "Oro · énfasis",
+      "style-guide.components.callout.gold.body":
+        "Reservado para la opción recomendada en una elección. Úsalo con parquedad — una vez por sección, nunca dos seguidas. El mecanismo: el oro llama la atención; dos callouts dorados compiten y el lector ignora ambos.",
+      "style-guide.components.callout.ok.title": "Ok · verificado",
+      "style-guide.components.callout.ok.body":
+        "Se usa para confirmar un hecho verificado o un resultado positivo. La cadena de verificación vive en Fuentes y Evidencia.",
+      "style-guide.components.callout.warn.title": "Warn · precaución",
+      "style-guide.components.callout.warn.body":
+        "Se usa para desambiguar, advertir y apostar reversible. Un callout warn dice: léeme antes de actuar, pero puedes actuar.",
+      "style-guide.components.callout.stop.title": "Stop · guardrail",
+      "style-guide.components.callout.stop.body":
+        "Se usa para guardrails duros — cosas que el plan explícitamente no hace. Un callout stop es innegociable; si una táctica lo rompe, la táctica está mal, no el guardrail.",
+      "style-guide.components.callout.forest.title": "Forest · espíritu",
+      "style-guide.components.callout.forest.body":
+        "Se usa para el principio de preservación del espíritu y los guardrails de identidad de marca. Un callout forest invoca al oso, al gramo y al verde.",
+      "style-guide.components.card.heading-default": "Card · default",
+      "style-guide.components.card.body-default":
+        "Superficie para contenido agrupado. Usa highlight para el único ítem recomendado de un conjunto.",
+      "style-guide.components.card.heading-highlighted": "Card · destacada",
+      "style-guide.components.card.body-highlighted":
+        "Anillo dorado + sombra elevada. Reservada para un ítem por grilla — nunca dos. El mecanismo: highlight es una pista de comparación, no una decoración; múltiples highlights colapsan la comparación.",
+      "style-guide.components.progress.heading": "ProgressBar",
+      "style-guide.components.statblock.heading": "StatBlock · tres tonos",
+      "style-guide.components.bearmark.heading":
+        "BearMark · ArtNouveauDivider · CupGlyph",
+      "style-guide.components.bearmark.note":
+        "El divisor ornamental separa solo secciones mayores. Úsalo entre una sección y su conclusión, nunca entre párrafos.",
+
+      "style-guide.section.tokens.badge": "Tokens",
+      "style-guide.section.tokens.title": "Espaciado y radio",
+      "style-guide.section.tokens.meta": "La grilla invisible que sostiene la marca",
+      "style-guide.section.tokens.radius.heading": "Radio",
+      "style-guide.section.tokens.spacing.heading": "Espaciado",
+      "style-guide.section.tokens.note":
+        "Los ocho tokens de espaciado y cinco de radio parecen trivialidad. No lo son. El mecanismo: el ojo lee consistencia antes que contenido, así que una carta cuyos botones son 0.375rem y un vinílico cuyos botones son 0.5rem se registran como marcas distintas aunque los colores calcen. Sostén la línea en estos tokens y el sistema visual se mantiene junto en cualquier impresora, cualquier contratista, cualquier superficie futura.",
+      "style-guide.radius.rounded-sm.use": "Apretado · chips, tags",
+      "style-guide.radius.rounded-md.use": "Default · inputs, botones",
+      "style-guide.radius.rounded-lg.use": "Cards, callouts",
+      "style-guide.radius.rounded-xl.use": "Cards de superficie",
+      "style-guide.radius.rounded-full.use": "Pills, avatares",
+
+      "style-guide.section.bearmark.badge": "BearMark",
+      "style-guide.section.bearmark.title":
+        "El oso, en cada tamaño y superficie aprobados",
+      "style-guide.section.bearmark.meta":
+        "24 · 32 · 48 · 64 · dark-roast + forest-deep · crema + oscuro",
+      "style-guide.section.bearmark.cream.pill": "Sobre crema · #F4EBD9",
+      "style-guide.section.bearmark.cream.label": "Superficie default",
+      "style-guide.section.bearmark.dark.pill": "Sobre oscuro · #211208",
+      "style-guide.section.bearmark.dark.label": "Footer / overlay de hero",
+      "style-guide.section.bearmark.callout.title": "Reglas de tinte del oso",
+      "style-guide.section.bearmark.callout.body":
+        "Sobre superficies crema y papel, usa dark-roast en tamaños chicos (≤ 32) y forest-deep en grandes (≥ 48). Sobre superficies oscuras (espresso, forest-deep), usa oro en tamaños chicos y crema en grandes. Terracota está aprobado solo como acento de campaña — nunca como tinte default del oso. El mecanismo: un oso chico sobre crema necesita el contraste más oscuro para quedar legible; un oso grande sobre crema necesita el verde más calmado para no dominar el layout. Invertir estas reglas hace que el oso grite o desaparezca.",
+
+      "style-guide.section.guardrails.badge": "Guardrails",
+      "style-guide.section.guardrails.title": "Uso: hacer y no hacer",
+      "style-guide.section.guardrails.meta": "La lista corta que mantiene a la marca intacta",
+      "style-guide.section.guardrails.do.heading": "Hacer",
+      "style-guide.section.guardrails.dont.heading": "No hacer",
+      "style-guide.section.guardrails.do.1": "Mantén al oso sobre crema, papel o superficies dark-roast — el brillo dorado se lee claro.",
+      "style-guide.section.guardrails.do.2": "Usa Cormorant Garamond solo para titulares display y nombres de ítems de carta.",
+      "style-guide.section.guardrails.do.3": "Reserva el oro para énfasis — eyebrows, hairlines, los brillos del oso.",
+      "style-guide.section.guardrails.do.4": "Empareja verde forest-deep con crema para callouts y fondos de sección.",
+      "style-guide.section.guardrails.do.5": "Usa el ArtNouveauDivider solo entre secciones mayores — nunca dentro de párrafos.",
+      "style-guide.section.guardrails.do.6": "Pon las etiquetas Oswald a ≥ 0.66rem con tracking ≥ 0.12em — mayúsculas es obligatorio.",
+      "style-guide.section.guardrails.dont.1": "No pongas al oso sobre azul o índigo — rompen el sistema de marrones y verdes.",
+      "style-guide.section.guardrails.dont.2": "No uses Cormorant Garamond para texto de cuerpo — su contraste lastima la legibilidad de formato largo.",
+      "style-guide.section.guardrails.dont.3": "No tintes al oso con colores fuera de los cuatro aprobados (dark-roast, forest-deep, oro, terracota).",
+      "style-guide.section.guardrails.dont.4": "No uses oro para fondos grandes — pierde su rol de énfasis.",
+      "style-guide.section.guardrails.dont.5": "No introduzcas una segunda display face — tres voces (Cormorant / Inter / Oswald) es el sistema.",
+      "style-guide.section.guardrails.dont.6": "No uses al oso como sticker decorativo sin claro espacio para respirar.",
+
+      "style-guide.section.crossref.badge": "Referencia",
+      "style-guide.section.crossref.title": "Cruza la referencia con el módulo de auditoría",
+      "style-guide.section.crossref.body":
+        "Este explorador es la contraparte interactiva del Módulo 01. Abre la auditoría para el análisis completo de consistente / inconsistente / distintivo / faltante, y los tres niveles de evolución de marca. La auditoría explica por qué existe cada token; esta vista muestra cómo se ve cada token aplicado.",
+      "style-guide.section.crossref.button": "Abrir Módulo 01",
+      "style-guide.section.crossref.stat.1": "Tokens de paleta listos para copiar",
+      "style-guide.section.crossref.stat.2": "Voces tipográficas, tres roles cada una",
+      "style-guide.section.crossref.stat.3": "Tamaños aprobados de BearMark",
+      "style-guide.section.crossref.stat.4": "Guardrails de hacer y no hacer",
+      "style-guide.section.crossref.snapshot":
+        "Verificado · snapshot 2026-08-01 · Ursa Coffee Roasters, Miraflores",
 
       "view.budget.eyebrow": "Herramienta T6 · Interactiva",
       "view.budget.title":

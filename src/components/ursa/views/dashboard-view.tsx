@@ -4,7 +4,7 @@ import { ViewHero, ViewSection, Card, Grid, Reveal } from "../view-shell";
 import { BearMark, CupGlyph, ArtNouveauDivider, Pill, StatBlock, Callout, EvidenceTag, SectionBadge } from "../ursa-brand";
 import { BearScoreWidget } from "../bear-score-widget";
 import { DayInTheLifeWidget } from "../day-in-life-widget";
-import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, EXPERIMENTS, BUDGET_SCENARIOS } from "@/lib/ursa-data";
+import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
 import { useI18n } from "@/hooks/use-i18n";
 import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2, Activity, Award } from "lucide-react";
@@ -209,11 +209,11 @@ export function DashboardView() {
           </Card></Reveal>
           <Reveal delay={80}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h5.title")}</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">{EXPERIMENTS.length} experiments cover the riskiest assumptions. Most cost S/. 0–560 to run. Each has a success metric and a stop rule. If something does not work in 14–30 days, it is killed cleanly and documented, not doubled-down on.</p>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h5.body")}</p>
           </Card></Reveal>
           <Reveal delay={160}><Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h6.title")}</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">72-hour / 30 / 60 / 90-day plans each name an owner, a dependency, a metric, and a stopping rule. Budget scenarios: lean (S/. {BUDGET_SCENARIOS[0].monthlyPEN.toLocaleString()}/mo), moderate (S/. {BUDGET_SCENARIOS[1].monthlyPEN.toLocaleString()}/mo), growth (S/. {BUDGET_SCENARIOS[2].monthlyPEN.toLocaleString()}/mo). The owner picks one and the plan adjusts.</p>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h6.body", { lean: BUDGET_SCENARIOS[0].monthlyPEN.toLocaleString(), moderate: BUDGET_SCENARIOS[1].monthlyPEN.toLocaleString(), growth: BUDGET_SCENARIOS[2].monthlyPEN.toLocaleString() })}</p>
           </Card></Reveal>
           <Reveal delay={0}><Card highlight>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-1.5">
@@ -234,12 +234,12 @@ export function DashboardView() {
           </Card></Reveal>
           <Reveal delay={0}><Card highlight>
             <div className="flex items-center gap-2 mb-2">
-              <Pill tone="gold">NEW</Pill>
+              <Pill tone="gold">{t("content.dashboard.h10.badge")}</Pill>
             </div>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-1.5">
-              <ArrowRight size={16} className="text-ursa-gold-text" /> 10 · Ursa is now an award-recognized café
+              <ArrowRight size={16} className="text-ursa-gold-text" /> {t("content.dashboard.h10.title")}
             </h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">Ursa placed in the top 5 of the CAM Café Perú EXPERIENCE 2025 competition (Specialty Coffee Shop category), alongside Monótono Coffee (1st) and Punto Café (2nd). A specialized jury visited 40+ establishments across 17 districts. This upgrades Ursa&rsquo;s competitive position from &ldquo;unrecognized&rdquo; to &ldquo;award-recognized&rdquo; — the distribution gap (Module 02) is no longer about quality, it&rsquo;s about visibility.</p>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h10.body")}</p>
           </Card></Reveal>
         </Grid>
       </ViewSection>

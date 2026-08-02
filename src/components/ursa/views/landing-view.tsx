@@ -176,7 +176,7 @@ export function LandingView() {
               </div>
             </div>
             <p className="text-center font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground mt-2">
-              Example member card
+              {t("content.landing.member-card.caption")}
             </p>
           </div>
         </div>
@@ -340,25 +340,25 @@ export function LandingView() {
             </button>
           </div>
           <p className="text-[0.72rem] text-muted-foreground mt-4 m-0">
-            Join the pilot — leave your email and we'll notify you when it launches
+            {t("content.landing.join.caption")}
           </p>
         </Card>
       </ViewSection>
 
-      {/* Strategic context (English) */}
-      <ViewSection badge="Strategic context · English" title="Why this page exists" meta="Background on the page">
+      {/* Strategic context — bilingual via i18n */}
+      <ViewSection badge={t("content.landing.strategic.badge")} title={t("content.landing.strategic.title")} meta={t("content.landing.strategic.meta")}>
         <div className="grid md:grid-cols-3 gap-4 [grid-template-columns:minmax(0,1fr)]">
           <Card>
-            <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">A landing page that didn't exist</h4>
-            <p className="text-[0.86rem] text-muted-foreground m-0">All five main Miraflores competitors have a website. Ursa does not. This page is the first draft of a customer-facing page for the subscription, which can live at a simple URL and link from Instagram bio and Google Business Profile.</p>
+            <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.landing.strategic.card1.title")}</h4>
+            <p className="text-[0.86rem] text-muted-foreground m-0">{t("content.landing.strategic.card1.body")}</p>
           </Card>
           <Card>
-            <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">Spanish copy, not translated</h4>
-            <p className="text-[0.86rem] text-muted-foreground m-0">The copy is written in Peruvian Spanish, not translated from English. The tone is warm, direct, and uses the bear character naturally.</p>
+            <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.landing.strategic.card2.title")}</h4>
+            <p className="text-[0.86rem] text-muted-foreground m-0">{t("content.landing.strategic.card2.body")}</p>
           </Card>
           <Card>
-            <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">Testable and reversible</h4>
-            <p className="text-[0.86rem] text-muted-foreground m-0">This page demonstrates the subscription offer. It goes live when the pilot launches.</p>
+            <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.landing.strategic.card3.title")}</h4>
+            <p className="text-[0.86rem] text-muted-foreground m-0">{t("content.landing.strategic.card3.body")}</p>
           </Card>
         </div>
         <DossierLinkBanner moduleId="08-subscription-economics-and-calculator" />
