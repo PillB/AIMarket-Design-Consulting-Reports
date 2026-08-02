@@ -959,35 +959,35 @@ export function PilotView() {
 
           <TabsContent value="subscription" className="mt-6">
             <ScienceCard title={t("content.pilotbiz.science.subscription.title")}>
-              {[1, 2, 3].map((i) => (
+              {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                 <ScienceItem key={i} num={i} text={t(`content.pilotbiz.science.subscription.${i}`)} />
               ))}
             </ScienceCard>
           </TabsContent>
           <TabsContent value="coffee" className="mt-6">
             <ScienceCard title={t("content.pilotbiz.science.coffee.title")}>
-              {[1, 2, 3, 4].map((i) => (
+              {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                 <ScienceItem key={i} num={i} text={t(`content.pilotbiz.science.coffee.${i}`)} />
               ))}
             </ScienceCard>
           </TabsContent>
           <TabsContent value="behavioral" className="mt-6">
             <ScienceCard title={t("content.pilotbiz.science.behavioral.title")}>
-              {[1, 2, 3, 4].map((i) => (
+              {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                 <ScienceItem key={i} num={i} text={t(`content.pilotbiz.science.behavioral.${i}`)} />
               ))}
             </ScienceCard>
           </TabsContent>
           <TabsContent value="pricing" className="mt-6">
             <ScienceCard title={t("content.pilotbiz.science.pricing.title")}>
-              {[1, 2, 3, 4].map((i) => (
+              {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                 <ScienceItem key={i} num={i} text={t(`content.pilotbiz.science.pricing.${i}`)} />
               ))}
             </ScienceCard>
           </TabsContent>
           <TabsContent value="methods" className="mt-6">
             <ScienceCard title={t("content.pilotbiz.science.methods.title")}>
-              {[1, 2, 3, 4].map((i) => (
+              {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                 <ScienceItem key={i} num={i} text={t(`content.pilotbiz.science.methods.${i}`)} />
               ))}
             </ScienceCard>

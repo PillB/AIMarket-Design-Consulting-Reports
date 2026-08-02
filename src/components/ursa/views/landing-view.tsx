@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, ArtNouveauDivider, Pill, Callout, CupGlyph, EvidenceTag } from "../ursa-brand";
-import { Calculator, Coffee, Cookie, Sunrise, Check, ArrowRight, Clock, MapPin, Sparkles, AlertCircle } from "lucide-react";
+import { Calculator, Coffee, Cookie, Sunrise, Check, ArrowRight, Clock, MapPin, Sparkles, AlertCircle, BookOpen, ShieldCheck, Target, RotateCcw } from "lucide-react";
 import { useNavigate } from "@/lib/ursa-nav";
 import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,21 @@ export function LandingView() {
   const navigate = useNavigate();
   const { t } = useI18n();
   const [interest, setInterest] = useState("");
+
+  // --- Science cards (Group A — conversion, Group B — risk reversal) -------
+  // Each card resolves source, title, finding, and apply copy via
+  // t(`content.landing.science.${id}.{field}`). Icon stays inline; tone is
+  // implicit from the group (gold for conversion, forest for risk reversal).
+  const SCIENCE_CONVERSION = [
+    { id: "headline", icon: Target },
+    { id: "above-fold", icon: BookOpen },
+    { id: "benchmarks", icon: Sparkles },
+  ];
+  const SCIENCE_RISK = [
+    { id: "guarantee", icon: ShieldCheck },
+    { id: "trial", icon: Coffee },
+    { id: "cancel-anytime", icon: RotateCcw },
+  ];
 
   const benefits = [
     { icon: Coffee, title: "Café ilimitado", desc: "Una taza cada visita, de 7 a 10am, de lunes a viernes. Sin pensar en el precio.", tone: "forest" as const },
@@ -301,6 +316,93 @@ export function LandingView() {
             </p>
           </Card>
         </div>
+      </ViewSection>
+
+      {/* Science — what the research says about this page */}
+      <ViewSection badge={t("content.landing.science.badge")} title={t("content.landing.science.title")} meta={t("content.landing.science.meta")}>
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] mb-6 m-0">
+          {t("content.landing.science.lede")}
+        </p>
+
+        {/* Group A — landing page conversion science */}
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-3">
+            <BookOpen size={15} className="text-ursa-gold-text" />
+            <span className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-forest-deep">
+              {t("content.landing.science.group.conversion")}
+            </span>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 [grid-template-columns:minmax(0,1fr)]">
+            {SCIENCE_CONVERSION.map((s) => {
+              const Icon = s.icon;
+              return (
+                <Card key={s.id} className="flex flex-col">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-8 h-8 rounded-md bg-ursa-gold/15 text-ursa-gold-text grid place-items-center shrink-0">
+                      <Icon size={16} />
+                    </span>
+                    <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase text-muted-foreground">
+                      {t(`content.landing.science.${s.id}.source`)}
+                    </span>
+                  </div>
+                  <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0 mb-2 leading-tight">
+                    {t(`content.landing.science.${s.id}.title`)}
+                  </h4>
+                  <div className="border-l-2 border-ursa-gold/40 pl-3 py-1 mb-2.5">
+                    <p className="text-[0.82rem] italic text-ursa-dark-roast m-0">
+                      {t(`content.landing.science.${s.id}.finding`)}
+                    </p>
+                  </div>
+                  <p className="text-[0.86rem] text-foreground/85 leading-relaxed m-0">
+                    {t(`content.landing.science.${s.id}.apply`)}
+                  </p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Group B — risk reversal research */}
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <ShieldCheck size={15} className="text-ursa-forest-deep" />
+            <span className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-forest-deep">
+              {t("content.landing.science.group.risk")}
+            </span>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 [grid-template-columns:minmax(0,1fr)]">
+            {SCIENCE_RISK.map((s) => {
+              const Icon = s.icon;
+              return (
+                <Card key={s.id} className="flex flex-col">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-8 h-8 rounded-md bg-ursa-forest-deep/12 text-ursa-forest-deep grid place-items-center shrink-0">
+                      <Icon size={16} />
+                    </span>
+                    <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase text-muted-foreground">
+                      {t(`content.landing.science.${s.id}.source`)}
+                    </span>
+                  </div>
+                  <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0 mb-2 leading-tight">
+                    {t(`content.landing.science.${s.id}.title`)}
+                  </h4>
+                  <div className="border-l-2 border-ursa-forest-deep/40 pl-3 py-1 mb-2.5">
+                    <p className="text-[0.82rem] italic text-ursa-dark-roast m-0">
+                      {t(`content.landing.science.${s.id}.finding`)}
+                    </p>
+                  </div>
+                  <p className="text-[0.86rem] text-foreground/85 leading-relaxed m-0">
+                    {t(`content.landing.science.${s.id}.apply`)}
+                  </p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+
+        <Callout tone="gold" title={t("content.landing.science.synthesis.title")}>
+          <p className="m-0 text-[0.9rem]">{t("content.landing.science.synthesis.body")}</p>
+        </Callout>
       </ViewSection>
 
       {/* FAQ */}

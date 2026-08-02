@@ -26,6 +26,10 @@ import {
   PawPrint,
   Heart,
   Calendar,
+  Scale,
+  Library,
+  Trophy,
+  BookMarked,
 } from "lucide-react";
 
 /**
@@ -62,7 +66,7 @@ function PawStamp({ filled, size = 28 }: { filled: boolean; size?: number }) {
   );
 }
 
-// --- The four behavioral-science principles -------------------------------
+// --- The five behavioral-science principles -------------------------------
 // Names, sources, findings, applications and recommendations are resolved via t()
 // under content.loyalty.principle.{id}.{field}. The icon and tone stay inline as
 // presentation data.
@@ -70,8 +74,29 @@ const PRINCIPLES = [
   { id: "endowed-progress", icon: Sparkles, tone: "gold" as const },
   { id: "endowment", icon: Heart, tone: "forest" as const },
   { id: "goal-gradient", icon: TrendingUp, tone: "terracotta" as const },
+  { id: "loss-aversion", icon: Scale, tone: "terracotta" as const },
   { id: "small-wins", icon: Brain, tone: "gold" as const },
 ];
+
+// --- Evidence library cards (meta-analyses + adoption + success cases) ----
+// Each card renders title, source line, body, and a list of bullet findings
+// via t() under content.loyalty.evidence.{id}.{field}.
+const EVIDENCE_CARDS = [
+  { id: "meta-analysis", icon: Library, tone: "forest" as const },
+  { id: "wallet-adoption", icon: Smartphone, tone: "gold" as const },
+  { id: "success-cases", icon: Trophy, tone: "gold" as const },
+  { id: "punch-vs-app", icon: BookMarked, tone: "forest" as const },
+];
+
+// --- Evidence bullet lists (per card) --------------------------------------
+// Card 1 (meta-analysis): 3 studies cited. Card 2 (wallet adoption): 3 stats.
+// Card 3 (success cases): 4 cases. Card 4 (punch vs app): 3 findings.
+const EVIDENCE_BULLETS: Record<string, number> = {
+  "meta-analysis": 3,
+  "wallet-adoption": 3,
+  "success-cases": 4,
+  "punch-vs-app": 3,
+};
 
 // --- Marketing recommendations --------------------------------------------
 const MARKETING_TACTICS = [
@@ -362,6 +387,70 @@ export function LoyaltyView() {
         </Grid>
         <Callout tone="warn" title={t("content.loyalty.principle.82-callout.title")}>
           {t("content.loyalty.principle.82-callout.body")}
+        </Callout>
+      </ViewSection>
+
+      {/* ============================================================
+          SECTION 3B — Evidence library & success cases
+          Meta-analyses · wallet adoption · success cases · punch vs app
+         ============================================================ */}
+      <ViewSection badge={t("content.loyalty.section.03b.badge")} title={t("content.loyalty.section.03b.title")} meta={t("content.loyalty.section.03b.meta")}>
+        <p className="text-[0.92rem] text-muted-foreground max-w-[80ch] mb-5 m-0">
+          {t("content.loyalty.section.03b.lede")}
+        </p>
+        <Grid cols={2}>
+          {EVIDENCE_CARDS.map((card) => {
+            const Icon = card.icon;
+            const bulletCount = EVIDENCE_BULLETS[card.id] ?? 0;
+            return (
+              <Card key={card.id}>
+                <div className="flex items-start gap-3 mb-3">
+                  <span
+                    className={cn(
+                      "w-10 h-10 rounded-lg grid place-items-center shrink-0",
+                      card.tone === "gold" && "bg-ursa-gold/15 text-ursa-gold-text",
+                      card.tone === "forest" && "bg-ursa-dark-roast/10 text-ursa-forest-deep",
+                      card.tone === "terracotta" && "bg-ursa-terracotta/15 text-ursa-terracotta-text"
+                    )}
+                  >
+                    <Icon size={20} />
+                  </span>
+                  <div>
+                    <h3 className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+                      {t(`content.loyalty.evidence.${card.id}.title`)}
+                    </h3>
+                    <p className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-1">
+                      {t(`content.loyalty.evidence.${card.id}.source`)}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-[0.92rem] leading-relaxed text-foreground/85 mb-3 m-0">
+                  {t(`content.loyalty.evidence.${card.id}.body`)}
+                </p>
+                <ul className="space-y-2 m-0 p-0 list-none">
+                  {Array.from({ length: bulletCount }).map((_, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[0.86rem] leading-relaxed text-foreground/85">
+                      <span className="font-label text-[0.55rem] tracking-[0.16em] uppercase text-ursa-gold-text shrink-0 mt-1">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="flex-1">{t(`content.loyalty.evidence.${card.id}.bullet.${i + 1}`)}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-3 bg-ursa-dark-roast/5 border border-ursa-forest-deep/20 rounded-md p-3">
+                  <p className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1">
+                    {t("content.loyalty.evidence.ursa-label")}
+                  </p>
+                  <p className="text-[0.88rem] leading-relaxed text-ursa-dark-roast m-0">
+                    {t(`content.loyalty.evidence.${card.id}.ursa`)}
+                  </p>
+                </div>
+              </Card>
+            );
+          })}
+        </Grid>
+        <Callout tone="forest" title={t("content.loyalty.evidence.synthesis.title")}>
+          {t("content.loyalty.evidence.synthesis.body")}
         </Callout>
       </ViewSection>
 
