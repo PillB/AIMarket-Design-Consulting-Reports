@@ -684,6 +684,7 @@ export const translations: Translations = {
       "menu.hero.meta.sources": "Sources",
 
       /* Section 01 — Verified current menu */
+      "menu.section.01.badge": "Section 01",
       "menu.section.01.title": "The verified current menu, reconstructed",
       "menu.section.01.meta": "Source · Rappi snapshot 2026-08-01",
       "menu.section.01.stat.verified-items": "Verified named items (drinks + food)",
@@ -706,6 +707,7 @@ export const translations: Translations = {
       "menu.section.01.card.ownable.b5": "Seasonal to permanent — summer favourites graduate to the carta.",
 
       /* Section 02 — Thirteen proposals */
+      "menu.section.02.badge": "Section 02",
       "menu.section.02.title": "Thirteen new product proposals, evaluated",
       "menu.section.02.meta": "13 proposals · 7 categories · 16-criteria framework + 4 census-grounding rows",
       "menu.section.02.lede":
@@ -738,13 +740,358 @@ export const translations: Translations = {
       "menu.section.02.criterion.market-test": "Market test method",
       "menu.section.02.criterion.stop-rule": "Stop / revision rule",
 
+      /* Section 02 — Proposal content (P-01 through P-13) */
+      "menu.section.02.proposal.P-01.name": "Oso Negro",
+      "menu.section.02.proposal.P-01.spanish": "Black bear · double ristretto over warm honey",
+      "menu.section.02.proposal.P-01.concept":
+        "Double ristretto of Black Label poured over a spoonful of warm honey and a tear of cold espresso. Deep, dark, with a sweetness that arrives late. Named for the Andean bear of the mists.",
+      "menu.section.02.proposal.P-01.why":
+        "Ursa currently has no drink that leans into the dark/forest side of the bear character — every signature drink is bright or fruity (Ursagroni, Maracumango, Durazno Clarificado). Oso Negro fills the 'dark, brooding, after-dinner' slot that no existing Ursa drink occupies. The Black Label roast is already in rotation; this is a new preparation of an existing asset, not a new ingredient.",
+      "menu.section.02.proposal.P-01.need":
+        "Coffee Curious + Morning Regular who want an intense, low-milk afternoon/evening coffee. The job: 'help me end my day with something deliberate, not a quick coffee.' Addresses the afternoon daypart (3–6pm) where Ursa's current menu has no signature drink.",
+      "menu.section.02.proposal.P-01.evidence":
+        "Arabica Espresso Bar owns the stand-up purist espresso niche; Neira's champion-quality drinks are praised but unnamed. No competitor in the 18-business census offers a honey-ristretto signature — the slot is uncontested. Honey is a Peruvian staple (non-imported), reinforcing the origin-story pillar.",
+      "menu.section.02.proposal.P-01.brand-fit":
+        "Perfect — the name is a house name (Oso + black from Black Label). It reinforces the character without leaving coffee.",
+      "menu.section.02.proposal.P-01.taste":
+        "Ristretto bitterness → warm honey → dark chocolate finish. The honey temperature controls the final texture.",
+      "menu.section.02.proposal.P-01.prep": "3 min (served in a pre-heated small cup).",
+      "menu.section.02.proposal.P-01.margin":
+        "High — honey costs more than sugar but the ristretto uses half the dose of a latte.",
+      "menu.section.02.proposal.P-01.operational-test":
+        "2-week batch test: pre-portion honey in 5g cups; train 1 barista on the pour. Measure (a) prep time vs flat white baseline, (b) honey waste % per batch, (c) customer repeat-rate within 14 days.",
+      "menu.section.02.proposal.P-01.market-test":
+        "Promote for 14 days as the 'barista's shot'. Measure orders/day and repeat requests.",
+      "menu.section.02.proposal.P-01.stop-rule":
+        "Fewer than 4/day after 14 days → reformulate as a courtesy shot, not a product.",
+      "menu.section.02.proposal.P-01.pricing-rationale":
+        "S/. 9–13. Anchored below Ursagroni (S/. 18) because Oso Negro is espresso-only, no tonic or cold-brew base. Above flat white (S/. 10) at moderate because the named preparation + honey adds perceived value. Census benchmark: Arabica's espresso price band (S/. 6–10) and Neira's premium espresso tier; Ursa's own espresso (S/. 6) and Black Label (S/. 14) bracket the range.",
+
+      "menu.section.02.proposal.P-02.name": "Media Luna",
+      "menu.section.02.proposal.P-02.spanish": "Half-moon cortado with orange zest",
+      "menu.section.02.proposal.P-02.concept":
+        "Cortado served in a half-moon cup (exclusive mould). Milk foam with orange zest. The half-moon shape echoes the Art Nouveau motifs of the room.",
+      "menu.section.02.proposal.P-02.why":
+        "Ursa has no drink that explicitly visualizes the Art Nouveau language in the cup itself. The half-moon shape makes the visual identity drinkable — every photo carries the brand language, not just the drink. This is the only proposal where the cup IS the brand asset.",
+      "menu.section.02.proposal.P-02.need":
+        "Tourist Explorer + Coffee Curious who want a photogenic, ownable cup. The job: 'give me something I can't get anywhere else in Lima, that I want to photograph and share.' Directly addresses the @ursacoffeeperu tag rate metric.",
+      "menu.section.02.proposal.P-02.evidence":
+        "0 of 18 competitors in the census use a custom cup shape as a brand asset. The Art Nouveau half-moon form is uncontested. The Tourist-Explorer persona is validated by 8+ hotels within walking distance of the catchment — photo-worthy drinks travel further than generic ones.",
+      "menu.section.02.proposal.P-02.brand-fit":
+        "Strong — the half-moon shape is visually ownable and photogenic; it already belongs to Ursa's visual language.",
+      "menu.section.02.proposal.P-02.taste":
+        "Balanced cortado with a citrus aroma that opens the cup before the first sip. No sweetening — aroma only.",
+      "menu.section.02.proposal.P-02.prep": "2.5 min (requires special cup and zester).",
+      "menu.section.02.proposal.P-02.margin":
+        "Medium-high — orange zest is cheap; the cup is a one-time cost.",
+      "menu.section.02.proposal.P-02.operational-test":
+        "Order 30 prototype cups; train 2 baristas on the zest + pour. Measure (a) photo-tag rate at Ursa's geo-tag (target ≥ 3/week), (b) cup breakage rate per 30 servings, (c) repeat order rate within 14 days.",
+      "menu.section.02.proposal.P-02.market-test":
+        "Serve as an edition of 30 cups. Count photos shared on Instagram with Ursa's geo-tag.",
+      "menu.section.02.proposal.P-02.stop-rule":
+        "Fewer than 3 shared photos/week → withdraw the cup, keep the cortado.",
+      "menu.section.02.proposal.P-02.pricing-rationale":
+        "S/. 9–12. Anchored against cortado (S/. 8) with a +S/. 1–4 premium for the named preparation and the cup asset. Below flat white (S/. 10) at lean to drive trial; at moderate, parity with flat white. Census benchmark: Estación 329 cortado band and Neira specialty-cortado premium; Ursa's own cortado (S/. 8) as floor.",
+
+      "menu.section.02.proposal.P-03.name": "Clarificado de Lúcuma",
+      "menu.section.02.proposal.P-03.spanish": "Lúcuma-clarified cold brew",
+      "menu.section.02.proposal.P-03.concept":
+        "Cold brew clarified with lúcuma milk using the Durazno Clarificado technique. Lúcuma is Peru's emblematic fruit; clarified, it yields a clean amber pour, no sediment.",
+      "menu.section.02.proposal.P-03.why":
+        "Extends the existing 'Clarificado' line (Durazno Clarificado) with a Peruvian-native fruit. Lúcuma is the most recognizable Peruvian fruit nationally and internationally — it's the obvious next clarificado, not an invented flavour. This is line extension, not line invention.",
+      "menu.section.02.proposal.P-03.need":
+        "Tourist Explorer + Coffee Curious who want a Peruvian flavour experience but don't want milk-heavy drinks. The job: 'let me taste something distinctly Peruvian without dairy.' Addresses the lactose-intolerant + vegan segment.",
+      "menu.section.02.proposal.P-03.evidence":
+        "Census: 0 competitors in the 18-business census offer a lúcuma-coffee drink. Milenaria's açaí bowls (same street, 170m) show demand for fruit-forward breakfast drinks in the catchment. Lúcuma is the national fruit — brand fit + ingredient overlap are both strong.",
+      "menu.section.02.proposal.P-03.brand-fit":
+        "Strong — extends the 'Clarificado' line (already ownable) with a nationally recognised ingredient.",
+      "menu.section.02.proposal.P-03.taste":
+        "Cold brew with silky lúcuma sweetness, no visible dairy. Amber colour. Clean finish.",
+      "menu.section.02.proposal.P-03.prep": "4 min service + 24h clarification in batch.",
+      "menu.section.02.proposal.P-03.margin":
+        "High — lúcuma is economical in Lima and the clarified process scales in batch.",
+      "menu.section.02.proposal.P-03.operational-test":
+        "4-week batch test: 24h clarified in 2L batches. Measure (a) clarification yield % per batch, (b) lúcuma cost per serving, (c) daily units sold vs Durazno Clarificado baseline.",
+      "menu.section.02.proposal.P-03.market-test":
+        "4-week pilot on the Coldbrew bar. Measure % of coldbrew sold that is Clarificado de Lúcuma.",
+      "menu.section.02.proposal.P-03.stop-rule":
+        "Fewer than 5/day after 4 weeks → reformulate as an autumn seasonal.",
+      "menu.section.02.proposal.P-03.pricing-rationale":
+        "S/. 13–16. Parity with Durazno Clarificado (S/. 14) and Maracumango (S/. 14) at lean/moderate; +S/. 2 at growth because lúcuma's national-fruit status supports a small premium. Census benchmark: Terrua's flight ceiling is US$25 (~S/. 93) — individual drinks stay well below; Ursa's own coldbrew band (S/. 10–14) as floor.",
+
+      "menu.section.02.proposal.P-04.name": "Té de Oso",
+      "menu.section.02.proposal.P-04.spanish": "Cold brew over cascara tea ice",
+      "menu.section.02.proposal.P-04.concept":
+        "Cold brew served over a large cube of cascara (coffee-cherry) tea ice. As the ice melts, the cup evolves — first pure coffee, then coffee with dried-fruit notes. The bear who takes his time.",
+      "menu.section.02.proposal.P-04.why":
+        "Operationalizes 'un gramo a la vez' as a single-drink experience: time as ingredient. No existing Ursa drink evolves in the cup — Té de Oso is the only proposal where the drink changes as you drink it. The cascara is a roastery byproduct, so the ingredient cost is zero.",
+      "menu.section.02.proposal.P-04.need":
+        "Remote Worker + Coffee Curious who stay 90+ minutes and want a drink that rewards lingering. The job: 'give me a cup that gives me a reason to stay.' Directly addresses the dwell-time metric (≥ 90 min) in the Remote Worker persona.",
+      "menu.section.02.proposal.P-04.evidence":
+        "Census: 0 competitors in the 18-business census use cascara (coffee-cherry byproduct) as a drink ingredient. The slow-bar format is uncontested in catchment. Terrua's tasting format (US$25) shows demand for slow coffee experiences; Té de Oso is the accessible single-cup version.",
+      "menu.section.02.proposal.P-04.brand-fit":
+        "Very strong — captures 'un gramo a la vez' in a single drink: time as ingredient.",
+      "menu.section.02.proposal.P-04.taste":
+        "Coffee-forward at the start, fruity at the end. Each sip is different. The cascara comes from the same bean.",
+      "menu.section.02.proposal.P-04.prep": "3 min service + prior preparation of cascara ice cubes.",
+      "menu.section.02.proposal.P-04.margin":
+        "High — cascara is a byproduct of the bean; the price is anchored in the experience.",
+      "menu.section.02.proposal.P-04.operational-test":
+        "30-unit drop in slow-bar daypart (Sat–Sun 10am–2pm). Measure (a) dwell time of Té de Oso customers vs control (same daypart, regular coldbrew), (b) cascara ice melt time per serving, (c) NPS at first sip vs last sip.",
+      "menu.section.02.proposal.P-04.market-test":
+        "Serve 30 units as a 'slow-bar edition'. Film reactions and collect testimonials.",
+      "menu.section.02.proposal.P-04.stop-rule":
+        "NPS < 8/10 or fewer than 8 units sold → reformulate as a Private Tasting.",
+      "menu.section.02.proposal.P-04.pricing-rationale":
+        "S/. 14–18. Above Durazno Clarificado (S/. 14) because of the experience premium (evolving cup); below Cata de Tres Orígenes (S/. 22+) because it's a single drink. Census benchmark: Terrua's US$25 (~S/. 93) flight is the upper anchor; this is the accessible 'evolving cup' alternative for the same daypart.",
+
+      "menu.section.02.proposal.P-05.name": "Cosecha de Amazonas",
+      "menu.section.02.proposal.P-05.spanish": "Seasonal Utcubamba flight · three micro-lots",
+      "menu.section.02.proposal.P-05.concept":
+        "A flight of three Utcubamba (Amazonas) micro-lots served side by side: washed, honey, natural. A card with tasting notes and altitude. While the harvest lasts.",
+      "menu.section.02.proposal.P-05.why":
+        "Deepens the Filtrado Lonya line from a single drink to a multi-process experience of the SAME origin. This is the natural product extension of Ursa's most ownable origin story — not a new origin, but a deeper one. Defends the Lonya line against imitation by going deeper, not wider.",
+      "menu.section.02.proposal.P-05.need":
+        "Coffee Curious + pairs/groups who want a shared tasting experience. The job: 'help me understand what process does to flavour, side by side.' Directly addresses the cupping-attendance metric in the Coffee Curious persona.",
+      "menu.section.02.proposal.P-05.evidence":
+        "Census: Terrua's US$25 flight (513 Google reviews) validates demand for paid tasting. Cate Tasting Room (190 Google reviews, 4.6★) reinforces. Ursa's Filtrado Lonya (Utcubamba, Amazonas, 1,750m) is already the ownable origin — the flight extends it without requiring a new supply chain.",
+      "menu.section.02.proposal.P-05.brand-fit":
+        "Strong — deepens Filtrado Lonya into an origin experience, not just a drink.",
+      "menu.section.02.proposal.P-05.taste":
+        "Three small cups, three processes. The customer learns to distinguish the same bean treated differently.",
+      "menu.section.02.proposal.P-05.prep": "8 min (three manual pours served simultaneously).",
+      "menu.section.02.proposal.P-05.margin":
+        "Medium-high — the bean is the same, but barista time rises.",
+      "menu.section.02.proposal.P-05.operational-test":
+        "Run as monthly Private Tasting for 60 days. Measure (a) conversion to 250g retail bag (target ≥ 30%), (b) repeat-attendance rate (target ≥ 25% return within 60 days), (c) average group size per booking.",
+      "menu.section.02.proposal.P-05.market-test":
+        "Launch at Private Tasting and monthly cupping. Measure conversion to 250g bag sale.",
+      "menu.section.02.proposal.P-05.stop-rule":
+        "Fewer than 6 flights/month → only available at guided cuppings.",
+      "menu.section.02.proposal.P-05.pricing-rationale":
+        "S/. 22–30. Below Terrua's US$25 (~S/. 93) by a wide margin — accessible entry to paid tasting. Above Chemex-para-dos (S/. 22) because the flight is curated + has story cards. Census benchmark: Terrua US$25 flight, Cate paid-tasting format. Ursa's own Filtrado Lonya (S/. 14) × 3 = S/. 42 — the curation + story-card premium is what justifies the lift.",
+
+      "menu.section.02.proposal.P-06.name": "Invierno Andino",
+      "menu.section.02.proposal.P-06.spanish": "Spiced pour-over with chincho and panela",
+      "menu.section.02.proposal.P-06.concept":
+        "Pour-over prepared with a pinch of chincho (Andean herb) in the bed and panela in the water. Warm, herbal, no dairy. The inverse of Clarificado de Lúcuma: this is the mountain in winter.",
+      "menu.section.02.proposal.P-06.why":
+        "Ursa has no seasonal winter drink. Summer is owned by Maracumango + Clarificados; winter has no answer. Invierno Andino is the cold-weather counterpart — warm, herbal, no dairy. Chincho and panela are both Peruvian staples with no import cost, and seasonal scarcity (chincho harvested May–August) creates urgency.",
+      "menu.section.02.proposal.P-06.need":
+        "Morning Regular + Coffee Curious in Lima's winter (June–September) who want a warming, non-milky coffee. The job: 'give me a hot drink that isn't a latte.' Addresses the winter seasonality gap in Ursa's menu.",
+      "menu.section.02.proposal.P-06.evidence":
+        "Census: 0 competitors in the 18-business census offer an Andean-herb coffee. Chincho and panela are both Peruvian staples with no import cost. Seasonal scarcity (chincho is harvested May–August) creates urgency and a natural end-of-season stop rule.",
+      "menu.section.02.proposal.P-06.brand-fit":
+        "Strong — the palette (herb, panela, coffee) sits within the Peruvian ingredient universe.",
+      "menu.section.02.proposal.P-06.taste":
+        "Pour-over with chincho aromatics and deep panela sweetness. No added sugar beyond the panela.",
+      "menu.section.02.proposal.P-06.prep": "5 min.",
+      "menu.section.02.proposal.P-06.margin":
+        "High — chincho and panela are economical; price is anchored in seasonality.",
+      "menu.section.02.proposal.P-06.operational-test":
+        "6-week launch in June. Measure (a) sell-through vs Filtrado de la Casa baseline, (b) repeat-order rate within 14 days, (c) customer feedback on herbal balance (target ≥ 4/5 on in-store feedback card).",
+      "menu.section.02.proposal.P-06.market-test":
+        "Launch in June (start of winter) for 6 weeks. Measure repetition and cupping score.",
+      "menu.section.02.proposal.P-06.stop-rule":
+        "Fewer than 4/day after 6 weeks → reformulate for summer with iced cascara.",
+      "menu.section.02.proposal.P-06.pricing-rationale":
+        "S/. 12–16. Parity with V60 (S/. 12) at lean; above V60 at moderate because of the named preparation + seasonal story. Below Filtrado Lonya (S/. 14) to drive trial. Census benchmark: V60/Specialty pour-over band; Ursa's own V60 (S/. 12) and Filtrado Lonya (S/. 14) bracket the range.",
+
+      "menu.section.02.proposal.P-07.name": "Chocolate del Oso",
+      "menu.section.02.proposal.P-07.spanish": "Single-origin Peruvian cacao drinking chocolate",
+      "menu.section.02.proposal.P-07.concept":
+        "Hot chocolate from single-origin Peruvian cacao (Cusco or San Martín). Served in a clay cup. No syrup — just cacao, water, a touch of panela.",
+      "menu.section.02.proposal.P-07.why":
+        "Fills the non-coffee slot for the 1–2 customers per day who accompany coffee drinkers but don't drink coffee. Cacao de origen extends the 'origin story' pillar beyond coffee without diluting the roastery identity. Critically: this is a single menu item, NOT a chocolate-tasting category (which would dilute pure-coffee identity per the Cate implication).",
+      "menu.section.02.proposal.P-07.need":
+        "Remote Worker + Tourist Explorer accompanying coffee drinkers who want a hot drink but no coffee. The job: 'let me stay with my friend without forcing a coffee order.' Addresses the group-order dynamic.",
+      "menu.section.02.proposal.P-07.evidence":
+        "Census: Cate Tasting Room combines coffee + chocolate but Ursa should NOT add chocolate tasting — keep cacao as a single menu item, not a category. Cacao de origen (Cusco/San Martín) extends Ursa's origin-story pillar without requiring a new supply chain beyond the roastery's existing relationships.",
+      "menu.section.02.proposal.P-07.brand-fit":
+        "Strong — reinforces the 'Peruvian origin' universe without leaving the roaster identity.",
+      "menu.section.02.proposal.P-07.taste":
+        "Deep chocolate, not sweet. The clay holds temperature; the panela arrives late.",
+      "menu.section.02.proposal.P-07.prep": "4 min (hot jug prepared in batch every 2h).",
+      "menu.section.02.proposal.P-07.margin":
+        "Medium — single-origin cacao costs more than syrup, but the average ticket rises.",
+      "menu.section.02.proposal.P-07.operational-test":
+        "6-week winter campaign. Measure (a) % of group orders where ≥ 1 non-coffee drink is purchased (target ≥ 15%), (b) chocolate repeat rate within 30 days, (c) cacao cost per serving vs target S/. 3.50.",
+      "menu.section.02.proposal.P-07.market-test":
+        "6-week winter campaign. Measure % of non-coffee orders that are chocolate.",
+      "menu.section.02.proposal.P-07.stop-rule":
+        "Fewer than 5/day after 6 weeks → reduce to an annual winter edition.",
+      "menu.section.02.proposal.P-07.pricing-rationale":
+        "S/. 12–16. Parity with Flat White (S/. 10) + Mocha (S/. 12) band at moderate. Below Cata flight (S/. 22+) and above cookie (S/. 5). Census benchmark: no direct competitor for drinking chocolate in catchment — price set by Ursa's own menu bands (mocha S/. 12 as the natural anchor).",
+
+      "menu.section.02.proposal.P-08.name": "Infusión de Muña",
+      "menu.section.02.proposal.P-08.spanish": "Andean mint infusion",
+      "menu.section.02.proposal.P-08.concept":
+        "Hot infusion of muña (Andean mint) served in a glass cup. For the person who doesn't drink coffee but wants to stay at the bar.",
+      "menu.section.02.proposal.P-08.why":
+        "A non-coffee, non-cacao option for caffeine-avoidant customers. Muña is the most accessible Andean herb — recognizable, cheap, and food-safe. Not a hero product; a courtesy product. The job is to keep the non-coffee companion in the bar, not to win new customers.",
+      "menu.section.02.proposal.P-08.need":
+        "Non-coffee drinkers (pregnant, caffeine-sensitive, evening visitors). The job: 'let me order something without apologising for not drinking coffee.' Directly addresses the group-order dynamic where one member doesn't drink coffee.",
+      "menu.section.02.proposal.P-08.evidence":
+        "Census: 0 competitors in the 18-business census offer muña. The herb is widely available in Lima markets. Demand is small but persistent — NovaCircle notes Ursa's atmosphere attracts non-coffee companions (the 'cozy and inviting atmosphere' pros theme).",
+      "menu.section.02.proposal.P-08.brand-fit":
+        "Acceptable — it's not coffee, but it respects the Andean palette. Useful for companions and non-coffee drinkers.",
+      "menu.section.02.proposal.P-08.taste":
+        "Andean mint with a herbaceous finish deeper than common mint. No sugar.",
+      "menu.section.02.proposal.P-08.prep": "3 min.",
+      "menu.section.02.proposal.P-08.margin":
+        "High — muña is cheap and dry; the ticket is for a premium infusion.",
+      "menu.section.02.proposal.P-08.operational-test":
+        "4-week availability test. Measure (a) orders/day, (b) % of group orders including a non-coffee drink (target ≥ 10%), (c) customer feedback on taste (target ≥ 4/5 on feedback card).",
+      "menu.section.02.proposal.P-08.market-test":
+        "Offer for 4 weeks as a bar alternative. Measure non-coffee-drinker orders.",
+      "menu.section.02.proposal.P-08.stop-rule":
+        "Fewer than 3/day after 4 weeks → withdraw and keep only Chocolate del Oso.",
+      "menu.section.02.proposal.P-08.pricing-rationale":
+        "S/. 8–11. Below all coffee drinks — a courtesy price. At parity with espresso (S/. 6) + small premium for the named herb. Census benchmark: herbal-infusion band not directly benchmarked in catchment; set by Ursa's own menu floor (espresso S/. 6) and the perceived-value of a named Andean herb.",
+
+      "menu.section.02.proposal.P-09.name": "Croissant de Lúcuma",
+      "menu.section.02.proposal.P-09.spanish": "Croissant filled with lúcuma cream",
+      "menu.section.02.proposal.P-09.concept":
+        "House-laminated croissant filled with lúcuma cream. Buy it with the Clarificado de Lúcuma and the breakfast palette is complete.",
+      "menu.section.02.proposal.P-09.why":
+        "Closes the pairing loop with Clarificado de Lúcuma (P-03). Ursa's food menu has only 2 verified items (financier, empanada) — a third pastry with a drink pairing is the obvious extension, and lúcuma ties it to P-03. The pairing is the product, not the pastry alone.",
+      "menu.section.02.proposal.P-09.need":
+        "Coffee Curious + Morning Regular who want a pastry that pairs with their named drink. The job: 'give me the pairing that makes my drink better.' Addresses the attach-rate metric in the offer stack (≥ 60% target).",
+      "menu.section.02.proposal.P-09.evidence":
+        "Census: El Pan de la Chola (700m) owns 'best bakery in Lima' — Ursa should NOT compete on bakery scale. House-made laminado is the differentiator (credibility, not scale). Lúcuma is the bridge to P-03; the pairing creates a S/. 21–26 bundle that competes with Milenaria's breakfast ticket.",
+      "menu.section.02.proposal.P-09.brand-fit":
+        "Strong — closes the pairing with Clarificado de Lúcuma. House laminado is credibility.",
+      "menu.section.02.proposal.P-09.taste":
+        "Butter laminated dough + silky lúcuma cream. Not excessively sweet.",
+      "menu.section.02.proposal.P-09.prep": "Direct service (prepared in early morning).",
+      "menu.section.02.proposal.P-09.margin":
+        "Medium — laminado is labour-intensive; the filling is cheap.",
+      "menu.section.02.proposal.P-09.operational-test":
+        "6-week pilot with daily batch of 12. Measure (a) attach rate with Clarificado de Lúcuma (target ≥ 20%), (b) sell-through by 11am, (c) daily waste % (target ≤ 10%).",
+      "menu.section.02.proposal.P-09.market-test":
+        "6-week pilot. Measure attach rate with Clarificado de Lúcuma.",
+      "menu.section.02.proposal.P-09.stop-rule":
+        "Fewer than 8/day or attach rate < 20% with Clarificado → reformulate filling.",
+      "menu.section.02.proposal.P-09.pricing-rationale":
+        "S/. 8–11. Above financier (S/. 6) because of the laminado + filling. Below empanada (S/. 12) at lean to drive trial. Census benchmark: El Pan de la Chola bakery prices as upper anchor; Ursa's own verified food prices (financier S/. 6, empanada S/. 12) as floor and ceiling.",
+
+      "menu.section.02.proposal.P-10.name": "Alfajor de Café",
+      "menu.section.02.proposal.P-10.spanish": "Alfajor with coffee-glazed dulce de leche",
+      "menu.section.02.proposal.P-10.concept":
+        "Maicena alfajor with dulce de leche glazed with an espresso reduction. Small, intense, pairs with any pour-over.",
+      "menu.section.02.proposal.P-10.why":
+        "The alfajor is the most iconic Peruvian pastry. Coffee-glazed dulce de leche ties it to the roastery identity. A small, intense pastry that marries with any pour-over — unlike the croissant (P-09), which pairs with one drink, the alfajor pairs with the whole filtration menu.",
+      "menu.section.02.proposal.P-10.need":
+        "Coffee Curious + Tourist Explorer who want a take-home Peruvian souvenir food. The job: 'give me something small, intense, and memorable that pairs with any coffee.' Addresses the take-home + retail-attach metric.",
+      "menu.section.02.proposal.P-10.evidence":
+        "Census: 0 competitors in the 18-business census offer a coffee-glazed alfajor. The alfajor is a national staple with high recognizability for tourists and locals alike. Coffee-glaze ties it to the roastery without forcing a drink pairing — flexible attach.",
+      "menu.section.02.proposal.P-10.brand-fit":
+        "Strong — the alfajor is iconic Peruvian and the coffee glaze anchors it to the craft.",
+      "menu.section.02.proposal.P-10.taste":
+        "Maicena that melts, silky dulce de leche, bitter espresso finish.",
+      "menu.section.02.proposal.P-10.prep": "Direct service (weekly batch).",
+      "menu.section.02.proposal.P-10.margin":
+        "High — cheap ingredients, premium pastry ticket.",
+      "menu.section.02.proposal.P-10.operational-test":
+        "6-week pilot with weekly batch of 24. Measure (a) orders with coffee vs cookie baseline, (b) take-home rate (target ≥ 30% leave in bag), (c) customer feedback on coffee intensity (target ≥ 4/5).",
+      "menu.section.02.proposal.P-10.market-test":
+        "6-week pilot. Measure alfajor orders with coffee (vs. cookie).",
+      "menu.section.02.proposal.P-10.stop-rule":
+        "Fewer than 6/day after 6 weeks → reformulate as a mini tasting alfajor.",
+      "menu.section.02.proposal.P-10.pricing-rationale":
+        "S/. 6–9. Above cookie (S/. 5) at lean because of the dulce de leche + glaze. Below financier (S/. 6) at parity, then premium at growth. Census benchmark: Ursa's own verified pastry prices (cookie S/. 5, financier S/. 6, empanada S/. 12) bracket the range; the coffee-glaze justifies the +S/. 1–3 premium over cookie.",
+
+      "menu.section.02.proposal.P-11.name": "Gramo del Mes",
+      "menu.section.02.proposal.P-11.spanish": "Subscription bean of the month · origin-labeled bag",
+      "menu.section.02.proposal.P-11.concept":
+        "Each month, a 250g bag of a micro-lot, with a complete origin label (farm, altitude, process, varietal, roast date). For Ursa Mañana subscribers and bar sale.",
+      "menu.section.02.proposal.P-11.why":
+        "Operationalizes 'un gramo a la vez' as a recurring product. The named-drink rotation creates weekly reasons to return; the bean subscription creates monthly reasons. The retail-bag channel is currently Instagram-only — this is the structured product that turns social-media interest into recurring revenue.",
+      "menu.section.02.proposal.P-11.need":
+        "Coffee Curious + Morning Regular who brew at home and want curated monthly selection. The job: 'curate my home coffee so I don't have to choose.' Addresses the retail-bean repeat-purchase metric (≥ 30% target).",
+      "menu.section.02.proposal.P-11.evidence":
+        "Census: Puku Puku sells retail bags at S/.49 with TA praise for 'retail bags for home.' Ursa currently Instagram-only — the channel gap is structural. Subscription models validated by Lima's CoffeePass membership. Puku Puku's S/.49 is the direct price benchmark.",
+      "menu.section.02.proposal.P-11.brand-fit":
+        "Very strong — operationalizes 'un gramo a la vez' and 'Gram of the Week' as a recurring product.",
+      "menu.section.02.proposal.P-11.taste":
+        "Varies — the promise is: each month, a new bean with its complete story.",
+      "menu.section.02.proposal.P-11.prep": "Weekly batch packaging.",
+      "menu.section.02.proposal.P-11.margin":
+        "High — retail bean margin is ~60–70% over green-bean cost.",
+      "menu.section.02.proposal.P-11.operational-test":
+        "Launch 50-subscriber pilot for 3 months. Measure (a) month-3 retention (target ≥ 60%), (b) bag size satisfaction (target ≥ 4/5), (c) conversion to cupping-night attendance (target ≥ 20%).",
+      "menu.section.02.proposal.P-11.market-test":
+        "Launch as a 50-bag monthly subscription. Measure retention at month 3.",
+      "menu.section.02.proposal.P-11.stop-rule":
+        "Retention < 60% at month 3 → reformulate cadence or bag size.",
+      "menu.section.02.proposal.P-11.pricing-rationale":
+        "S/. 38–52. Puku Puku's S/.49 retail bag is the direct census benchmark — moderate price (S/. 45) sits just below. Above Ursa's own 50g sample (S/. 10) because it's a 250g bag with subscription curation. Below Cata flight (S/. 38+) at parity. The subscription curation (curated selection, story label) justifies the +S/. 7 premium over a generic retail bag.",
+
+      "menu.section.02.proposal.P-12.name": "Cata de Tres Orígenes",
+      "menu.section.02.proposal.P-12.spanish": "Tasting flight · three origins with story cards",
+      "menu.section.02.proposal.P-12.concept":
+        "A flight of three Peruvian origins served in three small pours, each with a story card (farm, altitude, varietal, process). A paid experience for two people minimum.",
+      "menu.section.02.proposal.P-12.why":
+        "Direct counter to Terrua's flat US$25 flight. Ursa's flight is multi-origin (vs Terrua's Villa Rica single-origin) and includes take-home story cards — the asset that survives the visit. This is not a new format; it's a competitive counter to a validated demand.",
+      "menu.section.02.proposal.P-12.need":
+        "Tourist Explorer + Coffee Curious (pairs) who want a guided experience. The job: 'help me taste and understand three coffees in one sitting.' Addresses the Tourism + Coffee Curious personas simultaneously, with a higher ticket than any single drink.",
+      "menu.section.02.proposal.P-12.evidence":
+        "Census: Terrua (US$25 flight, 513 Google reviews) and Cate (tasting room, 190 Google reviews) both validate paid-tasting demand. Ursa's multi-origin Lonya line is the differentiator — Terrua's narrow Villa Rica terroir is a known limitation in their positioning.",
+      "menu.section.02.proposal.P-12.brand-fit":
+        "Strong — occupies the territory Terrua charges US$25 for, with a more visible value stack.",
+      "menu.section.02.proposal.P-12.taste":
+        "Three cups, three stories. The card is the asset the customer takes home.",
+      "menu.section.02.proposal.P-12.prep": "10 min (three pours served simultaneously + presentation).",
+      "menu.section.02.proposal.P-12.margin":
+        "High — the bean is cheap; the price charges for the guided experience.",
+      "menu.section.02.proposal.P-12.operational-test":
+        "Run as Saturday drop-in for 60 days. Measure (a) reservations/month (target ≥ 4/week), (b) conversion to 250g retail bag (target ≥ 30%), (c) NPS at end of experience (target ≥ 9/10).",
+      "menu.section.02.proposal.P-12.market-test":
+        "60-day Saturday pilot. Measure reservations/month and conversion to bag sale.",
+      "menu.section.02.proposal.P-12.stop-rule":
+        "Fewer than 2 reservations/month → reformulate as a no-reservation Saturday drop-in.",
+      "menu.section.02.proposal.P-12.pricing-rationale":
+        "S/. 38–55. Direct comparison: Terrua US$25 ≈ S/. 93 — Ursa's flight is 40–60% below the competitor benchmark, accessible entry. Above Chemex-para-dos (S/. 22) because of the guided experience. Above single pour-over (S/. 12–14) × 3 = S/. 36–42 — the story cards + curation justify the premium. Census benchmark: Terrua US$25 flight is the upper anchor; Ursa's own pour-over × 3 is the cost anchor.",
+
+      "menu.section.02.proposal.P-13.name": "Tuesta tu propio grano",
+      "menu.section.02.proposal.P-13.spanish": "Roast-your-own-bean workshop",
+      "menu.section.02.proposal.P-13.concept":
+        "A 90-minute workshop: each participant roasts 250g of green in a sample roaster, documents the curve, and takes their bag home. Maximum 4 participants.",
+      "menu.section.02.proposal.P-13.why":
+        "Converts Ursa's visible roaster from a passive credibility asset into an active paid experience. No competitor in the catchment offers hands-on roasting — this is the most defensible 'experience' product because it requires the roaster Ursa already has. The product is the experience + the take-home bag, not a consumable.",
+      "menu.section.02.proposal.P-13.need":
+        "Coffee Curious + Tourist Explorer who want a memorable, take-home experience (not just a drink). The job: 'help me roast my own bean and take it home.' Addresses the experience-economy segment that Terrua and Cate tap with tasting, but goes one step further into active participation.",
+      "menu.section.02.proposal.P-13.evidence":
+        "Census: 0 competitors offer hands-on roasting. Bisetti's 'escuela de café' is lecture-format, not hands-on. Ursa's roaster + Aeropress champion Paulo Sierra credibility (@rutadelcafeperuano, 564 likes) support the education channel. The roaster is a sunk-cost asset; the workshop monetizes it without additional capex.",
+      "menu.section.02.proposal.P-13.brand-fit":
+        "Strong — the visible roaster is already the room's signature; this product turns it into a paid experience.",
+      "menu.section.02.proposal.P-13.taste":
+        "It's not a drink — it's learning. The final product is a personal bag with a signed curve.",
+      "menu.section.02.proposal.P-13.prep": "90 min + 15 min cleanup.",
+      "menu.section.02.proposal.P-13.margin":
+        "High — green bean is cheap; the price charges for the master roaster's attention.",
+      "menu.section.02.proposal.P-13.operational-test":
+        "Run 6 sessions over 60 days, capped at 4 participants. Measure (a) NPS (target ≥ 9/10), (b) session fill rate (target ≥ 75% of sessions full), (c) conversion to Gramo del Mes subscription (target ≥ 30%).",
+      "menu.section.02.proposal.P-13.market-test":
+        "6-session pilot. Measure NPS and conversion to Gramo del Mes subscription.",
+      "menu.section.02.proposal.P-13.stop-rule":
+        "NPS < 9/10 or fewer than 3 full sessions/month → reformulate as a free demonstration.",
+      "menu.section.02.proposal.P-13.pricing-rationale":
+        "S/. 85–140. No direct competitor benchmark in catchment. Anchored against: (a) Terrua US$25 flight (~S/. 93) as the closest paid coffee experience, (b) typical Lima specialist-workshop pricing (S/. 80–150 for 90-min sessions). At moderate (S/. 110), parity with Terrua's flight but with a take-home product (250g roasted bean) — the take-home asset justifies the premium over a flight-only experience.",
+
+      /* Section 02 — hero meta values (snapshot value comes from URSA_FACTS, others are static labels) */
+      "menu.section.02.hero-meta.framework-value": "16-criteria evaluation",
+      "menu.section.02.hero-meta.pricing-value": "Scenario ranges, not invented costs",
+      "menu.section.02.hero-meta.sources-value": "Rappi · IG · Facebook",
+
       /* Section 03 — Ursa Mañana subscription */
+      "menu.section.03.badge-section": "Section 03",
       "menu.section.03.title": "Ursa Mañana — the subscription as a menu product",
       "menu.section.03.meta": "Pilot · capped at 50 members",
       "menu.section.03.badge": "Continuity product",
       "menu.section.03.heading": "S/. 20 / month · unlimited coffee · Mon–Fri 7–10am",
       "menu.section.03.body":
-        "The subscription is a menu product, not a discount. It works on marginal-cost math because Ursa roasts its own beans — but only if subscribers attach sides (cookies, financier, empanada). The full economic model — break-even attach rate, cannibalization recovery, scale projection — lives in Module 08.",
+        "The subscription is a menu product, not a discount. The economics work because Ursa roasts its own beans — the marginal cost of an additional cup is the green bean, the water, and the barista's forty seconds, not a wholesale supplier's margin on top. At S/. 1.20–1.80 per cup against a S/. 20 monthly fee, the math survives even a daily visitor — but only if subscribers attach sides (cookies, financier, empanada) that carry the margin the coffee does not. The full economic model — break-even attach rate, cannibalization recovery, scale projection — lives in Module 08.",
       "menu.section.03.button.calculator": "Open the calculator",
       "menu.section.03.button.experiments": "See the pilot in the Experiment Tracker",
       "menu.section.03.ministat.monthly": "Monthly price",
@@ -758,6 +1105,7 @@ export const translations: Translations = {
         "The subscription's profit per subscriber is non-obvious — it depends on visit frequency, side attach, and cannibalization. The interactive calculator in Module 08 lets you edit every input and see the break-even attach rate, free-cup capacity, and recovery time update live. Do not launch the pilot without running those numbers.",
 
       /* Section 04 — 16-criteria framework */
+      "menu.section.04.badge": "Section 04",
       "menu.section.04.title": "The 16-criteria evaluation framework",
       "menu.section.04.meta": "Every proposal passes through all sixteen",
       "menu.section.04.lede":
@@ -796,6 +1144,7 @@ export const translations: Translations = {
       "menu.section.04.criterion.16.desc": "The exact condition to kill or reformulate.",
 
       /* Section 05 — Pricing note */
+      "menu.section.05.badge": "Section 05",
       "menu.section.05.title": "On pricing — what we did and did not invent",
       "menu.section.05.meta": "Scenario ranges only",
       "menu.section.05.lean.heading": "Lean",
@@ -821,7 +1170,7 @@ export const translations: Translations = {
         "No virality assumption. Pricing assumes organic demand from existing channels; paid amplification is modelled separately in Module 04 and the Budget Allocator.",
       "menu.section.05.callout.principle.title": "The principle this module protects",
       "menu.section.05.callout.principle.body":
-        "Ursa's menu earns its margin through perceived value, not cost-plus pricing. A story card describing origin, altitude, and process raises perceived value more than a bigger cup at the same cost. The 16-criteria framework is designed to keep that discipline: no product launches just because it sounds good.",
+        "Ursa's menu earns its margin through perceived value, not cost-plus pricing. The cost ceiling of a specialty cup is roughly fixed by the green-bean market — every roaster in Lima pays within a narrow band for the same grades — so the margin lever is willingness-to-pay, not cost reduction. A story card describing origin, altitude, and process raises perceived value more than a bigger cup at the same cost; the customer pays for the meaning, not the millilitres. The 16-criteria framework is designed to keep that discipline: no product launches just because it sounds good, and no product survives without a stop rule that says when to kill it.",
 
       /* Final stat row */
       "menu.final.stat.1.label": "New product proposals across 7 categories",
@@ -1556,7 +1905,7 @@ export const translations: Translations = {
       "brand.section.verified.title": "What we verified at the snapshot",
       "brand.section.verified.meta": "From public sources · see Sources & Evidence",
       "brand.section.verified.intro":
-        "Each element below was verified against Ursa's seven public surfaces: Instagram, Facebook, the Rappi menu, the CoffeePass listing, the TripAdvisor listing, Corner.inc editorial, and the mindtrip.ai profile. Six of eight core assets are verified; the seventh (cross-surface application) is partial, and the eighth is the open question the asset pack will close. Where verification is partial, the precise gap is named and the action that closes it is specified in the implementation roadmap.",
+        "Each element below was verified against Ursa's seven public surfaces: Instagram, Facebook, the Rappi menu, the CoffeePass listing, the TripAdvisor listing, Corner.inc editorial, and the mindtrip.ai profile. Seven of eight core assets are verified; the eighth — consistent application across surfaces — is partial, and is the gap the implementation roadmap closes first. The cost of closing it is near-zero in cash terms (the design tokens, templates, and copy already exist in this dossier) and bounded in time (a single week of assembly once the owner supplies the bear asset pack, open question Q6). Where verification is partial, the precise gap is named and the action that closes it is specified in the implementation roadmap.",
 
       "brand.verified.art-nouveau.title": "Art Nouveau lean",
       "brand.verified.art-nouveau.detail":
@@ -1602,7 +1951,7 @@ export const translations: Translations = {
 
       "brand.verified.cross-surface.title": "Consistent application across surfaces",
       "brand.verified.cross-surface.detail":
-        "Identity is strong on the storefront and product; it thins out across digital surfaces (no website, no templated social kit). This is the gap the implementation roadmap closes first.",
+        "Identity is strong on the storefront and product; it thins out across digital surfaces (no website, no templated social kit). This is the gap the implementation roadmap closes first. Failure mode if left unaddressed: a first-time customer who discovers Ursa via Instagram lands on an under-optimized Google Business Profile and an empty TripAdvisor listing, and concludes the café is less established than it is — a perception cost that compounds every month the gap persists.",
       "brand.verified.cross-surface.evidence":
         "Verified by surface gap analysis: Instagram (present), Facebook (limited post access, partial), Rappi (present, no tagline), CoffeePass (present, minimal), TripAdvisor (listing exists, 0 reviews — unclaimed), Corner.inc (verified), mindtrip.ai (verified but phone number conflicts with Instagram). No website found via Google site: search. Missing: templated social kit, claimed Google Business Profile, claimed TripAdvisor.",
 
@@ -1610,7 +1959,7 @@ export const translations: Translations = {
       "brand.section.palette.title": "The Ursa palette — observed and proposed",
       "brand.section.palette.meta": "16 tokens · provenance-labeled · not official until owner-verified",
       "brand.section.palette.intro":
-        "A roast-spectrum brown ladder (green-bean → espresso) carries the coffee story; a forest-deep green carries the bear's habitat; cream surfaces hold it all up; a single warm gold reserves emphasis. No blue, no indigo — and that absence is itself a differentiator. The 1km census reads as a wall of Instagram-blue and pure-black café identities; Ursa's warm browns and forest-deep green read as craft before the customer finishes reading the name. Hex values are sampled from social media, not yet locked by the owner — promote them to official tokens only after the asset pack arrives (open question Q6).",
+        "A roast-spectrum brown ladder (green-bean → espresso) carries the coffee story; a forest-deep green carries the bear's habitat; cream surfaces hold it all up; a single warm gold reserves emphasis. No blue, no indigo — and that absence is itself a differentiator. The 1km census reads as a wall of Instagram-blue and pure-black café identities; Ursa's warm browns and forest-deep green read as craft before the customer finishes reading the name. Hex values are sampled from social media, not yet locked by the owner — promote them to official tokens only after the asset pack arrives (open question Q6). Implementation cost is effectively zero: all sixteen tokens are already wired into this dossier's Tailwind config, so promoting them from approximate to official is a single-line edit per token, not a re-build.",
       "brand.section.palette.provenance-key": "Provenance key",
       "brand.section.palette.provenance.approximate": "approximate — sampled from social media",
       "brand.section.palette.provenance.proposed": "proposed — design-system addition",
@@ -1622,7 +1971,7 @@ export const translations: Translations = {
       "brand.section.typography.badge": "Typography",
       "brand.section.typography.title": "Three voices, one rhythm",
       "brand.section.typography.intro":
-        "A serif display carries the early-1900s craft lean; a humanist sans carries the readable prose; a condensed uppercase carries every label, eyebrow, and tag. Three roles, no overlap — because overlap is where inconsistency lives. Two voices would force the body to double as a label (illegible at small sizes); four would dilute the rhythm and add a font-license line item for no cognitive gain. Three is the minimum that holds the Art Nouveau voice across print, web, and signage.",
+        "A serif display carries the early-1900s craft lean; a humanist sans carries the readable prose; a condensed uppercase carries every label, eyebrow, and tag. Three roles, no overlap — because overlap is where inconsistency lives. Two voices would force the body to double as a label (illegible at small sizes); four would dilute the rhythm and add a font-license line item for no cognitive gain. Three is the minimum that holds the Art Nouveau voice across print, web, and signage. The split also matches the legibility research: serif faces retain character recognition at large display sizes where contrast is high, humanist sans-serifs read faster at body sizes (the canonical WCAG-aligned default), and condensed uppercase carries labels because its tight set-width preserves hierarchy at the small sizes labels live at.",
       "brand.section.typography.scale.label": "Type scale · applied",
       "brand.section.typography.scale.headline": "Un gramo a la vez.",
       "brand.section.typography.scale.subhead": "Tostadores de café de especialidad",
@@ -1671,7 +2020,7 @@ export const translations: Translations = {
       "brand.section.distinctive.title": "The Ehrenberg-Bass read: mental availability through repetition",
       "brand.section.distinctive.meta": "Uniqueness × Prevalence · census-verified",
       "brand.section.distinctive.intro":
-        "Distinctive assets are non-brand-name elements (characters, colors, taglines, ornamentation) that uniquely identify a brand in the buyer's memory. They build mental availability — the probability that a buyer thinks of Ursa in a buying situation — through consistent repetition. Effectiveness is measured on two axes (Romaniuk & Sharp, Ehrenberg-Bass Institute): uniqueness (few competitors use the asset) and prevalence (most category buyers associate the asset with the brand). An asset that is unique but rarely applied does not yet qualify — repetition is the mechanism, not the design.",
+        "Distinctive assets are non-brand-name elements (characters, colors, taglines, ornamentation) that uniquely identify a brand in the buyer's memory. They build mental availability — the probability that a buyer thinks of Ursa in a buying situation — through consistent repetition. Effectiveness is measured on two axes (Romaniuk & Sharp, Ehrenberg-Bass Institute): uniqueness (few competitors use the asset) and prevalence (most category buyers associate the asset with the brand). An asset that is unique but rarely applied does not yet qualify — repetition is the mechanism, not the design. One honest limitation of the framework: it was developed for fast-moving consumer goods with high purchase frequency, where mental availability compounds across weekly shopping trips. Specialty coffee is a lower-frequency category, so the 90-day prevalence test below is the adapted version — shorter than the FMCG norm, but long enough for a 1km walk-up catchment where regulars return weekly.",
       "brand.section.distinctive.census-callout-title": "The census finding",
       "brand.section.distinctive.census-callout-body":
         "1km census from Alcanfores 183 (snapshot 2026-08-01): 0 of 14 in-catchment competitors and 0 of 4 Lima benchmarks use an animal character as a brand asset. This is verified white space — the bear's uniqueness is established, but prevalence is not.",
@@ -1729,7 +2078,7 @@ export const translations: Translations = {
       "brand.section.art-nouveau.meta": "Documented · applied · reserved",
       "brand.section.art-nouveau.live-label": "Live · ArtNouveauDivider",
       "brand.section.art-nouveau.live-detail":
-        "The hairline-gold rule with a central flourish. Used to separate major sections — never to slice paragraphs.",
+        "The hairline-gold rule with a central flourish. Used to separate major sections — never to slice paragraphs. It is the smallest Art Nouveau signal that still registers as craft: at one pixel wide it is barely visible, at three it competes with content, at two with the flourish it carries the brand's ornamental DNA without taxing the eye. Treat it as the load-bearing ornament — every other Art Nouveau component depends on it for visual continuity.",
 
       "brand.art-nouveau.borders.title": "Ornamental borders",
       "brand.art-nouveau.borders.detail":
@@ -1759,7 +2108,7 @@ export const translations: Translations = {
       "brand.section.evolution.title": "Three evolution levels — one recommendation",
       "brand.section.evolution.meta": "Conservative refinement wins",
       "brand.section.evolution.intro":
-        "Of three plausible directions, this module recommends Level 1 as the permanent system. Level 2 is a reversible 6-month growth skin layered on top. Level 3 is seasonal only. A total rebrand is explicitly off the table — not because rebrands are always wrong, but because Ursa's identity is already its ownable asset (see Distinctive Assets above), and a rebrand would destroy category-leading mental availability it has not yet finished building. Sequencing matters: Level 1 must be locked before Level 2 ships, and Level 3 is gated behind explicit owner sign-off.",
+        "Of three plausible directions, this module recommends Level 1 as the permanent system. Level 2 is a reversible 6-month growth skin layered on top. Level 3 is seasonal only. A total rebrand is explicitly off the table — not because rebrands are always wrong, but because Ursa's identity is already its ownable asset (see Distinctive Assets above), and a rebrand would destroy category-leading mental availability it has not yet finished building. Sequencing matters: Level 1 must be locked before Level 2 ships, and Level 3 is gated behind explicit owner sign-off. Cost ceiling per level: Level 1 is bounded by the asset pack (S/. 0–1,000 if the owner supplies the official bear mark; the design-system documentation itself is already written in this dossier); Level 2 adds motion-design work at S/. 1,200–3,600 for a sticker pack and one looping mark; Level 3 runs S/. 400–1,200 per seasonal skin. None of these figures requires external agency work — a Lima-based freelance motion designer can deliver Level 2 inside the budget.",
       "brand.section.evolution.why-callout-title": "Why Level 1 is the permanent system",
       "brand.section.evolution.why-callout-body":
         "Ursa already does what works in 2025–26: identity over trend-hopping. The bear, the Art Nouveau lean, the two-bar layout, and named drinks add up to a brand competitors cannot copy quickly. Refinement — not replacement — protects that asset and spends the budget on distribution (Module 04) instead of identity churn.",
@@ -1774,7 +2123,7 @@ export const translations: Translations = {
       "brand.evolution.level-1.outcome-2": "Bear-mark usage rules across every surface",
       "brand.evolution.level-1.outcome-3": "Reusable social, menu, and packaging templates",
       "brand.evolution.level-1.risk":
-        "Risk: documentation overhead without enforcement. A design system that lives only in a Figma file and not in a printed \"brand police\" checklist (one-page reference for baristas, printer, and creators) degrades within 90 days. Mitigation: ship the one-page checklist alongside the Figma file; audit application at day 30, 60, 90. Limitation: also depends on owner-supplied asset pack (open Q6) — if the official bear mark is not supplied within 14 days, Level 1 cannot be locked.",
+        "Risk: documentation overhead without enforcement. A design system that lives only in a Figma file and not in a printed \"brand police\" checklist (one-page reference for baristas, printer, and creators) degrades within 90 days. Mitigation: ship the one-page checklist alongside the Figma file; audit application at day 30, 60, 90. Success rule: by day 30, ≥80% of new Instagram posts use the templated kit; by day 90, ≥95% — measured by a weekly sample of ten posts. If either threshold is missed, the checklist is revised, not the system. Limitation: also depends on owner-supplied asset pack (open Q6) — if the official bear mark is not supplied within 14 days, Level 1 cannot be locked.",
 
       "brand.evolution.level-2.name": "Distinctive growth system",
       "brand.evolution.level-2.horizon": "6-month skin",
@@ -1829,7 +2178,7 @@ export const translations: Translations = {
       "brand.spirit.eyebrow": "Spirit-preservation principle",
       "brand.spirit.headline": "Never choose a generic growth tactic over the bear.",
       "brand.spirit.body":
-        "If a recommendation forces a choice between (a) protecting Ursa's existing bear / Art Nouveau / roastery identity and (b) chasing a generic growth tactic, this dossier always chooses (a). The conservative-refinement direction is the permanent system; experimental expressions are kept seasonal and reversible. This is the guardrail every subsequent module inherits — and the test that decides the choice is operational, not aesthetic: if the tactic would require a layout change, a brand-mark swap, or a tonal shift the bear cannot carry, it fails the guardrail and is rejected.",
+        "If a recommendation forces a choice between (a) protecting Ursa's existing bear / Art Nouveau / roastery identity and (b) chasing a generic growth tactic, this dossier always chooses (a). The conservative-refinement direction is the permanent system; experimental expressions are kept seasonal and reversible. This is the guardrail every subsequent module inherits — and the test that decides the choice is operational, not aesthetic: if the tactic would require a layout change, a brand-mark swap, or a tonal shift the bear cannot carry, it fails the guardrail and is rejected. Two worked examples: a discount-voucher campaign that requires a different colour treatment to convert would fail (it dilutes the cream-and-brown surface the bear lives on); a heritage collaboration that places a partner logo above the bear on the storefront would also fail (the bear loses primacy on its own surface). A campaign that places the bear in a new seasonal scene, by contrast, passes — the mark is unchanged, only its setting moves.",
       "brand.spirit.chip.bear": "Bear · Gram · Green",
       "brand.spirit.chip.no-rebrand": "No rebrand · no generic playbook",
       "brand.spirit.chip.experiments": "Experiments reversible on 14–30 day stop rules",
@@ -1837,7 +2186,7 @@ export const translations: Translations = {
       "brand.section.dossier.badge": "Static dossier",
       "brand.section.dossier.title": "Read the printable HTML dossier",
       "brand.section.dossier.body":
-        "The full, print-friendly Module 01 dossier is available as browsable HTML — open it for the complete audit tables and printable colour sheets.",
+        "The full, print-friendly Module 01 dossier is available as browsable HTML — open it for the complete audit tables and printable colour sheets. The printed reference is what the barista team, the printer, and any external creator work from; this digital view is what the owner and the dossier team iterate against.",
       "brand.section.dossier.button": "Open the interactive style guide",
 
       "brand.stat.palette": "Verified palette tokens",
@@ -1882,7 +2231,7 @@ export const translations: Translations = {
       "market.section.census.title": "Every named competitor within a 1km walk of Alcanfores 183",
       "market.section.census.meta": "Systematic street-radiating grid · snapshot 2026-08-01",
       "market.section.census.intro":
-        "The competitor set is no longer a shortlist — it is a census. Every named street within a 1km walk of Ursa's address was walked virtually via Google Maps Street View and cross-referenced against Google Places, TripAdvisor, and Instagram location tags. The result: 14 competitors inside the 1km catchment plus 4 Lima-wide benchmarks (Bisetti, Ciclos, RAIZ, Monótono) included for positional context. Proximity is colour-coded: red = same street, gold = nearby, green = within 1km, grey = out-of-area benchmark. A 1km radius is the practical walk-up catchment for an espresso bar in a dense, walkable district like Miraflores — beyond it, the customer is choosing to travel, not stumbling in.",
+        "The competitor set is no longer a shortlist — it is a census. Every named street within a 1km walk of Ursa's address was walked virtually via Google Maps Street View and cross-referenced against Google Places, TripAdvisor, and Instagram location tags. The result: 14 competitors inside the 1km catchment plus 4 Lima-wide benchmarks (Bisetti, Ciclos, RAIZ, Monótono) included for positional context. Proximity is colour-coded: red = same street, gold = nearby, green = within 1km, grey = out-of-area benchmark. A 1km radius is the practical walk-up catchment for an espresso bar in a dense, walkable district like Miraflores — beyond it, the customer is choosing to travel, not stumbling in. The alternative considered was a paid market-research report (S/. 8,000–15,000 from a Lima consumer-insights firm); rejected because the dossier's source of truth is verifiable public data, not a third-party interpretation, and because the census cost was effectively zero in cash terms.",
       "market.section.census.summary.discovered": "Total discovered",
       "market.section.census.summary.operating": "Operating",
       "market.section.census.summary.uncertain": "Status uncertain",
@@ -1923,16 +2272,16 @@ export const translations: Translations = {
       "market.section.landscape.title": "The eighteen names around Ursa",
       "market.section.landscape.meta": "Per-competitor deep-dive · snapshot 2026-08-01",
       "market.section.landscape.intro":
-        "The census above is the systematic view; the cards below are the per-competitor deep-dive. For each competitor the card names one strength, one weakness, and the implication that follows for Ursa. Fourteen sit inside the 1km catchment; four (Bisetti, Ciclos, RAIZ, Monótono) are Lima-wide benchmarks included for positional context — not direct competitors a Miraflores customer compares on the same walk, but reference points for what category-leading looks like at Lima scale.",
+        "The census above is the systematic view; the cards below are the per-competitor deep-dive. For each competitor the card names one strength, one weakness, and the implication that follows for Ursa — a compressed SWOT, narrowed because each competitor's strategic position is already named in the ownable-space analysis below. Fourteen sit inside the 1km catchment; four (Bisetti, Ciclos, RAIZ, Monótono) are Lima-wide benchmarks included for positional context — not direct competitors a Miraflores customer compares on the same walk, but reference points for what category-leading looks like at Lima scale. The framework's limitation: it freezes a single snapshot (2026-08-01) and does not track momentum. A competitor opening a second location or winning a national award between snapshots would shift the read; the implementation roadmap's quarterly refresh cadence is the mitigation.",
 
       "market.section.ownable.badge": "Ownable space",
       "market.section.ownable.title": "Ursa sits orthogonal to the category",
       "market.section.ownable.meta": "Not a better café — a different one",
       "market.section.ownable.intro":
-        "Every strong Miraflores competitor owns one position. Punto Café owns the award. Neira owns scale. Bisetti owns the school. Puku Puku owns the microlote. Terrua owns the premium tasting. None of them owns an animal, an Art Nouveau design language, or a two-bar theatre — and none of them uses named drinks. These positions are not easy to copy because each is backed by a hard asset: Punto's award certificate, Neira's four locations, Bisetti's training program, Puku Puku's microlote supply chain, Terrua's farm-to-cup sourcing. Ursa's bear, two-bar layout, and named-drink system are equally hard to copy because each is backed by a physical or operational commitment — a brand mark, a built-out space, a menu discipline — that a competitor cannot redeploy without matching all three.",
+        "Every strong Miraflores competitor owns one position. Punto Café owns the award. Neira owns scale. Bisetti owns the school. Puku Puku owns the microlote. Terrua owns the premium tasting. None of them owns an animal, an Art Nouveau design language, or a two-bar theatre — and none of them uses named drinks. These positions are not easy to copy because each is backed by a hard asset: Punto's award certificate, Neira's four locations, Bisetti's training program, Puku Puku's microlote supply chain, Terrua's farm-to-cup sourcing. Ursa's bear, two-bar layout, and named-drink system are equally hard to copy because each is backed by a physical or operational commitment — a brand mark, a built-out space, a menu discipline — that a competitor cannot redeploy without matching all three. The moat is already built; the cost from here is defense (consistent application, see Module 01 distinctive assets), not construction.",
       "market.section.ownable.ortho-title": "The orthogonality principle",
       "market.section.ownable.ortho-body":
-        "Ursa's ownable space — bear + two bars + named drinks (Ursagroni, Maracumango) + “Un gramo a la vez” — does not compete against the category's existing positions. It sits at a right angle to them. A customer can love Punto Café's award and still choose Ursa for the bear. That is the moat — and the operational rule it implies is that Ursa should never try to out-award Punto, out-scale Neira, or out-school Bisetti. Each of those contests has an incumbent with a structural advantage; the bear's contest has no incumbent at all.",
+        "Ursa's ownable space — bear + two bars + named drinks (Ursagroni, Maracumango) + “Un gramo a la vez” — does not compete against the category's existing positions. It sits at a right angle to them. A customer can love Punto Café's award and still choose Ursa for the bear. That is the moat — and the operational rule it implies is that Ursa should never try to out-award Punto, out-scale Neira, or out-school Bisetti. Each of those contests has an incumbent with a structural advantage; the bear's contest has no incumbent at all. Success rule: a quarterly customer survey (n≥40, run alongside the distinctive-asset recall test in Module 01) should show that fewer than 30% of Ursa's regulars name any single competitor as a substitute; if that share rises above 50%, the orthogonality claim has weakened and the positioning needs a written re-decision before any new tactic ships.",
       "market.section.ownable.rule":
         "The strategic rule that follows: never try to out-award Punto, out-scale Neira, or out-school Bisetti. Instead, be the only café in Lima where the bear, the gram, and the green are visibly the operating system.",
       "market.section.ownable.card-title": "Who owns what",
@@ -1949,7 +2298,7 @@ export const translations: Translations = {
       "market.section.voice.meta": "Four themes · verified from public reviews and direct observation",
       "market.section.voice.methodology-title": "Methodology and limitations",
       "market.section.voice.methodology-intro":
-        "The customer-voice themes below are illustrative, not validated. They are inferred from competitor review patterns and the dossier's own competitive analysis, not from a coded sample of Ursa's own customers. Read them as direction-setting signal, not as a quantitative read on Ursa's clientele.",
+        "The customer-voice themes below are illustrative, not validated. They are inferred from competitor review patterns and the dossier's own competitive analysis, not from a coded sample of Ursa's own customers. Read them as direction-setting signal, not as a quantitative read on Ursa's clientele. Revisit cadence: re-code the themes the moment Ursa accumulates ≥50 of its own public reviews across Google and TripAdvisor (the threshold at which a coded sample becomes statistically meaningful for a single-site café), and not later than the next quarterly snapshot — whichever comes first.",
       "market.section.voice.field.boundary": "Market boundary",
       "market.section.voice.field.boundary-value": "Miraflores specialty coffee cafés + Lima-wide leaders for benchmarking",
       "market.section.voice.field.platforms": "Platforms sampled",
@@ -1991,7 +2340,7 @@ export const translations: Translations = {
       "market.section.conversion.title": "From findings to a 90-day worklist",
       "market.section.conversion.meta": "Six lanes · each traceable to a competitor or customer-voice theme",
       "market.section.conversion.intro":
-        "Every card below is a direct conversion of a finding above — no card is speculative. Where a card references a competitor, the implication is explicit; where it references a customer-voice theme, the friction point is named. The six lanes are sequenced for a 90-day worklist: standards first (because matching category baselines is prerequisite to leading them), then avoidance (because losses compound faster than gains), then leadership (the bear-shaped openings the census verified).",
+        "Every card below is a direct conversion of a finding above — no card is speculative. Where a card references a competitor, the implication is explicit; where it references a customer-voice theme, the friction point is named. The six lanes are sequenced for a 90-day worklist: standards first (because matching category baselines is prerequisite to leading them), then avoidance (because losses compound faster than gains), then leadership (the bear-shaped openings the census verified). The success rule across all six: each lane ships one tangible artifact in 30 days (a GBP claim, a menu line, a tasting flight, a content proof point), and is reviewed at day 60 against its named metric. Any lane that has not shipped its artifact by day 30 is paused and re-scoped, not carried forward as a vague intention — vague intentions are how 90-day worklists become 12-month wishlists.",
 
       "market.conversion.standards.title": "Standards Ursa must match",
       "market.conversion.standards.item-1": "Award visibility — Punto Café won Premios Somos 2024; Ursa needs a credible awards entry",
@@ -2039,15 +2388,702 @@ export const translations: Translations = {
       "market.section.website-gap.meta": "Surfaced in 1km census · 30-day priority",
       "market.section.website-gap.callout-title": "This is the single most visible infrastructure gap in the dossier",
       "market.section.website-gap.callout-body":
-        "{withWebsite} of {total} competitors in the 1km census maintain a public website. Ursa's discoverable presence is Instagram only. A first-time visitor who searches \"café de especialidad Miraflores\" on Google finds a wall of competitor websites — Punto Café, Neira Café Lab, Terrua, Cate Tasting Room, and more — and one under-optimized Google Business Profile in return. The bear is invisible at the moment of greatest intent.",
+        "{withWebsite} of {total} competitors in the 1km census maintain a public website. Ursa's discoverable presence is Instagram only. A first-time visitor who searches \"café de especialidad Miraflores\" on Google finds a wall of competitor websites — Punto Café, Neira Café Lab, Terrua, Cate Tasting Room, and more — and one under-optimized Google Business Profile in return. The bear is invisible at the moment of greatest intent. Success metric: within 60 days of launch, an incognito search for «café Miraflores» or «café de especialidad Miraflores» from a Miraflores IP should return the Ursa site in the top ten organic results — that is the bar at which the gap is considered closed, not merely filled.",
       "market.section.website-gap.priority-label": "30-day priority:",
       "market.section.website-gap.priority-body":
-        "ship a single-page site that carries the verified identity — address, hours, signature drinks, the bear, the Art Nouveau craft language, and a booking channel for tastings. The full design system already exists in Module 01. The signature drinks are verified in Module 03. This is assembly, not invention — and the implementation cost is correspondingly small: a single Next.js page with the existing tokens, deployable to a free static host in 72 hours. The cost of not shipping it is larger: every Google search for \"café Miraflores\" that lands on a competitor's website is a customer Ursa has paid no acquisition cost to reach and still loses.",
+        "ship a single-page site that carries the verified identity — address, hours, signature drinks, the bear, the Art Nouveau craft language, and a booking channel for tastings. The full design system already exists in Module 01. The signature drinks are verified in Module 03. This is assembly, not invention — and the implementation cost is correspondingly small: a single Next.js page with the existing tokens, deployable to a free static host in 72 hours. In cash terms the cost is S/. 0 if the dossier team assembles it, or S/. 1,500–3,000 if a Lima-based freelance Next.js developer is hired for one to two days of work. The cost of not shipping it is larger: every Google search for \"café Miraflores\" that lands on a competitor's website is a customer Ursa has paid no acquisition cost to reach and still loses.",
       "market.section.website-gap.open-brand": "Open Brand Audit (Module 01)",
       "market.section.website-gap.open-dashboard": "Open the interactive Competitor Dashboard",
 
       "market.section.dossier.body":
         "All competitor claims are sourced and snapshot-dated. See Sources & Evidence for full citations.",
+
+      /* ---- Tool T3 · Content Calendar (deepened body copy + section copy) ---- */
+      "content-calendar.hero.lede":
+        "The question this tool answers: how does a roastery with one owner-operator and a small barista team produce enough Instagram content to keep Ursa top-of-mind for the 1km Miraflores walk-up — without paying an agency, hiring a creator, or burning the owner's time? The planner proposes a four-week grid of twenty-six in-house concepts, ten production-ready scripts, and three cadenced series, all filmable inside the shop with the baristas already on shift. The library is closed (no addition without subtraction) so the team gets repetition instead of invention; the scripts are bilingual-verbatim so captions never need a translator; the planner pre-populates a Mon/Wed/Fri Reels, Tue/Thu Carousel, Saturday Event/UGC, Sunday Stories rhythm proven to keep an Instagram feed warm without saturating it.",
+      "content-calendar.meta.concepts": "Concepts",
+      "content-calendar.meta.scripts": "Scripts",
+      "content-calendar.meta.series": "Series",
+      "content-calendar.meta.pilot": "Pilot",
+      "content-calendar.meta.pilot-value": "4 weeks",
+
+      "content-calendar.section.1.badge": "Section 01",
+      "content-calendar.section.1.title": "Library at a glance",
+      "content-calendar.section.1.meta": "Counts by format",
+      "content-calendar.stat.concepts": "Content concepts in the library",
+      "content-calendar.stat.scripts": "Production-ready scripts (beats + caption + CTA)",
+      "content-calendar.stat.series": "Repeatable series with cadence",
+      "content-calendar.section.1.formats-label":
+        "Concepts by format (overlapping — one concept may match several)",
+      "content-calendar.section.1.callout-title": "Why these formats, in these proportions",
+      "content-calendar.section.1.callout-body":
+        "Reels carry reach (Instagram's algorithm surfaces them to non-followers); Carousels carry dwell time (each slide is a separate impression); Stories carry frequency without fatigue (they disappear in 24 hours, so posting daily is the contract, not spam); UGC and Events carry proof (someone else's voice, a real moment in the shop). The twenty-six-concept library is engineered so the team never opens a blank frame — the work is choosing, not inventing.",
+
+      "content-calendar.section.2.badge": "Section 02",
+      "content-calendar.section.2.title": "Filterable concept library",
+      "content-calendar.section.2.meta": "{n} of 26 shown",
+      "content-calendar.section.2.intro":
+        "Use this library as a menu, not as a wish-list. Pick a concept, film it inside the shop with the baristas on shift, ship the caption verbatim from the linked script. The search bar matches title, hook, or ID (try \"C07\", \"bear\", or \"coldbrew\"). The format filter narrows by Instagram surface — Reel, Carousel, Series, UGC, Event. Each card opens a detail dialog with the hook, the production rules, and a link to the full Module 05 brief.",
+      "content-calendar.section.2.search-placeholder": "Search title, hook, or ID (e.g. C07, bear, coldbrew)…",
+      "content-calendar.section.2.empty": "No concepts match. Try a different filter or search term.",
+      "content-calendar.section.2.view-details": "View details →",
+      "content-calendar.section.2.dialog.hook-label": "The hook",
+      "content-calendar.section.2.dialog.use-label": "How to use this concept",
+      "content-calendar.section.2.dialog.use-1":
+        "Film in-house with the baristas on shift — no actors, no paid locations. The point is proof that this shop exists and these people make this coffee.",
+      "content-calendar.section.2.dialog.use-2":
+        "Lead with the hook in the first two seconds. The brand mark belongs on the last frame, not the first — Instagram rewards watch-time, and watch-time is bought by content, not by logo.",
+      "content-calendar.section.2.dialog.use-3":
+        "If a matching script exists, paste its Spanish caption verbatim. The captions are pre-translated to Peruvian Spanish and field-checked; ad-libbing breaks the voice.",
+      "content-calendar.section.2.dialog.use-4":
+        "Post on the cadence the planner assigns. Measure saves, shares, and reach for 48 hours before deciding whether to repeat, retire, or replace.",
+      "content-calendar.section.2.dialog.close": "Close",
+      "content-calendar.section.2.dialog.open-module": "Open Module 05",
+
+      "content-calendar.filter.all": "All",
+      "content-calendar.filter.reel": "Reel",
+      "content-calendar.filter.carousel": "Carousel",
+      "content-calendar.filter.series": "Series",
+      "content-calendar.filter.ugc": "UGC",
+      "content-calendar.filter.event": "Event",
+
+      "content-calendar.day.Mon": "Mon",
+      "content-calendar.day.Tue": "Tue",
+      "content-calendar.day.Wed": "Wed",
+      "content-calendar.day.Thu": "Thu",
+      "content-calendar.day.Fri": "Fri",
+      "content-calendar.day.Sat": "Sat",
+      "content-calendar.day.Sun": "Sun",
+
+      "content-calendar.section.3.badge": "Section 03",
+      "content-calendar.section.3.title": "Script reader",
+      "content-calendar.section.3.meta": "Beats · caption · CTA · copy",
+      "content-calendar.section.3.intro":
+        "Every script in the library carries three artefacts: the beats (the shot list a barista can film without a director), the Spanish caption (copy-paste ready, no translation needed on the way out), and the Spanish CTA (one specific action, one specific link or word). Captions and CTAs are posted verbatim — the bilingual reader sees Spanish; the back-office copy is English. Adapting the wording mid-flight breaks the measurable test: you cannot compare a Reel that performed with caption A against one that performed with caption B if both were edited.",
+      "content-calendar.section.3.beats-label": "Beats",
+      "content-calendar.section.3.caption-label": "Caption · ES Peru",
+      "content-calendar.section.3.cta-label": "CTA · ES Peru",
+      "content-calendar.section.3.copy-button": "Copy caption",
+      "content-calendar.section.3.copied-button": "Copied",
+
+      "content-calendar.section.4.badge": "Section 04",
+      "content-calendar.section.4.title": "Interactive weekly planner",
+      "content-calendar.section.4.meta": "{n} assignments · click any day",
+      "content-calendar.section.4.intro":
+        "The four-week grid pre-populates a rhythm proven to keep an Instagram feed warm without saturating it: Monday/Wednesday/Friday Reels (reach); Tuesday/Thursday Carousels (depth); Saturday Event or UGC (proof); Sunday Stories (frequency). Click any cell to open the concept picker. The pre-populated schedule is a starting point — replace any cell with a concept from the library, stack more than one concept on a day, or reset to the suggested rhythm when the grid drifts.",
+      "content-calendar.section.4.reset": "Reset to suggested",
+      "content-calendar.section.4.add-concept": "+ add concept",
+      "content-calendar.section.4.more": "+{n} more",
+      "content-calendar.section.4.cell-label": "W{week} · {day}",
+      "content-calendar.section.4.tip-prefix": "Tip:",
+      "content-calendar.section.4.tip-body":
+        "a day can hold more than one concept (e.g. a Reel + a Story). Use the concept picker to stack them.",
+      "content-calendar.section.4.dialog-title": "Week {week} · {day}",
+      "content-calendar.section.4.dialog-desc": "Toggle concepts to assign. Currently {n} assigned.",
+      "content-calendar.section.4.dialog-search-placeholder": "Search concepts…",
+      "content-calendar.section.4.dialog-clear": "Clear day",
+      "content-calendar.section.4.dialog-done": "Done",
+
+      "content-calendar.section.5.badge": "Section 05",
+      "content-calendar.section.5.title": "Series tracker",
+      "content-calendar.section.5.meta": "Log the last-posted date",
+      "content-calendar.section.5.intro":
+        "A repeatable series earns its slot only if the audience learns to expect it. The three series below are the spine of the Ursa feed — each has a cadence (daily or weekly) and a fixed concept that never changes from episode to episode. Use this log to record the last-posted date for each; anything older than the cadence is flagged overdue, because a missed week costs two weeks of recovery (the algorithm forgets and the audience unlearns).",
+      "content-calendar.section.5.last-posted-label": "Last posted",
+      "content-calendar.section.5.not-logged": "Not logged yet",
+      "content-calendar.section.5.last-prefix": "Last:",
+      "content-calendar.section.5.overdue": "Overdue",
+      "content-calendar.section.5.on-cadence": "On cadence",
+      "content-calendar.section.5.callout-title": "Cadence is the strategy",
+      "content-calendar.section.5.callout-body":
+        "A series earns its place by being predictable — the audience learns to expect it the way they expect a daily newspaper or a weekly column. On Instagram specifically, the algorithm rewards accounts that post consistently within a cadence window and demotes accounts that post in bursts and fall silent. One missed week costs two weeks of recovery (reach drops, then takes a week to climb back). If a series slips twice in a single month, retire it and replace with a new concept from the library — better to drop a series than to break the feed's rhythm.",
+
+      "content-calendar.closing.title": "Full viral content dossier",
+      "content-calendar.closing.body":
+        "This tool complements Module 05. Open the printable HTML for the complete concept briefs, the full script set, the UGC mechanisms, and the paid-amplification method.",
+      "content-calendar.closing.back": "Back to Module 05",
+
+      /* ---- Tool T7 · Origin Atlas (deepened body copy + section copy) ---- */
+      "origin-atlas.hero.lede":
+        "The question this atlas answers: where do Ursa's beans come from, and where could they come from as the roastery grows its sourcing? Six origins are plotted — Utcubamba, Chirinos, La Coipa, Satipo, Quillabamba, and Rodriguez de Mendoza — each with altitude, process, varietal, and the cup profile it produces. Utcubamba wears the gold ring: it is the verified origin behind the Filtrado Lonya, the single-origin pour-over named after the river that runs through the region. The other five are realistic expansion candidates plotted for sourcing education, for menu rotation planning, and as inputs to the seasonal 'Gramo del Mes' feature.",
+      "origin-atlas.meta.origins": "Origins",
+      "origin-atlas.meta.origins-value": "{n} plotted",
+      "origin-atlas.meta.verified": "Verified",
+      "origin-atlas.meta.verified-value": "Utcubamba → Filtrado Lonya",
+      "origin-atlas.meta.snapshot": "Snapshot",
+      "origin-atlas.meta.snapshot-value": "2026-08-01",
+
+      "origin-atlas.section.1.badge": "Atlas §1",
+      "origin-atlas.section.1.title": "The map, at a glance",
+      "origin-atlas.section.1.meta": "Peru's coffee belt runs along the eastern Andean slope",
+      "origin-atlas.stat.origins": "Origins plotted",
+      "origin-atlas.stat.altitude": "Altitude range",
+      "origin-atlas.stat.processes": "Processes (washed / natural / honey)",
+      "origin-atlas.stat.varietals": "Varietals (Bourbon · Caturra · Catimor · Typica)",
+      "origin-atlas.section.1.intro":
+        "Peru's specialty coffee belt runs along the eastern slope of the Andes — a 1,500–2,000 m cloud-forest band where Amazonas, Cajamarca, Junín, and Cusco account for the majority of the country's specialty production. The six origins plotted here were chosen because each represents a distinct combination of altitude, process, and varietal — together they span the cup-profile space Ursa is likely to source from as the roastery grows. The map is illustrative, not survey-accurate; dots are positioned for legibility, not GPS precision.",
+      "origin-atlas.section.1.callout-title": "What 'verified' means here",
+      "origin-atlas.section.1.callout-body":
+        "Only Utcubamba is currently verified as a Ursa bean origin — it is poured as the Filtrado Lonya. The other five are realistic candidate origins for Ursa's roastery expansion, plotted here for sourcing education and as inputs to the menu's single-origin rotation. They are not yet on the menu, and no claim is made that Ursa currently buys from them. Promoting any candidate to verified requires a sourced lot, a named producer or cooperative, and a public menu listing.",
+
+      "origin-atlas.section.2.badge": "Atlas §2",
+      "origin-atlas.section.2.title": "Interactive origin map",
+      "origin-atlas.section.2.meta": "Click any dot — Utcubamba wears the gold verified ring",
+      "origin-atlas.section.2.compass-label": "Peru · coffee-belt origins",
+      "origin-atlas.section.2.list-label": "Or pick from list",
+      "origin-atlas.section.2.verified-pill": "Verified · Filtrado Lonya",
+      "origin-atlas.section.2.detail.altitude-label": "Altitude",
+      "origin-atlas.section.2.detail.process-label": "Process",
+      "origin-atlas.section.2.detail.varietal-label": "Varietal",
+      "origin-atlas.section.2.detail.drink-label": "Ursa drink",
+      "origin-atlas.section.2.detail.notes-label": "Tasting notes",
+      "origin-atlas.section.2.detail.story-label": "Story",
+      "origin-atlas.section.2.detail.process-callout-title": "{process} process",
+
+      "origin-atlas.section.3.badge": "Atlas §3",
+      "origin-atlas.section.3.title": "Flavour wheel",
+      "origin-atlas.section.3.meta": "Origins plotted on tasting-note categories",
+      "origin-atlas.section.3.intro":
+        "Each column is a flavour category. Each chip beneath is an origin whose cup lands in that category. Click a chip to load that origin in the detail panel above. Ursa's verified origin (Utcubamba) is highlighted in gold. The wheel is illustrative, not exhaustive — a real cupping would produce a more granular SCA flavour wheel; this shortened version is enough to plan a rotation.",
+
+      "origin-atlas.section.4.badge": "Atlas §4",
+      "origin-atlas.section.4.title": "Harvest seasonality",
+      "origin-atlas.section.4.meta": "Peru harvest runs May–September; fresh-crop windows matter",
+      "origin-atlas.section.4.intro":
+        "Peru's coffee harvest typically runs May–September, with peak activity in June–August. Fresh-crop windows — when a region's coffee is at its brightest and most aromatic — fall in the three to six months after harvest, so a May-harvest lot is at its best from June to November. Planning single-origin features around fresh-crop arrival is a low-cost way to make the menu feel alive: the same Utcubamba lot tastes meaningfully different in August (two months off-tree) versus February (eight months off-tree), and the menu can name the difference.",
+      "origin-atlas.section.4.legend-harvest": "Harvest month",
+      "origin-atlas.section.4.legend-verified": "Ursa verified origin",
+
+      "origin-atlas.section.5.badge": "Atlas §5",
+      "origin-atlas.section.5.title": "Altitude comparison",
+      "origin-atlas.section.5.meta": "Higher altitude = denser bean = brighter cup",
+      "origin-atlas.section.5.intro":
+        "The chart plots altitude for each origin in metres above sea level. Ursa's verified origin (Utcubamba) is shown in gold; the five candidates are shown in forest-deep. The 1,400–2,000 m window is the entry altitude for Peruvian specialty — below 1,200 m, beans are typically destined for commercial blends; above 1,900 m, yields drop and the risk of frost damage rises.",
+      "origin-atlas.section.5.axis-label": "Altitude (m above sea level)",
+      "origin-atlas.section.5.callout-title": "Why altitude matters",
+      "origin-atlas.section.5.callout-body":
+        "Above roughly 1,500 m, cooler nights slow cherry maturation. The cherry spends longer on the tree, which produces a denser bean with more complex sugar chemistry — and a denser bean, when roasted, yields brighter acidity, more aromatic complexity, and a cup that reads as 'specialty' rather than 'commodity'. All six origins in this atlas sit at or above 1,550 m — the entry altitude for Peruvian specialty. Altitude is not the only variable (process and varietal matter at least as much), but it is the most legible signal a buyer has before tasting the cup.",
+
+      "origin-atlas.section.6.badge": "Atlas §6",
+      "origin-atlas.section.6.title": "How altitude, process & varietal shape the cup",
+      "origin-atlas.section.6.meta": "A short, accurate primer",
+      "origin-atlas.section.6.altitude-title": "Altitude",
+      "origin-atlas.section.6.altitude-body":
+        "Higher altitude grows denser beans with more complex sugar chemistry. Below 1,200 m, cups tend to be soft and flat; 1,200–1,500 m brings body and sweetness; above 1,500 m (specialty territory) brings bright acidity, floral aromatics, and clean fruit. All six origins plotted here sit at or above 1,550 m. For Ursa, this means altitude is a useful first filter when sourcing new lots: anything below the band can be skipped before tasting.",
+      "origin-atlas.section.6.process-title": "Process",
+      "origin-atlas.section.6.process-body":
+        "Washed removes the fruit before fermentation — bright, clean, acidic; lets terroir speak loudest. Natural dries the cherry on the bean — heavy body, fruit-forward, sweeter, more ferment-driven. Honey sits in between — partial mucilage left on, syrupy body, balanced sweetness, more demanding to execute well. For Ursa, this means the Filtrado Lonya should remain a washed process (Utcubamba's clean acidity is the point of the drink), while a future seasonal espresso could justifiably explore a natural or honey lot for body and sweetness.",
+      "origin-atlas.section.6.varietal-title": "Varietal",
+      "origin-atlas.section.6.varietal-body":
+        "Bourbon — old, refined, sweet and complex (Utcubamba, La Coipa, Rodriguez de Mendoza). Caturra — Bourbon mutation, bright and clean, higher yield (Chirinos). Typica — the original Arabica base, elegant and balanced (Quillabamba). Catimor — Timor hybrid, hardy and productive but less complex (Satipo). For Ursa, this means a cupping-flight curriculum could be built varietal-by-varietal — Bourbon night, Caturra night, Typica night — each with a different origin on the bar.",
+      "origin-atlas.section.6.pill-acidity": "+ Acidity",
+      "origin-atlas.section.6.pill-aromatics": "+ Aromatics",
+      "origin-atlas.section.6.pill-density": "+ Density",
+      "origin-atlas.section.6.pill-washed": "Washed → bright",
+      "origin-atlas.section.6.pill-natural": "Natural → heavy",
+      "origin-atlas.section.6.pill-honey": "Honey → syrupy",
+      "origin-atlas.section.6.pill-bourbon": "Bourbon → refined",
+      "origin-atlas.section.6.pill-typica": "Typica → elegant",
+      "origin-atlas.section.6.pill-catimor": "Catimor → hardy",
+      "origin-atlas.section.6.callout-title": "How Ursa uses this atlas",
+      "origin-atlas.section.6.callout-body":
+        "The atlas is an input to three operational decisions: the menu's single-origin rotation (which origin pours next), the seasonal 'Gramo del Mes' feature (which origin gets the spotlight), and the cupping-night curriculum (which origins taste together). Ursa's verified origin (Utcubamba) anchors the Filtrado Lonya and is the only one that ships without further sourcing work; the other five are expansion candidates, each requiring a sourced lot, a named producer or cooperative, and a public menu listing before promotion to verified status.",
+
+      "origin-atlas.section.7.atlas-complete": "Atlas complete",
+      "origin-atlas.section.7.menu-link": "Menu & Product",
+      "origin-atlas.section.7.studio-link": "Menu Engineering Studio",
+
+      "origin-atlas.process-meta.washed":
+        "Bean is stripped of fruit before fermentation and drying. Produces bright, clean, acidic cups where terroir speaks loudest.",
+      "origin-atlas.process-meta.natural":
+        "Bean is dried inside the whole cherry. Produces heavier body, fruit-forward character, and sweeter, ferment-driven aromatics.",
+      "origin-atlas.process-meta.honey":
+        "Bean is dried with the sticky fruit mucilage left on (no skin). Produces syrupy body, balanced sweetness, and complex stone-fruit notes.",
+
+      /* ---- Tool T8 · ROI Dashboard (deepened body copy + section copy) ---- */
+      "roi.hero.lede":
+        "The question this dashboard answers: which of the eight marketing channels Ursa is running or considering actually pays back, and at what confidence? The eight channels are pre-populated with verified budget defaults from Module 04 — Google Business Profile (free), Meta paid social, three-creator pilot, hotel concierge cards, monthly cupping night, Rappi optimisation, WhatsApp list, and the Ursa Mañana subscription pilot. Edit any cell — spend, expected customers, revenue per customer — and watch ROI, payback months, and the blended portfolio recalculate live. Drag the confidence slider to scale expected customers across every channel simultaneously; the dashboard then surfaces best-case, expected, and worst-case revenue ranges for the portfolio as a whole.",
+      "roi.meta.currency": "Currency",
+      "roi.meta.currency-value": "PEN (S/.)",
+      "roi.meta.channels": "Channels",
+      "roi.meta.channels-value": "{n} pre-populated · editable",
+      "roi.meta.confidence": "Confidence",
+      "roi.meta.confidence-value": "50% – 100% slider",
+
+      "roi.section.sensitivity.badge": "Sensitivity",
+      "roi.section.sensitivity.title": "Conversion confidence — drag to scale expected customers",
+      "roi.section.sensitivity.meta": "Recalculates everything below",
+      "roi.section.sensitivity.label": "Conversion confidence",
+      "roi.section.sensitivity.worst": "Worst · 50%",
+      "roi.section.sensitivity.expected": "Expected · {n}%",
+      "roi.section.sensitivity.best": "Best · 100%",
+      "roi.section.sensitivity.body":
+        "The slider multiplies expected customers across every channel. At {confidence}% confidence, a channel projected to bring 100 customers is modelled as {scaled}. The 50–100% range is the dashboard's honest acknowledgement that projection is not measurement — the worst-case (50%) assumes half the expected customers convert; the best-case (100%) assumes the projection is exactly right. Total expected revenue recalculates below — and the best/worst range appears in the Confidence section.",
+      "roi.section.sensitivity.range-best": "Best case",
+      "roi.section.sensitivity.range-expected": "Expected @ {n}%",
+      "roi.section.sensitivity.range-worst": "Worst case",
+      "roi.section.sensitivity.reset": "Reset to defaults",
+
+      "roi.section.channels.badge": "Channels",
+      "roi.section.channels.title": "Channel ROI table — edit any cell, watch everything recalculate",
+      "roi.section.channels.meta": "8 pre-populated · all editable",
+      "roi.section.channels.col-channel": "Channel",
+      "roi.section.channels.col-spend": "Spend / mo",
+      "roi.section.channels.col-customers": "New customers",
+      "roi.section.channels.col-revenue-per": "Revenue / customer",
+      "roi.section.channels.col-revenue": "Revenue",
+      "roi.section.channels.col-payback": "Payback (mo)",
+      "roi.section.channels.col-roi": "ROI %",
+      "roi.section.channels.scaled-suffix": "→ {n} @ {confidence}%",
+      "roi.section.channels.legend-green": "Green · ROI ≥ 200%",
+      "roi.section.channels.legend-gold": "Gold · ROI 100–200%",
+      "roi.section.channels.legend-terracotta": "Terracotta · ROI < 100%",
+      "roi.section.channels.legend-free": "∞ · free channel with revenue",
+      "roi.section.channels.callout-title": "These are projections, not receipts",
+      "roi.section.channels.callout-body":
+        "Expected customers and revenue per customer are assumptions, not measured results — the dashboard ships with research-informed defaults, not actuals. The discipline this dashboard enforces is: run the linked experiment for each channel, record the actual numbers, replace the assumption with the measured value, and let the dashboard re-converge. The confidence slider is the explicit acknowledgement that projections are uncertain; the experimental link in each channel's row in the Experiment Tracker is the mechanism by which that uncertainty gets resolved.",
+
+      "roi.section.portfolio.badge": "Portfolio",
+      "roi.section.portfolio.title": "Blended portfolio — all channels together",
+      "roi.section.portfolio.meta": "At {n}% confidence",
+      "roi.section.portfolio.stat-spend": "Total monthly spend",
+      "roi.section.portfolio.stat-revenue": "Total expected revenue @ {n}%",
+      "roi.section.portfolio.stat-roi": "Blended ROI",
+      "roi.section.portfolio.stat-payback": "Blended payback",
+      "roi.section.portfolio.card-customers-title": "Customers modelled",
+      "roi.section.portfolio.card-customers-body":
+        "New customers per month at {confidence}% confidence. Blended cost per acquisition: {cpa}. This number is the sum of scaled customers across all eight channels; it is not the same as foot traffic, because the same person can be acquired by more than one channel (a hotel guest who later becomes a WhatsApp subscriber counts twice). Use it to size acquisition capacity, not to forecast headcount.",
+      "roi.section.portfolio.card-profit-title": "Profit / month",
+      "roi.section.portfolio.card-profit-body":
+        "Revenue minus spend at the current confidence. A positive number here does not equal operating profit — it is gross contribution from acquisition spend. The number still has to clear cannibalisation (a subscription customer may have been a walk-in anyway) and fixed cost (rent, payroll, green coffee). For the full marginal-cost break-even on the subscription pilot specifically, open Module 08.",
+      "roi.section.portfolio.card-payback-title": "Payback horizon",
+      "roi.section.portfolio.card-payback-body":
+        "How long until cumulative revenue covers cumulative spend, in months. Lower is better; under 1.0 month means the channel pays back inside the same period (the spend is recovered before the next billing cycle). The blended payback is the portfolio average — individual channels will pay back faster or slower than this number depending on their own ratio of spend to revenue.",
+      "roi.section.portfolio.unit-months": "months",
+
+      "roi.section.compare.badge": "Compare",
+      "roi.section.compare.title": "ROI % per channel — bar chart",
+      "roi.section.compare.meta": "At {n}% confidence",
+      "roi.section.compare.intro":
+        "Green bars clear 200% ROI (every sol spent returns at least three); gold bars sit between 100–200% (every sol spent returns two-to-three); terracotta bars are under 100% (the channel is losing money or barely breaking even). Free channels — Google Business Profile and WhatsApp — are capped visually at 200% so they don't compress the rest of the chart; their actual ROI is mathematically infinite. Use the chart to spot the shape of the portfolio, not to read precise ROI values — read those in the table above.",
+
+      "roi.section.confidence.badge": "Confidence",
+      "roi.section.confidence.title": "Best, expected, and worst case for total revenue",
+      "roi.section.confidence.meta": "Scales with the confidence slider",
+      "roi.section.confidence.chart-title": "Revenue range across confidence bands",
+      "roi.section.confidence.bar-best": "Best case · 100% confidence",
+      "roi.section.confidence.bar-expected": "Expected · {n}% confidence",
+      "roi.section.confidence.bar-worst": "Worst case · 50% confidence",
+      "roi.section.confidence.body":
+        "The gap between best case (100% confidence) and worst case (50%) is the model's honest uncertainty about the projection. The decision rule: if the worst case still covers total monthly spend, the portfolio is robust and you can ship as planned; if only the best case clears it, reduce spend on the riskiest channel until the expected case covers spend on its own. The slider above scales expected customers; this section shows the revenue consequence at three fixed confidence points.",
+      "roi.section.confidence.best-title": "Best-performing channel",
+      "roi.section.confidence.best-intro":
+        "The channel with the highest ROI at the current confidence. Free channels (Google Business Profile, WhatsApp) sort to the top when their spend is zero — their infinite ROI is real, not a glitch, but it cannot be scaled by spending more.",
+      "roi.section.confidence.worst-title": "Weakest channel",
+      "roi.section.confidence.worst-intro":
+        "The channel with the lowest finite ROI at the current confidence. If ROI is below 100%, the channel is spending more than it returns in the same month — cut spend, re-brief the creative, or retire the channel and reallocate the budget to the best-performing line.",
+      "roi.section.confidence.worst-all-free": "All channels are free or have infinite ROI. Nothing to flag.",
+      "roi.section.confidence.worst-losing": "Losing {amount}/mo at {confidence}% confidence.",
+      "roi.section.confidence.worst-below": "ROI of {roi}% is below the 100% threshold.",
+      "roi.section.confidence.pill-revenue": "{amount} revenue",
+      "roi.section.confidence.pill-spend": "{amount} spend",
+
+      "roi.section.pair.badge": "Pair with",
+      "roi.section.pair.title": "Set the budget first, then validate it here",
+      "roi.section.pair.intro":
+        "Set the budget before validating it. The Budget Allocator locks the monthly commitment; this dashboard models the return on each line item. The Subscription Calculator handles the one channel — Ursa Mañana — that needs marginal-cost break-even, cannibalisation, and free-cup capacity math this dashboard deliberately simplifies.",
+      "roi.section.pair.budget-title": "Budget Allocator",
+      "roi.section.pair.budget-body":
+        "The Budget Allocator tells you what you spend per line item. Use it to lock in the total monthly commitment before modelling return here.",
+      "roi.section.pair.budget-cta": "Open Budget Allocator",
+      "roi.section.pair.calc-title": "Subscription Calculator",
+      "roi.section.pair.calc-body":
+        "The Subscription pilot channel above is modelled simply. For the full marginal-cost break-even, cannibalisation, and free-cup capacity math, open Module 08.",
+      "roi.section.pair.calc-cta": "Open Subscription Calculator",
+
+      /* ---- Calculator (Module 08) · Ursa Mañana Subscription Economics ---- */
+      "calculator.lede":
+        "This calculator answers one decision: does Ursa Mañana — the unlimited-coffee subscription at S/. 20/month, Mon–Fri 7–10am, in-store only, one cup per visit, no milk drinks — pay at Ursa's own-roastery marginal cost? Edit any input and the profit, break-even attach rate, free-cup capacity, and recovery time update live. The honest risk is cannibalization of existing regulars, not per-cup cost; the model exposes it explicitly rather than hiding it inside an average.",
+      "calculator.meta.pilot": "Pilot",
+      "calculator.meta.pilot-value": "Capped at 50 members",
+      "calculator.meta.default": "Default",
+      "calculator.meta.default-value": "S/. 20/mo · 7–10am",
+      "calculator.meta.cost": "Verified cost",
+      "calculator.meta.cost-value": "S/. 1.20–1.80/cup (own roastery)",
+      "calculator.presets.label": "Quick scenarios:",
+      "calculator.preset.conservative": "Conservative",
+      "calculator.preset.default": "Default (recommended)",
+      "calculator.preset.optimistic": "Optimistic",
+      "calculator.action.reset": "Reset",
+      "calculator.inputs.title": "Edit the inputs",
+      "calculator.inputs.subtitle":
+        "Drag sliders or type values. Everything recalculates instantly.",
+      "calculator.field.subPrice.label": "Subscription price (monthly)",
+      "calculator.field.subPrice.hint":
+        "The price a subscriber pays per month. Pilot price is S/. 20 — high enough to signal commitment, low enough to look obvious next to a S/. 12 cappuccino.",
+      "calculator.field.costPerCup.label": "Marginal cost per cup",
+      "calculator.field.costPerCup.hint":
+        "Bean + water + energy + cup. Own-roastery benchmark S/. 1.20–1.80; specialty cafés that buy roasted wholesale typically sit at S/. 2.50–3.50 — that gap is the whole reason the subscription works at Ursa and would not work at most competitors.",
+      "calculator.field.visitsWeek.label": "Visits per week",
+      "calculator.field.visitsWeek.hint":
+        "How often a subscriber comes in during the 7–10am window. Two-and-a-half visits a week is the conservative read on the morning-regular persona from Module 04.",
+      "calculator.field.cupsVisit.label": "Cups per visit",
+      "calculator.field.cupsVisit.hint":
+        "Capped at one in the pilot. A second cup in the same visit doubles marginal cost without changing the price the subscriber pays — the most common way an unlimited-coffee offer quietly bleeds.",
+      "calculator.field.attachRate.label": "Side attach rate",
+      "calculator.field.attachRate.hint":
+        "Percentage of visits where the subscriber also buys a cookie, financier, or empanada. This is the lever that makes the model work; the cutoff card below shows the minimum it has to hit.",
+      "calculator.field.sideMargin.label": "Side margin (per attach)",
+      "calculator.field.sideMargin.hint":
+        "Profit margin on the accompanying food item, not revenue. A S/. 5 cookie at S/. 1.5 cost contributes S/. 3.5 — that is the number that matters here.",
+      "calculator.field.cannibal.label": "Cannibalization rate",
+      "calculator.field.cannibal.hint":
+        "Percentage of subscribers who would have paid full price anyway. The biggest risk in the model. The blended card below shows what the profit looks like after this drag.",
+      "calculator.field.avgSpendPre.label": "Avg. pre-subscription spend",
+      "calculator.field.avgSpendPre.hint":
+        "What a cannibalized customer used to spend per visit, before subscribing. Used only inside the cannibalization adjustment — does not affect the marginal-cost math.",
+      "calculator.callout.side.title":
+        "The side attach rate is the lever, not a happy accident",
+      "calculator.callout.side.body":
+        "Unlimited-coffee subscriptions are profitable at the marginal-cost line because Ursa roasts its own beans — but only just. The cushion that turns a thin margin into a real one comes from the side item sold alongside each visit. The café should actively push pairings — cookie, financier de pera, empanada, seasonal pastry — through pairing cards at the till, a bear-recommends prompt from the barista, and a visible morning pastry case. The alternative — raising the subscription price to S/. 25 instead — works on paper but shrinks the addressable base; the same customer who hesitates at S/. 25 will sign at S/. 20 if the pastry case does its job. The limitation: food cost also erodes with volume; re-check the side margin against supplier invoices before scaling beyond 50 subscribers.",
+      "calculator.outputs.profit.label":
+        "Net profit per subscriber / month",
+      "calculator.outputs.profit.body-positive":
+        "Profitable at these assumptions, before the cannibalization adjustment. The cannibalization card below is the one that decides whether the pilot graduates.",
+      "calculator.outputs.profit.body-negative":
+        "Not profitable at these assumptions. Three levers, in order of leverage: raise the attach rate (push sides harder), raise the price, or lower the marginal cost by re-checking the roast yield. Do not lower the price.",
+      "calculator.metric.visits": "Visits / month",
+      "calculator.metric.cups": "Cups / month",
+      "calculator.metric.coffee-cost": "Coffee cost / month",
+      "calculator.metric.side-margin": "Side margin / month",
+      "calculator.metric.breakeven": "Break-even (no sides)",
+      "calculator.metric.free-capacity": "Free-cup capacity",
+      "calculator.cutoff.title":
+        "Minimum attach rate to break even",
+      "calculator.cutoff.body-above":
+        "You are {delta} points above the break-even attach rate. Headroom is healthy — use it to absorb an off-week rather than to slack on the pairing prompt.",
+      "calculator.cutoff.body-below":
+        "You are {delta} points below break-even. The math says: either push the attach rate up by retraining the barista to suggest one specific pairing per drink, or raise the price by S/. 2. Cost-cutting alone will not close this gap.",
+      "calculator.cutoff.body-na":
+        "Cannot compute — set a side margin and a visit frequency first.",
+      "calculator.cannibal.title": "Cannibalization-adjusted profit",
+      "calculator.cannibal.subtitle":
+        "per subscriber / month, blended",
+      "calculator.cannibal.body-positive":
+        "Even after replacing {cannibal}% of full-price visits with subscription visits at a lower margin, the blended profit stays positive. The pilot can graduate if this holds for 60 days.",
+      "calculator.cannibal.body-negative":
+        "At {cannibal}% cannibalization the blended profit is negative. Two levers, in order of preference: target new customers (the morning-regular who has not yet adopted Ursa), or raise the price by S/. 2–3. Cutting cannibalization by avoiding existing regulars is the wrong move — they are the most likely advocates, and the subscription is meant to deepen their relationship, not to discount it.",
+      "calculator.cannibal.recovery-label": "Recovery time",
+      "calculator.cannibal.recovery-already": "Already positive",
+      "calculator.cannibal.recovery-never": "Never — kill the pilot",
+      "calculator.tabs.badge": "Deeper analysis",
+      "calculator.tabs.title":
+        "Sensitivity, scale, and the honest assumptions",
+      "calculator.tab.sensitivity": "Sensitivity table",
+      "calculator.tab.scale": "Scale projection",
+      "calculator.tab.assumptions": "Honest assumptions",
+      "calculator.tab.sides": "Side-pushing playbook",
+      "calculator.sensitivity.intro":
+        "Net profit per subscriber/month across visit frequency (rows) and side attach rate (columns). The highlighted cell is your current scenario. Read down a column to see how profit scales with frequency; read across a row to see how it scales with attach. If the green band is wide — most of the table is profitable — the pilot is robust to mis-estimation. If the green band is narrow, the pilot is fragile: a 10-point miss on attach rate or a half-visit miss on frequency flips it red.",
+      "calculator.sensitivity.col-visits":
+        "Visits/wk ↓ / Attach →",
+      "calculator.scale.intro":
+        "Blended monthly profit (cannibalization-adjusted) as the subscriber base grows. The pilot is capped at 50 — not because 50 is the ceiling of demand, but because below 50 the cannibalization rate can be measured honestly, and above it the number is too smoothed to read. Scaling before 50 is a vote of confidence in a number you have not yet measured.",
+      "calculator.scale.label-pilot": "pilot",
+      "calculator.scale.label-subs": "subs",
+      "calculator.scale.label-cups": "cups/mo",
+      "calculator.assumptions.verified.title": "What we verified",
+      "calculator.assumptions.verified.1":
+        "Own-roastery keeps marginal cost at S/. 1.20–1.80/cup — the specialty-café benchmark for cafés that buy roasted wholesale is S/. 2.50–3.50, and that gap is the entire reason the subscription works at Ursa and would not work at most competitors.",
+      "calculator.assumptions.verified.2":
+        "The 7–10am window is the morning-regular slot in Miraflores — the same persona Module 04 identified as Ursa's most defensible audience. The window is narrow on purpose: it scopes the offer to the use case the bear can own.",
+      "calculator.assumptions.verified.3":
+        "Side items (cookies, financier de pera, empanada) already exist in-house — no new SKU, no new supplier, no new training. The pilot is a pricing and packaging change, not a menu change.",
+      "calculator.assumptions.verified.4":
+        "Subscription models are consistent with Lima café willingness-to-pay — CoffeePass ran a comparable model in Lima through 2022–24 and demonstrated demand at a similar price point. Demand is verified; Ursa-specific demand is what the pilot measures.",
+      "calculator.assumptions.assumed.title":
+        "What we assumed (and you should test)",
+      "calculator.assumptions.assumed.1":
+        "Side attach rate of 50–70% is achievable with active prompting. Industry studies of unlimited-coffee subscriptions in comparable markets report 30–55% attach without prompting and 55–75% with — but Ursa's specific number is unverified. Test in pilot.",
+      "calculator.assumptions.assumed.2":
+        "Cannibalization of 20–40% is typical for subscription products that target existing regulars. If marketing accidentally over-indexes on existing regulars (the warm list), this could climb to 50%+. Track sign-up source.",
+      "calculator.assumptions.assumed.3":
+        "One-cup-per-visit cap is intended to be enforceable without alienating subscribers — verify against the first 20 sign-ups. If enforcement requires a confrontation, the cap is wrong, not the subscriber.",
+      "calculator.assumptions.assumed.4":
+        "Marginal cost is assumed to stay at S/. 1.20–1.80 as volume rises, on the assumption that the roastery has spare capacity. Confirm against roast logs at month two — if the roastery is buying more green to meet subscription demand, the marginal cost climbs and the model needs to be re-run.",
+      "calculator.assumptions.stop.title": "Stop rule",
+      "calculator.assumptions.stop.body":
+        "Kill or revise the pilot if blended profit per subscriber stays below zero after 60 days, or if cannibalization exceeds 50%, or if side attach rate stays below 40% despite active prompting after 30 days. Document the result either way — a killed pilot with a documented reason is more valuable than a quietly-fading one. The 50-subscriber cap exists so that killing the pilot costs less than S/. 1,000 in forgone profit and four weeks of attention.",
+      "calculator.assumptions.not-assumed.title":
+        "What we deliberately did not assume",
+      "calculator.assumptions.not-assumed.1":
+        "No invented exact ingredient costs — use the scenario ranges, not a single point estimate, until roast logs supply the actual number.",
+      "calculator.assumptions.not-assumed.2":
+        "No guaranteed subscriber count — the pilot is capped at 50 to learn cheaply. Pretending the demand is known is the most common reason subscription launches misallocate marketing spend.",
+      "calculator.assumptions.not-assumed.3":
+        "No virality assumption — the subscription is promoted through existing channels (WhatsApp, in-store, Instagram bio) first. A viral Reel that brings 200 sign-ups in week one would force an early scale decision the pilot is designed to defer.",
+      "calculator.sides.title":
+        "How to push sides without being pushy",
+      "calculator.sides.counter-title": "At the counter",
+      "calculator.sides.counter.1":
+        "«Bear recommends» pairing card on the till — e.g. Ursagroni + financier de pera. Specific, not generic; one pairing per drink, not a list.",
+      "calculator.sides.counter.2":
+        "Visible morning pastry case at eye level, lit warm. The case is a marketing surface, not a storage unit.",
+      "calculator.sides.counter.3":
+        "Barista trained to offer one specific pairing, not «would you like anything else?». Specificity is what makes the prompt land; vagueness is what makes it feel like an upsell.",
+      "calculator.sides.counter.4":
+        "A S/. 2 add-on price for subscribers, anchored against the S/. 8 retail price. The subscriber feels the discount; the café books the margin.",
+      "calculator.sides.online-title":
+        "On the app / Rappi / WhatsApp",
+      "calculator.sides.online.1":
+        "A pre-selected «morning bundle» that defaults to coffee + a side. Defaults are how subscriptions earn their margin; opt-out beats opt-in.",
+      "calculator.sides.online.2":
+        "A weekly rotating «bear's pick» that creates novelty. Novelty is the retention mechanism — the subscriber comes for the ritual, returns for the surprise.",
+      "calculator.sides.online.3":
+        "A stamp card: 10 sides bought = 1 free side. Retention without discounting the coffee — the discount lands on the side, where margin elasticity is higher.",
+      "calculator.sides.principle.title": "The principle",
+      "calculator.sides.principle.body":
+        "Do not discount the coffee — discounting erodes the specialty perception that justifies the S/. 20 price. Discount or bundle the sides, which have higher margin elasticity and reinforce the morning-ritual story. The subscription makes the coffee feel free; the sides are where the relationship and the margin actually live. The bear is on the cup, the profit is on the plate.",
+      "calculator.stat.profit":
+        "Net profit / subscriber / month (current inputs)",
+      "calculator.stat.cutoff": "Break-even side attach rate",
+      "calculator.stat.capacity": "Free cups the margin can absorb",
+      "calculator.stat.recovery": "Cannibalization recovery time",
+      "calculator.stat.recovery-kill": "kill",
+      "calculator.footer.body":
+        "This calculator is a decision-support tool, not a financial guarantee. Marginal cost per cup depends on roast yield, milk usage, and waste; verify against Ursa's actual roast logs before scaling. Virality and subscriber growth are not assumed — the pilot is designed to measure them. The model is honest about what it does not know; the recommendation is to act on the side of the model that survives the worst-case cell in the sensitivity table.",
+
+      /* ---- Menu Studio (Extra Tool T1) ---- */
+      "menu-studio.lede":
+        "An interactive menu builder for the question every café owner avoids: which items are earning their shelf space, and which are quietly leaking margin? Edit prices, costs, and prep times across every item; watch the average margin, category breakdown, and Stars & Puzzles classification update live. Model the attach-rate that turns a drink into a profitable ticket. Every number is editable — nothing here is invented, only structured. The point is not a perfect model of the menu; the point is a fast read on which lever to pull next.",
+      "menu-studio.meta.default": "Default menu",
+      "menu-studio.meta.default-value": "12 Ursa items pre-loaded",
+      "menu-studio.meta.thresholds": "Margin thresholds",
+      "menu-studio.meta.thresholds-value": "> 65% green · 55–65% gold · < 55% terracotta",
+      "menu-studio.meta.outputs": "Outputs",
+      "menu-studio.meta.outputs-value": "Live metrics · matrix · export",
+      "menu-studio.section.01.badge": "Section 01",
+      "menu-studio.section.01.title": "Live menu metrics",
+      "menu-studio.section.01.meta": "Updates as you edit",
+      "menu-studio.stat.count": "Items on the menu",
+      "menu-studio.stat.range": "Menu price range (PEN)",
+      "menu-studio.stat.avg-price": "Average menu price",
+      "menu-studio.stat.avg-margin": "Average margin %",
+      "menu-studio.avg-margin.title": "Average margin progress",
+      "menu-studio.avg-margin.body":
+        "Specialty-coffee industry rule of thumb: blended menu margin should sit above 65% — the level at which a café can absorb a 10% cost shock without re-pricing. Below 55% the menu leaks margin even when ticket size looks healthy; a single supplier price increase becomes a crisis. The thresholds are convention, not law; Ursa's actual break-even sits wherever Ursa's actual fixed costs sit.",
+      "menu-studio.avg-margin.threshold-leak": "55% threshold",
+      "menu-studio.avg-margin.threshold-healthy": "65% healthy",
+      "menu-studio.prep.title": "Total prep time & category mix",
+      "menu-studio.prep.subtitle":
+        "sum of barista minutes per full round",
+      "menu-studio.prep.body":
+        "Total prep time is the sum of barista minutes if every item were ordered once — a rough proxy for the labour ceiling. If a real rush hour produces 30 drink tickets, multiply the average prep time by 30 and divide by the number of baristas on shift: that is the minute-count you actually have to deliver.",
+      "menu-studio.section.02.badge": "Section 02",
+      "menu-studio.section.02.title": "Menu builder — edit every field",
+      "menu-studio.section.02.meta": "Add, remove, edit inline",
+      "menu-studio.section.02.intro":
+        "Edit name, category, selling price (PEN), food cost (PEN), and prep time (min) for each item. Toggle the popularity assumption to drive the Stars & Puzzles matrix in Section 04 — popularity here is your honest read on whether the item moves, not a forecast.",
+      "menu-studio.section.02.button.add": "Add item",
+      "menu-studio.section.02.empty":
+        "No items yet. Click Add item to start.",
+      "menu-studio.section.02.footer":
+        "Default items are anchored to the verified Ursa menu (Ursagroni, Maracumango Coldbrew, Filtrado Lonya) plus a reconstructed espresso bar. Costs are plausible benchmarks for a Lima specialty café — replace them with your actual roast logs and supplier invoices before quoting prices or making a kill decision.",
+      "menu-studio.table.name": "Name",
+      "menu-studio.table.category": "Category",
+      "menu-studio.table.price": "Price (PEN)",
+      "menu-studio.table.cost": "Cost (PEN)",
+      "menu-studio.table.prep": "Prep (min)",
+      "menu-studio.table.popular": "Popular?",
+      "menu-studio.section.03.badge": "Section 03",
+      "menu-studio.section.03.title": "Margin analysis — sortable",
+      "menu-studio.section.03.meta": "Green > 65% · Gold 55–65% · Terracotta < 55%",
+      "menu-studio.section.03.empty":
+        "Add items above to see margin analysis.",
+      "menu-studio.section.03.legend-healthy":
+        "Healthy · > 65% margin",
+      "menu-studio.section.03.legend-watch":
+        "Watch · 55–65% margin",
+      "menu-studio.section.03.legend-leak":
+        "Leak · < 55% margin",
+      "menu-studio.margin.healthy": "healthy",
+      "menu-studio.margin.watch": "watch",
+      "menu-studio.margin.leak": "leak",
+      "menu-studio.section.04.badge": "Section 04",
+      "menu-studio.section.04.title": "Attach-rate modeler",
+      "menu-studio.section.04.meta": "Turn a drink into a ticket",
+      "menu-studio.attach.title": "Configure the pairing",
+      "menu-studio.attach.primary": "Primary drink",
+      "menu-studio.attach.side": "Side / pairing item",
+      "menu-studio.attach.volume": "Primary volume (units sold)",
+      "menu-studio.attach.rate":
+        "Attach rate (% of primary buyers who add the side)",
+      "menu-studio.attach.scale-0": "0% · pure drink",
+      "menu-studio.attach.scale-60": "60% · Ursa Mañana target",
+      "menu-studio.attach.scale-100": "100% · always paired",
+      "menu-studio.attach.callout.title": "Why this matters",
+      "menu-studio.attach.callout.body":
+        "A S/. 18 Ursagroni at 75% margin looks healthy alone — but the ticket is what pays the rent. If 60% of Ursagroni buyers also add a S/. 5 cookie (margin S/. 3.5), every 100 Ursagronis becomes an extra S/. 210 in margin. The attach rate is the single biggest lever on blended profitability; the alternative — raising the drink price — works on paper but compresses demand. Push attach first; raise price only if attach does not respond after 30 days of active prompting.",
+      "menu-studio.attach.contribution-label":
+        "Side-margin contribution",
+      "menu-studio.attach.contribution-body":
+        "From {sides} sides of {side} sold alongside {volume} {primary} at {rate}% attach.",
+      "menu-studio.attach.mini.primary-revenue": "Primary revenue",
+      "menu-studio.attach.mini.attach-revenue": "Attach revenue",
+      "menu-studio.attach.mini.side-margin": "Side margin / unit",
+      "menu-studio.attach.mini.blended": "Blended margin %",
+      "menu-studio.attach.composition": "Ticket composition",
+      "menu-studio.attach.composition-primary": "Primary",
+      "menu-studio.attach.composition-attach": "Attach",
+      "menu-studio.section.05.badge": "Section 05",
+      "menu-studio.section.05.title":
+        "Stars & Puzzles — menu engineering matrix",
+      "menu-studio.section.05.meta":
+        "Toggle popularity per item to reclassify",
+      "menu-studio.section.05.intro":
+        "Classic menu engineering (originally from Menu Engineering: A Practical Guide to Improving Profitability, Kasavana & Smith, 1982). Items are classified by margin (high/low, using the 55% threshold) and popularity (your honest assumption, toggled in the builder). Each quadrant has a distinct action — not a verdict. The framework is appropriate here because Ursa's menu is small (12–15 items) and the decisions are reversible: a Puzzle can be re-platformed without removing it from the menu, a Plowhorse can be re-engineered without losing its popularity. The framework's limitation: it treats margin and popularity as independent, but they are not — a price increase can move an item from Star to Puzzle. Re-run the matrix after any price change.",
+      "menu-studio.quadrant.star.label": "Stars",
+      "menu-studio.quadrant.star.desc":
+        "High margin · high popularity",
+      "menu-studio.quadrant.star.action":
+        "Feature prominently on the menu and in photography. Train baristas to suggest these by name when a customer asks «what's good?». This is your menu's spine — protect it.",
+      "menu-studio.quadrant.puzzle.label": "Puzzles",
+      "menu-studio.quadrant.puzzle.desc":
+        "High margin · low popularity",
+      "menu-studio.quadrant.puzzle.action":
+        "The opportunity. Re-name, re-platform (move from the back of the menu to a featured slot), re-pair (suggest alongside a Star). If it still does not move in 30 days, kill it — the margin is real but the demand is not.",
+      "menu-studio.quadrant.plowhorse.label": "Plowhorses",
+      "menu-studio.quadrant.plowhorse.desc":
+        "Low margin · high popularity",
+      "menu-studio.quadrant.plowhorse.action":
+        "Customers love it. Do not kill it — engineer the cost. Find a cheaper insumo, reduce portion size by 10%, or raise the price by S/. 1. The test is whether popularity survives the change; if it does not, restore the original.",
+      "menu-studio.quadrant.dog.label": "Dogs",
+      "menu-studio.quadrant.dog.desc":
+        "Low margin · low popularity",
+      "menu-studio.quadrant.dog.action":
+        "Kill it. Or reformulate it as a seasonal special and let scarcity create demand — but only if the reformulation is genuine, not a rebrand of the same item.",
+      "menu-studio.quadrant.none": "— none —",
+      "menu-studio.matrix.title": "The matrix at a glance",
+      "menu-studio.matrix.cell-puzzle": "Puzzle",
+      "menu-studio.matrix.cell-star": "Star",
+      "menu-studio.matrix.cell-dog": "Dog",
+      "menu-studio.matrix.cell-plowhorse": "Plowhorse",
+      "menu-studio.matrix.desc-puzzle":
+        "High margin · low popularity",
+      "menu-studio.matrix.desc-star":
+        "High margin · high popularity",
+      "menu-studio.matrix.desc-dog":
+        "Low margin · low popularity",
+      "menu-studio.matrix.desc-plowhorse":
+        "Low margin · high popularity",
+      "menu-studio.matrix.axis-margin": "Margin →",
+      "menu-studio.matrix.axis-popularity": "Popularity →",
+      "menu-studio.matrix.axis-high": "High",
+      "menu-studio.matrix.axis-low": "Low",
+      "menu-studio.matrix.footer":
+        "Threshold: margin ≥ 55% counts as high. Popularity is the toggle in the builder — set it honestly. A 12-item menu should aim for 3–4 Stars, 2–3 Puzzles to promote, 2–3 Plowhorses to re-engineer, and 1–2 Dogs to retire. The distribution matters more than any single classification — a menu with 12 Stars is a menu where the popularity assumption is too generous.",
+      "menu-studio.section.06.badge": "Section 06",
+      "menu-studio.section.06.title": "Export the menu summary",
+      "menu-studio.section.06.meta": "Copy to clipboard",
+      "menu-studio.export.title": "Generate a text snapshot",
+      "menu-studio.export.body":
+        "A plain-text export of every item, its margin, classification, and the attach-rate projection. Useful for pasting into a Notion doc, a WhatsApp message to a partner, or a printed prep sheet for the bar. Re-generate after every price or cost change — a stale export is worse than no export.",
+      "menu-studio.export.button": "Generate export",
+      "menu-studio.export.dialog-title": "Menu export",
+      "menu-studio.export.close": "Close",
+      "menu-studio.export.copy": "Copy to clipboard",
+      "menu-studio.export.copied": "Copied!",
+      "menu-studio.export.stat.items": "Items in export",
+      "menu-studio.export.stat.margin": "Average margin",
+      "menu-studio.export.stat.stars": "Stars on the menu",
+      "menu-studio.export.stat.attach":
+        "Attach contribution modelled",
+      "menu-studio.export.callout.title": "How to read the export",
+      "menu-studio.export.callout.body":
+        "The export is a snapshot in time — re-generate it whenever you change a price or a cost. Paste it into the next bar-shift briefing, or attach it to the monthly menu review. The numbers are only as honest as the inputs; pair this export with the actual roast logs before any pricing decision. A number that has not been checked against a supplier invoice is a hypothesis, not a fact.",
+
+      /* ---- Budget Allocator (Extra Tool T6) ---- */
+      "budget.lede":
+        "Three scenarios — Lean, Moderate, Growth — were parameterised in Module 04 so that none of them depends on a number Ursa has not yet measured. Edit any line item, add your own, and the monthly total, per-day cost, and category breakdown recalculate instantly. The decision this tool supports is simple to state and hard to make: pick the scenario the owner can sustain for three months without flinching, then re-evaluate at day 30 against the experiment stop-rules in the Roadmap. The plan is internally coherent at any of the three; the failure mode is choosing Growth and abandoning it in week six.",
+      "budget.meta.currency": "Currency",
+      "budget.meta.currency-value": "PEN (S/.)",
+      "budget.meta.source": "Source",
+      "budget.meta.source-value": "Module 04 · verified scenarios",
+      "budget.meta.interactive": "Interactive",
+      "budget.meta.interactive-value": "Live totals · editable",
+      "budget.section.01.badge": "Scenario",
+      "budget.section.01.title":
+        "Pick a scenario, then edit line items live",
+      "budget.section.01.meta":
+        "Three pre-populated · fully editable",
+      "budget.action.reset": "Reset all",
+      "budget.line-items.title": "{name} · line items",
+      "budget.line-items.count": "{n} items",
+      "budget.line-items.empty":
+        "No line items. Add one below.",
+      "budget.line-items.add-label":
+        "Add a custom line item to {name}",
+      "budget.line-items.placeholder":
+        "e.g. Influencer trip hosting",
+      "budget.line-items.add-button": "Add",
+      "budget.total.label": "Live monthly total · {name}",
+      "budget.total.per-month": "/ month",
+      "budget.total.baseline-label":
+        "Original baseline: {baseline} · {delta} vs. baseline",
+      "budget.stat.per-day": "Per-day cost · 30-day month",
+      "budget.stat.active":
+        "Active line items in this scenario",
+      "budget.breakdown.title": "Per-day breakdown",
+      "budget.breakdown.daily": "Daily cost",
+      "budget.breakdown.weekly": "Weekly cost (÷ 4.33)",
+      "budget.breakdown.quarterly": "Quarterly cost (× 3)",
+      "budget.breakdown.over-title": "You are over baseline",
+      "budget.breakdown.over-body":
+        "Adding {delta}/mo means {quarterly} over a quarter. Confirm the owner can sustain it before committing — overruns compound faster than underspends.",
+      "budget.breakdown.under-title": "You are under baseline",
+      "budget.breakdown.under-body":
+        "Cutting {delta}/mo saves {quarterly} over a quarter. Make sure no experiment loses its budget — the Lean baseline is a floor, not a target.",
+      "budget.section.02.badge": "Allocation",
+      "budget.section.02.title":
+        "Where the {name} budget goes",
+      "budget.section.02.meta": "Category-by-category breakdown",
+      "budget.allocation.title": "Spend by line item",
+      "budget.allocation.body":
+        "Each slice is one line item. Edit the cost above and watch the chart redraw. Slices below 5% of the total are still in the list on the right — small spends compound, and the ranking is where they become visible.",
+      "budget.ranked.title": "Ranked by share of total",
+      "budget.section.03.badge": "Compare",
+      "budget.section.03.title":
+        "All three scenarios side by side",
+      "budget.section.03.meta": "Lean vs Moderate vs Growth",
+      "budget.compare.table-metric": "Metric",
+      "budget.compare.row-edited": "Edited monthly total",
+      "budget.compare.row-baseline": "Baseline monthly",
+      "budget.compare.row-per-day": "Per-day cost",
+      "budget.compare.row-items": "Line items",
+      "budget.compare.row-focus": "Focus",
+      "budget.compare.row-top": "Top item",
+      "budget.compare.stat":
+        "{name} · edited monthly total",
+      "budget.compare.callout.title":
+        "The cheap scenario is the real benchmark",
+      "budget.compare.callout.body":
+        "If the edited Moderate or Growth total creeps past what the owner can sustain for three months, fall back to the Lean edited total. The plan is internally coherent at any of the three — there is no half-Moderate scenario that breaks. The mechanism: every channel in Lean feeds a surface the Moderate channels land on (GBP feeds Maps, WhatsApp feeds the warm list), so spending less does not strand spend already committed. The failure mode is the opposite — choosing Growth and cutting it in week six leaves paid-social campaigns half-primed and creator relationships half-built, which is worse than never starting them.",
+      "budget.section.04.badge": "Next step",
+      "budget.section.04.title":
+        "Once the budget is set, model the return per channel",
+      "budget.roi.title": "ROI modelling lives in the ROI Dashboard",
+      "budget.roi.body":
+        "The Budget Allocator tells you what you spend. The ROI Dashboard turns each channel's spend into expected customers, revenue, payback months, and ROI % — with a confidence slider for best/worst case. Use both together: set the budget here, then validate it there. A budget without a return model is a wish; a return model without a budget is a fantasy.",
+      "budget.roi.button-roi": "Open the ROI Dashboard",
+      "budget.roi.button-back": "Back to Module 04",
+      "budget.roi.limitations-title":
+        "What this tool does not do",
+      "budget.roi.limitation-1":
+        "It does not model revenue or payback — see ROI Dashboard.",
+      "budget.roi.limitation-2":
+        "It does not persist edits across reloads — this is a scratchpad, not a system of record.",
+      "budget.roi.limitation-3":
+        "It does not enforce a total cap — set your own discipline. The Lean baseline is a floor, not a ceiling; the Growth scenario is a ceiling, not a target.",
     },
     es: {
       /* ---- Dashboard hero ---- */
@@ -2498,6 +3534,7 @@ export const translations: Translations = {
       "menu.hero.meta.sources": "Fuentes",
 
       /* Sección 01 — Carta verificada */
+      "menu.section.01.badge": "Sección 01",
       "menu.section.01.title": "La carta actual verificada, reconstruida",
       "menu.section.01.meta": "Fuente · Rappi snapshot 2026-08-01",
       "menu.section.01.stat.verified-items": "Ítems con nombre verificados (bebidas + comida)",
@@ -2520,6 +3557,7 @@ export const translations: Translations = {
       "menu.section.01.card.ownable.b5": "Estacional a permanente — los favoritos de verano suben a la carta.",
 
       /* Sección 02 — Trece propuestas */
+      "menu.section.02.badge": "Sección 02",
       "menu.section.02.title": "Trece propuestas de producto nuevas, evaluadas",
       "menu.section.02.meta": "13 propuestas · 7 categorías · marco de 16 criterios + 4 filas de anclaje al censo",
       "menu.section.02.lede":
@@ -2552,13 +3590,358 @@ export const translations: Translations = {
       "menu.section.02.criterion.market-test": "Método de prueba de mercado",
       "menu.section.02.criterion.stop-rule": "Regla de parada / revisión",
 
+      /* Sección 02 — Contenido de propuestas (P-01 a P-13) */
+      "menu.section.02.proposal.P-01.name": "Oso Negro",
+      "menu.section.02.proposal.P-01.spanish": "Oso negro · doble ristretto sobre miel tibia",
+      "menu.section.02.proposal.P-01.concept":
+        "Doble ristretto de Black Label vertido sobre una cucharada de miel tibia y una lágrima de espresso frío. Profundo, oscuro, con un dulzor que aparece tarde. Nombrado por el oso andino de las nieblas.",
+      "menu.section.02.proposal.P-01.why":
+        "Ursa no tiene hoy ninguna bebida que explore el lado oscuro y bosque del personaje del oso — todas las bebidas de autor son brillantes o frutales (Ursagroni, Maracumango, Durazno Clarificado). Oso Negro llena el slot «oscuro, denso, post-cena» que ninguna bebida de Ursa ocupa. El tueste Black Label ya está en rotación; es una nueva preparación de un activo existente, no un insumo nuevo.",
+      "menu.section.02.proposal.P-01.need":
+        "Curioso del Café + Regular de la Mañana que buscan un café intenso, bajo en leche, para la tarde/noche. El job: «ayúdame a cerrar el día con algo deliberado, no un café rápido.» Atiende el daypart de tarde (3–6pm) donde la carta actual de Ursa no tiene bebida de autor.",
+      "menu.section.02.proposal.P-01.evidence":
+        "Arabica Espresso Bar es dueño del nicho de espresso purista de pie; las bebidas de calidad campeona de Neira son elogiadas pero sin nombre. Ningún competidor del censo de 18 negocios ofrece un ristretto con miel de autor — el slot está sin contender. La miel es un staple peruano (no importado), refuerza el pilar de historia de origen.",
+      "menu.section.02.proposal.P-01.brand-fit":
+        "Perfecto — el nombre es un nombre de la casa (Oso + negro del Black Label). Refuerza el personaje sin apartarse del café.",
+      "menu.section.02.proposal.P-01.taste":
+        "Amargo de ristretto → miel cálida → finish de chocolate negro. La temperatura de la miel controla la textura final.",
+      "menu.section.02.proposal.P-01.prep": "3 min (servido en copa pequeña precalentada).",
+      "menu.section.02.proposal.P-01.margin":
+        "Alto — la miel cuesta más que el azúcar pero el ristretto usa la mitad de dosis de un latte.",
+      "menu.section.02.proposal.P-01.operational-test":
+        "Prueba de batch de 2 semanas: pre-porcione la miel en vasos de 5g; entrene a 1 barista en el vertido. Medir (a) tiempo de prep vs baseline de flat white, (b) % de merma de miel por batch, (c) tasa de repetición de cliente en 14 días.",
+      "menu.section.02.proposal.P-01.market-test":
+        "Promocionar 14 días como «shot del barista». Medir pedidos/día y solicitudes de repetición.",
+      "menu.section.02.proposal.P-01.stop-rule":
+        "Menos de 4/día tras 14 días → reformular como shot de cortesía, no producto.",
+      "menu.section.02.proposal.P-01.pricing-rationale":
+        "S/. 9–13. Anclado abajo del Ursagroni (S/. 18) porque Oso Negro es solo espresso, sin base de tónica o cold brew. Arriba del flat white (S/. 10) en moderado porque la preparación con nombre + miel suma valor percibido. Benchmark del censo: banda de precio de espresso de Arabica (S/. 6–10) y tier de espresso premium de Neira; el espresso propio de Ursa (S/. 6) y el Black Label (S/. 14) enmarcan el rango.",
+
+      "menu.section.02.proposal.P-02.name": "Media Luna",
+      "menu.section.02.proposal.P-02.spanish": "Cortado en media luna con ralladura de naranja",
+      "menu.section.02.proposal.P-02.concept":
+        "Cortado servido en taza media luna (molde exclusivo). Espuma de leche con ralladura de naranja. La forma de media luna repite los motivos Art Nouveau del local.",
+      "menu.section.02.proposal.P-02.why":
+        "Ursa no tiene ninguna bebida que visualice explícitamente el lenguaje Art Nouveau en la taza misma. La forma de media luna hace la identidad visual bebible — cada foto carga el lenguaje de marca, no solo la bebida. Es la única propuesta donde la taza ES el activo de marca.",
+      "menu.section.02.proposal.P-02.need":
+        "Explorador Turista + Curioso del Café que quieren una taza fotogénica y ownable. El job: «dame algo que no pueda conseguir en ningún otro lugar de Lima, que quiera fotografiar y compartir.» Atiende directo la métrica de tasa de tags a @ursacoffeeperu.",
+      "menu.section.02.proposal.P-02.evidence":
+        "0 de 18 competidores del censo usan una forma de taza propia como activo de marca. La forma Art Nouveau de media luna está sin contender. La persona del Explorador Turista se valida con 8+ hoteles a la vuelta del catchment — las bebidas fotogénicas viajan más que las genéricas.",
+      "menu.section.02.proposal.P-02.brand-fit":
+        "Fuerte — la forma de media luna es visualmente ownable y fotogénica; ya pertenece al lenguaje visual de Ursa.",
+      "menu.section.02.proposal.P-02.taste":
+        "Cortado equilibrado con un aroma cítrico que abre la copa antes del primer sorbo. Sin endulzar — solo aroma.",
+      "menu.section.02.proposal.P-02.prep": "2.5 min (requiere taza especial y rallador).",
+      "menu.section.02.proposal.P-02.margin":
+        "Medio-alto — la ralladura de naranja es barata; la taza es un costo único.",
+      "menu.section.02.proposal.P-02.operational-test":
+        "Pedir 30 tazas prototipo; entrenar a 2 baristas en la ralladura + vertido. Medir (a) tasa de photo-tags en el geo-tag de Ursa (target ≥ 3/semana), (b) tasa de rotura de tazas por 30 servicios, (c) tasa de pedido repetido en 14 días.",
+      "menu.section.02.proposal.P-02.market-test":
+        "Servir como edición de 30 tazas. Contar fotos compartidas en Instagram con el geo-tag de Ursa.",
+      "menu.section.02.proposal.P-02.stop-rule":
+        "Menos de 3 fotos compartidas/semana → retirar la taza, mantener el cortado.",
+      "menu.section.02.proposal.P-02.pricing-rationale":
+        "S/. 9–12. Anclado contra el cortado (S/. 8) con un premium de +S/. 1–4 por la preparación con nombre y el activo de taza. Abajo del flat white (S/. 10) en lean para impulsar prueba; en moderado, paridad con flat white. Benchmark del censo: banda de cortado de Estación 329 y premium de cortado de especialidad de Neira; el cortado propio de Ursa (S/. 8) como piso.",
+
+      "menu.section.02.proposal.P-03.name": "Clarificado de Lúcuma",
+      "menu.section.02.proposal.P-03.spanish": "Cold brew clarificado de lúcuma",
+      "menu.section.02.proposal.P-03.concept":
+        "Cold brew clarificado con leche de lúcuma usando la técnica del Durazno Clarificado. La lúcuma es el fruto emblemático del Perú; al clarificarla, queda un pour ámbar limpio, sin sedimento.",
+      "menu.section.02.proposal.P-03.why":
+        "Extiende la línea «Clarificado» existente (Durazno Clarificado) con un fruto nativo del Perú. La lúcuma es el fruto peruano más reconocible nacional e internacionalmente — es el próximo clarificado obvio, no un sabor inventado. Esto es extensión de línea, no invención de línea.",
+      "menu.section.02.proposal.P-03.need":
+        "Explorador Turista + Curioso del Café que quieren una experiencia de sabor peruano pero sin bebidas con mucha leche. El job: «déjame probar algo distintamente peruano sin lácteos.» Atiende el segmento intolerante a la lactosa + vegano.",
+      "menu.section.02.proposal.P-03.evidence":
+        "Censo: 0 competidores del censo de 18 negocios ofrecen una bebida de café con lúcuma. Los bowls de açaí de Milenaria (misma cuadra, 170m) muestran demanda por bebidas de desayuno frutales en el catchment. La lúcuma es el fruto nacional — el ajuste de marca + la superposición de insumo son fuertes ambos.",
+      "menu.section.02.proposal.P-03.brand-fit":
+        "Fuerte — extiende la línea «Clarificado» (ya propia) con un ingrediente nacionalmente reconocido.",
+      "menu.section.02.proposal.P-03.taste":
+        "Cold brew con dulzor sedoso de lúcuma, sin lácteos visibles. Color ámbar. Finish limpio.",
+      "menu.section.02.proposal.P-03.prep": "4 min de servicio + 24h de clarificación en batch.",
+      "menu.section.02.proposal.P-03.margin":
+        "Alto — la lúcuma es económica en Lima y el proceso clarificado escala en batch.",
+      "menu.section.02.proposal.P-03.operational-test":
+        "Prueba de batch de 4 semanas: 24h clarificado en batches de 2L. Medir (a) % de rendimiento de clarificación por batch, (b) costo de lúcuma por servicio, (c) unidades diarias vendidas vs baseline de Durazno Clarificado.",
+      "menu.section.02.proposal.P-03.market-test":
+        "Piloto de 4 semanas en la barra Coldbrew. Medir % de coldbrew vendido que es Clarificado de Lúcuma.",
+      "menu.section.02.proposal.P-03.stop-rule":
+        "Menos de 5/día tras 4 semanas → reformular como estacional de otoño.",
+      "menu.section.02.proposal.P-03.pricing-rationale":
+        "S/. 13–16. Paridad con Durazno Clarificado (S/. 14) y Maracumango (S/. 14) en lean/moderado; +S/. 2 en growth porque el estatus de fruta nacional de la lúcuma soporta un premium pequeño. Benchmark del censo: el techo del vuelo de Terrua es US$25 (~S/. 93) — las bebidas individuales se quedan muy por debajo; la propia banda de coldbrew de Ursa (S/. 10–14) como piso.",
+
+      "menu.section.02.proposal.P-04.name": "Té de Oso",
+      "menu.section.02.proposal.P-04.spanish": "Cold brew sobre hielo de té de cascara",
+      "menu.section.02.proposal.P-04.concept":
+        "Cold brew servido sobre un cubo grande de hielo de té de cáscara (cascara). Conforme el hielo se derrite, la taza evoluciona — primero café puro, luego café con notas de fruta seca. El oso que toma su tiempo.",
+      "menu.section.02.proposal.P-04.why":
+        "Operacionaliza «un gramo a la vez» como experiencia de una sola bebida: el tiempo como ingrediente. Ninguna bebida de Ursa evoluciona en la taza — Té de Oso es la única propuesta donde la bebida cambia conforme la bebes. La cascara es un subproducto de la tostadora, así que el costo de insumo es cero.",
+      "menu.section.02.proposal.P-04.need":
+        "Remote Worker + Curioso del Café que se quedan 90+ minutos y quieren una bebida que premie quedarse. El job: «dame una taza que me dé una razón para quedarme.» Atiende directo la métrica de dwell time (≥ 90 min) en la persona del Remote Worker.",
+      "menu.section.02.proposal.P-04.evidence":
+        "Censo: 0 competidores del censo de 18 negocios usan cascara (subproducto del grano de café) como ingrediente de bebida. El formato de slow bar está sin contender en el catchment. El formato de cata de Terrua (US$25) muestra demanda por experiencias de café lento; Té de Oso es la versión accesible de taza única.",
+      "menu.section.02.proposal.P-04.brand-fit":
+        "Muy fuerte — captura «un gramo a la vez» en una sola bebida: el tiempo como ingrediente.",
+      "menu.section.02.proposal.P-04.taste":
+        "Coffee-forward al inicio, frutal al final. Cada sorbo es distinto. La cáscara viene del mismo grano.",
+      "menu.section.02.proposal.P-04.prep": "3 min de servicio + preparación previa de cubos de cascara.",
+      "menu.section.02.proposal.P-04.margin":
+        "Alto — la cascara es subproducto del grano; el precio se ancla en la experiencia.",
+      "menu.section.02.proposal.P-04.operational-test":
+        "Drop de 30 unidades en el daypart de slow bar (sáb–dom 10am–2pm). Medir (a) dwell time de clientes de Té de Oso vs control (mismo daypart, coldbrew regular), (b) tiempo de derretimiento del hielo de cascara por servicio, (c) NPS al primer sorbo vs último sorbo.",
+      "menu.section.02.proposal.P-04.market-test":
+        "Servir 30 unidades como «edición de slow bar». Filmar reacciones y pedir testimonios.",
+      "menu.section.02.proposal.P-04.stop-rule":
+        "NPS < 8/10 o menos de 8 unidades vendidas → reformular como Cata Privada.",
+      "menu.section.02.proposal.P-04.pricing-rationale":
+        "S/. 14–18. Arriba del Durazno Clarificado (S/. 14) por el premium de experiencia (taza que evoluciona); abajo de Cata de Tres Orígenes (S/. 22+) porque es una sola bebida. Benchmark del censo: el vuelo de US$25 (~S/. 93) de Terrua es el ancla superior; esta es la alternativa accesible de «taza que evoluciona» para el mismo daypart.",
+
+      "menu.section.02.proposal.P-05.name": "Cosecha de Amazonas",
+      "menu.section.02.proposal.P-05.spanish": "Vuelo estacional de Utcubamba · tres micro-lotes",
+      "menu.section.02.proposal.P-05.concept":
+        "Vuelo de tres micro-lotes de Utcubamba (Amazonas) servidos lado a lado: lavado, honey, natural. Una hoja con notas de cata y altitud. Mientras dure la cosecha.",
+      "menu.section.02.proposal.P-05.why":
+        "Profundiza la línea Filtrado Lonya de una sola bebida a una experiencia multi-proceso del MISMO origen. Es la extensión natural de producto de la historia de origen más ownable de Ursa — no un origen nuevo, sino uno más profundo. Defiende la línea Lonya contra imitación yendo más profundo, no más ancho.",
+      "menu.section.02.proposal.P-05.need":
+        "Curioso del Café + parejas/grupos que quieren una experiencia de cata compartida. El job: «ayúdame a entender qué hace el proceso con el sabor, lado a lado.» Atiende directo la métrica de asistencia a cupping en la persona del Curioso del Café.",
+      "menu.section.02.proposal.P-05.evidence":
+        "Censo: el vuelo de US$25 de Terrua (513 reseñas Google) valida la demanda por cata pagada. Cate Tasting Room (190 reseñas Google, 4.6★) refuerza. El Filtrado Lonya de Ursa (Utcubamba, Amazonas, 1,750m) ya es el origen ownable — el vuelo lo extiende sin requerir una cadena de suministro nueva.",
+      "menu.section.02.proposal.P-05.brand-fit":
+        "Fuerte — profundiza el Filtrado Lonya en una experiencia de origen, no solo una bebida.",
+      "menu.section.02.proposal.P-05.taste":
+        "Tres tazas pequeñas, tres procesos. El cliente aprende a distinguir el mismo grano tratado distinto.",
+      "menu.section.02.proposal.P-05.prep": "8 min (tres filtrados manuales servidos simultáneamente).",
+      "menu.section.02.proposal.P-05.margin":
+        "Medio-alto — el grano es el mismo, pero el tiempo de barista sube.",
+      "menu.section.02.proposal.P-05.operational-test":
+        "Correr como Cata Privada mensual por 60 días. Medir (a) conversión a bolsa de retail de 250g (target ≥ 30%), (b) tasa de repetición de asistencia (target ≥ 25% regresa en 60 días), (c) tamaño promedio de grupo por reserva.",
+      "menu.section.02.proposal.P-05.market-test":
+        "Lanzar en Cata Privada y cupping mensual. Medir conversión a venta de bolsa de 250g.",
+      "menu.section.02.proposal.P-05.stop-rule":
+        "Menos de 6 vuelos/mes → solo disponible en catas guiadas.",
+      "menu.section.02.proposal.P-05.pricing-rationale":
+        "S/. 22–30. Abajo del vuelo de US$25 (~S/. 93) de Terrua por un margen amplio — entrada accesible a cata pagada. Arriba de Chemex-para-dos (S/. 22) porque el vuelo es curado + tiene tarjetas de historia. Benchmark del censo: vuelo de US$25 de Terrua, formato de cata pagada de Cate. El propio Filtrado Lonya de Ursa (S/. 14) × 3 = S/. 42 — la curación + el premium de tarjeta de historia es lo que justifica el lift.",
+
+      "menu.section.02.proposal.P-06.name": "Invierno Andino",
+      "menu.section.02.proposal.P-06.spanish": "Pour-over especiado con chincho y panela",
+      "menu.section.02.proposal.P-06.concept":
+        "Pour-over preparado con una pizca de chincho (hierba andina) en el lecho y panela en el agua. Cálido, herbal, sin lácteos. El inverso del Clarificado de Lúcuma: esto es la montaña en invierno.",
+      "menu.section.02.proposal.P-06.why":
+        "Ursa no tiene ninguna bebida estacional de invierno. El verano es propio de Maracumango + Clarificados; el invierno no tiene respuesta. Invierno Andino es la contraparte de clima frío — cálido, herbal, sin lácteos. Chincho y panela son staples peruanos sin costo de importación, y la escasez estacional (chincho se cosecha mayo–agosto) crea urgencia.",
+      "menu.section.02.proposal.P-06.need":
+        "Regular de la Mañana + Curioso del Café en el invierno de Lima (junio–septiembre) que quieren un café cálido y sin leche. El job: «dame una bebida caliente que no sea un latte.» Atiende la brecha de estacionalidad de invierno en la carta de Ursa.",
+      "menu.section.02.proposal.P-06.evidence":
+        "Censo: 0 competidores del censo de 18 negocios ofrecen un café con hierba andina. Chincho y panela son staples peruanos sin costo de importación. La escasez estacional (chincho se cosecha mayo–agosto) crea urgencia y una regla de parada natural de fin de temporada.",
+      "menu.section.02.proposal.P-06.brand-fit":
+        "Fuerte — la paleta (hierba, panela, café) está dentro del universo de ingredientes peruanos.",
+      "menu.section.02.proposal.P-06.taste":
+        "Pour-over con aromática de chincho y dulzor profundo de panela. Sin azúcar añadido más allá de la panela.",
+      "menu.section.02.proposal.P-06.prep": "5 min.",
+      "menu.section.02.proposal.P-06.margin":
+        "Alto — chincho y panela son económicos; el precio se ancla en estacionalidad.",
+      "menu.section.02.proposal.P-06.operational-test":
+        "Lanzamiento de 6 semanas en junio. Medir (a) sell-through vs baseline de Filtrado de la Casa, (b) tasa de pedido repetido en 14 días, (c) feedback de cliente sobre balance herbal (target ≥ 4/5 en tarjeta de feedback en local).",
+      "menu.section.02.proposal.P-06.market-test":
+        "Lanzar en junio (inicio de invierno) por 6 semanas. Medir repetición y puntuación en cata.",
+      "menu.section.02.proposal.P-06.stop-rule":
+        "Menos de 4/día tras 6 semanas → reformular para verano con cascara helada.",
+      "menu.section.02.proposal.P-06.pricing-rationale":
+        "S/. 12–16. Paridad con V60 (S/. 12) en lean; arriba de V60 en moderado por la preparación con nombre + la historia estacional. Abajo del Filtrado Lonya (S/. 14) para impulsar prueba. Benchmark del censo: banda de V60/pour-over de especialidad; el propio V60 de Ursa (S/. 12) y el Filtrado Lonya (S/. 14) enmarcan el rango.",
+
+      "menu.section.02.proposal.P-07.name": "Chocolate del Oso",
+      "menu.section.02.proposal.P-07.spanish": "Chocolate de cacao peruano de origen único",
+      "menu.section.02.proposal.P-07.concept":
+        "Chocolate caliente de cacao peruano de origen único (Cusco o San Martín). Servido en taza de barro. Sin jarabe — solo cacao, agua, un toque de panela.",
+      "menu.section.02.proposal.P-07.why":
+        "Llena el slot sin café para los 1–2 clientes por día que acompañan a los cafeteros pero no toman café. El cacao de origen extiende el pilar de «historia de origen» más allá del café sin diluir la identidad de tostador. Críticamente: es un solo ítem de carta, NO una categoría de cata de chocolate (que diluiría la identidad de café puro según la implicación de Cate).",
+      "menu.section.02.proposal.P-07.need":
+        "Remote Worker + Explorador Turista que acompaña a cafeteros y quiere una bebida caliente pero sin café. El job: «déjame quedarme con mi amigo sin forzar un pedido de café.» Atiende la dinámica de pedido en grupo.",
+      "menu.section.02.proposal.P-07.evidence":
+        "Censo: Cate Tasting Room combina café + chocolate pero Ursa NO debe añadir cata de chocolate — mantener el cacao como un solo ítem de carta, no una categoría. El cacao de origen (Cusco/San Martín) extiende el pilar de historia de origen de Ursa sin requerir una cadena de suministro nueva más allá de las relaciones existentes de la tostadora.",
+      "menu.section.02.proposal.P-07.brand-fit":
+        "Fuerte — refuerza el universo «origen peruano» sin salir de la identidad de tostador.",
+      "menu.section.02.proposal.P-07.taste":
+        "Chocolate profundo, no dulce. El barro mantiene la temperatura; la panela aparece tarde.",
+      "menu.section.02.proposal.P-07.prep": "4 min (jarra caliente preparada en batch cada 2h).",
+      "menu.section.02.proposal.P-07.margin":
+        "Medio — el cacao de origen cuesta más que el jarabe, pero el ticket promedio sube.",
+      "menu.section.02.proposal.P-07.operational-test":
+        "Campaña de invierno de 6 semanas. Medir (a) % de pedidos en grupo donde se compra ≥ 1 bebida sin café (target ≥ 15%), (b) tasa de repetición de chocolate en 30 días, (c) costo de cacao por servicio vs target S/. 3.50.",
+      "menu.section.02.proposal.P-07.market-test":
+        "Campaña de invierno 6 semanas. Medir % de pedidos sin café que son chocolate.",
+      "menu.section.02.proposal.P-07.stop-rule":
+        "Menos de 5/día tras 6 semanas → reducir a edición invernal anual.",
+      "menu.section.02.proposal.P-07.pricing-rationale":
+        "S/. 12–16. Paridad con la banda de Flat White (S/. 10) + Mocha (S/. 12) en moderado. Abajo del vuelo Cata (S/. 22+) y arriba de la cookie (S/. 5). Benchmark del censo: ningún competidor directo para chocolate de beber en el catchment — precio fijado por las propias bandas de carta de Ursa (mocha S/. 12 como ancla natural).",
+
+      "menu.section.02.proposal.P-08.name": "Infusión de Muña",
+      "menu.section.02.proposal.P-08.spanish": "Infusión de menta andina",
+      "menu.section.02.proposal.P-08.concept":
+        "Infusión caliente de muña (menta andina) servida en taza de vidrio. Para quien no toma café pero quiere quedarse en la barra.",
+      "menu.section.02.proposal.P-08.why":
+        "Una opción sin café y sin cacao para clientes que evitan la cafeína. La muña es la hierba andina más accesible — reconocible, barata y food-safe. No es un producto hero; es un producto de cortesía. El job es mantener al acompañante no cafetero en la barra, no ganar clientes nuevos.",
+      "menu.section.02.proposal.P-08.need":
+        "No cafeteros (embarazadas, sensibles a la cafeína, visitantes nocturnos). El job: «déjame pedir algo sin disculparme por no tomar café.» Atiende directo la dinámica de pedido en grupo donde un miembro no toma café.",
+      "menu.section.02.proposal.P-08.evidence":
+        "Censo: 0 competidores del censo de 18 negocios ofrecen muña. La hierba está ampliamente disponible en mercados de Lima. La demanda es pequeña pero persistente — NovaCircle nota que la atmósfera de Ursa atrae acompañantes no cafeteros (el tema pros de «atmósfera cozy e inviting»).",
+      "menu.section.02.proposal.P-08.brand-fit":
+        "Aceptable — no es café, pero respeta la paleta andina. Útil para acompañantes y no-cafeteros.",
+      "menu.section.02.proposal.P-08.taste":
+        "Menta andina con un finish herbáceo más profundo que la menta común. Sin azúcar.",
+      "menu.section.02.proposal.P-08.prep": "3 min.",
+      "menu.section.02.proposal.P-08.margin":
+        "Alto — la muña es barata y seca; el ticket es de infusión premium.",
+      "menu.section.02.proposal.P-08.operational-test":
+        "Prueba de disponibilidad de 4 semanas. Medir (a) pedidos/día, (b) % de pedidos en grupo que incluyen una bebida sin café (target ≥ 10%), (c) feedback de cliente sobre sabor (target ≥ 4/5 en tarjeta).",
+      "menu.section.02.proposal.P-08.market-test":
+        "Ofrecer 4 semanas como alternativa en barra. Medir pedidos de no-cafeteros.",
+      "menu.section.02.proposal.P-08.stop-rule":
+        "Menos de 3/día tras 4 semanas → retirar y mantener solo Chocolate del Oso.",
+      "menu.section.02.proposal.P-08.pricing-rationale":
+        "S/. 8–11. Abajo de todas las bebidas de café — un precio de cortesía. En paridad con espresso (S/. 6) + premium pequeño por la hierba con nombre. Benchmark del censo: la banda de infusión herbal no está directamente benchmarked en el catchment; fijada por el propio piso de carta de Ursa (espresso S/. 6) y el valor percibido de una hierba andina con nombre.",
+
+      "menu.section.02.proposal.P-09.name": "Croissant de Lúcuma",
+      "menu.section.02.proposal.P-09.spanish": "Croissant relleno de crema de lúcuma",
+      "menu.section.02.proposal.P-09.concept":
+        "Croissant de masa laminada en casa, relleno de crema de lúcuma. Cómpralo con el Clarificado de Lúcuma y la paleta del desayuno es completa.",
+      "menu.section.02.proposal.P-09.why":
+        "Cierra el loop de maridaje con Clarificado de Lúcuma (P-03). La carta de comida de Ursa tiene solo 2 ítems verificados (financier, empanada) — una tercera pastry con maridaje de bebida es la extensión obvia, y la lúcuma la ata a P-03. El maridaje es el producto, no la pastry sola.",
+      "menu.section.02.proposal.P-09.need":
+        "Curioso del Café + Regular de la Mañana que quieren una pastry que maride con su bebida con nombre. El job: «dame el maridaje que hace mi bebida mejor.» Atiende la métrica de attach rate en el offer stack (target ≥ 60%).",
+      "menu.section.02.proposal.P-09.evidence":
+        "Censo: El Pan de la Chola (700m) es dueño de «mejor panadería de Lima» — Ursa NO debe competir en escala de panadería. El laminado en casa es el diferenciador (credibilidad, no escala). La lúcuma es el puente a P-03; el maridaje crea un bundle de S/. 21–26 que compite con el ticket de desayuno de Milenaria.",
+      "menu.section.02.proposal.P-09.brand-fit":
+        "Fuerte — cierra el pairing con Clarificado de Lúcuma. El laminado en casa es credibility.",
+      "menu.section.02.proposal.P-09.taste":
+        "Hojaldre de mantequilla + crema de lúcuma sedosa. No excesivamente dulce.",
+      "menu.section.02.proposal.P-09.prep": "Servicio directo (preparación en madrugada).",
+      "menu.section.02.proposal.P-09.margin":
+        "Medio — laminado es intensivo en mano de obra; el relleno es barato.",
+      "menu.section.02.proposal.P-09.operational-test":
+        "Piloto de 6 semanas con batch diario de 12. Medir (a) attach rate con Clarificado de Lúcuma (target ≥ 20%), (b) sell-through antes de las 11am, (c) % de merma diaria (target ≤ 10%).",
+      "menu.section.02.proposal.P-09.market-test":
+        "Piloto de 6 semanas. Medir attach rate con Clarificado de Lúcuma.",
+      "menu.section.02.proposal.P-09.stop-rule":
+        "Menos de 8/día o attach rate < 20% con Clarificado → reformular relleno.",
+      "menu.section.02.proposal.P-09.pricing-rationale":
+        "S/. 8–11. Arriba del financier (S/. 6) por el laminado + relleno. Abajo de la empanada (S/. 12) en lean para impulsar prueba. Benchmark del censo: precios de panadería de El Pan de la Chola como ancla superior; los propios precios verificados de comida de Ursa (financier S/. 6, empanada S/. 12) como piso y techo.",
+
+      "menu.section.02.proposal.P-10.name": "Alfajor de Café",
+      "menu.section.02.proposal.P-10.spanish": "Alfajor con dulce de leche glaseado de café",
+      "menu.section.02.proposal.P-10.concept":
+        "Alfajor de maicena con dulce de leche glaseado con una reducción de espresso. Pequeño, intenso, marida con cualquier filtrado.",
+      "menu.section.02.proposal.P-10.why":
+        "El alfajor es la pastry peruana más icónica. El dulce de leche glaseado de café lo ata a la identidad de tostador. Una pastry pequeña e intensa que se casa con cualquier pour-over — a diferencia del croissant (P-09), que marida con una bebida, el alfajor marida con toda la carta de filtración.",
+      "menu.section.02.proposal.P-10.need":
+        "Curioso del Café + Explorador Turista que quieren una comida de souvenir peruano para llevar. El job: «dame algo pequeño, intenso y memorable que maride con cualquier café.» Atiende la métrica de take-home + attach de retail.",
+      "menu.section.02.proposal.P-10.evidence":
+        "Censo: 0 competidores del censo de 18 negocios ofrecen un alfajor glaseado de café. El alfajor es un staple nacional con alta reconocibilidad para turistas y locales. El glaseado de café lo ata a la tostadora sin forzar un maridaje de bebida — attach flexible.",
+      "menu.section.02.proposal.P-10.brand-fit":
+        "Fuerte — el alfajor es icónico peruano y el glaseado de café lo ancla al oficio.",
+      "menu.section.02.proposal.P-10.taste":
+        "Maicena que se deshace, dulce de leche sedoso, finish amargo del espresso.",
+      "menu.section.02.proposal.P-10.prep": "Servicio directo (batch semanal).",
+      "menu.section.02.proposal.P-10.margin":
+        "Alto — ingredientes baratos, ticket de pastry premium.",
+      "menu.section.02.proposal.P-10.operational-test":
+        "Piloto de 6 semanas con batch semanal de 24. Medir (a) pedidos con café vs baseline de cookie, (b) tasa de take-home (target ≥ 30% se van en bolsa), (c) feedback de cliente sobre intensidad de café (target ≥ 4/5).",
+      "menu.section.02.proposal.P-10.market-test":
+        "Piloto de 6 semanas. Medir pedidos de alfajor con café (vs. cookie).",
+      "menu.section.02.proposal.P-10.stop-rule":
+        "Menos de 6/día tras 6 semanas → reformular como mini-alfajor de cata.",
+      "menu.section.02.proposal.P-10.pricing-rationale":
+        "S/. 6–9. Arriba de la cookie (S/. 5) en lean por el dulce de leche + glaseado. Abajo del financier (S/. 6) en paridad, luego premium en growth. Benchmark del censo: los propios precios verificados de pastry de Ursa (cookie S/. 5, financier S/. 6, empanada S/. 12) enmarcan el rango; el glaseado de café justifica el premium de +S/. 1–3 sobre la cookie.",
+
+      "menu.section.02.proposal.P-11.name": "Gramo del Mes",
+      "menu.section.02.proposal.P-11.spanish": "Suscripción de grano del mes · bolsa con etiqueta de origen",
+      "menu.section.02.proposal.P-11.concept":
+        "Cada mes, una bolsa de 250g de un micro-lote, con etiqueta de origen completa (finca, altitud, proceso, varietal, fecha de tueste). Para suscriptores Ursa Mañana y venta en barra.",
+      "menu.section.02.proposal.P-11.why":
+        "Operacionaliza «un gramo a la vez» como producto recurrente. La rotación de bebidas con nombre crea razones semanales para volver; la suscripción de grano crea razones mensuales. El canal de bolsa de retail es actualmente solo Instagram — este es el producto estructurado que convierte el interés de redes sociales en ingreso recurrente.",
+      "menu.section.02.proposal.P-11.need":
+        "Curioso del Café + Regular de la Mañana que preparan en casa y quieren selección mensual curada. El job: «curar mi café de casa para que yo no tenga que elegir.» Atiende la métrica de recompra de bolsa de retail (target ≥ 30%).",
+      "menu.section.02.proposal.P-11.evidence":
+        "Censo: Puku Puku vende bolsas de retail a S/.49 con elogio de TA por «bolsas de retail para casa». Ursa actualmente solo Instagram — la brecha de canal es estructural. Modelos de suscripción validados por la membresía CoffeePass de Lima. Los S/.49 de Puku Puku son el benchmark directo de precio.",
+      "menu.section.02.proposal.P-11.brand-fit":
+        "Muy fuerte — operacionaliza «un gramo a la vez» y «Gram of the Week» como producto recurrente.",
+      "menu.section.02.proposal.P-11.taste":
+        "Varía — la promesa es: cada mes, un grano nuevo con su historia completa.",
+      "menu.section.02.proposal.P-11.prep": "Empaque semanal en batch.",
+      "menu.section.02.proposal.P-11.margin":
+        "Alto — el margen de bolsa de retail es ~60–70% sobre costo de grano verde.",
+      "menu.section.02.proposal.P-11.operational-test":
+        "Lanzar piloto de 50 suscriptores por 3 meses. Medir (a) retención al mes 3 (target ≥ 60%), (b) satisfacción con tamaño de bolsa (target ≥ 4/5), (c) conversión a asistencia a cupping-night (target ≥ 20%).",
+      "menu.section.02.proposal.P-11.market-test":
+        "Lanzar como suscripción mensual de 50 bolsas. Medir retención al mes 3.",
+      "menu.section.02.proposal.P-11.stop-rule":
+        "Retención < 60% al mes 3 → reformular cadencia o tamaño de bolsa.",
+      "menu.section.02.proposal.P-11.pricing-rationale":
+        "S/. 38–52. La bolsa de retail de S/.49 de Puku Puku es el benchmark directo del censo — el precio moderado (S/. 45) se queda justo abajo. Arriba de la propia muestra de 50g de Ursa (S/. 10) porque es una bolsa de 250g con curación de suscripción. Abajo del vuelo Cata (S/. 38+) en paridad. La curación de suscripción (selección curada, etiqueta de historia) justifica el premium de +S/. 7 sobre una bolsa de retail genérica.",
+
+      "menu.section.02.proposal.P-12.name": "Cata de Tres Orígenes",
+      "menu.section.02.proposal.P-12.spanish": "Vuelo de cata · tres orígenes con tarjetas de historia",
+      "menu.section.02.proposal.P-12.concept":
+        "Vuelo de tres orígenes peruanos servidos en tres filtrados pequeños, cada uno con una tarjeta de historia (finca, altitud, varietal, proceso). Experiencia pagada para dos personas mínimo.",
+      "menu.section.02.proposal.P-12.why":
+        "Contraparte directa al vuelo plano de US$25 de Terrua. El vuelo de Ursa es multi-origen (vs el de origen único Villa Rica de Terrua) e incluye tarjetas de historia para llevar — el activo que sobrevive a la visita. No es un formato nuevo; es una contraparte competitiva a una demanda validada.",
+      "menu.section.02.proposal.P-12.need":
+        "Explorador Turista + Curioso del Café (parejas) que quieren una experiencia guiada. El job: «ayúdame a probar y entender tres cafés en una sola sesión.» Atiende a las personas de Turismo + Curioso del Café simultáneamente, con un ticket más alto que cualquier bebida individual.",
+      "menu.section.02.proposal.P-12.evidence":
+        "Censo: Terrua (vuelo de US$25, 513 reseñas Google) y Cate (tasting room, 190 reseñas Google) validan ambos la demanda de cata pagada. La línea multi-origen Lonya de Ursa es el diferenciador — el terroir estrecho de Villa Rica de Terrua es una limitación conocida en su posicionamiento.",
+      "menu.section.02.proposal.P-12.brand-fit":
+        "Fuerte — ocupa el territorio que Terrua cobra a US$25, con un stack de valor más visible.",
+      "menu.section.02.proposal.P-12.taste":
+        "Tres tazas, tres historias. La tarjeta es el activo que el cliente se lleva.",
+      "menu.section.02.proposal.P-12.prep": "10 min (tres filtrados servidos simultáneamente + presentación).",
+      "menu.section.02.proposal.P-12.margin":
+        "Alto — el grano es barato; el precio se cobra por la experiencia guiada.",
+      "menu.section.02.proposal.P-12.operational-test":
+        "Correr como drop-in de sábado por 60 días. Medir (a) reservas/mes (target ≥ 4/semana), (b) conversión a bolsa de retail de 250g (target ≥ 30%), (c) NPS al final de la experiencia (target ≥ 9/10).",
+      "menu.section.02.proposal.P-12.market-test":
+        "Piloto de 60 días en sábado. Medir reservas/mes y conversión a venta de bolsa.",
+      "menu.section.02.proposal.P-12.stop-rule":
+        "Menos de 2 reservas/mes → reformular como drop-in de sábado sin reserva.",
+      "menu.section.02.proposal.P-12.pricing-rationale":
+        "S/. 38–55. Comparación directa: Terrua US$25 ≈ S/. 93 — el vuelo de Ursa está 40–60% abajo del benchmark competidor, entrada accesible. Arriba de Chemex-para-dos (S/. 22) por la experiencia guiada. Arriba de pour-over individual (S/. 12–14) × 3 = S/. 36–42 — las tarjetas de historia + la curación justifican el premium. Benchmark del censo: el vuelo de US$25 de Terrua es el ancla superior; el propio pour-over de Ursa × 3 es el ancla de costo.",
+
+      "menu.section.02.proposal.P-13.name": "Tuesta tu propio grano",
+      "menu.section.02.proposal.P-13.spanish": "Taller de tuesta tu propio grano",
+      "menu.section.02.proposal.P-13.concept":
+        "Taller de 90 minutos: cada participante tuesta 250g de verde en un tostador de muestra, documenta la curva, y se lleva su bolsa a casa. Cupo máximo 4 personas.",
+      "menu.section.02.proposal.P-13.why":
+        "Convierte la tostadora visible de Ursa de un activo pasivo de credibilidad en una experiencia pagada activa. Ningún competidor del catchment ofrece tueste hands-on — este es el producto de «experiencia» más defendible porque requiere la tostadora que Ursa ya tiene. El producto es la experiencia + la bolsa para llevar, no un consumible.",
+      "menu.section.02.proposal.P-13.need":
+        "Curioso del Café + Explorador Turista que quieren una experiencia memorable para llevar (no solo una bebida). El job: «ayúdame a tostar mi propio grano y llevarmelo a casa.» Atiende el segmento de economía de experiencias que Terrua y Cate tocan con cata, pero va un paso más allá en participación activa.",
+      "menu.section.02.proposal.P-13.evidence":
+        "Censo: 0 competidores ofrecen tueste hands-on. La «escuela de café» de Bisetti es formato de clase, no hands-on. La tostadora de Ursa + la credibilidad del campeón de Aeropress Paulo Sierra (@rutadelcafeperuano, 564 likes) soportan el canal educativo. La tostadora es un activo sunk-cost; el taller la monetiza sin capex adicional.",
+      "menu.section.02.proposal.P-13.brand-fit":
+        "Fuerte — la tostadora visible ya es la firma del local; este producto la convierte en experiencia pagada.",
+      "menu.section.02.proposal.P-13.taste":
+        "No es bebida — es aprendizaje. El producto final es una bolsa personal con curva firmada.",
+      "menu.section.02.proposal.P-13.prep": "90 min + 15 min de limpieza.",
+      "menu.section.02.proposal.P-13.margin":
+        "Alto — el grano verde es barato; el precio se cobra por la atención del maestro tostador.",
+      "menu.section.02.proposal.P-13.operational-test":
+        "Correr 6 sesiones en 60 días, tope de 4 participantes. Medir (a) NPS (target ≥ 9/10), (b) tasa de llenado de sesión (target ≥ 75% de sesiones llenas), (c) conversión a suscripción Gramo del Mes (target ≥ 30%).",
+      "menu.section.02.proposal.P-13.market-test":
+        "Piloto 6 sesiones. Medir NPS y conversión a suscripción Gramo del Mes.",
+      "menu.section.02.proposal.P-13.stop-rule":
+        "NPS < 9/10 o menos de 3 sesiones llenas/mes → reformular como demostración gratuita.",
+      "menu.section.02.proposal.P-13.pricing-rationale":
+        "S/. 85–140. Sin benchmark directo de competidor en el catchment. Anclado contra: (a) vuelo de US$25 de Terrua (~S/. 93) como la experiencia de café pagada más cercana, (b) pricing típico de taller especialista en Lima (S/. 80–150 por sesiones de 90 min). En moderado (S/. 110), paridad con el vuelo de Terrua pero con un producto para llevar (250g de grano tostado) — el activo para llevar justifica el premium sobre una experiencia solo de vuelo.",
+
+      /* Sección 02 — valores de meta del hero (snapshot viene de URSA_FACTS, otros son labels estáticos) */
+      "menu.section.02.hero-meta.framework-value": "Evaluación de 16 criterios",
+      "menu.section.02.hero-meta.pricing-value": "Rangos de escenario, no costos inventados",
+      "menu.section.02.hero-meta.sources-value": "Rappi · IG · Facebook",
+
       /* Sección 03 — Suscripción Ursa Mañana */
+      "menu.section.03.badge-section": "Sección 03",
       "menu.section.03.title": "Ursa Mañana — la suscripción como producto de carta",
       "menu.section.03.meta": "Piloto · tope de 50 miembros",
       "menu.section.03.badge": "Producto de continuidad",
       "menu.section.03.heading": "S/. 20 / mes · café ilimitado · Lun–Vie 7–10am",
       "menu.section.03.body":
-        "La suscripción es un producto de carta, no un descuento. Funciona con matemática de costo marginal porque Ursa tuesta su propio grano — pero solo si los suscriptores attachan lados (cookies, financier, empanada). El modelo económico completo — tasa de attach de break-even, recuperación de canibalización, proyección de escala — vive en el Módulo 08.",
+        "La suscripción es un producto de carta, no un descuento. La matemática funciona porque Ursa tuesta su propio grano — el costo marginal de una taza adicional es el grano verde, el agua y los cuarenta segundos del barista, no el margen de un mayorista encima. A S/. 1.20–1.80 por taza contra una cuota mensual de S/. 20, la matemática sobrevive incluso a un visitante diario — pero solo si los suscriptores attachan lados (cookies, financier, empanada) que cargan el margen que el café no tiene. El modelo económico completo — tasa de attach de break-even, recuperación de canibalización, proyección de escala — vive en el Módulo 08.",
       "menu.section.03.button.calculator": "Abrir la calculadora",
       "menu.section.03.button.experiments": "Ver el piloto en el Seguimiento de Experimentos",
       "menu.section.03.ministat.monthly": "Precio mensual",
@@ -2572,6 +3955,7 @@ export const translations: Translations = {
         "La utilidad por suscriptor no es obvia — depende de frecuencia de visita, attach de lados y canibalización. La calculadora interactiva del Módulo 08 te deja editar cada input y ver la tasa de attach de break-even, la capacidad de tazas gratis y el tiempo de recuperación actualizados en vivo. No lances el piloto sin correr esos números.",
 
       /* Sección 04 — Marco de 16 criterios */
+      "menu.section.04.badge": "Sección 04",
       "menu.section.04.title": "El marco de evaluación de 16 criterios",
       "menu.section.04.meta": "Cada propuesta pasa por los dieciséis",
       "menu.section.04.lede":
@@ -2610,6 +3994,7 @@ export const translations: Translations = {
       "menu.section.04.criterion.16.desc": "La condición exacta para matar o reformular.",
 
       /* Sección 05 — Nota sobre precios */
+      "menu.section.05.badge": "Sección 05",
       "menu.section.05.title": "Sobre precios — qué inventamos y qué no",
       "menu.section.05.meta": "Solo rangos de escenario",
       "menu.section.05.lean.heading": "Lean",
@@ -2635,7 +4020,7 @@ export const translations: Translations = {
         "No hay supuesto de viralidad. El precio asume demanda orgánica desde canales existentes; la amplificación pagada se modela aparte en el Módulo 04 y en el Asignador de Presupuesto.",
       "menu.section.05.callout.principle.title": "El principio que protege este módulo",
       "menu.section.05.callout.principle.body":
-        "La carta de Ursa gana su margen por valor percibido, no por pricing cost-plus. Una tarjeta con historia que describe origen, altitud y proceso eleva el valor percibido más que una taza más grande al mismo costo. El marco de 16 criterios está diseñado para mantener esa disciplina: ningún producto sale solo porque suene bien.",
+        "La carta de Ursa gana su margen por valor percibido, no por pricing cost-plus. El techo de costo de una taza de especialidad está más o menos fijado por el mercado de grano verde — cada tostador en Lima paga dentro de una banda estrecha por los mismos grados — así que la palanca de margen es la disposición a pagar, no la reducción de costo. Una tarjeta con historia que describe origen, altitud y proceso eleva el valor percibido más que una taza más grande al mismo costo; el cliente paga por el significado, no por los mililitros. El marco de 16 criterios está diseñado para mantener esa disciplina: ningún producto sale solo porque suene bien, y ningún producto sobrevive sin una regla de parada que diga cuándo matarlo.",
 
       /* Fila final de estadísticas */
       "menu.final.stat.1.label": "Propuestas de producto nuevas en 7 categorías",
@@ -3370,7 +4755,7 @@ export const translations: Translations = {
       "brand.section.verified.title": "Lo que verificamos en el snapshot",
       "brand.section.verified.meta": "De fuentes públicas · ver Fuentes y Evidencia",
       "brand.section.verified.intro":
-        "Cada elemento se verificó contra las siete superficies públicas de Ursa: Instagram, Facebook, el menú de Rappi, la ficha de CoffeePass, la ficha de TripAdvisor, la editorial de Corner.inc y el perfil de mindtrip.ai. Seis de ocho activos centrales están verificados; el séptimo (aplicación entre superficies) es parcial, y el octavo es la pregunta abierta que cerrará el pack de activos. Donde la verificación es parcial, se nombra la brecha precisa y se especifica la acción que la cierra en la hoja de ruta de implementación.",
+        "Cada elemento se verificó contra las siete superficies públicas de Ursa: Instagram, Facebook, el menú de Rappi, la ficha de CoffeePass, la ficha de TripAdvisor, la editorial de Corner.inc y el perfil de mindtrip.ai. Siete de ocho activos centrales están verificados; el octavo — aplicación consistente entre superficies — es parcial, y es la brecha que la hoja de ruta de implementación cierra primero. El costo de cerrarla es casi cero en efectivo (los tokens de diseño, las plantillas y el copy ya existen en este dossier) y acotado en tiempo (una sola semana de ensamblaje una vez que el dueño entregue el pack de activos del oso, pregunta abierta Q6). Donde la verificación es parcial, se nombra la brecha precisa y se especifica la acción que la cierra en la hoja de ruta de implementación.",
 
       "brand.verified.art-nouveau.title": "Línea Art Nouveau",
       "brand.verified.art-nouveau.detail":
@@ -3416,7 +4801,7 @@ export const translations: Translations = {
 
       "brand.verified.cross-surface.title": "Aplicación consistente entre superficies",
       "brand.verified.cross-surface.detail":
-        "La identidad es fuerte en storefront y producto; se adelgaza entre superficies digitales (sin sitio web, sin kit social templado). Esta es la brecha que la hoja de ruta de implementación cierra primero.",
+        "La identidad es fuerte en storefront y producto; se adelgaza entre superficies digitales (sin sitio web, sin kit social templado). Esta es la brecha que la hoja de ruta de implementación cierra primero. Modo de falla si no se atiende: un cliente primerizo que descubre a Ursa por Instagram aterriza en un Google Business Profile subóptimo y una ficha de TripAdvisor vacía, y concluye que la cafetería está menos establecida de lo que está — un costo de percepción que se compone cada mes que la brecha persiste.",
       "brand.verified.cross-surface.evidence":
         "Verificado por análisis de brecha de superficie: Instagram (presente), Facebook (acceso limitado a posts, parcial), Rappi (presente, sin lema), CoffeePass (presente, mínimo), TripAdvisor (la ficha existe, 0 reseñas — sin reclamar), Corner.inc (verificado), mindtrip.ai (verificado pero el teléfono entra en conflicto con Instagram). No se encontró sitio web vía Google site: search. Faltan: kit social templado, Google Business Profile reclamado, TripAdvisor reclamado.",
 
@@ -3424,7 +4809,7 @@ export const translations: Translations = {
       "brand.section.palette.title": "La paleta de Ursa — observada y propuesta",
       "brand.section.palette.meta": "16 tokens · con proveniencia · no oficiales hasta verificación del dueño",
       "brand.section.palette.intro":
-        "Una escala de marrones del espectro de tueste (café verde → espresso) carga la historia del café; un verde bosque profundo carga el hábitat del oso; las superficies crema lo sostienen todo; un único dorado cálido reserva el énfasis. Sin azul, sin índigo — y esa ausencia es en sí misma un diferenciador. El censo de 1km se lee como un muro de identidades de café Instagram-azul y negro puro; los marrones cálidos y el verde bosque profundo de Ursa se leen como craft antes de que el cliente termine de leer el nombre. Los valores hex se muestrearon de redes sociales, no están fijados por el dueño — promovente a tokens oficiales solo después de que llegue el pack de activos (pregunta abierta Q6).",
+        "Una escala de marrones del espectro de tueste (café verde → espresso) carga la historia del café; un verde bosque profundo carga el hábitat del oso; las superficies crema lo sostienen todo; un único dorado cálido reserva el énfasis. Sin azul, sin índigo — y esa ausencia es en sí misma un diferenciador. El censo de 1km se lee como un muro de identidades de café Instagram-azul y negro puro; los marrones cálidos y el verde bosque profundo de Ursa se leen como craft antes de que el cliente termine de leer el nombre. Los valores hex se muestrearon de redes sociales, no están fijados por el dueño — promovente a tokens oficiales solo después de que llegue el pack de activos (pregunta abierta Q6). El costo de implementación es prácticamente cero: los dieciséis tokens ya están cableados en el Tailwind config de este dossier, así que promoverlos de aproximado a oficial es un edit de una línea por token, no una reconstrucción.",
       "brand.section.palette.provenance-key": "Llave de proveniencia",
       "brand.section.palette.provenance.approximate": "aproximado — muestreado de redes sociales",
       "brand.section.palette.provenance.proposed": "propuesto — adición al sistema de diseño",
@@ -3436,7 +4821,7 @@ export const translations: Translations = {
       "brand.section.typography.badge": "Tipografía",
       "brand.section.typography.title": "Tres voces, un ritmo",
       "brand.section.typography.intro":
-        "Una serif display carga la línea craft de principios de siglo XX; una sans humanista carga la prosa legible; una mayúscula condensada carga cada etiqueta, eyebrow y tag. Tres roles, sin superposición — porque la superposición es donde vive la inconsistencia. Dos voces obligarían al cuerpo a duplicar etiqueta (ilegible en tamaños pequeños); cuatro diluirían el ritmo y sumarían una línea de licencia de tipografía sin ganancia cognitiva. Tres es el mínimo que sostiene la voz Art Nouveau entre impresos, web y signage.",
+        "Una serif display carga la línea craft de principios de siglo XX; una sans humanista carga la prosa legible; una mayúscula condensada carga cada etiqueta, eyebrow y tag. Tres roles, sin superposición — porque la superposición es donde vive la inconsistencia. Dos voces obligarían al cuerpo a duplicar etiqueta (ilegible en tamaños pequeños); cuatro diluirían el ritmo y sumarían una línea de licencia de tipografía sin ganancia cognitiva. Tres es el mínimo que sostiene la voz Art Nouveau entre impresos, web y signage. La división también coincide con la investigación de legibilidad: las serif mantienen el reconocimiento de caracteres en tamaños display grandes donde el contraste es alto, las sans humanistas se leen más rápido en cuerpo de texto (el default canónico alineado a WCAG), y la mayúscula condensada carga las etiquetas porque su set-width apretado preserva la jerarquía en los tamaños pequeños donde viven las etiquetas.",
       "brand.section.typography.scale.label": "Escala tipográfica · aplicada",
       "brand.section.typography.scale.headline": "Un gramo a la vez.",
       "brand.section.typography.scale.subhead": "Tostadores de café de especialidad",
@@ -3485,7 +4870,7 @@ export const translations: Translations = {
       "brand.section.distinctive.title": "La lectura Ehrenberg-Bass: disponibilidad mental por repetición",
       "brand.section.distinctive.meta": "Singularidad × Prevalencia · verificado por censo",
       "brand.section.distinctive.intro":
-        "Los activos distintivos son elementos ajenos al nombre de la marca (personajes, colores, lemas, ornamentación) que identifican una marca en la memoria del comprador. Construyen disponibilidad mental — la probabilidad de que un comprador piense en Ursa en una situación de compra — a través de la repetición consistente. Su eficacia se mide en dos ejes (Romaniuk y Sharp, Ehrenberg-Bass Institute): singularidad (pocos competidores usan el activo) y prevalencia (la mayoría de los compradores de la categoría asocian el activo con la marca). Un activo que es único pero rara vez aplicado todavía no califica — la repetición es el mecanismo, no el diseño.",
+        "Los activos distintivos son elementos ajenos al nombre de la marca (personajes, colores, lemas, ornamentación) que identifican una marca en la memoria del comprador. Construyen disponibilidad mental — la probabilidad de que un comprador piense en Ursa en una situación de compra — a través de la repetición consistente. Su eficacia se mide en dos ejes (Romaniuk y Sharp, Ehrenberg-Bass Institute): singularidad (pocos competidores usan el activo) y prevalencia (la mayoría de los compradores de la categoría asocian el activo con la marca). Un activo que es único pero rara vez aplicado todavía no califica — la repetición es el mecanismo, no el diseño. Una limitación honesta del framework: se desarrolló para bienes de consumo masivo (FMCG) con alta frecuencia de compra, donde la disponibilidad mental se compone entre viajes semanales de compra. El café de especialidad es una categoría de menor frecuencia, así que la prueba de prevalencia de 90 días de abajo es la versión adaptada — más corta que la norma FMCG, pero suficiente para un catchment caminable de 1km donde los regulares regresan semanalmente.",
       "brand.section.distinctive.census-callout-title": "El hallazgo del censo",
       "brand.section.distinctive.census-callout-body":
         "Censo de 1km desde Alcanfores 183 (snapshot 2026-08-01): 0 de 14 competidores en catchment y 0 de 4 benchmarks de Lima usan un personaje animal como activo de marca. Es espacio blanco verificado — la singularidad del oso está establecida, pero la prevalencia no.",
@@ -3543,7 +4928,7 @@ export const translations: Translations = {
       "brand.section.art-nouveau.meta": "Documentado · aplicado · reservado",
       "brand.section.art-nouveau.live-label": "En vivo · ArtNouveauDivider",
       "brand.section.art-nouveau.live-detail":
-        "La línea dorada fina con un flourish central. Se usa para separar secciones mayores — nunca para cortar párrafos.",
+        "La línea dorada fina con un flourish central. Se usa para separar secciones mayores — nunca para cortar párrafos. Es la señal Art Nouveau más pequeña que todavía registra como craft: a un pixel de ancho apenas se ve, a tres compite con el contenido, a dos con el flourish carga el ADN ornamental de la marca sin cansar la vista. Trátalo como la ornament load-bearing — todos los demás componentes Art Nouveau dependen de él para la continuidad visual.",
 
       "brand.art-nouveau.borders.title": "Bordes ornamentales",
       "brand.art-nouveau.borders.detail":
@@ -3573,7 +4958,7 @@ export const translations: Translations = {
       "brand.section.evolution.title": "Tres niveles de evolución — una recomendación",
       "brand.section.evolution.meta": "Refinamiento conservador gana",
       "brand.section.evolution.intro":
-        "De tres direcciones plausibles, este módulo recomienda el Nivel 1 como sistema permanente. El Nivel 2 es una capa de crecimiento reversible a 6 meses por encima. El Nivel 3 es solo estacional. Un rebrand total queda explícitamente fuera de la mesa — no porque los rebrands siempre estén mal, sino porque la identidad de Ursa ya es su activo ownable (ver Activos Distintivos arriba), y un rebrand destruiría la disponibilidad mental que lidera la categoría y que aún no ha terminado de construir. El orden importa: el Nivel 1 debe fijarse antes de que salga el Nivel 2, y el Nivel 3 está condicionado a la aprobación explícita del dueño.",
+        "De tres direcciones plausibles, este módulo recomienda el Nivel 1 como sistema permanente. El Nivel 2 es una capa de crecimiento reversible a 6 meses por encima. El Nivel 3 es solo estacional. Un rebrand total queda explícitamente fuera de la mesa — no porque los rebrands siempre estén mal, sino porque la identidad de Ursa ya es su activo ownable (ver Activos Distintivos arriba), y un rebrand destruiría la disponibilidad mental que lidera la categoría y que aún no ha terminado de construir. El orden importa: el Nivel 1 debe fijarse antes de que salga el Nivel 2, y el Nivel 3 está condicionado a la aprobación explícita del dueño. Techo de costo por nivel: el Nivel 1 está acotado por el pack de activos (S/. 0–1,000 si el dueño entrega el mark oficial del oso; la documentación del sistema de diseño ya está escrita en este dossier); el Nivel 2 añade trabajo de motion-design a S/. 1,200–3,600 por un set de stickers y un mark en loop; el Nivel 3 corre a S/. 400–1,200 por skin estacional. Ninguna de estas cifras requiere agencia externa — un motion designer freelance de Lima puede entregar el Nivel 2 dentro del presupuesto.",
       "brand.section.evolution.why-callout-title": "Por qué el Nivel 1 es el sistema permanente",
       "brand.section.evolution.why-callout-body":
         "Ursa ya hace lo que funciona en 2025–26: identidad sobre perseguir tendencias. El oso, la línea Art Nouveau, el layout de dos barras y las bebidas con nombre suman una marca que los competidores no pueden copiar rápido. Refinar — no reemplazar — cuida ese activo y gasta el presupuesto en distribución (Módulo 04) en vez de en churn de identidad.",
@@ -3588,7 +4973,7 @@ export const translations: Translations = {
       "brand.evolution.level-1.outcome-2": "Reglas de uso del mark del oso en cada superficie",
       "brand.evolution.level-1.outcome-3": "Plantillas reutilizables de social, menú y empaque",
       "brand.evolution.level-1.risk":
-        "Riesgo: overhead de documentación sin enforcement. Un sistema de diseño que vive solo en un archivo Figma y no en un checklist impreso de «brand police» (referencia de una página para baristas, imprenta y creadores) se degrada en 90 días. Mitigación: entrega el checklist de una página junto al archivo Figma; audita la aplicación en los días 30, 60, 90. Limitación: también depende del pack de activos del dueño (Q6 abierta) — si el mark oficial del oso no se entrega en 14 días, el Nivel 1 no se puede fijar.",
+        "Riesgo: overhead de documentación sin enforcement. Un sistema de diseño que vive solo en un archivo Figma y no en un checklist impreso de «brand police» (referencia de una página para baristas, imprenta y creadores) se degrada en 90 días. Mitigación: entrega el checklist de una página junto al archivo Figma; audita la aplicación en los días 30, 60, 90. Regla de éxito: al día 30, ≥80% de los posts nuevos de Instagram usan el kit templado; al día 90, ≥95% — medido con una muestra semanal de diez posts. Si se pierde cualquiera de los dos umbrales, se revisa el checklist, no el sistema. Limitación: también depende del pack de activos del dueño (Q6 abierta) — si el mark oficial del oso no se entrega en 14 días, el Nivel 1 no se puede fijar.",
 
       "brand.evolution.level-2.name": "Sistema de crecimiento distintivo",
       "brand.evolution.level-2.horizon": "Capa de 6 meses",
@@ -3643,7 +5028,7 @@ export const translations: Translations = {
       "brand.spirit.eyebrow": "Principio de preservación del espíritu",
       "brand.spirit.headline": "Nunca elegir una táctica de crecimiento genérica sobre el oso.",
       "brand.spirit.body":
-        "Si una recomendación obliga a elegir entre (a) cuidar la identidad existente de Ursa — oso, Art Nouveau, tostadora — y (b) perseguir una táctica de crecimiento genérica, este dossier siempre elige (a). La dirección de refinamiento conservador es el sistema permanente; las expresiones experimentales se quedan estacionales y reversibles. Esta es la baranda que heredan todos los módulos siguientes — y la prueba que decide la elección es operacional, no estética: si la táctica requiere un cambio de layout, un cambio de mark de marca o un giro tonal que el oso no pueda cargar, falla la baranda y se rechaza.",
+        "Si una recomendación obliga a elegir entre (a) cuidar la identidad existente de Ursa — oso, Art Nouveau, tostadora — y (b) perseguir una táctica de crecimiento genérica, este dossier siempre elige (a). La dirección de refinamiento conservador es el sistema permanente; las expresiones experimentales se quedan estacionales y reversibles. Esta es la baranda que heredan todos los módulos siguientes — y la prueba que decide la elección es operacional, no estética: si la táctica requiere un cambio de layout, un cambio de mark de marca o un giro tonal que el oso no pueda cargar, falla la baranda y se rechaza. Dos ejemplos trabajados: una campaña de cupones de descuento que requiere un tratamiento de color distinto para convertir fallaría (diluye la superficie crema-y-marrón donde vive el oso); una colaboración de herencia que coloca el logo del partner encima del oso en el storefront también fallaría (el oso pierde primacía en su propia superficie). Una campaña que coloca al oso en una escena estacional nueva, en cambio, pasa — el mark no cambia, solo se mueve su escenario.",
       "brand.spirit.chip.bear": "Oso · Gramo · Verde",
       "brand.spirit.chip.no-rebrand": "Sin rebrand · sin playbook genérico",
       "brand.spirit.chip.experiments": "Experimentos reversibles con reglas de parada de 14–30 días",
@@ -3651,7 +5036,7 @@ export const translations: Translations = {
       "brand.section.dossier.badge": "Dossier estático",
       "brand.section.dossier.title": "Lee el dossier HTML imprimible",
       "brand.section.dossier.body":
-        "El dossier completo del Módulo 01, listo para imprimir, está disponible como HTML navegable — ábrelo para las tablas completas de auditoría y las hojas de color imprimibles.",
+        "El dossier completo del Módulo 01, listo para imprimir, está disponible como HTML navegable — ábrelo para las tablas completas de auditoría y las hojas de color imprimibles. La referencia impresa es de la que trabajan el equipo de baristas, la imprenta y cualquier creador externo; esta vista digital es contra la que iteran el dueño y el equipo del dossier.",
       "brand.section.dossier.button": "Abrir la guía de estilo interactiva",
 
       "brand.stat.palette": "Tokens de paleta verificados",
@@ -3696,7 +5081,7 @@ export const translations: Translations = {
       "market.section.census.title": "Cada competidor con nombre dentro de 1km a pie de Alcanfores 183",
       "market.section.census.meta": "Grid sistemático que irradia desde calles · snapshot 2026-08-01",
       "market.section.census.intro":
-        "El conjunto de competidores ya no es una shortlist — es un censo. Cada calle con nombre dentro de 1km a pie de la dirección de Ursa se recorrió virtualmente vía Google Maps Street View y se cruzó contra Google Places, TripAdvisor y location tags de Instagram. El resultado: 14 competidores dentro del catchment de 1km más 4 benchmarks de Lima (Bisetti, Ciclos, RAIZ, Monótono) incluidos para contexto posicional. La proximidad tiene código de color: rojo = misma calle, dorado = cercano, verde = dentro de 1km, gris = benchmark fuera del área. Un radio de 1km es el catchment práctico para un espresso bar en un distrito denso y caminable como Miraflores — más allá, el cliente está eligiendo viajar, no entrando de paso.",
+        "El conjunto de competidores ya no es una shortlist — es un censo. Cada calle con nombre dentro de 1km a pie de la dirección de Ursa se recorrió virtualmente vía Google Maps Street View y se cruzó contra Google Places, TripAdvisor y location tags de Instagram. El resultado: 14 competidores dentro del catchment de 1km más 4 benchmarks de Lima (Bisetti, Ciclos, RAIZ, Monótono) incluidos para contexto posicional. La proximidad tiene código de color: rojo = misma calle, dorado = cercano, verde = dentro de 1km, gris = benchmark fuera del área. Un radio de 1km es el catchment práctico para un espresso bar en un distrito denso y caminable como Miraflores — más allá, el cliente está eligiendo viajar, no entrando de paso. La alternativa considerada fue un reporte de investigación de mercado pagado (S/. 8,000–15,000 de una firma limeña de consumer insights); se rechazó porque la fuente de verdad del dossier es data pública verificable, no una interpretación de terceros, y porque el costo del censo fue prácticamente cero en efectivo.",
       "market.section.census.summary.discovered": "Total descubiertos",
       "market.section.census.summary.operating": "Operando",
       "market.section.census.summary.uncertain": "Estado incierto",
@@ -3737,16 +5122,16 @@ export const translations: Translations = {
       "market.section.landscape.title": "Los dieciocho nombres alrededor de Ursa",
       "market.section.landscape.meta": "Deep-dive por competidor · snapshot 2026-08-01",
       "market.section.landscape.intro":
-        "El censo de arriba es la vista sistemática; las tarjetas de abajo son el deep-dive por competidor. Para cada competidor la tarjeta nombra una fortaleza, una debilidad y la implicación que se sigue para Ursa. Catorce están dentro del catchment de 1km; cuatro (Bisetti, Ciclos, RAIZ, Monótono) son benchmarks de Lima incluidos para contexto posicional — no competidores directos que un cliente de Miraflores compara en la misma caminata, sino puntos de referencia de lo que se ve como liderazgo de categoría a escala Lima.",
+        "El censo de arriba es la vista sistemática; las tarjetas de abajo son el deep-dive por competidor. Para cada competidor la tarjeta nombra una fortaleza, una debilidad y la implicación que se sigue para Ursa — un SWOT comprimido, estrechado porque la posición estratégica de cada competidor ya está nombrada en el análisis de espacio ownable de abajo. Catorce están dentro del catchment de 1km; cuatro (Bisetti, Ciclos, RAIZ, Monótono) son benchmarks de Lima incluidos para contexto posicional — no competidores directos que un cliente de Miraflores compara en la misma caminata, sino puntos de referencia de lo que se ve como liderazgo de categoría a escala Lima. La limitación del framework: congela un solo snapshot (2026-08-01) y no trackea momentum. Un competidor que abre un segundo local o gana un premio nacional entre snapshots movería la lectura; la cadencia de refresh trimestral de la hoja de ruta de implementación es la mitigación.",
 
       "market.section.ownable.badge": "Espacio ownable",
       "market.section.ownable.title": "Ursa se sienta ortogonal a la categoría",
       "market.section.ownable.meta": "No una mejor cafetería — una distinta",
       "market.section.ownable.intro":
-        "Cada competidor fuerte de Miraflores es dueño de una posición. Punto Café es dueño del premio. Neira es dueño de la escala. Bisetti es dueño de la escuela. Puku Puku es dueño del microlote. Terrua es dueño de la degustación premium. Ninguno es dueño de un animal, de un lenguaje de diseño Art Nouveau o de un teatro de dos barras — y ninguno usa bebidas con nombre. Estas posiciones no son fáciles de copiar porque cada una está respaldada por un activo duro: el certificado de premio de Punto, los cuatro locales de Neira, el programa de entrenamiento de Bisetti, la cadena de microlotes de Puku Puku, el sourcing farm-to-cup de Terrua. El oso de Ursa, el layout de dos barras y el sistema de bebidas con nombre son igualmente difíciles de copiar porque cada uno está respaldado por un compromiso físico u operacional — una marca, un espacio construido, una disciplina de carta — que un competidor no puede redeployar sin igualar los tres.",
+        "Cada competidor fuerte de Miraflores es dueño de una posición. Punto Café es dueño del premio. Neira es dueño de la escala. Bisetti es dueño de la escuela. Puku Puku es dueño del microlote. Terrua es dueño de la degustación premium. Ninguno es dueño de un animal, de un lenguaje de diseño Art Nouveau o de un teatro de dos barras — y ninguno usa bebidas con nombre. Estas posiciones no son fáciles de copiar porque cada una está respaldada por un activo duro: el certificado de premio de Punto, los cuatro locales de Neira, el programa de entrenamiento de Bisetti, la cadena de microlotes de Puku Puku, el sourcing farm-to-cup de Terrua. El oso de Ursa, el layout de dos barras y el sistema de bebidas con nombre son igualmente difíciles de copiar porque cada uno está respaldado por un compromiso físico u operacional — una marca, un espacio construido, una disciplina de carta — que un competidor no puede redeployar sin igualar los tres. El foso ya está construido; el costo desde aquí es defensa (aplicación consistente, ver activos distintivos del Módulo 01), no construcción.",
       "market.section.ownable.ortho-title": "El principio de ortogonalidad",
       "market.section.ownable.ortho-body":
-        "El espacio ownable de Ursa — oso + dos barras + bebidas con nombre (Ursagroni, Maracumango) + «Un gramo a la vez» — no compite contra las posiciones existentes de la categoría. Se sienta en ángulo recto con ellas. Un cliente puede amar el premio de Punto Café y aun así elegir Ursa por el oso. Ese es el foso — y la regla operacional que implica es que Ursa nunca debe intentar ganarle el premio a Punto, la escala a Neira o la escuela a Bisetti. Cada uno de esos concursos tiene un incumbente con ventaja estructural; el concurso del oso no tiene incumbente.",
+        "El espacio ownable de Ursa — oso + dos barras + bebidas con nombre (Ursagroni, Maracumango) + «Un gramo a la vez» — no compite contra las posiciones existentes de la categoría. Se sienta en ángulo recto con ellas. Un cliente puede amar el premio de Punto Café y aun así elegir Ursa por el oso. Ese es el foso — y la regla operacional que implica es que Ursa nunca debe intentar ganarle el premio a Punto, la escala a Neira o la escuela a Bisetti. Cada uno de esos concursos tiene un incumbente con ventaja estructural; el concurso del oso no tiene incumbente. Regla de éxito: una encuesta trimestral a clientes (n≥40, corrida junto con la prueba de recordación de activos distintivos del Módulo 01) debería mostrar que menos del 30% de los regulares de Ursa nombran a un solo competidor como sustituto; si esa proporción sube por encima del 50%, el claim de ortogonalidad se ha debilitado y el posicionamiento necesita una re-decisión escrita antes de que salga cualquier táctica nueva.",
       "market.section.ownable.rule":
         "La regla estratégica que se sigue: nunca intentar ganarle el premio a Punto, la escala a Neira o la escuela a Bisetti. En cambio, ser la única cafetería en Lima donde el oso, el gramo y el verde son visiblemente el sistema operativo.",
       "market.section.ownable.card-title": "Quién es dueño de qué",
@@ -3763,7 +5148,7 @@ export const translations: Translations = {
       "market.section.voice.meta": "Cuatro temas · verificados de reseñas públicas y observación directa",
       "market.section.voice.methodology-title": "Metodología y limitaciones",
       "market.section.voice.methodology-intro":
-        "Los temas de voz del cliente de abajo son ilustrativos, no validados. Se infieren de patrones de reseña de competidores y del propio análisis competitivo del dossier, no de una muestra codificada de los clientes de Ursa. Léelos como señal direccional, no como lectura cuantitativa de la clientela de Ursa.",
+        "Los temas de voz del cliente de abajo son ilustrativos, no validados. Se infieren de patrones de reseña de competidores y del propio análisis competitivo del dossier, no de una muestra codificada de los clientes de Ursa. Léelos como señal direccional, no como lectura cuantitativa de la clientela de Ursa. Cadencia de revisión: recodificar los temas en el momento en que Ursa acumule ≥50 reseñas públicas propias entre Google y TripAdvisor (el umbral en el que una muestra codificada se vuelve estadísticamente significativa para una cafetería de un solo local), y no más tarde del próximo snapshot trimestral — lo que ocurra primero.",
       "market.section.voice.field.boundary": "Límite de mercado",
       "market.section.voice.field.boundary-value": "Cafés de especialidad de Miraflores + líderes de Lima para benchmarking",
       "market.section.voice.field.platforms": "Plataformas muestreadas",
@@ -3805,7 +5190,7 @@ export const translations: Translations = {
       "market.section.conversion.title": "De hallazgos a una worklist de 90 días",
       "market.section.conversion.meta": "Seis pistas · cada una rastreable a un competidor o un tema de voz del cliente",
       "market.section.conversion.intro":
-        "Cada tarjeta de abajo es una conversión directa de un hallazgo de arriba — ninguna tarjeta es especulativa. Donde una tarjeta referencia un competidor, la implicación es explícita; donde referencia un tema de voz del cliente, se nombra el punto de fricción. Las seis pistas están secuenciadas para una worklist de 90 días: primero estándares (porque igualar las líneas base de la categoría es prerrequisito para liderarlas), luego evitación (porque las pérdidas se acumulan más rápido que las ganancias), luego liderazgo (las aperturas en forma de oso que el censo verificó).",
+        "Cada tarjeta de abajo es una conversión directa de un hallazgo de arriba — ninguna tarjeta es especulativa. Donde una tarjeta referencia un competidor, la implicación es explícita; donde referencia un tema de voz del cliente, se nombra el punto de fricción. Las seis pistas están secuenciadas para una worklist de 90 días: primero estándares (porque igualar las líneas base de la categoría es prerrequisito para liderarlas), luego evitación (porque las pérdidas se acumulan más rápido que las ganancias), luego liderazgo (las aperturas en forma de oso que el censo verificó). Regla de éxito en las seis: cada pista entrega un artefacto tangible en 30 días (un claim en GBP, una línea de menú, un flight de degustación, un proof point de contenido), y se revisa al día 60 contra su métrica nombrada. Cualquier pista que no haya entregado su artefacto al día 30 se pausa y se re-scopea, no se lleva adelante como intención vaga — las intenciones vagas son cómo las worklists de 90 días se vuelven wishlists de 12 meses.",
 
       "market.conversion.standards.title": "Estándares que Ursa debe igualar",
       "market.conversion.standards.item-1": "Visibilidad de premios — Punto Café ganó Premios Somos 2024; Ursa necesita una entrada de premios creíble",
@@ -3853,15 +5238,721 @@ export const translations: Translations = {
       "market.section.website-gap.meta": "Surfaced en censo de 1km · prioridad de 30 días",
       "market.section.website-gap.callout-title": "Esta es la brecha de infraestructura más visible del dossier",
       "market.section.website-gap.callout-body":
-        "{withWebsite} de {total} competidores en el censo de 1km mantienen un sitio web público. La presencia descubrible de Ursa es solo Instagram. Un visitante primerizo que busca «café de especialidad Miraflores» en Google encuentra un muro de sitios de competidores — Punto Café, Neira Café Lab, Terrua, Cate Tasting Room y más — y un Google Business Profile subóptimo a cambio. El oso es invisible en el momento de mayor intención.",
+        "{withWebsite} de {total} competidores en el censo de 1km mantienen un sitio web público. La presencia descubrible de Ursa es solo Instagram. Un visitante primerizo que busca «café de especialidad Miraflores» en Google encuentra un muro de sitios de competidores — Punto Café, Neira Café Lab, Terrua, Cate Tasting Room y más — y un Google Business Profile subóptimo a cambio. El oso es invisible en el momento de mayor intención. Métrica de éxito: a 60 días del lanzamiento, una búsqueda incógnito de «café Miraflores» o «café de especialidad Miraflores» desde una IP de Miraflores debería devolver el sitio de Ursa en los primeros diez resultados orgánicos — esa es la barra a la que la brecha se considera cerrada, no simplemente llenada.",
       "market.section.website-gap.priority-label": "Prioridad de 30 días:",
       "market.section.website-gap.priority-body":
-        "lanzar un sitio de una sola página que cargue la identidad verificada — dirección, horario, bebidas de autor, el oso, la línea craft Art Nouveau y un canal de reserva para degustaciones. El sistema de diseño completo ya existe en el Módulo 01. Las bebidas de autor están verificadas en el Módulo 03. Esto es ensamblaje, no invención — y el costo de implementación es proporcionalmente pequeño: una sola página Next.js con los tokens existentes, deployable a un host estático gratuito en 72 horas. El costo de no lanzarlo es mayor: cada búsqueda en Google de «café Miraflores» que aterriza en el sitio de un competidor es un cliente al que Ursa no ha pagado costo de adquisición por alcanzar y aun así pierde.",
+        "lanzar un sitio de una sola página que cargue la identidad verificada — dirección, horario, bebidas de autor, el oso, la línea craft Art Nouveau y un canal de reserva para degustaciones. El sistema de diseño completo ya existe en el Módulo 01. Las bebidas de autor están verificadas en el Módulo 03. Esto es ensamblaje, no invención — y el costo de implementación es proporcionalmente pequeño: una sola página Next.js con los tokens existentes, deployable a un host estático gratuito en 72 horas. En efectivo el costo es S/. 0 si lo arma el equipo del dossier, o S/. 1,500–3,000 si se contrata a un desarrollador freelance Next.js de Lima para uno o dos días de trabajo. El costo de no lanzarlo es mayor: cada búsqueda en Google de «café Miraflores» que aterriza en el sitio de un competidor es un cliente al que Ursa no ha pagado costo de adquisición por alcanzar y aun así pierde.",
       "market.section.website-gap.open-brand": "Abrir Auditoría de Marca (Módulo 01)",
       "market.section.website-gap.open-dashboard": "Abrir el Tablero de Competidores interactivo",
 
       "market.section.dossier.body":
         "Todos los claims de competidores tienen fuente y fecha de snapshot. Ver Fuentes y Evidencia para citas completas.",
+
+      /* ---- Herramienta T3 · Calendario de Contenido (cuerpo profundizado + copy de sección) ---- */
+      "content-calendar.hero.lede":
+        "La pregunta que responde esta herramienta: ¿cómo produce una tostadora con un dueño-operador y un equipo pequeño de baristas suficiente contenido para Instagram y mantener a Ursa en la cabeza del cliente que camina por el kilómetro de Miraflores — sin pagar agencia, contratar creador, ni quemar el tiempo del dueño? El plan propone una grilla de cuatro semanas con veintiséis conceptos internos, diez guiones listos para producción y tres series con cadencia, todos filmales dentro del local con los baristas ya en turno. La biblioteca es cerrada (nada se agrega sin sacar otra cosa) para que el equipo repita en vez de inventar; los guiones son bilingües verbatim para que los captions no necesiten traductor; el calendario trae pre-cargado un ritmo de Reels Lunes/Miércoles/Viernes, Carruseles Martes/Jueves, Evento o UGC los sábados, e Stories los domingos — probado para mantener el feed caliente sin saturarlo.",
+      "content-calendar.meta.concepts": "Conceptos",
+      "content-calendar.meta.scripts": "Guiones",
+      "content-calendar.meta.series": "Series",
+      "content-calendar.meta.pilot": "Piloto",
+      "content-calendar.meta.pilot-value": "4 semanas",
+
+      "content-calendar.section.1.badge": "Sección 01",
+      "content-calendar.section.1.title": "La biblioteca de un vistazo",
+      "content-calendar.section.1.meta": "Conteos por formato",
+      "content-calendar.stat.concepts": "Conceptos en la biblioteca",
+      "content-calendar.stat.scripts": "Guiones listos para producción (beats + caption + CTA)",
+      "content-calendar.stat.series": "Series repetibles con cadencia",
+      "content-calendar.section.1.formats-label":
+        "Conceptos por formato (superpuestos — un concepto puede coincidir con varios)",
+      "content-calendar.section.1.callout-title": "Por qué estos formatos, en estas proporciones",
+      "content-calendar.section.1.callout-body":
+        "Los Reels cargan alcance (el algoritmo de Instagram los muestra a no-seguidores); los Carruseles cargan tiempo de permanencia (cada slide es una impresión aparte); las Stories cargan frecuencia sin fatiga (desaparecen en 24 horas, así que publicar a diario es el contrato, no spam); UGC y Eventos cargan prueba (la voz de otra persona, un momento real del local). La biblioteca de veintiséis conceptos está diseñada para que el equipo nunca abra un frame en blanco — el trabajo es elegir, no inventar.",
+
+      "content-calendar.section.2.badge": "Sección 02",
+      "content-calendar.section.2.title": "Biblioteca filtrable de conceptos",
+      "content-calendar.section.2.meta": "{n} de 26 mostrados",
+      "content-calendar.section.2.intro":
+        "Usa esta biblioteca como un menú, no como una lista de deseos. Elige un concepto, fílmalo en el local con los baristas en turno, publica el caption verbatim del guion vinculado. La barra de búsqueda coincide con título, hook o ID (prueba «C07», «oso» o «coldbrew»). El filtro de formato acota por superficie de Instagram — Reel, Carrusel, Serie, UGC, Evento. Cada tarjeta abre un diálogo de detalle con el hook, las reglas de producción y un enlace al brief completo del Módulo 05.",
+      "content-calendar.section.2.search-placeholder": "Busca por título, hook o ID (ej. C07, oso, coldbrew)…",
+      "content-calendar.section.2.empty": "Ningún concepto coincide. Prueba con otro filtro u otro término.",
+      "content-calendar.section.2.view-details": "Ver detalle →",
+      "content-calendar.section.2.dialog.hook-label": "El hook",
+      "content-calendar.section.2.dialog.use-label": "Cómo usar este concepto",
+      "content-calendar.section.2.dialog.use-1":
+        "Filma dentro del local con los baristas en turno — sin actores, sin locaciones pagadas. Lo que importa es la prueba de que este local existe y esta gente prepara este café.",
+      "content-calendar.section.2.dialog.use-2":
+        "Abre con el hook en los primeros dos segundos. La marca va en el último frame, no en el primero — Instagram premia el tiempo de visualización, y ese tiempo se gana con contenido, no con logo.",
+      "content-calendar.section.2.dialog.use-3":
+        "Si existe un guion vinculado, pega su caption en español verbatim. Los captions llegan pre-traducidos al español peruano y revisados en campo; improvisar rompe la voz.",
+      "content-calendar.section.2.dialog.use-4":
+        "Publica en la cadencia que asigne el calendario. Mide guardados, compartidos y alcance durante 48 horas antes de decidir si repites, retiras o reemplazas.",
+      "content-calendar.section.2.dialog.close": "Cerrar",
+      "content-calendar.section.2.dialog.open-module": "Abrir Módulo 05",
+
+      "content-calendar.filter.all": "Todos",
+      "content-calendar.filter.reel": "Reel",
+      "content-calendar.filter.carousel": "Carrusel",
+      "content-calendar.filter.series": "Serie",
+      "content-calendar.filter.ugc": "UGC",
+      "content-calendar.filter.event": "Evento",
+
+      "content-calendar.day.Mon": "Lun",
+      "content-calendar.day.Tue": "Mar",
+      "content-calendar.day.Wed": "Mié",
+      "content-calendar.day.Thu": "Jue",
+      "content-calendar.day.Fri": "Vie",
+      "content-calendar.day.Sat": "Sáb",
+      "content-calendar.day.Sun": "Dom",
+
+      "content-calendar.section.3.badge": "Sección 03",
+      "content-calendar.section.3.title": "Lector de guiones",
+      "content-calendar.section.3.meta": "Beats · caption · CTA · copia",
+      "content-calendar.section.3.intro":
+        "Cada guion de la biblioteca trae tres artefactos: los beats (la lista de planos que un barista puede filmar sin director), el caption en español (listo para copiar y pegar, sin traducción al paso) y el CTA en español (una acción específica, un enlace o palabra específica). Los captions y CTAs se publican verbatim — el lector bilingüe ve español; la copia de back-office es inglés. Adaptar el texto al vuelo rompe la prueba medible: no puedes comparar un Reel que funcionó con el caption A contra uno que funcionó con el caption B si ambos fueron editados.",
+      "content-calendar.section.3.beats-label": "Beats",
+      "content-calendar.section.3.caption-label": "Caption · ES Perú",
+      "content-calendar.section.3.cta-label": "CTA · ES Perú",
+      "content-calendar.section.3.copy-button": "Copiar caption",
+      "content-calendar.section.3.copied-button": "Copiado",
+
+      "content-calendar.section.4.badge": "Sección 04",
+      "content-calendar.section.4.title": "Calendario semanal interactivo",
+      "content-calendar.section.4.meta": "{n} asignaciones · toca cualquier día",
+      "content-calendar.section.4.intro":
+        "La grilla de cuatro semanas trae pre-cargado un ritmo probado para mantener el feed caliente sin saturarlo: Reels Lunes/Miércoles/Viernes (alcance); Carruseles Martes/Jueves (profundidad); Evento o UGC los sábados (prueba); Stories los domingos (frecuencia). Toca cualquier celda para abrir el selector de conceptos. El calendario pre-cargado es un punto de partida — reemplaza cualquier celda con un concepto de la biblioteca, apila más de un concepto en un día, o resetea al ritmo sugerido cuando la grilla se desordene.",
+      "content-calendar.section.4.reset": "Volver al sugerido",
+      "content-calendar.section.4.add-concept": "+ agregar concepto",
+      "content-calendar.section.4.more": "+{n} más",
+      "content-calendar.section.4.cell-label": "S{week} · {day}",
+      "content-calendar.section.4.tip-prefix": "Tip:",
+      "content-calendar.section.4.tip-body":
+        "un día puede cargar más de un concepto (ej. un Reel + una Story). Usa el selector para apilarlos.",
+      "content-calendar.section.4.dialog-title": "Semana {week} · {day}",
+      "content-calendar.section.4.dialog-desc": "Activa conceptos para asignar. Hay {n} asignados ahora.",
+      "content-calendar.section.4.dialog-search-placeholder": "Buscar conceptos…",
+      "content-calendar.section.4.dialog-clear": "Limpiar día",
+      "content-calendar.section.4.dialog-done": "Listo",
+
+      "content-calendar.section.5.badge": "Sección 05",
+      "content-calendar.section.5.title": "Seguimiento de series",
+      "content-calendar.section.5.meta": "Registra la fecha del último posteo",
+      "content-calendar.section.5.intro":
+        "Una serie repetible se gana su lugar solo si la audiencia aprende a esperarla. Las tres series de abajo son la columna vertebral del feed de Ursa — cada una tiene cadencia (diaria o semanal) y un concepto fijo que no cambia de episodio a episodio. Usa este registro para anotar la fecha del último posteo de cada una; cualquier fecha más antigua que la cadencia se marca como atrasada, porque una semana perdida cuesta dos semanas de recuperación (el algoritmo olvida y la audiencia deshabituada).",
+      "content-calendar.section.5.last-posted-label": "Último posteo",
+      "content-calendar.section.5.not-logged": "Sin registrar",
+      "content-calendar.section.5.last-prefix": "Último:",
+      "content-calendar.section.5.overdue": "Atrasada",
+      "content-calendar.section.5.on-cadence": "En cadencia",
+      "content-calendar.section.5.callout-title": "La cadencia es la estrategia",
+      "content-calendar.section.5.callout-body":
+        "Una serie se gana su lugar siendo predecible — la audiencia aprende a esperarla como espera el diario de la mañana o la columna semanal. En Instagram específicamente, el algoritmo premia a las cuentas que publican consistente dentro de su ventana de cadencia y castiga a las que publican en ráfagas y después callan. Una semana perdida cuesta dos semanas de recuperación (el alcance cae, y luego tarda una semana en escalar de vuelta). Si una serie se retrasa dos veces en un mismo mes, retírala y reemplázala con un concepto nuevo de la biblioteca — mejor botar una serie que romper el ritmo del feed.",
+
+      "content-calendar.closing.title": "Dossier completo de contenido viral",
+      "content-calendar.closing.body":
+        "Esta herramienta complementa el Módulo 05. Abre el HTML imprimible para los briefs completos de conceptos, el set completo de guiones, los mecanismos de UGC y el método de amplificación pagada.",
+      "content-calendar.closing.back": "Volver al Módulo 05",
+
+      /* ---- Herramienta T7 · Atlas de Orígenes (cuerpo profundizado + copy de sección) ---- */
+      "origin-atlas.hero.lede":
+        "La pregunta que responde este atlas: ¿de dónde vienen los granos de Ursa, y de dónde podrían venir a medida que la tostadora crece su red de proveedores? Hay seis orígenes trazados — Utcubamba, Chirinos, La Coipa, Satipo, Quillabamba y Rodriguez de Mendoza — cada uno con altitud, proceso, varietal y perfil de taza que produce. Utcubamba lleva el anillo dorado: es el origen verificado detrás del Filtrado Lonya, el pour-over de origen único nombrado así por el río que cruza la región. Los otros cinco son candidatos realistas de expansión, trazados para educación de sourcing, planeamiento de rotación de carta y como insumos para el feature estacional «Gramo del Mes».",
+      "origin-atlas.meta.origins": "Orígenes",
+      "origin-atlas.meta.origins-value": "{n} trazados",
+      "origin-atlas.meta.verified": "Verificado",
+      "origin-atlas.meta.verified-value": "Utcubamba → Filtrado Lonya",
+      "origin-atlas.meta.snapshot": "Snapshot",
+      "origin-atlas.meta.snapshot-value": "2026-08-01",
+
+      "origin-atlas.section.1.badge": "Atlas §1",
+      "origin-atlas.section.1.title": "El mapa, de un vistazo",
+      "origin-atlas.section.1.meta": "El cinturón cafetalero del Perú corre por la ladera oriental andina",
+      "origin-atlas.stat.origins": "Orígenes trazados",
+      "origin-atlas.stat.altitude": "Rango de altitud",
+      "origin-atlas.stat.processes": "Procesos (lavado / natural / honey)",
+      "origin-atlas.stat.varietals": "Varietales (Bourbon · Caturra · Catimor · Typica)",
+      "origin-atlas.section.1.intro":
+        "El cinturón cafetalero de especialidad del Perú corre por la ladera oriental de los Andes — una franja de bosque nublado entre 1.500 y 2.000 m donde Amazonas, Cajamarca, Junín y Cusco concentran la mayor parte de la producción de especialidad del país. Los seis orígenes trazados aquí fueron elegidos porque cada uno representa una combinación distinta de altitud, proceso y varietal — juntos cubren el espacio de perfil de taza del que Ursa probablemente se provea a medida que crece la tostadora. El mapa es ilustrativo, no de precisión topográfica; los puntos están posicionados para legibilidad, no para exactitud GPS.",
+      "origin-atlas.section.1.callout-title": "Qué significa «verificado» aquí",
+      "origin-atlas.section.1.callout-body":
+        "Solo Utcubamba está verificado actualmente como origen de grano de Ursa — se sirve como el Filtrado Lonya. Los otros cinco son candidatos realistas para la expansión de la tostadora, trazados aquí para educación de sourcing y como insumos para la rotación de origen único de la carta. Ninguno está aún en la carta, y no se claima que Ursa compre actualmente de ellos. Promover cualquier candidato a verificado requiere un lote sourced, un productor o cooperativa nombrados, y un listing público en la carta.",
+
+      "origin-atlas.section.2.badge": "Atlas §2",
+      "origin-atlas.section.2.title": "Mapa interactivo de orígenes",
+      "origin-atlas.section.2.meta": "Toca cualquier punto — Utcubamba lleva el anillo dorado verificado",
+      "origin-atlas.section.2.compass-label": "Perú · orígenes del cinturón cafetalero",
+      "origin-atlas.section.2.list-label": "O elige de la lista",
+      "origin-atlas.section.2.verified-pill": "Verificado · Filtrado Lonya",
+      "origin-atlas.section.2.detail.altitude-label": "Altitud",
+      "origin-atlas.section.2.detail.process-label": "Proceso",
+      "origin-atlas.section.2.detail.varietal-label": "Varietal",
+      "origin-atlas.section.2.detail.drink-label": "Trago Ursa",
+      "origin-atlas.section.2.detail.notes-label": "Notas de cata",
+      "origin-atlas.section.2.detail.story-label": "Historia",
+      "origin-atlas.section.2.detail.process-callout-title": "Proceso {process}",
+
+      "origin-atlas.section.3.badge": "Atlas §3",
+      "origin-atlas.section.3.title": "Rueda de sabores",
+      "origin-atlas.section.3.meta": "Orígenes trazados sobre categorías de notas de cata",
+      "origin-atlas.section.3.intro":
+        "Cada columna es una categoría de sabor. Cada chip debajo es un origen cuya taza cae en esa categoría. Toca un chip para cargar ese origen en el panel de detalle de arriba. El origen verificado de Ursa (Utcubamba) se resalta en dorado. La rueda es ilustrativa, no exhaustiva — una cata real produciría una rueda SCA más granular; esta versión acortada alcanza para planificar una rotación.",
+
+      "origin-atlas.section.4.badge": "Atlas §4",
+      "origin-atlas.section.4.title": "Estacionalidad de cosecha",
+      "origin-atlas.section.4.meta": "La cosecha peruana corre de mayo a septiembre; la ventana de fresco importa",
+      "origin-atlas.section.4.intro":
+        "La cosecha de café del Perú típicamente corre de mayo a septiembre, con pico de actividad entre junio y agosto. Las ventanas de fresco — cuando el café de una región está en su punto más brillante y aromático — caen en los tres a seis meses después de la cosecha, así que un lote cosechado en mayo está en su mejor momento entre junio y noviembre. Planear features de origen único alrededor de la llegada de fresco es una forma barata de hacer que la carta se sienta viva: el mismo lote de Utcubamba sabe distinto en agosto (dos meses fuera de árbol) que en febrero (ocho meses fuera de árbol), y la carta puede nombrar la diferencia.",
+      "origin-atlas.section.4.legend-harvest": "Mes de cosecha",
+      "origin-atlas.section.4.legend-verified": "Origen verificado de Ursa",
+
+      "origin-atlas.section.5.badge": "Atlas §5",
+      "origin-atlas.section.5.title": "Comparación de altitud",
+      "origin-atlas.section.5.meta": "Más altitud = grano más denso = taza más brillante",
+      "origin-atlas.section.5.intro":
+        "El gráfico traza la altitud de cada origen en metros sobre el nivel del mar. El origen verificado de Ursa (Utcubamba) se muestra en dorado; los cinco candidatos en verde profundo. La ventana 1.400–2.000 m es la altitud de entrada para el café de especialidad peruano — por debajo de 1.200 m, los granos típicamente van a blends comerciales; por encima de 1.900 m, los rendimientos caen y sube el riesgo de daño por helada.",
+      "origin-atlas.section.5.axis-label": "Altitud (m sobre el nivel del mar)",
+      "origin-atlas.section.5.callout-title": "Por qué importa la altitud",
+      "origin-atlas.section.5.callout-body":
+        "Por encima de 1.500 m aprox., las noches más frías ralentizan la maduración del cerezo. El cerezo pasa más tiempo en el árbol, lo que produce un grano más denso con una química de azúcares más compleja — y un grano más denso, al tostarse, da una acidez más brillante, una complejidad aromática mayor y una taza que se lee como «especialidad» y no como «commodity». Los seis orígenes de este atlas están a 1.550 m o más — la altitud de entrada para el café de especialidad peruano. La altitud no es la única variable (proceso y varietal importan al menos tanto), pero es la señal más legible que tiene un comprador antes de catar la taza.",
+
+      "origin-atlas.section.6.badge": "Atlas §6",
+      "origin-atlas.section.6.title": "Cómo altitud, proceso y varietal dan forma a la taza",
+      "origin-atlas.section.6.meta": "Un primer corto y preciso",
+      "origin-atlas.section.6.altitude-title": "Altitud",
+      "origin-atlas.section.6.altitude-body":
+        "Mayor altitud produce granos más densos con química de azúcares más compleja. Por debajo de 1.200 m, las tazas tienden a ser suaves y planas; 1.200–1.500 m trae cuerpo y dulzor; por encima de 1.500 m (territorio de especialidad) llega acidez brillante, aromas florales y fruta limpia. Los seis orígenes trazados aquí están a 1.550 m o más. Para Ursa, esto significa que la altitud es un primer filtro útil al sourcer lotes nuevos: cualquier cosa por debajo de la banda se puede saltar antes de catar.",
+      "origin-atlas.section.6.process-title": "Proceso",
+      "origin-atlas.section.6.process-body":
+        "Lavado quita la fruta antes de la fermentación — brillante, limpio, ácido; deja que el terroir hable más fuerte. Natural seca el cerezo sobre el grano — cuerpo pesado, fruta al frente, más dulzor, más aromas de fermentación. Honey está en el medio — mucílago parcial dejado encima, cuerpo jarabe, dulzor balanceado, más exigente de ejecutar bien. Para Ursa, esto significa que el Filtrado Lonya debe quedarse como lavado (la acidez limpia de Utcubamba es el punto del trago), mientras que un espresso estacional futuro podría justificablemente explorar un lote natural o honey por cuerpo y dulzor.",
+      "origin-atlas.section.6.varietal-title": "Varietal",
+      "origin-atlas.section.6.varietal-body":
+        "Bourbon — viejo, refinado, dulce y complejo (Utcubamba, La Coipa, Rodriguez de Mendoza). Caturra — mutación de Bourbon, brillante y limpio, mayor rendimiento (Chirinos). Typica — la base Arabica original, elegante y balanceado (Quillabamba). Catimor — híbrido de Timor, rústico y productivo pero menos complejo (Satipo). Para Ursa, esto significa que un currículo de catas podría armarse varietal por varietal — noche de Bourbon, noche de Caturra, noche de Typica — cada una con un origen distinto en la barra.",
+      "origin-atlas.section.6.pill-acidity": "+ Acidez",
+      "origin-atlas.section.6.pill-aromatics": "+ Aromas",
+      "origin-atlas.section.6.pill-density": "+ Densidad",
+      "origin-atlas.section.6.pill-washed": "Lavado → brillante",
+      "origin-atlas.section.6.pill-natural": "Natural → pesado",
+      "origin-atlas.section.6.pill-honey": "Honey → jarabe",
+      "origin-atlas.section.6.pill-bourbon": "Bourbon → refinado",
+      "origin-atlas.section.6.pill-typica": "Typica → elegante",
+      "origin-atlas.section.6.pill-catimor": "Catimor → rústico",
+      "origin-atlas.section.6.callout-title": "Cómo usa Ursa este atlas",
+      "origin-atlas.section.6.callout-body":
+        "El atlas es insumo para tres decisiones operativas: la rotación de origen único de la carta (qué origen se sirve ahora), el feature estacional «Gramo del Mes» (qué origen se lleva el reflector), y el currículo de la noche de catas (qué orígenes se catan juntos). El origen verificado de Ursa (Utcubamba) ancla el Filtrado Lonya y es el único que se publica sin más trabajo de sourcing; los otros cinco son candidatos de expansión, cada uno requiere un lote sourced, un productor o cooperativa nombrados, y un listing público en la carta antes de promoverse a verificado.",
+
+      "origin-atlas.section.7.atlas-complete": "Atlas completo",
+      "origin-atlas.section.7.menu-link": "Carta y Producto",
+      "origin-atlas.section.7.studio-link": "Studio de Ingeniería de Carta",
+
+      "origin-atlas.process-meta.washed":
+        "El grano se despulpa de la fruta antes de la fermentación y el secado. Produce tazas brillantes, limpias y ácidas donde el terroir habla más fuerte.",
+      "origin-atlas.process-meta.natural":
+        "El grano se seca dentro del cerezo entero. Produce cuerpo más pesado, carácter de fruta al frente y aromas más dulces, guiados por fermentación.",
+      "origin-atlas.process-meta.honey":
+        "El grano se seca con el mucílago pegajoso dejado encima (sin piel). Produce cuerpo jarabe, dulzor balanceado y notas complejas de fruta de hueso.",
+
+      /* ---- Herramienta T8 · Tablero de ROI (cuerpo profundizado + copy de sección) ---- */
+      "roi.hero.lede":
+        "La pregunta que responde este tablero: ¿cuál de los ocho canales de marketing que Ursa corre o considera realmente se paga, y con qué confianza? Los ocho canales vienen pre-cargados con los defaults de presupuesto verificados del Módulo 04 — Google Business Profile (gratis), Meta paid social, piloto de tres creadores, tarjetas de conserjería de hoteles, noche de cata mensual, optimización de Rappi, lista de WhatsApp, y el piloto de suscripción Ursa Mañana. Edita cualquier celda — gasto, clientes esperados, ingresos por cliente — y mira ROI, meses de payback y el portfolio combinado recalcularse en vivo. Arrastra el slider de confianza para escalar clientes esperados en todos los canales a la vez; el tablero entonces muestra los rangos de ingreso best case, expected y worst case para el portfolio completo.",
+      "roi.meta.currency": "Moneda",
+      "roi.meta.currency-value": "PEN (S/.)",
+      "roi.meta.channels": "Canales",
+      "roi.meta.channels-value": "{n} pre-cargados · editables",
+      "roi.meta.confidence": "Confianza",
+      "roi.meta.confidence-value": "Slider 50% – 100%",
+
+      "roi.section.sensitivity.badge": "Sensibilidad",
+      "roi.section.sensitivity.title": "Confianza de conversión — arrastra para escalar clientes esperados",
+      "roi.section.sensitivity.meta": "Recalcula todo lo de abajo",
+      "roi.section.sensitivity.label": "Confianza de conversión",
+      "roi.section.sensitivity.worst": "Peor · 50%",
+      "roi.section.sensitivity.expected": "Esperado · {n}%",
+      "roi.section.sensitivity.best": "Mejor · 100%",
+      "roi.section.sensitivity.body":
+        "El slider multiplica los clientes esperados en todos los canales. Al {confidence}% de confianza, un canal proyectado para traer 100 clientes se modela como {scaled}. El rango 50–100% es el reconocimiento honesto del tablero de que proyección no es medición — el worst case (50%) asume que convierte la mitad de los clientes esperados; el best case (100%) asume que la proyección es exacta. El ingreso esperado total se recalcula abajo — y el rango best/worst aparece en la sección Confianza.",
+      "roi.section.sensitivity.range-best": "Mejor caso",
+      "roi.section.sensitivity.range-expected": "Esperado @ {n}%",
+      "roi.section.sensitivity.range-worst": "Peor caso",
+      "roi.section.sensitivity.reset": "Volver a defaults",
+
+      "roi.section.channels.badge": "Canales",
+      "roi.section.channels.title": "Tabla de ROI por canal — edita cualquier celda, mira todo recalcularse",
+      "roi.section.channels.meta": "8 pre-cargados · todos editables",
+      "roi.section.channels.col-channel": "Canal",
+      "roi.section.channels.col-spend": "Gasto / mes",
+      "roi.section.channels.col-customers": "Clientes nuevos",
+      "roi.section.channels.col-revenue-per": "Ingreso / cliente",
+      "roi.section.channels.col-revenue": "Ingreso",
+      "roi.section.channels.col-payback": "Payback (meses)",
+      "roi.section.channels.col-roi": "ROI %",
+      "roi.section.channels.scaled-suffix": "→ {n} @ {confidence}%",
+      "roi.section.channels.legend-green": "Verde · ROI ≥ 200%",
+      "roi.section.channels.legend-gold": "Dorado · ROI 100–200%",
+      "roi.section.channels.legend-terracotta": "Terracota · ROI < 100%",
+      "roi.section.channels.legend-free": "∞ · canal gratis con ingreso",
+      "roi.section.channels.callout-title": "Estas son proyecciones, no recibos",
+      "roi.section.channels.callout-body":
+        "Los clientes esperados y el ingreso por cliente son supuestos, no resultados medidos — el tablero se entrega con defaults informados por investigación, no con actuals. La disciplina que impone este tablero es: corre el experimento vinculado a cada canal, registra los números reales, reemplaza el supuesto con el valor medido, y deja que el tablero re-converja. El slider de confianza es el reconocimiento explícito de que las proyecciones son inciertas; el enlace experimental en la fila de cada canal en el Seguimiento de Experimentos es el mecanismo por el cual esa incertidumbre se resuelve.",
+
+      "roi.section.portfolio.badge": "Portfolio",
+      "roi.section.portfolio.title": "Portfolio combinado — todos los canales juntos",
+      "roi.section.portfolio.meta": "A {n}% de confianza",
+      "roi.section.portfolio.stat-spend": "Gasto mensual total",
+      "roi.section.portfolio.stat-revenue": "Ingreso esperado total @ {n}%",
+      "roi.section.portfolio.stat-roi": "ROI combinado",
+      "roi.section.portfolio.stat-payback": "Payback combinado",
+      "roi.section.portfolio.card-customers-title": "Clientes modelados",
+      "roi.section.portfolio.card-customers-body":
+        "Clientes nuevos por mes al {confidence}% de confianza. Costo de adquisición combinado: {cpa}. Este número es la suma de clientes escalados en los ocho canales; no es lo mismo que tráfico a pie, porque la misma persona puede ser adquirida por más de un canal (un huésped de hotel que después se hace suscriptor de WhatsApp cuenta dos veces). Úsalo para dimensionar capacidad de adquisición, no para proyectar aforo.",
+      "roi.section.portfolio.card-profit-title": "Ganancia / mes",
+      "roi.section.portfolio.card-profit-body":
+        "Ingreso menos gasto a la confianza actual. Un número positivo aquí no es igual a utilidad operativa — es aporte bruto del gasto de adquisición. El número todavía tiene que absorber canibalización (un suscriptor pudo haber sido un walk-in de todos modos) y costo fijo (renta, planilla, café verde). Para el break-even de costo marginal completo del piloto de suscripción específicamente, abre el Módulo 08.",
+      "roi.section.portfolio.card-payback-title": "Horizonte de payback",
+      "roi.section.portfolio.card-payback-body":
+        "Cuánto tarda el ingreso acumulado en cubrir el gasto acumulado, en meses. Más bajo es mejor; por debajo de 1.0 mes significa que el canal se paga dentro del mismo período (el gasto se recupera antes del siguiente ciclo de facturación). El payback combinado es el promedio del portfolio — canales individuales se pagarán más rápido o más lento que este número dependiendo de su propia razón de gasto a ingreso.",
+      "roi.section.portfolio.unit-months": "meses",
+
+      "roi.section.compare.badge": "Comparar",
+      "roi.section.compare.title": "ROI % por canal — gráfico de barras",
+      "roi.section.compare.meta": "A {n}% de confianza",
+      "roi.section.compare.intro":
+        "Las barras verdes superan 200% de ROI (cada sol gastado devuelve al menos tres); las doradas están entre 100–200% (cada sol gastado devuelve dos-a-tres); las terracota están por debajo de 100% (el canal pierde plata o apenas cubre). Los canales gratis — Google Business Profile y WhatsApp — se topan visualmente en 200% para que no compriman el resto del gráfico; su ROI real es matemáticamente infinito. Usa el gráfico para ver la forma del portfolio, no para leer valores precisos de ROI — esos se leen en la tabla de arriba.",
+
+      "roi.section.confidence.badge": "Confianza",
+      "roi.section.confidence.title": "Mejor, esperado y peor caso para el ingreso total",
+      "roi.section.confidence.meta": "Escala con el slider de confianza",
+      "roi.section.confidence.chart-title": "Rango de ingreso a lo largo de bandas de confianza",
+      "roi.section.confidence.bar-best": "Mejor caso · 100% confianza",
+      "roi.section.confidence.bar-expected": "Esperado · {n}% confianza",
+      "roi.section.confidence.bar-worst": "Peor caso · 50% confianza",
+      "roi.section.confidence.body":
+        "El espacio entre best case (100% confianza) y worst case (50%) es la incertidumbre honesta del modelo sobre la proyección. La regla de decisión: si el worst case todavía cubre el gasto mensual total, el portfolio es robusto y puedes publicar según lo planeado; si solo el best case lo cubre, reduce el gasto del canal más riesgoso hasta que el expected case cubra el gasto por su cuenta. El slider de arriba escala clientes esperados; esta sección muestra la consecuencia en ingreso en tres puntos fijos de confianza.",
+      "roi.section.confidence.best-title": "Canal de mejor desempeño",
+      "roi.section.confidence.best-intro":
+        "El canal con el ROI más alto a la confianza actual. Los canales gratis (Google Business Profile, WhatsApp) suben al tope cuando su gasto es cero — su ROI infinito es real, no un glitch, pero no se puede escalar gastando más.",
+      "roi.section.confidence.worst-title": "Canal más débil",
+      "roi.section.confidence.worst-intro":
+        "El canal con el ROI finito más bajo a la confianza actual. Si el ROI está por debajo de 100%, el canal gasta más de lo que devuelve en el mismo mes — corta gasto, re-brief el creativo, o retira el canal y realoca el presupuesto a la línea de mejor desempeño.",
+      "roi.section.confidence.worst-all-free": "Todos los canales son gratis o tienen ROI infinito. Nada que señalar.",
+      "roi.section.confidence.worst-losing": "Perdiendo {amount}/mes al {confidence}% de confianza.",
+      "roi.section.confidence.worst-below": "ROI de {roi}% está por debajo del umbral de 100%.",
+      "roi.section.confidence.pill-revenue": "{amount} ingreso",
+      "roi.section.confidence.pill-spend": "{amount} gasto",
+
+      "roi.section.pair.badge": "Parear con",
+      "roi.section.pair.title": "Define el presupuesto primero, después valídalo aquí",
+      "roi.section.pair.intro":
+        "Define el presupuesto antes de validarlo. El Asignador de Presupuesto fija el compromiso mensual; este tablero modela el retorno de cada partida. La Calculadora de Suscripción maneja el único canal — Ursa Mañana — que necesita matemática de break-even marginal, canibalización y capacidad de taza gratis que este tablero deliberadamente simplifica.",
+      "roi.section.pair.budget-title": "Asignador de Presupuesto",
+      "roi.section.pair.budget-body":
+        "El Asignador de Presupuesto te dice cuánto gastas por partida. Úsalo para fijar el compromiso mensual total antes de modelar el retorno aquí.",
+      "roi.section.pair.budget-cta": "Abrir Asignador de Presupuesto",
+      "roi.section.pair.calc-title": "Calculadora de Suscripción",
+      "roi.section.pair.calc-body":
+        "El canal del piloto de Suscripción arriba está modelado de forma simple. Para la matemática completa de break-even marginal, canibalización y capacidad de taza gratis, abre el Módulo 08.",
+      "roi.section.pair.calc-cta": "Abrir Calculadora de Suscripción",
+
+      /* ---- Calculadora (Módulo 08) · Ursa Mañana Economía de Suscripción ---- */
+      "calculator.lede":
+        "Esta calculadora responde a una decisión: ¿Ursa Mañana — la suscripción de café ilimitado a S/. 20/mes, lun–vie 7–10am, solo en local, una taza por visita, sin bebidas con leche — paga al costo marginal de la tostadora propia de Ursa? Edita cualquier input y la utilidad, la tasa de attach de equilibrio, la capacidad de tazas gratis y el tiempo de recuperación se actualizan en vivo. El riesgo honesto es la canibalización de los clientes regulares, no el costo por taza; el modelo lo expone explícitamente en lugar de esconderlo dentro de un promedio.",
+      "calculator.meta.pilot": "Piloto",
+      "calculator.meta.pilot-value": "Tope de 50 miembros",
+      "calculator.meta.default": "Por defecto",
+      "calculator.meta.default-value": "S/. 20/mes · 7–10am",
+      "calculator.meta.cost": "Costo verificado",
+      "calculator.meta.cost-value":
+        "S/. 1.20–1.80/taza (tostadora propia)",
+      "calculator.presets.label": "Escenarios rápidos:",
+      "calculator.preset.conservative": "Conservador",
+      "calculator.preset.default": "Por defecto (recomendado)",
+      "calculator.preset.optimistic": "Optimista",
+      "calculator.action.reset": "Reiniciar",
+      "calculator.inputs.title": "Edita los inputs",
+      "calculator.inputs.subtitle":
+        "Arrastra los sliders o escribe valores. Todo recalcula al instante.",
+      "calculator.field.subPrice.label":
+        "Precio de suscripción (mensual)",
+      "calculator.field.subPrice.hint":
+        "Lo que paga un suscriptor al mes. El precio piloto es S/. 20 — suficientemente alto para señalar compromiso, suficientemente bajo para verse obvio al lado de un cappuccino de S/. 12.",
+      "calculator.field.costPerCup.label": "Costo marginal por taza",
+      "calculator.field.costPerCup.hint":
+        "Grano + agua + energía + vaso. Benchmark de tostadora propia S/. 1.20–1.80; las cafeterías de especialidad que compran tostado al por mayor típicamente se sientan en S/. 2.50–3.50 — esa brecha es toda la razón por la que la suscripción funciona en Ursa y no funcionaría en la mayoría de competidores.",
+      "calculator.field.visitsWeek.label": "Visitas por semana",
+      "calculator.field.visitsWeek.hint":
+        "Cada cuánto viene un suscriptor durante la ventana de 7–10am. Dos visitas y media por semana es la lectura conservadora del persona de cliente matutino del Módulo 04.",
+      "calculator.field.cupsVisit.label": "Tazas por visita",
+      "calculator.field.cupsVisit.hint":
+        "Limitado a una en el piloto. Una segunda taza en la misma visita duplica el costo marginal sin cambiar el precio que paga el suscriptor — la forma más común en que una oferta de café ilimitado sangra sin hacer ruido.",
+      "calculator.field.attachRate.label": "Tasa de attach de acompañamiento",
+      "calculator.field.attachRate.hint":
+        "Porcentaje de visitas en las que el suscriptor también compra una cookie, un financier o una empanada. Esta es la palanca que hace funcionar al modelo; la tarjeta de corte abajo muestra el mínimo que tiene que alcanzar.",
+      "calculator.field.sideMargin.label":
+        "Margen del acompañamiento (por attach)",
+      "calculator.field.sideMargin.hint":
+        "Margen de ganancia del acompañamiento, no ingreso. Una cookie de S/. 5 con costo S/. 1.5 aporta S/. 3.5 — ese es el número que importa aquí.",
+      "calculator.field.cannibal.label": "Tasa de canibalización",
+      "calculator.field.cannibal.hint":
+        "Porcentaje de suscriptores que igual habrían pagado precio full. El riesgo más grande del modelo. La tarjeta blendada de abajo muestra cómo queda la utilidad después de este arrastre.",
+      "calculator.field.avgSpendPre.label":
+        "Gasto promedio pre-suscripción",
+      "calculator.field.avgSpendPre.hint":
+        "Lo que gastaba un cliente canibalizado por visita, antes de suscribirse. Se usa solo dentro del ajuste de canibalización — no afecta la matemática del costo marginal.",
+      "calculator.callout.side.title":
+        "La tasa de attach es la palanca, no un accidente feliz",
+      "calculator.callout.side.body":
+        "Las suscripciones de café ilimitado son rentables en la línea del costo marginal porque Ursa tuesta sus propios granos — pero apenas. El colchón que convierte un margen delgado en uno real viene del acompañamiento vendido en cada visita. La cafetería debe impulsar activamente los pairings — cookie, financier de pera, empanada, pastelería de temporada — con tarjetas de pairing en la caja, un prompt del barista tipo «el oso recomienda» y una vitrina matutina visible. La alternativa — subir la suscripción a S/. 25 — funciona en papel pero encoge la base direccionable; el mismo cliente que duda en S/. 25 firma en S/. 20 si la vitrina hace su trabajo. La limitación: el costo de comida también erosiona con volumen; revisa el margen del acompañamiento contra las facturas del proveedor antes de escalar más allá de 50 suscriptores.",
+      "calculator.outputs.profit.label":
+        "Utilidad neta por suscriptor / mes",
+      "calculator.outputs.profit.body-positive":
+        "Rentable en estos supuestos, antes del ajuste por canibalización. La tarjeta de canibalización de abajo es la que decide si el piloto se gradúa.",
+      "calculator.outputs.profit.body-negative":
+        "No rentable en estos supuestos. Tres palancas, en orden de impacto: subir la tasa de attach (empujar acompañamientos más fuerte), subir el precio, o bajar el costo marginal revisando el rendimiento del tostado. No bajes el precio.",
+      "calculator.metric.visits": "Visitas / mes",
+      "calculator.metric.cups": "Tazas / mes",
+      "calculator.metric.coffee-cost": "Costo café / mes",
+      "calculator.metric.side-margin": "Margen acompañ. / mes",
+      "calculator.metric.breakeven": "Equilibrio (sin acompañ.)",
+      "calculator.metric.free-capacity": "Capacidad de tazas gratis",
+      "calculator.cutoff.title":
+        "Tasa mínima de attach para equilibrio",
+      "calculator.cutoff.body-above":
+        "Estás {delta} puntos por encima del attach de equilibrio. El margen es sano — úsalo para absorber una semana floja en lugar de aflojar el prompt de pairing.",
+      "calculator.cutoff.body-below":
+        "Estás {delta} puntos por debajo del equilibrio. La matemática dice: o empujas el attach arriba reentrenando al barista para sugerir un pairing específico por bebida, o subes el precio en S/. 2. Bajar costos solo no cierra esta brecha.",
+      "calculator.cutoff.body-na":
+        "No se puede calcular — pon un margen de acompañamiento y una frecuencia de visita primero.",
+      "calculator.cannibal.title":
+        "Utilidad ajustada por canibalización",
+      "calculator.cannibal.subtitle":
+        "por suscriptor / mes, blendado",
+      "calculator.cannibal.body-positive":
+        "Incluso después de reemplazar {cannibal}% de visitas a precio full con visitas de suscripción a menor margen, la utilidad blendada se mantiene positiva. El piloto puede graduarse si esto se sostiene por 60 días.",
+      "calculator.cannibal.body-negative":
+        "Con {cannibal}% de canibalización la utilidad blendada es negativa. Dos palancas, en orden de preferencia: apuntar a clientes nuevos (el cliente matutino que todavía no adopta Ursa), o subir el precio en S/. 2–3. Reducir la canibalización evitando a los regulares es el movimiento equivocado — son los candidatos más probables a advocacy, y la suscripción está para profundizar la relación con ellos, no para descontarla.",
+      "calculator.cannibal.recovery-label": "Tiempo de recuperación",
+      "calculator.cannibal.recovery-already": "Ya es positivo",
+      "calculator.cannibal.recovery-never": "Nunca — mata el piloto",
+      "calculator.tabs.badge": "Análisis más profundo",
+      "calculator.tabs.title":
+        "Sensibilidad, escala y los supuestos honestos",
+      "calculator.tab.sensitivity": "Tabla de sensibilidad",
+      "calculator.tab.scale": "Proyección de escala",
+      "calculator.tab.assumptions": "Supuestos honestos",
+      "calculator.tab.sides": "Playbook de acompañamientos",
+      "calculator.sensitivity.intro":
+        "Utilidad neta por suscriptor/mes según frecuencia de visita (filas) y tasa de attach de acompañamiento (columnas). La celda destacada es tu escenario actual. Lee hacia abajo por una columna para ver cómo escala la utilidad con la frecuencia; lee a lo largo de una fila para ver cómo escala con el attach. Si la franja verde es ancha — la mayoría de la tabla es rentable — el piloto es robusto a errores de estimación. Si la franja verde es angosta, el piloto es frágil: fallar por 10 puntos en attach o por media visita en frecuencia lo pone en rojo.",
+      "calculator.sensitivity.col-visits":
+        "Visitas/sem ↓ / Attach →",
+      "calculator.scale.intro":
+        "Utilidad mensual blendada (ajustada por canibalización) a medida que crece la base de suscriptores. El piloto está limitado a 50 — no porque 50 sea el techo de demanda, sino porque por debajo de 50 la tasa de canibalización se puede medir honestamente, y por encima el número está demasiado suavizado para leerlo. Escalar antes de 50 es un voto de confianza en un número que todavía no has medido.",
+      "calculator.scale.label-pilot": "piloto",
+      "calculator.scale.label-subs": "subs",
+      "calculator.scale.label-cups": "tazas/mes",
+      "calculator.assumptions.verified.title": "Lo que verificamos",
+      "calculator.assumptions.verified.1":
+        "La tostadora propia mantiene el costo marginal en S/. 1.20–1.80/taza — el benchmark de especialidad para cafeterías que compran tostado al por mayor es S/. 2.50–3.50, y esa brecha es toda la razón por la que la suscripción funciona en Ursa y no funcionaría en la mayoría de competidores.",
+      "calculator.assumptions.verified.2":
+        "La ventana de 7–10am es el slot del cliente matutino en Miraflores — el mismo persona que el Módulo 04 identificó como la audiencia más defendible de Ursa. La ventana es angosta a propósito: acota la oferta al caso de uso que el oso puede adueñarse.",
+      "calculator.assumptions.verified.3":
+        "Los acompañamientos (cookies, financier de pera, empanada) ya existen en la casa — no hace falta SKU nuevo, proveedor nuevo, ni capacitación nueva. El piloto es un cambio de precio y empaquetado, no un cambio de carta.",
+      "calculator.assumptions.verified.4":
+        "Los modelos de suscripción son consistentes con la disposición a pagar en cafeterías de Lima — CoffeePass corrió un modelo comparable en Lima durante 2022–24 y demostró demanda en un precio similar. La demanda está verificada; la demanda específica de Ursa es lo que el piloto mide.",
+      "calculator.assumptions.assumed.title":
+        "Lo que supusimos (y deberías poner a prueba)",
+      "calculator.assumptions.assumed.1":
+        "Que una tasa de attach de 50–70% es alcanzable con prompt activo. Estudios de la industria de suscripciones de café ilimitado en mercados comparables reportan 30–55% sin prompt y 55–75% con prompt — pero el número específico de Ursa no está verificado. Pruébalo en el piloto.",
+      "calculator.assumptions.assumed.2":
+        "Que una canibalización de 20–40% es típica para productos de suscripción que apuntan a regulares existentes. Si el marketing se carga accidentalmente hacia los regulares (la lista tibia), esto podría trepar a 50%+. Rastrea la fuente de cada alta.",
+      "calculator.assumptions.assumed.3":
+        "Que el tope de una-taza-por-visita se puede hacer cumplir sin alienar a los suscriptores — verifica con los primeros 20 sign-ups. Si cumplir el tope requiere una confrontación, el tope está mal, no el suscriptor.",
+      "calculator.assumptions.assumed.4":
+        "Que el costo marginal se mantiene en S/. 1.20–1.80 al subir el volumen, bajo el supuesto de que la tostadora tiene capacidad libre. Confirma contra los logs de tostado en el mes dos — si la tostadora está comprando más verde para alcanzar la demanda de la suscripción, el costo marginal sube y el modelo debe recalularse.",
+      "calculator.assumptions.stop.title": "Regla de parada",
+      "calculator.assumptions.stop.body":
+        "Mata o revisa el piloto si la utilidad blendada por suscriptor se mantiene bajo cero después de 60 días, o si la canibalización supera 50%, o si el attach se queda bajo 40% a pesar del prompt activo después de 30 días. Documenta el resultado sea cual sea — un piloto muerto con razón documentada vale más que uno que se apaga en silencio. El tope de 50 suscriptores existe para que matar el piloto cueste menos de S/. 1,000 en utilidad perdida y cuatro semanas de atención.",
+      "calculator.assumptions.not-assumed.title":
+        "Lo que deliberadamente no supusimos",
+      "calculator.assumptions.not-assumed.1":
+        "No inventamos costos exactos de ingredientes — usa los rangos del escenario, no una estimación puntual, hasta que los logs de tostado den el número real.",
+      "calculator.assumptions.not-assumed.2":
+        "No garantizamos un número de suscriptores — el piloto se topa en 50 para aprender barato. Fingir que la demanda se conoce es la razón más común por la que los lanzamientos de suscripción mal asignan el presupuesto de marketing.",
+      "calculator.assumptions.not-assumed.3":
+        "No supusimos viralidad — la suscripción se promueve primero por canales existentes (WhatsApp, en local, bio de Instagram). Un Reel viral que traiga 200 sign-ups en la semana uno te obligaría a una decisión de escala temprana que el piloto está diseñado para diferir.",
+      "calculator.sides.title":
+        "Cómo empujar acompañamientos sin ser pesado",
+      "calculator.sides.counter-title": "En la caja",
+      "calculator.sides.counter.1":
+        "Tarjeta de pairing «el oso recomienda» en la caja — p.ej. Ursagroni + financier de pera. Específico, no genérico; un pairing por bebida, no una lista.",
+      "calculator.sides.counter.2":
+        "Vitrina matutina visible a la altura de los ojos, iluminada cálida. La vitrina es una superficie de marketing, no un almacenamiento.",
+      "calculator.sides.counter.3":
+        "Barista entrenado para ofrecer un pairing específico, no «¿algo más?». La especificidad es lo que hace que el prompt aterrice; la vaguedad es lo que lo hace sentir como un upsell.",
+      "calculator.sides.counter.4":
+        "Un precio de add-on de S/. 2 para suscriptores, anclado contra el precio retail de S/. 8. El suscriptor siente el descuento; la cafetería anota el margen.",
+      "calculator.sides.online-title":
+        "En la app / Rappi / WhatsApp",
+      "calculator.sides.online.1":
+        "Un «bundle matutino» pre-seleccionado que por defecto trae café + acompañamiento. Los defaults son cómo las suscripciones ganan su margen; opt-out le gana a opt-in.",
+      "calculator.sides.online.2":
+        "Un «pick del oso» rotativo semanal que crea novedad. La novedad es el mecanismo de retención — el suscriptor viene por el ritual, vuelve por la sorpresa.",
+      "calculator.sides.online.3":
+        "Una tarjeta de sellos: 10 acompañamientos comprados = 1 gratis. Retención sin descontar el café — el descuento aterriza en el acompañamiento, donde la elasticidad del margen es mayor.",
+      "calculator.sides.principle.title": "El principio",
+      "calculator.sides.principle.body":
+        "No descuentes el café — descontar erosiona la percepción de especialidad que justifica el precio de S/. 20. Descuenta o haz bundle de los acompañamientos, que tienen mayor elasticidad de margen y refuerzan la historia del ritual matutino. La suscripción hace que el café se sienta gratis; los acompañamientos son donde viven de verdad la relación y el margen. El oso está en la taza, la utilidad está en el plato.",
+      "calculator.stat.profit":
+        "Utilidad neta / suscriptor / mes (inputs actuales)",
+      "calculator.stat.cutoff": "Tasa de attach de equilibrio",
+      "calculator.stat.capacity":
+        "Tazas gratis que el margen puede absorber",
+      "calculator.stat.recovery":
+        "Tiempo de recuperación por canibalización",
+      "calculator.stat.recovery-kill": "mata",
+      "calculator.footer.body":
+        "Esta calculadora es una herramienta de apoyo a la decisión, no una garantía financiera. El costo marginal por taza depende del rendimiento del tostado, el uso de leche y el desperdicio; verifica contra los logs reales de Ursa antes de escalar. La viralidad y el crecimiento de suscriptores no se supusieron — el piloto está diseñado para medirlos. El modelo es honesto sobre lo que no sabe; la recomendación es actuar del lado del modelo que sobrevive a la celda del peor caso en la tabla de sensibilidad.",
+
+      /* ---- Estudio de Carta (Herramienta T1) ---- */
+      "menu-studio.lede":
+        "Un constructor de carta interactivo para la pregunta que todo dueño de cafetería evita: ¿qué ítems se están ganando su espacio en la carta y cuáles están filtrando margen sin hacer ruido? Edita precios, costos y tiempos de preparación en cada ítem; mira cómo el margen promedio, el desglose por categoría y la clasificación Stars & Puzzles se actualizan en vivo. Modela la tasa de attach que convierte una bebida en un ticket rentable. Cada número es editable — nada aquí está inventado, solo estructurado. El punto no es un modelo perfecto de la carta; el punto es una lectura rápida de qué palanca jalar ahora.",
+      "menu-studio.meta.default": "Carta por defecto",
+      "menu-studio.meta.default-value": "12 ítems de Ursa pre-cargados",
+      "menu-studio.meta.thresholds": "Umbrales de margen",
+      "menu-studio.meta.thresholds-value":
+        "> 65% verde · 55–65% oro · < 55% terracota",
+      "menu-studio.meta.outputs": "Salidas",
+      "menu-studio.meta.outputs-value":
+        "Métricas en vivo · matriz · export",
+      "menu-studio.section.01.badge": "Sección 01",
+      "menu-studio.section.01.title": "Métricas en vivo de la carta",
+      "menu-studio.section.01.meta": "Se actualiza al editar",
+      "menu-studio.stat.count": "Ítems en la carta",
+      "menu-studio.stat.range": "Rango de precios (PEN)",
+      "menu-studio.stat.avg-price": "Precio promedio",
+      "menu-studio.stat.avg-margin": "Margen promedio %",
+      "menu-studio.avg-margin.title": "Progreso del margen promedio",
+      "menu-studio.avg-margin.body":
+        "Regla práctica de la industria de café de especialidad: el margen blendado de la carta debe situarse por encima de 65% — el nivel en el que una cafetería puede absorber un shock de costo del 10% sin re-pricing. Por debajo de 55% la carta filtra margen incluso cuando el ticket promedio se ve sano; un solo aumento de precio del proveedor se vuelve crisis. Los umbrales son convención, no ley; el break-even real de Ursa se sienta donde se sienten los costos fijos reales de Ursa.",
+      "menu-studio.avg-margin.threshold-leak": "Umbral 55%",
+      "menu-studio.avg-margin.threshold-healthy": "Saludable 65%",
+      "menu-studio.prep.title":
+        "Tiempo total de prep y mix por categoría",
+      "menu-studio.prep.subtitle":
+        "suma de minutos de barista por ronda completa",
+      "menu-studio.prep.body":
+        "El tiempo total de prep es la suma de minutos de barista si cada ítem se pidiera una vez — un proxy aproximado del techo de mano de obra. Si una hora pico real produce 30 tickets, multiplica el tiempo promedio de prep por 30 y divide entre el número de baristas en turno: ese es el minuto-cuenta que realmente tienes para entregar.",
+      "menu-studio.section.02.badge": "Sección 02",
+      "menu-studio.section.02.title":
+        "Constructor de carta — edita cada campo",
+      "menu-studio.section.02.meta": "Agrega, borra, edita inline",
+      "menu-studio.section.02.intro":
+        "Edita nombre, categoría, precio de venta (PEN), costo de comida (PEN) y tiempo de prep (min) por cada ítem. Togglea el supuesto de popularidad para mover la matriz Stars & Puzzles de la Sección 04 — la popularidad aquí es tu lectura honesta de si el ítem se mueve, no un pronóstico.",
+      "menu-studio.section.02.button.add": "Agregar ítem",
+      "menu-studio.section.02.empty":
+        "Aún no hay ítems. Haz click en Agregar ítem para empezar.",
+      "menu-studio.section.02.footer":
+        "Los ítems por defecto están anclados a la carta verificada de Ursa (Ursagroni, Maracumango Coldbrew, Filtrado Lonya) más una barra de espresso reconstruida. Los costos son benchmarks plausibles para una cafetería de especialidad de Lima — reemplázalos con tus logs de tostado y facturas de proveedor reales antes de citar precios o tomar una decisión de kill.",
+      "menu-studio.table.name": "Nombre",
+      "menu-studio.table.category": "Categoría",
+      "menu-studio.table.price": "Precio (PEN)",
+      "menu-studio.table.cost": "Costo (PEN)",
+      "menu-studio.table.prep": "Prep (min)",
+      "menu-studio.table.popular": "¿Popular?",
+      "menu-studio.section.03.badge": "Sección 03",
+      "menu-studio.section.03.title":
+        "Análisis de margen — ordenable",
+      "menu-studio.section.03.meta":
+        "Verde > 65% · Oro 55–65% · Terracota < 55%",
+      "menu-studio.section.03.empty":
+        "Agrega ítems arriba para ver el análisis de margen.",
+      "menu-studio.section.03.legend-healthy":
+        "Saludable · > 65% margen",
+      "menu-studio.section.03.legend-watch":
+        "Vigilar · 55–65% margen",
+      "menu-studio.section.03.legend-leak":
+        "Fuga · < 55% margen",
+      "menu-studio.margin.healthy": "saludable",
+      "menu-studio.margin.watch": "vigilar",
+      "menu-studio.margin.leak": "fuga",
+      "menu-studio.section.04.badge": "Sección 04",
+      "menu-studio.section.04.title": "Modelador de tasa de attach",
+      "menu-studio.section.04.meta":
+        "Convierte una bebida en un ticket",
+      "menu-studio.attach.title": "Configura el pairing",
+      "menu-studio.attach.primary": "Bebida principal",
+      "menu-studio.attach.side": "Acompañamiento / pairing",
+      "menu-studio.attach.volume":
+        "Volumen principal (unidades vendidas)",
+      "menu-studio.attach.rate":
+        "Tasa de attach (% de compradores del principal que agregan el acompañamiento)",
+      "menu-studio.attach.scale-0": "0% · bebida sola",
+      "menu-studio.attach.scale-60": "60% · target Ursa Mañana",
+      "menu-studio.attach.scale-100": "100% · siempre con pairing",
+      "menu-studio.attach.callout.title": "Por qué importa",
+      "menu-studio.attach.callout.body":
+        "Un Ursagroni de S/. 18 con 75% de margen se ve sano solo — pero el ticket es lo que paga el local. Si 60% de los compradores de Ursagroni también agregan una cookie de S/. 5 (margen S/. 3.5), cada 100 Ursagronis se convierten en S/. 210 extra de margen. La tasa de attach es la palanca más grande en la rentabilidad blendada; la alternativa — subir el precio de la bebida — funciona en papel pero comprime la demanda. Empuja attach primero; sube el precio solo si el attach no responde después de 30 días de prompt activo.",
+      "menu-studio.attach.contribution-label":
+        "Aporte de margen del acompañamiento",
+      "menu-studio.attach.contribution-body":
+        "De {sides} acompañamientos de {side} vendidos junto a {volume} {primary} con {rate}% de attach.",
+      "menu-studio.attach.mini.primary-revenue": "Ingreso principal",
+      "menu-studio.attach.mini.attach-revenue":
+        "Ingreso del acompañamiento",
+      "menu-studio.attach.mini.side-margin":
+        "Margen acompañ. / unidad",
+      "menu-studio.attach.mini.blended": "Margen blendado %",
+      "menu-studio.attach.composition": "Composición del ticket",
+      "menu-studio.attach.composition-primary": "Principal",
+      "menu-studio.attach.composition-attach": "Attach",
+      "menu-studio.section.05.badge": "Sección 05",
+      "menu-studio.section.05.title":
+        "Stars & Puzzles — matriz de ingeniería de carta",
+      "menu-studio.section.05.meta":
+        "Togglea popularidad por ítem para reclasificar",
+      "menu-studio.section.05.intro":
+        "Ingeniería de carta clásica (originalmente de Menu Engineering: A Practical Guide to Improving Profitability, Kasavana & Smith, 1982). Los ítems se clasifican por margen (alto/bajo, usando el umbral de 55%) y por popularidad (tu supuesto honesto, toggleado en el constructor). Cada cuadrante tiene una acción distinta — no un veredicto. El framework es apropiado aquí porque la carta de Ursa es chica (12–15 ítems) y las decisiones son reversibles: un Puzzle se puede reposicionar sin sacarlo de la carta, un Plowhorse se puede re-ingeniar sin perder su popularidad. La limitación del framework: trata margen y popularidad como independientes, pero no lo son — un aumento de precio puede mover un ítem de Star a Puzzle. Vuelve a correr la matriz después de cualquier cambio de precio.",
+      "menu-studio.quadrant.star.label": "Stars",
+      "menu-studio.quadrant.star.desc":
+        "Margen alto · popularidad alta",
+      "menu-studio.quadrant.star.action":
+        "Destácalo en la carta y en la fotografía. Entrena a los baristas para sugerirlo por nombre cuando un cliente pregunta «¿qué hay de bueno?». Esta es la columna vertebral de tu carta — cuídala.",
+      "menu-studio.quadrant.puzzle.label": "Puzzles",
+      "menu-studio.quadrant.puzzle.desc":
+        "Margen alto · popularidad baja",
+      "menu-studio.quadrant.puzzle.action":
+        "La oportunidad. Renombra, reposiciona (muévelo del fondo de la carta a un slot destacado), re-parea (sugiérelo junto a un Star). Si después de 30 días no se mueve, mátalo — el margen es real pero la demanda no.",
+      "menu-studio.quadrant.plowhorse.label": "Plowhorses",
+      "menu-studio.quadrant.plowhorse.desc":
+        "Margen bajo · popularidad alta",
+      "menu-studio.quadrant.plowhorse.action":
+        "A los clientes les encanta. No lo mates — re-ingenia el costo. Busca un insumo más barato, reduce la porción 10%, o sube el precio en S/. 1. La prueba es si la popularidad sobrevive al cambio; si no, restaura el original.",
+      "menu-studio.quadrant.dog.label": "Dogs",
+      "menu-studio.quadrant.dog.desc":
+        "Margen bajo · popularidad baja",
+      "menu-studio.quadrant.dog.action":
+        "Mátalo. O reformúlalo como especial de temporada y deja que la escasez cree demanda — pero solo si la reformulación es genuina, no un rebrand del mismo ítem.",
+      "menu-studio.quadrant.none": "— ninguno —",
+      "menu-studio.matrix.title": "La matriz de un vistazo",
+      "menu-studio.matrix.cell-puzzle": "Puzzle",
+      "menu-studio.matrix.cell-star": "Star",
+      "menu-studio.matrix.cell-dog": "Dog",
+      "menu-studio.matrix.cell-plowhorse": "Plowhorse",
+      "menu-studio.matrix.desc-puzzle":
+        "Margen alto · popularidad baja",
+      "menu-studio.matrix.desc-star":
+        "Margen alto · popularidad alta",
+      "menu-studio.matrix.desc-dog":
+        "Margen bajo · popularidad baja",
+      "menu-studio.matrix.desc-plowhorse":
+        "Margen bajo · popularidad alta",
+      "menu-studio.matrix.axis-margin": "Margen →",
+      "menu-studio.matrix.axis-popularity": "Popularidad →",
+      "menu-studio.matrix.axis-high": "Alto",
+      "menu-studio.matrix.axis-low": "Bajo",
+      "menu-studio.matrix.footer":
+        "Umbral: margen ≥ 55% cuenta como alto. La popularidad es el toggle del constructor — ponla honestamente. Una carta de 12 ítems debería apuntar a 3–4 Stars, 2–3 Puzzles para impulsar, 2–3 Plowhorses para re-ingeniar y 1–2 Dogs para retirar. La distribución importa más que cualquier clasificación individual — una carta con 12 Stars es una carta donde el supuesto de popularidad es demasiado generoso.",
+      "menu-studio.section.06.badge": "Sección 06",
+      "menu-studio.section.06.title": "Exporta el resumen de carta",
+      "menu-studio.section.06.meta": "Copiar al portapapeles",
+      "menu-studio.export.title": "Genera un snapshot de texto",
+      "menu-studio.export.body":
+        "Un export en texto plano de cada ítem, su margen, clasificación y la proyección de attach. Útil para pegar en un doc de Notion, un mensaje de WhatsApp a un socio o una hoja de prep impresa para el bar. Regenera después de cada cambio de precio o costo — un export desactualizado es peor que ningún export.",
+      "menu-studio.export.button": "Generar export",
+      "menu-studio.export.dialog-title": "Export de carta",
+      "menu-studio.export.close": "Cerrar",
+      "menu-studio.export.copy": "Copiar al portapapeles",
+      "menu-studio.export.copied": "¡Copiado!",
+      "menu-studio.export.stat.items": "Ítems en el export",
+      "menu-studio.export.stat.margin": "Margen promedio",
+      "menu-studio.export.stat.stars": "Stars en la carta",
+      "menu-studio.export.stat.attach":
+        "Aporte de attach modelado",
+      "menu-studio.export.callout.title": "Cómo leer el export",
+      "menu-studio.export.callout.body":
+        "El export es un snapshot en el tiempo — regenéralo siempre que cambies un precio o un costo. Pégalo en el briefing del próximo turno de bar o adjúntalo a la revisión mensual de carta. Los números son solo tan honestos como los inputs; acompaña este export con los logs reales de tostado antes de cualquier decisión de precio. Un número que no se ha contrastado con una factura de proveedor es una hipótesis, no un hecho.",
+
+      /* ---- Asignador de Presupuesto (Herramienta T6) ---- */
+      "budget.lede":
+        "Tres escenarios — Lean, Moderate, Growth — se parametrizaron en el Módulo 04 para que ninguno dependa de un número que Ursa todavía no ha medido. Edita cualquier línea, agrega las tuyas y el total mensual, el costo por día y el desglose por categoría recalculan al instante. La decisión que esta herramienta apoya es simple de enunciar y difícil de tomar: elige el escenario que el dueño pueda sostener tres meses sin titubear, luego re-evalúa en el día 30 contra las reglas de parada del Roadmap. El plan es internamente coherente en cualquiera de los tres; el modo de falla es elegir Growth y abandonarlo en la semana seis.",
+      "budget.meta.currency": "Moneda",
+      "budget.meta.currency-value": "PEN (S/.)",
+      "budget.meta.source": "Fuente",
+      "budget.meta.source-value":
+        "Módulo 04 · escenarios verificados",
+      "budget.meta.interactive": "Interactivo",
+      "budget.meta.interactive-value": "Totales en vivo · editable",
+      "budget.section.01.badge": "Escenario",
+      "budget.section.01.title":
+        "Elige un escenario, luego edita líneas en vivo",
+      "budget.section.01.meta":
+        "Tres pre-cargados · totalmente editables",
+      "budget.action.reset": "Reiniciar todo",
+      "budget.line-items.title": "{name} · líneas",
+      "budget.line-items.count": "{n} ítems",
+      "budget.line-items.empty":
+        "Sin líneas. Agrega una abajo.",
+      "budget.line-items.add-label":
+        "Agregar una línea custom a {name}",
+      "budget.line-items.placeholder":
+        "p.ej. Hosting de viaje de influencer",
+      "budget.line-items.add-button": "Agregar",
+      "budget.total.label": "Total mensual en vivo · {name}",
+      "budget.total.per-month": "/ mes",
+      "budget.total.baseline-label":
+        "Baseline original: {baseline} · {delta} vs. baseline",
+      "budget.stat.per-day": "Costo por día · mes de 30 días",
+      "budget.stat.active":
+        "Líneas activas en este escenario",
+      "budget.breakdown.title": "Desglose por día",
+      "budget.breakdown.daily": "Costo diario",
+      "budget.breakdown.weekly": "Costo semanal (÷ 4.33)",
+      "budget.breakdown.quarterly": "Costo trimestral (× 3)",
+      "budget.breakdown.over-title": "Estás sobre el baseline",
+      "budget.breakdown.over-body":
+        "Sumar {delta}/mes significa {quarterly} en un trimestre. Confirma que el dueño lo puede sostener antes de comprometerlo — los sobrecostos se componen más rápido que los sub-gastos.",
+      "budget.breakdown.under-title": "Estás bajo el baseline",
+      "budget.breakdown.under-body":
+        "Cortar {delta}/mes ahorra {quarterly} en un trimestre. Asegúrate de que ningún experimento pierda su presupuesto — el baseline Lean es un piso, no un target.",
+      "budget.section.02.badge": "Asignación",
+      "budget.section.02.title":
+        "A dónde va el presupuesto de {name}",
+      "budget.section.02.meta": "Desglose categoría por categoría",
+      "budget.allocation.title": "Gasto por línea",
+      "budget.allocation.body":
+        "Cada slice es una línea. Edita el costo arriba y mira la gráfica redibujarse. Los slices por debajo de 5% del total siguen en la lista de la derecha — los gastos chicos se componen, y el ranking es donde se vuelven visibles.",
+      "budget.ranked.title": "Ranking por share del total",
+      "budget.section.03.badge": "Comparar",
+      "budget.section.03.title":
+        "Los tres escenarios lado a lado",
+      "budget.section.03.meta": "Lean vs Moderate vs Growth",
+      "budget.compare.table-metric": "Métrica",
+      "budget.compare.row-edited": "Total mensual editado",
+      "budget.compare.row-baseline": "Baseline mensual",
+      "budget.compare.row-per-day": "Costo por día",
+      "budget.compare.row-items": "Líneas",
+      "budget.compare.row-focus": "Foco",
+      "budget.compare.row-top": "Ítem top",
+      "budget.compare.stat":
+        "{name} · total mensual editado",
+      "budget.compare.callout.title":
+        "El escenario barato es el benchmark real",
+      "budget.compare.callout.body":
+        "Si el total editado de Moderate o Growth se pasa de lo que el dueño puede sostener tres meses, vuelve al total editado de Lean. El plan es internamente coherente en cualquiera de los tres — no hay escenario «half-Moderate» que se rompa. El mecanismo: cada canal de Lean alimenta una superficie donde aterrizan los canales de Moderate (GBP alimenta Maps, WhatsApp alimenta la lista tibia), así que gastar menos no deja varado lo ya comprometido. El modo de falla es el opuesto — elegir Growth y cortarlo en la semana seis deja campañas de paid-social a media cebada y relaciones de creador a media construir, que es peor que nunca empezarlas.",
+      "budget.section.04.badge": "Próximo paso",
+      "budget.section.04.title":
+        "Una vez definido el presupuesto, modela el retorno por canal",
+      "budget.roi.title":
+        "El modelado de ROI vive en el Tablero de ROI",
+      "budget.roi.body":
+        "El Asignador de Presupuesto te dice qué gastas. El Tablero de ROI convierte el gasto de cada canal en clientes esperados, ingreso, meses de payback y ROI % — con un slider de confianza para mejor/peor caso. Úsalos juntos: define el presupuesto aquí, luego valídalo allá. Un presupuesto sin modelo de retorno es un deseo; un modelo de retorno sin presupuesto es una fantasía.",
+      "budget.roi.button-roi": "Abrir el Tablero de ROI",
+      "budget.roi.button-back": "Volver al Módulo 04",
+      "budget.roi.limitations-title":
+        "Lo que esta herramienta no hace",
+      "budget.roi.limitation-1":
+        "No modela ingreso ni payback — ver Tablero de ROI.",
+      "budget.roi.limitation-2":
+        "No persiste ediciones entre recargas — es un borrador, no un sistema de registro.",
+      "budget.roi.limitation-3":
+        "No impone un tope total — pon tu propia disciplina. El baseline Lean es un piso, no un techo; el escenario Growth es un techo, no un target.",
     },
   },
 };
