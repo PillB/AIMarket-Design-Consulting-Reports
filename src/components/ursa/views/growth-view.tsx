@@ -543,6 +543,27 @@ export function GrowthView() {
 
       {/* Offer architecture stack */}
       <ViewSection badge={t("content.growth.offer.badge")} title={t("content.growth.offer.title")} meta={t("content.growth.offer.meta")}>
+        {/* Offer-value lens — eight questions answered */}
+        <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream mb-6">
+          <div className="flex items-center justify-between flex-wrap gap-2 mb-1">
+            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text">{t("content.growth.offer.lens.badge")}</span>
+            <EvidenceTag status="verified" />
+          </div>
+          <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">{t("content.growth.offer.lens.heading")}</h3>
+          <p className="text-[0.84rem] text-muted-foreground m-0 mb-4">{t("content.growth.offer.lens.subtitle")}</p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {(["outcome", "likelihood", "delay", "effort", "proof", "risk-reversal", "packaging", "friction"] as const).map((row) => (
+              <div key={row} className="rounded-lg border border-ursa-line-soft bg-card p-3.5">
+                <div className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-1">{t(`content.growth.offer.lens.row.${row}.label`)}</div>
+                <p className="text-[0.82rem] text-foreground/85 leading-relaxed m-0">{t(`content.growth.offer.lens.row.${row}.body`)}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-[0.78rem] text-muted-foreground mt-4 m-0 italic leading-relaxed">
+            {t("content.growth.offer.lens.footnote")}
+          </p>
+        </Card>
+
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-start">
           <Card className="bg-ursa-foam">
             <div className="flex items-center gap-2 mb-4">
@@ -653,6 +674,14 @@ export function GrowthView() {
             </Card>
           </div>
         </div>
+
+        {/* Behavioral lens — Sutherland perceived-value levers on the same stack */}
+        <Callout tone="gold" title={t("content.growth.offer.behavioral.heading")}>
+          <p className="m-0 text-[0.88rem]">
+            <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold-text block mb-1.5">{t("content.growth.offer.behavioral.badge")}</span>
+            {t("content.growth.offer.behavioral.body")}
+          </p>
+        </Callout>
       </ViewSection>
 
       {/* Customer journey timeline */}

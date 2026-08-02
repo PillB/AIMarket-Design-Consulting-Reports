@@ -354,6 +354,11 @@ export function MenuView() {
                 {t("content.menu.section.01.callout.prices.body")}
               </p>
             </Callout>
+            <Callout tone="gold" title={t("content.menu.section.01.callout.behavioral.title")}>
+              <p className="m-0">
+                {t("content.menu.section.01.callout.behavioral.body")}
+              </p>
+            </Callout>
             <Card className="bg-ursa-foam">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
                 <Coffee size={16} className="text-ursa-gold-text" />
@@ -646,6 +651,12 @@ export function MenuView() {
         <Callout tone="forest" title={t("content.menu.section.05.callout.principle.title")}>
           <p className="m-0">
             {t("content.menu.section.05.callout.principle.body")}
+          </p>
+        </Callout>
+
+        <Callout tone="gold" title={t("content.menu.section.05.callout.behavioral.title")}>
+          <p className="m-0">
+            {t("content.menu.section.05.callout.behavioral.body")}
           </p>
         </Callout>
       </ViewSection>

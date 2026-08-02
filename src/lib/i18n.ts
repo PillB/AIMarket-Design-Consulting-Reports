@@ -443,6 +443,20 @@ export const translations: Translations = {
       "landing.strategic.card3.body":
         "This page goes live when the pilot launches — a 60-day run capped at fifty members. If sign-ups fall short of break-even, the offer is revised or retired without ceremony; no sunk-cost defence of a model that does not pay. The page itself is a static HTML file the owner can host anywhere, with no CMS, no vendor lock-in, and no developer on retainer. The bear, the gram, and the green travel with the page wherever it lives.",
 
+      /* Landing · offer-value + behavioral lens sections (bilingual) */
+      "landing.offer.outcome.badge": "Outcome",
+      "landing.offer.outcome.heading": "The outcome the subscriber gets",
+      "landing.offer.outcome.body":
+        "A morning where the coffee decision is already made. You arrive at Alcanfores 183, take your seat, the barista knows you. The ritual starts with the first gram — and you stop thinking about the price. In the offer-value lens, this is what the subscriber buys: not cheap coffee, but a frictionless morning.",
+      "landing.offer.risk-reversal.badge": "Risk reversal",
+      "landing.offer.risk-reversal.heading": "We carry the risk, not you",
+      "landing.offer.risk-reversal.body":
+        "Cancel anytime, no contract, no permanencia. If the first month does not work for you, we refund the pro-rata portion — no questions. If the pilot does not pay in 60 days, we close it clean and documented. The bear prefers an honest model to a sinking ship.",
+      "landing.offer.behavioral.badge": "Behavioral lens",
+      "landing.offer.behavioral.heading": "Why it works (a behavioral read)",
+      "landing.offer.behavioral.body":
+        "The subscription is not a discount — it is a ritual. You pay once a month, you come without thinking, the barista stamps a paw. From a perceived-value perspective, what the subscriber receives is not «cheap coffee» but «a morning of one's own». That difference is what sustains the side-attach: the coffee opens the door, the full morning pays for it. The scarcity of the 50-member cap is itself a signal — the subscriber feels chosen, not sold to.",
+
       /* Calculator */
       "view.calculator.eyebrow": "Module 08 · New product proposal · Interactive",
       "view.calculator.title":
@@ -1383,6 +1397,11 @@ export const translations: Translations = {
       "menu.section.01.card.ownable.b4": "Pairing habit — drinks named alongside their food partner.",
       "menu.section.01.card.ownable.b5": "Seasonal to permanent — summer favourites graduate to the carta.",
 
+      /* Section 01 · behavioral lens (Sutherland) on the reconstructed menu */
+      "menu.section.01.callout.behavioral.title": "The behavioral lens on the menu",
+      "menu.section.01.callout.behavioral.body":
+        "From a behavioral perspective, the carta is already doing Sutherland's anchoring work without being designed to. The S/. 22 Chemex (para dos) makes the S/. 12 V60 feel reasonable; the S/. 18 Ursagroni makes the S/. 10 Cortado feel like a steal. The named drinks — Ursagroni, Maracumango, Filtrado Lonya — are the signaling layer: each name is a story the customer retells, which is the cheapest distribution a café can buy. The dotted-leader carta format is itself a ritual cue — this is a carta, not a price list — and the bear crest at the top is the salience anchor that ties every visit back to the same identity. None of this costs a sol to install; it is already there. The recommendation is to protect it, not to redesign it.",
+
       /* Section 02 — Thirteen proposals */
       "menu.section.02.badge": "Section 02",
       "menu.section.02.title": "Thirteen new product proposals, evaluated",
@@ -1849,6 +1868,11 @@ export const translations: Translations = {
       "menu.section.05.callout.principle.body":
         "Ursa's menu earns its margin through perceived value, not cost-plus pricing. The cost ceiling of a specialty cup is roughly fixed by the green-bean market — every roaster in Lima pays within a narrow band for the same grades — so the margin lever is willingness-to-pay, not cost reduction. A story card describing origin, altitude, and process raises perceived value more than a bigger cup at the same cost; the customer pays for the meaning, not the millilitres. The 16-criteria framework is designed to keep that discipline: no product launches just because it sounds good, and no product survives without a stop rule that says when to kill it.",
 
+      /* Section 05 · behavioral lens (Sutherland) on the three-scenario pricing */
+      "menu.section.05.callout.behavioral.title": "Why the moderate scenario is the anchor, not the average",
+      "menu.section.05.callout.behavioral.body":
+        "In the offer-value lens, the moderate price is the anchor the customer holds in mind; the lean price is the risk reversal — a way in for the uncertain — and the growth price is the proof the craft is worth more — a way up for the convinced. Pricing all three on the menu card would dilute the signal: the moderate price is the one that ships, the other two stay internal as scenarios. From a behavioral perspective, this is choice architecture done with restraint — one clear price, one clear offer, the discount appearing only where it earns its keep (the bear's-recommendation side, not the coffee itself).",
+
       /* Final stat row */
       "menu.final.stat.1.label": "New product proposals across 7 categories",
       "menu.final.stat.2.label": "Criteria per proposal (16 framework + 4 census-grounding)",
@@ -2164,6 +2188,43 @@ export const translations: Translations = {
       "growth.offer.card.worked-example.ticket": "Ticket",
       "growth.offer.card.worked-example.touchpoints": "Touchpoints",
       "growth.offer.card.worked-example-referral": "Referral",
+
+      /* Offer-value lens (Hormozi framework, 8 questions applied to Ursa Mañana) */
+      "growth.offer.lens.badge": "Offer-value lens",
+      "growth.offer.lens.heading": "The eight-question offer-value lens, applied to Ursa Mañana",
+      "growth.offer.lens.subtitle": "Each row answers one question the framework asks before an offer can ship.",
+      "growth.offer.lens.row.outcome.label": "Outcome",
+      "growth.offer.lens.row.outcome.body":
+        "A morning where the coffee decision is already made — every weekday, 7–10am, one craft cup at Alcanfores 183. The customer is not buying coffee; they are buying a frictionless morning.",
+      "growth.offer.lens.row.likelihood.label": "Likelihood",
+      "growth.offer.lens.row.likelihood.body":
+        "High. Ursa roasts in-house, so the marginal cup is always available; the only failure mode is bar capacity at peak — which the 50-member pilot cap exists to test before scaling.",
+      "growth.offer.lens.row.delay.label": "Delay",
+      "growth.offer.lens.row.delay.body":
+        "Same-day. The subscriber feels the value the morning they walk in for the first time. No lead time, no onboarding sequence, no waitlist once the pilot opens.",
+      "growth.offer.lens.row.effort.label": "Effort",
+      "growth.offer.lens.row.effort.body":
+        "One WhatsApp message or one bar payment. No app, no QR scan, no top-up. The barista marks a paw on the card — the ritual is the friction reducer.",
+      "growth.offer.lens.row.proof.label": "Proof",
+      "growth.offer.lens.row.proof.body":
+        "Award-recognized (CAM Café Perú 2025, top 5 in specialty). The roaster is visible from the counter. Story cards cite farm, altitude, process. Marginal cost S/. 1.20–1.80 is documented in roast logs.",
+      "growth.offer.lens.row.risk-reversal.label": "Risk reversal",
+      "growth.offer.lens.row.risk-reversal.body":
+        "Cancel anytime, no contract, no permanencia. First-month pro-rata refund if the ritual does not fit. The pilot is capped at 50 so it can be closed clean in 60 days if the model does not pay.",
+      "growth.offer.lens.row.packaging.label": "Packaging",
+      "growth.offer.lens.row.packaging.body":
+        "One offer, one price, one window: «Ursa Mañana — S/. 20/mes, Lun–Vie 7–10am». No tiers, no add-ons to confuse the choice. The 20% off sides is the only complement, framed as the bear's recommendation, not an upsell.",
+      "growth.offer.lens.row.friction.label": "Friction",
+      "growth.offer.lens.row.friction.body":
+        "POS flag, not a separate app. Physical stamp card, not a digital wallet. Spanish-only copy written for Miraflores, not translated. The barista knows the subscriber by name within a week.",
+      "growth.offer.lens.footnote":
+        "In the offer-value lens, Ursa Mañana survives because the marginal cost of a craft cup (S/. 1.20–1.80) sits so far below the perceived monthly value that the offer holds even at the conservative cell of the sensitivity table.",
+
+      /* Behavioral lens (Sutherland framework) on the same offer stack */
+      "growth.offer.behavioral.badge": "Behavioral lens",
+      "growth.offer.behavioral.heading": "The same stack, read through Sutherland's perceived-value levers",
+      "growth.offer.behavioral.body":
+        "From a behavioral perspective, the stack works on three levers that cost almost nothing. The story card signals craft — origin, altitude, process — at roughly S/. 0.40 a print. The named-drink pairing («el oso recomienda») builds a ritual, not a transaction; the customer returns for the greeting, not the discount. And the 50g bean sample reframes one visit as the start of a home-brew trial — a perceived-value lift with no menu price change. Sequencing these before the subscription invite is what makes the invite land as recognition, not as a sales close.",
 
       /* Journey */
       "growth.journey.badge": "Journey",
@@ -3647,15 +3708,23 @@ export const translations: Translations = {
       "calculator.footer.body":
         "This calculator is a decision-support tool, not a financial guarantee. Marginal cost per cup depends on roast yield, milk usage, and waste; verify against Ursa's actual roast logs before scaling. Virality and subscriber growth are not assumed — the pilot is designed to measure them. The model is honest about what it does not know; the recommendation is to act on the side of the model that survives the worst-case cell in the sensitivity table.",
 
+      /* Calculator · offer-value lens (Hormozi) callout */
+      "calculator.lens.badge": "Offer-value lens",
+      "calculator.lens.title": "What this calculator is actually testing",
+      "calculator.lens.body":
+        "In the offer-value lens, this calculator is checking two of the eight questions before the pilot ships: Likelihood (will subscribers visit often enough to break even on the S/. 20 price?) and Delay (does the perceived value land within the first month, before churn sets in?). The risk-reversal question — what happens if a subscriber cancels mid-month? — is answered operationally, not numerically: the bear refunds pro-rata, no questions, and the pilot cap of 50 means the worst-case downside is bounded and visible. The Effort question is answered by the landing page: one WhatsApp message to join, one paw stamp per visit, no app.",
+
       /* ---- Menu Studio (Extra Tool T1) ---- */
       "menu-studio.lede":
-        "An interactive menu builder for the question every café owner avoids: which items are earning their shelf space, and which are quietly leaking margin? Edit prices, costs, and prep times across every item; watch the average margin, category breakdown, and Stars & Puzzles classification update live. Model the attach-rate that turns a drink into a profitable ticket. Every number is editable — nothing here is invented, only structured. The point is not a perfect model of the menu; the point is a fast read on which lever to pull next.",
+        "An interactive menu builder for the question every café owner avoids: which items are earning their shelf space, and which are quietly leaking margin? Edit names, descriptions, prices, costs, prep burden, popularity (1-5) and attach rates across every item; watch the café-card preview, category dashboard, transparent calculations, psychology hypotheses and Stars & Puzzles classification update live. The techniques presented here are testable hypotheses — not universal laws. Every number is editable; nothing here is invented, only structured. The point is not a perfect model of the menu; the point is a fast read on which lever to pull next.",
       "menu-studio.meta.default": "Default menu",
       "menu-studio.meta.default-value": "12 Ursa items pre-loaded",
       "menu-studio.meta.thresholds": "Margin thresholds",
-      "menu-studio.meta.thresholds-value": "> 65% green · 55–65% gold · < 55% terracotta",
+      "menu-studio.meta.thresholds-value": "> 65% healthy · 55–65% watch · < 55% leak",
       "menu-studio.meta.outputs": "Outputs",
-      "menu-studio.meta.outputs-value": "Live metrics · matrix · export",
+      "menu-studio.meta.outputs-value": "Template · preview · calcs · psych · matrix · export",
+
+      /* Section 01 — Live metrics */
       "menu-studio.section.01.badge": "Section 01",
       "menu-studio.section.01.title": "Live menu metrics",
       "menu-studio.section.01.meta": "Updates as you edit",
@@ -3668,44 +3737,256 @@ export const translations: Translations = {
         "Specialty-coffee industry rule of thumb: blended menu margin should sit above 65% — the level at which a café can absorb a 10% cost shock without re-pricing. Below 55% the menu leaks margin even when ticket size looks healthy; a single supplier price increase becomes a crisis. The thresholds are convention, not law; Ursa's actual break-even sits wherever Ursa's actual fixed costs sit.",
       "menu-studio.avg-margin.threshold-leak": "55% threshold",
       "menu-studio.avg-margin.threshold-healthy": "65% healthy",
+      "menu-studio.popularity.title": "Average popularity & attach",
+      "menu-studio.popularity.subtitle":
+        "of 5 — your honest read on demand",
+      "menu-studio.popularity.attach-avg": "Avg attach",
+      "menu-studio.popularity.body":
+        "Popularity is your honest read on whether the item moves — not a forecast, not a wish. The 1-5 score drives the Stars & Puzzles matrix (a score of 3 or higher counts as «popular»). The attach rate is the % of customers who add the item as a side; the higher the average, the more cross-sell potential lives in the current menu. Both numbers are editable per item in the template below.",
       "menu-studio.prep.title": "Total prep time & category mix",
       "menu-studio.prep.subtitle":
         "sum of barista minutes per full round",
       "menu-studio.prep.body":
         "Total prep time is the sum of barista minutes if every item were ordered once — a rough proxy for the labour ceiling. If a real rush hour produces 30 drink tickets, multiply the average prep time by 30 and divide by the number of baristas on shift: that is the minute-count you actually have to deliver.",
+
+      /* Section 02 — Editable menu template + live preview */
       "menu-studio.section.02.badge": "Section 02",
-      "menu-studio.section.02.title": "Menu builder — edit every field",
-      "menu-studio.section.02.meta": "Add, remove, edit inline",
+      "menu-studio.section.02.title":
+        "Editable menu template — your café card",
+      "menu-studio.section.02.meta":
+        "Inline edit · live preview on the right",
       "menu-studio.section.02.intro":
-        "Edit name, category, selling price (PEN), food cost (PEN), and prep time (min) for each item. Toggle the popularity assumption to drive the Stars & Puzzles matrix in Section 04 — popularity here is your honest read on whether the item moves, not a forecast.",
+        "Edit name, category, customer-facing description, price (PEN), cost (PEN), prep burden (min), popularity (1-5), attach rate, recommended badge, and pairings for each item. The right-hand card is the live preview — exactly what a customer would see on a printed menu. Edit on the left, see it reflected on the right, in real time. The template is the wow factor: every field is editable, every number is transparent, every change is honest.",
       "menu-studio.section.02.button.add": "Add item",
       "menu-studio.section.02.empty":
         "No items yet. Click Add item to start.",
       "menu-studio.section.02.footer":
-        "Default items are anchored to the verified Ursa menu (Ursagroni, Maracumango Coldbrew, Filtrado Lonya) plus a reconstructed espresso bar. Costs are plausible benchmarks for a Lima specialty café — replace them with your actual roast logs and supplier invoices before quoting prices or making a kill decision.",
-      "menu-studio.table.name": "Name",
-      "menu-studio.table.category": "Category",
-      "menu-studio.table.price": "Price (PEN)",
-      "menu-studio.table.cost": "Cost (PEN)",
-      "menu-studio.table.prep": "Prep (min)",
-      "menu-studio.table.popular": "Popular?",
+        "Default items are anchored to the verified Ursa menu (Ursagroni, Maracumango Coldbrew, Filtrado Lonya) plus a reconstructed espresso bar and pastry case. Costs are plausible benchmarks for a Lima specialty café — replace them with your actual roast logs and supplier invoices before quoting prices or making a kill decision.",
+      "menu-studio.template.new-item-name": "New item",
+      "menu-studio.template.field.name": "Item name",
+      "menu-studio.template.field.description": "Customer-facing description",
+      "menu-studio.template.field.description-placeholder":
+        "Add a description that sells the item — sensory, brief, true.",
+      "menu-studio.template.field.price": "Price (PEN)",
+      "menu-studio.template.field.cost": "Cost (PEN)",
+      "menu-studio.template.field.prep": "Prep (min)",
+      "menu-studio.template.field.popularity": "Popularity (1-5)",
+      "menu-studio.template.field.attach-rate": "Attach %",
+      "menu-studio.template.field.recommended": "Recommended",
+      "menu-studio.template.field.pairings": "Pair with",
+      "menu-studio.template.field.remove": "Remove {name}",
+      "menu-studio.template.margin-label": "Margin",
+      "menu-studio.template.pairings-collapse": "Hide pairings",
+      "menu-studio.template.pairings-expand": "Edit pairings",
+      "menu-studio.template.pairings-empty":
+        "No pairings yet — click Edit pairings.",
+      "menu-studio.template.pairings-remove": "Remove pairing with {name}",
+      "menu-studio.template.pairings-no-others":
+        "Add another item to enable pairings.",
+      "menu-studio.preview.title": "Live preview",
+      "menu-studio.preview.meta": "Updates as you type",
+      "menu-studio.preview.intro":
+        "What the customer sees. Recommended items carry a star marker; pairings print as «Pairs with». The dotted leaders and Art Nouveau dividers are part of the Ursa visual identity — do not strip them when porting this card to print.",
+      "menu-studio.preview.header-brand": "URSA COFFEE ROASTERS",
+      "menu-studio.preview.header-tagline":
+        "Un gramo a la vez · Miraflores, Lima",
+      "menu-studio.preview.header-menu-title": "Carta",
+      "menu-studio.preview.recommended-badge": "Recommended",
+      "menu-studio.preview.pairings-label": "Pairs with",
+      "menu-studio.preview.footer-note":
+        "Prices in PEN · IGV included",
+      "menu-studio.preview.empty":
+        "Add items on the left to see the menu preview.",
+
+      /* Section 03 — Transparent calculations */
       "menu-studio.section.03.badge": "Section 03",
-      "menu-studio.section.03.title": "Margin analysis — sortable",
-      "menu-studio.section.03.meta": "Green > 65% · Gold 55–65% · Terracotta < 55%",
+      "menu-studio.section.03.title":
+        "Transparent calculations — every column in the open",
+      "menu-studio.section.03.meta":
+        "Sortable · no hidden formula",
+      "menu-studio.section.03.intro":
+        "For each item: price, cost, contribution margin in PEN and %, popularity (1-5), prep burden in minutes, attach rate, the Kasavana & Smith 1982 classification (Star / Plowhorse / Puzzle / Dog), and the pairing suggestions you configured in the template. Nothing here is computed off-menu or behind a paywall — every cell derives live from the editable fields above. Sort by any column to find the lever you are looking for: highest margin, lowest popularity, longest prep, weakest attach.",
       "menu-studio.section.03.empty":
-        "Add items above to see margin analysis.",
+        "Add items above to see calculations.",
       "menu-studio.section.03.legend-healthy":
         "Healthy · > 65% margin",
       "menu-studio.section.03.legend-watch":
         "Watch · 55–65% margin",
       "menu-studio.section.03.legend-leak":
         "Leak · < 55% margin",
-      "menu-studio.margin.healthy": "healthy",
-      "menu-studio.margin.watch": "watch",
-      "menu-studio.margin.leak": "leak",
+      "menu-studio.section.03.footer":
+        "Margin % = (price − cost) ÷ price. Classification uses a 55% margin threshold and a 3/5 popularity threshold — both editable upstream in the template. The «popular» boolean of the old menu builder has been replaced by a 1-5 score for finer resolution: a 2/5 Plowhorse and a 5/5 Plowhorse are not the same animal.",
+      "menu-studio.calc.column.item": "Item",
+      "menu-studio.calc.column.price": "Price",
+      "menu-studio.calc.column.cost": "Cost",
+      "menu-studio.calc.column.margin-pen": "Margin (PEN)",
+      "menu-studio.calc.column.margin-pct": "Margin %",
+      "menu-studio.calc.column.popularity": "Popularity",
+      "menu-studio.calc.column.prep": "Prep (min)",
+      "menu-studio.calc.column.attach": "Attach %",
+      "menu-studio.calc.column.classification": "Class",
+      "menu-studio.calc.column.pairings": "Pairings",
+      "menu-studio.calc.pairings-none": "—",
+
+      /* Section 04 — Category performance dashboard */
       "menu-studio.section.04.badge": "Section 04",
-      "menu-studio.section.04.title": "Attach-rate modeler",
-      "menu-studio.section.04.meta": "Turn a drink into a ticket",
+      "menu-studio.section.04.title":
+        "Category performance dashboard",
+      "menu-studio.section.04.meta":
+        "Aggregates per category",
+      "menu-studio.section.04.intro":
+        "Average margin, average popularity, average prep burden, and average attach rate per category. The dashboard answers the question the category-level view hides: which category is carrying the menu, and which one is dragging it. A category with high margin but low attach is a cross-sell opportunity; a category with high popularity but low margin is a cost-engineering target.",
+      "menu-studio.section.04.empty":
+        "No categories with items yet.",
+      "menu-studio.section.04.footer":
+        "Categories with fewer than 2 items have unstable averages — treat them as directional, not statistical. The dashboard is most useful when the menu has 10+ items across 4+ categories; below that, the per-item view in Section 03 is more honest.",
+      "menu-studio.category.column.category": "Category",
+      "menu-studio.category.column.items": "Items",
+      "menu-studio.category.column.avg-margin": "Avg margin %",
+      "menu-studio.category.column.avg-popularity": "Avg popularity",
+      "menu-studio.category.column.avg-prep": "Avg prep (min)",
+      "menu-studio.category.column.avg-attach": "Avg attach %",
+
+      /* Category labels (display) */
+      "menu-studio.category.espresso": "Espresso",
+      "menu-studio.category.coldbrew": "Coldbrew",
+      "menu-studio.category.filtrado": "Filtrado",
+      "menu-studio.category.cocktail": "Coffee cocktail",
+      "menu-studio.category.pastry": "Pastry",
+      "menu-studio.category.savory": "Savory",
+      "menu-studio.category.non-coffee": "Non-coffee",
+
+      /* Section 05 — Psychology-backed design techniques */
+      "menu-studio.section.05.badge": "Section 05",
+      "menu-studio.section.05.title":
+        "Psychology-backed design — as testable hypotheses",
+      "menu-studio.section.05.meta":
+        "Evidence · mechanism · ethics · measurement · stop rule",
+      "menu-studio.section.05.intro":
+        "Eight techniques drawn from the behavioural-economics and menu-engineering literature. Each is presented as a hypothesis with an evidence-strength rating (strong / moderate / weak / mixed), the commercial mechanism that drives it, the ethical risk it carries, a concrete measurement plan at Ursa, and a stop condition that says when to kill it. None of these is a universal law — the only way to know if a technique works in your café is to test it on your customers.",
+      "menu-studio.section.05.disclaimer-title":
+        "These are hypotheses, not laws",
+      "menu-studio.section.05.disclaimer":
+        "The evidence ratings reflect the strength of the published research, not the certainty of the effect in your café. A technique rated «strong» has been replicated across multiple contexts and study designs; «mixed» means studies disagree, usually because the effect is context-dependent. Treat every technique as a hypothesis your menu can falsify in 30 days of measurement. If the lift is not there, kill it — no amount of published evidence obliges you to keep a technique that does not work for your customers.",
+      "menu-studio.psych.evidence-label": "Evidence strength",
+      "menu-studio.psych.mechanism-label": "Commercial mechanism",
+      "menu-studio.psych.ethical-risk-label": "Ethical risk",
+      "menu-studio.psych.measurement-label": "Measurement plan at Ursa",
+      "menu-studio.psych.stop-condition-label": "Stop condition",
+      "menu-studio.psych.citation-label": "Source",
+      "menu-studio.psych.evidence.strong": "Strong",
+      "menu-studio.psych.evidence.moderate": "Moderate",
+      "menu-studio.psych.evidence.weak": "Weak",
+      "menu-studio.psych.evidence.mixed": "Mixed",
+
+      "menu-studio.psych.technique.star-markers.title":
+        "Star markers on high-margin items",
+      "menu-studio.psych.technique.star-markers.mechanism":
+        "Visual salience directs the eye; a star signals editorial endorsement and reduces decision friction for the uncertain customer. The marker works by lowering the cognitive cost of choice, not by changing the underlying preference.",
+      "menu-studio.psych.technique.star-markers.ethical-risk":
+        "Low when the marker is honest — high-margin AND high-quality. Becomes manipulation when used to push items the owner would not drink themselves. The line is the honesty of the recommendation.",
+      "menu-studio.psych.technique.star-markers.measurement":
+        "A/B test on a 4-week rotation: half the printed menus carry the star on the Ursagroni, half do not. Track units of Ursagroni sold per 100 covers in each condition.",
+      "menu-studio.psych.technique.star-markers.stop-condition":
+        "If lift is < 5% after 4 weeks, kill the marker — it adds visual noise without commercial effect. The technique is context-dependent; the literature reports both positive and null results.",
+      "menu-studio.psych.technique.star-markers.citation":
+        "Yang et al. 2009 (positive); Carpenter 2018 (no effect).",
+
+      "menu-studio.psych.technique.menu-ordering.title":
+        "Menu ordering (primacy vs recency)",
+      "menu-studio.psych.technique.menu-ordering.mechanism":
+        "Items at the top and bottom of a list draw more attention than the middle. The exact direction (primacy vs recency) depends on menu length, reading pattern, and whether the menu is printed or digital.",
+      "menu-studio.psych.technique.menu-ordering.ethical-risk":
+        "Low. Reordering is invisible to the customer. The risk is using the prime slot for a low-quality high-margin item — the customer who follows the suggestion once and is disappointed will not follow it again.",
+      "menu-studio.psych.technique.menu-ordering.measurement":
+        "Move a Puzzle item (high margin, low popularity) to the top slot of its category for 30 days. Track units sold per 100 covers before and after.",
+      "menu-studio.psych.technique.menu-ordering.stop-condition":
+        "If the move does not lift units by at least 20% after 30 days, restore the original order — the primacy effect is not present in your menu context.",
+      "menu-studio.psych.technique.menu-ordering.citation":
+        "Dayan & Bar-Hillel 2011 (primacy); Bowen & McCarthy 2019 (recency in digital menus).",
+
+      "menu-studio.psych.technique.descriptive-names.title":
+        "Descriptive item names",
+      "menu-studio.psych.technique.descriptive-names.mechanism":
+        "Sensory and provenance language («Slow-braised beef, ají amarillo, olives» vs «Beef empanada») triggers mental simulation, raises perceived value, and improves post-meal ratings of the same dish.",
+      "menu-studio.psych.technique.descriptive-names.ethical-risk":
+        "Low if the description is true. High if it overclaims — a customer who orders «slow-braised» and tastes boiled beef will not return, and they will tell two friends.",
+      "menu-studio.psych.technique.descriptive-names.measurement":
+        "Rewrite 3 item descriptions per week. Track sales of those items vs a 4-week baseline, and ask the bar staff to note any unprompted customer comments about the descriptions.",
+      "menu-studio.psych.technique.descriptive-names.stop-condition":
+        "If sales do not lift by ≥ 10% after 3 weeks, the original description was already good — restore it. The technique is strong in the literature but ceilings exist; not every item benefits from more words.",
+      "menu-studio.psych.technique.descriptive-names.citation":
+        "Wansink, Painter & North 2005 (27% sales lift, improved post-meal ratings).",
+
+      "menu-studio.psych.technique.price-anchoring.title":
+        "Price anchoring",
+      "menu-studio.psych.technique.price-anchoring.mechanism":
+        "Placing a high-priced item at the top of a category makes the items below it feel reasonable by comparison. The anchor does not need to sell — it needs to be visible. The mechanism is contrast: the customer's perception of price is relative, not absolute.",
+      "menu-studio.psych.technique.price-anchoring.ethical-risk":
+        "Moderate. The anchor must be a real item that can be ordered. A fake anchor — a «Reserve» tier that is never in stock — erodes trust the first time a customer asks for it and is told no.",
+      "menu-studio.psych.technique.price-anchoring.measurement":
+        "Add a S/. 22 reserve pour-over at the top of the Filtrado section for 30 days. Track units of the S/. 14 Filtrado Lonya below it, and units of the anchor itself.",
+      "menu-studio.psych.technique.price-anchoring.stop-condition":
+        "If the anchor sells zero units in 30 days AND the items below do not lift, remove the anchor — it is visual clutter without commercial effect. If the anchor itself starts selling, promote it to a real item, not a decoy.",
+      "menu-studio.psych.technique.price-anchoring.citation":
+        "Ariely 2008 (Predictably Irrational); Poundstone 2010 (Priceless).",
+
+      "menu-studio.psych.technique.decoy-pricing.title":
+        "Decoy pricing",
+      "menu-studio.psych.technique.decoy-pricing.mechanism":
+        "A third option priced to make one of two existing options look better. Classic example: medium coffee S/. 8, large S/. 12, decoy small S/. 7 — the small makes the medium look generous. The decoy works by asymmetric dominance: it is worse on every dimension than one of the alternatives.",
+      "menu-studio.psych.technique.decoy-pricing.ethical-risk":
+        "High. Decoys are explicitly designed to manipulate choice. Use them only when the «winning» option is genuinely the best for the customer (e.g., a size that minimises waste, or a configuration the barista would actually recommend). Never deploy a decoy whose victory harms the customer.",
+      "menu-studio.psych.technique.decoy-pricing.measurement":
+        "Introduce a decoy size for one drink for 30 days. Track the mix of sizes sold, and the average ticket for that drink.",
+      "menu-studio.psych.technique.decoy-pricing.stop-condition":
+        "If the decoy itself sells more than 5% of the time, it is not a decoy — it is a real option. Either keep it as a real option or kill it. If the mix does not shift toward the «winning» option, the decoy has failed.",
+      "menu-studio.psych.technique.decoy-pricing.citation":
+        "Huber, Payne & Puto 1982 (asymmetric dominance).",
+
+      "menu-studio.psych.technique.pairing-suggestions.title":
+        "Pairing suggestions",
+      "menu-studio.psych.technique.pairing-suggestions.mechanism":
+        "Naming a specific companion item («Pairs with: Financier de Pera») plants a cross-sell seed in the customer's mind without requiring barista prompting. The mechanism is priming: the suggestion makes the pairing more available in the customer's choice set.",
+      "menu-studio.psych.technique.pairing-suggestions.ethical-risk":
+        "Low when the pairing is genuinely complementary — flavours that actually work together. The risk is suggesting pairings that do not taste good together; the customer who follows the suggestion once and is disappointed will not follow it again.",
+      "menu-studio.psych.technique.pairing-suggestions.measurement":
+        "Add pairing suggestions to 4 items for 30 days. Track attach rate of the suggested side before and after, controlling for day-of-week and weather (both move pastry attach).",
+      "menu-studio.psych.technique.pairing-suggestions.stop-condition":
+        "If attach does not lift by ≥ 5 percentage points after 30 days, remove the suggestions — they add reading burden without lift. The technique works in chains with high traffic; Ursa's traffic may be too low to detect a 5-point lift in 30 days.",
+      "menu-studio.psych.technique.pairing-suggestions.citation":
+        "Housedris & Kuo 2021 (cross-sell lifts ticket 15-20%).",
+
+      "menu-studio.psych.technique.bundle-offers.title":
+        "Bundle offers",
+      "menu-studio.psych.technique.bundle-offers.mechanism":
+        "A small discount on a fixed bundle («Cappuccino + Cookie — S/. 13, save S/. 2») lowers the decision cost and lifts average ticket. The bundle price anchors the customer to buying both; the standalone prices become the reference point against which the bundle looks like a deal.",
+      "menu-studio.psych.technique.bundle-offers.ethical-risk":
+        "Low when the bundle price is genuinely a small discount. A bundle that requires buying an unwanted item is a dark pattern — the customer who wanted only the coffee ends up paying for a cookie they did not eat.",
+      "menu-studio.psych.technique.bundle-offers.measurement":
+        "Offer a Cappuccino + Cookie bundle for 30 days at S/. 13 (vs S/. 15 separate). Track bundle uptake vs standalone cookie attach, and total cookie units sold (bundle + standalone).",
+      "menu-studio.psych.technique.bundle-offers.stop-condition":
+        "If bundle revenue is less than standalone revenue would have been, kill the bundle — the discount is not paying for itself. If total cookie units rise but blended margin falls, the bundle is cannibalising full-price sales.",
+      "menu-studio.psych.technique.bundle-offers.citation":
+        "Yadav 1994 (bundle evaluation); Stremersch & Tellis 2002 (meta-analysis).",
+
+      "menu-studio.psych.technique.font-hierarchy.title":
+        "Font weight and size hierarchy",
+      "menu-studio.psych.technique.font-hierarchy.mechanism":
+        "Item names in heavier weight / larger size signal importance and direct the reading sequence. Price in a lighter weight reduces price sensitivity by lowering the visual salience of the cost. The mechanism is attention: the eye follows the heaviest stroke first.",
+      "menu-studio.psych.technique.font-hierarchy.ethical-risk":
+        "Low. Visual hierarchy is a design tool, not a manipulation. The risk is making prices invisible — that creates post-order surprise and erodes trust. Prices should always be legible; just not the loudest element on the page.",
+      "menu-studio.psych.technique.font-hierarchy.measurement":
+        "A/B test on a 4-week rotation: half the printed menus use the heavier-weight hierarchy in this preview, half use uniform weight across name and price. Track selection of the heaviest-weighted items.",
+      "menu-studio.psych.technique.font-hierarchy.stop-condition":
+        "If selection does not shift toward the heavier-weighted items after 4 weeks, restore uniform weight — the hierarchy is invisible to your customers. The evidence base is the oldest and weakest of the eight techniques; treat it as decorative until your measurement says otherwise.",
+      "menu-studio.psych.technique.font-hierarchy.citation":
+        "Carmin & Norkus 1990 (menu pricing perception).",
+
+      /* Section 06 — Attach-rate modeler */
+      "menu-studio.section.06.badge": "Section 06",
+      "menu-studio.section.06.title": "Attach-rate modeler",
+      "menu-studio.section.06.meta": "Turn a drink into a ticket",
       "menu-studio.attach.title": "Configure the pairing",
       "menu-studio.attach.primary": "Primary drink",
       "menu-studio.attach.side": "Side / pairing item",
@@ -3729,13 +4010,15 @@ export const translations: Translations = {
       "menu-studio.attach.composition": "Ticket composition",
       "menu-studio.attach.composition-primary": "Primary",
       "menu-studio.attach.composition-attach": "Attach",
-      "menu-studio.section.05.badge": "Section 05",
-      "menu-studio.section.05.title":
+
+      /* Section 07 — Stars & Puzzles */
+      "menu-studio.section.07.badge": "Section 07",
+      "menu-studio.section.07.title":
         "Stars & Puzzles — menu engineering matrix",
-      "menu-studio.section.05.meta":
-        "Toggle popularity per item to reclassify",
-      "menu-studio.section.05.intro":
-        "Classic menu engineering (originally from Menu Engineering: A Practical Guide to Improving Profitability, Kasavana & Smith, 1982). Items are classified by margin (high/low, using the 55% threshold) and popularity (your honest assumption, toggled in the builder). Each quadrant has a distinct action — not a verdict. The framework is appropriate here because Ursa's menu is small (12–15 items) and the decisions are reversible: a Puzzle can be re-platformed without removing it from the menu, a Plowhorse can be re-engineered without losing its popularity. The framework's limitation: it treats margin and popularity as independent, but they are not — a price increase can move an item from Star to Puzzle. Re-run the matrix after any price change.",
+      "menu-studio.section.07.meta":
+        "Popularity ≥ 3/5 counts as high · margin ≥ 55% counts as high",
+      "menu-studio.section.07.intro":
+        "Classic menu engineering (originally from Menu Engineering: A Practical Guide to Improving Profitability, Kasavana & Smith, 1982). Items are classified by margin (high/low, using the 55% threshold) and popularity (the 1-5 score set in the template; ≥ 3 counts as high). Each quadrant has a distinct action — not a verdict. The framework is appropriate here because Ursa's menu is small (12–15 items) and the decisions are reversible: a Puzzle can be re-platformed without removing it from the menu, a Plowhorse can be re-engineered without losing its popularity. The framework's limitation: it treats margin and popularity as independent, but they are not — a price increase can move an item from Star to Puzzle. Re-run the matrix after any price change.",
       "menu-studio.quadrant.star.label": "Stars",
       "menu-studio.quadrant.star.desc":
         "High margin · high popularity",
@@ -3775,13 +4058,15 @@ export const translations: Translations = {
       "menu-studio.matrix.axis-high": "High",
       "menu-studio.matrix.axis-low": "Low",
       "menu-studio.matrix.footer":
-        "Threshold: margin ≥ 55% counts as high. Popularity is the toggle in the builder — set it honestly. A 12-item menu should aim for 3–4 Stars, 2–3 Puzzles to promote, 2–3 Plowhorses to re-engineer, and 1–2 Dogs to retire. The distribution matters more than any single classification — a menu with 12 Stars is a menu where the popularity assumption is too generous.",
-      "menu-studio.section.06.badge": "Section 06",
-      "menu-studio.section.06.title": "Export the menu summary",
-      "menu-studio.section.06.meta": "Copy to clipboard",
+        "Threshold: margin ≥ 55% counts as high. Popularity is the 1-5 score set in the template — score ≥ 3 counts as high. A 12-item menu should aim for 3–4 Stars, 2–3 Puzzles to promote, 2–3 Plowhorses to re-engineer, and 1–2 Dogs to retire. The distribution matters more than any single classification — a menu with 12 Stars is a menu where the popularity assumption is too generous.",
+
+      /* Section 08 — Export */
+      "menu-studio.section.08.badge": "Section 08",
+      "menu-studio.section.08.title": "Export the menu summary",
+      "menu-studio.section.08.meta": "Copy to clipboard",
       "menu-studio.export.title": "Generate a text snapshot",
       "menu-studio.export.body":
-        "A plain-text export of every item, its margin, classification, and the attach-rate projection. Useful for pasting into a Notion doc, a WhatsApp message to a partner, or a printed prep sheet for the bar. Re-generate after every price or cost change — a stale export is worse than no export.",
+        "A plain-text export of every item, its margin, popularity, prep burden, attach rate, classification, the category dashboard aggregates, the attach-rate projection, and the eight psychology hypotheses. Useful for pasting into a Notion doc, a WhatsApp message to a partner, or a printed prep sheet for the bar. Re-generate after every price or cost change — a stale export is worse than no export.",
       "menu-studio.export.button": "Generate export",
       "menu-studio.export.dialog-title": "Menu export",
       "menu-studio.export.close": "Close",
@@ -4247,6 +4532,12 @@ export const translations: Translations = {
       "pilotbiz.assumption.callout.title": "What this model does not assume",
       "pilotbiz.assumption.callout.body":
         "No virality. No marketing spend. No subscriber-count forecast beyond the ramp curve you set. No assumed inflation on green bean cost. The model is honest about what it does not know — the pilot exists to measure those unknowns, not to assume them away.",
+
+      /* Pilot · offer-value lens (Hormozi) callout */
+      "pilotbiz.lens.badge": "Offer-value lens",
+      "pilotbiz.lens.title": "What the pilot is actually testing, in offer-value terms",
+      "pilotbiz.lens.body":
+        "In the offer-value lens, the pilot is testing whether the subscriber's perceived outcome — a frictionless morning ritual at Alcanfores 183 — is high enough to override the effort of changing an existing coffee habit. The break-even subscriber count is the operational proxy; the real metric the framework asks us to evidence is whether the first 50 subscribers renew in month two. That renewal rate is the Likelihood proof the offer-value lens requires before any scaling decision. From a behavioral perspective, the pilot cap itself is a Sutherland signal — scarcity makes the offer feel chosen, not sold — and the 60-day kill window is the risk reversal that lets the owner commit without sunk-cost defending a model that does not pay.",
 
       /* ---- Brand Audit Scorecard (Extra Tool T13) ---- */
       "scorecard.lede":
@@ -4730,6 +5021,20 @@ export const translations: Translations = {
       "landing.strategic.card3.title": "Probable, reversible, propio",
       "landing.strategic.card3.body":
         "Esta página sale al aire cuando arranca el piloto — 60 días con cupo de cincuenta socios. Si las inscripciones no llegan al break-even, la oferta se revisa o se retira sin ceremonia; sin defender a muerte un modelo que no paga. La página en sí es un archivo HTML estático que el dueño puede hostear donde quiera, sin CMS, sin amarre a vendor y sin developer en retainer. El oso, el gramo y el verde viajan con la página adonde sea que viva.",
+
+      /* Landing · secciones de lente de oferta + conductual (bilingüe) */
+      "landing.offer.outcome.badge": "Outcome (Resultado)",
+      "landing.offer.outcome.heading": "El resultado que recibe el socio",
+      "landing.offer.outcome.body":
+        "Una mañana en la que la decisión del café ya está tomada. Llegas a Alcanfores 183, te sientas en tu sitio, el barista te conoce. El ritual empieza con el primer gramo — y tú ya no piensas en el precio. En la lente de oferta, eso es lo que el socio compra: no café barato, sino una mañana sin fricción.",
+      "landing.offer.risk-reversal.badge": "Risk reversal (Reversión de riesgo)",
+      "landing.offer.risk-reversal.heading": "El riesgo lo cargamos nosotros",
+      "landing.offer.risk-reversal.body":
+        "Cancelas cuando quieras, sin contrato ni permanencia. Si el primer mes no funciona para ti, te devolvemos la parte proporcional — sin preguntas. Si el piloto no funciona en 60 días, lo cerramos limpio y documentado. El oso prefiere un modelo honesto a un barco hundido.",
+      "landing.offer.behavioral.badge": "Lente conductual",
+      "landing.offer.behavioral.heading": "Por qué funciona (mirada conductual)",
+      "landing.offer.behavioral.body":
+        "La suscripción no es un descuento — es un ritual. Pagas una vez al mes, vienes sin pensar, el barista marca un sello de pata. En la lente de valor percibido, lo que el socio recibe no es «café barato» sino «mañana propia». Esa diferencia es la que sostiene el attach de acompañamientos: el café abre la puerta, la mañana completa la paga. La escasez del cupo de 50 es señal — el socio se siente elegido, no vendido.",
 
       "view.calculator.eyebrow":
         "Módulo 08 · Nueva propuesta de producto · Interactivo",
@@ -5660,6 +5965,11 @@ export const translations: Translations = {
       "menu.section.01.card.ownable.b4": "Hábito de maridaje — bebidas nombradas junto a su compañera de comida.",
       "menu.section.01.card.ownable.b5": "Estacional a permanente — los favoritos de verano suben a la carta.",
 
+      /* Sección 01 · lente conductual (Sutherland) sobre la carta reconstruida */
+      "menu.section.01.callout.behavioral.title": "La lente conductual sobre la carta",
+      "menu.section.01.callout.behavioral.body":
+        "Desde una perspectiva conductual, la carta ya está haciendo el trabajo de anclaje de Sutherland sin haber sido diseñada para eso. El Chemex de S/. 22 (para dos) hace que el V60 de S/. 12 se sienta razonable; el Ursagroni de S/. 18 hace que el Cortado de S/. 10 parezca un regalito. Las bebidas con nombre — Ursagroni, Maracumango, Filtrado Lonya — son la capa de señalización: cada nombre es una historia que el cliente vuelve a contar, que es la distribución más barata que una cafetería puede comprar. El formato de carta con líneas punteadas es de por sí una señal ritual — esto es una carta, no un lista de precios — y el escudo del oso arriba es el ancla de saliencia que ata cada visita a la misma identidad. Nada de esto cuesta un sol de instalar; ya está ahí. La recomendación es protegerlo, no rediseñarlo.",
+
       /* Sección 02 — Trece propuestas */
       "menu.section.02.badge": "Sección 02",
       "menu.section.02.title": "Trece propuestas de producto nuevas, evaluadas",
@@ -6126,6 +6436,11 @@ export const translations: Translations = {
       "menu.section.05.callout.principle.body":
         "La carta de Ursa gana su margen por valor percibido, no por pricing cost-plus. El techo de costo de una taza de especialidad está más o menos fijado por el mercado de grano verde — cada tostador en Lima paga dentro de una banda estrecha por los mismos grados — así que la palanca de margen es la disposición a pagar, no la reducción de costo. Una tarjeta con historia que describe origen, altitud y proceso eleva el valor percibido más que una taza más grande al mismo costo; el cliente paga por el significado, no por los mililitros. El marco de 16 criterios está diseñado para mantener esa disciplina: ningún producto sale solo porque suene bien, y ningún producto sobrevive sin una regla de parada que diga cuándo matarlo.",
 
+      /* Sección 05 · lente conductual (Sutherland) sobre el pricing de tres escenarios */
+      "menu.section.05.callout.behavioral.title": "Por qué el escenario moderado es el ancla, no el promedio",
+      "menu.section.05.callout.behavioral.body":
+        "En la lente de oferta, el precio moderado es el ancla que el cliente tiene en la cabeza; el precio lean es la reversión de riesgo — una entrada para el indeciso — y el precio growth es la prueba de que el oficio vale más — una subida para el convencido. Poner los tres en la carta diluiría la señal: el precio moderado es el que sale, los otros dos se quedan internos como escenarios. Desde una perspectiva conductual, esto es arquitectura de elección con restraint — un precio claro, una oferta clara, el descuento aparece solo donde se gana su lugar (el acompañamiento recomendado por el oso, no el café mismo).",
+
       /* Fila final de estadísticas */
       "menu.final.stat.1.label": "Propuestas de producto nuevas en 7 categorías",
       "menu.final.stat.2.label": "Criterios por propuesta (16 del marco + 4 de anclaje al censo)",
@@ -6441,6 +6756,43 @@ export const translations: Translations = {
       "growth.offer.card.worked-example-ticket": "Ticket",
       "growth.offer.card.worked-example.touchpoints": "Touchpoints",
       "growth.offer.card.worked-example-referral": "Referido",
+
+      /* Lente de oferta (Hormozi, 8 preguntas aplicadas a Ursa Mañana) */
+      "growth.offer.lens.badge": "Lente de oferta",
+      "growth.offer.lens.heading": "La lente de ocho preguntas, aplicada a Ursa Mañana",
+      "growth.offer.lens.subtitle": "Cada fila responde una pregunta que el marco hace antes de que una oferta pueda salir.",
+      "growth.offer.lens.row.outcome.label": "Outcome (Resultado)",
+      "growth.offer.lens.row.outcome.body":
+        "Una mañana en la que la decisión del café ya está tomada — cada día de semana, 7–10am, una taza de autor en Alcanfores 183. El cliente no compra café; compra una mañana sin fricción.",
+      "growth.offer.lens.row.likelihood.label": "Likelihood (Probabilidad)",
+      "growth.offer.lens.row.likelihood.body":
+        "Alta. Ursa tuesta en casa, así que la taza marginal siempre está disponible; el único modo de falla es la capacidad de barra en pico — que el cupo de 50 socios del piloto existe para probar antes de escalar.",
+      "growth.offer.lens.row.delay.label": "Delay (Demora)",
+      "growth.offer.lens.row.delay.body":
+        "El mismo día. El socio siente el valor la mañana que entra por primera vez. Sin tiempo de espera, sin secuencia de onboarding, sin lista de espera una vez abierto el piloto.",
+      "growth.offer.lens.row.effort.label": "Effort (Esfuerzo)",
+      "growth.offer.lens.row.effort.body":
+        "Un mensaje de WhatsApp o un pago en la barra. Sin app, sin escanear QR, sin recarga. El barista marca una pata en la tarjeta — el ritual es lo que reduce la fricción.",
+      "growth.offer.lens.row.proof.label": "Proof (Prueba)",
+      "growth.offer.lens.row.proof.body":
+        "Reconocido por premio (CAM Café Perú 2025, top 5 en especialidad). La tostadora se ve desde el counter. Las tarjetas de historia citan finca, altitud, proceso. El costo marginal de S/. 1.20–1.80 está documentado en los registros de tostado.",
+      "growth.offer.lens.row.risk-reversal.label": "Risk reversal (Reversión de riesgo)",
+      "growth.offer.lens.row.risk-reversal.body":
+        "Cancelas cuando quieras, sin contrato, sin permanencia. Devolución prorrata el primer mes si el ritual no te cabe. El piloto está capado a 50 para poder cerrarlo limpio en 60 días si el modelo no paga.",
+      "growth.offer.lens.row.packaging.label": "Packaging (Empaque)",
+      "growth.offer.lens.row.packaging.body":
+        "Una oferta, un precio, una ventana: «Ursa Mañana — S/. 20/mes, Lun–Vie 7–10am». Sin niveles, sin add-ons que confundan la elección. El 20% off en acompañamientos es el único complemento, enmarcado como la recomendación del oso, no como un upsell.",
+      "growth.offer.lens.row.friction.label": "Friction (Fricción)",
+      "growth.offer.lens.row.friction.body":
+        "Flag en el POS, no una app aparte. Tarjeta física de sellos, no una billetera digital. Copy solo en español escrito para Miraflores, no traducido. El barista conoce al socio por nombre en una semana.",
+      "growth.offer.lens.footnote":
+        "En la lente de oferta, Ursa Mañana sobrevive porque el costo marginal de una taza de autor (S/. 1.20–1.80) queda tan por debajo del valor mensual percibido que la oferta se sostiene incluso en la celda conservadora de la tabla de sensibilidad.",
+
+      /* Lente conductual (Sutherland) sobre el mismo stack */
+      "growth.offer.behavioral.badge": "Lente conductual",
+      "growth.offer.behavioral.heading": "El mismo stack, leído con las palancas de valor percibido de Sutherland",
+      "growth.offer.behavioral.body":
+        "Desde una perspectiva conductual, el stack funciona en tres palancas que casi no cuestan. La tarjeta de historia señala el oficio — origen, altitud, proceso — a más o menos S/. 0.40 la impresión. El maridaje con nombre («el oso recomienda») construye un ritual, no una transacción; el cliente vuelve por el saludo, no por el descuento. Y la muestra de 50g de grano reinmarca una visita como el inicio de una prueba en casa — un levantamiento de valor percibido sin cambiar el precio de la carta. Secuenciar estas tres antes de la invitación a suscripción es lo que hace que la invitación aterrice como reconocimiento, no como cierre de ventas.",
 
       /* Journey */
       "growth.journey.badge": "Journey",
@@ -7931,17 +8283,25 @@ export const translations: Translations = {
       "calculator.footer.body":
         "Esta calculadora es una herramienta de apoyo a la decisión, no una garantía financiera. El costo marginal por taza depende del rendimiento del tostado, el uso de leche y el desperdicio; verifica contra los logs reales de Ursa antes de escalar. La viralidad y el crecimiento de suscriptores no se supusieron — el piloto está diseñado para medirlos. El modelo es honesto sobre lo que no sabe; la recomendación es actuar del lado del modelo que sobrevive a la celda del peor caso en la tabla de sensibilidad.",
 
+      /* Calculadora · lente de oferta (Hormozi) */
+      "calculator.lens.badge": "Lente de oferta",
+      "calculator.lens.title": "Lo que esta calculadora está probando de verdad",
+      "calculator.lens.body":
+        "En la lente de oferta, esta calculadora está revisando dos de las ocho preguntas antes de que el piloto salga: Likelihood (¿los socios visitarán lo suficiente para llegar al break-even del precio de S/. 20?) y Delay (¿el valor percibido aterriza dentro del primer mes, antes de que entre el churn?). La pregunta de reversión de riesgo — ¿qué pasa si un socio cancela a mitad de mes? — se responde operacionalmente, no numéricamente: el oso devuelve prorrata, sin preguntas, y el cupo del piloto de 50 hace que el downside del peor caso esté acotado y visible. La pregunta de Effort la responde la landing: un mensaje de WhatsApp para entrar, un sello de pata por visita, sin app.",
+
       /* ---- Estudio de Carta (Herramienta T1) ---- */
       "menu-studio.lede":
-        "Un constructor de carta interactivo para la pregunta que todo dueño de cafetería evita: ¿qué ítems se están ganando su espacio en la carta y cuáles están filtrando margen sin hacer ruido? Edita precios, costos y tiempos de preparación en cada ítem; mira cómo el margen promedio, el desglose por categoría y la clasificación Stars & Puzzles se actualizan en vivo. Modela la tasa de attach que convierte una bebida en un ticket rentable. Cada número es editable — nada aquí está inventado, solo estructurado. El punto no es un modelo perfecto de la carta; el punto es una lectura rápida de qué palanca jalar ahora.",
+        "Un constructor de carta interactivo para la pregunta que todo dueño de cafetería evita: ¿qué ítems se están ganando su espacio en la carta y cuáles están filtrando margen sin hacer ruido? Edita nombres, descripciones, precios, costos, carga de preparación, popularidad (1-5) y tasas de attach en cada ítem; mira cómo la tarjeta de carta, el tablero por categoría, los cálculos transparentes, las hipótesis de psicología y la clasificación Stars & Puzzles se actualizan en vivo. Las técnicas que presentamos aquí son hipótesis comprobables — no leyes universales. Cada número es editable; nada aquí está inventado, solo estructurado. El punto no es un modelo perfecto de la carta; el punto es una lectura rápida de qué palanca jalar ahora.",
       "menu-studio.meta.default": "Carta por defecto",
       "menu-studio.meta.default-value": "12 ítems de Ursa pre-cargados",
       "menu-studio.meta.thresholds": "Umbrales de margen",
       "menu-studio.meta.thresholds-value":
-        "> 65% verde · 55–65% oro · < 55% terracota",
+        "> 65% saludable · 55–65% vigilar · < 55% fuga",
       "menu-studio.meta.outputs": "Salidas",
       "menu-studio.meta.outputs-value":
-        "Métricas en vivo · matriz · export",
+        "Plantilla · preview · cálculos · psicología · matriz · export",
+
+      /* Sección 01 — Métricas en vivo */
       "menu-studio.section.01.badge": "Sección 01",
       "menu-studio.section.01.title": "Métricas en vivo de la carta",
       "menu-studio.section.01.meta": "Se actualiza al editar",
@@ -7951,51 +8311,260 @@ export const translations: Translations = {
       "menu-studio.stat.avg-margin": "Margen promedio %",
       "menu-studio.avg-margin.title": "Progreso del margen promedio",
       "menu-studio.avg-margin.body":
-        "Regla práctica de la industria de café de especialidad: el margen blendado de la carta debe situarse por encima de 65% — el nivel en el que una cafetería puede absorber un shock de costo del 10% sin re-pricing. Por debajo de 55% la carta filtra margen incluso cuando el ticket promedio se ve sano; un solo aumento de precio del proveedor se vuelve crisis. Los umbrales son convención, no ley; el break-even real de Ursa se sienta donde se sienten los costos fijos reales de Ursa.",
+        "Regla práctica de la industria de café de especialidad: el margen blendado de la carta debe situarse por encima de 65% — el nivel en el que una cafetería puede absorber un shock de costo del 10% sin re-pricing. Por debajo de 55% la carta filtra margen incluso cuando el ticket promedio se ve sano; un solo aumento de precio del proveedor se vuelve crisis. Los umbrales son convención, no ley; el break-even real de Ursa se sienta donde se sientan los costos fijos reales de Ursa.",
       "menu-studio.avg-margin.threshold-leak": "Umbral 55%",
       "menu-studio.avg-margin.threshold-healthy": "Saludable 65%",
+      "menu-studio.popularity.title": "Popularidad y attach promedio",
+      "menu-studio.popularity.subtitle":
+        "de 5 — tu lectura honesta de demanda",
+      "menu-studio.popularity.attach-avg": "Attach prom.",
+      "menu-studio.popularity.body":
+        "La popularidad es tu lectura honesta de si el ítem se mueve — no un pronóstico, no un deseo. El score 1-5 alimenta la matriz Stars & Puzzles (un score de 3 o más cuenta como «popular»). La tasa de attach es el % de clientes que agregan el ítem como acompañamiento; mientras más alto el promedio, más potencial de cross-sell vive en la carta actual. Ambos números son editables por ítem en la plantilla de abajo.",
       "menu-studio.prep.title":
         "Tiempo total de prep y mix por categoría",
       "menu-studio.prep.subtitle":
         "suma de minutos de barista por ronda completa",
       "menu-studio.prep.body":
         "El tiempo total de prep es la suma de minutos de barista si cada ítem se pidiera una vez — un proxy aproximado del techo de mano de obra. Si una hora pico real produce 30 tickets, multiplica el tiempo promedio de prep por 30 y divide entre el número de baristas en turno: ese es el minuto-cuenta que realmente tienes para entregar.",
+
+      /* Sección 02 — Plantilla editable + preview en vivo */
       "menu-studio.section.02.badge": "Sección 02",
       "menu-studio.section.02.title":
-        "Constructor de carta — edita cada campo",
-      "menu-studio.section.02.meta": "Agrega, borra, edita inline",
+        "Plantilla editable — la tarjeta de tu cafetería",
+      "menu-studio.section.02.meta":
+        "Edición inline · preview en vivo a la derecha",
       "menu-studio.section.02.intro":
-        "Edita nombre, categoría, precio de venta (PEN), costo de comida (PEN) y tiempo de prep (min) por cada ítem. Togglea el supuesto de popularidad para mover la matriz Stars & Puzzles de la Sección 04 — la popularidad aquí es tu lectura honesta de si el ítem se mueve, no un pronóstico.",
+        "Edita nombre, categoría, descripción para el cliente, precio (PEN), costo (PEN), carga de prep (min), popularidad (1-5), tasa de attach, insignia de recomendado y pairings por cada ítem. La tarjeta de la derecha es el preview en vivo — exactamente lo que un cliente vería en una carta impresa. Edita a la izquierda, míralo reflejado a la derecha, en tiempo real. La plantilla es el factor wow: cada campo editable, cada número transparente, cada cambio honesto.",
       "menu-studio.section.02.button.add": "Agregar ítem",
       "menu-studio.section.02.empty":
         "Aún no hay ítems. Haz click en Agregar ítem para empezar.",
       "menu-studio.section.02.footer":
-        "Los ítems por defecto están anclados a la carta verificada de Ursa (Ursagroni, Maracumango Coldbrew, Filtrado Lonya) más una barra de espresso reconstruida. Los costos son benchmarks plausibles para una cafetería de especialidad de Lima — reemplázalos con tus logs de tostado y facturas de proveedor reales antes de citar precios o tomar una decisión de kill.",
-      "menu-studio.table.name": "Nombre",
-      "menu-studio.table.category": "Categoría",
-      "menu-studio.table.price": "Precio (PEN)",
-      "menu-studio.table.cost": "Costo (PEN)",
-      "menu-studio.table.prep": "Prep (min)",
-      "menu-studio.table.popular": "¿Popular?",
+        "Los ítems por defecto están anclados a la carta verificada de Ursa (Ursagroni, Maracumango Coldbrew, Filtrado Lonya) más una barra de espresso y vitrina de repostería reconstruidas. Los costos son benchmarks plausibles para una cafetería de especialidad de Lima — reemplázalos con tus logs de tostado y facturas de proveedor reales antes de citar precios o tomar una decisión de kill.",
+      "menu-studio.template.new-item-name": "Ítem nuevo",
+      "menu-studio.template.field.name": "Nombre del ítem",
+      "menu-studio.template.field.description": "Descripción para el cliente",
+      "menu-studio.template.field.description-placeholder":
+        "Agrega una descripción que venda el ítem — sensorial, breve, verdadera.",
+      "menu-studio.template.field.price": "Precio (PEN)",
+      "menu-studio.template.field.cost": "Costo (PEN)",
+      "menu-studio.template.field.prep": "Prep (min)",
+      "menu-studio.template.field.popularity": "Popularidad (1-5)",
+      "menu-studio.template.field.attach-rate": "Attach %",
+      "menu-studio.template.field.recommended": "Recomendado",
+      "menu-studio.template.field.pairings": "Parea con",
+      "menu-studio.template.field.remove": "Eliminar {name}",
+      "menu-studio.template.margin-label": "Margen",
+      "menu-studio.template.pairings-collapse": "Ocultar pairings",
+      "menu-studio.template.pairings-expand": "Editar pairings",
+      "menu-studio.template.pairings-empty":
+        "Sin pairings aún — haz click en Editar pairings.",
+      "menu-studio.template.pairings-remove": "Quitar pairing con {name}",
+      "menu-studio.template.pairings-no-others":
+        "Agrega otro ítem para habilitar pairings.",
+      "menu-studio.preview.title": "Preview en vivo",
+      "menu-studio.preview.meta": "Se actualiza al escribir",
+      "menu-studio.preview.intro":
+        "Lo que ve el cliente. Los ítems recomendados llevan una estrella; los pairings se imprimen como «Parea con». Las líneas punteadas y los divisores Art Nouveau son parte de la identidad visual de Ursa — no los quites al llevar esta tarjeta a impresión.",
+      "menu-studio.preview.header-brand": "URSA COFFEE ROASTERS",
+      "menu-studio.preview.header-tagline":
+        "Un gramo a la vez · Miraflores, Lima",
+      "menu-studio.preview.header-menu-title": "Carta",
+      "menu-studio.preview.recommended-badge": "Recomendado",
+      "menu-studio.preview.pairings-label": "Parea con",
+      "menu-studio.preview.footer-note":
+        "Precios en PEN · IGV incluido",
+      "menu-studio.preview.empty":
+        "Agrega ítems a la izquierda para ver el preview de la carta.",
+
+      /* Sección 03 — Cálculos transparentes */
       "menu-studio.section.03.badge": "Sección 03",
       "menu-studio.section.03.title":
-        "Análisis de margen — ordenable",
+        "Cálculos transparentes — cada columna a la vista",
       "menu-studio.section.03.meta":
-        "Verde > 65% · Oro 55–65% · Terracota < 55%",
+        "Ordenable · sin fórmula oculta",
+      "menu-studio.section.03.intro":
+        "Por cada ítem: precio, costo, margen de contribución en PEN y %, popularidad (1-5), carga de prep en minutos, tasa de attach, la clasificación Kasavana & Smith 1982 (Star / Plowhorse / Puzzle / Dog) y los pairings que configuraste en la plantilla. Nada aquí se calcula fuera de la carta ni detrás de un paywall — cada celda deriva en vivo de los campos editables de arriba. Ordena por cualquier columna para encontrar la palanca que buscas: mayor margen, menor popularidad, mayor prep, attach más débil.",
       "menu-studio.section.03.empty":
-        "Agrega ítems arriba para ver el análisis de margen.",
+        "Agrega ítems arriba para ver los cálculos.",
       "menu-studio.section.03.legend-healthy":
         "Saludable · > 65% margen",
       "menu-studio.section.03.legend-watch":
         "Vigilar · 55–65% margen",
       "menu-studio.section.03.legend-leak":
         "Fuga · < 55% margen",
-      "menu-studio.margin.healthy": "saludable",
-      "menu-studio.margin.watch": "vigilar",
-      "menu-studio.margin.leak": "fuga",
+      "menu-studio.section.03.footer":
+        "Margen % = (precio − costo) ÷ precio. La clasificación usa un umbral de margen de 55% y un umbral de popularidad de 3/5 — ambos editables arriba en la plantilla. El booleano «popular» del constructor viejo se reemplazó por un score 1-5 para mayor resolución: un Plowhorse de 2/5 y uno de 5/5 no son el mismo animal.",
+      "menu-studio.calc.column.item": "Ítem",
+      "menu-studio.calc.column.price": "Precio",
+      "menu-studio.calc.column.cost": "Costo",
+      "menu-studio.calc.column.margin-pen": "Margen (PEN)",
+      "menu-studio.calc.column.margin-pct": "Margen %",
+      "menu-studio.calc.column.popularity": "Popularidad",
+      "menu-studio.calc.column.prep": "Prep (min)",
+      "menu-studio.calc.column.attach": "Attach %",
+      "menu-studio.calc.column.classification": "Clase",
+      "menu-studio.calc.column.pairings": "Pairings",
+      "menu-studio.calc.pairings-none": "—",
+
+      /* Sección 04 — Tablero por categoría */
       "menu-studio.section.04.badge": "Sección 04",
-      "menu-studio.section.04.title": "Modelador de tasa de attach",
+      "menu-studio.section.04.title":
+        "Tablero de rendimiento por categoría",
       "menu-studio.section.04.meta":
+        "Agregados por categoría",
+      "menu-studio.section.04.intro":
+        "Margen promedio, popularidad promedio, carga de prep promedio y tasa de attach promedio por categoría. El tablero responde a la pregunta que la vista por ítem esconde: qué categoría está cargando la carta y cuál la está arrastrando. Una categoría con margen alto pero attach bajo es una oportunidad de cross-sell; una categoría con popularidad alta pero margen bajo es un objetivo de re-ingeniería de costo.",
+      "menu-studio.section.04.empty":
+        "Aún no hay categorías con ítems.",
+      "menu-studio.section.04.footer":
+        "Las categorías con menos de 2 ítems tienen promedios inestables — trátalos como direccionales, no estadísticos. El tablero es más útil cuando la carta tiene 10+ ítems en 4+ categorías; por debajo de eso, la vista por ítem de la Sección 03 es más honesta.",
+      "menu-studio.category.column.category": "Categoría",
+      "menu-studio.category.column.items": "Ítems",
+      "menu-studio.category.column.avg-margin": "Margen prom. %",
+      "menu-studio.category.column.avg-popularity": "Popularidad prom.",
+      "menu-studio.category.column.avg-prep": "Prep prom. (min)",
+      "menu-studio.category.column.avg-attach": "Attach prom. %",
+
+      /* Etiquetas de categoría (display) */
+      "menu-studio.category.espresso": "Espresso",
+      "menu-studio.category.coldbrew": "Coldbrew",
+      "menu-studio.category.filtrado": "Filtrado",
+      "menu-studio.category.cocktail": "Coctel de café",
+      "menu-studio.category.pastry": "Repostería",
+      "menu-studio.category.savory": "Salado",
+      "menu-studio.category.non-coffee": "Sin café",
+
+      /* Sección 05 — Técnicas de psicología */
+      "menu-studio.section.05.badge": "Sección 05",
+      "menu-studio.section.05.title":
+        "Diseño con psicología — como hipótesis comprobables",
+      "menu-studio.section.05.meta":
+        "Evidencia · mecanismo · ética · medición · regla de parada",
+      "menu-studio.section.05.intro":
+        "Ocho técnicas extraídas de la literatura de economía conductual e ingeniería de carta. Cada una se presenta como una hipótesis con un rating de fuerza de evidencia (fuerte / moderada / débil / mixta), el mecanismo comercial que la impulsa, el riesgo ético que carga, un plan de medición concreto en Ursa y una regla de parada que dice cuándo matarla. Ninguna es una ley universal — la única forma de saber si una técnica funciona en tu cafetería es probarla con tus clientes.",
+      "menu-studio.section.05.disclaimer-title":
+        "Son hipótesis, no leyes",
+      "menu-studio.section.05.disclaimer":
+        "Los ratings de evidencia reflejan la fuerza de la investigación publicada, no la certeza del efecto en tu cafetería. Una técnica calificada «fuerte» se ha replicado en múltiples contextos y diseños de estudio; «mixta» significa que los estudios no se ponen de acuerdo, usualmente porque el efecto depende del contexto. Trata cada técnica como una hipótesis que tu carta puede falsar en 30 días de medición. Si el lift no está, mátala — ninguna cantidad de evidencia publicada te obliga a mantener una técnica que no funciona con tus clientes.",
+      "menu-studio.psych.evidence-label": "Fuerza de evidencia",
+      "menu-studio.psych.mechanism-label": "Mecanismo comercial",
+      "menu-studio.psych.ethical-risk-label": "Riesgo ético",
+      "menu-studio.psych.measurement-label": "Plan de medición en Ursa",
+      "menu-studio.psych.stop-condition-label": "Regla de parada",
+      "menu-studio.psych.citation-label": "Fuente",
+      "menu-studio.psych.evidence.strong": "Fuerte",
+      "menu-studio.psych.evidence.moderate": "Moderada",
+      "menu-studio.psych.evidence.weak": "Débil",
+      "menu-studio.psych.evidence.mixed": "Mixta",
+
+      "menu-studio.psych.technique.star-markers.title":
+        "Estrellas en ítems de alto margen",
+      "menu-studio.psych.technique.star-markers.mechanism":
+        "La saliencia visual dirige la mirada; una estrella señala respaldo editorial y reduce la fricción de decisión para el cliente inseguro. El marcador funciona bajando el costo cognitivo de elegir, no cambiando la preferencia de fondo.",
+      "menu-studio.psych.technique.star-markers.ethical-risk":
+        "Bajo cuando el marcador es honesto — alto margen Y alta calidad. Se vuelve manipulación cuando se usa para empujar ítems que el dueño no se tomaría. La línea es la honestidad de la recomendación.",
+      "menu-studio.psych.technique.star-markers.measurement":
+        "A/B test en rotación de 4 semanas: la mitad de las cartas impresas llevan la estrella en el Ursagroni, la mitad no. Cuenta unidades de Ursagroni vendidas por 100 cubiertos en cada condición.",
+      "menu-studio.psych.technique.star-markers.stop-condition":
+        "Si el lift es < 5% después de 4 semanas, mata el marcador — agrega ruido visual sin efecto comercial. La técnica es context-dependiente; la literatura reporta resultados positivos y nulos.",
+      "menu-studio.psych.technique.star-markers.citation":
+        "Yang et al. 2009 (positivo); Carpenter 2018 (sin efecto).",
+
+      "menu-studio.psych.technique.menu-ordering.title":
+        "Orden de la carta (primacía vs recencia)",
+      "menu-studio.psych.technique.menu-ordering.mechanism":
+        "Los ítems al inicio y al final de una lista atraen más atención que los del medio. La dirección exacta (primacía vs recencia) depende del largo de la carta, el patrón de lectura y si la carta es impresa o digital.",
+      "menu-studio.psych.technique.menu-ordering.ethical-risk":
+        "Bajo. Reordenar es invisible para el cliente. El riesgo es usar el slot estrella para un ítem de baja calidad y alto margen — el cliente que sigue la sugerencia una vez y se decepciona no la volverá a seguir.",
+      "menu-studio.psych.technique.menu-ordering.measurement":
+        "Mueve un ítem Puzzle (alto margen, baja popularidad) al primer slot de su categoría por 30 días. Cuenta unidades vendidas por 100 cubiertos antes y después.",
+      "menu-studio.psych.technique.menu-ordering.stop-condition":
+        "Si el movimiento no levanta unidades por al menos 20% después de 30 días, restaura el orden original — el efecto de primacía no está presente en el contexto de tu carta.",
+      "menu-studio.psych.technique.menu-ordering.citation":
+        "Dayan & Bar-Hillel 2011 (primacía); Bowen & McCarthy 2019 (recencia en cartas digitales).",
+
+      "menu-studio.psych.technique.descriptive-names.title":
+        "Nombres descriptivos de ítems",
+      "menu-studio.psych.technique.descriptive-names.mechanism":
+        "El lenguaje sensorial y de proveniencia («Carne braseada lentamente, ají amarillo, aceitunas» vs «Empanada de carne») dispara simulación mental, sube el valor percibido y mejora las calificaciones post-comida del mismo plato.",
+      "menu-studio.psych.technique.descriptive-names.ethical-risk":
+        "Bajo si la descripción es verdadera. Alto si sobre-promete — un cliente que pide «braseada lentamente» y prueba carne hervida no vuelve, y le cuenta a dos amigos.",
+      "menu-studio.psych.technique.descriptive-names.measurement":
+        "Reescribe 3 descripciones por semana. Cuenta ventas de esos ítems vs un baseline de 4 semanas, y pide al equipo de bar que anote cualquier comentario espontáneo del cliente sobre las descripciones.",
+      "menu-studio.psych.technique.descriptive-names.stop-condition":
+        "Si las ventas no suben ≥ 10% después de 3 semanas, la descripción original ya era buena — restáurala. La técnica es fuerte en la literatura pero existen techos; no todo ítem se beneficia de más palabras.",
+      "menu-studio.psych.technique.descriptive-names.citation":
+        "Wansink, Painter & North 2005 (27% lift en ventas, mejores ratings post-comida).",
+
+      "menu-studio.psych.technique.price-anchoring.title":
+        "Anclaje de precio",
+      "menu-studio.psych.technique.price-anchoring.mechanism":
+        "Poner un ítem de precio alto al inicio de una categoría hace que los ítems debajo se sientan razonables por comparación. El ancla no necesita vender — necesita ser visible. El mecanismo es contraste: la percepción de precio del cliente es relativa, no absoluta.",
+      "menu-studio.psych.technique.price-anchoring.ethical-risk":
+        "Moderado. El ancla debe ser un ítem real que se pueda pedir. Un ancla falsa — un tier «Reserva» que nunca está en stock — erosiona la confianza la primera vez que un cliente la pide y le dicen que no.",
+      "menu-studio.psych.technique.price-anchoring.measurement":
+        "Agrega un filtrado de reserva de S/. 22 al inicio de la sección Filtrado por 30 días. Cuenta unidades del Filtrado Lonya de S/. 14 debajo, y unidades del ancla misma.",
+      "menu-studio.psych.technique.price-anchoring.stop-condition":
+        "Si el ancla vende cero unidades en 30 días Y los ítems debajo no levantan, retira el ancla — es ruido visual sin efecto comercial. Si el ancla misma empieza a vender, promuévela a ítem real, no a decoy.",
+      "menu-studio.psych.technique.price-anchoring.citation":
+        "Ariely 2008 (Predictably Irrational); Poundstone 2010 (Priceless).",
+
+      "menu-studio.psych.technique.decoy-pricing.title":
+        "Decoy pricing (precio señuelo)",
+      "menu-studio.psych.technique.decoy-pricing.mechanism":
+        "Una tercera opción con precio que hace que una de dos opciones existentes se vea mejor. Ejemplo clásico: café mediano S/. 8, grande S/. 12, decoy pequeño S/. 7 — el pequeño hace que el mediano se vea generoso. El decoy funciona por dominancia asimétrica: es peor en toda dimensión que una de las alternativas.",
+      "menu-studio.psych.technique.decoy-pricing.ethical-risk":
+        "Alto. Los decoys están diseñados explícitamente para manipular la elección. Úsalos solo cuando la opción «ganadora» es genuinamente la mejor para el cliente (p.ej. un tamaño que minimiza desperdicio, o una configuración que el barista recomendaría de verdad). Nunca despliegues un decoy cuya victoria dañe al cliente.",
+      "menu-studio.psych.technique.decoy-pricing.measurement":
+        "Introduce un tamaño decoy para una bebida por 30 días. Cuenta el mix de tamaños vendidos, y el ticket promedio de esa bebida.",
+      "menu-studio.psych.technique.decoy-pricing.stop-condition":
+        "Si el decoy mismo vende más de 5% de las veces, no es un decoy — es una opción real. Mantenlo como opción real o mátalo. Si el mix no se mueve hacia la opción «ganadora», el decoy falló.",
+      "menu-studio.psych.technique.decoy-pricing.citation":
+        "Huber, Payne & Puto 1982 (dominancia asimétrica).",
+
+      "menu-studio.psych.technique.pairing-suggestions.title":
+        "Sugerencias de pairing",
+      "menu-studio.psych.technique.pairing-suggestions.mechanism":
+        "Nombrar un ítem acompañante específico («Parea con: Financier de Pera») planta una semilla de cross-sell en la mente del cliente sin requerir prompt del barista. El mecanismo es priming: la sugerencia hace el pairing más disponible en el set de elección del cliente.",
+      "menu-studio.psych.technique.pairing-suggestions.ethical-risk":
+        "Bajo cuando el pairing es genuinamente complementario — sabores que de verdad funcionan juntos. El riesgo es sugerir pairings que no saben bien juntos; el cliente que sigue la sugerencia una vez y se decepciona no la volverá a seguir.",
+      "menu-studio.psych.technique.pairing-suggestions.measurement":
+        "Agrega sugerencias de pairing a 4 ítems por 30 días. Cuenta la tasa de attach del acompañamiento sugerido antes y después, controlando por día de la semana y clima (ambos mueven el attach de repostería).",
+      "menu-studio.psych.technique.pairing-suggestions.stop-condition":
+        "Si el attach no sube ≥ 5 puntos porcentuales después de 30 días, retira las sugerencias — agregan carga de lectura sin lift. La técnica funciona en cadenas con alto tráfico; el tráfico de Ursa puede ser muy bajo para detectar un lift de 5 puntos en 30 días.",
+      "menu-studio.psych.technique.pairing-suggestions.citation":
+        "Housedris & Kuo 2021 (cross-sell sube el ticket 15-20%).",
+
+      "menu-studio.psych.technique.bundle-offers.title":
+        "Ofertas de bundle",
+      "menu-studio.psych.technique.bundle-offers.mechanism":
+        "Un pequeño descuento en un bundle fijo («Cappuccino + Cookie — S/. 13, ahorra S/. 2») baja el costo de decisión y sube el ticket promedio. El precio del bundle ancla al cliente a comprar ambos; los precios standalone se vuelven el punto de referencia contra el cual el bundle se ve como ganga.",
+      "menu-studio.psych.technique.bundle-offers.ethical-risk":
+        "Bajo cuando el precio del bundle es genuinamente un pequeño descuento. Un bundle que exige comprar un ítem no querido es un patrón oscuro — el cliente que solo quería el café termina pagando una cookie que no se comió.",
+      "menu-studio.psych.technique.bundle-offers.measurement":
+        "Ofrece un bundle Cappuccino + Cookie por 30 días a S/. 13 (vs S/. 15 por separado). Cuenta uptake del bundle vs attach standalone de cookie, y unidades totales de cookie vendidas (bundle + standalone).",
+      "menu-studio.psych.technique.bundle-offers.stop-condition":
+        "Si el ingreso del bundle es menor al que habría sido el standalone, mata el bundle — el descuento no se está pagando. Si las unidades totales de cookie suben pero el margen blendado baja, el bundle está canibalizando ventas a precio full.",
+      "menu-studio.psych.technique.bundle-offers.citation":
+        "Yadav 1994 (evaluación de bundles); Stremersch & Tellis 2002 (meta-análisis).",
+
+      "menu-studio.psych.technique.font-hierarchy.title":
+        "Jerarquía de peso y tamaño de fuente",
+      "menu-studio.psych.technique.font-hierarchy.mechanism":
+        "Los nombres de ítems en peso más pesado / tamaño más grande señalan importancia y dirigen la secuencia de lectura. El precio en peso más ligero reduce la sensibilidad al precio al bajar la saliencia visual del costo. El mecanismo es atención: el ojo sigue primero el trazo más pesado.",
+      "menu-studio.psych.technique.font-hierarchy.ethical-risk":
+        "Bajo. La jerarquía visual es una herramienta de diseño, no una manipulación. El riesgo es hacer los precios invisibles — eso crea sorpresa post-pedido y erosiona confianza. Los precios siempre deben ser legibles; simplemente no el elemento más ruidoso de la página.",
+      "menu-studio.psych.technique.font-hierarchy.measurement":
+        "A/B test en rotación de 4 semanas: la mitad de las cartas impresas usan la jerarquía de peso pesado de este preview, la mitad usa peso uniforme entre nombre y precio. Cuenta la selección de los ítems con peso más pesado.",
+      "menu-studio.psych.technique.font-hierarchy.stop-condition":
+        "Si la selección no se mueve hacia los ítems de peso pesado después de 4 semanas, restaura el peso uniforme — la jerarquía es invisible para tus clientes. La base de evidencia es la más vieja y débil de las ocho técnicas; trátala como decorativa hasta que tu medición diga lo contrario.",
+      "menu-studio.psych.technique.font-hierarchy.citation":
+        "Carmin & Norkus 1990 (percepción de precio en carta).",
+
+      /* Sección 06 — Modelador de tasa de attach */
+      "menu-studio.section.06.badge": "Sección 06",
+      "menu-studio.section.06.title": "Modelador de tasa de attach",
+      "menu-studio.section.06.meta":
         "Convierte una bebida en un ticket",
       "menu-studio.attach.title": "Configura el pairing",
       "menu-studio.attach.primary": "Bebida principal",
@@ -8023,13 +8592,15 @@ export const translations: Translations = {
       "menu-studio.attach.composition": "Composición del ticket",
       "menu-studio.attach.composition-primary": "Principal",
       "menu-studio.attach.composition-attach": "Attach",
-      "menu-studio.section.05.badge": "Sección 05",
-      "menu-studio.section.05.title":
+
+      /* Sección 07 — Stars & Puzzles */
+      "menu-studio.section.07.badge": "Sección 07",
+      "menu-studio.section.07.title":
         "Stars & Puzzles — matriz de ingeniería de carta",
-      "menu-studio.section.05.meta":
-        "Togglea popularidad por ítem para reclasificar",
-      "menu-studio.section.05.intro":
-        "Ingeniería de carta clásica (originalmente de Menu Engineering: A Practical Guide to Improving Profitability, Kasavana & Smith, 1982). Los ítems se clasifican por margen (alto/bajo, usando el umbral de 55%) y por popularidad (tu supuesto honesto, toggleado en el constructor). Cada cuadrante tiene una acción distinta — no un veredicto. El framework es apropiado aquí porque la carta de Ursa es chica (12–15 ítems) y las decisiones son reversibles: un Puzzle se puede reposicionar sin sacarlo de la carta, un Plowhorse se puede re-ingeniar sin perder su popularidad. La limitación del framework: trata margen y popularidad como independientes, pero no lo son — un aumento de precio puede mover un ítem de Star a Puzzle. Vuelve a correr la matriz después de cualquier cambio de precio.",
+      "menu-studio.section.07.meta":
+        "Popularidad ≥ 3/5 cuenta como alta · margen ≥ 55% cuenta como alto",
+      "menu-studio.section.07.intro":
+        "Ingeniería de carta clásica (originalmente de Menu Engineering: A Practical Guide to Improving Profitability, Kasavana & Smith, 1982). Los ítems se clasifican por margen (alto/bajo, usando el umbral de 55%) y por popularidad (el score 1-5 puesto en la plantilla; ≥ 3 cuenta como alto). Cada cuadrante tiene una acción distinta — no un veredicto. El framework es apropiado aquí porque la carta de Ursa es chica (12–15 ítems) y las decisiones son reversibles: un Puzzle se puede reposicionar sin sacarlo de la carta, un Plowhorse se puede re-ingeniar sin perder su popularidad. La limitación del framework: trata margen y popularidad como independientes, pero no lo son — un aumento de precio puede mover un ítem de Star a Puzzle. Vuelve a correr la matriz después de cualquier cambio de precio.",
       "menu-studio.quadrant.star.label": "Stars",
       "menu-studio.quadrant.star.desc":
         "Margen alto · popularidad alta",
@@ -8069,13 +8640,15 @@ export const translations: Translations = {
       "menu-studio.matrix.axis-high": "Alto",
       "menu-studio.matrix.axis-low": "Bajo",
       "menu-studio.matrix.footer":
-        "Umbral: margen ≥ 55% cuenta como alto. La popularidad es el toggle del constructor — ponla honestamente. Una carta de 12 ítems debería apuntar a 3–4 Stars, 2–3 Puzzles para impulsar, 2–3 Plowhorses para re-ingeniar y 1–2 Dogs para retirar. La distribución importa más que cualquier clasificación individual — una carta con 12 Stars es una carta donde el supuesto de popularidad es demasiado generoso.",
-      "menu-studio.section.06.badge": "Sección 06",
-      "menu-studio.section.06.title": "Exporta el resumen de carta",
-      "menu-studio.section.06.meta": "Copiar al portapapeles",
+        "Umbral: margen ≥ 55% cuenta como alto. La popularidad es el score 1-5 puesto en la plantilla — score ≥ 3 cuenta como alto. Una carta de 12 ítems debería apuntar a 3–4 Stars, 2–3 Puzzles para impulsar, 2–3 Plowhorses para re-ingeniar y 1–2 Dogs para retirar. La distribución importa más que cualquier clasificación individual — una carta con 12 Stars es una carta donde el supuesto de popularidad es demasiado generoso.",
+
+      /* Sección 08 — Export */
+      "menu-studio.section.08.badge": "Sección 08",
+      "menu-studio.section.08.title": "Exporta el resumen de carta",
+      "menu-studio.section.08.meta": "Copiar al portapapeles",
       "menu-studio.export.title": "Genera un snapshot de texto",
       "menu-studio.export.body":
-        "Un export en texto plano de cada ítem, su margen, clasificación y la proyección de attach. Útil para pegar en un doc de Notion, un mensaje de WhatsApp a un socio o una hoja de prep impresa para el bar. Regenera después de cada cambio de precio o costo — un export desactualizado es peor que ningún export.",
+        "Un export en texto plano de cada ítem, su margen, popularidad, carga de prep, tasa de attach, clasificación, los agregados del tablero por categoría, la proyección de attach y las ocho hipótesis de psicología. Útil para pegar en un doc de Notion, un mensaje de WhatsApp a un socio o una hoja de prep impresa para el bar. Regenera después de cada cambio de precio o costo — un export desactualizado es peor que ningún export.",
       "menu-studio.export.button": "Generar export",
       "menu-studio.export.dialog-title": "Export de carta",
       "menu-studio.export.close": "Cerrar",
@@ -8543,6 +9116,12 @@ export const translations: Translations = {
       "pilotbiz.assumption.callout.title": "Lo que este modelo no asume",
       "pilotbiz.assumption.callout.body":
         "Sin viralidad. Sin gasto de marketing. Sin pronóstico de cuenta de suscriptores más allá de la curva que tú pones. Sin inflación asumida en el costo del verde. El modelo es honesto sobre lo que no sabe — el piloto existe para medir esos desconocidos, no para asumirlos fuera.",
+
+      /* Piloto · lente de oferta (Hormozi) */
+      "pilotbiz.lens.badge": "Lente de oferta",
+      "pilotbiz.lens.title": "Lo que el piloto está probando de verdad, en términos de oferta",
+      "pilotbiz.lens.body":
+        "En la lente de oferta, el piloto está probando si el resultado percibido por el socio — un ritual matutino sin fricción en Alcanfores 183 — es suficientemente alto para superar el esfuerzo de cambiar un hábito de café existente. El conteo de socios de break-even es el proxy operacional; la métrica real que el marco nos pide evidenciar es si los primeros 50 socios se renuevan en el mes dos. Esa tasa de renovación es la prueba de Likelihood que la lente de oferta requiere antes de cualquier decisión de escalamiento. Desde una perspectiva conductual, el cupo del piloto mismo es una señal Sutherland — la escasez hace que la oferta se sienta elegida, no vendida — y la ventana de kill de 60 días es la reversión de riesgo que le permite al dueño comprometerse sin defender por sunk cost un modelo que no paga.",
 
       /* ---- Tarjeta de Auditoría de Marca (Herramienta T13) ---- */
       "scorecard.lede":

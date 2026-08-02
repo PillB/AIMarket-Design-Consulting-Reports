@@ -224,6 +224,27 @@ export function LandingView() {
         </div>
       </ViewSection>
 
+      {/* The offer, in three lenses — outcome, risk reversal, behavioral */}
+      <ViewSection badge={t("content.landing.offer.outcome.badge")} title={t("content.landing.offer.outcome.heading")} meta={t("content.landing.offer.behavioral.badge")}>
+        <div className="grid md:grid-cols-3 gap-5 [grid-template-columns:minmax(0,1fr)]">
+          <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
+            <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold-text block mb-2">{t("content.landing.offer.outcome.badge")}</span>
+            <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.landing.offer.outcome.heading")}</h3>
+            <p className="text-[0.88rem] text-foreground/85 leading-relaxed m-0">{t("content.landing.offer.outcome.body")}</p>
+          </Card>
+          <Card className="bg-ursa-foam">
+            <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-forest-deep block mb-2">{t("content.landing.offer.risk-reversal.badge")}</span>
+            <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.landing.offer.risk-reversal.heading")}</h3>
+            <p className="text-[0.88rem] text-foreground/85 leading-relaxed m-0">{t("content.landing.offer.risk-reversal.body")}</p>
+          </Card>
+          <Card className="bg-ursa-cream">
+            <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta-text block mb-2">{t("content.landing.offer.behavioral.badge")}</span>
+            <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.landing.offer.behavioral.heading")}</h3>
+            <p className="text-[0.88rem] text-foreground/85 leading-relaxed m-0">{t("content.landing.offer.behavioral.body")}</p>
+          </Card>
+        </div>
+      </ViewSection>
+
       {/* The math */}
       <ViewSection badge="Transparencia" title="Las matemáticas honestas" meta="Por qué funciona · y dónde está el riesgo">
         <div className="grid lg:grid-cols-[1fr_1fr] gap-6 items-start [grid-template-columns:minmax(0,1fr)]">

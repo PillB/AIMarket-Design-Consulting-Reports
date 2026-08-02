@@ -1752,3 +1752,50 @@ Stage Summary:
 - Static reports: Spanish HTML versions created for all dossier files
 - Competitor count: 13 → 14 (Milenaria added)
 - Live site: https://pillb.github.io/AIMarket-Design-Consulting-Reports/ — all fixes deployed and verified
+
+---
+
+## Hormozi/Sutherland Content Review (Task ID: HORMOZI-SUTHERLAND-REVIEW)
+
+**Lens applied:** Two analytical frameworks applied to Ursa Coffee strategic dossier content:
+1. Offer-value lens (Hormozi's $100M Offers) — 8 questions: Outcome, Likelihood, Delay, Effort, Proof, Risk reversal, Packaging, Friction.
+2. Behavioral economics lens (Sutherland's Alchemy) — 8 levers: Framing, Salience, Signaling, Context, Choice architecture, Ritual, Distinctiveness, Perceived value.
+
+**Important rule followed:** No impersonation, no invented quotations. Frameworks cited analytically as "In the offer-value lens..." / "From a behavioral perspective..." — never as "Hormozi says..." or "Sutherland says...".
+
+### Phase 1 — Assessment findings (weak points identified)
+- growth-view: Existing Hormozi/Sutherland principle cards listed adaptations but did not explicitly answer the 8 offer-value questions for Ursa Mañana, and the offer-stack section lacked an explicit behavioral-lens read. Risk reversal was implicit (buried in calculator) rather than surfaced as a headline guarantee.
+- menu-view: The reconstructed menu card had rich anchoring material (S/. 22 Chemex → S/. 12 V60 → S/. 10 Cortado) but no explicit Sutherland-lens callout explaining why the existing menu already does anchoring work. The 3-scenario pricing (lean/moderate/growth) needed an explicit framing of which scenario is the anchor and which is the risk reversal.
+- calculator-view: The calculator modeled operator economics but did not frame its outputs in offer-value terms — i.e., which of the 8 questions it is actually testing.
+- pilot-view: The decision framework was operational but did not explicitly state what the pilot is testing in offer-value terms, nor cite the behavioral signal value of the 50-member cap (scarcity).
+- landing-view: The pitch had implicit risk reversal ("Cancelas cuando quieras") but it was buried in a FAQ. No explicit "outcome" framing, no behavioral-lens citation. Many hardcoded Spanish strings.
+
+### Phase 2 — Content improvements shipped
+1. **growth-view.tsx** — Added a new highlighted "Offer-value lens" Card at the top of the Offer Architecture section. The card renders all 8 framework questions as a 2-column grid, each with a label + body answer specific to Ursa Mañana (Miraflores, Alcanfores 183, S/. 20/mes, 7–10am Lun–Vie, 50-member pilot cap). Added a closing footnote citing the marginal-cost rationale (S/. 1.20–1.80/cup). Added a "Behavioral lens" gold Callout at the end of the section, citing the three Sutherland levers (story card signaling, named-drink ritual, bean-sample reframing).
+
+2. **menu-view.tsx** — Added a gold "Behavioral lens on the menu" Callout in Section 01 explaining Sutherland anchoring (Chemex → V60 → Cortado), signaling layer (Ursagroni/Maracumango/Filtrado Lonya names as distribution), ritual cue (dotted-leader carta format), and salience anchor (bear crest). Added a gold "Why the moderate scenario is the anchor, not the average" Callout in Section 05 reframing the 3-scenario pricing as choice architecture with restraint.
+
+3. **calculator-view.tsx** — Added a new "Offer-value lens" ViewSection between the input/output section and the tabs section, with a gold Callout explaining which 2 of the 8 framework questions the calculator tests (Likelihood + Delay), how risk reversal is answered operationally (pro-rata refund, 50-member cap bounds downside), and how Effort is answered by the landing page.
+
+4. **pilot-view.tsx** — Added a highlighted "Offer-value lens" card in the Actions section explaining what the pilot tests in offer-value terms (perceived outcome vs. effort of changing habit), the real metric the framework asks for (month-2 renewal rate of first 50), and the behavioral signal value of the 50-member cap (scarcity makes the offer feel chosen, not sold) plus the 60-day kill window as risk reversal.
+
+5. **landing-view.tsx** — Added a new "The offer, in three lenses" ViewSection between "How it works" and "The math", with three side-by-side cards: Outcome (what the subscriber gets — a frictionless morning), Risk reversal (cancel anytime + pro-rata refund + 60-day kill), and Behavioral lens (subscription as ritual not discount, scarcity of 50-member cap as signal). All copy is bilingual via useI18n.
+
+### Phase 3 — i18n additions (EN + ES)
+Added ~80 new translation keys across both EN and ES buckets in `/home/z/my-project/src/lib/i18n.ts`:
+- `growth.offer.lens.*` (badge, heading, subtitle, 8 row label+body pairs, footnote) — 19 keys × 2 langs
+- `growth.offer.behavioral.*` (badge, heading, body) — 3 keys × 2 langs
+- `menu.section.01.callout.behavioral.*` (title, body) — 2 keys × 2 langs
+- `menu.section.05.callout.behavioral.*` (title, body) — 2 keys × 2 langs
+- `calculator.lens.*` (badge, title, body) — 3 keys × 2 langs
+- `pilotbiz.lens.*` (badge, title, body) — 3 keys × 2 langs
+- `landing.offer.{outcome,risk-reversal,behavioral}.*` (badge, heading, body × 3) — 9 keys × 2 langs
+
+Spanish copy is hand-written in Peruvian Spanish (Miraflores context, "oso" voice, no translated-corporate tone). Framework terms (Outcome, Likelihood, Delay, Effort, Proof, Risk reversal, Packaging, Friction) appear with Spanish gloss in parentheses on the ES side for clarity.
+
+### Phase 4 — Lint + commit
+- `bun run lint` → EXIT 0 (only the pre-existing BABEL note about i18n.ts >500KB, which is informational).
+- Pre-existing TypeScript errors in growth-view.tsx(436) and landing-view.tsx(332) confirmed as NOT caused by this task's edits (they are in Pill tone and ViewSection `id` prop code that was not touched).
+- All new view-file code uses `useI18n` from `@/hooks/use-i18n` and the existing `Card` / `Callout` / `EvidenceTag` components from `../ursa-brand`.
+- Default theme remains LIGHT; no theme changes; no test code added.
+- Git commit to follow.

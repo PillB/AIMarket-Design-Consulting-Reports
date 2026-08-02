@@ -242,6 +242,15 @@ export function CalculatorView() {
         </div>
       </ViewSection>
 
+      {/* Offer-value lens — what this calculator is actually testing */}
+      <ViewSection badge={t("content.calculator.lens.badge")} title={t("content.calculator.lens.title")}>
+        <Callout tone="gold" title={t("content.calculator.lens.title")}>
+          <p className="m-0 text-[0.92rem]">
+            {t("content.calculator.lens.body")}
+          </p>
+        </Callout>
+      </ViewSection>
+
       {/* Tabs: sensitivity + scale + assumptions */}
       <ViewSection badge={t("content.calculator.tabs.badge")} title={t("content.calculator.tabs.title")}>
         <Tabs defaultValue="sensitivity">

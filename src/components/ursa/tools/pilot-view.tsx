@@ -1003,6 +1003,18 @@ export function PilotView() {
           <p className="m-0 text-[0.9rem]">{t("content.pilotbiz.assumption.callout.body")}</p>
         </Callout>
 
+        {/* Offer-value lens — what the pilot is testing in offer-value terms */}
+        <div className="mt-6 rounded-lg border border-ursa-gold/40 bg-gradient-to-br from-ursa-paper to-ursa-cream p-5">
+          <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
+            <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-gold-text">{t("content.pilotbiz.lens.badge")}</span>
+            <EvidenceTag status="verified" />
+          </div>
+          <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.pilotbiz.lens.title")}</h3>
+          <p className="text-[0.9rem] text-foreground/85 leading-relaxed m-0">
+            {t("content.pilotbiz.lens.body")}
+          </p>
+        </div>
+
         <div className="flex flex-wrap gap-3 mt-6">
           <button
             onClick={reset}
