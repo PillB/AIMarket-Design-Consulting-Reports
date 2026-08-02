@@ -222,9 +222,9 @@ export function GrowthView() {
         title={<>{t("content.view.growth.title")}</>}
         lede={<>{t("content.growth.hero.lede")}</>}
         meta={[
-          { label: t("content.growth.hero.meta.frameworks"), value: "Hormozi + Sutherland adapted" },
-          { label: t("content.growth.hero.meta.budget"), value: "Lean / Moderate / Growth in PEN" },
-          { label: t("content.growth.hero.meta.spirit"), value: "Conservative refinement · no rebrand" },
+          { label: t("content.growth.hero.meta.frameworks"), value: t("content.growth.hero.meta.frameworks-value") },
+          { label: t("content.growth.hero.meta.budget"), value: t("content.growth.hero.meta.budget-value") },
+          { label: t("content.growth.hero.meta.spirit"), value: t("content.growth.hero.meta.spirit-value") },
         ]}
       />
 
@@ -484,21 +484,25 @@ export function GrowthView() {
           </p>
         </Callout>
         <Grid cols={2}>
-          {HORMOZI_PRINCIPLES.map((h) => (
+          {HORMOZI_PRINCIPLES.map((h, i) => {
+            const n = i + 1;
+            const hormoziKey = (field: string) => `content.growth.hormozi.principle.${n}.${field}`;
+            return (
             <Card key={h.principle} className="flex flex-col">
               <div className="flex items-baseline justify-between gap-3 mb-2">
-                <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0">{h.principle}</h3>
+                <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0">{t(hormoziKey("name"))}</h3>
                 <EvidenceTag status="partial" />
               </div>
-              <p className="text-[0.9rem] leading-relaxed text-foreground/85 mb-3">{h.adapted}</p>
+              <p className="text-[0.9rem] leading-relaxed text-foreground/85 mb-3">{t(hormoziKey("adapted"))}</p>
               <div className="mt-auto border-t border-ursa-line-soft pt-3">
                 <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta-text flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-ursa-terracotta" /> {t("content.growth.hormozi.label.do-not")}
                 </span>
-                <p className="text-[0.82rem] text-muted-foreground mt-1 m-0">{h.caveat}</p>
+                <p className="text-[0.82rem] text-muted-foreground mt-1 m-0">{t(hormoziKey("caveat"))}</p>
               </div>
             </Card>
-          ))}
+            );
+          })}
         </Grid>
       </ViewSection>
 
@@ -510,22 +514,27 @@ export function GrowthView() {
           </p>
         </Callout>
         <Grid cols={3}>
-          {SUTHERLAND_PRINCIPLES.map((s) => (
+          {SUTHERLAND_PRINCIPLES.map((s, i) => {
+            const n = i + 1;
+            const sutherlandKey = (field: string) => `content.growth.sutherland.principle.${n}.${field}`;
+            const caveat = t(sutherlandKey("caveat"));
+            return (
             <Card key={s.principle}>
               <div className="flex items-baseline justify-between gap-2 mb-1.5">
                 <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 leading-snug">
-                  {s.principle}
+                  {t(sutherlandKey("name"))}
                 </h3>
                 <EvidenceTag status="partial" />
               </div>
-              <p className="text-[0.85rem] leading-relaxed text-foreground/85 m-0">{s.adapted}</p>
-              {s.caveat && (
+              <p className="text-[0.85rem] leading-relaxed text-foreground/85 m-0">{t(sutherlandKey("adapted"))}</p>
+              {caveat && caveat !== sutherlandKey("caveat") && (
                 <p className="mt-3 pt-3 border-t border-ursa-line-soft font-label text-[0.62rem] tracking-[0.12em] uppercase text-ursa-gold-text m-0">
-                  {s.caveat}
+                  {caveat}
                 </p>
               )}
             </Card>
-          ))}
+            );
+          })}
         </Grid>
         <Callout tone="gold" title={t("content.growth.sutherland.callout2.title")}>
           {t("content.growth.sutherland.callout2.body")}
@@ -787,8 +796,8 @@ export function GrowthView() {
                 className="flex flex-col"
               >
                 <div className="flex items-baseline justify-between mb-3">
-                  <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0">{s.name}</h3>
-                  <Pill tone={i === 0 ? "forest" : i === 1 ? "gold" : "default"}>S/. {s.monthlyPEN.toLocaleString()}/mo</Pill>
+                  <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0">{t(`content.growth.budget.scenario.${scenarioId}.name`)}</h3>
+                  <Pill tone={i === 0 ? "forest" : i === 1 ? "gold" : "default"}>S/. {s.monthlyPEN.toLocaleString()}{t("content.growth.budget.label.per-month")}</Pill>
                 </div>
                 <p className="text-[0.85rem] text-muted-foreground mb-4 m-0">{t(`content.growth.budget.scenario.${scenarioId}.focus`)}</p>
                 <ul className="space-y-1.5 m-0 p-0 list-none text-[0.82rem] mb-4">

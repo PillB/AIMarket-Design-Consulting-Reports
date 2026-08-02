@@ -1186,6 +1186,9 @@ export const translations: Translations = {
       "growth.hero.meta.frameworks": "Frameworks",
       "growth.hero.meta.budget": "Budget",
       "growth.hero.meta.spirit": "Spirit",
+      "growth.hero.meta.frameworks-value": "Hormozi + Sutherland adapted",
+      "growth.hero.meta.budget-value": "Lean / Moderate / Growth in PEN",
+      "growth.hero.meta.spirit-value": "Conservative refinement · no rebrand",
 
       /* Positioning */
       "growth.positioning.badge": "Positioning",
@@ -1609,6 +1612,10 @@ export const translations: Translations = {
       "growth.budget.stat.growth.label": "Growth · tourism + B2B + subscription pilot",
       "growth.budget.button.budget-allocator": "Open the Budget Allocator tool",
       "growth.budget.button.roi": "Model ROI per channel",
+      "growth.budget.label.per-month": "/mo",
+      "growth.budget.scenario.lean.name": "Lean",
+      "growth.budget.scenario.moderate.name": "Moderate",
+      "growth.budget.scenario.growth.name": "Growth",
       "growth.budget.scenario.lean.focus": "Free and owned channels first: GBP, WhatsApp, organic Reels, hotel cards, story cards",
       "growth.budget.scenario.lean.item.1": "Google Business Profile optimisation",
       "growth.budget.scenario.lean.item.2": "Story cards and table signs (print)",
@@ -4146,6 +4153,9 @@ export const translations: Translations = {
       "growth.hero.meta.frameworks": "Marcos",
       "growth.hero.meta.budget": "Presupuesto",
       "growth.hero.meta.spirit": "Espíritu",
+      "growth.hero.meta.frameworks-value": "Hormozi + Sutherland adaptados",
+      "growth.hero.meta.budget-value": "Lean / Moderado / Growth en PEN",
+      "growth.hero.meta.spirit-value": "Refinamiento conservador · sin rebrand",
 
       /* Posicionamiento */
       "growth.positioning.badge": "Posicionamiento",
@@ -4344,6 +4354,28 @@ export const translations: Translations = {
         "La Ecuación de Valor de Hormozi es un marco emprendedor popular con respaldo anecdótico. Trata estas adaptaciones como hipótesis comprobables, no como principios probados. El marco científico más fuerte es Ehrenberg-Bass — assets distintivos más disponibilidad mental y física. Usamos Hormozi para disciplina de oferta, no como ley de crecimiento.",
       "growth.hormozi.label.do-not": "No hacer",
 
+      /* Principios Hormozi (texto adaptado + advertencia resueltos por índice) */
+      "growth.hormozi.principle.1.name": "Ecuación de Valor",
+      "growth.hormozi.principle.1.adapted":
+        "Aumentar Dream Outcome (convertirte en la persona que sabe de café bueno), aumentar Likelihood of Achievement (taza buena garantizada vía tostadera), reducir Time Delay (apertura 7am), reducir Effort & Sacrifice (la suscripción quita la decisión por taza).",
+      "growth.hormozi.principle.1.caveat": "No prometas resultados de transformación que una cafetería no pueda entregar.",
+      "growth.hormozi.principle.2.name": "Diseño de Oferta y Stacks",
+      "growth.hormozi.principle.2.adapted":
+        "Bundlea una bebida core + un lado + una muestra de grano + una tarjeta con historia. Ancla contra el total a la carta. Continuidad vía suscripción.",
+      "growth.hormozi.principle.2.caveat": "Las anclas deben ser verdaderas, no infladas.",
+      "growth.hormozi.principle.3.name": "Lead Magnets",
+      "growth.hormozi.principle.3.adapted":
+        "PDF gratuito de «rueda de sabores de origen» o ticket gratuito de mini-cupping con la primera compra de bolsa de retail — no un descuento.",
+      "growth.hormozi.principle.3.caveat": "El lead magnet debe ser genuinamente útil, no un cupón disfrazado.",
+      "growth.hormozi.principle.4.name": "Retención y Recompra",
+      "growth.hormozi.principle.4.adapted":
+        "Suscripción + rotación de bebidas con nombre + orígenes Lonya estacionales crean una razón para volver cada semana.",
+      "growth.hormozi.principle.4.caveat": "No sobre-descuentes; protege la percepción de margen de especialidad.",
+      "growth.hormozi.principle.5.name": "Más, Mejor, Nuevo",
+      "growth.hormozi.principle.5.adapted":
+        "Más (delivery, retail), Mejor (consistencia, servicio), Nuevo (bebidas estacionales, talleres). Secuencia Mejor antes que Más.",
+      "growth.hormozi.principle.5.caveat": "Nuevo sin Mejor erosiona la confianza.",
+
       /* Sutherland */
       "growth.sutherland.badge": "Marco · Sutherland",
       "growth.sutherland.title": "Sutherland adaptado — el valor percibido es la palanca",
@@ -4354,6 +4386,24 @@ export const translations: Translations = {
       "growth.sutherland.callout2.title": "La mirada de Sutherland es la palanca más barata — pruébala primero",
       "growth.sutherland.callout2.body":
         "El stack de oferta de Hormozi cambia el recibo. Los movimientos de valor percibido de Sutherland cambian el significado de la misma taza a costo casi cero: una tarjeta con historia, una preparación con nombre, un oso como personaje. Secuencia Sutherland antes que Hormozi siempre que puedas.",
+
+      /* Principios Sutherland (texto adaptado + advertencia resueltos por índice) */
+      "growth.sutherland.principle.1.name": "Valor percibido > valor objetivo",
+      "growth.sutherland.principle.1.adapted":
+        "Una tarjeta con historia que describe origen, altitud y proceso eleva el valor percibido más que una taza más grande al mismo costo.",
+      "growth.sutherland.principle.2.name": "Experimentos baratos",
+      "growth.sutherland.principle.2.adapted":
+        "Prueba tarjetas de historia de bebidas con nombre, letreros de mesa y captions del personaje oso antes de cualquier rediseño caro. La mayoría cuesta S/. 0–200.",
+      "growth.sutherland.principle.3.name": "Pricing psicológico y anclaje",
+      "growth.sutherland.principle.3.adapted":
+        "Un vuelo de cata de S/. 28 hace que un pour-over de S/. 14 se sienta razonable. Ancla, luego ofrece el tier accesible.",
+      "growth.sutherland.principle.4.name": "El contexto moldea la percepción",
+      "growth.sutherland.principle.4.adapted":
+        "El layout de dos barras, los detalles Art Nouveau y la tostadora visible desde el counter son contexto que hace que el mismo café sepa mejor.",
+      "growth.sutherland.principle.5.name": "Ideas irracionales pero comprobables",
+      "growth.sutherland.principle.5.adapted":
+        "Un maridaje «el oso recomienda» en la carta, un saludo ritual matutino o un destacado semanal de «gramo de la semana».",
+      "growth.sutherland.principle.5.caveat": "Prueba barato; quédate solo con lo que mejora repetición o ticket.",
 
       /* Oferta */
       "growth.offer.badge": "Oferta",
@@ -4529,6 +4579,10 @@ export const translations: Translations = {
       "growth.budget.stat.growth.label": "Growth · turismo + B2B + piloto de suscripción",
       "growth.budget.button.budget-allocator": "Abrir el Asignador de Presupuesto",
       "growth.budget.button.roi": "Modelar ROI por canal",
+      "growth.budget.label.per-month": "/mes",
+      "growth.budget.scenario.lean.name": "Lean",
+      "growth.budget.scenario.moderate.name": "Moderado",
+      "growth.budget.scenario.growth.name": "Growth",
       "growth.budget.scenario.lean.focus": "Canales gratis y propios primero: GBP, WhatsApp, Reels orgánicos, tarjetas de hotel, tarjetas de historia",
       "growth.budget.scenario.lean.item.1": "Optimización de Google Business Profile",
       "growth.budget.scenario.lean.item.2": "Tarjetas de historia y letreros de mesa (impresión)",
