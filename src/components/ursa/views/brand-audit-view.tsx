@@ -549,6 +549,99 @@ export function BrandAuditView() {
         </div>
       </ViewSection>
 
+      {/* 9b. Brand science — empirical evidence */}
+      <ViewSection
+        badge={t("content.brand.science.badge")}
+        title={t("content.brand.science.title")}
+        meta={t("content.brand.science.meta")}
+      >
+        <p className="text-[1rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-6">
+          {t("content.brand.science.intro")}
+        </p>
+        <Grid cols={3}>
+          {/* Distinctive assets science */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Star size={18} className="text-ursa-gold-text" />
+              <Pill tone="gold">{t("content.brand.science.distinctive.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.brand.science.distinctive.body")}
+            </p>
+            <div className="mt-auto space-y-3">
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1 flex items-center gap-1">
+                  <FlaskConical size={11} /> {t("content.brand.science.distinctive.metric-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.brand.science.distinctive.metric-body")}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1">
+                  <BearMark size={11} className="text-ursa-dark-roast" /> {t("content.brand.science.distinctive.bear-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.brand.science.distinctive.bear-body")}
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          {/* Art Nouveau as craft authenticity signal */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Palette size={18} className="text-ursa-gold-text" />
+              <Pill tone="forest">{t("content.brand.science.artnouv.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.brand.science.artnouv.body")}
+            </p>
+            <div className="mt-auto pt-3 border-t border-ursa-line-soft">
+              <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1 flex items-center gap-1">
+                <Sparkles size={11} /> {t("content.brand.science.artnouv.diff-label")}
+              </div>
+              <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                {t("content.brand.science.artnouv.diff-body")}
+              </p>
+            </div>
+          </Card>
+
+          {/* Brand consistency science */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <ShieldCheck size={18} className="text-ursa-forest-deep" />
+              <Pill tone="forest">{t("content.brand.science.consistency.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.brand.science.consistency.body")}
+            </p>
+            <div className="mt-auto space-y-3">
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1 flex items-center gap-1">
+                  <CheckCircle2 size={11} /> {t("content.brand.science.consistency.evidence-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.brand.science.consistency.evidence-body")}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1 flex items-center gap-1">
+                  <AlertTriangle size={11} /> {t("content.brand.science.consistency.caveat-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.brand.science.consistency.caveat-body")}
+                </p>
+              </div>
+            </div>
+          </Card>
+        </Grid>
+
+        <Callout tone="forest" title={t("content.brand.science.callout-title")}>
+          {t("content.brand.science.callout-body")}
+        </Callout>
+      </ViewSection>
+
       {/* 10. Dossier link + onward nav */}
       <ViewSection>
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

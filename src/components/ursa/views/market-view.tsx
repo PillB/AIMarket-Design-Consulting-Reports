@@ -905,6 +905,125 @@ export function MarketView() {
         </Grid>
       </ViewSection>
 
+      {/* Market research methodology — the evidence base */}
+      <ViewSection
+        badge={t("content.market.science.badge")}
+        title={t("content.market.science.title")}
+        meta={t("content.market.science.meta")}
+      >
+        <p className="text-[0.97rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-6">
+          {t("content.market.science.intro")}
+        </p>
+        <Grid cols={3}>
+          {/* 1km census — retail-geography foundations */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <MapPinned size={18} className="text-ursa-gold-text" />
+              <Pill tone="gold">{t("content.market.science.census.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.market.science.census.body")}
+            </p>
+            <div className="mt-auto space-y-3">
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1">
+                  <Globe size={11} /> {t("content.market.science.census.osm-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.market.science.census.osm-body")}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1 flex items-center gap-1">
+                  <Network size={11} /> {t("content.market.science.census.ethno-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.market.science.census.ethno-body")}
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          {/* Customer review analysis */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Quote size={18} className="text-ursa-gold-text" />
+              <Pill tone="forest">{t("content.market.science.reviews.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.market.science.reviews.body")}
+            </p>
+            <div className="mt-auto space-y-3">
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1 flex items-center gap-1">
+                  <AlertTriangle size={11} /> {t("content.market.science.reviews.bias-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.market.science.reviews.bias-body")}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1 flex items-center gap-1">
+                  <CircleSlash size={11} /> {t("content.market.science.reviews.fake-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.market.science.reviews.fake-body")}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1">
+                  <CheckCircle2 size={11} /> {t("content.market.science.reviews.reliability-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.market.science.reviews.reliability-body")}
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          {/* Local search and discovery */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Search size={18} className="text-ursa-gold-text" />
+              <Pill tone="gold">{t("content.market.science.local-search.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.market.science.local-search.body")}
+            </p>
+            <div className="mt-auto space-y-3">
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1">
+                  <MapPin size={11} /> {t("content.market.science.local-search.gbp-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.market.science.local-search.gbp-body")}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1 flex items-center gap-1">
+                  <TrendingUp size={11} /> {t("content.market.science.local-search.nearme-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.market.science.local-search.nearme-body")}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1 flex items-center gap-1">
+                  <Star size={11} /> {t("content.market.science.local-search.volume-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.market.science.local-search.volume-body")}
+                </p>
+              </div>
+            </div>
+          </Card>
+        </Grid>
+
+        <Callout tone="forest" title={t("content.market.science.callout-title")}>
+          {t("content.market.science.callout-body")}
+        </Callout>
+      </ViewSection>
+
       {/* The website gap */}
       <ViewSection
         badge={t("content.market.section.website-gap.badge")}

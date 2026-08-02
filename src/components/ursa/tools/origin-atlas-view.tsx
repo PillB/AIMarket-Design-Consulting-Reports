@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import {
   BearMark,
@@ -30,6 +31,12 @@ import {
   Sparkles,
   ArrowRight,
   Compass,
+  Beaker,
+  Leaf,
+  Sprout,
+  BookOpen,
+  Quote,
+  Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -718,7 +725,57 @@ export function OriginAtlasView() {
         </Callout>
       </ViewSection>
 
-      {/* §7 — Dossier link + onward nav */}
+      {/* ============================================================
+          §7 — SCIENCE — the research behind the atlas
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.origin-atlas.science.badge")}
+        title={t("content.origin-atlas.science.title")}
+        meta={t("content.origin-atlas.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.origin-atlas.science.intro")}
+        </p>
+
+        {/* Group 1 — Coffee origin science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Beaker size={16} className="text-ursa-gold-text" />
+          {t("content.origin-atlas.science.group.origin")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {ORIGIN_SCIENCE.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="origin-atlas" />
+          ))}
+        </div>
+
+        {/* Group 2 — Single-origin vs. blend research */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Sparkles size={16} className="text-ursa-gold-text" />
+          {t("content.origin-atlas.science.group.terroir")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {TERROIR_SCIENCE.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="origin-atlas" />
+          ))}
+        </div>
+
+        {/* Group 3 — Sustainability and traceability */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Leaf size={16} className="text-ursa-gold-text" />
+          {t("content.origin-atlas.science.group.traceability")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {TRACEABILITY_SCIENCE.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="origin-atlas" />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.origin-atlas.science.synthesis.title")}>
+          {t("content.origin-atlas.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
+      {/* §8 — Dossier link + onward nav */}
       <ViewSection>
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
           <DossierLinkBanner moduleId="03-menu-and-product-development" />
@@ -742,5 +799,91 @@ export function OriginAtlasView() {
         </div>
       </ViewSection>
     </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the origin atlas.
+// Strings live under content.origin-atlas.science.card.{id}.{field} in i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const ORIGIN_SCIENCE: ScienceEntry[] = [
+  { id: "sca-cupping", icon: Beaker, tone: "gold" },
+  { id: "altitude-quality", icon: Mountain, tone: "forest" },
+  { id: "processing-chemistry", icon: Droplet, tone: "gold" },
+  { id: "peru-regions", icon: MapPin, tone: "forest" },
+];
+
+const TERROIR_SCIENCE: ScienceEntry[] = [
+  { id: "terroir-cross", icon: BookOpen, tone: "gold" },
+  { id: "single-origin-perception", icon: Sparkles, tone: "forest" },
+  { id: "filtrado-lonya-terroir", icon: Coffee, tone: "gold" },
+];
+
+const TRACEABILITY_SCIENCE: ScienceEntry[] = [
+  { id: "fair-vs-direct", icon: Sprout, tone: "forest" },
+  { id: "wtp-traceability", icon: Quote, tone: "gold" },
+  { id: "named-farmer", icon: Users, tone: "terracotta" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+  group,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+  group: "origin-atlas";
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.${group}.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.${group}.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.${group}.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.${group}.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }

@@ -565,6 +565,108 @@ export function MenuView() {
         </Callout>
       </ViewSection>
 
+      {/* ---------- Menu science — engineering, design, pricing, pairing ---------- */}
+      <ViewSection
+        badge={t("content.menu.science.badge")}
+        title={t("content.menu.science.title")}
+        meta={t("content.menu.science.meta")}
+      >
+        <p className="text-[0.95rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-6">
+          {t("content.menu.science.intro")}
+        </p>
+        <Grid cols={2}>
+          {/* Menu engineering */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <ClipboardCheck size={18} className="text-ursa-gold-text" />
+              <Pill tone="gold">{t("content.menu.science.engineering.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.menu.science.engineering.body")}
+            </p>
+            <div className="mt-auto pt-3 border-t border-ursa-line-soft">
+              <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1">
+                <Target size={11} /> {t("content.menu.science.engineering.benchmark-label")}
+              </div>
+              <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                {t("content.menu.science.engineering.benchmark-body")}
+              </p>
+            </div>
+          </Card>
+
+          {/* Menu design psychology */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Search size={18} className="text-ursa-gold-text" />
+              <Pill tone="forest">{t("content.menu.science.design.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.menu.science.design.body")}
+            </p>
+            <div className="mt-auto pt-3 border-t border-ursa-line-soft">
+              <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1 flex items-center gap-1">
+                <CheckCircle2 size={11} /> {t("content.menu.science.design.apply-label")}
+              </div>
+              <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                {t("content.menu.science.design.apply-body")}
+              </p>
+            </div>
+          </Card>
+
+          {/* Pricing psychology for specialty coffee */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <TrendingUp size={18} className="text-ursa-gold-text" />
+              <Pill tone="gold">{t("content.menu.science.pricing.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.menu.science.pricing.body")}
+            </p>
+            <div className="mt-auto space-y-3">
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-forest-deep mb-1 flex items-center gap-1">
+                  <Coffee size={11} /> {t("content.menu.science.pricing.band-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.menu.science.pricing.band-body")}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-ursa-line-soft">
+                <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1 flex items-center gap-1">
+                  <FlaskConical size={11} /> {t("content.menu.science.pricing.elasticity-label")}
+                </div>
+                <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                  {t("content.menu.science.pricing.elasticity-body")}
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          {/* Food pairing and attach-rate */}
+          <Card className="flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Croissant size={18} className="text-ursa-gold-text" />
+              <Pill tone="forest">{t("content.menu.science.pairing.heading")}</Pill>
+            </div>
+            <p className="text-[0.86rem] text-muted-foreground m-0 leading-relaxed mb-3">
+              {t("content.menu.science.pairing.body")}
+            </p>
+            <div className="mt-auto pt-3 border-t border-ursa-line-soft">
+              <div className="font-label text-[0.58rem] tracking-[0.16em] uppercase text-ursa-gold-text mb-1 flex items-center gap-1">
+                <Target size={11} /> {t("content.menu.science.pairing.attach-label")}
+              </div>
+              <p className="text-[0.78rem] text-ursa-dark-roast/85 m-0 leading-relaxed">
+                {t("content.menu.science.pairing.attach-body")}
+              </p>
+            </div>
+          </Card>
+        </Grid>
+
+        <Callout tone="gold" title={t("content.menu.science.callout-title")}>
+          {t("content.menu.science.callout-body")}
+        </Callout>
+      </ViewSection>
+
       {/* ---------- 16-criteria evaluation framework ---------- */}
       <ViewSection
         badge={t("content.menu.section.04.badge")}

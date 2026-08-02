@@ -1,11 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, Pill, Callout } from "../ursa-brand";
 import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
-import { Swords, Eye, TrendingUp, AlertTriangle, Info } from "lucide-react";
+import {
+  Swords,
+  Eye,
+  TrendingUp,
+  AlertTriangle,
+  Info,
+  Microscope,
+  BookOpen,
+  GraduationCap,
+  Brain,
+  Target,
+  Fingerprint,
+  Grid,
+  Scale,
+} from "lucide-react";
 
 /**
  * Competitor SWOT Matrix — an interactive 2x2 visualization that plots
@@ -409,10 +424,147 @@ export function SwotView() {
         </Callout>
       </ViewSection>
 
+      {/* ============================================================
+          SCIENCE — the research behind the matrix
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.swot.science.badge")}
+        title={t("content.swot.science.title")}
+        meta={t("content.swot.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.swot.science.intro")}
+        </p>
+
+        {/* Group 1 — SWOT methodology science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Microscope size={16} className="text-ursa-gold-text" />
+          {t("content.swot.science.group.methodology")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {SWOT_METHODOLOGY.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="swot" />
+          ))}
+        </div>
+
+        {/* Group 2 — Competitive positioning research */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Brain size={16} className="text-ursa-gold-text" />
+          {t("content.swot.science.group.positioning")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {SWOT_POSITIONING.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="swot" />
+          ))}
+        </div>
+
+        {/* Group 3 — 2×2 matrix science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Grid size={16} className="text-ursa-gold-text" />
+          {t("content.swot.science.group.matrix")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {SWOT_MATRIX.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="swot" />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.swot.science.synthesis.title")}>
+          {t("content.swot.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
       <ViewSection>
         <DossierLinkBanner moduleId="02-market-competitors-and-customer-voice" />
       </ViewSection>
     </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the SWOT view.
+// Strings live under content.swot.science.card.{id}.{field} in i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const SWOT_METHODOLOGY: ScienceEntry[] = [
+  { id: "weihrich-1982", icon: BookOpen, tone: "forest" },
+  { id: "pickton-wright-1998", icon: Microscope, tone: "gold" },
+  { id: "helms-nixon-2010", icon: GraduationCap, tone: "forest" },
+  { id: "valentin-2001", icon: AlertTriangle, tone: "terracotta" },
+];
+
+const SWOT_POSITIONING: ScienceEntry[] = [
+  { id: "sharp-2010", icon: Brain, tone: "gold" },
+  { id: "romaniuk-sharp-2016", icon: Target, tone: "forest" },
+  { id: "romaniuk-2018", icon: Fingerprint, tone: "gold" },
+  { id: "ehrenberg-mcphee", icon: TrendingUp, tone: "terracotta" },
+];
+
+const SWOT_MATRIX: ScienceEntry[] = [
+  { id: "bcg-1968", icon: Grid, tone: "forest" },
+  { id: "kasavana-smith-1982", icon: Scale, tone: "gold" },
+  { id: "median-split-limit", icon: AlertTriangle, tone: "terracotta" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+  group,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+  group: "swot";
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.${group}.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.${group}.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.${group}.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.${group}.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }
 

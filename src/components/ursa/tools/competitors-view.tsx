@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import {
   BearMark,
@@ -26,6 +27,14 @@ import {
   Compass,
   Filter,
   Layers,
+  Microscope,
+  Network,
+  Star,
+  MessageSquare,
+  BookOpen,
+  MapPinned,
+  TrendingUp,
+  Users,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -733,6 +742,56 @@ export function CompetitorsView() {
         </div>
       </ViewSection>
 
+      {/* ============================================================
+          SCIENCE — the research behind the intelligence dashboard
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.competitors.science.badge")}
+        title={t("content.competitors.science.title")}
+        meta={t("content.competitors.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.competitors.science.intro")}
+        </p>
+
+        {/* Group 1 — Competitive intelligence methodology */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Microscope size={16} className="text-ursa-gold-text" />
+          {t("content.competitors.science.group.methodology")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {COMP_METHOD.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="competitors" />
+          ))}
+        </div>
+
+        {/* Group 2 — Coffee shop competitive dynamics */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Network size={16} className="text-ursa-gold-text" />
+          {t("content.competitors.science.group.dynamics")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {COMP_DYNAMICS.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="competitors" />
+          ))}
+        </div>
+
+        {/* Group 3 — Review and rating science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Star size={16} className="text-ursa-gold-text" />
+          {t("content.competitors.science.group.reviews")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {COMP_REVIEWS.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} group="competitors" />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.competitors.science.synthesis.title")}>
+          {t("content.competitors.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
       {/* Dossier link */}
       <ViewSection className="py-8">
         <div className="flex flex-wrap items-center justify-between gap-4">
@@ -741,6 +800,93 @@ export function CompetitorsView() {
         </div>
       </ViewSection>
     </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the competitor intelligence dashboard.
+// Strings live under content.competitors.science.card.{id}.{field} in i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const COMP_METHOD: ScienceEntry[] = [
+  { id: "porter-1980", icon: BookOpen, tone: "forest" },
+  { id: "fahey-randall-1997", icon: Microscope, tone: "gold" },
+  { id: "reilly-1931", icon: MapPinned, tone: "forest" },
+  { id: "osm-overpass", icon: Globe, tone: "gold" },
+];
+
+const COMP_DYNAMICS: ScienceEntry[] = [
+  { id: "specialty-structure", icon: Network, tone: "gold" },
+  { id: "independent-survival", icon: TrendingUp, tone: "terracotta" },
+  { id: "cluster-effect", icon: Users, tone: "forest" },
+];
+
+const COMP_REVIEWS: ScienceEntry[] = [
+  { id: "luca-2016", icon: Star, tone: "gold" },
+  { id: "chevalier-mayzlin-2006", icon: TrendingUp, tone: "forest" },
+  { id: "review-filtering", icon: Filter, tone: "terracotta" },
+  { id: "platform-bias", icon: MessageSquare, tone: "terracotta" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+  group,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+  group: "competitors";
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.${group}.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.${group}.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.${group}.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.${group}.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }
 
