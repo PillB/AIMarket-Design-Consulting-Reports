@@ -1,7 +1,7 @@
 "use client";
 
 import { NavContext } from "@/lib/ursa-nav";
-import { LanguageProvider } from "@/lib/i18n";
+/* i18n uses useSyncExternalStore — no provider needed */
 import { useHashRoute, parseRoute } from "@/hooks/use-hash-route";
 import { UrsaHeader, UrsaFooter } from "@/components/ursa/ursa-header";
 import { DashboardView } from "@/components/ursa/views/dashboard-view";
@@ -124,7 +124,6 @@ export default function Home() {
 
   return (
     <NavContext.Provider value={navigate}>
-      <LanguageProvider>
         <div className="min-h-screen flex flex-col bg-background">
           <UrsaHeader currentRoute={base} />
           <main className="flex-1 ursa-fade-up" key={base}>
@@ -134,7 +133,7 @@ export default function Home() {
           <ScrollProgress />
           <CommandPalette />
         </div>
-      </LanguageProvider>
+
     </NavContext.Provider>
   );
 }

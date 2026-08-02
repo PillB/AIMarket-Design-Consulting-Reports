@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { Search, CornerDownLeft, ArrowUp, ArrowDown, Hash, X } from "lucide-react";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
-import { useTranslation } from "@/lib/i18n";
+import { useI18n } from "@/hooks/use-i18n";
 import { BearMark } from "./ursa-brand";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +39,7 @@ export function CommandPalette() {
   const [query, setQuery] = useState("");
   const [activeIdx, setActiveIdx] = useState(0);
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t } = useI18n();
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 

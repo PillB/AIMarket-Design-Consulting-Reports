@@ -151,6 +151,8 @@ export const translations: Translations = {
       "verified-at-snapshot": "Verified at research snapshot",
       "operational-data": "Operational data",
       "audience-assets": "Audience & assets",
+      "switchToLight": "Switch to light mode",
+      "switchToDark": "Switch to dark mode",
     },
     es: {
       verified: "Verificado",
@@ -178,6 +180,8 @@ export const translations: Translations = {
       "verified-at-snapshot": "Verificado en el snapshot de investigación",
       "operational-data": "Datos operativos",
       "audience-assets": "Audiencia y activos",
+      "switchToLight": "Cambiar a modo claro",
+      "switchToDark": "Cambiar a modo oscuro",
     },
   },
 

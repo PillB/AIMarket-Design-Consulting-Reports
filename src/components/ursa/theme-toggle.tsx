@@ -2,7 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
-import { useTranslation } from "@/lib/i18n";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 
 /** Dark / light theme toggle button for the header.
@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
  */
 export function ThemeToggle({ className }: { className?: string }) {
   const { theme, toggle, mounted } = useTheme();
-  const { t } = useTranslation();
+  const { t } = useI18n();
 
   // Before mount: stable placeholder that matches server output.
   // After mount: correct icon + label for the actual theme.
