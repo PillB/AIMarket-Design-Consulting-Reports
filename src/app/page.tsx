@@ -32,12 +32,15 @@ import { LoyaltyView } from "@/components/ursa/tools/loyalty-view";
 import { CommandPalette } from "@/components/ursa/command-palette";
 import { ScrollProgress } from "@/components/ursa/scroll-progress";
 import { useEffect } from "react";
+import { initAnalytics, track } from "@/lib/analytics";
 
 export default function Home() {
   const [route, navigate] = useHashRoute();
   const [base] = parseRoute(route);
 
-  // Update document title based on route
+  // Update document title based on route, fire page_view analytics event,
+  // and persist the route in <html data-route> for screen-reader landmark
+  // context and for the analytics custom-dimension reader.
   useEffect(() => {
     const titles: Record<string, string> = {
       "": "Ursa Coffee — Strategic Command Center",
@@ -66,7 +69,17 @@ export default function Home() {
       landing: "Ursa Mañana — Landing Page Prototype — Ursa Coffee",
     };
     document.title = titles[base] || "Ursa Coffee — Strategic Command Center";
+    document.documentElement.dataset.route = base || "dashboard";
+    track("page_view", { route: base || "" });
   }, [base]);
+
+  // Install the global delegated click listener for `data-analytics`
+  // attributes. The disposer runs on unmount; in practice the listener
+  // lives for the app's lifetime.
+  useEffect(() => {
+    const dispose = initAnalytics();
+    return dispose;
+  }, []);
 
   const renderView = () => {
     switch (base) {
@@ -129,7 +142,12 @@ export default function Home() {
     <NavContext.Provider value={navigate}>
         <div className="min-h-screen flex flex-col bg-background">
           <UrsaHeader currentRoute={base} />
-          <main className="flex-1 ursa-fade-up" key={base}>
+          <main
+            id="main-content"
+            className="flex-1 ursa-fade-up"
+            key={base}
+            tabIndex={-1}
+          >
             {renderView()}
           </main>
           <UrsaFooter onPrint={() => window.print()} />

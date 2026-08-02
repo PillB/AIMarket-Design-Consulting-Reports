@@ -49,6 +49,8 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             onClick={() => go("")}
             className="flex items-center gap-3 text-left hover:opacity-90 transition shrink-0"
             aria-label={t("nav.go-dashboard")}
+            data-analytics="cta_click"
+            data-analytics-target="nav_brand_dashboard"
           >
             <span className="w-11 h-11 rounded-full grid place-items-center border-2 border-ursa-gold bg-ursa-cream text-ursa-dark-roast ursa-breathe">
               <BearMark size={30} />
@@ -65,12 +67,12 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1 ml-auto" aria-label="Primary">
-            <NavBtn active={isActive("")} onClick={() => go("")}>
+            <NavBtn active={isActive("")} onClick={() => go("")} data-analytics="cta_click" data-analytics-target="nav_dashboard">
               {t("nav.dashboard")}
             </NavBtn>
 
             <div className="relative group">
-              <button className="px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded text-ursa-cream hover:bg-white/10 transition flex items-center gap-1">
+              <button className="px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded text-ursa-cream hover:bg-white/10 transition flex items-center gap-1" data-analytics="cta_click" data-analytics-target="nav_dossier_menu_open">
                 {t("nav.dossier")}
                 <span className="text-[0.6rem] opacity-60">▾</span>
               </button>
@@ -80,6 +82,8 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
                     <button
                       key={k}
                       onClick={() => go(k)}
+                      data-analytics="tool_open"
+                      data-analytics-tool={k}
                       className={cn(
                         "block w-full text-left px-4 py-2 font-label text-[0.72rem] tracking-[0.1em] uppercase hover:bg-white/10 transition",
                         isActive(k) ? "text-ursa-gold-text-soft bg-white/5" : "text-ursa-cream/90"
@@ -93,7 +97,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             </div>
 
             <div className="relative group">
-              <button className="px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded text-ursa-cream hover:bg-white/10 transition flex items-center gap-1">
+              <button className="px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded text-ursa-cream hover:bg-white/10 transition flex items-center gap-1" data-analytics="cta_click" data-analytics-target="nav_tools_menu_open">
                 {t("nav.tools")}
                 <span className="text-[0.6rem] opacity-60">▾</span>
               </button>
@@ -103,6 +107,8 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
                     <button
                       key={k}
                       onClick={() => go(k)}
+                      data-analytics="tool_open"
+                      data-analytics-tool={k}
                       className={cn(
                         "block w-full text-left px-4 py-2 font-label text-[0.72rem] tracking-[0.1em] uppercase hover:bg-white/10 transition",
                         isActive(k) ? "text-ursa-gold-text-soft bg-white/5" : "text-ursa-cream/90"
@@ -115,11 +121,11 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               </div>
             </div>
 
-            <NavBtn active={isActive("sources")} onClick={() => go("sources")}>
+            <NavBtn active={isActive("sources")} onClick={() => go("sources")} data-analytics="cta_click" data-analytics-target="nav_sources">
               {t("nav.sources")}
             </NavBtn>
 
-            <NavBtn active={isActive("landing")} onClick={() => go("landing")}>
+            <NavBtn active={isActive("landing")} onClick={() => go("landing")} data-analytics="cta_click" data-analytics-target="nav_landing">
               {t("nav.ursa-manana")}
             </NavBtn>
 
@@ -130,6 +136,8 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               href="/AIMarket-Design-Consulting-Reports/dossier/index.html"
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics="cta_click"
+              data-analytics-target="nav_static_dossier"
               className="ml-1 px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-text-soft hover:bg-ursa-gold hover:text-ursa-dark-roast transition flex items-center gap-1.5"
             >
               {t("nav.static-dossier")} <ExternalLink size={12} />
@@ -142,6 +150,8 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={t("nav.toggle-menu")}
             aria-expanded={mobileOpen}
+            data-analytics="cta_click"
+            data-analytics-target="nav_mobile_menu_toggle"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -153,26 +163,26 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
         <div className="lg:hidden border-t border-ursa-gold/30 bg-ursa-espresso max-h-[80vh] overflow-y-auto ursa-scroll">
           <div className="px-4 py-4 space-y-4">
             <MobileSection title={t("nav.top")}>
-              <MobileLink active={isActive("")} onClick={() => go("")}>
+              <MobileLink active={isActive("")} onClick={() => go("")} data-analytics="cta_click" data-analytics-target="nav_mobile_dashboard">
                 {t("nav.dashboard")}
               </MobileLink>
-              <MobileLink active={isActive("sources")} onClick={() => go("sources")}>
+              <MobileLink active={isActive("sources")} onClick={() => go("sources")} data-analytics="cta_click" data-analytics-target="nav_mobile_sources">
                 {t("nav.sources-evidence")}
               </MobileLink>
-              <MobileLink active={isActive("landing")} onClick={() => go("landing")}>
+              <MobileLink active={isActive("landing")} onClick={() => go("landing")} data-analytics="cta_click" data-analytics-target="nav_mobile_landing">
                 {t("nav.ursa-landing")}
               </MobileLink>
             </MobileSection>
             <MobileSection title={t("nav.dossier-modules")}>
               {dossierKeys.map((k) => (
-                <MobileLink key={k} active={isActive(k)} onClick={() => go(k)}>
+                <MobileLink key={k} active={isActive(k)} onClick={() => go(k)} data-analytics="tool_open" data-analytics-tool={k}>
                   {routeLabel(k)}
                 </MobileLink>
               ))}
             </MobileSection>
             <MobileSection title={t("nav.interactive-tools")}>
               {toolKeys.map((k) => (
-                <MobileLink key={k} active={isActive(k)} onClick={() => go(k)}>
+                <MobileLink key={k} active={isActive(k)} onClick={() => go(k)} data-analytics="tool_open" data-analytics-tool={k}>
                   {routeLabel(k)}
                 </MobileLink>
               ))}
@@ -181,6 +191,8 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               href="/AIMarket-Design-Consulting-Reports/dossier/index.html"
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics="cta_click"
+              data-analytics-target="nav_mobile_static_dossier"
               className="flex items-center gap-2 px-3 py-2.5 font-label text-[0.72rem] tracking-[0.1em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-text-soft"
             >
               {t("nav.open-static-dossier")} <ExternalLink size={14} />
@@ -199,7 +211,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
   );
 }
 
-function NavBtn({ children, active, onClick }: { children: React.ReactNode; active: boolean; onClick: () => void }) {
+function NavBtn({ children, active, onClick, ...rest }: { children: React.ReactNode; active: boolean; onClick: () => void } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       onClick={onClick}
@@ -208,6 +220,7 @@ function NavBtn({ children, active, onClick }: { children: React.ReactNode; acti
         "px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded transition",
         active ? "bg-ursa-gold text-ursa-dark-roast" : "text-ursa-cream hover:bg-white/10"
       )}
+      {...rest}
     >
       {children}
     </button>
@@ -223,7 +236,7 @@ function MobileSection({ title, children }: { title: string; children: React.Rea
   );
 }
 
-function MobileLink({ children, active, onClick }: { children: React.ReactNode; active: boolean; onClick: () => void }) {
+function MobileLink({ children, active, onClick, ...rest }: { children: React.ReactNode; active: boolean; onClick: () => void } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       onClick={onClick}
@@ -231,6 +244,7 @@ function MobileLink({ children, active, onClick }: { children: React.ReactNode; 
         "text-left px-3 py-2.5 font-label text-[0.74rem] tracking-[0.08em] uppercase rounded transition",
         active ? "bg-ursa-gold text-ursa-dark-roast" : "text-ursa-cream/90 hover:bg-white/10"
       )}
+      {...rest}
     >
       {children}
     </button>
@@ -281,6 +295,8 @@ export function UrsaFooter({ onPrint }: { onPrint?: () => void }) {
           {onPrint && (
             <button
               onClick={onPrint}
+              data-analytics="cta_click"
+              data-analytics-target="footer_print_pdf"
               className="flex items-center gap-2 border border-ursa-gold-soft/40 text-ursa-gold-text-soft px-4 py-2 rounded-full font-label text-[0.7rem] tracking-[0.14em] uppercase hover:bg-ursa-gold hover:text-ursa-dark-roast transition shrink-0"
             >
               <Printer size={14} /> {t("actions.print-pdf")}

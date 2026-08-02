@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, ArtNouveauDivider, Pill, Callout, CupGlyph, EvidenceTag } from "../ursa-brand";
-import { Calculator, Coffee, Cookie, Sunrise, Check, ArrowRight, Clock, MapPin, Sparkles, AlertCircle, BookOpen, ShieldCheck, Target, RotateCcw } from "lucide-react";
+import { Calculator, Coffee, Cookie, Sunrise, Check, ArrowRight, Clock, MapPin, Sparkles, AlertCircle, BookOpen, ShieldCheck, Target, RotateCcw, Star, Award, Users, Instagram, Anchor, TrendingDown } from "lucide-react";
 import { useNavigate } from "@/lib/ursa-nav";
 import { useI18n } from "@/hooks/use-i18n";
+import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 /**
@@ -31,6 +32,25 @@ export function LandingView() {
     { id: "guarantee", icon: ShieldCheck },
     { id: "trial", icon: Coffee },
     { id: "cancel-anytime", icon: RotateCcw },
+  ];
+
+  // --- Trust pillars (Group C — social proof, authority, risk reversal, scarcity)
+  // Each pillar resolves source, title, body, citation via
+  // t(`content.landing.trust.${id}.{field}`). The fourth pillar (scarcity) uses
+  // terracotta accent because scarcity is the only pillar that can erode trust
+  // if framed dishonestly — the dossier flags it.
+  const TRUST_PILLARS = [
+    { id: "social", icon: Star, tone: "gold" as const },
+    { id: "authority", icon: Award, tone: "forest" as const },
+    { id: "risk", icon: ShieldCheck, tone: "forest" as const },
+    { id: "scarcity", icon: Users, tone: "terracotta" as const },
+  ];
+
+  // Verified third-party listings — short row of evidence chips.
+  const TRUST_LISTINGS = [
+    { icon: Coffee, id: "coffeepass" },
+    { icon: MapPin, id: "cornerinc" },
+    { icon: Instagram, id: "instagram" },
   ];
 
   const benefits = [
@@ -59,6 +79,25 @@ export function LandingView() {
     },
   ];
 
+  // Objection-anticipation FAQs (CONVERSION-3) — surface the top three
+  // concerns a prospect will raise before they raise them. Sourced from the
+  // i18n dictionary so EN/ES both render correctly.
+  const OBJECTION_FAQS = [
+    { qKey: "content.landing.faq.objection.daily.q", aKey: "content.landing.faq.objection.daily.a" },
+    { qKey: "content.landing.faq.objection.share.q", aKey: "content.landing.faq.objection.share.a" },
+    { qKey: "content.landing.faq.objection.ends.q", aKey: "content.landing.faq.objection.ends.a" },
+  ];
+
+  // Behavioral nudges (CONVERSION-3) — the four applied on this page, with
+  // the science citation attached. Each card is a small annotated piece of
+  // choice architecture.
+  const NUDGES = [
+    { id: "default-bias", icon: Sunrise, tone: "gold" as const },
+    { id: "anchoring", icon: Anchor, tone: "gold" as const },
+    { id: "loss-aversion", icon: TrendingDown, tone: "terracotta" as const },
+    { id: "social-proof", icon: Users, tone: "forest" as const },
+  ];
+
   return (
     <>
       <ViewHero
@@ -79,6 +118,104 @@ export function LandingView() {
         ]}
         tone="gold"
       />
+
+      {/* Above-the-fold conversion bar (CONVERSION-3) — primary + secondary
+          CTA reachable without scrolling on every device. Bundles three
+          behavioral nudges (anchoring, loss aversion, social proof) and a
+          3-step progressive disclosure strip so a scanner can decide in 5s. */}
+      <ViewSection className="py-6 md:py-8">
+        <div className="rounded-2xl bg-gradient-to-br from-ursa-paper to-ursa-cream border border-ursa-gold/30 shadow-[0_1px_0_rgba(59,36,23,0.06),0_18px_40px_-24px_rgba(59,36,23,0.28)] overflow-hidden">
+          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-0">
+            {/* Left: pitch + nudges + CTAs */}
+            <div className="p-6 md:p-8">
+              <span className="font-label text-[0.66rem] tracking-[0.2em] uppercase text-ursa-gold-text block mb-2">
+                {t("content.landing.atf.badge")}
+              </span>
+              <h2 className="font-display text-xl md:text-2xl font-semibold text-ursa-dark-roast mt-0 mb-4 leading-tight max-w-[34ch]">
+                {t("content.landing.atf.title")}
+              </h2>
+              {/* Behavioral nudges row — anchoring + loss aversion + social proof */}
+              <div className="grid sm:grid-cols-2 gap-3 mb-5">
+                {/* Anchoring nudge — retail value struck through next to member price */}
+                <div className="rounded-lg border border-ursa-gold/30 bg-ursa-foam p-3">
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <p className="font-label text-[0.56rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mb-0.5">{t("content.landing.atf.anchoring-label")}</p>
+                      <p className="font-display text-lg text-muted-foreground line-through m-0 leading-none">{t("content.landing.atf.anchoring-value")}</p>
+                    </div>
+                    <ArrowRight size={14} className="text-ursa-gold-text" />
+                    <div>
+                      <p className="font-label text-[0.56rem] tracking-[0.14em] uppercase text-ursa-gold-text m-0 mb-0.5">{t("content.landing.atf.member-label")}</p>
+                      <p className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 leading-none">{t("content.landing.atf.member-value")}</p>
+                    </div>
+                  </div>
+                </div>
+                {/* Loss aversion + social proof stack */}
+                <div className="rounded-lg border border-ursa-forest-deep/20 bg-ursa-cream p-3 space-y-2">
+                  <p className="text-[0.78rem] text-ursa-dark-roast m-0 leading-snug flex items-start gap-1.5">
+                    <AlertCircle size={13} className="text-ursa-terracotta-text mt-0.5 shrink-0" />
+                    {t("content.landing.atf.loss-aversion")}
+                  </p>
+                  <p className="text-[0.78rem] text-ursa-forest-deep m-0 leading-snug flex items-start gap-1.5">
+                    <Sparkles size={13} className="text-ursa-gold-text mt-0.5 shrink-0" />
+                    {t("content.landing.atf.social-proof")}
+                  </p>
+                </div>
+              </div>
+              {/* CTA row — single primary, single secondary */}
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById("join");
+                    el?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ursa-gold text-ursa-dark-roast font-label text-[0.78rem] tracking-[0.12em] uppercase hover:bg-ursa-gold-soft transition shadow-lg"
+                >
+                  {t("content.landing.atf.cta-primary")} <ArrowRight size={16} />
+                </button>
+                <button
+                  onClick={() => navigate("pilot")}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep font-label text-[0.78rem] tracking-[0.12em] uppercase hover:bg-ursa-dark-roast hover:text-ursa-cream transition"
+                >
+                  <Calculator size={16} /> {t("content.landing.atf.cta-secondary")}
+                </button>
+              </div>
+              <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground mt-3 m-0 italic">
+                {t("content.landing.atf.source")}
+              </p>
+            </div>
+
+            {/* Right: 3-step progressive disclosure strip (Join → Visit → Save) */}
+            <div className="bg-ursa-dark-roast p-6 md:p-8 text-ursa-cream">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-7 h-7 rounded-full bg-ursa-gold/20 grid place-items-center text-ursa-gold-text">
+                  <Check size={14} />
+                </span>
+                <span className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft">{t("content.landing.steps.badge")}</span>
+              </div>
+              <h3 className="font-display text-lg font-semibold text-ursa-cream mt-0 mb-1">{t("content.landing.steps.title")}</h3>
+              <p className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-ursa-sage m-0 mb-4">{t("content.landing.steps.meta")}</p>
+              <ol className="space-y-3 m-0 p-0 list-none">
+                {[
+                  { n: "1", titleKey: "content.landing.steps.1.title", descKey: "content.landing.steps.1.desc" },
+                  { n: "2", titleKey: "content.landing.steps.2.title", descKey: "content.landing.steps.2.desc" },
+                  { n: "3", titleKey: "content.landing.steps.3.title", descKey: "content.landing.steps.3.desc" },
+                ].map((step) => (
+                  <li key={step.n} className="flex gap-3">
+                    <span className="w-7 h-7 rounded-full bg-ursa-gold text-ursa-dark-roast grid place-items-center font-display text-sm font-semibold shrink-0">
+                      {step.n}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="font-display text-base font-semibold text-ursa-cream m-0 leading-tight">{t(step.titleKey)}</p>
+                      <p className="text-[0.78rem] text-ursa-sage m-0 mt-0.5 leading-snug">{t(step.descKey)}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </ViewSection>
 
       {/* The pitch */}
       <ViewSection>
@@ -111,12 +248,16 @@ export function LandingView() {
                   const el = document.getElementById("join");
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
+                data-analytics="cta_click"
+                data-analytics-target="landing_join_scroll"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ursa-gold text-ursa-dark-roast font-label text-[0.78rem] tracking-[0.12em] uppercase hover:bg-ursa-gold-soft transition shadow-lg"
               >
                 Quiero ser socio <ArrowRight size={16} />
               </button>
               <button
                 onClick={() => navigate("pilot")}
+                data-analytics="tool_open"
+                data-analytics-tool="pilot"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep font-label text-[0.78rem] tracking-[0.12em] uppercase hover:bg-ursa-dark-roast hover:text-ursa-cream transition"
               >
                 <Calculator size={16} /> Ver las matemáticas
@@ -287,6 +428,8 @@ export function LandingView() {
             </ul>
             <button
               onClick={() => navigate("pilot")}
+              data-analytics="tool_open"
+              data-analytics-tool="pilot"
               className="mt-4 inline-flex items-center gap-1.5 font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text hover:text-ursa-dark-roast transition"
             >
               <Calculator size={14} /> Abrir el caso de negocio completo <ArrowRight size={14} />
@@ -405,8 +548,43 @@ export function LandingView() {
         </Callout>
       </ViewSection>
 
+      {/* Behavioral nudges — show the working out (CONVERSION-3) ----------------
+          Each card names one nudge used on this page, cites the science, and
+          explains why it works for Ursa. The panel is the “show the working
+          out” the task requires: the owner can see exactly which nudge
+          produced which line of copy. */}
+      <ViewSection badge={t("content.landing.nudges.badge")} title={t("content.landing.nudges.title")}>
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] mb-6 m-0">
+          {t("content.landing.nudges.lede")}
+        </p>
+        <div className="grid md:grid-cols-2 gap-4 [grid-template-columns:minmax(0,1fr)]">
+          {NUDGES.map((n) => {
+            const Icon = n.icon;
+            const accent = n.tone === "gold" ? "var(--color-ursa-gold-text)" : n.tone === "terracotta" ? "var(--color-ursa-terracotta-text)" : "var(--color-ursa-forest-deep)";
+            return (
+              <Card key={n.id} className="flex flex-col">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-8 h-8 rounded-md grid place-items-center shrink-0" style={{ background: `${accent}18`, color: accent }}>
+                    <Icon size={16} />
+                  </span>
+                  <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase" style={{ color: accent }}>
+                    {t(`content.landing.nudges.${n.id}.label`)}
+                  </span>
+                </div>
+                <p className="text-[0.86rem] text-foreground/85 leading-relaxed m-0">
+                  {t(`content.landing.nudges.${n.id}.body`)}
+                </p>
+              </Card>
+            );
+          })}
+        </div>
+        <p className="text-[0.74rem] text-muted-foreground mt-5 m-0 italic">
+          {t("content.landing.nudges.source")}
+        </p>
+      </ViewSection>
+
       {/* FAQ */}
-      <ViewSection badge="Preguntas" title="Lo que la gente pregunta" meta="Cinco respuestas honestas">
+      <ViewSection badge="Preguntas" title="Lo que la gente pregunta" meta="Ocho respuestas honestas">
         <div className="grid md:grid-cols-2 gap-4 [grid-template-columns:minmax(0,1fr)]">
           {faqs.map((f) => (
             <Card key={f.q} className="p-5">
@@ -417,6 +595,26 @@ export function LandingView() {
               <p className="text-[0.88rem] text-muted-foreground m-0 leading-relaxed pl-6">{f.a}</p>
             </Card>
           ))}
+
+          {/* Objection-anticipation group (CONVERSION-3) — three new FAQs that
+              surface the top concerns before the prospect raises them. */}
+          <div className="md:col-span-2 mt-2 flex items-center gap-2">
+            <span className="h-px flex-1 bg-ursa-line" aria-hidden="true" />
+            <span className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-ursa-terracotta-text">
+              {t("content.landing.faq.objection.group-label")}
+            </span>
+            <span className="h-px flex-1 bg-ursa-line" aria-hidden="true" />
+          </div>
+          {OBJECTION_FAQS.map((f) => (
+            <Card key={f.qKey} className="p-5 border-ursa-terracotta/25 bg-ursa-cream">
+              <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-start gap-2">
+                <span className="text-ursa-terracotta-text font-label text-[0.7rem] tracking-[0.12em] uppercase shrink-0 mt-1">Q</span>
+                {t(f.qKey)}
+              </h4>
+              <p className="text-[0.88rem] text-muted-foreground m-0 leading-relaxed pl-6">{t(f.aKey)}</p>
+            </Card>
+          ))}
+
           <Card className="p-5 bg-ursa-dark-roast/6 border-ursa-forest-deep/20">
             <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-start gap-2">
               <span className="text-ursa-forest-deep font-label text-[0.7rem] tracking-[0.12em] uppercase shrink-0 mt-1">Q</span>
@@ -426,6 +624,92 @@ export function LandingView() {
               Cancelas cuando quieras — no hay contrato ni permanencia. Si en el primer mes no funciona para ti, te
               devolvemos la parte proporcional. El oso prefiere un socio feliz a un socio atrapado.
             </p>
+          </Card>
+        </div>
+      </ViewSection>
+
+      {/* Trust & proof — social proof, authority, risk reversal, scarcity (CONVERSION-1) */}
+      <ViewSection badge={t("content.landing.trust.badge")} title={t("content.landing.trust.title")} meta={t("content.landing.trust.meta")}>
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] mb-6 m-0">
+          {t("content.landing.trust.lede")}
+        </p>
+
+        {/* Four trust pillars — social proof, authority, risk reversal, scarcity */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 [grid-template-columns:minmax(0,1fr)]">
+          {TRUST_PILLARS.map((p) => {
+            const Icon = p.icon;
+            return (
+              <Card key={p.id} className="flex flex-col">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={cn(
+                    "w-8 h-8 rounded-md grid place-items-center shrink-0",
+                    p.tone === "gold" && "bg-ursa-gold/15 text-ursa-gold-text",
+                    p.tone === "forest" && "bg-ursa-forest-deep/12 text-ursa-forest-deep",
+                    p.tone === "terracotta" && "bg-ursa-terracotta/12 text-ursa-terracotta-text"
+                  )}>
+                    <Icon size={16} />
+                  </span>
+                  <span className="font-label text-[0.56rem] tracking-[0.14em] uppercase text-muted-foreground">
+                    {t(`content.landing.trust.${p.id}.source`)}
+                  </span>
+                </div>
+                <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0 mb-2 leading-tight">
+                  {t(`content.landing.trust.${p.id}.title`)}
+                </h4>
+                <p className="text-[0.84rem] text-foreground/85 leading-relaxed m-0 mb-2.5">
+                  {t(`content.landing.trust.${p.id}.body`)}
+                </p>
+                <div className={cn(
+                  "border-l-2 pl-3 py-1 mt-auto",
+                  p.tone === "gold" && "border-ursa-gold/40",
+                  p.tone === "forest" && "border-ursa-forest-deep/40",
+                  p.tone === "terracotta" && "border-ursa-terracotta/40"
+                )}>
+                  <p className="text-[0.76rem] italic text-ursa-dark-roast m-0 leading-snug">
+                    {t(`content.landing.trust.${p.id}.citation`)}
+                  </p>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Verified third-party listings — short row of evidence chips */}
+        <div className="mt-5 grid sm:grid-cols-3 gap-3 [grid-template-columns:minmax(0,1fr)]">
+          {TRUST_LISTINGS.map((row) => {
+            const Icon = row.icon;
+            return (
+              <div key={row.id} className="flex items-center gap-3 bg-card border border-ursa-line-soft rounded-lg px-4 py-3">
+                <Icon size={18} className="text-ursa-gold-text shrink-0" />
+                <div className="min-w-0">
+                  <p className="font-label text-[0.56rem] tracking-[0.14em] uppercase text-muted-foreground m-0">
+                    {t(`content.landing.trust.listing.${row.id}.label`)}
+                  </p>
+                  <p className="text-[0.84rem] text-ursa-dark-roast font-medium m-0">{t(`content.landing.trust.listing.${row.id}.value`)}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Prominent risk-reversal callout — the bear's promise, in Spanish (customer-facing) */}
+        <Callout tone="forest" title={t("content.landing.trust.callout.title")}>
+          <p className="m-0 text-[0.92rem]">{t("content.landing.trust.callout.body")}</p>
+        </Callout>
+
+        {/* Behavioral-science synthesis — why these specific signals convert */}
+        <div className="grid md:grid-cols-2 gap-4 [grid-template-columns:minmax(0,1fr)] mt-1">
+          <Card>
+            <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
+              <BookOpen size={16} className="text-ursa-gold-text" /> {t("content.landing.trust.science.title")}
+            </h4>
+            <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">{t("content.landing.trust.science.body")}</p>
+          </Card>
+          <Card>
+            <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
+              <Sparkles size={16} className="text-ursa-terracotta-text" /> {t("content.landing.trust.specificity.title")}
+            </h4>
+            <p className="text-[0.84rem] text-muted-foreground m-0 leading-relaxed">{t("content.landing.trust.specificity.body")}</p>
           </Card>
         </div>
       </ViewSection>
@@ -453,10 +737,14 @@ export function LandingView() {
             <button
               onClick={() => {
                 if (interest.includes("@")) {
+                  track("pilot_signup", { target: "pilot_signup" });
+                  track("form_submit", { target: "pilot_signup" });
                   setInterest("");
                   alert("¡Anotado! Te avisaremos cuando el piloto abra. — El oso");
                 }
               }}
+              data-analytics="form_submit"
+              data-analytics-target="pilot_signup"
               className="h-12 px-6 rounded-full bg-ursa-gold text-ursa-dark-roast font-label text-[0.78rem] tracking-[0.12em] uppercase hover:bg-ursa-gold-soft transition shadow-lg whitespace-nowrap"
             >
               Anótame
