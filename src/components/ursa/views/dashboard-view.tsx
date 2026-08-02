@@ -181,7 +181,7 @@ export function DashboardView() {
                     {tool.title}
                     <ArrowRight size={14} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0" />
                   </h3>
-                  <p className="text-[0.8rem] text-muted-foreground m-0 leading-relaxed">{tool.desc}</p>
+                  <p className="text-[0.8rem] text-muted-foreground m-0 leading-relaxed">{t(`content.dashboard.tool.${tool.key}.desc`)}</p>
                 </button>
               </Card>
             );
