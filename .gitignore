@@ -19,3 +19,10 @@ server.log
 
 # Tool result scratch files
 /tool-results/
+.git/agent-state/
+*.log
+pyserver.log
+dev.log
+dev2.log
+/tmp/
+tool-results/
