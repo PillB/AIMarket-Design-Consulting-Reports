@@ -1004,3 +1004,54 @@ Stage Summary:
 - Project remains lint-clean; all 24 views still compile and serve.
 - Next-phase candidates: translate the lede paragraphs and ViewSection bodies inside each of the 8 dossier module views + 13 tool views (currently English); translate the command palette entries; translate the document title map in `src/app/page.tsx`; surface the language toggle in the command palette as a third action.
 
+
+---
+Task ID: META-DEEPEN-2
+Agent: main (continuation session)
+Task: Deepen meta-text removal, add Milimetrica competitor, validate live site with agent-browser, deploy to GitHub
+
+Work Log:
+- Installed gh CLI v2.65.0 as local binary (~/.local/bin/gh)
+- Generated GitHub device code 3914-B187 (expired, user did not authorize in 15min window)
+- Generated fresh device code DA82-4193 (pending user authorization)
+- Scanned all view files for remaining meta text after previous META-CLEANUP pass
+- Found and redrafted remaining meta text:
+  • creative-view.tsx: 15+ user-facing "prototype" → "sample" instances (lede, callout title, body prose, section badges, FAQ section title+body, stat labels, closing cards). "Asset disclaimer" → "Before production — read first". "Why prototypes" → "Why samples". All FAQ quote text updated.
+  • dashboard-view.tsx: "Creative Campaign Prototypes" → "Creative Campaigns" (module card title+desc). Pilot tool desc "simulator" → "dashboard". Hardcoded "10 competitors" → "13" (SWOT + competitors tool cards).
+  • menu-view.tsx: "Disclaimer:" → "About these prices:". Removed inline S1/S2/S3 source codes from prose. "dossier prototype" → "dossier design".
+  • calculator-view.tsx: "Disclaimer:" → "How to read this:"
+  • i18n.ts EN+ES: Updated view.creative.eyebrow+title (Prototypes→Samples/Prototipos→Muestras), view.landing.eyebrow (removed "Customer-facing prototype · For review"), view.pilot.eyebrow (simulator→dashboard/simulador→tablero), nav.module-06 (Creative Prototypes→Creative Campaigns/Prototipos Creativos→Campañas Creativas), view.market.title "Ten"→"Thirteen"/"Diez"→"Trece"
+- Added Milimetrica Coffee Co + 2 closest OSM-validated competitors to all data layers:
+  • ursa-data.ts COMPETITORS array: Milimetrica (35m), Dulce Ciudad (50m), Caficulto (83m) with strength/weakness/ursaImplication
+  • competitors-view.tsx: VERDICT entries (match/lead/match) + MATRIX_POSITIONS (scale/craft)
+  • swot-view.tsx: Full SWOT entries (distinctiveness/reach/strength/weakness/opportunity/threat/ursaImplication)
+  • Updated competitors-view lede "ten" → "thirteen"
+- Agent-browser validation (live site on localhost:3000):
+  • Dashboard renders correctly, all module cards show cleaned text ✓
+  • Creative view: "MODULE 06 · CREATIVE CAMPAIGN SAMPLES", "Samples you can click, copy", "Before production — read first", "All samples below use the concept mark" ✓
+  • Competitors view: Milimetrica Coffee Co, Dulce Ciudad, Caficulto all appear in table ✓. Stats show 13 competitors tracked, 10 with website ✓
+  • SWOT matrix: "A 2×2 plot of 13 Miraflores and Lima competitors" ✓. All 3 new competitors plotted as clickable dots with distinctiveness/reach values ✓
+  • Menu view: "About these prices" (not "Disclaimer:") ✓ (verified via innerText search)
+  • Calculator: "How to read this" (not "Disclaimer:") ✓
+  • Language toggle EN→ES: nav translates (PANEL, HERRAMIENTAS, FUENTES, DOSSIER ESTÁTICO) ✓
+  • Light mode default: confirmed via eval (no .dark class on <html>) ✓
+  • Mobile viewport (iPhone 14): no horizontal overflow ✓
+  • VLM dashboard analysis: 9/10 — "world-class design", perfect color palette (zero blue/indigo), outline-only bear mark, excellent typography. Minor: chart bar contrast for color blindness, hover states for tool cards.
+- Lint: clean (exit 0, zero errors)
+- Committed locally: "Remove meta text, add Milimetrica + OSM competitors, redraft Spanish translations" (8 files, 114 insertions, 51 deletions)
+- Set up 15-minute webDevReview cron job (job_id: 303368, America/Lima timezone)
+
+Stage Summary:
+- All remaining user-facing meta text removed (prototype→sample, simulator→dashboard, Disclaimer→How to read this/About these prices, inline S-codes removed)
+- Milimetrica Coffee Co (35m) + Dulce Ciudad (50m) + Caficulto (83m) added to all 3 competitor data layers (ursa-data, competitors-view VERDICT+MATRIX, swot-view full SWOT)
+- Competitor count updated 10→13 everywhere (dynamic + hardcoded)
+- i18n EN+ES updated for all changed strings
+- Live site validated via agent-browser: all changes render correctly, light mode default confirmed, mobile no-overflow confirmed, Spanish toggle works
+- VLM: dashboard 9/10 (world-class)
+- GitHub auth pending (code DA82-4193) — awaiting user authorization to push
+
+Unresolved:
+- GitHub push blocked on user authorizing device code DA82-4193 at https://github.com/login/device
+- Once authed: push to main, rebuild static export, push to gh-pages branch
+- Full Spanish translation of tool view bodies (stat labels, table headers) still English — previous i18n scoped to dashboard + view heroes only
+- VLM minor suggestions: add hover micro-interactions to tool cards, improve chart color-blind accessibility
