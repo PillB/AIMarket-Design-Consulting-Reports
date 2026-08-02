@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import {
   BearMark,
@@ -39,6 +40,15 @@ import {
   Trash2,
   ClipboardList,
   ArrowRight,
+  BookOpen,
+  Microscope,
+  Target,
+  Lightbulb,
+  Eye,
+  Video,
+  CalendarDays,
+  Clock,
+  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -814,6 +824,56 @@ export function ContentCalendarView() {
         </Callout>
       </ViewSection>
 
+      {/* ============================================================
+          SCIENCE — the research behind the calendar
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.content-calendar.science.badge")}
+        title={t("content.content-calendar.science.title")}
+        meta={t("content.content-calendar.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.content-calendar.science.intro")}
+        </p>
+
+        {/* Group 1 — Content marketing science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <BookOpen size={16} className="text-ursa-gold-text" />
+          {t("content.content-calendar.science.group.content-marketing")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {SCIENCE_MARKETING.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 2 — Short-form video effectiveness */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Video size={16} className="text-ursa-gold-text" />
+          {t("content.content-calendar.science.group.video")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {SCIENCE_VIDEO.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 3 — Calendar methodology */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <CalendarDays size={16} className="text-ursa-gold-text" />
+          {t("content.content-calendar.science.group.methodology")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {SCIENCE_METHOD.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.content-calendar.science.synthesis.title")}>
+          {t("content.content-calendar.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
       {/* Closing */}
       <ViewSection className="border-b-0">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -841,5 +901,91 @@ export function ContentCalendarView() {
         </div>
       </ViewSection>
     </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the Content Calendar view.
+// Strings live under content.content-calendar.science.card.{id}.{field} in
+// i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const SCIENCE_MARKETING: ScienceEntry[] = [
+  { id: "cmi-2024", icon: Target, tone: "forest" },
+  { id: "pulizzi-2012", icon: BookOpen, tone: "gold" },
+  { id: "hall-2014", icon: Sparkles, tone: "forest" },
+  { id: "coschedule-2024", icon: Microscope, tone: "gold" },
+];
+
+const SCIENCE_VIDEO: ScienceEntry[] = [
+  { id: "cisco-2022", icon: Video, tone: "forest" },
+  { id: "wyzowl-2024", icon: Eye, tone: "gold" },
+  { id: "reels-benchmarks", icon: Target, tone: "terracotta" },
+  { id: "three-second-hook", icon: Lightbulb, tone: "gold" },
+];
+
+const SCIENCE_METHOD: ScienceEntry[] = [
+  { id: "editorial-calendar", icon: BookOpen, tone: "forest" },
+  { id: "batching", icon: Clock, tone: "gold" },
+  { id: "seasonal-timing", icon: CalendarDays, tone: "terracotta" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.content-calendar.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.content-calendar.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.content-calendar.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.content-calendar.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }

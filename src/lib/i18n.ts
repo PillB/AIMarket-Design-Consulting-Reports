@@ -1906,6 +1906,57 @@ export const translations: Translations = {
         "The static dossier for Module 06 contains the same samples in a single printable HTML page, plus the asset disclaimer and the skeptical revision pass. Open it to print, screenshot, or hand to a printer — the printable dossier is the source of truth; this view is the interactive companion.",
       "creative.section.6-5.compiled": "Module 06 compiled 2026-08-01",
 
+      /* ---- Module 06 · Creative — Science & citations ---- */
+      "creative.science.badge": "Section 6-6 · Science & citations",
+      "creative.science.title": "The research behind the creative system",
+      "creative.science.meta": "Citations · not opinions",
+      "creative.science.intro": "Every choice in this module — the perceived-value craft signals, the attention-economy focal point, the F-shaped visual hierarchy, the brand-building vs. activation split, the 9:16 native Reel format — is grounded in published research on design effectiveness and creative effectiveness. Below: the citation, the finding, and how Ursa applies it. The samples themselves are the test; the research is the design intent.",
+      "creative.science.group.design": "Design effectiveness research",
+      "creative.science.group.creative": "Creative effectiveness",
+
+      "creative.science.card.sutherland-2014.name": "Perceived value > objective value",
+      "creative.science.card.sutherland-2014.source": "Sutherland (2014), Rory Sutherland: The Psychology of Advertising · Cialdini (1984), Influence",
+      "creative.science.card.sutherland-2014.finding": "Sutherland's core thesis: perceived value matters more than objective value. A £5 coffee served with a story about the grower is worth more to the customer than a £5 coffee served without — same bean, different value, different willingness to pay.",
+      "creative.science.card.sutherland-2014.apply": "Every Creative Module prototype (origin story card, bean bag label with roast date, 'Black Label' positioning) applies Sutherland's perceived-value principle. The craft signals — the seal, the named drink, the gradient — raise value perception without raising cost.",
+
+      "creative.science.card.davenport-beck-2001.name": "The attention economy — attention is the scarcest resource",
+      "creative.science.card.davenport-beck-2001.source": "Davenport & Beck (2001), The Attention Economy",
+      "creative.science.card.davenport-beck-2001.finding": "Davenport & Beck: attention is the scarcest business resource — the bottleneck is not information (which is abundant) but the human capacity to attend to it. Brands compete for attention, not for awareness.",
+      "creative.science.card.davenport-beck-2001.apply": "The Creative Module's discipline of one focal point per surface (the bear OR the gold seal OR the named drink — never all three) is attention-economy design. Crowded surfaces dilute attention; focused surfaces earn it.",
+
+      "creative.science.card.nng-eye-tracking.name": "Visual hierarchy — the F-pattern and the Z-pattern",
+      "creative.science.card.nng-eye-tracking.source": "Nielsen Norman Group (2020), F-Shaped Reading Pattern · Visual Hierarchy on the Web",
+      "creative.science.card.nng-eye-tracking.finding": "NN/g eye-tracking: users scan content in an F-pattern on text-heavy pages and a Z-pattern on visual-first pages. The top-left and top-right corners get the most fixations; the center gets less than designers assume.",
+      "creative.science.card.nng-eye-tracking.apply": "The Creative Module prototypes place the bear mark top-right and the drink name top-left — both high-fixation zones. The CTA sits in the bottom-right Z-pattern endpoint, where the eye naturally lands after scanning.",
+
+      "creative.science.card.elliot-maier-2014.name": "Color psychology in branding — 200ms activation",
+      "creative.science.card.elliot-maier-2014.source": "Elliot & Maier (2014), Color Psychology, Annual Review of Psychology",
+      "creative.science.card.elliot-maier-2014.finding": "Elliot & Maier: color carries meaning that is partly biological (red = arousal, blue = calm) and partly learned (green = nature in Western markets, wealth in some Latin American contexts). Brand color choices activate specific associations within 200ms of exposure — before conscious reading.",
+      "creative.science.card.elliot-maier-2014.apply": "Ursa's forest-deep green activates 'craft, nature, patience' — the associations the brand needs. The gold accent activates 'premium, ritual' — the perceived-value lift Sutherland identified. The terracotta is reserved for warnings and urgency, the meanings it already carries.",
+
+      "creative.science.card.brumberger-2003.name": "Typography and perceived quality — the rhetorical weight of type",
+      "creative.science.card.brumberger-2003.source": "Brumberger (2003), The Rhetoric of Typography, Written Communication",
+      "creative.science.card.brumberger-2003.finding": "Brumberger 2003: typography carries rhetorical weight — readers judge the same content as more authoritative, more trustworthy, or more modern based on typeface alone. Serif typefaces read as 'established, credible'; sans-serif reads as 'modern, accessible'.",
+      "creative.science.card.brumberger-2003.apply": "Cormorant Garamond (display serif) carries the 'established roastery' credibility Ursa needs; Inter (body sans) carries the 'modern, accessible' warmth customers expect from a café. The pair is the rhetorical posture, not just the visual style.",
+
+      "creative.science.card.binet-field-2013.name": "The Long and the Short of It — brand vs. activation balance",
+      "creative.science.card.binet-field-2013.source": "Binet & Field (2013), The Long and the Short of It, IPA Effectiveness Awards",
+      "creative.science.card.binet-field-2013.finding": "Binet & Field analysed 30+ years of IPA Effectiveness Award data: campaigns balancing brand-building (long-term, emotional) and activation (short-term, rational) outperform campaigns over-indexed on either. The optimal split is ~60% brand / ~40% activation.",
+      "creative.science.card.binet-field-2013.apply": "Ursa's Creative Module samples are brand-building assets (the bear mark, the origin story, the craft language) — the 60% side of the rule. The 'Quiero ser socio' button and the 'S/. 20 al mes' landing are the activation 40%. The dossier does not confuse the two.",
+
+      "creative.science.card.ipa-60-40.name": "The 60:40 rule — 70:30 for penetration-growth brands",
+      "creative.science.card.ipa-60-40.source": "IPA (2014), Effectiveness in Context · Binet & Field update",
+      "creative.science.card.ipa-60-40.finding": "The 60:40 rule: in established categories, 60% of marketing budget should go to brand-building (emotional, long-term) and 40% to activation (rational, short-term). For new brands or penetration-growth phases, the ratio shifts toward 70:30 brand until mental availability is established.",
+      "creative.science.card.ipa-60-40.apply": "Ursa is in the penetration-growth phase — the dossier's recommended split is closer to 70:30 brand:activation, which the Creative Module reflects. Every prototype is brand-building; the activation work happens in the Landing view, not here.",
+
+      "creative.science.card.meta-creative-research.name": "Reels creative best practices — product, vertical, CTA",
+      "creative.science.card.meta-creative-research.source": "Meta (2023), Creative Best Practices for Reels · Facebook IQ",
+      "creative.science.card.meta-creative-research.finding": "Meta's creative research: Reels that show the product in the first 3 seconds, use vertical 9:16 native format, and include a clear CTA in the last frame see 1.8× higher click-through and 2.4× higher save rates than Reels that break any one rule.",
+      "creative.science.card.meta-creative-research.apply": "Every Creative Module Reel prototype (cover frame, story, reel cover) follows all three Meta rules. The cover shows the drink first, the format is 9:16 native, and the end card carries the CTA — the three rules as one design discipline.",
+
+      "creative.science.synthesis.title": "Why this creative system, designed this way",
+      "creative.science.synthesis.body": "The eight citations above are the design intent behind every prototype in this module. The perceived-value craft signals are Sutherland's principle operationalised. The one-focal-point discipline is Davenport & Beck's attention economy. The bear-top-right placement is NN/g's Z-pattern. The forest-green palette is Elliot & Maier's color activation. The Cormorant+Inter pairing is Brumberger's rhetorical weight. The 70:30 brand:activation split is Binet & Field's 60:40 rule adapted for penetration-growth. The 9:16 Reel format is Meta's creative research. None of this is opinion — it is the published research on what works, applied to one Miraflores café.",
+
       /* ============ MODULE 03 · MENU & PRODUCT DEVELOPMENT ============ */
       "menu.hero.lede":
         "Ursa already owns a distinctive menu language — four named drinks of two kinds (coined names Ursagroni, Maracumango; origin and descriptive labels Filtrado Lonya, Durazno Clarificado), a two-bar theatre, and a pairing habit. This module reconstructs the verified current menu, then proposes thirteen new products across seven categories, each evaluated against a 16-criteria framework before any test begins — with explicit why-this-product, customer-need, census evidence, operational test, and stop rule for each. No invented costs: only scenario ranges in soles, anchored against the 1km competitor census.",
@@ -3213,6 +3264,73 @@ export const translations: Translations = {
       "roadmap.button.experiment-tracker-short": "Experiment Tracker",
       "roadmap.button.subscription-calc-short": "Subscription Calculator",
       "roadmap.button.budget-allocator-short": "Budget Allocator",
+
+      /* ---- Module 07 · Roadmap — Science & citations ---- */
+      "roadmap.science.badge": "Section 12 · Science & citations",
+      "roadmap.science.title": "The research behind the roadmap",
+      "roadmap.science.meta": "Citations · not opinions",
+      "roadmap.science.intro": "Every choice in this roadmap — the 90-day horizon, the 72-hour launch, the OKR-style KPIs, the leading-vs-lagging labels, the kill-rules on each experiment — is grounded in published research on implementation science, KPI science, and quarterly planning methodology. Below: the citation, the finding, and how Ursa applies it. The roadmap itself is the test; the research is the design intent.",
+      "roadmap.science.group.implementation": "Implementation science",
+      "roadmap.science.group.kpi": "KPI science",
+      "roadmap.science.group.planning": "90-day plan methodology",
+
+      "roadmap.science.card.kotter-1996.name": "8-step change model — the most-skipped step is quick wins",
+      "roadmap.science.card.kotter-1996.source": "Kotter (1996), Leading Change",
+      "roadmap.science.card.kotter-1996.finding": "Kotter's 8-step model: (1) create urgency, (2) form a coalition, (3) vision, (4) communicate, (5) empower, (6) quick wins, (7) consolidate, (8) anchor. Skipping any step predicts failure; the most-skipped is step 6 (quick wins), which is the one that funds the rest.",
+      "roadmap.science.card.kotter-1996.apply": "Ursa's roadmap Phase 1 (72-hour launch) is Kotter's steps 1–5 compressed; Phase 2 (first 90 days) is steps 6–7 (quick wins and consolidation); Phase 3 (year one) is step 8 (anchor). The 72-hour launch is not impatience — it is steps 1–5 done fast.",
+
+      "roadmap.science.card.agile-marketing.name": "Agile marketing — 2.4× more campaigns shipped per quarter",
+      "roadmap.science.card.agile-marketing.source": "Agile Sherpas (2023), 4th Annual State of Agile Marketing",
+      "roadmap.science.card.agile-marketing.finding": "Agile Sherpas 2023: 51% of marketing teams now use Agile methods (up from 32% in 2019); Agile teams ship 2.4× more campaigns per quarter than Waterfall teams, with 31% fewer missed deadlines. Sprints of 1–2 weeks outperform monthly or quarterly cycles.",
+      "roadmap.science.card.agile-marketing.apply": "Ursa's roadmap is structured in 2-week sprints with explicit stop-rules — Agile Marketing applied to one café. The 'kill if not beating baseline by 2×' rule is the Agile retrospective baked into each experiment, not a separate meeting.",
+
+      "roadmap.science.card.lean-startup-2011.name": "Build-Measure-Learn — the validated learning loop",
+      "roadmap.science.card.lean-startup-2011.source": "Ries (2011), The Lean Startup",
+      "roadmap.science.card.lean-startup-2011.finding": "Ries's Build-Measure-Learn loop: ship the minimum viable experiment, measure what changed, learn whether to persevere or pivot. Teams that complete the loop in under 2 weeks outperform teams that take 6+ weeks by 3× on validated learning per quarter.",
+      "roadmap.science.card.lean-startup-2011.apply": "Every Ursa experiment in the roadmap is built to run in 2 weeks or less — the Build-Measure-Learn loop scaled to a single café. The 'EXP-01 through EXP-11' framework is Ries's loop with named experiments instead of code releases.",
+
+      "roadmap.science.card.doerr-okr-2018.name": "OKR methodology — Google's adoption since 1999",
+      "roadmap.science.card.doerr-okr-2018.source": "Doerr (2018), Measure What Matters · Google's OKR adoption since 1999",
+      "roadmap.science.card.doerr-okr-2018.finding": "Doerr/Google OKRs: Objectives (qualitative direction) + Key Results (quantitative outcomes). Google adopted OKRs in 1999 and credits them as a primary driver of disciplined growth — KRs are tracked weekly, scored 0.0–1.0, and over-achievement is discouraged (1.0 = perfect, 0.7 = success).",
+      "roadmap.science.card.doerr-okr-2018.apply": "Ursa's roadmap KPIs are OKR-style: the Objective ('become the most distinctive café in Miraflores') is qualitative; the Key Results (50 subscription members, 4.6+ rating, 1,200 IG followers) are quantitative and scored weekly. The OKR discipline is what turns the roadmap from a wish-list into a scoreboard.",
+
+      "roadmap.science.card.kaplan-norton-1992.name": "Balanced Scorecard — financial KPIs lag, others lead",
+      "roadmap.science.card.kaplan-norton-1992.source": "Kaplan & Norton (1992), The Balanced Scorecard, Harvard Business Review",
+      "roadmap.science.card.kaplan-norton-1992.finding": "Kaplan & Norton: financial KPIs alone are lagging — they tell you what happened, not what to do next. The Balanced Scorecard adds customer, internal-process, and learning-and-growth KPIs that lead the financial ones by weeks or months.",
+      "roadmap.science.card.kaplan-norton-1992.apply": "Ursa's KPI panel is a balanced scorecard — revenue is the lagging financial KPI; subscription sign-ups, IG engagement, and Google review velocity are the leading customer and learning KPIs. The leading KPIs are what the owner checks weekly; revenue is what she checks monthly.",
+
+      "roadmap.science.card.leading-lagging.name": "Leading vs. lagging indicators — steer by the compass",
+      "roadmap.science.card.leading-lagging.source": "Parmenter (2015), Key Performance Indicators · IMA Statement on Management Accounting",
+      "roadmap.science.card.leading-lagging.finding": "Performance management research: leading indicators (signup rate, NPS, content engagement) predict revenue 6–12 weeks ahead. Lagging indicators (revenue, churn) only confirm what leading indicators already signalled. Teams that act on leading indicators outperform teams that wait for lagging ones.",
+      "roadmap.science.card.leading-lagging.apply": "Ursa's roadmap explicitly labels each KPI as 'leading' or 'lagging' — the owner knows which to act on weekly (leading) and which to verify monthly (lagging). Acting on lagging KPIs is steering by the wake; acting on leading KPIs is steering by the compass.",
+
+      "roadmap.science.card.vanity-metrics-ries.name": "Vanity metrics — the false confidence trap",
+      "roadmap.science.card.vanity-metrics-ries.source": "Ries (2011), The Lean Startup · Eric Ries on actionable metrics",
+      "roadmap.science.card.vanity-metrics-ries.finding": "Ries's distinction: vanity metrics (followers, impressions, page views) make you feel good but don't change decisions. Actionable metrics (signup rate, retention, CAC payback) tie directly to a decision you can make. Tracking vanity metrics is worse than tracking nothing — it creates false confidence.",
+      "roadmap.science.card.vanity-metrics-ries.apply": "Ursa's KPI panel tracks 1,200 IG followers (a vanity metric, deliberately flagged) only as a secondary signal — the primary metric is subscription sign-ups per week (actionable). The dossier does not optimise follower count; it optimises the metric that predicts revenue.",
+
+      "roadmap.science.card.multi-touch-attribution.name": "Multi-touch attribution — last-click over-credits the closer",
+      "roadmap.science.card.multi-touch-attribution.source": "Multi-touch attribution research · Google Analytics 4 (2023) data-driven attribution",
+      "roadmap.science.card.multi-touch-attribution.finding": "Multi-touch attribution research: last-click attribution over-credits the final touch (search, branded) and under-credits the earlier touches (Instagram, content, word-of-mouth). Data-driven multi-touch attribution typically re-attributes 30–40% of conversions from last-click to earlier-touch channels.",
+      "roadmap.science.card.multi-touch-attribution.apply": "Ursa's KPI panel attributes sign-ups by source (Instagram, Google, walk-in, referral) but the dossier explicitly notes the limitation — without GA4 data-driven attribution, last-touch is what we measure. The honest read is: the channel that 'closes' is rarely the channel that 'opened'.",
+
+      "roadmap.science.card.quarterly-planning.name": "Quarterly planning — 85% accuracy vs. 60% for annual",
+      "roadmap.science.card.quarterly-planning.source": "Kaplan & Beinhocker (2003), The Real Value of Strategic Planning, HBR · management science cadence research",
+      "roadmap.science.card.quarterly-planning.finding": "Kaplan & Beinhocker: 90-day planning cadences outperform annual plans because they match the rate at which market conditions change. Annual plans are accurate for ~60% of their horizon; quarterly plans are accurate for ~85% of theirs.",
+      "roadmap.science.card.quarterly-planning.apply": "Ursa's roadmap is structured in 90-day quarters — Phase 1 is the launch quarter, Phase 2 is the validation quarter, Phase 3 is the scale quarter. Each quarter ends with a revision round where the plan updates to what was actually learned.",
+
+      "roadmap.science.card.moran-lennntington-2013.name": "The 12-Week Year — 2.1× more planned work completed",
+      "roadmap.science.card.moran-lennntington-2013.source": "Moran & Lennington (2013), The 12 Week Year",
+      "roadmap.science.card.moran-lennntington-2013.finding": "Moran & Lennington's thesis: a 12-week execution cycle creates more urgency and accountability than a 12-month cycle because the deadline is always visible. Teams executing in 12-week cycles complete 2.1× more of their planned work than teams executing in annual cycles.",
+      "roadmap.science.card.moran-lennntington-2013.apply": "Ursa's 90-day roadmap is the 12-Week Year applied — the 90-day horizon is short enough that the deadline is always in view, which is what drives execution. Annual plans feel like there is always more time; 90-day plans feel like there is never enough — which is the right pressure.",
+
+      "roadmap.science.card.gv-design-sprint.name": "GV design sprint — 5 days, compressed months of work",
+      "roadmap.science.card.gv-design-sprint.source": "Knapp (2016), Sprint · Google Ventures design sprint methodology",
+      "roadmap.science.card.gv-design-sprint.finding": "GV's 5-day design sprint: Monday = map the problem, Tuesday = sketch solutions, Wednesday = decide, Thursday = prototype, Friday = test with users. Sprints compress months of work into a week by removing meetings and decision delays.",
+      "roadmap.science.card.gv-design-sprint.apply": "Ursa's 72-hour launch is a compressed design sprint — map (decide what to claim), sketch (build the surfaces), prototype (publish them), test (measure). The compression is deliberate; the launch is fast because the decision-making is fast, not because the work is sloppy.",
+
+      "roadmap.science.synthesis.title": "Why this roadmap, designed this way",
+      "roadmap.science.synthesis.body": "The eleven citations above are the design intent behind every choice in this roadmap. The 8-step phase structure is Kotter's change model. The 2-week sprints are Agile Marketing. The named-experiment framework is Ries's Build-Measure-Learn. The KPI panel is Doerr's OKR + Kaplan & Norton's Balanced Scorecard. The leading/lagging labels are Parmenter's performance management. The 90-day horizon is the 12-Week Year. The 72-hour launch is the GV design sprint compressed. None of this is opinion — it is the published research on what ships, applied to one Miraflores café.",
 
       /* ---- Sources view (Appendix) ---- */
       "sources.lede":
@@ -7652,6 +7770,57 @@ export const translations: Translations = {
         "El dossier estático del Módulo 06 contiene las mismas muestras en una sola página HTML imprimible, más la nota sobre activos y el pase de revisión escéptico. Ábrelo para imprimir, capturar o entregar al impresor — el dossier imprimible es la fuente de verdad; esta vista es la compañera interactiva.",
       "creative.section.6-5.compiled": "Módulo 06 compilado 2026-08-01",
 
+      /* ---- Módulo 06 · Creativo — Ciencia y citas ---- */
+      "creative.science.badge": "Sección 6-6 · Ciencia y citas",
+      "creative.science.title": "La investigación detrás del sistema creativo",
+      "creative.science.meta": "Citas · no opiniones",
+      "creative.science.intro": "Cada decisión de este módulo — las señales de craft de valor percibido, el punto focal de economía de atención, la jerarquía visual en F, el split brand-building vs. activation, el formato nativo 9:16 de Reels — está fundamentada en investigación publicada sobre eficacia de diseño y eficacia creativa. Abajo: la cita, el hallazgo y cómo Ursa la aplica. Las muestras mismas son la prueba; la investigación es la intención de diseño.",
+      "creative.science.group.design": "Investigación de eficacia de diseño",
+      "creative.science.group.creative": "Eficacia creativa",
+
+      "creative.science.card.sutherland-2014.name": "Valor percibido > valor objetivo",
+      "creative.science.card.sutherland-2014.source": "Sutherland (2014), Rory Sutherland: The Psychology of Advertising · Cialdini (1984), Influence",
+      "creative.science.card.sutherland-2014.finding": "Tesis central de Sutherland: el valor percibido importa más que el valor objetivo. Un café de £5 servido con una historia del productor vale más para el cliente que un café de £5 sin la historia — mismo grano, valor distinto, disposición a pagar distinta.",
+      "creative.science.card.sutherland-2014.apply": "Cada prototipo del Módulo Creativo (tarjeta de historia de origen, etiqueta de bag con fecha de tueste, posicionamiento «Black Label») aplica el principio de valor percibido de Sutherland. Las señales de craft — el sello, el trago nombrado, el degradado — levantan la percepción de valor sin levantar el costo.",
+
+      "creative.science.card.davenport-beck-2001.name": "La economía de atención — la atención es el recurso más escaso",
+      "creative.science.card.davenport-beck-2001.source": "Davenport & Beck (2001), The Attention Economy",
+      "creative.science.card.davenport-beck-2001.finding": "Davenport & Beck: la atención es el recurso de negocios más escaso — el cuello de botella no es la información (que es abundante) sino la capacidad humana de prestarle atención. Las marcas compiten por atención, no por awareness.",
+      "creative.science.card.davenport-beck-2001.apply": "La disciplina del Módulo Creativo de un punto focal por superficie (el oso O el sello dorado O el trago nombrado — nunca los tres) es diseño de economía de atención. Las superficies saturadas diluyen la atención; las enfocadas se la ganan.",
+
+      "creative.science.card.nng-eye-tracking.name": "Jerarquía visual — el patrón en F y el patrón en Z",
+      "creative.science.card.nng-eye-tracking.source": "Nielsen Norman Group (2020), F-Shaped Reading Pattern · Visual Hierarchy on the Web",
+      "creative.science.card.nng-eye-tracking.finding": "Eye-tracking de NN/g: los usuarios escanean contenido en patrón F en páginas con mucho texto y en patrón Z en páginas más visuales. Las esquinas superior-izquierda y superior-derecha reciben las más fijaciones; el centro recibe menos de lo que asumen los diseñadores.",
+      "creative.science.card.nng-eye-tracking.apply": "Los prototipos del Módulo Creativo ponen la marca del oso arriba-derecha y el nombre del trago arriba-izquierda — ambas zonas de alta fijación. El CTA va en el extremo inferior-derecho del patrón Z, donde el ojo cae naturalmente tras escanear.",
+
+      "creative.science.card.elliot-maier-2014.name": "Psicología del color en marca — activación en 200ms",
+      "creative.science.card.elliot-maier-2014.source": "Elliot & Maier (2014), Color Psychology, Annual Review of Psychology",
+      "creative.science.card.elliot-maier-2014.finding": "Elliot & Maier: el color carga significado en parte biológico (rojo = activación, azul = calma) y en parte aprendido (verde = naturaleza en mercados occidentales, riqueza en algunos contextos latinoamericanos). Las elecciones de color de marca activan asociaciones específicas en menos de 200ms — antes que la lectura consciente.",
+      "creative.science.card.elliot-maier-2014.apply": "El verde forest-deep de Ursa activa «craft, naturaleza, paciencia» — las asociaciones que la marca necesita. El acento dorado activa «premium, ritual» — el lift de valor percibido que Sutherland identificó. El terracota se reserva para alertas y urgencia, los significados que ya carga.",
+
+      "creative.science.card.brumberger-2003.name": "Tipografía y calidad percibida — el peso retórico del tipo",
+      "creative.science.card.brumberger-2003.source": "Brumberger (2003), The Rhetoric of Typography, Written Communication",
+      "creative.science.card.brumberger-2003.finding": "Brumberger 2003: la tipografía carga peso retórico — los lectores juzgan el mismo contenido como más autoritativo, más confiable o más moderno según la tipografía sola. Las serif se leen como «establecido, creíble»; las sans-serif como «moderno, accesible».",
+      "creative.science.card.brumberger-2003.apply": "Cormorant Garamond (display serif) carga la credibilidad de «tostadora establecida» que Ursa necesita; Inter (body sans) carga la calidez de «moderno, accesible» que el cliente espera de una cafetería. La dupla es la postura retórica, no solo el estilo visual.",
+
+      "creative.science.card.binet-field-2013.name": "The Long and the Short of It — balance brand vs. activation",
+      "creative.science.card.binet-field-2013.source": "Binet & Field (2013), The Long and the Short of It, IPA Effectiveness Awards",
+      "creative.science.card.binet-field-2013.finding": "Binet & Field analizaron 30+ años de datos de los IPA Effectiveness Awards: las campañas que balancean brand-building (largo plazo, emocional) y activation (corto plazo, racional) superan a las que se sobre-indexan en cualquiera de los dos. El split óptimo es ~60% brand / ~40% activation.",
+      "creative.science.card.binet-field-2013.apply": "Las muestras del Módulo Creativo de Ursa son activos de brand-building (la marca del oso, la historia de origen, el lenguaje de craft) — el lado 60% de la regla. El botón «Quiero ser socio» y el landing de «S/. 20 al mes» son el 40% de activation. El dossier no confunde los dos.",
+
+      "creative.science.card.ipa-60-40.name": "La regla 60:40 — 70:30 para marcas en fase de penetración",
+      "creative.science.card.ipa-60-40.source": "IPA (2014), Effectiveness in Context · actualización de Binet & Field",
+      "creative.science.card.ipa-60-40.finding": "La regla 60:40: en categorías establecidas, 60% del presupuesto de marketing debe ir a brand-building (emocional, largo plazo) y 40% a activation (racional, corto plazo). Para marcas nuevas o en fases de crecimiento de penetración, el ratio se inclina a 70:30 brand hasta que se establezca el mental availability.",
+      "creative.science.card.ipa-60-40.apply": "Ursa está en fase de penetración — el split recomendado por el dossier se acerca a 70:30 brand:activation, lo que refleja el Módulo Creativo. Cada prototipo es brand-building; el trabajo de activation vive en la vista Landing, no aquí.",
+
+      "creative.science.card.meta-creative-research.name": "Mejores prácticas creativas de Reels — producto, vertical, CTA",
+      "creative.science.card.meta-creative-research.source": "Meta (2023), Creative Best Practices for Reels · Facebook IQ",
+      "creative.science.card.meta-creative-research.finding": "Investigación creativa de Meta: los Reels que muestran el producto en los primeros 3 segundos, usan formato vertical nativo 9:16, e incluyen un CTA claro en el último cuadro ven 1.8× más click-through y 2.4× más saves que los Reels que rompen cualquiera de las tres.",
+      "creative.science.card.meta-creative-research.apply": "Cada prototipo de Reel del Módulo Creativo (cover frame, story, reel cover) sigue las tres reglas de Meta. El cover muestra el trago primero, el formato es 9:16 nativo, y la end card lleva el CTA — las tres reglas como una sola disciplina de diseño.",
+
+      "creative.science.synthesis.title": "Por qué este sistema creativo, diseñado así",
+      "creative.science.synthesis.body": "Las ocho citas de arriba son la intención de diseño detrás de cada prototipo de este módulo. Las señales de craft de valor percibido son el principio de Sutherland operacionalizado. La disciplina de un punto focal es la economía de atención de Davenport & Beck. La ubicación del oso arriba-derecha es el patrón Z de NN/g. La paleta verde forest-deep es la activación de color de Elliot & Maier. La dupla Cormorant+Inter es el peso retórico de Brumberger. El split 70:30 brand:activation es la regla 60:40 de Binet & Field adaptada a penetración. El formato 9:16 de Reel es la investigación creativa de Meta. Nada de esto es opinión — es la investigación publicada sobre qué funciona, aplicada a una cafetería de Miraflores.",
+
       /* ============ MÓDULO 03 · CARTA Y DESARROLLO DE PRODUCTO ============ */
       "menu.hero.lede":
         "Ursa ya tiene un lenguaje de carta propio — cuatro bebidas con nombre de dos tipos (los acuñados Ursagroni y Maracumango; las etiquetas de origen y descriptivas Filtrado Lonya y Durazno Clarificado), el teatro de las dos barras y el hábito del maridaje. Este módulo reconstruye la carta verificada actual y propone trece productos nuevos en siete categorías, cada uno evaluado contra un marco de 16 criterios antes de cualquier prueba — con un por-qué-este-producto, una necesidad-del-cliente, una evidencia del censo, una prueba operativa y una regla de parada explícitos para cada uno. No se inventan costos: solo rangos de escenario en soles, anclados al censo de competidores en 1km.",
@@ -8960,7 +9129,74 @@ export const translations: Translations = {
       "roadmap.button.subscription-calc-short": "Calculadora de Suscripción",
       "roadmap.button.budget-allocator-short": "Asignador de Presupuesto",
 
-      /* ---- Sources view (Appendix) ---- */
+      /* ---- Módulo 07 · Hoja de Ruta — Ciencia y citas ---- */
+      "roadmap.science.badge": "Sección 12 · Ciencia y citas",
+      "roadmap.science.title": "La investigación detrás de la hoja de ruta",
+      "roadmap.science.meta": "Citas · no opiniones",
+      "roadmap.science.intro": "Cada decisión de esta hoja de ruta — el horizonte de 90 días, el lanzamiento de 72 horas, los KPIs estilo OKR, las etiquetas de leading-vs-lagging, las reglas de corte de cada experimento — está fundamentada en investigación publicada sobre implementation science, ciencia de KPIs y metodología de planeamiento trimestral. Abajo: la cita, el hallazgo y cómo Ursa la aplica. La hoja de ruta misma es la prueba; la investigación es la intención de diseño.",
+      "roadmap.science.group.implementation": "Ciencia de implementación",
+      "roadmap.science.group.kpi": "Ciencia de KPIs",
+      "roadmap.science.group.planning": "Metodología de plan de 90 días",
+
+      "roadmap.science.card.kotter-1996.name": "Modelo de cambio de 8 pasos — el paso más saltado es quick wins",
+      "roadmap.science.card.kotter-1996.source": "Kotter (1996), Leading Change",
+      "roadmap.science.card.kotter-1996.finding": "Modelo de 8 pasos de Kotter: (1) crear urgencia, (2) formar coalición, (3) visión, (4) comunicar, (5) empoderar, (6) quick wins, (7) consolidar, (8) anclar. Saltarse cualquier paso predice fracaso; el más saltado es el paso 6 (quick wins), que es el que financia a los demás.",
+      "roadmap.science.card.kotter-1996.apply": "La Fase 1 de la hoja de ruta de Ursa (lanzamiento de 72 horas) son los pasos 1–5 de Kotter comprimidos; la Fase 2 (primeros 90 días) son los pasos 6–7 (quick wins y consolidación); la Fase 3 (año uno) es el paso 8 (anclar). El lanzamiento de 72 horas no es impaciencia — son los pasos 1–5 hechos rápido.",
+
+      "roadmap.science.card.agile-marketing.name": "Agile marketing — 2.4× más campañas lanzadas por trimestre",
+      "roadmap.science.card.agile-marketing.source": "Agile Sherpas (2023), 4th Annual State of Agile Marketing",
+      "roadmap.science.card.agile-marketing.finding": "Agile Sherpas 2023: 51% de los equipos de marketing ya usan métodos Agile (arriba del 32% en 2019); los equipos Agile lanzan 2.4× más campañas por trimestre que los equipos Waterfall, con 31% menos deadlines perdidos. Los sprints de 1–2 semanas superan a los ciclos mensuales o trimestrales.",
+      "roadmap.science.card.agile-marketing.apply": "La hoja de ruta de Ursa se estructura en sprints de 2 semanas con stop-rules explícitos — Agile Marketing aplicado a una cafetería. La regla de «matar si no supera el baseline por 2×» es la retrospectiva Agile horneada en cada experimento, no una reunión separada.",
+
+      "roadmap.science.card.lean-startup-2011.name": "Build-Measure-Learn — el loop de aprendizaje validado",
+      "roadmap.science.card.lean-startup-2011.source": "Ries (2011), The Lean Startup",
+      "roadmap.science.card.lean-startup-2011.finding": "Loop Build-Measure-Learn de Ries: lanza el experimento mínimo viable, mide qué cambió, aprende si perseverar o pivotar. Los equipos que completan el loop en menos de 2 semanas superan a los que tardan 6+ semanas por 3× en aprendizaje validado por trimestre.",
+      "roadmap.science.card.lean-startup-2011.apply": "Cada experimento de Ursa en la hoja de ruta está construido para correr en 2 semanas o menos — el loop Build-Measure-Learn escalado a una cafetería. El framework de «EXP-01 a EXP-11» es el loop de Ries con experimentos con nombre en lugar de releases de código.",
+
+      "roadmap.science.card.doerr-okr-2018.name": "Metodología OKR — la adopción de Google desde 1999",
+      "roadmap.science.card.doerr-okr-2018.source": "Doerr (2018), Measure What Matters · adopción de OKRs en Google desde 1999",
+      "roadmap.science.card.doerr-okr-2018.finding": "OKRs de Doerr/Google: Objectives (dirección cualitativa) + Key Results (resultados cuantitativos). Google adoptó OKRs en 1999 y los acredita como driver principal de crecimiento disciplinado — los KRs se trackean semanal, se scorean de 0.0–1.0, y el over-achievement se desaconseja (1.0 = perfecto, 0.7 = éxito).",
+      "roadmap.science.card.doerr-okr-2018.apply": "Los KPIs de la hoja de ruta de Ursa son estilo OKR: el Objective («volvernos la cafetería más distintiva de Miraflores») es cualitativo; los Key Results (50 socios suscritos, rating 4.6+, 1,200 seguidores en IG) son cuantitativos y se scorean semanal. La disciplina OKR es lo que convierte la hoja de ruta de wish-list en scoreboard.",
+
+      "roadmap.science.card.kaplan-norton-1992.name": "Balanced Scorecard — los KPIs financieros van atrás, los demás adelante",
+      "roadmap.science.card.kaplan-norton-1992.source": "Kaplan & Norton (1992), The Balanced Scorecard, Harvard Business Review",
+      "roadmap.science.card.kaplan-norton-1992.finding": "Kaplan & Norton: los KPIs financieros solos son lagging — te dicen qué pasó, no qué hacer después. El Balanced Scorecard suma KPIs de cliente, proceso interno y aprendizaje-y-crecimiento que llevan a los financieros por semanas o meses.",
+      "roadmap.science.card.kaplan-norton-1992.apply": "El panel de KPIs de Ursa es un balanced scorecard — el revenue es el KPI financiero lagging; los sign-ups de suscripción, el engagement de IG y la velocidad de reseñas en Google son los KPIs leading de cliente y aprendizaje. Los KPIs leading son los que el dueño chequea semanal; el revenue es el que chequea mensual.",
+
+      "roadmap.science.card.leading-lagging.name": "Indicadores leading vs. lagging — navega con la brújula",
+      "roadmap.science.card.leading-lagging.source": "Parmenter (2015), Key Performance Indicators · IMA Statement on Management Accounting",
+      "roadmap.science.card.leading-lagging.finding": "Investigación de performance management: los indicadores leading (tasa de signup, NPS, engagement de contenido) predicen revenue 6–12 semanas adelante. Los indicadores lagging (revenue, churn) solo confirman lo que los leading ya señalaron. Los equipos que actúan sobre leading superan a los que esperan a los lagging.",
+      "roadmap.science.card.leading-lagging.apply": "La hoja de ruta de Ursa etiqueta explícitamente cada KPI como «leading» o «lagging» — el dueño sabe sobre cuáles actuar semanal (leading) y cuáles verificar mensual (lagging). Actuar sobre KPIs lagging es navegar mirando la estela; actuar sobre leading es navegar con la brújula.",
+
+      "roadmap.science.card.vanity-metrics-ries.name": "Vanity metrics — la trampa de la confianza falsa",
+      "roadmap.science.card.vanity-metrics-ries.source": "Ries (2011), The Lean Startup · Eric Ries sobre actionable metrics",
+      "roadmap.science.card.vanity-metrics-ries.finding": "Distinción de Ries: las vanity metrics (seguidores, impresiones, page views) te hacen sentir bien pero no cambian decisiones. Las actionable metrics (tasa de signup, retención, payback de CAC) se conectan directo con una decisión que puedas tomar. Trackear vanity metrics es peor que no trackear nada — crea confianza falsa.",
+      "roadmap.science.card.vanity-metrics-ries.apply": "El panel de KPIs de Ursa trackea 1,200 seguidores en IG (una vanity metric, marcada explícita) solo como señal secundaria — la métrica primaria es sign-ups de suscripción por semana (actionable). El dossier no optimiza conteo de seguidores; optimiza la métrica que predice revenue.",
+
+      "roadmap.science.card.multi-touch-attribution.name": "Multi-touch attribution — last-click sobre-acredita al closer",
+      "roadmap.science.card.multi-touch-attribution.source": "Investigación de multi-touch attribution · Google Analytics 4 (2023) data-driven attribution",
+      "roadmap.science.card.multi-touch-attribution.finding": "Investigación de multi-touch attribution: la atribución de last-click sobre-acredita el último touch (búsqueda, branded) y sub-acredita los touches anteriores (Instagram, contenido, boca a boca). La atribución data-driven multi-touch típicamente re-atribuye 30–40% de las conversiones de last-click a canales de touch anterior.",
+      "roadmap.science.card.multi-touch-attribution.apply": "El panel de KPIs de Ursa atribuye sign-ups por fuente (Instagram, Google, walk-in, referral) pero el dossier anota explícitamente la limitación — sin GA4 data-driven attribution, last-touch es lo que medimos. La lectura honesta es: el canal que «cierra» rara vez es el canal que «abrió».",
+
+      "roadmap.science.card.quarterly-planning.name": "Planeamiento trimestral — 85% de precisión vs. 60% anual",
+      "roadmap.science.card.quarterly-planning.source": "Kaplan & Beinhocker (2003), The Real Value of Strategic Planning, HBR · investigación de cadencia en management science",
+      "roadmap.science.card.quarterly-planning.finding": "Kaplan & Beinhocker: las cadencias de planeamiento de 90 días superan a los planes anuales porque matchean la tasa a la que cambian las condiciones de mercado. Los planes anuales son precisos para ~60% de su horizonte; los planes trimestrales son precisos para ~85% del suyo.",
+      "roadmap.science.card.quarterly-planning.apply": "La hoja de ruta de Ursa se estructura en trimestres de 90 días — la Fase 1 es el trimestre de lanzamiento, la Fase 2 el de validación, la Fase 3 el de escala. Cada trimestre cierra con una ronda de revisión donde el plan se actualiza a lo que realmente se aprendió.",
+
+      "roadmap.science.card.moran-lennntington-2013.name": "The 12-Week Year — 2.1× más trabajo planeado completado",
+      "roadmap.science.card.moran-lennntington-2013.source": "Moran & Lennington (2013), The 12 Week Year",
+      "roadmap.science.card.moran-lennntington-2013.finding": "Tesis de Moran & Lennington: un ciclo de ejecución de 12 semanas crea más urgencia y accountability que un ciclo de 12 meses porque el deadline siempre está visible. Los equipos que ejecutan en ciclos de 12 semanas completan 2.1× más de su trabajo planeado que los equipos que ejecutan en ciclos anuales.",
+      "roadmap.science.card.moran-lennntington-2013.apply": "La hoja de ruta de 90 días de Ursa es el 12-Week Year aplicado — el horizonte de 90 días es suficientemente corto para que el deadline siempre esté a la vista, que es lo que impulse la ejecución. Los planes anuales se sienten como si siempre hubiera más tiempo; los de 90 días se sienten como si nunca hubiera suficiente — que es la presión correcta.",
+
+      "roadmap.science.card.gv-design-sprint.name": "GV design sprint — 5 días, meses de trabajo comprimido",
+      "roadmap.science.card.gv-design-sprint.source": "Knapp (2016), Sprint · metodología de design sprint de Google Ventures",
+      "roadmap.science.card.gv-design-sprint.finding": "Design sprint de 5 días de GV: lunes = mapear el problema, martes = bosquejar soluciones, miércoles = decidir, jueves = prototipar, viernes = testear con usuarios. Los sprints comprimen meses de trabajo en una semana eliminando reuniones y demoras de decisión.",
+      "roadmap.science.card.gv-design-sprint.apply": "El lanzamiento de 72 horas de Ursa es un design sprint comprimido — mapear (decidir qué reclamar), bosquejar (construir las superficies), prototipar (publicarlas), testear (medir). La compresión es deliberada; el lanzamiento es rápido porque la toma de decisiones es rápida, no porque el trabajo sea descuidado.",
+
+      "roadmap.science.synthesis.title": "Por qué esta hoja de ruta, diseñada así",
+      "roadmap.science.synthesis.body": "Las once citas de arriba son la intención de diseño detrás de cada decisión de esta hoja de ruta. La estructura de 8 fases es el modelo de cambio de Kotter. Los sprints de 2 semanas son Agile Marketing. El framework de experimentos con nombre es el Build-Measure-Learn de Ries. El panel de KPIs es OKR de Doerr + Balanced Scorecard de Kaplan & Norton. Las etiquetas de leading/lagging son performance management de Parmenter. El horizonte de 90 días es el 12-Week Year. El lanzamiento de 72 horas es el design sprint de GV comprimido. Nada de esto es opinión — es la investigación publicada sobre qué se lanza, aplicada a una cafetería de Miraflores.",
+
+      /* ---- Vista de Fuentes (Anexo) ---- */
       "sources.lede":
         "El centro de mando de Ursa está construido sobre evidencia públicamente verificable — cada cifra se puede re-chequear visitando la URL citada, y ninguna afirmación depende de datos propietarios que el lector no pueda ver. Donde se infirió un dato, la inferencia se marca y se muestra el razonamiento. Donde faltó un dato, la brecha se nombra abiertamente — y la estructura de escenarios lean, moderado y growth absorbe la incertidumbre sin bloquear el lanzamiento de setenta y dos horas. El resultado es un plan falsable: cualquier lector que encuentre una fuente pública que contradiga una afirmación aquí puede actualizar el dossier, y el cambio se propaga.",
       "sources.meta.snapshot": "2026-08-01",

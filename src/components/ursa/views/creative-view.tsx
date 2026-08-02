@@ -1,5 +1,6 @@
 "use client";
 
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import {
   Pill,
@@ -31,9 +32,14 @@ import {
   Accessibility,
   Coins,
   Lightbulb,
+  Eye,
+  Palette,
+  Type,
+  Target,
 } from "lucide-react";
 import { useNavigate } from "@/lib/ursa-nav";
 import { useI18n } from "@/hooks/use-i18n";
+import { cn } from "@/lib/utils";
 
 // ============================================================
 // Module 06 · Creative Campaign Prototypes — CreativeView
@@ -1708,6 +1714,124 @@ export function CreativeView() {
           <span>{t("content.creative.section.6-5.compiled")}</span>
         </div>
       </ViewSection>
+
+      {/* ============================================================
+          SCIENCE — the research behind the creative system
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.creative.science.badge")}
+        title={t("content.creative.science.title")}
+        meta={t("content.creative.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.creative.science.intro")}
+        </p>
+
+        {/* Group 1 — Design effectiveness research */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Sparkles size={16} className="text-ursa-gold-text" />
+          {t("content.creative.science.group.design")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {SCIENCE_DESIGN.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 2 — Creative effectiveness */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Award size={16} className="text-ursa-gold-text" />
+          {t("content.creative.science.group.creative")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {SCIENCE_EFFECTIVENESS.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.creative.science.synthesis.title")}>
+          {t("content.creative.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
     </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the Creative view.
+// Strings live under content.creative.science.card.{id}.{field} in i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const SCIENCE_DESIGN: ScienceEntry[] = [
+  { id: "sutherland-2014", icon: Lightbulb, tone: "forest" },
+  { id: "davenport-beck-2001", icon: Eye, tone: "gold" },
+  { id: "nng-eye-tracking", icon: Eye, tone: "forest" },
+  { id: "elliot-maier-2014", icon: Palette, tone: "gold" },
+  { id: "brumberger-2003", icon: Type, tone: "terracotta" },
+];
+
+const SCIENCE_EFFECTIVENESS: ScienceEntry[] = [
+  { id: "binet-field-2013", icon: Award, tone: "forest" },
+  { id: "ipa-60-40", icon: Target, tone: "gold" },
+  { id: "meta-creative-research", icon: Play, tone: "terracotta" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.creative.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.creative.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.creative.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.creative.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }

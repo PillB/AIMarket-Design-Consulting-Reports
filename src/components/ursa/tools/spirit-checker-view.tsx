@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import type { ComponentType } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, Pill, Callout, ProgressBar } from "../ursa-brand";
 import { useI18n } from "@/hooks/use-i18n";
@@ -8,6 +9,7 @@ import { cn } from "@/lib/utils";
 import {
   Shield, Check, X, AlertTriangle, RotateCcw, PawPrint as BearLucide,
   Scale, Coffee, Info,
+  BookOpen, Microscope, Brain, Target, Award, GraduationCap,
 } from "lucide-react";
 
 /**
@@ -334,9 +336,127 @@ export function SpiritCheckerView() {
         </div>
       </ViewSection>
 
+      {/* ============================================================
+          SCIENCE — the research behind the spirit check
+         ============================================================ */}
+      <ViewSection
+        badge={t("content.spirit-checker.science.badge")}
+        title={t("content.spirit-checker.science.title")}
+        meta={t("content.spirit-checker.science.meta")}
+      >
+        <p className="text-[0.92rem] text-muted-foreground max-w-[78ch] m-0 mb-6">
+          {t("content.spirit-checker.science.intro")}
+        </p>
+
+        {/* Group 1 — Brand consistency science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <BookOpen size={16} className="text-ursa-gold-text" />
+          {t("content.spirit-checker.science.group.brand")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-7">
+          {SCIENCE_BRAND.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        {/* Group 2 — Decision framework science */}
+        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-3 flex items-center gap-2">
+          <Brain size={16} className="text-ursa-gold-text" />
+          {t("content.spirit-checker.science.group.decision")}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2">
+          {SCIENCE_DECISION.map((s) => (
+            <ScienceCard key={s.id} id={s.id} icon={s.icon} tone={s.tone} />
+          ))}
+        </div>
+
+        <Callout tone="gold" title={t("content.spirit-checker.science.synthesis.title")}>
+          {t("content.spirit-checker.science.synthesis.body")}
+        </Callout>
+      </ViewSection>
+
       <ViewSection>
         <DossierLinkBanner moduleId="01-brand-audit-and-design-system" />
       </ViewSection>
     </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Science cards — research that backs the Spirit Checker view.
+// Strings live under content.spirit-checker.science.card.{id}.{field} in
+// i18n.ts.
+// ---------------------------------------------------------------------------
+
+type ScienceTone = "gold" | "forest" | "terracotta";
+
+type ScienceEntry = {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+};
+
+const SCIENCE_BRAND: ScienceEntry[] = [
+  { id: "keller-1993", icon: BookOpen, tone: "forest" },
+  { id: "aaker-1996", icon: Target, tone: "gold" },
+  { id: "aaker-keller-1990", icon: AlertTriangle, tone: "terracotta" },
+  { id: "lucidpress-2021", icon: Award, tone: "gold" },
+];
+
+const SCIENCE_DECISION: ScienceEntry[] = [
+  { id: "kahneman-2011", icon: Brain, tone: "forest" },
+  { id: "klein-2007", icon: Microscope, tone: "gold" },
+  { id: "ethical-marketing", icon: GraduationCap, tone: "terracotta" },
+];
+
+function ScienceCard({
+  id,
+  icon: Icon,
+  tone,
+}: {
+  id: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+  tone: ScienceTone;
+}) {
+  const { t } = useI18n();
+  const toneClasses: Record<ScienceTone, string> = {
+    gold: "bg-ursa-gold/10 text-ursa-gold-text border-ursa-gold/30",
+    forest: "bg-ursa-dark-roast/10 text-ursa-forest-deep border-ursa-forest-deep/25",
+    terracotta: "bg-ursa-terracotta/10 text-ursa-terracotta-text border-ursa-terracotta/30",
+  };
+  const accentBorder: Record<ScienceTone, string> = {
+    gold: "border-ursa-gold/40",
+    forest: "border-ursa-forest-deep/35",
+    terracotta: "border-ursa-terracotta/40",
+  };
+  return (
+    <Card className="flex flex-col gap-2 p-4 h-full">
+      <div className="flex items-start gap-2.5">
+        <span
+          className={cn(
+            "w-8 h-8 rounded-lg grid place-items-center shrink-0 border",
+            toneClasses[tone],
+          )}
+        >
+          <Icon size={16} />
+        </span>
+        <div className="min-w-0">
+          <h4 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+            {t(`content.spirit-checker.science.card.${id}.name`)}
+          </h4>
+          <p className="font-label text-[0.58rem] tracking-[0.14em] uppercase text-muted-foreground m-0 mt-0.5">
+            {t(`content.spirit-checker.science.card.${id}.source`)}
+          </p>
+        </div>
+      </div>
+      <div className={cn("border-l-2 pl-2.5 py-1", accentBorder[tone])}>
+        <p className="text-[0.82rem] italic text-ursa-dark-roast m-0 leading-snug">
+          {t(`content.spirit-checker.science.card.${id}.finding`)}
+        </p>
+      </div>
+      <p className="text-[0.84rem] leading-relaxed text-foreground/85 m-0">
+        {t(`content.spirit-checker.science.card.${id}.apply`)}
+      </p>
+    </Card>
   );
 }
