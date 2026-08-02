@@ -615,6 +615,127 @@ export const translations: Translations = {
       "competitors.synthesis.button-brand": "Open Brand Audit",
       "competitors.section.dossier.badge": "T2 · Interactive tool",
 
+      /* Per-competitor data — the COMPETITORS array in ursa-data.ts holds the
+         English source-of-truth (shared with market-view). These keys provide
+         the bilingual display layer used by competitors-view. Key suffix is the
+         competitor's display name (including spaces and accents) so the lookup
+         is unambiguous. URSA_PROFILE's data is inline in competitors-view but
+         follows the same pattern for consistency. */
+      "competitors.data.Ursa Coffee Roasters.area": "Miraflores (single site)",
+      "competitors.data.Ursa Coffee Roasters.strength": "Bear + Art Nouveau craft; in-house roastery; two bars; named drinks (Ursagroni, Maracumango); Aeropress champion (Paulo Sierra); CAM Café 2025 top-5",
+      "competitors.data.Ursa Coffee Roasters.weakness": "No website yet; single-site; smaller retail reach than chains; TripAdvisor footprint near-zero",
+      "competitors.data.Ursa Coffee Roasters.ursaImplication": "Baseline — protect the bear, close the website gap, scale craft without diluting identity.",
+
+      "competitors.data.Milenaria Cafe.area": "Miraflores (same street as Ursa)",
+      "competitors.data.Milenaria Cafe.strength": "Opens 6:30am (earliest on Alcanfores); pancakes, açaí bowls, oat-milk cappuccino; cozy atmosphere; same-street walk-up visibility",
+      "competitors.data.Milenaria Cafe.weakness": "Limited vegan options; 'not cheap' complaints; not a roastery — coffee is incidental to breakfast",
+      "competitors.data.Milenaria Cafe.ursaImplication": "Same-street neighbor; opens 1h earlier than Ursa. Do NOT out-breakfast Milenaria. Position Ursa as the specialty-coffee destination on the same street; treat Milenaria as a referral partner (breakfast at Milenaria, espresso at Ursa) or extend Saturday hours to 7am only.",
+
+      "competitors.data.Coffee Notes.area": "Miraflores (same street as Ursa)",
+      "competitors.data.Coffee Notes.strength": "Same-street proximity to Ursa (closest by address if operating); at least one loyal forum advocate",
+      "competitors.data.Coffee Notes.weakness": "No verifiable Google Business Profile; no TripAdvisor presence; online footprint near-zero — likely small/under-marketed or possibly closed",
+      "competitors.data.Coffee Notes.ursaImplication": "If operating, Coffee Notes is Ursa's nearest competitor by address. Physically verify status (walk-by). If closed, the address is a cautionary tale about discoverability — Ursa's GBP investment is the right antidote.",
+
+      "competitors.data.Estación 329.area": "Miraflores",
+      "competitors.data.Estación 329.strength": "Exceptional coffee quality (TA 4.8★); friendly/kind service repeatedly praised; delicious pastries; two-location scale without chain feel",
+      "competitors.data.Estación 329.weakness": "Cozy = small (limited seating at peak); lower online visibility than Neira/Punto on same corridor; no clear roastery story",
+      "competitors.data.Estación 329.ursaImplication": "Owns the 'cozy + kind + quality' position on Palacios. Ursa could match but should differentiate via roastery visibility. Their two-location scale is a cautionary tale: growth can dilute single-site intimacy.",
+
+      "competitors.data.Neira Café Lab.area": "Miraflores + 3 more",
+      "competitors.data.Neira Café Lab.strength": "Barista champion founder (Harrysson Neira); 911 Google reviews at 4.7★ (dominant review volume); 4+ locations; Michelin guide feature; La Marzocco equipment",
+      "competitors.data.Neira Café Lab.weakness": "WorkCafé cobrand dilutes pure-café identity; chain scale erodes single-site intimacy; 4+ locations means staff variance — consistency risk; premium pricing expected",
+      "competitors.data.Neira Café Lab.ursaImplication": "Goliath of the catchment. Ursa must NOT out-scale Neira. Counter: single-site intimacy + the bear + two-bar theatre. Ursa's Aeropress champion (Paulo Sierra) is a direct credibility counter to Neira's champion founder.",
+
+      "competitors.data.Arabica Espresso Bar.area": "Miraflores",
+      "competitors.data.Arabica Espresso Bar.strength": "European espresso-bar format is differentiated in Miraflores; tiny footprint = low rent, high throughput; locals-oriented (not tourist-trap); espresso purist positioning",
+      "competitors.data.Arabica Espresso Bar.weakness": "Tiny space = no lingering, no remote-work daypart; stand-up model limits audience; lower review visibility; no roastery story visible",
+      "competitors.data.Arabica Espresso Bar.ursaImplication": "Owns the stand-up espresso-bar niche Ursa does NOT want. Ursa's two-bar theatre explicitly invites lingering. Lesson: do not chase Arabica's speed/throughput; defend the lingering-craft niche.",
+
+      "competitors.data.Punto Café.area": "Miraflores",
+      "competitors.data.Punto Café.strength": "CAM Café 2025 2nd place (head-to-head vs. Ursa top-5); Premios Somos 2024 winner; terrace overlooking San Martín park; in-house roasting; established local recognition",
+      "competitors.data.Punto Café.weakness": "Limited Art Nouveau / craft visual identity (generic 'specialty' aesthetic); TA review count very low (n=2) despite awards — discovery gap; award-driven positioning is brittle if awards fade",
+      "competitors.data.Punto Café.ursaImplication": "Most direct head-to-head: both in CAM 2025 top-5, both Miraflores, both roasters. Ursa differentiators: bear-led brand, two-bar theatre, named drinks (Ursagroni, Maracumango). The CAM award race is the single most measurable competitive benchmark — track annually.",
+
+      "competitors.data.Terrua.area": "Miraflores",
+      "competitors.data.Terrua.strength": "Farm-to-cup origin ownership (Villa Rica, Fundo San Josefa); US$25 tasting flight (premium pricing power); 513 Google + 37 TA reviews (strong dual-platform); process variety (honey/washed/natural); patio + quiet room",
+      "competitors.data.Terrua.weakness": "US$25 flight ceiling limits frequency; behind-Larco location less walk-up visible than Alcanfores/Palacios; single origin (Villa Rica) is a strength AND a limitation — narrow terroir story",
+      "competitors.data.Terrua.ursaImplication": "Owns the premium-tasting-flight niche. Ursa counter: tiered tastings — accessible entry (S/.25-35) plus premium depth (S/.60-90) vs. Terrua's flat US$25 ceiling. Filtrado Lonya line is the multi-origin counter to Terrua's single-origin Villa Rica story.",
+
+      "competitors.data.Cate Tasting Room.area": "Miraflores",
+      "competitors.data.Cate Tasting Room.strength": "Coffee + chocolate crossover (differentiated); 190 Google reviews at 4.6★ (strong footprint); tasting-room format supports premium pricing; two locations extend catchment",
+      "competitors.data.Cate Tasting Room.weakness": "Tasting-room format may not capture casual walk-up demand; chocolate crossover dilutes pure-coffee identity; less frequent visit model",
+      "competitors.data.Cate Tasting Room.ursaImplication": "Cate validates the tasting-flight model Terrua also uses — there IS demand for paid guided tasting. Reinforces Ursa's tiered-tasting counter. Do NOT add chocolate — dilutes pure-coffee identity. Instead, deepen coffee-only tasting depth.",
+
+      "competitors.data.Café Verde.area": "Miraflores",
+      "competitors.data.Café Verde.strength": "In-house roasting (if operating); sustainability narrative — values-driven customer appeal",
+      "competitors.data.Café Verde.weakness": "POSSIBLY PERMANENTLY CLOSED — one source confirms closure; generic sustainability messaging ('green' could be anyone's); if closed, the Santa Cruz space is a cautionary tale about over-niche positioning",
+      "competitors.data.Café Verde.ursaImplication": "If closed, lesson: generic 'sustainability' messaging is not defensible. Ursa's origin stories must be SPECIFIC (named farms, producers, lots) — not 'we are sustainable.' If operating, differentiate via specificity (Filtrado Lonya, named lots) vs. generic green copy.",
+
+      "competitors.data.El Pan de la Chola.area": "Miraflores",
+      "competitors.data.El Pan de la Chola.strength": "Best-bakery-in-Lima recognition per editorial; two-location footprint; TA 4.3★ mainstream recognition; bakery + coffee crossover captures breakfast + brunch daypart",
+      "competitors.data.El Pan de la Chola.weakness": "Bakery-primary identity means coffee is incidental — not a specialty-coffee competitor per se; Dasso location rated lower (3.9★) — quality variance; not a roaster; bakery queue model hostile to coffee-only quick stops",
+      "competitors.data.El Pan de la Chola.ursaImplication": "SUBSTITUTE, not direct competitor — customers choosing between bakery breakfast and coffee stop. Ursa positioning is orthogonal: not best bakery, but best coffee. Potential pastry-supply channel partnership (complement, not compete).",
+
+      "competitors.data.Puku Puku.area": "Multiple Miraflores (Larco, La Paz, Narciso)",
+      "competitors.data.Puku Puku.strength": "'Microlotes' positioning is ownable and resonant — single-word category claim; World's 100 Best Coffee Shops nominee; multi-location Miraflores footprint (Larco, La Paz, Narciso); retail bag channel (S/.49); 658 TA reviews across Miraflores",
+      "competitors.data.Puku Puku.weakness": "Chain feel at scale — atmosphere erodes with location count; microlotes positioning can feel marketing-driven if not backed by named lots; multi-location staff variance — consistency risk",
+      "competitors.data.Puku Puku.ursaImplication": "Owns 'microlotes' as a word. Ursa should NOT out-microlote Puku Puku. Counter: a microlot SUB-LINE (not the whole brand), wrapped in bear + Art Nouveau identity. The retail-bag channel (S/.49) is a channel opportunity for Ursa — currently Instagram-only.",
+
+      "competitors.data.True Artisan Cafe.area": "Miraflores",
+      "competitors.data.True Artisan Cafe.strength": "Italian finesse positioning (differentiated origin story); cold brew offering; relaxing atmosphere (third-place appeal)",
+      "competitors.data.True Artisan Cafe.weakness": "Less differentiated visual identity — 'artisan' is the most generic specialty-coffee word; no clear champion/owner/roaster personality; lower review visibility than Neira/Puku Puku",
+      "competitors.data.True Artisan Cafe.ursaImplication": "Shows that 'artisan' as a word is commodity — every specialty cafe claims it. Ursa's bear + Art Nouveau + named drinks is a more ownable identity system. Avoid the word 'artisan' in Ursa's own copy.",
+
+      "competitors.data.OK Café.area": "Miraflores",
+      "competitors.data.OK Café.strength": "Coffee-purist positioning may appeal to discerning customers",
+      "competitors.data.OK Café.weakness": "Near-zero online presence — discovery gap; no verifiable ratings or reviews; status uncertain",
+      "competitors.data.OK Café.ursaImplication": "Cautionary data point: a coffee-purist operator with no online presence is functionally invisible. Ursa's GBP investment is the right antidote. If operating and high-quality, potential cupping-collaboration partner rather than direct competitor.",
+
+      "competitors.data.Amauta Coffee.area": "Miraflores",
+      "competitors.data.Amauta Coffee.strength": "'Amauta' (Quechua for teacher) — heritage-led naming, ownable linguistic identity; operating with at least some TA presence (n=7)",
+      "competitors.data.Amauta Coffee.weakness": "TA 4.1★ is the lowest in the catchment among rated competitors — quality gap; very small review sample (n=7) — low discovery; no clear champion/positioning beyond the name",
+      "competitors.data.Amauta Coffee.ursaImplication": "'Amauta' heritage naming is the kind of specific, ownable linguistic identity Ursa should learn from — but execution (4.1★ rating) is the cautionary tale. Identity without execution does not win. Ursa's bear + 'Un gramo a la vez' has both identity and (per reviews) execution.",
+
+      "competitors.data.Bisetti.area": "Barranco (out-of-area benchmark)",
+      "competitors.data.Bisetti.strength": "Owns 'escuela de café' positioning (educational authority); Barranco creative-district location; coffee-school model supports premium pricing",
+      "competitors.data.Bisetti.weakness": "Educational focus can feel formal ('homework' rather than 'third place'); Barranco location is outside Miraflores 1km catchment — not walk-up; school format may not capture casual demand",
+      "competitors.data.Bisetti.ursaImplication": "Owns the 'school' position. Ursa counter: compete on education but make it warmer/experiential. Cupping + tasting format should feel like discovery, not lecture. Bisetti is a benchmark, not a walk-up competitor.",
+
+      "competitors.data.Ciclos.area": "Lima (out-of-area benchmark)",
+      "competitors.data.Ciclos.strength": "Bike + coffee community niche is highly ownable; community-led model supports loyalty; cross-pollination with cycling tourism partners",
+      "competitors.data.Ciclos.weakness": "Niche limits audience to cyclists — narrow catchment; outside Miraflores 1km; coffee quality secondary to community identity in some reviews",
+      "competitors.data.Ciclos.ursaImplication": "Owns the bike-coffee niche. Ursa should NOT be a bike cafe. Counter: cross-pollinate with cycling/tourism partners as a CHANNEL (e.g. weekend ride ending at Ursa), not as an identity.",
+
+      "competitors.data.RAIZ.area": "Lima (out-of-area benchmark)",
+      "competitors.data.RAIZ.strength": "Farm-to-cup origin story (provenance depth); wholesale/roastery focus = B2B channel diversification",
+      "competitors.data.RAIZ.weakness": "Less retail presence — weaker consumer brand recognition; outside Miraflores 1km catchment; origin story without retail theatre = lower customer-facing impact",
+      "competitors.data.RAIZ.ursaImplication": "Owns the farm-to-cup roastery niche at the wholesale level. Ursa counter: origin stories via the Filtrado Lonya line, presented with retail theatre (visible roastery, named-drink storytelling). RAIZ is a benchmark for origin-story depth.",
+
+      "competitors.data.Monótono Coffee.area": "Barranco (out-of-area benchmark)",
+      "competitors.data.Monótono Coffee.strength": "1st place CAM Café 2025 (top specialty-coffee award in Peru); Top 100 Latin America (TripAdvisor); Barranco creative-district location",
+      "competitors.data.Monótono Coffee.weakness": "Barranco location is outside Miraflores 1km — not a walk-up competitor; award-driven positioning can be brittle if awards fade; limited info on operational scale",
+      "competitors.data.Monótono Coffee.ursaImplication": "Benchmark to beat: 1st place CAM 2025, top-100 Latin America. Ursa was top-5 in the same CAM 2025 competition — Monótono is the direct award-race competitor. Annual goal: move from top-5 to top-3 in CAM 2026. Most measurable competitive benchmark in Lima specialty.",
+
+      "competitors.data.Milimetrica Coffee Co.area": "Miraflores · Alcanfores 215 (32 doors from Ursa)",
+      "competitors.data.Milimetrica Coffee Co.strength": "Closest direct competitor — same street (Alcanfores), only 32 doors away. Confirmed roastery (tostaduría) + coffee shop, not just a café. Minimalist specialty positioning. Has website (milimetrica.coffee), Instagram (@milimetricacoffee), and TripAdvisor presence. Open 7:30am–8pm Sat, 9am–4pm Sun — overlaps Ursa's peak window.",
+      "competitors.data.Milimetrica Coffee Co.weakness": "Minimalist aesthetic lacks warmth and storytelling; no named drinks, no Art Nouveau craft language, no two-bar theatre. Brand is 'clean' but not ownable. Limited food offering (sweets only per TripAdvisor).",
+      "competitors.data.Milimetrica Coffee Co.ursaImplication": "Milimetrica is the most dangerous competitor on the block because they ARE a roastery. Ursa must win on craft identity (bear, Art Nouveau, named drinks) and experience (two-bar theatre, warmth), not on roasting alone — Milimetrica already roasts. The differentiation is character, not capability.",
+
+      "competitors.data.Milenaria Café.area": "Miraflores · Alcanfores 348 (same street, ~165m from Ursa)",
+      "competitors.data.Milenaria Café.strength": "Same-street competitor at Alcanfores 348. Full brunch + specialty coffee + artisanal desserts positioning — owns the 'all-day brunch' occasion Ursa doesn't serve. Plant-based milk, vegan cakes, avocado toast. Instagram @milenariacafe. Open every day. Strong brunch traffic.",
+      "competitors.data.Milenaria Café.weakness": "Brunch breadth dilutes coffee-craft focus; no in-house roastery visible; roastery identity is absent. Brunch occasion is different from Ursa's grab-and-go morning ritual.",
+      "competitors.data.Milenaria Café.ursaImplication": "Milenaria owns brunch on Alcanfores; Ursa should NOT compete on brunch. Instead, own the morning coffee ritual (7:30–10am) and the afternoon craft moment — times Milenaria's brunch crowd doesn't serve. Cross-pollinate: Milenaria brunchers who want better coffee walk 165m to Ursa.",
+
+      "competitors.data.Dulce Ciudad.area": "Miraflores · 50m from Ursa",
+      "competitors.data.Dulce Ciudad.strength": "Very close proximity; catches passing foot traffic on the same street",
+      "competitors.data.Dulce Ciudad.weakness": "Generic café positioning; no roastery or origin narrative",
+      "competitors.data.Dulce Ciudad.ursaImplication": "Lead on roastery visibility and named-drink storytelling to differentiate within the same block",
+
+      "competitors.data.Caficulto.area": "Miraflores · 83m from Ursa",
+      "competitors.data.Caficulto.strength": "Coffee-focused naming; close enough to share the coffee-destination block",
+      "competitors.data.Caficulto.weakness": "Limited brand identity beyond the name; small scale",
+      "competitors.data.Caficulto.ursaImplication": "Compete on craft atmosphere and the two-bar experience rather than naming alone",
+
       /* Content Calendar */
       "view.content-calendar.eyebrow": "Extra Tool T3 · Interactive",
       "view.content-calendar.title": "Content Calendar & Script Library",
@@ -5235,6 +5356,125 @@ export const translations: Translations = {
       "competitors.synthesis.button-market": "Abrir Módulo 02 (análisis completo)",
       "competitors.synthesis.button-brand": "Abrir Auditoría de Marca",
       "competitors.section.dossier.badge": "T2 · Herramienta interactiva",
+
+      /* Datos por competidor — la versión en inglés vive en ursa-data.ts;
+         estas claves son la capa bilingüe que usa competitors-view. El sufijo
+         de la clave es el nombre visible del competidor (con espacios y
+         acentos) para que el lookup sea inequívoco. */
+      "competitors.data.Ursa Coffee Roasters.area": "Miraflores (local único)",
+      "competitors.data.Ursa Coffee Roasters.strength": "Oso + craft Art Nouveau; tostador propio; dos barras; bebidas con nombre (Ursagroni, Maracumango); campeón de Aeropress (Paulo Sierra); top-5 CAM Café 2025",
+      "competitors.data.Ursa Coffee Roasters.weakness": "Aún sin sitio web; un solo local; menor alcance de venta que las cadenas; huella en TripAdvisor casi cero",
+      "competitors.data.Ursa Coffee Roasters.ursaImplication": "Línea base — protege el oso, cierra la brecha del sitio web, escala el craft sin diluir la identidad.",
+
+      "competitors.data.Milenaria Cafe.area": "Miraflores (misma calle que Ursa)",
+      "competitors.data.Milenaria Cafe.strength": "Abre 6:30am (el más temprano en Alcanfores); pancakes, bowls de açaí, capuchino con leche de avena; ambiente acogedor; visibilidad en la misma calle",
+      "competitors.data.Milenaria Cafe.weakness": "Opciones veganas limitadas; quejas de «no es barato»; no es tostador — el café es incidental al desayuno",
+      "competitors.data.Milenaria Cafe.ursaImplication": "Vecino de la misma calle; abre 1h antes que Ursa. NO le ganes el desayuno a Milenaria. Posiciona a Ursa como el destino de café de especialidad en la misma calle; trata a Milenaria como partner de referencia (desayuno en Milenaria, espresso en Ursa) o extiende el horario de sábado a 7am solamente.",
+
+      "competitors.data.Coffee Notes.area": "Miraflores (misma calle que Ursa)",
+      "competitors.data.Coffee Notes.strength": "Proximidad en la misma calle a Ursa (el más cercano por dirección si está operando); al menos un defensor leal en foros",
+      "competitors.data.Coffee Notes.weakness": "Sin Google Business Profile verificable; sin presencia en TripAdvisor; huella online casi cero — probablemente pequeño/poco marketeado o posiblemente cerrado",
+      "competitors.data.Coffee Notes.ursaImplication": "Si está operando, Coffee Notes es el competidor más cercano a Ursa por dirección. Verifica el estado físicamente (pasa caminando). Si está cerrado, la dirección es un cuento de advertencia sobre descubribilidad — la inversión de Ursa en GBP es el antídoto correcto.",
+
+      "competitors.data.Estación 329.area": "Miraflores",
+      "competitors.data.Estación 329.strength": "Calidad de café excepcional (TA 4.8★); servicio amable/cordial elogiado repetidamente; pastelería deliciosa; escala de dos locales sin sentirse cadena",
+      "competitors.data.Estación 329.weakness": "Acogedor = pequeño (pocos asientos en hora pico); menor visibilidad online que Neira/Punto en el mismo corredor; sin historia clara de tostador",
+      "competitors.data.Estación 329.ursaImplication": "Es dueño de la posición «acogedor + cordial + calidad» en Palacios. Ursa podría igualar pero debería diferenciarse vía visibilidad del tostador. Su escala de dos locales es un cuento de advertencia: el crecimiento puede diluir la intimidad de un solo local.",
+
+      "competitors.data.Neira Café Lab.area": "Miraflores + 3 más",
+      "competitors.data.Neira Café Lab.strength": "Fundador campeón de barista (Harrysson Neira); 911 reseñas en Google a 4.7★ (volumen dominante); 4+ locales; mencionado en la guía Michelin; equipos La Marzocco",
+      "competitors.data.Neira Café Lab.weakness": "El cobrand WorkCafé diluye la identidad de café puro; la escala de cadena erosiona la intimidad de un solo local; 4+ locales implica varianza de personal — riesgo de consistencia; precios premium esperados",
+      "competitors.data.Neira Café Lab.ursaImplication": "El gigante del área. Ursa NO debe escalar más que Neira. Contra: intimidad de un solo local + el oso + teatro de dos barras. El campeón de Aeropress de Ursa (Paulo Sierra) es un contra de credibilidad directo al fundador campeón de Neira.",
+
+      "competitors.data.Arabica Espresso Bar.area": "Miraflores",
+      "competitors.data.Arabica Espresso Bar.strength": "Formato europeo de barra de espresso diferenciado en Miraflores; local pequeño = renta baja, throughput alto; orientado a locales (no trampa para turistas); posicionamiento de purista del espresso",
+      "competitors.data.Arabica Espresso Bar.weakness": "Local pequeño = sin quedarse, sin daypart de trabajo remoto; modelo de pie limita la audiencia; menor visibilidad de reseñas; sin historia visible de tostador",
+      "competitors.data.Arabica Espresso Bar.ursaImplication": "Es dueño del nicho de barra de espresso de pie que Ursa NO quiere. El teatro de dos barras de Ursa invita explícitamente a quedarse. Lección: no persigas la velocidad/throughput de Arabica; defiende el nicho de craft donde la gente se queda.",
+
+      "competitors.data.Punto Café.area": "Miraflores",
+      "competitors.data.Punto Café.strength": "2do lugar CAM Café 2025 (cabeza a cabeza vs. Ursa top-5); ganador Premios Somos 2024; terraza con vista al parque San Martín; tostado in-house; reconocimiento local establecido",
+      "competitors.data.Punto Café.weakness": "Identidad visual Art Nouveau / craft limitada (estética «de especialidad» genérica); conteo de reseñas TA muy bajo (n=2) a pesar de los premios — brecha de descubrimiento; el posicionamiento impulsado por premios es frágil si los premios se desvanecen",
+      "competitors.data.Punto Café.ursaImplication": "El cabeza a cabeza más directo: ambos en top-5 CAM 2025, ambos en Miraflores, ambos tostadores. Diferenciadores de Ursa: marca liderada por oso, teatro de dos barras, bebidas con nombre (Ursagroni, Maracumango). La carrera del premio CAM es el benchmark competitivo más medible — síguelo anualmente.",
+
+      "competitors.data.Terrua.area": "Miraflores",
+      "competitors.data.Terrua.strength": "Propiedad de origen farm-to-cup (Villa Rica, Fundo San Josefa); vuelo de cata de US$25 (poder de precio premium); 513 reseñas Google + 37 TA (fuerte en ambas plataformas); variedad de procesos (honey/lavado/natural); patio + sala silenciosa",
+      "competitors.data.Terrua.weakness": "El techo de US$25 del vuelo limita la frecuencia; ubicación detrás de Larco menos visible al paso que Alcanfores/Palacios; origen único (Villa Rica) es fortaleza Y limitación — historia de terroir estrecha",
+      "competitors.data.Terrua.ursaImplication": "Es dueño del nicho de vuelo de cata premium. Contra de Ursa: catas en tiers — entrada accesible (S/.25-35) más profundidad premium (S/.60-90) vs. el techo plano de US$25 de Terrua. La línea Filtrado Lonya es el contra multi-origen a la historia de origen único Villa Rica de Terrua.",
+
+      "competitors.data.Cate Tasting Room.area": "Miraflores",
+      "competitors.data.Cate Tasting Room.strength": "Crossover café + chocolate (diferenciado); 190 reseñas Google a 4.6★ (huella fuerte); formato de tasting room soporta precios premium; dos locales extienden el catchment",
+      "competitors.data.Cate Tasting Room.weakness": "El formato de tasting room puede no capturar demanda casual al paso; el crossover con chocolate diluye la identidad de café puro; modelo de visita menos frecuente",
+      "competitors.data.Cate Tasting Room.ursaImplication": "Cate valida el modelo de vuelo de cata que Terrua también usa — SÍ hay demanda para cata guiada pagada. Refuerza el contra de catas en tiers de Ursa. NO agregues chocolate — diluye la identidad de café puro. En su lugar, profundiza la cata solo de café.",
+
+      "competitors.data.Café Verde.area": "Miraflores",
+      "competitors.data.Café Verde.strength": "Tostado in-house (si está operando); narrativa de sostenibilidad — atractivo para clientes orientados a valores",
+      "competitors.data.Café Verde.weakness": "POSIBLEMENTE CERRADO PERMANENTEMENTE — una fuente confirma el cierre; mensajería de sostenibilidad genérica («verde» podría ser de cualquiera); si está cerrado, el local de Santa Cruz es un cuento de advertencia sobre posicionamiento de nicho excesivo",
+      "competitors.data.Café Verde.ursaImplication": "Si está cerrado, lección: la mensajería genérica de «sostenibilidad» no es defendible. Las historias de origen de Ursa deben ser ESPECÍFICAS (fincas nombradas, productores, lotes) — no «somos sostenibles». Si está operando, diferénciate vía especificidad (Filtrado Lonya, lotes con nombre) vs. copy verde genérico.",
+
+      "competitors.data.El Pan de la Chola.area": "Miraflores",
+      "competitors.data.El Pan de la Chola.strength": "Reconocimiento de mejor panadería de Lima según editorial; huella de dos locales; TA 4.3★ reconocimiento mainstream; crossover panadería + café captura el daypart de desayuno + brunch",
+      "competitors.data.El Pan de la Chola.weakness": "Identidad de panadería primaria significa que el café es incidental — no es competidor de café de especialidad per se; local Dasso calificado más bajo (3.9★) — varianza de calidad; no es tostador; modelo de cola de panadería hostil a paradas rápidas solo por café",
+      "competitors.data.El Pan de la Chola.ursaImplication": "SUSTITUTO, no competidor directo — clientes eligiendo entre desayuno de panadería y parada de café. El posicionamiento de Ursa es ortogonal: no la mejor panadería, sino el mejor café. Posible partnership de canal de suministro de pastelería (complemento, no competencia).",
+
+      "competitors.data.Puku Puku.area": "Múltiples en Miraflores (Larco, La Paz, Narciso)",
+      "competitors.data.Puku Puku.strength": "El posicionamiento «microlotes» es ownable y resonante — claim de categoría de una sola palabra; nominado a World's 100 Best Coffee Shops; huella multi-local en Miraflores (Larco, La Paz, Narciso); canal de bolsas retail (S/.49); 658 reseñas TA en Miraflores",
+      "competitors.data.Puku Puku.weakness": "Sensación de cadena a escala — la atmósfera se erosiona con la cantidad de locales; el posicionamiento microlotes puede sentirse marketing-driven si no está respaldado por lotes nombrados; varianza de personal multi-local — riesgo de consistencia",
+      "competitors.data.Puku Puku.ursaImplication": "Es dueño de «microlotes» como palabra. Ursa NO debería out-microlote a Puku Puku. Contra: una SUB-LÍNEA de microlot (no toda la marca), envuelta en identidad de oso + Art Nouveau. El canal de bolsas retail (S/.49) es una oportunidad de canal para Ursa — actualmente solo Instagram.",
+
+      "competitors.data.True Artisan Cafe.area": "Miraflores",
+      "competitors.data.True Artisan Cafe.strength": "Posicionamiento de finesse italiana (historia de origen diferenciada); oferta de cold brew; atmósfera relajante (atractivo de tercer lugar)",
+      "competitors.data.True Artisan Cafe.weakness": "Identidad visual menos diferenciada — «artisan» es la palabra más genérica del café de especialidad; sin personalidad clara de campeón/dueño/tostador; menor visibilidad de reseñas que Neira/Puku Puku",
+      "competitors.data.True Artisan Cafe.ursaImplication": "Muestra que «artisan» como palabra es commodity — todo café de especialidad la reclama. El oso + Art Nouveau + bebidas con nombre de Ursa es un sistema de identidad más ownable. Evita la palabra «artisan» en el copy de Ursa.",
+
+      "competitors.data.OK Café.area": "Miraflores",
+      "competitors.data.OK Café.strength": "Posicionamiento de purista del café puede atraer a clientes exigentes",
+      "competitors.data.OK Café.weakness": "Presencia online casi cero — brecha de descubrimiento; sin ratings ni reseñas verificables; estado incierto",
+      "competitors.data.OK Café.ursaImplication": "Dato de advertencia: un operador purista del café sin presencia online es funcionalmente invisible. La inversión de Ursa en GBP es el antídoto correcto. Si está operando y es de alta calidad, potencial partner de colaboración de cupping más que competidor directo.",
+
+      "competitors.data.Amauta Coffee.area": "Miraflores",
+      "competitors.data.Amauta Coffee.strength": "«Amauta» (Quechua para maestro) — naming liderado por herencia, identidad lingüística ownable; operando con al menos algo de presencia TA (n=7)",
+      "competitors.data.Amauta Coffee.weakness": "TA 4.1★ es el más bajo del catchment entre competidores calificados — brecha de calidad; muestra de reseñas muy pequeña (n=7) — baja descubribilidad; sin campeón/posicionamiento claro más allá del nombre",
+      "competitors.data.Amauta Coffee.ursaImplication": "El naming de herencia «Amauta» es el tipo de identidad lingüística específica y ownable de la que Ursa debería aprender — pero la ejecución (rating 4.1★) es el cuento de advertencia. Identidad sin ejecución no gana. El oso + «Un gramo a la vez» de Ursa tiene tanto identidad como (según reseñas) ejecución.",
+
+      "competitors.data.Bisetti.area": "Barranco (benchmark fuera del área)",
+      "competitors.data.Bisetti.strength": "Es dueño del posicionamiento «escuela de café» (autoridad educativa); ubicación en el distrito creativo de Barranco; modelo de escuela de café soporta precios premium",
+      "competitors.data.Bisetti.weakness": "El enfoque educativo puede sentirse formal («tarea» más que «tercer lugar»); la ubicación en Barranco está fuera del catchment 1km de Miraflores — no es al paso; el formato de escuela puede no capturar demanda casual",
+      "competitors.data.Bisetti.ursaImplication": "Es dueño de la posición «escuela». Contra de Ursa: compite en educación pero hazlo más cálido/experiencial. El formato de cupping + cata debería sentirse como descubrimiento, no clase. Bisetti es benchmark, no competidor al paso.",
+
+      "competitors.data.Ciclos.area": "Lima (benchmark fuera del área)",
+      "competitors.data.Ciclos.strength": "El nicho de comunidad bike + coffee es altamente ownable; modelo liderado por comunidad soporta lealtad; cross-pollinación con partners de ciclismo/turismo",
+      "competitors.data.Ciclos.weakness": "El nicho limita la audiencia a ciclistas — catchment estrecho; fuera del 1km de Miraflores; calidad del café secundaria a la identidad de comunidad en algunas reseñas",
+      "competitors.data.Ciclos.ursaImplication": "Es dueño del nicho bike-coffee. Ursa NO debería ser un café de bicis. Contra: cross-pollina con partners de ciclismo/turismo como CANAL (ej. paseo de fin de semana terminando en Ursa), no como identidad.",
+
+      "competitors.data.RAIZ.area": "Lima (benchmark fuera del área)",
+      "competitors.data.RAIZ.strength": "Historia de origen farm-to-cup (profundidad de procedencia); foco wholesale/tostador = diversificación de canal B2B",
+      "competitors.data.RAIZ.weakness": "Menor presencia retail — menor reconocimiento de marca de consumidor; fuera del catchment 1km de Miraflores; historia de origen sin teatro retail = menor impacto de cara al cliente",
+      "competitors.data.RAIZ.ursaImplication": "Es dueño del nicho de tostador farm-to-cup a nivel wholesale. Contra de Ursa: historias de origen vía la línea Filtrado Lonya, presentadas con teatro retail (tostador visible, storytelling de bebidas con nombre). RAIZ es benchmark de profundidad de historia de origen.",
+
+      "competitors.data.Monótono Coffee.area": "Barranco (benchmark fuera del área)",
+      "competitors.data.Monótono Coffee.strength": "1er lugar CAM Café 2025 (premio máximo de café de especialidad en Perú); Top 100 Latinoamérica (TripAdvisor); ubicación en el distrito creativo de Barranco",
+      "competitors.data.Monótono Coffee.weakness": "Ubicación en Barranco está fuera del 1km de Miraflores — no es competidor al paso; el posicionamiento impulsado por premios puede ser frágil si los premios se desvanecen; info limitada sobre escala operativa",
+      "competitors.data.Monótono Coffee.ursaImplication": "Benchmark a vencer: 1er lugar CAM 2025, top-100 Latinoamérica. Ursa fue top-5 en la misma competencia CAM 2025 — Monótono es el competidor directo en la carrera de premios. Meta anual: mover de top-5 a top-3 en CAM 2026. El benchmark competitivo más medible en café de especialidad limeño.",
+
+      "competitors.data.Milimetrica Coffee Co.area": "Miraflores · Alcanfores 215 (32 puertas de Ursa)",
+      "competitors.data.Milimetrica Coffee Co.strength": "Competidor directo más cercano — misma calle (Alcanfores), solo 32 puertas de distancia. Tostador confirmado (tostaduría) + café, no solo una cafetería. Posicionamiento de especialidad minimalista. Tiene web (milimetrica.coffee), Instagram (@milimetricacoffee) y presencia en TripAdvisor. Abierto 7:30am–8pm sáb, 9am–4pm dom — se solapa con la ventana pico de Ursa.",
+      "competitors.data.Milimetrica Coffee Co.weakness": "La estética minimalista carece de calidez y storytelling; sin bebidas con nombre, sin lenguaje craft Art Nouveau, sin teatro de dos barras. La marca es «limpia» pero no ownable. Oferta de comida limitada (solo dulces según TripAdvisor).",
+      "competitors.data.Milimetrica Coffee Co.ursaImplication": "Milimetrica es el competidor más peligroso de la cuadra porque SÍ es tostador. Ursa debe ganar en identidad craft (oso, Art Nouveau, bebidas con nombre) y experiencia (teatro de dos barras, calidez), no en tostar solo — Milimetrica ya tosta. La diferenciación es carácter, no capacidad.",
+
+      "competitors.data.Milenaria Café.area": "Miraflores · Alcanfores 348 (misma calle, ~165m de Ursa)",
+      "competitors.data.Milenaria Café.strength": "Competidor de la misma calle en Alcanfores 348. Posicionamiento completo de brunch + café de especialidad + postres artesanales — es dueño de la ocasión «brunch todo el día» que Ursa no sirve. Leche vegetal, tortas veganas, avocado toast. Instagram @milenariacafe. Abre todos los días. Tráfico fuerte de brunch.",
+      "competitors.data.Milenaria Café.weakness": "La amplitud del brunch diluye el foco en coffee-craft; sin tostador in-house visible; la identidad de tostador está ausente. La ocasión de brunch es distinta al ritual matutino grab-and-go de Ursa.",
+      "competitors.data.Milenaria Café.ursaImplication": "Milenaria es dueña del brunch en Alcanfores; Ursa NO debería competir en brunch. En su lugar, sé dueño del ritual matutino del café (7:30–10am) y del momento craft de la tarde — tiempos que el público de brunch de Milenaria no atiende. Cross-pollina: los brunchers de Milenaria que quieren mejor café caminan 165m a Ursa.",
+
+      "competitors.data.Dulce Ciudad.area": "Miraflores · 50m de Ursa",
+      "competitors.data.Dulce Ciudad.strength": "Proximidad muy cercana; captura el tráfico peatonal al paso en la misma calle",
+      "competitors.data.Dulce Ciudad.weakness": "Posicionamiento de café genérico; sin tostador ni narrativa de origen",
+      "competitors.data.Dulce Ciudad.ursaImplication": "Lidera con visibilidad del tostador y storytelling de bebidas con nombre para diferenciarte dentro de la misma cuadra",
+
+      "competitors.data.Caficulto.area": "Miraflores · 83m de Ursa",
+      "competitors.data.Caficulto.strength": "Naming enfocado en café; suficientemente cerca para compartir la cuadra de destino de café",
+      "competitors.data.Caficulto.weakness": "Identidad de marca limitada más allá del nombre; escala pequeña",
+      "competitors.data.Caficulto.ursaImplication": "Compite en atmósfera craft y la experiencia de dos barras más que en el naming solo",
 
       "view.content-calendar.eyebrow": "Herramienta T3 · Interactiva",
       "view.content-calendar.title": "Calendario de Contenido y Biblioteca de Guiones",

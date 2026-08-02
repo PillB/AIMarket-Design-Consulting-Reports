@@ -56,15 +56,15 @@ const URSA_PROFILE: Competitor & { isUrsa?: boolean } = {
   street: "Alcanfores",
   distanceMeters: 0,
   distanceBand: "same-street",
-  type: "Independent specialty (single-site roaster)",
-  subtype: "Specialty roastery + two-bar theatre",
+  type: "Café de especialidad independiente (tostador de un solo local)",
+  subtype: "Tostador de especialidad + teatro de dos barras",
   googleRating: 4.5,
   googleReviewCount: 56,
   tripAdvisorRating: null,
   tripAdvisorReviewCount: 0,
   status: "operating",
   positioning:
-    "Single-site specialty roaster on Alcanfores. Bear-led brand, Art Nouveau craft language, two-bar theatre (espresso + coldbrew), named drinks (Ursagroni, Maracumango) (Ursagroni, Maracumango), 'Un gramo a la vez' ethos. CAM Café 2025 top-5.",
+    "Tostador de especialidad de un solo local en Alcanfores. Marca liderada por el oso, lenguaje craft Art Nouveau, teatro de dos barras (espresso + coldbrew), bebidas con nombre (Ursagroni, Maracumango), ethos «Un gramo a la vez». Top-5 CAM Café 2025.",
   strength: "Bear + Art Nouveau craft; in-house roastery; two bars; named drinks (Ursagroni, Maracumango); Aeropress champion (Paulo Sierra); CAM Café 2025 top-5",
   weakness: "No website yet; single-site; smaller retail reach than chains; TripAdvisor footprint near-zero",
   ursaImplication: "Baseline — protect the bear, close the website gap, scale craft without diluting identity.",
@@ -72,24 +72,35 @@ const URSA_PROFILE: Competitor & { isUrsa?: boolean } = {
   isUrsa: true,
   reviewThemes: {
     praise: [
-      "best espresso in Lima (@flying__espresso, Instagram)",
-      "Aeropress champion — Paulo Sierra (@rutadelcafeperuano)",
-      "CAM Café 2025 top-5",
-      "cozy and craft-led (Corner.inc editorial)",
-      "high-quality, specialty; friendly staff (NovaCircle)",
+      "mejor espresso de Lima (@flying__espresso, Instagram)",
+      "campeón de Aeropress — Paulo Sierra (@rutadelcafeperuano)",
+      "top-5 CAM Café 2025",
+      "acogedor y centrado en craft (editorial Corner.inc)",
+      "alta calidad, de especialidad; personal amable (NovaCircle)",
     ],
     complaints: [
-      "limited seating at peak (NovaCircle)",
-      "prices slightly higher than average (NovaCircle)",
-      "TripAdvisor footprint ~0 reviews",
+      "pocos asientos en hora pico (NovaCircle)",
+      "precios ligeramente más altos que el promedio (NovaCircle)",
+      "huella en TripAdvisor ~0 reseñas",
     ],
     sampleSizeNote:
-      "Ursa-specific reviews: 8 real mentions found across Instagram + editorial. Google aggregate 4.5/5 (56 reviews via addagio.io). Sample small but non-zero — see CUSTOMER_REVIEWS in ursa-data.ts.",
+      "Reseñas específicas de Ursa: 8 menciones reales encontradas entre Instagram + editorial. Agregado de Google 4.5/5 (56 reseñas vía addagio.io). Muestra pequeña pero no cero — ver CUSTOMER_REVIEWS en ursa-data.ts.",
   },
 };
 
 /** Combined list with Ursa prepended for the table & matrix. */
 const ALL_ROWS = [URSA_PROFILE, ...COMPETITORS];
+
+/**
+ * Build the i18n key for a per-competitor data field. The competitor's display
+ * name (including spaces and accents) is the key suffix — this keeps the
+ * lookup unambiguous even for near-duplicate names like «Milenaria Cafe»
+ * versus «Milenaria Café». The English source-of-truth lives in ursa-data.ts;
+ * the bilingual values live under `content.competitors.data.{name}.{field}`
+ * in i18n.ts.
+ */
+const dataKey = (name: string, field: string): string =>
+  `content.competitors.data.${name}.${field}`;
 
 /** Filter options — value drives filter logic; keySuffix drives the display label. */
 const AREA_OPTIONS = [
@@ -472,17 +483,17 @@ export function CompetitorsView() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <span className="text-[0.85rem] text-muted-foreground whitespace-nowrap">{c.area}</span>
+                        <span className="text-[0.85rem] text-muted-foreground whitespace-nowrap">{t(dataKey(c.name, "area"))}</span>
                       </TableCell>
                       <TableCell className="max-w-[20rem]">
-                        <span className="text-[0.85rem] text-foreground/85">{c.strength}</span>
+                        <span className="text-[0.85rem] text-foreground/85">{t(dataKey(c.name, "strength"))}</span>
                       </TableCell>
                       <TableCell className="max-w-[18rem]">
-                        <span className="text-[0.85rem] text-foreground/85">{c.weakness}</span>
+                        <span className="text-[0.85rem] text-foreground/85">{t(dataKey(c.name, "weakness"))}</span>
                       </TableCell>
                       <TableCell className="max-w-[22rem]">
                         <span className={cn("text-[0.85rem]", isUrsa ? "text-ursa-dark-roast font-medium" : "text-ursa-forest-deep font-medium")}>
-                          {c.ursaImplication}
+                          {t(dataKey(c.name, "ursaImplication"))}
                         </span>
                       </TableCell>
                       <TableCell>
@@ -663,7 +674,7 @@ export function CompetitorsView() {
                     <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">{c.name}</h3>
                     <div className="flex items-center gap-1.5 text-[0.74rem] text-muted-foreground">
                       <MapPin size={11} className="text-ursa-gold-text" />
-                      <span className="font-label tracking-[0.06em] uppercase">{c.area}</span>
+                      <span className="font-label tracking-[0.06em] uppercase">{t(dataKey(c.name, "area"))}</span>
                     </div>
                   </div>
                   <Pill tone={meta.pill}>
@@ -675,7 +686,7 @@ export function CompetitorsView() {
                   <div className={cn("font-label text-[0.62rem] tracking-[0.16em] uppercase mb-1", meta.text)}>
                     {t("content.competitors.head-to-head.implication-label")}
                   </div>
-                  <p className="m-0 text-[0.88rem] text-ursa-dark-roast font-medium leading-snug">{c.ursaImplication}</p>
+                  <p className="m-0 text-[0.88rem] text-ursa-dark-roast font-medium leading-snug">{t(dataKey(c.name, "ursaImplication"))}</p>
                 </div>
                 <div className="text-[0.82rem] text-muted-foreground leading-snug">{t(meta.descKey)}</div>
               </Card>
