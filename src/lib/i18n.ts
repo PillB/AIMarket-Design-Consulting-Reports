@@ -372,6 +372,14 @@ export const translations: Translations = {
       /* Competitors */
       "view.competitors.eyebrow": "Extra Tool T2 · Interactive",
       "view.competitors.title": "Competitor Intelligence Dashboard.",
+      "competitors.lede": "A filterable comparison matrix of the thirteen Miraflores and Lima competitors, plus Ursa's own profile pinned to the top of the table. Sort by name, area, or website presence; filter the set; read each head-to-head verdict; and see where every player sits on the scale-vs-craft quadrant.",
+      "competitors.stat.tracked": "Competitors tracked",
+      "competitors.stat.website": "Operate a website",
+      "competitors.stat.miraflores": "Miraflores presence (incl. clusters)",
+      "competitors.stat.distinctiveness": "Ursa distinctiveness score",
+      "competitors.meta.rows": "Rows",
+      "competitors.meta.filterable": "Filterable by",
+      "competitors.meta.source": "Source",
 
       /* Content Calendar */
       "view.content-calendar.eyebrow": "Extra Tool T3 · Interactive",
@@ -576,6 +584,14 @@ export const translations: Translations = {
 
       "view.competitors.eyebrow": "Herramienta T2 · Interactiva",
       "view.competitors.title": "Tablero de Inteligencia Competitiva.",
+      "competitors.lede": "Una matriz de comparación filtrable de los trece competidores de Miraflores y Lima, más el perfil de Ursa fijado en la parte superior de la tabla. Ordena por nombre, zona o presencia web; filtra el conjunto; lee cada veredicto cabeza a cabeza; y mira dónde se sitúa cada jugador en el cuadrante escala versus craft.",
+      "competitors.stat.tracked": "Competidores registrados",
+      "competitors.stat.website": "Tienen sitio web",
+      "competitors.stat.miraflores": "Presencia en Miraflores (incl. clústeres)",
+      "competitors.stat.distinctiveness": "Puntaje de distintividad de Ursa",
+      "competitors.meta.rows": "Filas",
+      "competitors.meta.filterable": "Filtrable por",
+      "competitors.meta.source": "Fuente",
 
       "view.content-calendar.eyebrow": "Herramienta T3 · Interactiva",
       "view.content-calendar.title": "Calendario de Contenido y Biblioteca de Guiones",

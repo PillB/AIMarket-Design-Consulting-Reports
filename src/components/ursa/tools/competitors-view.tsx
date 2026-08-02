@@ -240,27 +240,21 @@ export function CompetitorsView() {
       <ViewHero
         eyebrow={t("content.view.competitors.eyebrow")}
         title={<>{t("content.view.competitors.title")}</>}
-        lede={
-          <>
-            A filterable comparison matrix of the thirteen Miraflores and Lima competitors, plus Ursa's own profile pinned
-            to the top of the table. Sort by name, area, or website presence; filter the set; read each head-to-head
-            verdict; and see where every player sits on the scale-vs-craft quadrant.
-          </>
-        }
+        lede={<>{t("content.competitors.lede")}</>}
         meta={[
-          { label: "Rows", value: `${COMPETITORS.length + 1} (incl. Ursa)` },
-          { label: "Filterable by", value: "Area · Website · Name" },
-          { label: "Source", value: "Module 02 snapshot" },
+          { label: t("content.competitors.meta.rows"), value: `${COMPETITORS.length + 1} (incl. Ursa)` },
+          { label: t("content.competitors.meta.filterable"), value: "Area · Website · Name" },
+          { label: t("content.competitors.meta.source"), value: "Module 02 snapshot" },
         ]}
       />
 
       {/* Summary stats */}
       <ViewSection className="py-8">
         <Grid cols={4}>
-          <StatBlock value={`${totalCompetitors}`} label="Competitors tracked" tone="forest" />
-          <StatBlock value={`${withWebsite}`} label="Operate a website" tone="gold" />
-          <StatBlock value={`${inMiraflores}`} label="Miraflores presence (incl. clusters)" tone="terracotta" />
-          <StatBlock value={`${distinctivenessScore}%`} label="Ursa distinctiveness score" tone="forest" />
+          <StatBlock value={`${totalCompetitors}`} label={t("content.competitors.stat.tracked")} tone="forest" />
+          <StatBlock value={`${withWebsite}`} label={t("content.competitors.stat.website")} tone="gold" />
+          <StatBlock value={`${inMiraflores}`} label={t("content.competitors.stat.miraflores")} tone="terracotta" />
+          <StatBlock value={`${distinctivenessScore}%`} label={t("content.competitors.stat.distinctiveness")} tone="forest" />
         </Grid>
         <p className="text-[0.85rem] text-muted-foreground mt-5 mb-0 max-w-[80ch]">
           The distinctiveness score is qualitative — it is the share of competitors against which Ursa holds a clear
