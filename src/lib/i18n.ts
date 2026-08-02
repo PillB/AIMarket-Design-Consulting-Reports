@@ -389,6 +389,15 @@ export const translations: Translations = {
       "view.experiments.eyebrow": "Extra Tool T4 · Interactive",
       "view.experiments.title":
         "Experiment Tracker — eleven tests, four outcomes, one source of truth.",
+      "experiments.section.status": "Where the eleven experiments stand right now",
+      "experiments.stat.total": "Total experiments tracked",
+      "experiments.stat.proposed": "Proposed · awaiting launch",
+      "experiments.stat.running": "Running · in test now",
+      "experiments.stat.graduated": "Graduated · passed or killed",
+      "experiments.section.filter": "Filter the board by status",
+      "experiments.section.cards": "Experiment cards — pick a status for each test",
+      "experiments.section.cost": "Cost summary — exposure on Proposed + Running experiments",
+      "experiments.section.gantt": "90-day Gantt — when each experiment runs",
 
       /* Style Guide */
       "view.style-guide.eyebrow": "Extra Tool T5 · Interactive",
@@ -599,6 +608,15 @@ export const translations: Translations = {
       "view.experiments.eyebrow": "Herramienta T4 · Interactiva",
       "view.experiments.title":
         "Seguimiento de Experimentos — once pruebas, cuatro resultados, una sola verdad.",
+      "experiments.section.status": "Dónde están los once experimentos ahora",
+      "experiments.stat.total": "Experimentos totales registrados",
+      "experiments.stat.proposed": "Propuestos · esperando lanzamiento",
+      "experiments.stat.running": "En curso · en prueba ahora",
+      "experiments.stat.graduated": "Graduados · aprobados o cancelados",
+      "experiments.section.filter": "Filtra el tablero por estado",
+      "experiments.section.cards": "Tarjetas de experimentos — elige un estado para cada prueba",
+      "experiments.section.cost": "Resumen de costos — exposición en experimentos Propuestos + En curso",
+      "experiments.section.gantt": "Gantt de 90 días — cuándo corre cada experimento",
 
       "view.style-guide.eyebrow": "Herramienta T5 · Interactiva",
       "view.style-guide.title":

@@ -291,28 +291,28 @@ export function ExperimentsView() {
       {/* Section 1 — Summary stats ============================================== */}
       <ViewSection
         badge="Section 01 · Status"
-        title={<>Where the eleven experiments stand right now</>}
+        title={<>{t("content.experiments.section.status")}</>}
         meta="Saved in your browser"
       >
         <Grid cols={4}>
           <StatBlock
             value={String(EXPERIMENTS.length)}
-            label="Total experiments tracked"
+            label={t("content.experiments.stat.total")}
             tone="forest"
           />
           <StatBlock
             value={String(counts.proposed)}
-            label="Proposed · awaiting launch"
+            label={t("content.experiments.stat.proposed")}
             tone="gold"
           />
           <StatBlock
             value={String(counts.running)}
-            label="Running · in test now"
+            label={t("content.experiments.stat.running")}
             tone="forest"
           />
           <StatBlock
             value={String(counts.passed + counts.killed)}
-            label="Graduated · passed or killed"
+            label={t("content.experiments.stat.graduated")}
             tone="terracotta"
           />
         </Grid>
@@ -372,7 +372,7 @@ export function ExperimentsView() {
       {/* Section 2 — Filter ==================================================== */}
       <ViewSection
         badge="Section 02 · Filter"
-        title={<>Filter the board by status</>}
+        title={<>{t("content.experiments.section.filter")}</>}
         meta={`${filteredExperiments.length} of ${EXPERIMENTS.length} shown`}
       >
         <div className="flex flex-wrap items-center gap-2">
@@ -432,7 +432,7 @@ export function ExperimentsView() {
       {/* Section 3 — Experiment cards ========================================== */}
       <ViewSection
         badge="Section 03 · Board"
-        title={<>Experiment cards — pick a status for each test</>}
+        title={<>{t("content.experiments.section.cards")}</>}
         meta="Click a card's selector to update"
       >
         {filteredExperiments.length === 0 ? (
@@ -458,7 +458,7 @@ export function ExperimentsView() {
       {/* Section 4 — Cost summary ============================================== */}
       <ViewSection
         badge="Section 04 · Budget"
-        title={<>Cost summary — exposure on Proposed + Running experiments</>}
+        title={<>{t("content.experiments.section.cost")}</>}
         meta="Conservative range in PEN"
       >
         <Grid cols={3}>
@@ -515,7 +515,7 @@ export function ExperimentsView() {
       {/* Section 5 — Timeline (Gantt-like) ===================================== */}
       <ViewSection
         badge="Section 05 · Timeline"
-        title={<>90-day Gantt — when each experiment runs</>}
+        title={<>{t("content.experiments.section.gantt")}</>}
         meta="Bars coloured by current status"
       >
         <p className="text-[0.95rem] text-muted-foreground leading-relaxed max-w-[68ch] mb-6">
