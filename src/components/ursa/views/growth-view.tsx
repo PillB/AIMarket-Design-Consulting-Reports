@@ -112,8 +112,9 @@ const PERSONAS: Persona[] = [
 ];
 
 type Pillar = {
-  title: string;
-  promise: string;
+  id: string;
+  titleKey: string;
+  promiseKey: string;
   proofs: string[];
   evidence: string;
   risk: string;
@@ -122,57 +123,61 @@ type Pillar = {
 
 const MESSAGE_PILLARS: Pillar[] = [
   {
-    title: "Visible Craft",
-    promise: "The roaster is on stage. Every gram is weighed.",
+    id: "visible-craft",
+    titleKey: "content.growth.message.pillar.visible-craft.title",
+    promiseKey: "content.growth.message.pillar.visible-craft.promise",
     proofs: [
       "In-house roaster visible from the bar",
       "'Un gramo a la vez' as the weighing ritual",
       "Baristas trained to talk origin, altitude, process",
     ],
     evidence:
-      "Corner.inc editorial praises Ursa's 'visible roasting equipment creates a workshop feel.' Terrua (513 Google reviews, 4.6★) and Punto Café (CAM 2025 2nd place) both lean on visible roastery/in-house roasting as the credibility signal that converts walk-ins. CENSUS-1: 4 of 14 in-catchment competitors make roastery visibility central to their positioning.",
+      "Corner.inc editorial praises Ursa's 'visible roasting equipment creates a workshop feel.' Terrua (513 Google reviews, 4.6★) and Punto Café (CAM 2025 2nd place) both lean on visible roastery/in-house roasting as the credibility signal that converts walk-ins. In the 1km competitor census, 4 of 14 in-catchment competitors make roastery visibility central to their positioning.",
     risk:
       "'Visible craft' without consistency is hollow. If Ursa's roast consistency slips (no documented QC protocol surfaced in research), the visible roaster becomes a liability — customers see the inconsistency, not the craft. Missing evidence: no roast-log audit, no extraction-yield log observed in public sources.",
     tone: "gold",
   },
   {
-    title: "Ownable Atmosphere",
-    promise: "Bear, Art Nouveau, two bars — no one else has this.",
+    id: "ownable-atmosphere",
+    titleKey: "content.growth.message.pillar.ownable-atmosphere.title",
+    promiseKey: "content.growth.message.pillar.ownable-atmosphere.promise",
     proofs: [
       "Bear motif as a recurring character",
       "Two-bar theatre: espresso + cold brew side by side",
       "Coined drink names: Ursagroni, Maracumango (the other two named drinks — Filtrado Lonya, Durazno Clarificado — use origin/descriptive labels, not coined names)",
     ],
     evidence:
-      "CENSUS-1 audit of 18 competitors: 0 use an animal or character identity; 0 operate a visible two-bar format; 0 use coined drink names. 'Amauta' is the closest analogue — a heritage word, not a character. The bear + two-bar + coined-name trio is uncontested in the catchment.",
+      "The 1km competitor census of 18 competitors: 0 use an animal or character identity; 0 operate a visible two-bar format; 0 use coined drink names. 'Amauta' is the closest analogue — a heritage word, not a character. The bear + two-bar + coined-name trio is uncontested in the catchment.",
     risk:
       "Atmosphere is ownable only as long as it is legible. If the bear is treated as decoration rather than character (no consistent voice, no recurring role), competitors can copy the surface (an animal mascot) without copying the meaning. Risk: bear identity becomes a logo, not a character.",
     tone: "forest",
   },
   {
-    title: "Honest Origin Stories",
-    promise: "We tell you where the bean came from, specifically.",
+    id: "honest-origin",
+    titleKey: "content.growth.message.pillar.honest-origin.title",
+    promiseKey: "content.growth.message.pillar.honest-origin.promise",
     proofs: [
       "Filtrado Lonya line with farm + altitude (Utcubamba, Amazonas, 1,750m, Bourbon lavado)",
       "'Gram of the week' micro-lot highlight",
       "Quarterly origin transparency report",
     ],
     evidence:
-      "CENSUS-1: Café Verde (possibly closed) was the cautionary case — generic 'sustainability' messaging without specifics. RAIZ and Terrua own farm-to-cup depth, but Terrua's single-origin (Villa Rica only) is a narrow terroir story. Ursa's Filtrado Lonya line (multi-origin, named lot, named altitude) is uncontested in the catchment.",
+      "The 1km competitor census: Café Verde (possibly closed) was the cautionary case — generic 'sustainability' messaging without specifics. RAIZ and Terrua own farm-to-cup depth, but Terrua's single-origin (Villa Rica only) is a narrow terroir story. Ursa's Filtrado Lonya line (multi-origin, named lot, named altitude) is uncontested in the catchment.",
     risk:
       "'Specific' is only credible if the named farm relationship is real and ongoing. If Ursa cannot document the producer relationship behind each Lonya lot (contract, purchase price, visit date), the story degrades into marketing. Missing evidence: no producer-relationship documentation surfaced in public sources.",
     tone: "forest",
   },
   {
-    title: "Patient Continuity",
-    promise: "Reasons to return weekly, not just once.",
+    id: "patient-continuity",
+    titleKey: "content.growth.message.pillar.patient-continuity.title",
+    promiseKey: "content.growth.message.pillar.patient-continuity.promise",
     proofs: [
       "Seasonal drink rotation (Lonya origins)",
       "Ursa Mañana subscription pilot (S/. 20/mo, capped at 50)",
       "Monthly cupping nights + named-drink drops",
     ],
     evidence:
-      "CENSUS-1: Bisetti owns 'escuela de café' (formal education); Puku Puku owns 'microlotes' retail (S/.49 bag); no competitor owns a subscription + cupping + named-drink drop cadence. CoffeePass Perú listing (URSA_FACTS) validates Ursa already participates in Lima's loyalty infrastructure.",
+      "The 1km competitor census: Bisetti owns 'escuela de café' (formal education); Puku Puku owns 'microlotes' retail (S/.49 bag); no competitor owns a subscription + cupping + named-drink drop cadence. CoffeePass Perú listing validates Ursa already participates in Lima's loyalty infrastructure.",
     risk:
       "Continuity promises erode the moment a weekly cadence is missed. If the cupping night skips a month, or the named-drink drop is late, the rhythm breaks and the promise feels performative. Risk: subscription cannibalizes full-price visits if attach rate < 60% (see Module 08 model).",
     tone: "gold",
@@ -181,103 +186,113 @@ const MESSAGE_PILLARS: Pillar[] = [
 
 const OFFER_STACK = [
   {
-    layer: "Continuity",
-    item: "Ursa Mañana subscription invite",
+    id: "continuity",
+    labelKey: "content.growth.offer.layer.continuity.label",
+    itemKey: "content.growth.offer.layer.continuity.item",
+    noteKey: "content.growth.offer.layer.continuity.note",
     value: "S/. 20/mo (optional)",
-    note: "Hand the regular a reason to come back Monday.",
     tone: "forest" as const,
   },
   {
-    layer: "Story",
-    item: "Origin story card",
+    id: "story",
+    labelKey: "content.growth.offer.layer.story.label",
+    itemKey: "content.growth.offer.layer.story.item",
+    noteKey: "content.growth.offer.layer.story.note",
     value: "Included",
-    note: "Farm, altitude, process. Photographable, take-homeable.",
     tone: "gold" as const,
   },
   {
-    layer: "Sample",
-    item: "50g bean sample of the week's micro-lot",
+    id: "sample",
+    labelKey: "content.growth.offer.layer.sample.label",
+    itemKey: "content.growth.offer.layer.sample.item",
+    noteKey: "content.growth.offer.layer.sample.note",
     value: "S/. 10",
-    note: "Turns one visit into a home-brew trial.",
     tone: "gold" as const,
   },
   {
-    layer: "Side",
-    item: "Cookie or empanada pairing",
+    id: "side",
+    labelKey: "content.growth.offer.layer.side.label",
+    itemKey: "content.growth.offer.layer.side.item",
+    noteKey: "content.growth.offer.layer.side.note",
     value: "S/. 6–9",
-    note: "The bear recommends the pairing for this drink.",
     tone: "terracotta" as const,
   },
   {
-    layer: "Core",
-    item: "Pour-over or flat white (named drink)",
+    id: "core",
+    labelKey: "content.growth.offer.layer.core.label",
+    itemKey: "content.growth.offer.layer.core.item",
+    noteKey: "content.growth.offer.layer.core.note",
     value: "S/. 12–18",
-    note: "The craft cup, weighed one gram at a time.",
     tone: "gold" as const,
   },
 ];
 
 const JOURNEY = [
   {
-    stage: "Discover",
+    id: "discover",
     icon: <Compass size={16} />,
-    channel: "Instagram Reel · Google Maps · Hotel card · Friend's photo",
-    tactic: "Bear paw Reel trail, GBP verified, concierge cards in 8 hotels.",
+    nameKey: "content.growth.journey.stage.discover.name",
+    channelKey: "content.growth.journey.stage.discover.channel",
+    tacticKey: "content.growth.journey.stage.discover.tactic",
   },
   {
-    stage: "Consider",
+    id: "consider",
     icon: <Star size={16} />,
-    channel: "Reviews · Story cards · Named-drink board",
-    tactic: "TripAdvisor claimed; origin story cards on the menu make the craft legible.",
+    nameKey: "content.growth.journey.stage.consider.name",
+    channelKey: "content.growth.journey.stage.consider.channel",
+    tacticKey: "content.growth.journey.stage.consider.tactic",
   },
   {
-    stage: "First visit",
+    id: "first-visit",
     icon: <Coffee size={16} />,
-    channel: "Barista greeting · Bear character · Weighing ritual",
-    tactic: "Barista names the bean, hands a story card, mentions the next cupping.",
+    nameKey: "content.growth.journey.stage.first-visit.name",
+    channelKey: "content.growth.journey.stage.first-visit.channel",
+    tacticKey: "content.growth.journey.stage.first-visit.tactic",
   },
   {
-    stage: "Repeat",
+    id: "repeat",
     icon: <Repeat size={16} />,
-    channel: "WhatsApp list · Subscription · Named-drink rotation",
-    tactic: "Weekly drop notice via WhatsApp; Ursa Mañana invite for 7–10am regulars.",
+    nameKey: "content.growth.journey.stage.repeat.name",
+    channelKey: "content.growth.journey.stage.repeat.channel",
+    tacticKey: "content.growth.journey.stage.repeat.tactic",
   },
   {
-    stage: "Advocate",
+    id: "advocate",
     icon: <Megaphone size={16} />,
-    channel: "UGC challenge · Referral coupon · Gram of the week photo",
-    tactic: "Bear barista challenge; subscriber brings-a-friend first-cup-free.",
+    nameKey: "content.growth.journey.stage.advocate.name",
+    channelKey: "content.growth.journey.stage.advocate.channel",
+    tacticKey: "content.growth.journey.stage.advocate.tactic",
   },
 ];
 
 const CHANNELS = [
-  { name: "Acquisition", stage: "Discover", icon: <Megaphone size={14} />, tactic: "Paid social (Meta, Miraflores 3km) → first-time visitor with a S/. 14 anchor drink." },
-  { name: "Local discovery", stage: "Discover", icon: <Footprints size={14} />, tactic: "Bear paw stamps around Miraflores landmarks + 'walk-to-Ursa' Reel." },
-  { name: "Google / Maps", stage: "Discover", icon: <MapPin size={14} />, tactic: "Verify Google Business Profile with photos, hours, menu link, and post weekly." },
-  { name: "Organic social", stage: "Discover", icon: <Camera size={14} />, tactic: "Reels, Stories, carousels. 'Un gramo a la vez' as the recurring ritual opener." },
-  { name: "Paid social", stage: "Discover", icon: <Megaphone size={14} />, tactic: "Meta ads, 3km radius, lookalike on existing regulars. A/B test the bear vs the cup." },
-  { name: "Tourism", stage: "Discover", icon: <Compass size={14} />, tactic: "POV walk Reel from Parque Kennedy; 'closer than you think' framing for visitors." },
-  { name: "Creator strategy", stage: "Engage", icon: <Star size={14} />, tactic: "3 micro-creators per quarter — a barista, a foodie, a traveller — briefs not posts." },
-  { name: "Delivery", stage: "Engage", icon: <Truck size={14} />, tactic: "Rappi menu re-photography + bundle pricing. Packing ritual Reel builds trust." },
-  { name: "Events", stage: "Engage", icon: <Calendar size={14} />, tactic: "Monthly cupping night + seasonal drink reveal with cloth-off ceremony." },
-  { name: "Partnerships", stage: "Engage", icon: <Handshake size={14} />, tactic: "8 nearby hotels with concierge origin cards; redeemable coupon code per hotel." },
-  { name: "Hotels", stage: "Engage", icon: <Hotel size={14} />, tactic: "Concierge cards + a small bean gift for VIP rooms in partnering properties." },
-  { name: "Offices / coworking", stage: "Engage", icon: <Briefcase size={14} />, tactic: "B2B office sampling (10 offices) for wholesale bean accounts + morning runs." },
-  { name: "Community", stage: "Retain", icon: <Heart size={14} />, tactic: "Bear barista challenge + 'gram of the week' photo wall in-store." },
-  { name: "Loyalty", stage: "Retain", icon: <Star size={14} />, tactic: "CoffeePass Perú listing + named-drink rotation as the recurring reason." },
-  { name: "Email / WhatsApp", stage: "Retain", icon: <Mail size={14} />, tactic: "Weekly drop notice + 'gram of the week' highlight. Consent prompt at the till." },
-  { name: "Service recovery", stage: "Retain", icon: <RefreshCw size={14} />, tactic: "Direct WhatsApp reply + complimentary return cup. Document the pattern weekly." },
-  { name: "Retail beans", stage: "Retain", icon: <Package size={14} />, tactic: "Art Nouveau bean bag labels with roast date; sell at counter and via Rappi." },
-  { name: "Referral", stage: "Advocate", icon: <Gift size={14} />, tactic: "Subscriber 'brings a friend' first-cup-free; paired with the bear's recommendation." },
-  { name: "Reviews", stage: "Advocate", icon: <MessageSquare size={14} />, tactic: "Google + TripAdvisor review request 24h after first visit; reply within 48h." },
-  { name: "Wholesale / B2B", stage: "Advocate", icon: <Store size={14} />, tactic: "Office sampling → bean wholesale accounts. Quarterly origin report as the pitch." },
+  { id: "acquisition", stageId: "discover", icon: <Megaphone size={14} /> },
+  { id: "local-discovery", stageId: "discover", icon: <Footprints size={14} /> },
+  { id: "google-maps", stageId: "discover", icon: <MapPin size={14} /> },
+  { id: "organic-social", stageId: "discover", icon: <Camera size={14} /> },
+  { id: "paid-social", stageId: "discover", icon: <Megaphone size={14} /> },
+  { id: "tourism", stageId: "discover", icon: <Compass size={14} /> },
+  { id: "creator-strategy", stageId: "engage", icon: <Star size={14} /> },
+  { id: "delivery", stageId: "engage", icon: <Truck size={14} /> },
+  { id: "events", stageId: "engage", icon: <Calendar size={14} /> },
+  { id: "partnerships", stageId: "engage", icon: <Handshake size={14} /> },
+  { id: "hotels", stageId: "engage", icon: <Hotel size={14} /> },
+  { id: "offices", stageId: "engage", icon: <Briefcase size={14} /> },
+  { id: "community", stageId: "retain", icon: <Heart size={14} /> },
+  { id: "loyalty", stageId: "retain", icon: <Star size={14} /> },
+  { id: "email-whatsapp", stageId: "retain", icon: <Mail size={14} /> },
+  { id: "service-recovery", stageId: "retain", icon: <RefreshCw size={14} /> },
+  { id: "retail-beans", stageId: "retain", icon: <Package size={14} /> },
+  { id: "referral", stageId: "advocate", icon: <Gift size={14} /> },
+  { id: "reviews", stageId: "advocate", icon: <MessageSquare size={14} /> },
+  { id: "wholesale", stageId: "advocate", icon: <Store size={14} /> },
 ];
 
 const FUNNEL_STAGES = [
-  { name: "Discover", tone: "var(--color-ursa-gold-text)", desc: "Reach new audiences in Miraflores" },
-  { name: "Engage", tone: "var(--color-ursa-forest)", desc: "Convert interest into a visit" },
-  { name: "Retain", tone: "var(--color-ursa-forest-deep)", desc: "Turn first visits into a habit" },
-  { name: "Advocate", tone: "var(--color-ursa-terracotta-text)", desc: "Let regulars bring the next regular" },
+  { id: "discover", tone: "var(--color-ursa-gold-text)", nameKey: "content.growth.channels.funnel.discover.name", descKey: "content.growth.channels.funnel.discover.desc" },
+  { id: "engage", tone: "var(--color-ursa-forest)", nameKey: "content.growth.channels.funnel.engage.name", descKey: "content.growth.channels.funnel.engage.desc" },
+  { id: "retain", tone: "var(--color-ursa-forest-deep)", nameKey: "content.growth.channels.funnel.retain.name", descKey: "content.growth.channels.funnel.retain.desc" },
+  { id: "advocate", tone: "var(--color-ursa-terracotta-text)", nameKey: "content.growth.channels.funnel.advocate.name", descKey: "content.growth.channels.funnel.advocate.desc" },
 ] as const;
 
 export function GrowthView() {
@@ -487,13 +502,13 @@ export function GrowthView() {
           </Card>
         </Grid>
       </ViewSection>
-      <ViewSection badge="Message" title="Message architecture — from one promise down to proof points" meta="Promise → Pillars → Proof">
+      <ViewSection badge={t("content.growth.message.badge")} title={t("content.growth.message.title")} meta={t("content.growth.message.meta")}>
         <Card className="bg-ursa-foam">
           {/* Root: brand promise */}
           <div className="flex flex-col items-center text-center mb-2">
-            <SectionBadge tone="gold">Brand promise</SectionBadge>
+            <SectionBadge tone="gold">{t("content.growth.message.brand-promise.badge")}</SectionBadge>
             <p className="font-display text-xl md:text-2xl font-semibold text-ursa-dark-roast mt-2 mb-0 max-w-[42ch]">
-              Ursa makes the craft visible — every cup is deliberate, weighed one gram at a time.
+              {t("content.growth.message.brand-promise.text")}
             </p>
           </div>
 
@@ -507,18 +522,18 @@ export function GrowthView() {
           <Grid cols={2}>
             {MESSAGE_PILLARS.map((pillar) => (
               <div
-                key={pillar.title}
+                key={pillar.id}
                 className="rounded-lg border border-ursa-line-soft bg-card p-5 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-16px_rgba(59,36,23,0.18)]"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <Pill tone={pillar.tone}>{pillar.title}</Pill>
+                  <Pill tone={pillar.tone}>{t(pillar.titleKey)}</Pill>
                 </div>
                 <p className="font-display text-[1.05rem] text-ursa-dark-roast font-medium leading-snug mb-3">
-                  {pillar.promise}
+                  {t(pillar.promiseKey)}
                 </p>
                 <div className="flex items-center gap-1 text-ursa-gold-text mb-2">
                   <ArrowDown size={12} />
-                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase">Proof points</span>
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase">{t("content.growth.message.pillars.label")}</span>
                 </div>
                 <ul className="space-y-1.5 m-0 p-0 list-none">
                   {pillar.proofs.map((proof) => (
@@ -533,12 +548,12 @@ export function GrowthView() {
                   <div className="flex items-start gap-2">
                     <EvidenceTag status="partial" />
                     <p className="text-[0.78rem] text-muted-foreground leading-relaxed m-0 flex-1">
-                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-forest-deep block mb-0.5">Evidence</span>
+                      <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-forest-deep block mb-0.5">{t("content.growth.message.label.evidence")}</span>
                       {pillar.evidence}
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase px-1.5 py-0.5 rounded border bg-ursa-terracotta/15 text-ursa-terracotta-text border-ursa-terracotta/40 shrink-0 mt-0.5">Risk</span>
+                    <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase px-1.5 py-0.5 rounded border bg-ursa-terracotta/15 text-ursa-terracotta-text border-ursa-terracotta/40 shrink-0 mt-0.5">{t("content.growth.message.label.risk")}</span>
                     <p className="text-[0.78rem] text-muted-foreground leading-relaxed m-0 flex-1">
                       {pillar.risk}
                     </p>
@@ -548,21 +563,16 @@ export function GrowthView() {
             ))}
           </Grid>
         </Card>
-        <Callout tone="warn" title="Do not split the pillars across channels — every channel must carry the same promise">
-          The temptation is to use Instagram for atmosphere, Google for craft, and WhatsApp for
-          continuity. That fragments the brand. The same four pillars appear in every channel,
-          only the depth changes.
+        <Callout tone="warn" title={t("content.growth.message.callout.title")}>
+          {t("content.growth.message.callout.body")}
         </Callout>
       </ViewSection>
 
       {/* Hormozi adaptation */}
-      <ViewSection badge="Framework · Hormozi" title="Hormozi adapted — with explicit 'do not' lists" meta="Suggestive framework · not café-specific empirical evidence">
-        <Callout tone="warn" title="Framework grade: suggestive, not proven">
+      <ViewSection badge={t("content.growth.hormozi.badge")} title={t("content.growth.hormozi.title")} meta={t("content.growth.hormozi.meta")}>
+        <Callout tone="warn" title={t("content.growth.hormozi.callout.title")}>
           <p className="m-0 text-[0.88rem]">
-            Hormozi&apos;s Value Equation is a popular entrepreneurial framework with anecdotal support but no peer-reviewed
-            empirical validation in café/hospitality contexts. A 2026 academic paper classifies it among &quot;bro frameworks.&quot;
-            Treat these adaptations as testable hypotheses, not proven principles. The stronger scientific frame is
-            Ehrenberg-Bass (How Brands Grow) — distinctive assets + mental/physical availability.
+            {t("content.growth.hormozi.callout.body")}
           </p>
         </Callout>
         <Grid cols={2}>
@@ -575,7 +585,7 @@ export function GrowthView() {
               <p className="text-[0.9rem] leading-relaxed text-foreground/85 mb-3">{h.adapted}</p>
               <div className="mt-auto border-t border-ursa-line-soft pt-3">
                 <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-terracotta-text flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-ursa-terracotta" /> Do not
+                  <span className="w-1.5 h-1.5 rounded-full bg-ursa-terracotta" /> {t("content.growth.hormozi.label.do-not")}
                 </span>
                 <p className="text-[0.82rem] text-muted-foreground mt-1 m-0">{h.caveat}</p>
               </div>
@@ -585,12 +595,10 @@ export function GrowthView() {
       </ViewSection>
 
       {/* Sutherland adaptation */}
-      <ViewSection badge="Framework · Sutherland" title="Sutherland adapted — perceived value is the lever" meta="Moderate evidence · largely anecdotal case studies · test each lever">
-        <Callout tone="gold" title="Framework grade: moderate, testable">
+      <ViewSection badge={t("content.growth.sutherland.badge")} title={t("content.growth.sutherland.title")} meta={t("content.growth.sutherland.meta")}>
+        <Callout tone="gold" title={t("content.growth.sutherland.callout.title")}>
           <p className="m-0 text-[0.88rem]">
-            Sutherland&apos;s perceived-value principles draw on behavioral economics (Kahneman, Thaler) but are largely
-            illustrative case studies, not controlled experiments in hospitality. Each adaptation below should be
-            treated as a testable hypothesis with a measurement plan, not a proven tactic.
+            {t("content.growth.sutherland.callout.body")}
           </p>
         </Callout>
         <Grid cols={3}>
@@ -611,20 +619,18 @@ export function GrowthView() {
             </Card>
           ))}
         </Grid>
-        <Callout tone="gold" title="The Sutherland lens is the cheaper lever — try it first">
-          Hormozi's offer stack changes the receipt. Sutherland's perceived-value moves change the
-          same cup's meaning at near-zero cost: a story card, a named preparation, a bear
-          character. Sequence Sutherland before Hormozi wherever possible.
+        <Callout tone="gold" title={t("content.growth.sutherland.callout2.title")}>
+          {t("content.growth.sutherland.callout2.body")}
         </Callout>
       </ViewSection>
 
       {/* Offer architecture stack */}
-      <ViewSection badge="Offer" title="The Ursa offer stack — five layers from core cup to continuity" meta="Hormozi stack · truthful anchor">
+      <ViewSection badge={t("content.growth.offer.badge")} title={t("content.growth.offer.title")} meta={t("content.growth.offer.meta")}>
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-start">
           <Card className="bg-ursa-foam">
             <div className="flex items-center gap-2 mb-4">
               <Layers size={18} className="text-ursa-gold-text" />
-              <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0">The stack, bottom to top</h3>
+              <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0">{t("content.growth.offer.stack.heading")}</h3>
             </div>
             <div className="relative pl-6">
               {/* Vertical connecting line */}
@@ -634,7 +640,7 @@ export function GrowthView() {
                   const accent = layer.tone === "forest" ? "var(--color-ursa-forest-deep)" : layer.tone === "terracotta" ? "var(--color-ursa-terracotta-text)" : "var(--color-ursa-gold-text)";
                   return (
                     <div
-                      key={layer.layer}
+                      key={layer.id}
                       className="relative rounded-lg border bg-card p-4 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-16px_rgba(59,36,23,0.18)] transition hover:shadow-md hover:-translate-y-0.5"
                       style={{
                         marginLeft: `${i * 10}px`,
@@ -651,10 +657,10 @@ export function GrowthView() {
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-muted-foreground">
-                            {layer.layer}
+                            {t(layer.labelKey)}
                           </span>
-                          <p className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0.5 mb-1 m-0">{layer.item}</p>
-                          <p className="text-[0.82rem] text-muted-foreground m-0">{layer.note}</p>
+                          <p className="font-display text-[1rem] font-semibold text-ursa-dark-roast mt-0.5 mb-1 m-0">{t(layer.itemKey)}</p>
+                          <p className="text-[0.82rem] text-muted-foreground m-0">{t(layer.noteKey)}</p>
                         </div>
                         <span
                           className="font-display text-sm font-semibold whitespace-nowrap"
@@ -669,65 +675,62 @@ export function GrowthView() {
               </div>
             </div>
             <p className="text-[0.78rem] text-muted-foreground mt-4 mb-0 italic">
-              Anchor the stack against the à la carte total — truthfully. Continuity is the
-              top layer, not the hook.
+              {t("content.growth.offer.stack.italic-note")}
             </p>
           </Card>
 
           <div className="space-y-4">
             <Card>
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-                <CupGlyph size={18} className="text-ursa-gold-text" /> Why the stack works
+                <CupGlyph size={18} className="text-ursa-gold-text" /> {t("content.growth.offer.card.why.heading")}
               </h4>
               <ul className="space-y-2 m-0 p-0 list-none text-[0.88rem] text-foreground/85">
-                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> The core drink anchors price; the side is the highest-margin attach.</li>
-                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> The bean sample converts one visit into a home-brew trial — repeated exposure.</li>
-                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> The story card is the Sutherland lever: free to print, raises perceived value.</li>
-                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> The subscription invite closes the loop only after the craft has been experienced.</li>
+                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> {t("content.growth.offer.card.why.1")}</li>
+                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> {t("content.growth.offer.card.why.2")}</li>
+                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> {t("content.growth.offer.card.why.3")}</li>
+                <li className="flex gap-2"><span className="text-ursa-gold-text mt-1">›</span> {t("content.growth.offer.card.why.4")}</li>
               </ul>
             </Card>
             <Card className="bg-ursa-cream">
               <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-                <FlaskConical size={16} className="text-ursa-forest-deep" /> Operational feasibility — prep, overlap, training
+                <FlaskConical size={16} className="text-ursa-forest-deep" /> {t("content.growth.offer.card.feasibility.heading")}
               </h4>
               <div className="space-y-3 m-0">
                 <div className="grid grid-cols-[7rem_1fr] gap-x-3 gap-y-1 text-[0.84rem]">
-                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Continuity</span>
-                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">Ursa Mañana sub.</strong> — prep: 0 min/visit (subscription is a POS flag). Ingredient overlap: 100% (uses existing espresso). Training: 1 hour for staff to recognise subscribers + apply discount. <em>Risk:</em> requires POS that supports member flags; if not, manual tally erodes the staff-time saving.</p>
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">{t("content.growth.offer.card.feasibility.continuity.label")}</span>
+                  <p className="text-foreground/85 m-0">{t("content.growth.offer.card.feasibility.continuity.body")}</p>
 
-                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Story card</span>
-                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">Origin story card</strong> — prep: 0 min/serving (pre-printed). Ingredient overlap: 0 (paper good). Training: 15 min on which card matches which drink. Cost: S/. 0.40/card print. <em>Risk:</em> card-drink mismatch erodes credibility faster than no card at all.</p>
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">{t("content.growth.offer.card.feasibility.story-card.label")}</span>
+                  <p className="text-foreground/85 m-0">{t("content.growth.offer.card.feasibility.story-card.body")}</p>
 
-                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Sample</span>
-                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">50g bean sample</strong> — prep: 30 sec (scoop + label). Ingredient overlap: 100% (retail bean stock). Training: 10 min on portion + label format. <em>Risk:</em> 50g is below brewable yield for some methods — clarify brew instructions on the label or sample feels useless.</p>
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">{t("content.growth.offer.card.feasibility.sample.label")}</span>
+                  <p className="text-foreground/85 m-0">{t("content.growth.offer.card.feasibility.sample.body")}</p>
 
-                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Side</span>
-                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">Cookie / empanada</strong> — prep: 0 min/serving (already prepared). Ingredient overlap: 100% (existing food line). Training: 5 min on pairing suggestions. <em>Risk:</em> if pastry sells out by 11am, the attach offer degrades — bake schedule must align with daily attach target.</p>
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">{t("content.growth.offer.card.feasibility.side.label")}</span>
+                  <p className="text-foreground/85 m-0">{t("content.growth.offer.card.feasibility.side.body")}</p>
 
-                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">Core</span>
-                  <p className="text-foreground/85 m-0"><strong className="text-ursa-dark-roast">Pour-over / flat white</strong> — prep: 3–4 min (pour-over) or 90s (flat white). Ingredient overlap: 100%. Training: existing barista skill. <em>Risk:</em> pour-over at peak creates a service-time bottleneck if &gt; 3 simultaneous orders; consider capping pour-over during 8–9am.</p>
+                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground pt-0.5">{t("content.growth.offer.card.feasibility.core.label")}</span>
+                  <p className="text-foreground/85 m-0">{t("content.growth.offer.card.feasibility.core.body")}</p>
                 </div>
               </div>
             </Card>
             <Card className="bg-ursa-cream">
-              <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">A worked example</h4>
+              <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.growth.offer.card.worked-example.heading")}</h4>
               <p className="text-[0.88rem] text-muted-foreground m-0 mb-3">
-                A tourist orders a pour-over, accepts the cookie pairing, takes the bean sample and
-                story card, and leaves with a WhatsApp opt-in. Three weeks later, they tag Ursa
-                from another city and send a friend in Lima.
+                {t("content.growth.offer.card.worked-example.body")}
               </p>
               <div className="grid grid-cols-3 gap-2 text-center">
                 <div>
                   <p className="font-display text-lg font-semibold text-ursa-dark-roast m-0">S/. 27</p>
-                  <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground m-0">Ticket</p>
+                  <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground m-0">{t("content.growth.offer.card.worked-example-ticket")}</p>
                 </div>
                 <div>
                   <p className="font-display text-lg font-semibold text-ursa-forest-deep m-0">3</p>
-                  <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground m-0">Touchpoints</p>
+                  <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground m-0">{t("content.growth.offer.card.worked-example.touchpoints")}</p>
                 </div>
                 <div>
                   <p className="font-display text-lg font-semibold text-ursa-gold-text m-0">1</p>
-                  <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground m-0">Referral</p>
+                  <p className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-muted-foreground m-0">{t("content.growth.offer.card.worked-example-referral")}</p>
                 </div>
               </div>
             </Card>
@@ -736,25 +739,25 @@ export function GrowthView() {
       </ViewSection>
 
       {/* Customer journey timeline */}
-      <ViewSection badge="Journey" title="The customer journey, from Discover to Advocate" meta="Horizontal · 5 stages">
+      <ViewSection badge={t("content.growth.journey.badge")} title={t("content.growth.journey.title")} meta={t("content.growth.journey.meta")}>
         <div className="overflow-x-auto ursa-scroll pb-2">
           <div className="flex items-stretch gap-0 min-w-[760px]">
             {JOURNEY.map((j, i) => (
-              <div key={j.stage} className="flex items-stretch flex-1">
+              <div key={j.id} className="flex items-stretch flex-1">
                 <div className="flex-1 rounded-lg border border-ursa-line-soft bg-card p-4 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-16px_rgba(59,36,23,0.18)] flex flex-col">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-7 h-7 rounded-full bg-ursa-cream border border-ursa-gold/40 flex items-center justify-center text-ursa-gold-text">
                       {j.icon}
                     </span>
                     <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">
-                      Stage {i + 1}
+                      {t("content.growth.journey.label.stage")} {i + 1}
                     </span>
                   </div>
-                  <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{j.stage}</h3>
-                  <p className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-gold-text mb-1 m-0">Channel</p>
-                  <p className="text-[0.82rem] text-foreground/85 mb-3 m-0">{j.channel}</p>
-                  <p className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-forest-deep mb-1 m-0 mt-auto">Tactic</p>
-                  <p className="text-[0.82rem] text-muted-foreground m-0">{j.tactic}</p>
+                  <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t(j.nameKey)}</h3>
+                  <p className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-gold-text mb-1 m-0">{t("content.growth.journey.label.channel")}</p>
+                  <p className="text-[0.82rem] text-foreground/85 mb-3 m-0">{t(j.channelKey)}</p>
+                  <p className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-ursa-forest-deep mb-1 m-0 mt-auto">{t("content.growth.journey.label.tactic")}</p>
+                  <p className="text-[0.82rem] text-muted-foreground m-0">{t(j.tacticKey)}</p>
                 </div>
                 {i < JOURNEY.length - 1 && (
                   <div className="flex items-center justify-center w-8 text-ursa-gold-text">
@@ -765,23 +768,21 @@ export function GrowthView() {
             ))}
           </div>
         </div>
-        <Callout tone="forest" title="Advocate is not the end of the funnel — it is the start of someone else's Discover stage">
-          The bear barista challenge, the gram-of-the-week photo, and the referral coupon are
-          designed so an advocate's content becomes a stranger's first impression of Ursa. The
-          journey is a loop, not a line.
+        <Callout tone="forest" title={t("content.growth.journey.callout.title")}>
+          {t("content.growth.journey.callout.body")}
         </Callout>
       </ViewSection>
 
       {/* Channel coverage grid — grouped by funnel stage */}
-      <ViewSection badge="Channels" title="Channel coverage — twenty surfaces, one promise" meta="Grouped by funnel stage · each carries the four pillars">
+      <ViewSection badge={t("content.growth.channels.badge")} title={t("content.growth.channels.title")} meta={t("content.growth.channels.meta")}>
         {/* Funnel stage legend */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
           {FUNNEL_STAGES.map((stage, i) => {
-            const count = CHANNELS.filter((c) => c.stage === stage.name).length;
+            const count = CHANNELS.filter((c) => c.stageId === stage.id).length;
             return (
-              <div key={stage.name} className="flex items-center gap-2">
+              <div key={stage.id} className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-sm" style={{ background: stage.tone }} />
-                <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-ursa-dark-roast">{stage.name}</span>
+                <span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-ursa-dark-roast">{t(stage.nameKey)}</span>
                 <span className="font-label text-[0.6rem] text-muted-foreground">({count})</span>
                 {i < FUNNEL_STAGES.length - 1 && <span className="text-muted-foreground/40 mx-1">→</span>}
               </div>
@@ -791,22 +792,22 @@ export function GrowthView() {
 
         <div className="space-y-6">
           {FUNNEL_STAGES.map((stage) => {
-            const stageChannels = CHANNELS.filter((c) => c.stage === stage.name);
+            const stageChannels = CHANNELS.filter((c) => c.stageId === stage.id);
             return (
-              <div key={stage.name}>
+              <div key={stage.id}>
                 <div className="flex items-baseline gap-3 mb-3">
-                  <h3 className="font-display text-lg font-semibold m-0" style={{ color: stage.tone }}>{stage.name}</h3>
-                  <span className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground">{stage.desc}</span>
+                  <h3 className="font-display text-lg font-semibold m-0" style={{ color: stage.tone }}>{t(stage.nameKey)}</h3>
+                  <span className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground">{t(stage.descKey)}</span>
                 </div>
                 <Grid cols={4}>
                   {stageChannels.map((c) => (
-                    <Card key={c.name} className="p-4 border-t-2" >
+                    <Card key={c.id} className="p-4 border-t-2" >
                       <span className="block h-0.5 -mx-4 -mt-4 mb-3" style={{ background: stage.tone }} />
                       <div className="flex items-center gap-2 mb-2" style={{ color: stage.tone }}>
                         {c.icon}
-                        <h4 className="font-display text-[0.95rem] font-semibold text-ursa-dark-roast m-0">{c.name}</h4>
+                        <h4 className="font-display text-[0.95rem] font-semibold text-ursa-dark-roast m-0">{t(`content.growth.channels.channel.${c.id}.name`)}</h4>
                       </div>
-                      <p className="text-[0.8rem] leading-snug text-muted-foreground m-0">{c.tactic}</p>
+                      <p className="text-[0.8rem] leading-snug text-muted-foreground m-0">{t(`content.growth.channels.channel.${c.id}.tactic`)}</p>
                     </Card>
                   ))}
                 </Grid>
@@ -820,88 +821,85 @@ export function GrowthView() {
           <Card className="bg-ursa-foam">
             <div className="flex items-center gap-2 mb-2">
               <EvidenceTag status="partial" />
-              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Discover · what the census shows works</span>
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.channels.card.discover.heading")}</span>
             </div>
             <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Google Business Profile</strong> — Neira (911 reviews) and Puku Puku (658 TA reviews) prove review volume is the dominant discovery lever in this catchment. Ursa's ~56 Google reviews (addagio aggregate) is the gap.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Hotel proximity</strong> — Milenaria (same street, 170m) draws tourist breakfast traffic via walk-up from 8+ nearby hotels. Concierge cards are the proposed channel; Milenaria validates the demand.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Instagram Reels</strong> — @rutadelcafeperuano reel on Ursa's Aeropress champion (564 likes, 18 comments) is direct evidence that coffee-community content travels. Punto Café's TA n=2 vs. awards shows weak organic reach — content is the multiplier.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.discover.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.discover.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.discover.3")}</span></li>
             </ul>
           </Card>
           <Card className="bg-ursa-cream">
             <div className="flex items-center gap-2 mb-2">
               <EvidenceTag status="partial" />
-              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Engage · what the census shows works</span>
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.channels.card.engage.heading")}</span>
             </div>
             <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Tasting format</strong> — Terrua (US$25 flight) and Cate (tasting room) both validate paid-tasting demand. Cate has 190 Google reviews at 4.6★ — the tasting format drives review volume.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Rappi delivery</strong> — multiple census competitors active on Rappi (Puku Puku, Neira). Ursa already on Rappi (URSA_FACTS.delivery); delivery is table-stakes, not differentiation.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">WorkCafé cobrand</strong> — Neira's WorkCafé experiment is a cautionary tale: 'cafe vs co-working?' confusion in reviews. Ursa's office-sampling channel should be B2B (wholesale), not co-working identity.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.engage.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.engage.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.engage.3")}</span></li>
             </ul>
           </Card>
           <Card>
             <div className="flex items-center gap-2 mb-2">
               <EvidenceTag status="partial" />
-              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Retain &amp; Advocate · what the census shows works</span>
+              <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.channels.card.retain-advocate.heading")}</span>
             </div>
             <ul className="space-y-2 text-[0.84rem] text-foreground/85 m-0 p-0 list-none">
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Retail bags</strong> — Puku Puku sells retail bags at S/.49 with TA mention as a praise theme. Ursa currently Instagram-only for retail; the S/.49 anchor is a benchmark.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">CoffeePass Perú</strong> — Ursa already listed (URSA_FACTS.membership). Lima's loyalty infrastructure exists; the lever is making the listing visible at the till.</span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span><strong className="text-ursa-dark-roast">Review reply cadence</strong> — Neira's 911-review volume is paired with active owner replies (observed in snippets). Ursa's reply cadence unknown; the 48h SLA in the channel card is a hypothesis.</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.retain-advocate.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.retain-advocate.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text mt-1 shrink-0">›</span> <span>{t("content.growth.channels.card.retain-advocate.3")}</span></li>
             </ul>
           </Card>
         </Grid>
 
-        <Callout tone="warn" title="Risks and missing channel evidence">
+        <Callout tone="warn" title={t("content.growth.channels.callout.risks.title")}>
           <ul className="space-y-1.5 m-0 p-0 list-none text-[0.86rem]">
-            <li>• <strong>No paid-social ROI baseline for Ursa.</strong> Competitor evidence (Neira, Puku Puku) shows review-volume outcomes, not ad-spend inputs. We cannot infer a Meta-ads cost-per-acquisition without a Ursa-specific pilot.</li>
-            <li>• <strong>Hotel-concierge card conversion is assumed, not measured.</strong> The 8-hotel pilot is a test, not a proven channel. Risk: hotels accept the cards but concierges do not actively recommend.</li>
-            <li>• <strong>WhatsApp opt-in consent is operationally non-trivial.</strong> Peru's data-protection regime (Law 29733) requires explicit consent; the till-prompt needs legal review before launch.</li>
-            <li>• <strong>Rappi's 30% commission erodes specialty margin.</strong> Active on Rappi is not the same as profitable on Rappi. Risk: delivery volume cannibalises in-store visits without protecting margin.</li>
+            <li>• {t("content.growth.channels.callout.risks.1")}</li>
+            <li>• {t("content.growth.channels.callout.risks.2")}</li>
+            <li>• {t("content.growth.channels.callout.risks.3")}</li>
+            <li>• {t("content.growth.channels.callout.risks.4")}</li>
           </ul>
         </Callout>
 
-        <Callout tone="forest" title="Test method — validate channel-by-channel before scaling">
+        <Callout tone="forest" title={t("content.growth.channels.callout.test.title")}>
           <p className="m-0 text-[0.86rem]">
-            Run each new channel as a 30-day pilot with a single primary metric and a stop rule.
-            GBP: target +10 Google reviews/month, stop if &lt; 5/month after 60 days. Concierge cards:
-            target 5 redemptions/hotel/month, stop if &lt; 2 after 30 days. Cupping night: target 8
-            attendees/session, stop if &lt; 4 for 2 consecutive sessions. Retail bean bag: target 20
-            units/week at counter, stop if &lt; 8 after 30 days. Costs are documented in the Budget
-            Allocator; pilot outcomes feed the Experiment Tracker.
+            {t("content.growth.channels.callout.test.body")}
           </p>
         </Callout>
       </ViewSection>
-      <ViewSection badge="Budget" title="Three budget scenarios — pick one and the plan adjusts" meta="Lean / Moderate / Growth in PEN">
+      <ViewSection badge={t("content.growth.budget.badge")} title={t("content.growth.budget.title")} meta={t("content.growth.budget.meta")}>
         <Grid cols={3}>
-          {BUDGET_SCENARIOS.map((s, i) => (
-            <Card
-              key={s.name}
-              highlight={i === 1}
-              className="flex flex-col"
-            >
-              <div className="flex items-baseline justify-between mb-3">
-                <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0">{s.name}</h3>
-                <Pill tone={i === 0 ? "forest" : i === 1 ? "gold" : "default"}>S/. {s.monthlyPEN.toLocaleString()}/mo</Pill>
-              </div>
-              <p className="text-[0.85rem] text-muted-foreground mb-4 m-0">{s.focus}</p>
-              <ul className="space-y-1.5 m-0 p-0 list-none text-[0.82rem] mb-4">
-                {s.items.slice(0, 4).map((it) => (
-                  <li key={it.item} className="flex justify-between gap-2">
-                    <span className="text-foreground/80">{it.item}</span>
-                    <span className="font-label text-[0.7rem] text-ursa-medium-roast whitespace-nowrap">S/. {it.cost.toLocaleString()}</span>
-                  </li>
-                ))}
-                {s.items.length > 4 && (
-                  <li className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-muted-foreground">
-                    + {s.items.length - 4} more line items
-                  </li>
-                )}
-              </ul>
-              {/* Prominent total + visual bar */}
-              <div className="mt-auto pt-3 border-t border-ursa-line-soft">
-                <div className="flex items-baseline justify-between mb-2">
-                  <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground">Monthly total</span>
+          {BUDGET_SCENARIOS.map((s, i) => {
+            const scenarioId = i === 0 ? "lean" : i === 1 ? "moderate" : "growth";
+            return (
+              <Card
+                key={s.name}
+                highlight={i === 1}
+                className="flex flex-col"
+              >
+                <div className="flex items-baseline justify-between mb-3">
+                  <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0">{s.name}</h3>
+                  <Pill tone={i === 0 ? "forest" : i === 1 ? "gold" : "default"}>S/. {s.monthlyPEN.toLocaleString()}/mo</Pill>
+                </div>
+                <p className="text-[0.85rem] text-muted-foreground mb-4 m-0">{t(`content.growth.budget.scenario.${scenarioId}.focus`)}</p>
+                <ul className="space-y-1.5 m-0 p-0 list-none text-[0.82rem] mb-4">
+                  {s.items.slice(0, 4).map((it, idx) => (
+                    <li key={it.item} className="flex justify-between gap-2">
+                      <span className="text-foreground/80">{t(`content.growth.budget.scenario.${scenarioId}.item.${idx + 1}`)}</span>
+                      <span className="font-label text-[0.7rem] text-ursa-medium-roast whitespace-nowrap">S/. {it.cost.toLocaleString()}</span>
+                    </li>
+                  ))}
+                  {s.items.length > 4 && (
+                    <li className="font-label text-[0.62rem] tracking-[0.1em] uppercase text-muted-foreground">
+                      {t("content.growth.budget.label.more-items", { n: s.items.length - 4 })}
+                    </li>
+                  )}
+                </ul>
+                {/* Prominent total + visual bar */}
+                <div className="mt-auto pt-3 border-t border-ursa-line-soft">
+                  <div className="flex items-baseline justify-between mb-2">
+                    <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-muted-foreground">{t("content.growth.budget.label.monthly-total")}</span>
                   <span className="font-display text-2xl font-semibold text-ursa-dark-roast leading-none">
                     S/. {s.monthlyPEN.toLocaleString()}
                   </span>
@@ -932,23 +930,24 @@ export function GrowthView() {
                 </div>
               </div>
             </Card>
-          ))}
+            );
+          })}
         </Grid>
 
         <div className="grid sm:grid-cols-3 gap-6 mt-8">
           <StatBlock
             value={`S/. ${BUDGET_SCENARIOS[0].monthlyPEN.toLocaleString()}`}
-            label="Lean · free + owned channels first"
+            label={t("content.growth.budget.stat.lean.label")}
             tone="forest"
           />
           <StatBlock
             value={`S/. ${BUDGET_SCENARIOS[1].monthlyPEN.toLocaleString()}`}
-            label="Moderate · paid social + creators + cuppings"
+            label={t("content.growth.budget.stat.moderate.label")}
             tone="gold"
           />
           <StatBlock
             value={`S/. ${BUDGET_SCENARIOS[2].monthlyPEN.toLocaleString()}`}
-            label="Growth · tourism + B2B + subscription pilot"
+            label={t("content.growth.budget.stat.growth.label")}
             tone="terracotta"
           />
         </div>
@@ -958,13 +957,13 @@ export function GrowthView() {
             onClick={() => navigate("budget")}
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
           >
-            <MapIcon size={14} /> Open the Budget Allocator tool
+            <MapIcon size={14} /> {t("content.growth.budget.button.budget-allocator")}
           </button>
           <button
             onClick={() => navigate("roi")}
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep hover:bg-ursa-dark-roast hover:text-ursa-cream transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
           >
-            <ArrowRight size={14} /> Model ROI per channel
+            <ArrowRight size={14} /> {t("content.growth.budget.button.roi")}
           </button>
         </div>
 
@@ -973,23 +972,20 @@ export function GrowthView() {
         <div className="grid sm:grid-cols-2 gap-6">
           <Card className="bg-ursa-foam">
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Coffee size={16} className="text-ursa-gold-text" /> What each scenario unlocks
+              <Coffee size={16} className="text-ursa-gold-text" /> {t("content.growth.budget.card.unlocks.heading")}
             </h4>
             <ul className="space-y-1.5 text-[0.88rem] m-0 p-0 list-none text-foreground/85">
-              <li><strong className="text-ursa-forest-deep">Lean</strong> — runs GBP, WhatsApp, organic Reels, hotel cards, story cards. Ships the first 30 days.</li>
-              <li><strong className="text-ursa-gold-text">Moderate</strong> — adds paid social, 2–3 creators, monthly cupping, Rappi optimisation. The 60-day plan.</li>
-              <li><strong className="text-ursa-terracotta-text">Growth</strong> — adds tourism partnerships, B2B office sampling, subscription pilot, photographer. The 90-day plan.</li>
+              <li>{t("content.growth.budget.card.unlocks.lean")}</li>
+              <li>{t("content.growth.budget.card.unlocks.moderate")}</li>
+              <li>{t("content.growth.budget.card.unlocks.growth")}</li>
             </ul>
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
-              <Star size={16} className="text-ursa-gold-text" /> How to choose
+              <Star size={16} className="text-ursa-gold-text" /> {t("content.growth.budget.card.choose.heading")}
             </h4>
             <p className="text-[0.88rem] text-muted-foreground m-0">
-              Pick the budget the owner can sustain for at least three months without flinching. The
-              plan is designed so any of the three is internally coherent — there is no
-              "half-Moderate" scenario that breaks. Re-evaluate at day 30 against the experiment
-              stop-rules in the Roadmap.
+              {t("content.growth.budget.card.choose.body")}
             </p>
           </Card>
         </div>

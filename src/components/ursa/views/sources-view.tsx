@@ -104,46 +104,49 @@ export function SourcesView() {
   const unverifiedCount = SOURCES.filter((s) => s.status === "unverified").length;
   const gapCount = SOURCES.filter((s) => s.status === "gap").length;
 
+  const section1Meta = t("content.sources.section.1.meta")
+    .replace("{n}", String(SOURCES.length))
+    .replace("{verified}", String(verifiedCount))
+    .replace("{partial}", String(partialCount));
+  const section5Meta = t("content.sources.section.5.meta")
+    .replace("{n}", String(OPEN_QUESTIONS.length));
+
   return (
     <>
       <ViewHero
         eyebrow={t("content.view.sources.eyebrow")}
         title={<>{t("content.view.sources.title")}</>}
-        lede={
-          <>
-            The Ursa command center is built on publicly verifiable evidence. Where data was inferred, the inference is flagged. Where data was missing, the gap is named openly — and the lean/moderate/growth scenario structure absorbs it without blocking the launch.
-          </>
-        }
+        lede={<>{t("content.sources.lede")}</>}
         meta={[
-          { label: "Snapshot", value: "2026-08-01" },
-          { label: "Scope", value: "Public sources only" },
-          { label: "Constraint", value: "No proprietary material" },
+          { label: t("content.sources.meta.snapshot.label"), value: t("content.sources.meta.snapshot") },
+          { label: t("content.sources.meta.scope.label"), value: t("content.sources.meta.scope") },
+          { label: t("content.sources.meta.constraint.label"), value: t("content.sources.meta.constraint") },
         ]}
         tone="forest"
       />
 
       {/* §1 — At-a-glance source stats */}
       <ViewSection
-        badge="Appendix §1"
-        title="Sources at a glance"
-        meta={`${SOURCES.length} cited · ${verifiedCount} verified · ${partialCount} partial`}
+        badge={t("content.sources.section.1.badge")}
+        title={t("content.sources.section.1.title")}
+        meta={section1Meta}
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <StatBlock value={String(verifiedCount)} label="Verified sources" tone="forest" />
-          <StatBlock value={String(partialCount)} label="Partial sources" tone="gold" />
-          <StatBlock value={String(unverifiedCount)} label="Unverified sources" tone="terracotta" />
-          <StatBlock value={String(gapCount)} label="Identified gaps" tone="forest" />
+          <StatBlock value={String(verifiedCount)} label={t("content.sources.section.1.stat.verified")} tone="forest" />
+          <StatBlock value={String(partialCount)} label={t("content.sources.section.1.stat.partial")} tone="gold" />
+          <StatBlock value={String(unverifiedCount)} label={t("content.sources.section.1.stat.unverified")} tone="terracotta" />
+          <StatBlock value={String(gapCount)} label={t("content.sources.section.1.stat.gap")} tone="forest" />
         </div>
-        <Callout tone="forest" title="Why this matters">
-          The strategic plan does not require any data marked <b>Gap</b>. Where a gap is material to a forecast, the lean/moderate/growth scenario structure absorbs the uncertainty — owner input refines but does not block the 72-hour launch.
+        <Callout tone="forest" title={t("content.sources.section.1.callout.title")}>
+          {t("content.sources.section.1.callout.body")}
         </Callout>
       </ViewSection>
 
       {/* §2 — Source list */}
       <ViewSection
-        badge="Appendix §2"
-        title="Source list"
-        meta="Click any source to open the original in a new tab"
+        badge={t("content.sources.section.2.badge")}
+        title={t("content.sources.section.2.title")}
+        meta={t("content.sources.section.2.meta")}
       >
         <Grid cols={2}>
           {SOURCES.map((s) => (
@@ -172,88 +175,95 @@ export function SourcesView() {
       </ViewSection>
 
       {/* §3 — Evidence status legend */}
-      <ViewSection badge="Appendix §3" title="Evidence status legend" meta="How to read the tags used throughout the dossier">
+      <ViewSection
+        badge={t("content.sources.section.3.badge")}
+        title={t("content.sources.section.3.title")}
+        meta={t("content.sources.section.3.meta")}
+      >
         <Grid cols={2}>
           <Card className="flex flex-col gap-3 h-full">
             <div className="flex items-center gap-2">
               <EvidenceTag status="verified" />
-              <span className="font-display text-base font-semibold text-ursa-dark-roast">Verified</span>
+              <span className="font-display text-base font-semibold text-ursa-dark-roast">{t("common.verified")}</span>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/80">
-              Direct observation of a public source. Anyone can re-check the claim by visiting the cited URL. Used for primary facts — menu items, addresses, hours, official platform listings.
+              {t("content.sources.section.3.verified.body")}
             </p>
           </Card>
           <Card className="flex flex-col gap-3 h-full">
             <div className="flex items-center gap-2">
               <EvidenceTag status="partial" />
-              <span className="font-display text-base font-semibold text-ursa-dark-roast">Partial</span>
+              <span className="font-display text-base font-semibold text-ursa-dark-roast">{t("common.partial")}</span>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/80">
-              Source exists and is public, but access is limited (e.g. Facebook shows partial posts) or only proxies the underlying claim. The direction is right; the detail may be stale or gated.
+              {t("content.sources.section.3.partial.body")}
             </p>
           </Card>
           <Card className="flex flex-col gap-3 h-full">
             <div className="flex items-center gap-2">
               <EvidenceTag status="unverified" />
-              <span className="font-display text-base font-semibold text-ursa-dark-roast">Unverified</span>
+              <span className="font-display text-base font-semibold text-ursa-dark-roast">{t("common.unverified")}</span>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/80">
-              Claim is plausible and consistent with verified signals, but no single public source confirms it directly. Treated as inference and clearly flagged — never used as the basis for a hard forecast.
+              {t("content.sources.section.3.unverified.body")}
             </p>
           </Card>
           <Card className="flex flex-col gap-3 h-full">
             <div className="flex items-center gap-2">
               <EvidenceTag status="gap" />
-              <span className="font-display text-base font-semibold text-ursa-dark-roast">Gap</span>
+              <span className="font-display text-base font-semibold text-ursa-dark-roast">{t("common.gap")}</span>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/80">
-              No public source covers this; only the owner can supply it. Gaps are listed openly in §5–§6 and absorbed by the lean/moderate/growth scenario structure without blocking launch.
+              {t("content.sources.section.3.gap.body")}
             </p>
           </Card>
         </Grid>
       </ViewSection>
 
       {/* §4 — Disambiguation warning */}
-      <ViewSection badge="Appendix §4" title="Disambiguation — there is another URSA">
-        <Callout tone="stop" title="Important — please read before quoting this dossier">
+      <ViewSection
+        badge={t("content.sources.section.4.badge")}
+        title={t("content.sources.section.4.title")}
+      >
+        <Callout tone="stop" title={t("content.sources.section.4.callout.title")}>
           <p className="m-0 mb-2">
-            A separate coffee business called <b>URSA</b> operates in <b>Bridgeport, Connecticut, USA</b>. It is unrelated to <b>Ursa Coffee Roasters</b> of <b>Miraflores, Lima, Peru</b> — the subject of this dossier.
+            {t("content.sources.section.4.callout.p1")}
           </p>
           <p className="m-0">
-            Every reference to <b>&ldquo;Ursa&rdquo;</b>, <b>&ldquo;Ursa Coffee&rdquo;</b>, or <b>&ldquo;Ursa Coffee Roasters&rdquo;</b> in this dossier, in the static HTML modules, and in the structured data files (<code>evidence.json</code>, <code>experiments.json</code>) refers exclusively to the Miraflores, Lima roastery. If a search result or AI summary mentions Bridgeport, CT — it is the wrong entity.
+            {t("content.sources.section.4.callout.p2")}
           </p>
         </Callout>
         <Grid cols={3}>
           <Card highlight className="h-full">
             <div className="flex items-center gap-2 mb-2">
               <MapPin size={16} className="text-ursa-forest-deep" />
-              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep">Subject</span>
+              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep">{t("content.sources.section.4.card.subject.eyebrow")}</span>
             </div>
             <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">Ursa Coffee Roasters</h4>
             <p className="m-0 text-[0.86rem] text-foreground/80 leading-relaxed">
-              Alcanfores 183, Miraflores, Lima 15074, Peru. Specialty roaster with espresso + coldbrew bars. Instagram: <b>@ursacoffeeperu</b>.
+              {t("content.sources.section.4.card.subject.body")}
             </p>
           </Card>
           <Card className="h-full border-dashed">
             <div className="flex items-center gap-2 mb-2">
               <Ban size={16} className="text-ursa-terracotta-text" />
-              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta-text">Unrelated</span>
+              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta-text">{t("content.sources.section.4.card.unrelated.eyebrow")}</span>
             </div>
             <h4 className="font-display text-lg font-semibold text-muted-foreground mt-0 mb-1">URSA (Bridgeport, CT)</h4>
             <p className="m-0 text-[0.86rem] text-muted-foreground leading-relaxed">
-              A different coffee operation in the United States. Not referenced, not analysed, not affiliated. Any overlap in name is coincidental.
+              {t("content.sources.section.4.card.unrelated.body")}
             </p>
           </Card>
           <Card className="h-full">
             <div className="flex items-center gap-2 mb-2">
               <ShieldCheck size={16} className="text-ursa-gold-text" />
-              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text">How to verify</span>
+              <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-gold-text">{t("content.sources.section.4.card.verify.eyebrow")}</span>
             </div>
-            <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">Three confirmations</h4>
+            <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">{t("content.sources.section.4.card.verify.title")}</h4>
             <ul className="m-0 p-0 list-none space-y-1 text-[0.86rem] text-foreground/85">
-              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>Address contains <b>Miraflores, Lima</b></span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>Instagram handle is <b>@ursacoffeeperu</b></span></li>
-              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>Spanish bio; <b>&ldquo;Tostadores de café de especialidad&rdquo;</b></span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>{t("content.sources.section.4.card.verify.li.1")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>{t("content.sources.section.4.card.verify.li.2")}</span></li>
+              <li className="flex gap-2"><span className="text-ursa-gold-text">·</span><span>{t("content.sources.section.4.card.verify.li.3")}</span></li>
             </ul>
           </Card>
         </Grid>
@@ -261,17 +271,17 @@ export function SourcesView() {
 
       {/* §5 — Open questions for the owner */}
       <ViewSection
-        badge="Appendix §5"
-        title="Open questions for the owner"
-        meta={`${OPEN_QUESTIONS.length} grouped · none blocks the 72-hour launch`}
+        badge={t("content.sources.section.5.badge")}
+        title={t("content.sources.section.5.title")}
+        meta={section5Meta}
       >
         <Card highlight>
           <div className="flex items-center gap-2 mb-3">
             <HelpCircle size={18} className="text-ursa-gold-text" />
-            <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">Single grouped clarification request</h3>
+            <h3 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">{t("content.sources.section.5.card.title")}</h3>
           </div>
           <p className="text-[0.92rem] text-foreground/85 mb-4 mt-0">
-            These questions refine the forecasts but do not gate the 72-hour launch. The lean/moderate/growth scenarios are designed to operate before any of these are answered.
+            {t("content.sources.section.5.card.body")}
           </p>
           <ol className="space-y-2.5 m-0 p-0 list-none">
             {OPEN_QUESTIONS.map((q, i) => (
@@ -283,17 +293,17 @@ export function SourcesView() {
               </li>
             ))}
           </ol>
-          <Callout tone="gold" title="Why these don't block launch">
-            The first 72 hours are operational — claim Google Business Profile, fix the Rappi menu, post the first reel, install analytics. None of those require confirmed budget, ticket size, or staff capacity. Owner answers sharpen later phases only.
+          <Callout tone="gold" title={t("content.sources.section.5.callout.title")}>
+            {t("content.sources.section.5.callout.body")}
           </Callout>
         </Card>
       </ViewSection>
 
       {/* §6 — Missing business data */}
       <ViewSection
-        badge="Appendix §6"
-        title="Missing business data"
-        meta="Material gaps absorbed by the scenario structure"
+        badge={t("content.sources.section.6.badge")}
+        title={t("content.sources.section.6.title")}
+        meta={t("content.sources.section.6.meta")}
       >
         <Grid cols={2}>
           {MISSING_DATA.map((m) => (
@@ -306,13 +316,17 @@ export function SourcesView() {
             </Card>
           ))}
         </Grid>
-        <Callout tone="forest" title="How scenarios handle these gaps">
-          The three budget scenarios (Lean / Moderate / Growth) are deliberately parameterised so that none of the missing data is required to act. Once the owner supplies actuals, the scenarios collapse to a single plan — but until then, all three are executable.
+        <Callout tone="forest" title={t("content.sources.section.6.callout.title")}>
+          {t("content.sources.section.6.callout.body")}
         </Callout>
       </ViewSection>
 
       {/* §7 — Conflicting information */}
-      <ViewSection badge="Appendix §7" title="Conflicting information" meta="Where public sources disagree">
+      <ViewSection
+        badge={t("content.sources.section.7.badge")}
+        title={t("content.sources.section.7.title")}
+        meta={t("content.sources.section.7.meta")}
+      >
         <div className="space-y-4">
           {CONFLICTS.map((c) => (
             <Card key={c.topic} className="flex flex-col gap-2">
@@ -324,10 +338,17 @@ export function SourcesView() {
             </Card>
           ))}
         </div>
+        <Callout tone="gold" title={t("content.sources.section.7.callout.title")}>
+          {t("content.sources.section.7.callout.body")}
+        </Callout>
       </ViewSection>
 
       {/* §8 — Methodology */}
-      <ViewSection badge="Appendix §8" title="Methodology note" meta="How the research was conducted">
+      <ViewSection
+        badge={t("content.sources.section.8.badge")}
+        title={t("content.sources.section.8.title")}
+        meta={t("content.sources.section.8.meta")}
+      >
         <Grid cols={2}>
           {METHODOLOGY.map((m, i) => (
             <Card key={m.title} className="flex flex-col gap-2 h-full">
@@ -341,22 +362,25 @@ export function SourcesView() {
             </Card>
           ))}
         </Grid>
-        <Callout tone="gold" title="What was deliberately not done">
-          <ul className="m-0 p-0 list-none space-y-1">
-            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No scraping of private Instagram or Facebook posts.</span></li>
-            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No access to Ursa's POS, CRM, or Ads Manager.</span></li>
-            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No interviews with staff or customers.</span></li>
-            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No proprietary competitor data.</span></li>
-            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>No financial modelling that requires undisclosed costs.</span></li>
+        <Callout tone="gold" title={t("content.sources.section.8.callout.title")}>
+          <ul className="m-0 p-0 list-none space-y-1 mb-3">
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>{t("content.sources.section.8.callout.list.1")}</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>{t("content.sources.section.8.callout.list.2")}</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>{t("content.sources.section.8.callout.list.3")}</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>{t("content.sources.section.8.callout.list.4")}</span></li>
+            <li className="flex gap-2"><span className="text-ursa-terracotta-text">·</span><span>{t("content.sources.section.8.callout.list.5")}</span></li>
           </ul>
+          <p className="m-0 text-[0.88rem] text-foreground/85 leading-relaxed">
+            {t("content.sources.section.8.callout.closing")}
+          </p>
         </Callout>
       </ViewSection>
 
       {/* §9 — Structured data files */}
       <ViewSection
-        badge="Appendix §9"
-        title="Structured data files"
-        meta="Machine-readable evidence & experiment records in /dossier/assets/"
+        badge={t("content.sources.section.9.badge")}
+        title={t("content.sources.section.9.title")}
+        meta={t("content.sources.section.9.meta")}
       >
         <Grid cols={2}>
           <Card className="flex flex-col gap-3 h-full">
@@ -365,7 +389,7 @@ export function SourcesView() {
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">evidence.json</h4>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/80 leading-relaxed">
-              Structured array of every cited source with id, label, url, status (<code>verified</code> / <code>partial</code> / <code>unverified</code> / <code>gap</code>), and note. Mirrors the source list above in machine-readable form.
+              {t("content.sources.section.9.card.evidence.body")}
             </p>
             <a
               href="/AIMarket-Design-Consulting-Reports/dossier/assets/evidence.json"
@@ -382,7 +406,7 @@ export function SourcesView() {
               <h4 className="font-display text-lg font-semibold text-ursa-dark-roast m-0">experiments.json</h4>
             </div>
             <p className="m-0 text-[0.88rem] text-foreground/80 leading-relaxed">
-              Structured array of every experiment in the tracker with hypothesis, success metric, owner, duration, kill / graduate decision rule, and current status. Drives the Experiment Tracker tool.
+              {t("content.sources.section.9.card.experiments.body")}
             </p>
             <a
               href="/AIMarket-Design-Consulting-Reports/dossier/assets/experiments.json"
@@ -394,8 +418,8 @@ export function SourcesView() {
             </a>
           </Card>
         </Grid>
-        <Callout tone="forest" title="These files are the source of truth">
-          The Next.js command center reads from these JSON files where applicable. If a source status changes or an experiment graduates, edit the JSON and re-deploy — the dossier and the tool stay in sync automatically.
+        <Callout tone="forest" title={t("content.sources.section.9.callout.title")}>
+          {t("content.sources.section.9.callout.body")}
         </Callout>
       </ViewSection>
 
@@ -404,12 +428,12 @@ export function SourcesView() {
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
           <DossierLinkBanner moduleId="sources-and-evidence" />
           <div className="flex items-center gap-3 flex-wrap">
-            <Pill tone="forest"><BookOpen size={11} /> Appendix complete</Pill>
+            <Pill tone="forest"><BookOpen size={11} /> {t("content.sources.section.10.pill")}</Pill>
             <button
               onClick={() => navigate("experiments")}
               className="font-label text-[0.72rem] tracking-[0.14em] uppercase text-ursa-forest-deep hover:text-ursa-gold-text transition inline-flex items-center gap-1.5"
             >
-              Open Experiment Tracker <ArrowRight size={12} />
+              {t("content.sources.section.10.button")} <ArrowRight size={12} />
             </button>
           </div>
         </div>

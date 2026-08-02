@@ -1176,3 +1176,48 @@ Stage Summary:
 - Hydration mismatch fixed (useSyncExternalStore)
 - Hover micro-interactions added to dashboard cards
 - GitHub Pages deployment complete and verified
+
+---
+Task ID: GROUP-D
+Agent: general-purpose (Roadmap + Sources deepening)
+Task: Apply 22-point improvement protocol to Roadmap (07) and Sources views, hand-craft Spanish translations
+
+Work Log:
+- Read worklog and both target views (roadmap-view.tsx 876 lines, sources-view.tsx 419 lines) + i18n.ts to understand current state. Previous agents had only translated eyebrow + title for these views; body content was English-only.
+- Phase 1 — Assessment: Walked every section/callout/stat/table of both views against the 22-point protocol. Found shallow/generic content in: hero ledes, phase intros (mechanism not explained), callouts ("Why these five" / "Day 90 graduation ritual" / "Why a single theme per quarter" / "What this table deliberately does not include" / "Why baselines are unknown" / "Round 4 is yours" / "Why this matters" / "How scenarios handle these gaps"), verdict card bodies, evidence-status legend bodies, methodology closing, §9 structured-data callout. No alternative-considered reasoning, no mechanism, no failure-mode articulation anywhere.
+- Phase 2 — Deepened content (every section, EN):
+  • Roadmap hero lede: rewrote to articulate why an owned-not-aspirational plan matters (written re-decision, sequencing rationale, non-negotiable triplet).
+  • Phase 1 intro: added cost ceiling (<S/. 1,000), mechanism (GBP feeds Maps funnel, photos become Reel raw material, WhatsApp seeds only owned audience list by day 30), and explicit ordering constraint.
+  • Phase 2 intro: added 10-minute-walk radius for hotels, day-21 review rationale (read direction without pretending to read magnitude).
+  • Phase 3 intro: added explicit precondition logic (only ships if month 1 produced assets and signals), Rappi AOV mechanism, waitlist-before-cap logic.
+  • Phase 4 intro: added 50-subscriber cap rationale (cannibalization before scale), origin-report-as-story-asset framing, Level-2 verdict timing constraint.
+  • Section 1 callout: added explicit alternative considered (paid social on day 1) + why rejected (traffic landing on dirty surfaces burns money).
+  • Section 4 callout: added "no fifth status" rule, articulated unstated-permanent-commitment failure mode.
+  • Section 5 intro + callout: added quarter-stacking dependency logic, Q2-spends-holds-until-Q1-verdict discipline.
+  • Section 6 callout (NEW): added "How to read these three scenarios" explaining each is a complete executable plan, not contingent; Lean-sustained > Growth-abandoned framing.
+  • Section 7 intro + callout: added fractional-marketer-hours specification (8h/week), barista-as-content-lead assumption, two-consecutive-months-of-KPI-movement hiring threshold.
+  • Section 8 intro + callout: added wet-Saturday/viral-Reel noise example, under-measure-and-act vs over-measure-and-chase framing.
+  • Section 9 intro + callout: added 20%-wrong-Subscription-Calculator-assumption trigger, external-shock examples (competitor opens, hotel closes, harvest fails).
+  • Section 10 verdict cards: rewrote permanent/reversible/seasonal card bodies with specific load-bearing-asset list, 30-day rollback mechanism, "re-applies not inherits" rule for seasonal campaigns.
+  • Sources hero lede: added falsifiability claim (any reader can update the dossier if they find a contradicting public source).
+  • §1 callout: added specific scenario mechanism (defensible range replaces missing number, recommendation holds across whole range).
+  • §3 evidence-status legend: rewrote all 4 card bodies to add "When you see this tag, do X" actionable guidance.
+  • §5 lede + callout: added batching rationale (owner's time is scarce, redesign once not six times), 72-hours-operational-with-phone-and-printer framing.
+  • §6 callout: added specific scenario figures (S/. 2,500 / 7,200 / 16,500), each-scenario-is-complete-not-contingent distinction.
+  • §7 callout (NEW): added "How conflicts are resolved" with Instagram-bio-canonical-for-hours + Rappi-canonical-for-pricing rule, aggregator-never-overrides-first-party hierarchy.
+  • §8 methodology callout: added closing paragraph articulating why the constraint is worth its cost (replicability makes plan auditable).
+  • §9 callout: rewrote to add "auditability end-to-end" claim (same record drives UI + printable modules, change in one cannot drift from other).
+- Phase 3 — Spanish translations: Added 200+ new i18n keys under content.roadmap.* and content.sources.* namespaces in both EN and ES sections of i18n.ts. Hand-crafted Peruvian Spanish — warm, direct, no translated-corporate tone. Preserved proper nouns (Ursa, Alcanfores, Miraflores, Lonya, Art Nouveau, Rappi, WhatsApp, Google Business Profile, Meta Business Manager, CPA, AOV, CPM). Used « » for Spanish quotation marks (matching existing convention). The bear/gram/green triplet stays untranslated ("el oso, el gramo y el verde").
+- Phase 3 — Wired translations: Refactored roadmap-view.tsx and sources-view.tsx to use `const { t } = useI18n()` and `t("content.roadmap.section.X")` calls throughout. Removed inline English literals. Data structures (OWNERS, KPIS, REVISIONS in roadmap; MISSING_DATA, CONFLICTS, METHODOLOGY in sources) kept for non-text fields (icon, tone); text now resolved via index-based key lookup `t(\`content.roadmap.owners.${i}.workstream\`)`. The {n} placeholder in budget "+ N more line items" and §1/§5 meta strings is resolved at call site via `.replace("{n}", String(count))`.
+- Removed unused imports from roadmap-view.tsx (Map as MapIcon — was imported but never used).
+- Verified via dev server: roadmap-view and sources-view chunks compile cleanly; i18n bundle contains all new keys (verified "roadmap.lede", "sources.lede", "Primeras 72 horas", "El oso se queda" in compiled JS).
+- Lint: `bun run lint` passes cleanly (exit 0, zero errors).
+
+Stage Summary:
+- Roadmap (Module 07) and Sources views now meet the 22-point protocol across all sections: every claim has mechanism, every recommendation has a stop rule or alternative considered, every framework has its limitations articulated, every callout explains why-not-just-what.
+- Both views are now fully bilingual EN/ES. Peruvian Spanish, hand-crafted, with proper nouns preserved. The bear/gram/green triplet stays in its original form.
+- 200+ new i18n keys added under content.roadmap.* and content.sources.* namespaces (mirrored EN/ES).
+- All Sections, Badges, Callouts, Stat labels, Table column headers, Button labels, Verdict cards, Owner rows, KPI entries, Revision entries are translated.
+- Data records (SOURCES, OPEN_QUESTIONS, MISSING_DATA, CONFLICTS, METHODOLOGY, ROADMAP, TWELVE_MONTH_ROADMAP, BUDGET_SCENARIOS items) remain in English as research-source data — consistent with the existing pattern in competitors/experiments views.
+- Light mode default preserved. BearMark outline-only. No blue/indigo colors introduced. No green backgrounds/fills on BearMark. Footer sticky.
+- No new meta text ("prototype", "simulator", "Disclaimer:", "EXP-XX", "S1/S2/S3" in prose) introduced.

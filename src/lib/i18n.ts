@@ -1544,6 +1544,510 @@ export const translations: Translations = {
 
       "sources.section.10.pill": "Appendix complete",
       "sources.section.10.button": "Open Experiment Tracker",
+
+      /* ---- Module 01 · Brand Audit (deepened body copy + section copy) ---- */
+      "brand.hero.lede":
+        "What this module answers is whether Ursa's identity actually holds across surfaces — Instagram, Rappi, TripAdvisor, CoffeePass, Corner.inc, mindtrip.ai — or whether the assets the owner sees in the storefront thin out where most buyers first meet the brand. The audit verifies eight elements against seven public surfaces, applies the Ehrenberg-Bass distinctive-asset test to four candidates, and recommends a conservative-refinement system: codify what works, fix what is partial, and refuse rebrand. The Art Nouveau lean, the browns-and-greens palette, the bear motif, the in-house roastery, and the “Un gramo a la vez” tagline are the assets the plan protects.",
+      "brand.hero.meta.direction": "Direction",
+      "brand.hero.meta.direction-value": "Conservative refinement recommended",
+      "brand.evidence-snapshot-label": "Evidence · snapshot 2026-08-01",
+
+      "brand.section.verified.badge": "Verified elements",
+      "brand.section.verified.title": "What we verified at the snapshot",
+      "brand.section.verified.meta": "From public sources · see Sources & Evidence",
+      "brand.section.verified.intro":
+        "Each element below was verified against Ursa's seven public surfaces: Instagram, Facebook, the Rappi menu, the CoffeePass listing, the TripAdvisor listing, Corner.inc editorial, and the mindtrip.ai profile. Six of eight core assets are verified; the seventh (cross-surface application) is partial, and the eighth is the open question the asset pack will close. Where verification is partial, the precise gap is named and the action that closes it is specified in the implementation roadmap.",
+
+      "brand.verified.art-nouveau.title": "Art Nouveau lean",
+      "brand.verified.art-nouveau.detail":
+        "Ornamental dividers, gold hairlines, and a serif display face root the brand in early-1900s craft rather than the flat-minimal café default. The lean is visible on Instagram templates and reinforced by the bear's geometric, illustration-led treatment.",
+      "brand.verified.art-nouveau.evidence":
+        "Verified on Instagram @ursacoffeeperu (bio typography and post templates, observed 2026-08-01) and on Corner.inc (\"baristas double as coffee educators\", listing updated Dec 26, 2025). NOT verified on physical signage — no street-level photo available; flagged as open question Q6.",
+
+      "brand.verified.palette.title": "Browns + greens palette",
+      "brand.verified.palette.detail":
+        "A roast-spectrum brown ladder (green-bean → espresso) paired with a forest-deep bear-habitat green and cream surfaces. No blue, no indigo — a deliberate non-default that reads as craft before the customer finishes reading the name.",
+      "brand.verified.palette.evidence":
+        "Verified by sampling pixel values from Instagram post covers (7 posts sampled, observed 2026-08-01) and Rappi menu tile imagery. Hex values are approximate — owner-supplied brand pack (open Q6) required to lock exact tokens.",
+
+      "brand.verified.bear.title": "Bear motif",
+      "brand.verified.bear.detail":
+        "A geometric, Art Nouveau-leaning bear mark appears in the logo, signage, and product storytelling — an ownable animal character in a market whose census contains none.",
+      "brand.verified.bear.evidence":
+        "Verified in the Instagram avatar (observed 2026-08-01). NOT visible in the Rappi menu tile imagery (drink photos only). NOT present on the TripAdvisor listing photo (storefront only). Conclusion: the bear is inconsistently applied across surfaces — see Bear Motif Analysis below.",
+
+      "brand.verified.roastery.title": "In-house roastery",
+      "brand.verified.roastery.detail":
+        "Ursa roasts its own beans. This is the operational backbone of the brand: it justifies origin stories, named preparations, and the subscription math — and it is the one asset competitors cannot buy off a shelf.",
+      "brand.verified.roastery.evidence":
+        "Verified on Instagram bio (\"Tostadores de café de especialidad\", observed 2026-08-01), on the CoffeePass Perú brand listing, and on Corner.inc (roastery tag confirmed).",
+
+      "brand.verified.tagline.title": "“Un gramo a la vez” tagline",
+      "brand.verified.tagline.detail":
+        "“One gram at a time.” Anchors the precision-craft positioning and gives every roasting, brewing, and educational moment a memorable hook. The gram is a measurable unit, which makes the claim operationally specific, not poetic.",
+      "brand.verified.tagline.evidence":
+        "Verified verbatim in the Instagram bio (observed 2026-08-01) and reused as a closing caption across at least 3 sampled posts. Not seen on the Rappi menu — Rappi's listing carries no tagline field.",
+
+      "brand.verified.two-bar.title": "Two-bar layout",
+      "brand.verified.two-bar.detail":
+        "Espresso bar + cold-brew bar, side by side. Physically signals the two halves of the menu and creates a natural stage for theatre visible from the street — a layout choice no census competitor replicates.",
+      "brand.verified.two-bar.evidence":
+        "Verified on the Instagram bio (\"Espresso bar + Coldbrew bar\" literal text, observed 2026-08-01). Corner.inc repeats the same phrasing. Physical layout not independently observed via street-level photo — owner confirmation requested.",
+
+      "brand.verified.named-drinks.title": "Named drinks",
+      "brand.verified.named-drinks.detail":
+        "Four verified drinks use proper names rather than generic labels: Ursagroni (Ursa + negroni), Maracumango (maracuyá + mango), Filtrado Lonya (origin label), Durazno Clarificado (descriptive). Two use coined blends; two use descriptive or origin-based labels. No census competitor names individual drinks this way.",
+      "brand.verified.named-drinks.evidence":
+        "Verified on Instagram (Ursagroni + Maracumango in post captions and Reel covers) AND on Rappi (all four listed by name in the delivery menu, observed 2026-08-01). Two sources converge — strongest verification in this audit.",
+
+      "brand.verified.cross-surface.title": "Consistent application across surfaces",
+      "brand.verified.cross-surface.detail":
+        "Identity is strong on the storefront and product; it thins out across digital surfaces (no website, no templated social kit). This is the gap the implementation roadmap closes first.",
+      "brand.verified.cross-surface.evidence":
+        "Verified by surface gap analysis: Instagram (present), Facebook (limited post access, partial), Rappi (present, no tagline), CoffeePass (present, minimal), TripAdvisor (listing exists, 0 reviews — unclaimed), Corner.inc (verified), mindtrip.ai (verified but phone number conflicts with Instagram). No website found via Google site: search. Missing: templated social kit, claimed Google Business Profile, claimed TripAdvisor.",
+
+      "brand.section.palette.badge": "Color system",
+      "brand.section.palette.title": "The Ursa palette — observed and proposed",
+      "brand.section.palette.meta": "16 tokens · provenance-labeled · not official until owner-verified",
+      "brand.section.palette.intro":
+        "A roast-spectrum brown ladder (green-bean → espresso) carries the coffee story; a forest-deep green carries the bear's habitat; cream surfaces hold it all up; a single warm gold reserves emphasis. No blue, no indigo — and that absence is itself a differentiator. The 1km census reads as a wall of Instagram-blue and pure-black café identities; Ursa's warm browns and forest-deep green read as craft before the customer finishes reading the name. Hex values are sampled from social media, not yet locked by the owner — promote them to official tokens only after the asset pack arrives (open question Q6).",
+      "brand.section.palette.provenance-key": "Provenance key",
+      "brand.section.palette.provenance.approximate": "approximate — sampled from social media",
+      "brand.section.palette.provenance.proposed": "proposed — design-system addition",
+      "brand.section.palette.provenance.official": "official — from owner guidelines (none yet)",
+      "brand.palette.provenance.approximate": "approximate",
+      "brand.palette.provenance.proposed": "proposed",
+      "brand.palette.provenance.official": "official",
+
+      "brand.section.typography.badge": "Typography",
+      "brand.section.typography.title": "Three voices, one rhythm",
+      "brand.section.typography.intro":
+        "A serif display carries the early-1900s craft lean; a humanist sans carries the readable prose; a condensed uppercase carries every label, eyebrow, and tag. Three roles, no overlap — because overlap is where inconsistency lives. Two voices would force the body to double as a label (illegible at small sizes); four would dilute the rhythm and add a font-license line item for no cognitive gain. Three is the minimum that holds the Art Nouveau voice across print, web, and signage.",
+      "brand.section.typography.scale.label": "Type scale · applied",
+      "brand.section.typography.scale.headline": "Un gramo a la vez.",
+      "brand.section.typography.scale.subhead": "Tostadores de café de especialidad",
+      "brand.section.typography.scale.body":
+        "Specialty coffee, roasted in Miraflores. Every gram is weighed, every origin is named, and every cup is poured at the espresso bar or the cold-brew bar.",
+      "brand.section.typography.scale.label-text": "Espresso bar · Cold-brew bar · In-house roastery",
+
+      "brand.section.bear.badge": "Bear motif",
+      "brand.section.bear.title": "The bear, examined",
+      "brand.section.bear.meta": "Consistent · Inconsistent · Distinctive · Missing",
+      "brand.section.bear.tints": "One mark, four approved tints · dark-roast · forest-deep · gold · terracotta",
+
+      "brand.bear.consistent.label": "What's consistent",
+      "brand.bear.consistent.point-1":
+        "The bear appears in the Instagram avatar (observed 2026-08-01) and is reinforced by the brand name (Ursa = bear) on every surface — Instagram, Facebook, Rappi, CoffeePass, Corner.inc, mindtrip.ai.",
+      "brand.bear.consistent.point-2":
+        "The mascot treatment is warm and geometric, not cartoonish — observed in the avatar at 64×64px and reinforced by ☕️🐻 emoji pairing on Ursagroni posts.",
+      "brand.bear.consistent.point-3":
+        "The bear-to-brand-name link is linguistic and therefore surface-independent: even surfaces without the visual mark still carry the word \"Ursa\".",
+
+      "brand.bear.inconsistent.label": "What's inconsistent",
+      "brand.bear.inconsistent.point-1":
+        "The bear appears in the Instagram avatar but is NOT visible in the Rappi menu imagery (drink photos only) and NOT on the TripAdvisor listing photo (storefront only). Application varies by surface.",
+      "brand.bear.inconsistent.point-2":
+        "No single, codified bear illustration set observed — application varies (avatar version, in-post watermark, emoji). Pixel-level comparison is blocked until the owner asset pack arrives (open Q6).",
+      "brand.bear.inconsistent.point-3":
+        "Bear presence on Instagram is ad hoc (emoji in captions, occasional watermark) — no templated social-post kit detected across 7 sampled posts.",
+
+      "brand.bear.distinctive.label": "What's distinctive",
+      "brand.bear.distinctive.point-1":
+        "1km census (14 competitors + 4 Lima benchmarks, snapshot 2026-08-01): ZERO competitors use an animal character as a brand asset. This is verified white space, not an assumption.",
+      "brand.bear.distinctive.point-2":
+        "Bear + Art Nouveau + in-house roastery is a three-part signature no census competitor can replicate quickly — the closest single-asset claim is Neira Café Lab's \"barista champion founder\", which is a person, not a character.",
+      "brand.bear.distinctive.point-3":
+        "The bear can carry narrative (origin stories, seasonal skins) without diluting the mark — observed in the way @ursacoffeeperu already pairs ☕️🐻 with origin captions, suggesting the bear is already semantically linked to coffee in the brand's own voice.",
+
+      "brand.bear.missing.label": "What's missing",
+      "brand.bear.missing.point-1":
+        "No animated bear (looping mark, social sticker set) — not present in any of the 7 sampled Instagram posts or in the Facebook page preview.",
+      "brand.bear.missing.point-2":
+        "No bear in a consistent social-post template kit — each sampled post uses a different visual treatment, suggesting the bear appears only when the barista remembers to add the emoji.",
+      "brand.bear.missing.point-3":
+        "No bear used as a recurring character across email and packaging — no email program detected (no website, no signup form); no packaging photo in any sampled source shows the bear mark.",
+
+      "brand.section.distinctive.badge": "Distinctive assets",
+      "brand.section.distinctive.title": "The Ehrenberg-Bass read: mental availability through repetition",
+      "brand.section.distinctive.meta": "Uniqueness × Prevalence · census-verified",
+      "brand.section.distinctive.intro":
+        "Distinctive assets are non-brand-name elements (characters, colors, taglines, ornamentation) that uniquely identify a brand in the buyer's memory. They build mental availability — the probability that a buyer thinks of Ursa in a buying situation — through consistent repetition. Effectiveness is measured on two axes (Romaniuk & Sharp, Ehrenberg-Bass Institute): uniqueness (few competitors use the asset) and prevalence (most category buyers associate the asset with the brand). An asset that is unique but rarely applied does not yet qualify — repetition is the mechanism, not the design.",
+      "brand.section.distinctive.census-callout-title": "The census finding",
+      "brand.section.distinctive.census-callout-body":
+        "1km census from Alcanfores 183 (snapshot 2026-08-01): 0 of 14 in-catchment competitors and 0 of 4 Lima benchmarks use an animal character as a brand asset. This is verified white space — the bear's uniqueness is established, but prevalence is not.",
+      "brand.section.distinctive.why-callout-title": "Why this matters for Ursa",
+      "brand.section.distinctive.why-callout-body":
+        "The bear is a potential distinctive asset — not a confirmed one. The difference is operational: a potential asset only becomes a real asset after 90 days of consistent cross-surface application AND a customer-recall survey (n≥40) that confirms buyers associate the bear with Ursa unprompted. Until then, the bear is a design choice the owner likes. After that, it is a category-leading memory anchor that competitors cannot copy cheaply. This is the single highest-leverage brand action available to Ursa in the next 90 days.",
+      "brand.distinctive.uniqueness-label": "Uniqueness",
+      "brand.distinctive.prevalence-label": "Prevalence",
+      "brand.distinctive.census-evidence-label": "Census evidence",
+      "brand.distinctive.verdict-label": "Verdict",
+      "brand.distinctive.promote-label": "Promote to distinctive asset only if",
+
+      "brand.distinctive.bear.asset": "Bear character (geometric, Art Nouveau-leaning)",
+      "brand.distinctive.bear.uniqueness": "High",
+      "brand.distinctive.bear.prevalence": "Low (currently)",
+      "brand.distinctive.bear.census":
+        "1km census (snapshot 2026-08-01): 0 of 14 in-catchment competitors and 0 of 4 Lima benchmarks use an animal character as a brand asset. Uniqueness is verified, not assumed.",
+      "brand.distinctive.bear.verdict":
+        "POTENTIAL distinctive asset. Uniqueness is established. Prevalence is not — the bear appears inconsistently across surfaces (Instagram avatar yes; Rappi no; TripAdvisor no). Recommendation: apply the bear consistently across every touchpoint for 90 days, then re-measure prevalence via a customer-recall survey (n≥40) before promoting the bear from \"potential\" to \"distinctive asset\".",
+      "brand.distinctive.bear.apply-if":
+        "consistent application across Instagram, Rappi, TripAdvisor, Google Business Profile, packaging, and signage for ≥90 days",
+
+      "brand.distinctive.ornamentation.asset": "Art Nouveau ornamentation (gold hairline + flourish)",
+      "brand.distinctive.ornamentation.uniqueness": "High",
+      "brand.distinctive.ornamentation.prevalence": "Low (currently)",
+      "brand.distinctive.ornamentation.census":
+        "Census scan: no competitor uses Art Nouveau ornamentation. Competitor visual defaults are flat-minimal (Neira, Punto) or industrial (Bisetti). The closest ornamental competitor is Tostaduría Bisetti's letterpress style, which is Arts & Crafts-adjacent, not Art Nouveau.",
+      "brand.distinctive.ornamentation.verdict":
+        "POTENTIAL distinctive asset. Uniqueness is established. Prevalence is unverified — observed only on Instagram post templates, not on Rappi, TripAdvisor, or signage. Needs the same 90-day consistent-application test as the bear.",
+      "brand.distinctive.ornamentation.apply-if":
+        "consistent ornamentation across Instagram, menu, signage, and packaging for ≥90 days",
+
+      "brand.distinctive.tagline.asset": "“Un gramo a la vez” tagline",
+      "brand.distinctive.tagline.uniqueness": "Medium-High",
+      "brand.distinctive.tagline.prevalence": "Low",
+      "brand.distinctive.tagline.census":
+        "Census scan: no competitor uses a precision-gram tagline. Closest competitor claim is Neira's \"barista champion\" (about the person, not the process). Punto Café uses \"Café de especialidad\" (generic category claim).",
+      "brand.distinctive.tagline.verdict":
+        "POTENTIAL distinctive asset. Uniqueness is the strongest of the three because the claim is operationally specific (a gram is a measurable unit). Prevalence is unverified — currently used only on Instagram bio and post captions. Should be paired with the bear for compounding mental availability.",
+      "brand.distinctive.tagline.apply-if":
+        "appear on Instagram, Rappi menu description field, Google Business Profile description, printed menu, and bean bag label",
+
+      "brand.distinctive.palette.asset": "Brown-to-green roast-spectrum palette",
+      "brand.distinctive.palette.uniqueness": "Medium",
+      "brand.distinctive.palette.prevalence": "Low",
+      "brand.distinctive.palette.census":
+        "Census scan: forest-deep green as the BEAR HABITAT color is unique to Ursa — competitors using green use it as a flat brand color, not paired with a bear character. The brown roast-spectrum ladder alone is not distinctive (Bisetti, Punto, Neira all use brown as primary).",
+      "brand.distinctive.palette.verdict":
+        "POTENTIAL distinctive asset ONLY when the green is paired with the bear. The brown ladder is necessary but not sufficient. Without consistent green+bear pairing, the palette alone will not build mental availability.",
+      "brand.distinctive.palette.apply-if":
+        "green must appear alongside the bear on every asset for ≥90 days; brown-only assets do not qualify",
+
+      "brand.section.art-nouveau.badge": "Art Nouveau system",
+      "brand.section.art-nouveau.title": "The four ornamental components",
+      "brand.section.art-nouveau.meta": "Documented · applied · reserved",
+      "brand.section.art-nouveau.live-label": "Live · ArtNouveauDivider",
+      "brand.section.art-nouveau.live-detail":
+        "The hairline-gold rule with a central flourish. Used to separate major sections — never to slice paragraphs.",
+
+      "brand.art-nouveau.borders.title": "Ornamental borders",
+      "brand.art-nouveau.borders.detail":
+        "Hairline gold rules with a central flourish frame sections, menus, and certificates — never a flat-minimal divider.",
+      "brand.art-nouveau.borders.evidence":
+        "Observed in the Instagram post templates (sampled 2026-08-01) as a thin gold hairline framing drink-name posts. NOT verified on physical signage — no street-level photo available. Owner asset pack (open Q6) required to confirm whether the divider appears on the printed menu.",
+
+      "brand.art-nouveau.type.title": "Serif display type",
+      "brand.art-nouveau.type.detail":
+        "Cormorant Garamond carries the headlines; its high-contrast strokes echo early-1900s lithography.",
+      "brand.art-nouveau.type.evidence":
+        "Observed in the Instagram bio typography and post templates (2026-08-01). Specific font family inferred from x-height and contrast — exact font file requires owner confirmation. NOT verified on Rappi (platform overrides typography).",
+
+      "brand.art-nouveau.gold.title": "Gold accents",
+      "brand.art-nouveau.gold.detail":
+        "A single warm gold (#B8924A) is reserved for emphasis — eyebrows, hairlines, the bear's catchlights — never for body text.",
+      "brand.art-nouveau.gold.evidence":
+        "Observed as the eyebrow color in Instagram post captions (2026-08-01). Hex sampled from 3 posts — variance ±4 in sRGB space, suggesting the gold is applied consistently but is not yet codified as a token. NOT verified on packaging or signage.",
+
+      "brand.art-nouveau.botanical.title": "Botanical / wavy line motifs",
+      "brand.art-nouveau.botanical.detail":
+        "Sinuous, symmetrical curves (the Art Nouveau hallmark) appear in dividers and as background texture, paired with forest-deep green.",
+      "brand.art-nouveau.botanical.evidence":
+        "Observed in the Instagram Story covers (3 of 5 sampled Stories use a botanical curve as background texture). NOT verified on physical signage, menus, or packaging — open question Q6 (asset pack) is the blocker. If the motif does not appear in the asset pack, this component should be downgraded from \"verified\" to \"proposed\".",
+
+      "brand.section.evolution.badge": "Brand evolution",
+      "brand.section.evolution.title": "Three evolution levels — one recommendation",
+      "brand.section.evolution.meta": "Conservative refinement wins",
+      "brand.section.evolution.intro":
+        "Of three plausible directions, this module recommends Level 1 as the permanent system. Level 2 is a reversible 6-month growth skin layered on top. Level 3 is seasonal only. A total rebrand is explicitly off the table — not because rebrands are always wrong, but because Ursa's identity is already its ownable asset (see Distinctive Assets above), and a rebrand would destroy category-leading mental availability it has not yet finished building. Sequencing matters: Level 1 must be locked before Level 2 ships, and Level 3 is gated behind explicit owner sign-off.",
+      "brand.section.evolution.why-callout-title": "Why Level 1 is the permanent system",
+      "brand.section.evolution.why-callout-body":
+        "Ursa already does what works in 2025–26: identity over trend-hopping. The bear, the Art Nouveau lean, the two-bar layout, and named drinks add up to a brand competitors cannot copy quickly. Refinement — not replacement — protects that asset and spends the budget on distribution (Module 04) instead of identity churn.",
+      "brand.evolution.recommended-tag": "Recommended",
+      "brand.evolution.risk-label": "Risk & limitation",
+
+      "brand.evolution.level-1.name": "Conservative refinement",
+      "brand.evolution.level-1.horizon": "Permanent system",
+      "brand.evolution.level-1.summary":
+        "Codify the existing bear, palette, type, and Art Nouveau motifs into a documented design system. Tighten application rules, add the missing social and packaging templates, and lock the bear mark at consistent sizes. This is the recommended permanent system.",
+      "brand.evolution.level-1.outcome-1": "Documented color, type, and component tokens",
+      "brand.evolution.level-1.outcome-2": "Bear-mark usage rules across every surface",
+      "brand.evolution.level-1.outcome-3": "Reusable social, menu, and packaging templates",
+      "brand.evolution.level-1.risk":
+        "Risk: documentation overhead without enforcement. A design system that lives only in a Figma file and not in a printed \"brand police\" checklist (one-page reference for baristas, printer, and creators) degrades within 90 days. Mitigation: ship the one-page checklist alongside the Figma file; audit application at day 30, 60, 90. Limitation: also depends on owner-supplied asset pack (open Q6) — if the official bear mark is not supplied within 14 days, Level 1 cannot be locked.",
+
+      "brand.evolution.level-2.name": "Distinctive growth system",
+      "brand.evolution.level-2.horizon": "6-month skin",
+      "brand.evolution.level-2.summary":
+        "Layer a 6-month growth skin on top of Level 1: animated bear variants, a campaign-specific type accent, and seasonal gold treatments. Everything stays reversible; the Level 1 system underneath is untouched.",
+      "brand.evolution.level-2.outcome-1": "Animated bear (looping mark + sticker set)",
+      "brand.evolution.level-2.outcome-2": "A single campaign accent layered on the locked palette",
+      "brand.evolution.level-2.outcome-3": "Reversible — peel off after 6 months with no asset debt",
+      "brand.evolution.level-2.risk":
+        "Risk: animation budget creep. Animated bear variants require motion-design work that, if scoped loosely, becomes a recurring production cost (S/. 400–1,200 per sticker pack). Risk: \"reversible\" only holds if Level 1 is locked FIRST — skipping Level 1 and jumping to Level 2 is the most common reason rebrands fail. Mitigation: gate Level 2 behind a 4-week Level 1 freeze. Limitation: cannot be evaluated at thumbnail size on the Instagram grid if the bear animation lives only in Stories — the static grid impression will still read as Level 1.",
+
+      "brand.evolution.level-3.name": "Experimental seasonal expression",
+      "brand.evolution.level-3.horizon": "Seasonal only",
+      "brand.evolution.level-3.summary":
+        "Seasonal, time-boxed expressions: a holiday bear variant, a single-collab colorway, or a festival skin. Always reverted at the end of the season; never promoted to the permanent system without an explicit review.",
+      "brand.evolution.level-3.outcome-1": "Time-boxed (≤ 8 weeks) seasonal skins",
+      "brand.evolution.level-3.outcome-2": "Clearly labelled as limited, never as the new brand",
+      "brand.evolution.level-3.outcome-3": "Reverted on schedule, documented for archive",
+      "brand.evolution.level-3.risk":
+        "Risk: customer confusion. If a seasonal skin is too distinctive (e.g. inverted constellation on espresso-black), returning customers may not recognise it as the same brand — particularly damaging for a café that depends on a 1km walk-up catchment where recognition = footfall. Risk: \"seasonal creep\" — a skin that performs well commercially is tempted into permanence, breaking Level 1 integrity. Mitigation: hard 8-week expiry date printed on every Level 3 asset; promotion to permanent requires explicit owner sign-off and a 30-day cooling period.",
+
+      "brand.section.summary.badge": "Audit summary",
+      "brand.section.summary.title": "Consistent · Inconsistent · Distinctive · Missing",
+      "brand.section.summary.meta": "The 2×2 every brand audit ends on",
+
+      "brand.summary.consistent.title": "Consistent",
+      "brand.summary.consistent.item-1": "Bear mark + name (Ursa) across storefront and product",
+      "brand.summary.consistent.item-2": "Browns-and-greens palette with cream surfaces",
+      "brand.summary.consistent.item-3": "Cormorant Garamond display, Inter body, Oswald labels",
+      "brand.summary.consistent.item-4": "In-house roastery as operational and narrative backbone",
+
+      "brand.summary.inconsistent.title": "Inconsistent",
+      "brand.summary.inconsistent.item-1": "Bear application varies by surface — no codified illustration set",
+      "brand.summary.inconsistent.item-2": "Social posts are ad hoc, not templated",
+      "brand.summary.inconsistent.item-3": "Packaging labels rarely feature the bear consistently",
+      "brand.summary.inconsistent.item-4": "No website to carry the identity online",
+
+      "brand.summary.distinctive.title": "Distinctive",
+      "brand.summary.distinctive.item-1": "Only Lima roaster with an ownable animal character",
+      "brand.summary.distinctive.item-2": "Bear + Art Nouveau + two-bar layout is a three-part signature",
+      "brand.summary.distinctive.item-3": "Named drinks like Ursagroni are memorable and ownable",
+      "brand.summary.distinctive.item-4": "“Un gramo a la vez” is a precision-craft claim competitors lack",
+
+      "brand.summary.missing.title": "Missing",
+      "brand.summary.missing.item-1": "Animated bear and social sticker set",
+      "brand.summary.missing.item-2": "Consistent social-post template kit",
+      "brand.summary.missing.item-3": "Bear as recurring character on email and packaging",
+      "brand.summary.missing.item-4": "Documented design-system tokens (this module fixes that)",
+
+      "brand.section.spirit.badge": "Guardrail",
+      "brand.section.spirit.title": "The spirit-preservation principle",
+      "brand.spirit.eyebrow": "Spirit-preservation principle",
+      "brand.spirit.headline": "Never choose a generic growth tactic over the bear.",
+      "brand.spirit.body":
+        "If a recommendation forces a choice between (a) protecting Ursa's existing bear / Art Nouveau / roastery identity and (b) chasing a generic growth tactic, this dossier always chooses (a). The conservative-refinement direction is the permanent system; experimental expressions are kept seasonal and reversible. This is the guardrail every subsequent module inherits — and the test that decides the choice is operational, not aesthetic: if the tactic would require a layout change, a brand-mark swap, or a tonal shift the bear cannot carry, it fails the guardrail and is rejected.",
+      "brand.spirit.chip.bear": "Bear · Gram · Green",
+      "brand.spirit.chip.no-rebrand": "No rebrand · no generic playbook",
+      "brand.spirit.chip.experiments": "Experiments reversible on 14–30 day stop rules",
+
+      "brand.section.dossier.badge": "Static dossier",
+      "brand.section.dossier.title": "Read the printable HTML dossier",
+      "brand.section.dossier.body":
+        "The full, print-friendly Module 01 dossier is available as browsable HTML — open it for the complete audit tables and printable colour sheets.",
+      "brand.section.dossier.button": "Open the interactive style guide",
+
+      "brand.stat.palette": "Verified palette tokens",
+      "brand.stat.typography": "Type voices, one rhythm",
+      "brand.stat.evolution": "Brand-evolution levels",
+      "brand.stat.recommended": "Recommended permanent system",
+
+      /* ---- Module 02 · Market Analysis (deepened body copy + section copy) ---- */
+      "market.hero.lede":
+        "This module runs a systematic 1km competitor census from Ursa's Alcanfores 183 address — twelve named streets radiating off Parque Kennedy walked virtually, every public-facing café logged against Google Places, TripAdvisor, and Instagram location tags — then reads the customer-voice patterns across them and converts each finding into something Ursa can match, avoid, or lead on. The bear is not borrowed from the category; it is the one position left uncontested. The census is a closed set: every named competitor inside 1km is named. The customer-voice themes are inferred from competitor review patterns, not yet from a coded sample of Ursa's own customers — that limitation is named where it applies.",
+      "market.hero.meta.census": "Census",
+      "market.hero.meta.competitors": "competitors",
+      "market.hero.meta.scope": "Scope",
+      "market.hero.meta.in-catchment": "in 1km",
+      "market.hero.meta.benchmarks": "Lima benchmarks",
+      "market.reviews-suffix": "reviews",
+
+      "market.stat.competitors": "Competitors in census",
+      "market.stat.catchment": "Within 1km catchment",
+      "market.stat.operating-uncertain": "Operating · Uncertain",
+      "market.stat.same-street": "Same street as Ursa",
+
+      "market.proximity.same-street": "Same street",
+      "market.proximity.nearby": "Nearby",
+      "market.proximity.within-1km": "Within 1km",
+      "market.proximity.out-of-area-lima-wide": "Benchmark",
+      "market.proximity-desc.same-street": "Critical proximity — same street as Ursa, <250m walk",
+      "market.proximity-desc.nearby": "Within ~500m walk of Ursa",
+      "market.proximity-desc.within-1km": "Within 1km walking radius of Ursa",
+      "market.proximity-desc.out-of-area-lima-wide": "Lima-wide benchmark outside 1km catchment",
+
+      "market.status.operating": "Operating",
+      "market.status.uncertain": "Uncertain",
+      "market.website.yes": "Website",
+      "market.website.no": "No site",
+
+      "market.competitor.strength": "Strength",
+      "market.competitor.weakness": "Weakness",
+      "market.competitor.ursa-implication": "Ursa implication",
+
+      "market.section.census.badge": "1km competitor census",
+      "market.section.census.title": "Every named competitor within a 1km walk of Alcanfores 183",
+      "market.section.census.meta": "Systematic street-radiating grid · snapshot 2026-08-01",
+      "market.section.census.intro":
+        "The competitor set is no longer a shortlist — it is a census. Every named street within a 1km walk of Ursa's address was walked virtually via Google Maps Street View and cross-referenced against Google Places, TripAdvisor, and Instagram location tags. The result: 14 competitors inside the 1km catchment plus 4 Lima-wide benchmarks (Bisetti, Ciclos, RAIZ, Monótono) included for positional context. Proximity is colour-coded: red = same street, gold = nearby, green = within 1km, grey = out-of-area benchmark. A 1km radius is the practical walk-up catchment for an espresso bar in a dense, walkable district like Miraflores — beyond it, the customer is choosing to travel, not stumbling in.",
+      "market.section.census.summary.discovered": "Total discovered",
+      "market.section.census.summary.operating": "Operating",
+      "market.section.census.summary.uncertain": "Status uncertain",
+      "market.section.census.summary.direct": "Direct competitors",
+      "market.section.census.table.title": "Census table — sorted nearest-first",
+      "market.section.census.table.streets": "streets walked",
+      "market.section.census.col.competitor": "Competitor",
+      "market.section.census.col.address": "Address",
+      "market.section.census.col.distance": "Distance",
+      "market.section.census.col.type": "Type",
+      "market.section.census.col.google": "Google",
+      "market.section.census.col.tripadvisor": "TripAdvisor",
+      "market.section.census.col.status": "Status",
+
+      "market.section.census.coverage.title": "Coverage methodology — how the census was built",
+      "market.section.census.coverage.study-area-label": "Study area",
+      "market.section.census.coverage.study-area":
+        "1km walking radius from Alcanfores 183, Miraflores. 1km is the practical walk-up catchment for an espresso bar in a dense, walkable district like Miraflores.",
+      "market.section.census.coverage.grid-label": "Grid definition",
+      "market.section.census.coverage.grid":
+        "Street-radiating grid from Parque Kennedy — every named street within 1km walked virtually via Google Maps Street View.",
+      "market.section.census.coverage.streets-label": "Streets searched",
+      "market.section.census.coverage.inclusion-label": "Inclusion / exclusion",
+      "market.section.census.coverage.inclusion":
+        "In: specialty coffee as primary category, verifiable physical address, public-facing. Out: chains with >10 Lima locations (Starbucks, Juan Valdez), pizzerias, hotel coffee, informal carts.",
+      "market.section.census.coverage.stat.discovered": "Discovered",
+      "market.section.census.coverage.stat.in-catchment": "In catchment",
+      "market.section.census.coverage.stat.operating": "Operating",
+      "market.section.census.coverage.stat.uncertain-closed": "Uncertain / closed",
+      "market.section.census.coverage.anchor-label": "Anchor findings:",
+      "market.section.census.coverage.anchor-body":
+        "nearest confirmed competitor is {nearestConfirmed}; nearest uncertain is {nearestUncertain}; highest review volume is {highestVolume}; highest rated is {highestRated}; award leader in catchment is {awardInCatchment}; Lima-wide benchmark to beat is {awardLimaWide}.",
+      "market.section.census.coverage.methodology-toggle": "Methodology, limitations & next steps",
+      "market.section.census.coverage.next-steps-label": "Next steps",
+      "market.section.census.coverage.full-census-prefix": "Full structured census:",
+
+      "market.section.landscape.badge": "Competitor landscape",
+      "market.section.landscape.title": "The eighteen names around Ursa",
+      "market.section.landscape.meta": "Per-competitor deep-dive · snapshot 2026-08-01",
+      "market.section.landscape.intro":
+        "The census above is the systematic view; the cards below are the per-competitor deep-dive. For each competitor the card names one strength, one weakness, and the implication that follows for Ursa. Fourteen sit inside the 1km catchment; four (Bisetti, Ciclos, RAIZ, Monótono) are Lima-wide benchmarks included for positional context — not direct competitors a Miraflores customer compares on the same walk, but reference points for what category-leading looks like at Lima scale.",
+
+      "market.section.ownable.badge": "Ownable space",
+      "market.section.ownable.title": "Ursa sits orthogonal to the category",
+      "market.section.ownable.meta": "Not a better café — a different one",
+      "market.section.ownable.intro":
+        "Every strong Miraflores competitor owns one position. Punto Café owns the award. Neira owns scale. Bisetti owns the school. Puku Puku owns the microlote. Terrua owns the premium tasting. None of them owns an animal, an Art Nouveau design language, or a two-bar theatre — and none of them uses named drinks. These positions are not easy to copy because each is backed by a hard asset: Punto's award certificate, Neira's four locations, Bisetti's training program, Puku Puku's microlote supply chain, Terrua's farm-to-cup sourcing. Ursa's bear, two-bar layout, and named-drink system are equally hard to copy because each is backed by a physical or operational commitment — a brand mark, a built-out space, a menu discipline — that a competitor cannot redeploy without matching all three.",
+      "market.section.ownable.ortho-title": "The orthogonality principle",
+      "market.section.ownable.ortho-body":
+        "Ursa's ownable space — bear + two bars + named drinks (Ursagroni, Maracumango) + “Un gramo a la vez” — does not compete against the category's existing positions. It sits at a right angle to them. A customer can love Punto Café's award and still choose Ursa for the bear. That is the moat — and the operational rule it implies is that Ursa should never try to out-award Punto, out-scale Neira, or out-school Bisetti. Each of those contests has an incumbent with a structural advantage; the bear's contest has no incumbent at all.",
+      "market.section.ownable.rule":
+        "The strategic rule that follows: never try to out-award Punto, out-scale Neira, or out-school Bisetti. Instead, be the only café in Lima where the bear, the gram, and the green are visibly the operating system.",
+      "market.section.ownable.card-title": "Who owns what",
+      "market.section.ownable.card-footnote": "Ursa's row is the only one no competitor can claim",
+      "market.ownable.punto": "Awards",
+      "market.ownable.neira": "Scale",
+      "market.ownable.bisetti": "“Escuela de café”",
+      "market.ownable.puku-puku": "Microlotes",
+      "market.ownable.terrua": "Premium tasting",
+      "market.ownable.ursa": "The bear",
+
+      "market.section.voice.badge": "Customer voice",
+      "market.section.voice.title": "What Lima's café customers actually say",
+      "market.section.voice.meta": "Four themes · verified from public reviews and direct observation",
+      "market.section.voice.methodology-title": "Methodology and limitations",
+      "market.section.voice.methodology-intro":
+        "The customer-voice themes below are illustrative, not validated. They are inferred from competitor review patterns and the dossier's own competitive analysis, not from a coded sample of Ursa's own customers. Read them as direction-setting signal, not as a quantitative read on Ursa's clientele.",
+      "market.section.voice.field.boundary": "Market boundary",
+      "market.section.voice.field.boundary-value": "Miraflores specialty coffee cafés + Lima-wide leaders for benchmarking",
+      "market.section.voice.field.platforms": "Platforms sampled",
+      "market.section.voice.field.platforms-value": "Instagram, Rappi, TripAdvisor, Google Maps, CoffeePass",
+      "market.section.voice.field.period": "Observation period",
+      "market.section.voice.field.period-value": "2026-08-01 (point-in-time snapshot)",
+      "market.section.voice.field.sample": "Sample",
+      "market.section.voice.field.sample-value": "Public listings and bios of 10 competitors; TripAdvisor review samples where available",
+      "market.section.voice.field.inclusion": "Inclusion criteria",
+      "market.section.voice.field.inclusion-value": "Direct Miraflores competitors + Lima specialty leaders with public online presence",
+      "market.section.voice.field.coding": "Coding",
+      "market.section.voice.field.coding-value": "Themes grouped by recurring topic (quality, service, atmosphere, value, accessibility)",
+      "market.section.voice.limitation-label": "Limitation:",
+      "market.section.voice.limitation-body":
+        "Ursa's TripAdvisor has ~0 reviews; customer themes are inferred from competitor review patterns and the dossier's own competitive analysis, not from a coded sample of Ursa's own customers. A proper customer-voice study requires owner-provided POS data, a consented survey, or a review-mining sample of ≥50 Ursa-specific reviews (not currently available). The real-review sample below supplements these themes with verbatim public mentions but does not replace a coded customer-voice study.",
+
+      "market.section.voice.review-sample.eyebrow": "Review sample status",
+      "market.section.voice.review-sample.title": "Real customer reviews & external voice",
+      "market.section.voice.review-sample.intro":
+        "Searched {platforms} platforms on {date}. Found {real} real Ursa-specific mentions (mostly Instagram posts and reels) and {aggregate} aggregate ratings from directory platforms. Ursa's public review footprint is thin but not zero — and is concentrated on Instagram and Google, not on TripAdvisor.",
+      "market.section.voice.review-sample.correction":
+        "Correction to prior dossier: aggregator evidence (addagio.io schema.org LocalBusiness data) shows Ursa has an active Google Business Profile with ~56 reviews at 4.5 stars. The prior claim that Ursa's Google profile is \"missing/unverified\" was incorrect. The actual friction is weak SEO/GBP optimization (Ursa does not surface in Google's own \"best Lima cafés\" guides), not missing presence.",
+      "market.section.voice.review-sample.platforms-toggle": "Platforms checked & limitations",
+      "market.section.voice.review-sample.platforms-label": "Platforms checked",
+      "market.section.voice.review-sample.methodology-label": "Methodology",
+      "market.section.voice.review-sample.limitations-label": "Limitations",
+      "market.section.voice.review-sample.source-link": "Source",
+      "market.section.voice.themes-divider": "Illustrative themes below are inferred from competitor patterns",
+      "market.section.voice.theme-label.theme": "Theme",
+      "market.section.voice.theme-label.value": "Value",
+      "market.section.voice.theme-label.pain": "Pain",
+      "market.section.voice.theme-label.friction": "Friction",
+      "market.section.voice.theme-label.lead": "Lead",
+      "market.section.voice.theme-label.evidence": "Evidence",
+      "market.section.voice.evidence-prefix": "Evidence ·",
+      "market.section.voice.sample-prefix": "Sample ·",
+
+      "market.section.conversion.badge": "Conversion to action",
+      "market.section.conversion.title": "From findings to a 90-day worklist",
+      "market.section.conversion.meta": "Six lanes · each traceable to a competitor or customer-voice theme",
+      "market.section.conversion.intro":
+        "Every card below is a direct conversion of a finding above — no card is speculative. Where a card references a competitor, the implication is explicit; where it references a customer-voice theme, the friction point is named. The six lanes are sequenced for a 90-day worklist: standards first (because matching category baselines is prerequisite to leading them), then avoidance (because losses compound faster than gains), then leadership (the bear-shaped openings the census verified).",
+
+      "market.conversion.standards.title": "Standards Ursa must match",
+      "market.conversion.standards.item-1": "Award visibility — Punto Café won Premios Somos 2024; Ursa needs a credible awards entry",
+      "market.conversion.standards.item-2": "Premium tasting quality — Terrua charges US$25; Ursa's cupping must be technically tight",
+      "market.conversion.standards.item-3": "Educational depth — Bisetti owns the school; Ursa baristas must speak origin fluently",
+      "market.conversion.standards.item-4": "Bean transparency — Puku Puku lists microlotes; Ursa's menu must show origin, process, altitude",
+
+      "market.conversion.problems.title": "Problems to avoid",
+      "market.conversion.problems.item-1": "Cobrand dilution — Neira's WorkCafé partnership softens its café identity",
+      "market.conversion.problems.item-2": "Chain feel at scale — Puku Puku trades atmosphere for reach",
+      "market.conversion.problems.item-3": "Generic sustainability messaging — Café Verde's green copy could be anyone's",
+      "market.conversion.problems.item-4": "Educational formality — Bisetti's school tone can feel like homework",
+      "market.conversion.problems.item-5": "Cold or diluted delivery coffee — a recurring Lima complaint",
+
+      "market.conversion.lead.title": "Areas to lead",
+      "market.conversion.lead.item-1": "Bear-led brand character no competitor owns",
+      "market.conversion.lead.item-2": "Two-bar theatre (espresso + coldbrew) visible from the street",
+      "market.conversion.lead.item-3": "Portmanteau drink naming — Ursagroni, Maracumango — as a signature system",
+      "market.conversion.lead.item-4": "“Un gramo a la vez” as a patient-craft ethos",
+      "market.conversion.lead.item-5": "Art Nouveau craft language applied consistently across every touchpoint",
+
+      "market.conversion.experience.title": "Customer-experience improvements",
+      "market.conversion.experience.item-1": "Verified Google Business Profile — a basic competitors also neglect",
+      "market.conversion.experience.item-2": "Live \"is it busy now?\" indicator on the café site",
+      "market.conversion.experience.item-3": "Clear booking channel for tastings and cuppings",
+      "market.conversion.experience.item-4": "Bean cards that mark seasonal vs. permanent lots",
+      "market.conversion.experience.item-5": "Strong Wi-Fi and accessible power outlets for remote workers",
+
+      "market.conversion.product.title": "Product opportunities",
+      "market.conversion.product.item-1": "Tiered tasting flights — accessible entry plus a premium depth vs. Terrua's US$25 ceiling",
+      "market.conversion.product.item-2": "Microlot sub-line — borrow Puku Puku's positioning without the chain feel",
+      "market.conversion.product.item-3": "Origin-story bean cards — pair with the Filtrado Lonya line vs. RAIZ",
+      "market.conversion.product.item-4": "Named-drink rotation — a new named drink every season keeps the menu alive",
+      "market.conversion.product.item-5": "Subscription with attach-rate economics — see the Subscription Calculator",
+
+      "market.conversion.marketing.title": "Marketing proof points",
+      "market.conversion.marketing.item-1": "\"In-house roastery, visible from the bar\" — proof of specialty credibility",
+      "market.conversion.marketing.item-2": "\"Two bars: espresso + coldbrew\" — visible theatre",
+      "market.conversion.marketing.item-3": "\"Original drinks you can ask for by name\" — Ursagroni, Maracumango",
+      "market.conversion.marketing.item-4": "\"Art Nouveau craft, applied consistently\" — design language as moat",
+      "market.conversion.marketing.item-5": "\"Single-site intimacy\" — one Miraflores café, not a chain",
+
+      "market.section.website-gap.badge": "The website gap",
+      "market.section.website-gap.title": "Of {count} competitors with a website, Ursa is not one of them.",
+      "market.section.website-gap.meta": "Surfaced in 1km census · 30-day priority",
+      "market.section.website-gap.callout-title": "This is the single most visible infrastructure gap in the dossier",
+      "market.section.website-gap.callout-body":
+        "{withWebsite} of {total} competitors in the 1km census maintain a public website. Ursa's discoverable presence is Instagram only. A first-time visitor who searches \"café de especialidad Miraflores\" on Google finds a wall of competitor websites — Punto Café, Neira Café Lab, Terrua, Cate Tasting Room, and more — and one under-optimized Google Business Profile in return. The bear is invisible at the moment of greatest intent.",
+      "market.section.website-gap.priority-label": "30-day priority:",
+      "market.section.website-gap.priority-body":
+        "ship a single-page site that carries the verified identity — address, hours, signature drinks, the bear, the Art Nouveau craft language, and a booking channel for tastings. The full design system already exists in Module 01. The signature drinks are verified in Module 03. This is assembly, not invention — and the implementation cost is correspondingly small: a single Next.js page with the existing tokens, deployable to a free static host in 72 hours. The cost of not shipping it is larger: every Google search for \"café Miraflores\" that lands on a competitor's website is a customer Ursa has paid no acquisition cost to reach and still loses.",
+      "market.section.website-gap.open-brand": "Open Brand Audit (Module 01)",
+      "market.section.website-gap.open-dashboard": "Open the interactive Competitor Dashboard",
+
+      "market.section.dossier.body":
+        "All competitor claims are sourced and snapshot-dated. See Sources & Evidence for full citations.",
     },
     es: {
       /* ---- Dashboard hero ---- */
@@ -2854,6 +3358,510 @@ export const translations: Translations = {
 
       "sources.section.10.pill": "Anexo completo",
       "sources.section.10.button": "Abrir Seguimiento de Experimentos",
+
+      /* ---- Módulo 01 · Auditoría de Marca (cuerpo profundizado + copy de sección) ---- */
+      "brand.hero.lede":
+        "Lo que responde este módulo es si la identidad de Ursa se sostiene entre superficies — Instagram, Rappi, TripAdvisor, CoffeePass, Corner.inc, mindtrip.ai — o si los activos que el dueño ve en el local se diluyen donde la mayoría de clientes conoce la marca por primera vez. La auditoría verifica ocho elementos contra siete superficies públicas, aplica el test de activos distintivos de Ehrenberg-Bass a cuatro candidatos y recomienda un sistema de refinamiento conservador: codificar lo que funciona, reparar lo parcial y rechazar rebrand. La línea Art Nouveau, la paleta de marrones y verdes, el motivo del oso, la tostadora propia y el lema «Un gramo a la vez» son los activos que el plan cuida.",
+      "brand.hero.meta.direction": "Dirección",
+      "brand.hero.meta.direction-value": "Refinamiento conservador recomendado",
+      "brand.evidence-snapshot-label": "Evidencia · snapshot 2026-08-01",
+
+      "brand.section.verified.badge": "Elementos verificados",
+      "brand.section.verified.title": "Lo que verificamos en el snapshot",
+      "brand.section.verified.meta": "De fuentes públicas · ver Fuentes y Evidencia",
+      "brand.section.verified.intro":
+        "Cada elemento se verificó contra las siete superficies públicas de Ursa: Instagram, Facebook, el menú de Rappi, la ficha de CoffeePass, la ficha de TripAdvisor, la editorial de Corner.inc y el perfil de mindtrip.ai. Seis de ocho activos centrales están verificados; el séptimo (aplicación entre superficies) es parcial, y el octavo es la pregunta abierta que cerrará el pack de activos. Donde la verificación es parcial, se nombra la brecha precisa y se especifica la acción que la cierra en la hoja de ruta de implementación.",
+
+      "brand.verified.art-nouveau.title": "Línea Art Nouveau",
+      "brand.verified.art-nouveau.detail":
+        "Divisores ornamentales, líneas doradas finas y una tipografía serif display enraizan la marca en el craft de principios del siglo XX, no en el default flat-minimal de cafetería. La línea se ve en las plantillas de Instagram y se refuerza con el tratamiento geométrico e ilustrado del oso.",
+      "brand.verified.art-nouveau.evidence":
+        "Verificado en Instagram @ursacoffeeperu (tipografía de bio y plantillas de posts, observado 2026-08-01) y en Corner.inc («baristas double as coffee educators», ficha actualizada 26 dic 2025). NO verificado en signage físico — sin foto a nivel de calle; marcado como pregunta abierta Q6.",
+
+      "brand.verified.palette.title": "Paleta de marrones y verdes",
+      "brand.verified.palette.detail":
+        "Una escala de marrones del espectro de tueste (café verde → espresso) pareada con un verde bosque profundo para el hábitat del oso y superficies crema. Sin azul, sin índigo — un no-default deliberado que se lee como craft antes de que el cliente termine de leer el nombre.",
+      "brand.verified.palette.evidence":
+        "Verificado muestreando valores de pixel de las portadas de posts de Instagram (7 posts muestreados, observado 2026-08-01) y de las imágenes de los tiles del menú de Rappi. Los valores hex son aproximados — el pack de activos del dueño (Q6 abierta) se requiere para fijar tokens exactos.",
+
+      "brand.verified.bear.title": "Motivo del oso",
+      "brand.verified.bear.detail":
+        "Un mark geométrico de oso con línea Art Nouveau aparece en logo, signage y storytelling de producto — un personaje animal ownable en un mercado cuyo censo no contiene ninguno.",
+      "brand.verified.bear.evidence":
+        "Verificado en el avatar de Instagram (observado 2026-08-01). NO visible en las imágenes del menú de Rappi (solo fotos de bebidas). NO presente en la foto de la ficha de TripAdvisor (solo storefront). Conclusión: el oso se aplica de forma inconsistente entre superficies — ver Análisis del Oso abajo.",
+
+      "brand.verified.roastery.title": "Tostadora propia",
+      "brand.verified.roastery.detail":
+        "Ursa tuesta sus propios granos. Es la columna operacional de la marca: justifica las historias de origen, las preparaciones con nombre y la matemática de suscripción — y es el único activo que los competidores no pueden comprar de un estante.",
+      "brand.verified.roastery.evidence":
+        "Verificado en la bio de Instagram («Tostadores de café de especialidad», observado 2026-08-01), en la ficha de marca de CoffeePass Perú y en Corner.inc (tag de tostadora confirmado).",
+
+      "brand.verified.tagline.title": "Lema «Un gramo a la vez»",
+      "brand.verified.tagline.detail":
+        "Ancla el posicionamiento de craft de precisión y le da a cada momento de tueste, preparación y educación un gancho memorable. El gramo es una unidad medible, lo que hace el claim operacionalmente específico, no poético.",
+      "brand.verified.tagline.evidence":
+        "Verificado verbatim en la bio de Instagram (observado 2026-08-01) y reutilizado como caption de cierre en al menos 3 posts muestreados. No se ve en el menú de Rappi — la ficha de Rappi no tiene campo de lema.",
+
+      "brand.verified.two-bar.title": "Layout de dos barras",
+      "brand.verified.two-bar.detail":
+        "Espresso bar + cold-brew bar, lado a lado. Señaliza físicamente las dos mitades de la carta y crea un escenario natural para un teatro visible desde la calle — una decisión de layout que ningún competidor del censo replica.",
+      "brand.verified.two-bar.evidence":
+        "Verificado en la bio de Instagram («Espresso bar + Coldbrew bar» literal, observado 2026-08-01). Corner.inc repite la misma frase. El layout físico no se observó independientemente vía foto a nivel de calle — se pide confirmación del dueño.",
+
+      "brand.verified.named-drinks.title": "Bebidas con nombre",
+      "brand.verified.named-drinks.detail":
+        "Cuatro bebidas verificadas usan nombre propio en vez de etiqueta genérica: Ursagroni (Ursa + negroni), Maracumango (maracuyá + mango), Filtrado Lonya (etiqueta de origen), Durazno Clarificado (descriptivo). Dos usan blends inventados; dos usan etiquetas descriptivas o de origen. Ningún competidor del censo nombra bebidas individuales así.",
+      "brand.verified.named-drinks.evidence":
+        "Verificado en Instagram (Ursagroni + Maracumango en captions y portadas de Reel) Y en Rappi (las cuatro listadas por nombre en el menú de delivery, observado 2026-08-01). Dos fuentes convergen — la verificación más fuerte de esta auditoría.",
+
+      "brand.verified.cross-surface.title": "Aplicación consistente entre superficies",
+      "brand.verified.cross-surface.detail":
+        "La identidad es fuerte en storefront y producto; se adelgaza entre superficies digitales (sin sitio web, sin kit social templado). Esta es la brecha que la hoja de ruta de implementación cierra primero.",
+      "brand.verified.cross-surface.evidence":
+        "Verificado por análisis de brecha de superficie: Instagram (presente), Facebook (acceso limitado a posts, parcial), Rappi (presente, sin lema), CoffeePass (presente, mínimo), TripAdvisor (la ficha existe, 0 reseñas — sin reclamar), Corner.inc (verificado), mindtrip.ai (verificado pero el teléfono entra en conflicto con Instagram). No se encontró sitio web vía Google site: search. Faltan: kit social templado, Google Business Profile reclamado, TripAdvisor reclamado.",
+
+      "brand.section.palette.badge": "Sistema de color",
+      "brand.section.palette.title": "La paleta de Ursa — observada y propuesta",
+      "brand.section.palette.meta": "16 tokens · con proveniencia · no oficiales hasta verificación del dueño",
+      "brand.section.palette.intro":
+        "Una escala de marrones del espectro de tueste (café verde → espresso) carga la historia del café; un verde bosque profundo carga el hábitat del oso; las superficies crema lo sostienen todo; un único dorado cálido reserva el énfasis. Sin azul, sin índigo — y esa ausencia es en sí misma un diferenciador. El censo de 1km se lee como un muro de identidades de café Instagram-azul y negro puro; los marrones cálidos y el verde bosque profundo de Ursa se leen como craft antes de que el cliente termine de leer el nombre. Los valores hex se muestrearon de redes sociales, no están fijados por el dueño — promovente a tokens oficiales solo después de que llegue el pack de activos (pregunta abierta Q6).",
+      "brand.section.palette.provenance-key": "Llave de proveniencia",
+      "brand.section.palette.provenance.approximate": "aproximado — muestreado de redes sociales",
+      "brand.section.palette.provenance.proposed": "propuesto — adición al sistema de diseño",
+      "brand.section.palette.provenance.official": "oficial — de los lineamientos del dueño (ninguno aún)",
+      "brand.palette.provenance.approximate": "aproximado",
+      "brand.palette.provenance.proposed": "propuesto",
+      "brand.palette.provenance.official": "oficial",
+
+      "brand.section.typography.badge": "Tipografía",
+      "brand.section.typography.title": "Tres voces, un ritmo",
+      "brand.section.typography.intro":
+        "Una serif display carga la línea craft de principios de siglo XX; una sans humanista carga la prosa legible; una mayúscula condensada carga cada etiqueta, eyebrow y tag. Tres roles, sin superposición — porque la superposición es donde vive la inconsistencia. Dos voces obligarían al cuerpo a duplicar etiqueta (ilegible en tamaños pequeños); cuatro diluirían el ritmo y sumarían una línea de licencia de tipografía sin ganancia cognitiva. Tres es el mínimo que sostiene la voz Art Nouveau entre impresos, web y signage.",
+      "brand.section.typography.scale.label": "Escala tipográfica · aplicada",
+      "brand.section.typography.scale.headline": "Un gramo a la vez.",
+      "brand.section.typography.scale.subhead": "Tostadores de café de especialidad",
+      "brand.section.typography.scale.body":
+        "Café de especialidad, tostado en Miraflores. Cada gramo se pesa, cada origen se nombra, y cada taza se sirve en el espresso bar o en el cold-brew bar.",
+      "brand.section.typography.scale.label-text": "Espresso bar · Cold-brew bar · Tostadora propia",
+
+      "brand.section.bear.badge": "Motivo del oso",
+      "brand.section.bear.title": "El oso, examinado",
+      "brand.section.bear.meta": "Consistente · Inconsistente · Distintivo · Faltante",
+      "brand.section.bear.tints": "Un mark, cuatro tintes aprobados · dark-roast · forest-deep · gold · terracotta",
+
+      "brand.bear.consistent.label": "Lo que es consistente",
+      "brand.bear.consistent.point-1":
+        "El oso aparece en el avatar de Instagram (observado 2026-08-01) y se refuerza con el nombre de la marca (Ursa = oso) en cada superficie — Instagram, Facebook, Rappi, CoffeePass, Corner.inc, mindtrip.ai.",
+      "brand.bear.consistent.point-2":
+        "El tratamiento del personaje es cálido y geométrico, no cartoonish — observado en el avatar a 64×64px y reforzado por el emparejamiento de emoji ☕️🐻 en posts de Ursagroni.",
+      "brand.bear.consistent.point-3":
+        "El vínculo oso-a-nombre es lingüístico y por tanto independiente de la superficie: incluso superficies sin el mark visual cargan la palabra «Ursa».",
+
+      "brand.bear.inconsistent.label": "Lo que es inconsistente",
+      "brand.bear.inconsistent.point-1":
+        "El oso aparece en el avatar de Instagram pero NO es visible en las imágenes del menú de Rappi (solo fotos de bebidas) y NO en la foto de TripAdvisor (solo storefront). La aplicación varía por superficie.",
+      "brand.bear.inconsistent.point-2":
+        "No se observó un set codificado de ilustraciones del oso — la aplicación varía (versión avatar, watermark en post, emoji). La comparación a nivel de pixel está bloqueada hasta que llegue el pack de activos del dueño (Q6 abierta).",
+      "brand.bear.inconsistent.point-3":
+        "La presencia del oso en Instagram es ad hoc (emoji en captions, watermark ocasional) — no se detectó kit templado de posts sociales en 7 posts muestreados.",
+
+      "brand.bear.distinctive.label": "Lo que es distintivo",
+      "brand.bear.distinctive.point-1":
+        "Censo de 1km (14 competidores + 4 benchmarks de Lima, snapshot 2026-08-01): CERO competidores usan un personaje animal como activo de marca. Es espacio blanco verificado, no supuesto.",
+      "brand.bear.distinctive.point-2":
+        "Oso + Art Nouveau + tostadora propia es una firma de tres partes que ningún competidor del censo puede replicar rápido — el claim más cercano de un solo activo es «barista champion founder» de Neira Café Lab, que es una persona, no un personaje.",
+      "brand.bear.distinctive.point-3":
+        "El oso puede cargar narrativa (historias de origen, skins estacionales) sin diluir el mark — observado en cómo @ursacoffeeperu ya empareja ☕️🐻 con captions de origen, lo que sugiere que el oso ya está semánticamente vinculado al café en la propia voz de la marca.",
+
+      "brand.bear.missing.label": "Lo que falta",
+      "brand.bear.missing.point-1":
+        "Sin oso animado (mark en loop, set de stickers sociales) — no presente en ninguno de los 7 posts muestreados de Instagram ni en la vista previa de la página de Facebook.",
+      "brand.bear.missing.point-2":
+        "Sin oso en un kit consistente de plantillas de posts sociales — cada post muestreado usa un tratamiento visual distinto, lo que sugiere que el oso aparece solo cuando el barista recuerda añadir el emoji.",
+      "brand.bear.missing.point-3":
+        "Sin oso como personaje recurrente en email y empaque — no se detectó programa de email (sin sitio web, sin formulario de signup); ninguna foto de empaque en las fuentes muestreadas muestra el mark del oso.",
+
+      "brand.section.distinctive.badge": "Activos distintivos",
+      "brand.section.distinctive.title": "La lectura Ehrenberg-Bass: disponibilidad mental por repetición",
+      "brand.section.distinctive.meta": "Singularidad × Prevalencia · verificado por censo",
+      "brand.section.distinctive.intro":
+        "Los activos distintivos son elementos ajenos al nombre de la marca (personajes, colores, lemas, ornamentación) que identifican una marca en la memoria del comprador. Construyen disponibilidad mental — la probabilidad de que un comprador piense en Ursa en una situación de compra — a través de la repetición consistente. Su eficacia se mide en dos ejes (Romaniuk y Sharp, Ehrenberg-Bass Institute): singularidad (pocos competidores usan el activo) y prevalencia (la mayoría de los compradores de la categoría asocian el activo con la marca). Un activo que es único pero rara vez aplicado todavía no califica — la repetición es el mecanismo, no el diseño.",
+      "brand.section.distinctive.census-callout-title": "El hallazgo del censo",
+      "brand.section.distinctive.census-callout-body":
+        "Censo de 1km desde Alcanfores 183 (snapshot 2026-08-01): 0 de 14 competidores en catchment y 0 de 4 benchmarks de Lima usan un personaje animal como activo de marca. Es espacio blanco verificado — la singularidad del oso está establecida, pero la prevalencia no.",
+      "brand.section.distinctive.why-callout-title": "Por qué esto importa para Ursa",
+      "brand.section.distinctive.why-callout-body":
+        "El oso es un activo distintivo potencial — no confirmado. La diferencia es operacional: un activo potencial solo se vuelve real después de 90 días de aplicación consistente entre superficies Y una encuesta de recordación de cliente (n≥40) que confirme que los compradores asocian el oso con Ursa sin prompting. Hasta entonces, el oso es una decisión de diseño que le gusta al dueño. Después, es un ancla de memoria que lidera la categoría y que los competidores no pueden copiar barato. Esta es la acción de marca de mayor apalancamiento disponible para Ursa en los próximos 90 días.",
+      "brand.distinctive.uniqueness-label": "Singularidad",
+      "brand.distinctive.prevalence-label": "Prevalencia",
+      "brand.distinctive.census-evidence-label": "Evidencia del censo",
+      "brand.distinctive.verdict-label": "Veredicto",
+      "brand.distinctive.promote-label": "Promover a activo distintivo solo si",
+
+      "brand.distinctive.bear.asset": "Personaje del oso (geométrico, con línea Art Nouveau)",
+      "brand.distinctive.bear.uniqueness": "Alta",
+      "brand.distinctive.bear.prevalence": "Baja (actualmente)",
+      "brand.distinctive.bear.census":
+        "Censo de 1km (snapshot 2026-08-01): 0 de 14 competidores en catchment y 0 de 4 benchmarks de Lima usan un personaje animal como activo de marca. La singularidad es verificada, no supuesta.",
+      "brand.distinctive.bear.verdict":
+        "Activo distintivo POTENCIAL. La singularidad está establecida. La prevalencia no — el oso aparece inconsistente entre superficies (avatar de Instagram sí; Rappi no; TripAdvisor no). Recomendación: aplicar el oso de forma consistente en cada touchpoint por 90 días, luego re-medir prevalencia vía una encuesta de recordación de cliente (n≥40) antes de promover el oso de «potencial» a «activo distintivo».",
+      "brand.distinctive.bear.apply-if":
+        "aplicación consistente en Instagram, Rappi, TripAdvisor, Google Business Profile, empaque y signage por ≥90 días",
+
+      "brand.distinctive.ornamentation.asset": "Ornamentación Art Nouveau (línea dorada fina + flourish)",
+      "brand.distinctive.ornamentation.uniqueness": "Alta",
+      "brand.distinctive.ornamentation.prevalence": "Baja (actualmente)",
+      "brand.distinctive.ornamentation.census":
+        "Scan del censo: ningún competidor usa ornamentación Art Nouveau. Los defaults visuales de los competidores son flat-minimal (Neira, Punto) o industrial (Bisetti). El competidor ornamental más cercano es el estilo letterpress de Tostaduría Bisetti, que es adyacente a Arts & Crafts, no Art Nouveau.",
+      "brand.distinctive.ornamentation.verdict":
+        "Activo distintivo POTENCIAL. La singularidad está establecida. La prevalencia no está verificada — se observa solo en plantillas de posts de Instagram, no en Rappi, TripAdvisor o signage. Necesita la misma prueba de aplicación consistente de 90 días que el oso.",
+      "brand.distinctive.ornamentation.apply-if":
+        "ornamentación consistente en Instagram, menú, signage y empaque por ≥90 días",
+
+      "brand.distinctive.tagline.asset": "Lema «Un gramo a la vez»",
+      "brand.distinctive.tagline.uniqueness": "Media-Alta",
+      "brand.distinctive.tagline.prevalence": "Baja",
+      "brand.distinctive.tagline.census":
+        "Scan del censo: ningún competidor usa un lema de gramo de precisión. El claim más cercano es «barista champion» de Neira (sobre la persona, no sobre el proceso). Punto Café usa «Café de especialidad» (claim genérico de categoría).",
+      "brand.distinctive.tagline.verdict":
+        "Activo distintivo POTENCIAL. La singularidad es la más fuerte de los tres porque el claim es operacionalmente específico (un gramo es una unidad medible). La prevalencia no está verificada — actualmente se usa solo en la bio de Instagram y captions de posts. Debe parearse con el oso para disponibilidad mental compuesta.",
+      "brand.distinctive.tagline.apply-if":
+        "aparecer en Instagram, campo de descripción del menú de Rappi, descripción de Google Business Profile, menú impreso y etiqueta de bolsa de café",
+
+      "brand.distinctive.palette.asset": "Paleta de espectro de tueste marrón a verde",
+      "brand.distinctive.palette.uniqueness": "Media",
+      "brand.distinctive.palette.prevalence": "Baja",
+      "brand.distinctive.palette.census":
+        "Scan del censo: el verde bosque profundo como color de HÁBITAT DEL OSO es único de Ursa — los competidores que usan verde lo usan como color plano de marca, no pareado con un personaje oso. La escala marrón del espectro de tueste por sí sola no es distintiva (Bisetti, Punto, Neira todos usan marrón como primario).",
+      "brand.distinctive.palette.verdict":
+        "Activo distintivo POTENCIAL SOLO cuando el verde se parea con el oso. La escala marrón es necesaria pero no suficiente. Sin pareo consistente verde+oso, la paleta por sí sola no construirá disponibilidad mental.",
+      "brand.distinctive.palette.apply-if":
+        "el verde debe aparecer junto al oso en cada activo por ≥90 días; los activos solo-marrón no califican",
+
+      "brand.section.art-nouveau.badge": "Sistema Art Nouveau",
+      "brand.section.art-nouveau.title": "Los cuatro componentes ornamentales",
+      "brand.section.art-nouveau.meta": "Documentado · aplicado · reservado",
+      "brand.section.art-nouveau.live-label": "En vivo · ArtNouveauDivider",
+      "brand.section.art-nouveau.live-detail":
+        "La línea dorada fina con un flourish central. Se usa para separar secciones mayores — nunca para cortar párrafos.",
+
+      "brand.art-nouveau.borders.title": "Bordes ornamentales",
+      "brand.art-nouveau.borders.detail":
+        "Líneas doradas finas con un flourish central enmarcan secciones, menús y certificados — nunca un divisor flat-minimal.",
+      "brand.art-nouveau.borders.evidence":
+        "Observado en las plantillas de posts de Instagram (muestreado 2026-08-01) como una línea dorada fina que enmarca posts de nombre de bebida. NO verificado en signage físico — sin foto a nivel de calle. El pack de activos del dueño (Q6 abierta) se requiere para confirmar si el divisor aparece en el menú impreso.",
+
+      "brand.art-nouveau.type.title": "Tipografía serif display",
+      "brand.art-nouveau.type.detail":
+        "Cormorant Garamond carga los titulares; sus trazos de alto contraste hacen eco a la litografía de principios de siglo XX.",
+      "brand.art-nouveau.type.evidence":
+        "Observado en la tipografía de la bio de Instagram y plantillas de posts (2026-08-01). La familia tipográfica específica se infirió de la altura-x y el contraste — el archivo exacto requiere confirmación del dueño. NO verificado en Rappi (la plataforma sobreescribe la tipografía).",
+
+      "brand.art-nouveau.gold.title": "Acentos dorados",
+      "brand.art-nouveau.gold.detail":
+        "Un único dorado cálido (#B8924A) se reserva para énfasis — eyebrows, líneas finas, los catchlights del oso — nunca para texto de cuerpo.",
+      "brand.art-nouveau.gold.evidence":
+        "Observado como el color de eyebrow en captions de posts de Instagram (2026-08-01). Hex muestreado de 3 posts — varianza ±4 en espacio sRGB, lo que sugiere que el dorado se aplica de forma consistente pero no está codificado como token. NO verificado en empaque o signage.",
+
+      "brand.art-nouveau.botanical.title": "Motivos botánicos / líneas onduladas",
+      "brand.art-nouveau.botanical.detail":
+        "Curvas sinuosas y simétricas (el sello Art Nouveau) aparecen en divisores y como textura de fondo, pareadas con verde bosque profundo.",
+      "brand.art-nouveau.botanical.evidence":
+        "Observado en las portadas de Stories de Instagram (3 de 5 Stories muestreadas usan una curva botánica como textura de fondo). NO verificado en signage físico, menús o empaque — la pregunta abierta Q6 (pack de activos) es el bloqueador. Si el motivo no aparece en el pack, este componente debería bajarse de «verificado» a «propuesto».",
+
+      "brand.section.evolution.badge": "Evolución de marca",
+      "brand.section.evolution.title": "Tres niveles de evolución — una recomendación",
+      "brand.section.evolution.meta": "Refinamiento conservador gana",
+      "brand.section.evolution.intro":
+        "De tres direcciones plausibles, este módulo recomienda el Nivel 1 como sistema permanente. El Nivel 2 es una capa de crecimiento reversible a 6 meses por encima. El Nivel 3 es solo estacional. Un rebrand total queda explícitamente fuera de la mesa — no porque los rebrands siempre estén mal, sino porque la identidad de Ursa ya es su activo ownable (ver Activos Distintivos arriba), y un rebrand destruiría la disponibilidad mental que lidera la categoría y que aún no ha terminado de construir. El orden importa: el Nivel 1 debe fijarse antes de que salga el Nivel 2, y el Nivel 3 está condicionado a la aprobación explícita del dueño.",
+      "brand.section.evolution.why-callout-title": "Por qué el Nivel 1 es el sistema permanente",
+      "brand.section.evolution.why-callout-body":
+        "Ursa ya hace lo que funciona en 2025–26: identidad sobre perseguir tendencias. El oso, la línea Art Nouveau, el layout de dos barras y las bebidas con nombre suman una marca que los competidores no pueden copiar rápido. Refinar — no reemplazar — cuida ese activo y gasta el presupuesto en distribución (Módulo 04) en vez de en churn de identidad.",
+      "brand.evolution.recommended-tag": "Recomendado",
+      "brand.evolution.risk-label": "Riesgo y limitación",
+
+      "brand.evolution.level-1.name": "Refinamiento conservador",
+      "brand.evolution.level-1.horizon": "Sistema permanente",
+      "brand.evolution.level-1.summary":
+        "Codificar el oso, la paleta, la tipografía y los motivos Art Nouveau existentes en un sistema de diseño documentado. Apretar las reglas de aplicación, añadir las plantillas sociales y de empaque faltantes y fijar el mark del oso en tamaños consistentes. Este es el sistema permanente recomendado.",
+      "brand.evolution.level-1.outcome-1": "Tokens de color, tipografía y componentes documentados",
+      "brand.evolution.level-1.outcome-2": "Reglas de uso del mark del oso en cada superficie",
+      "brand.evolution.level-1.outcome-3": "Plantillas reutilizables de social, menú y empaque",
+      "brand.evolution.level-1.risk":
+        "Riesgo: overhead de documentación sin enforcement. Un sistema de diseño que vive solo en un archivo Figma y no en un checklist impreso de «brand police» (referencia de una página para baristas, imprenta y creadores) se degrada en 90 días. Mitigación: entrega el checklist de una página junto al archivo Figma; audita la aplicación en los días 30, 60, 90. Limitación: también depende del pack de activos del dueño (Q6 abierta) — si el mark oficial del oso no se entrega en 14 días, el Nivel 1 no se puede fijar.",
+
+      "brand.evolution.level-2.name": "Sistema de crecimiento distintivo",
+      "brand.evolution.level-2.horizon": "Capa de 6 meses",
+      "brand.evolution.level-2.summary":
+        "Encimar una capa de crecimiento de 6 meses sobre el Nivel 1: variantes animadas del oso, un acento tipográfico específico de campaña y tratamientos dorados estacionales. Todo se queda reversible; el sistema del Nivel 1 debajo no se toca.",
+      "brand.evolution.level-2.outcome-1": "Oso animado (mark en loop + set de stickers)",
+      "brand.evolution.level-2.outcome-2": "Un acento de campaña encimado en la paleta fijada",
+      "brand.evolution.level-2.outcome-3": "Reversible — se quita después de 6 meses sin deuda de activos",
+      "brand.evolution.level-2.risk":
+        "Riesgo: creep de presupuesto de animación. Las variantes animadas del oso requieren trabajo de motion-design que, si se scopea suelto, se vuelve costo recurrente de producción (S/. 400–1,200 por set de stickers). Riesgo: «reversible» solo se sostiene si el Nivel 1 se fija PRIMERO — saltarse el Nivel 1 y saltar al Nivel 2 es la razón más común por la que los rebrands fallan. Mitigación: condicionar el Nivel 2 a un freeze del Nivel 1 de 4 semanas. Limitación: no se puede evaluar a tamaño thumbnail en el grid de Instagram si la animación del oso vive solo en Stories — la impresión del grid estático se seguirá leyendo como Nivel 1.",
+
+      "brand.evolution.level-3.name": "Expresión estacional experimental",
+      "brand.evolution.level-3.horizon": "Solo estacional",
+      "brand.evolution.level-3.summary":
+        "Expresiones estacionales y time-boxed: una variante de oso para feriado, un colorway de una sola colaboración o un skin de festival. Siempre se revierte al final de la temporada; nunca se promueve al sistema permanente sin una revisión explícita.",
+      "brand.evolution.level-3.outcome-1": "Skins estacionales time-boxed (≤ 8 semanas)",
+      "brand.evolution.level-3.outcome-2": "Claramente etiquetados como limitados, nunca como la nueva marca",
+      "brand.evolution.level-3.outcome-3": "Revertidos a tiempo, documentados para archivo",
+      "brand.evolution.level-3.risk":
+        "Riesgo: confusión del cliente. Si un skin estacional es demasiado distintivo (ej. constelación invertida sobre espresso-black), los clientes que regresan pueden no reconocerlo como la misma marca — particularmente dañino para una cafetería que depende de un catchment caminable de 1km donde reconocimiento = footfall. Riesgo: «seasonal creep» — un skin que funciona comercialmente se tienta a permanencia, rompiendo la integridad del Nivel 1. Mitigación: fecha de expiración dura de 8 semanas impresa en cada activo del Nivel 3; la promoción a permanente requiere aprobación explícita del dueño y un periodo de enfriamiento de 30 días.",
+
+      "brand.section.summary.badge": "Resumen de auditoría",
+      "brand.section.summary.title": "Consistente · Inconsistente · Distintivo · Faltante",
+      "brand.section.summary.meta": "El 2×2 con el que termina toda auditoría de marca",
+
+      "brand.summary.consistent.title": "Consistente",
+      "brand.summary.consistent.item-1": "Mark del oso + nombre (Ursa) en storefront y producto",
+      "brand.summary.consistent.item-2": "Paleta de marrones y verdes con superficies crema",
+      "brand.summary.consistent.item-3": "Cormorant Garamond display, Inter body, Oswald labels",
+      "brand.summary.consistent.item-4": "Tostadora propia como columna operacional y narrativa",
+
+      "brand.summary.inconsistent.title": "Inconsistente",
+      "brand.summary.inconsistent.item-1": "Aplicación del oso varía por superficie — sin set de ilustración codificado",
+      "brand.summary.inconsistent.item-2": "Posts sociales ad hoc, no templados",
+      "brand.summary.inconsistent.item-3": "Etiquetas de empaque rara vez muestran el oso de forma consistente",
+      "brand.summary.inconsistent.item-4": "Sin sitio web que cargue la identidad online",
+
+      "brand.summary.distinctive.title": "Distintivo",
+      "brand.summary.distinctive.item-1": "Único tostador de Lima con un personaje animal ownable",
+      "brand.summary.distinctive.item-2": "Oso + Art Nouveau + layout de dos barras es una firma de tres partes",
+      "brand.summary.distinctive.item-3": "Bebidas con nombre como Ursagroni son memorables y ownable",
+      "brand.summary.distinctive.item-4": "«Un gramo a la vez» es un claim de craft de precisión que los competidores no tienen",
+
+      "brand.summary.missing.title": "Faltante",
+      "brand.summary.missing.item-1": "Oso animado y set de stickers sociales",
+      "brand.summary.missing.item-2": "Kit consistente de plantillas de posts sociales",
+      "brand.summary.missing.item-3": "Oso como personaje recurrente en email y empaque",
+      "brand.summary.missing.item-4": "Tokens de sistema de diseño documentados (este módulo lo resuelve)",
+
+      "brand.section.spirit.badge": "Baranda",
+      "brand.section.spirit.title": "El principio de preservación del espíritu",
+      "brand.spirit.eyebrow": "Principio de preservación del espíritu",
+      "brand.spirit.headline": "Nunca elegir una táctica de crecimiento genérica sobre el oso.",
+      "brand.spirit.body":
+        "Si una recomendación obliga a elegir entre (a) cuidar la identidad existente de Ursa — oso, Art Nouveau, tostadora — y (b) perseguir una táctica de crecimiento genérica, este dossier siempre elige (a). La dirección de refinamiento conservador es el sistema permanente; las expresiones experimentales se quedan estacionales y reversibles. Esta es la baranda que heredan todos los módulos siguientes — y la prueba que decide la elección es operacional, no estética: si la táctica requiere un cambio de layout, un cambio de mark de marca o un giro tonal que el oso no pueda cargar, falla la baranda y se rechaza.",
+      "brand.spirit.chip.bear": "Oso · Gramo · Verde",
+      "brand.spirit.chip.no-rebrand": "Sin rebrand · sin playbook genérico",
+      "brand.spirit.chip.experiments": "Experimentos reversibles con reglas de parada de 14–30 días",
+
+      "brand.section.dossier.badge": "Dossier estático",
+      "brand.section.dossier.title": "Lee el dossier HTML imprimible",
+      "brand.section.dossier.body":
+        "El dossier completo del Módulo 01, listo para imprimir, está disponible como HTML navegable — ábrelo para las tablas completas de auditoría y las hojas de color imprimibles.",
+      "brand.section.dossier.button": "Abrir la guía de estilo interactiva",
+
+      "brand.stat.palette": "Tokens de paleta verificados",
+      "brand.stat.typography": "Voces tipográficas, un ritmo",
+      "brand.stat.evolution": "Niveles de evolución de marca",
+      "brand.stat.recommended": "Sistema permanente recomendado",
+
+      /* ---- Módulo 02 · Mercado (cuerpo profundizado + copy de sección) ---- */
+      "market.hero.lede":
+        "Este módulo corre un censo sistemático de competidores a 1km desde la dirección de Ursa en Alcanfores 183 — doce calles con nombre que irradian desde Parque Kennedy recorridas virtualmente, cada café público registrado contra Google Places, TripAdvisor y location tags de Instagram — luego lee los patrones de voz del cliente entre ellos y convierte cada hallazgo en algo que Ursa puede igualar, evitar o liderar. El oso no se toma prestado de la categoría; es la única posición que queda sin contender. El censo es un conjunto cerrado: cada competidor con nombre dentro de 1km está nombrado. Los temas de voz del cliente se infieren de patrones de reseña de competidores, no todavía de una muestra codificada de los propios clientes de Ursa — esa limitación se nombra donde aplica.",
+      "market.hero.meta.census": "Censo",
+      "market.hero.meta.competitors": "competidores",
+      "market.hero.meta.scope": "Alcance",
+      "market.hero.meta.in-catchment": "en 1km",
+      "market.hero.meta.benchmarks": "benchmarks de Lima",
+      "market.reviews-suffix": "reseñas",
+
+      "market.stat.competitors": "Competidores en el censo",
+      "market.stat.catchment": "Dentro del catchment de 1km",
+      "market.stat.operating-uncertain": "Operando · Incierto",
+      "market.stat.same-street": "Misma calle que Ursa",
+
+      "market.proximity.same-street": "Misma calle",
+      "market.proximity.nearby": "Cercano",
+      "market.proximity.within-1km": "Dentro de 1km",
+      "market.proximity.out-of-area-lima-wide": "Benchmark",
+      "market.proximity-desc.same-street": "Proximidad crítica — misma calle que Ursa, <250m a pie",
+      "market.proximity-desc.nearby": "Dentro de ~500m a pie de Ursa",
+      "market.proximity-desc.within-1km": "Dentro de un radio de 1km a pie de Ursa",
+      "market.proximity-desc.out-of-area-lima-wide": "Benchmark de Lima fuera del catchment de 1km",
+
+      "market.status.operating": "Operando",
+      "market.status.uncertain": "Incierto",
+      "market.website.yes": "Sitio web",
+      "market.website.no": "Sin sitio",
+
+      "market.competitor.strength": "Fortaleza",
+      "market.competitor.weakness": "Debilidad",
+      "market.competitor.ursa-implication": "Implicación para Ursa",
+
+      "market.section.census.badge": "Censo de competidores a 1km",
+      "market.section.census.title": "Cada competidor con nombre dentro de 1km a pie de Alcanfores 183",
+      "market.section.census.meta": "Grid sistemático que irradia desde calles · snapshot 2026-08-01",
+      "market.section.census.intro":
+        "El conjunto de competidores ya no es una shortlist — es un censo. Cada calle con nombre dentro de 1km a pie de la dirección de Ursa se recorrió virtualmente vía Google Maps Street View y se cruzó contra Google Places, TripAdvisor y location tags de Instagram. El resultado: 14 competidores dentro del catchment de 1km más 4 benchmarks de Lima (Bisetti, Ciclos, RAIZ, Monótono) incluidos para contexto posicional. La proximidad tiene código de color: rojo = misma calle, dorado = cercano, verde = dentro de 1km, gris = benchmark fuera del área. Un radio de 1km es el catchment práctico para un espresso bar en un distrito denso y caminable como Miraflores — más allá, el cliente está eligiendo viajar, no entrando de paso.",
+      "market.section.census.summary.discovered": "Total descubiertos",
+      "market.section.census.summary.operating": "Operando",
+      "market.section.census.summary.uncertain": "Estado incierto",
+      "market.section.census.summary.direct": "Competidores directos",
+      "market.section.census.table.title": "Tabla del censo — ordenada del más cercano",
+      "market.section.census.table.streets": "calles recorridas",
+      "market.section.census.col.competitor": "Competidor",
+      "market.section.census.col.address": "Dirección",
+      "market.section.census.col.distance": "Distancia",
+      "market.section.census.col.type": "Tipo",
+      "market.section.census.col.google": "Google",
+      "market.section.census.col.tripadvisor": "TripAdvisor",
+      "market.section.census.col.status": "Estado",
+
+      "market.section.census.coverage.title": "Metodología de cobertura — cómo se construyó el censo",
+      "market.section.census.coverage.study-area-label": "Área de estudio",
+      "market.section.census.coverage.study-area":
+        "Radio de 1km a pie desde Alcanfores 183, Miraflores. 1km es el catchment práctico para un espresso bar en un distrito denso y caminable como Miraflores.",
+      "market.section.census.coverage.grid-label": "Definición del grid",
+      "market.section.census.coverage.grid":
+        "Grid que irradia desde calles desde Parque Kennedy — cada calle con nombre dentro de 1km recorrida virtualmente vía Google Maps Street View.",
+      "market.section.census.coverage.streets-label": "Calles buscadas",
+      "market.section.census.coverage.inclusion-label": "Inclusión / exclusión",
+      "market.section.census.coverage.inclusion":
+        "Dentro: café de especialidad como categoría primaria, dirección física verificable, público. Fuera: cadenas con >10 locales en Lima (Starbucks, Juan Valdez), pizzerías, café de hotel, carts informales.",
+      "market.section.census.coverage.stat.discovered": "Descubiertos",
+      "market.section.census.coverage.stat.in-catchment": "En catchment",
+      "market.section.census.coverage.stat.operating": "Operando",
+      "market.section.census.coverage.stat.uncertain-closed": "Inciertos / cerrados",
+      "market.section.census.coverage.anchor-label": "Hallazgos ancla:",
+      "market.section.census.coverage.anchor-body":
+        "el competidor confirmado más cercano es {nearestConfirmed}; el incierto más cercano es {nearestUncertain}; el de mayor volumen de reseñas es {highestVolume}; el mejor calificado es {highestRated}; el líder de premios en catchment es {awardInCatchment}; el benchmark de Lima a vencer es {awardLimaWide}.",
+      "market.section.census.coverage.methodology-toggle": "Metodología, limitaciones y próximos pasos",
+      "market.section.census.coverage.next-steps-label": "Próximos pasos",
+      "market.section.census.coverage.full-census-prefix": "Censo estructurado completo:",
+
+      "market.section.landscape.badge": "Landscape de competidores",
+      "market.section.landscape.title": "Los dieciocho nombres alrededor de Ursa",
+      "market.section.landscape.meta": "Deep-dive por competidor · snapshot 2026-08-01",
+      "market.section.landscape.intro":
+        "El censo de arriba es la vista sistemática; las tarjetas de abajo son el deep-dive por competidor. Para cada competidor la tarjeta nombra una fortaleza, una debilidad y la implicación que se sigue para Ursa. Catorce están dentro del catchment de 1km; cuatro (Bisetti, Ciclos, RAIZ, Monótono) son benchmarks de Lima incluidos para contexto posicional — no competidores directos que un cliente de Miraflores compara en la misma caminata, sino puntos de referencia de lo que se ve como liderazgo de categoría a escala Lima.",
+
+      "market.section.ownable.badge": "Espacio ownable",
+      "market.section.ownable.title": "Ursa se sienta ortogonal a la categoría",
+      "market.section.ownable.meta": "No una mejor cafetería — una distinta",
+      "market.section.ownable.intro":
+        "Cada competidor fuerte de Miraflores es dueño de una posición. Punto Café es dueño del premio. Neira es dueño de la escala. Bisetti es dueño de la escuela. Puku Puku es dueño del microlote. Terrua es dueño de la degustación premium. Ninguno es dueño de un animal, de un lenguaje de diseño Art Nouveau o de un teatro de dos barras — y ninguno usa bebidas con nombre. Estas posiciones no son fáciles de copiar porque cada una está respaldada por un activo duro: el certificado de premio de Punto, los cuatro locales de Neira, el programa de entrenamiento de Bisetti, la cadena de microlotes de Puku Puku, el sourcing farm-to-cup de Terrua. El oso de Ursa, el layout de dos barras y el sistema de bebidas con nombre son igualmente difíciles de copiar porque cada uno está respaldado por un compromiso físico u operacional — una marca, un espacio construido, una disciplina de carta — que un competidor no puede redeployar sin igualar los tres.",
+      "market.section.ownable.ortho-title": "El principio de ortogonalidad",
+      "market.section.ownable.ortho-body":
+        "El espacio ownable de Ursa — oso + dos barras + bebidas con nombre (Ursagroni, Maracumango) + «Un gramo a la vez» — no compite contra las posiciones existentes de la categoría. Se sienta en ángulo recto con ellas. Un cliente puede amar el premio de Punto Café y aun así elegir Ursa por el oso. Ese es el foso — y la regla operacional que implica es que Ursa nunca debe intentar ganarle el premio a Punto, la escala a Neira o la escuela a Bisetti. Cada uno de esos concursos tiene un incumbente con ventaja estructural; el concurso del oso no tiene incumbente.",
+      "market.section.ownable.rule":
+        "La regla estratégica que se sigue: nunca intentar ganarle el premio a Punto, la escala a Neira o la escuela a Bisetti. En cambio, ser la única cafetería en Lima donde el oso, el gramo y el verde son visiblemente el sistema operativo.",
+      "market.section.ownable.card-title": "Quién es dueño de qué",
+      "market.section.ownable.card-footnote": "La fila de Ursa es la única que ningún competidor puede reclamar",
+      "market.ownable.punto": "Premios",
+      "market.ownable.neira": "Escala",
+      "market.ownable.bisetti": "«Escuela de café»",
+      "market.ownable.puku-puku": "Microlotes",
+      "market.ownable.terrua": "Degustación premium",
+      "market.ownable.ursa": "El oso",
+
+      "market.section.voice.badge": "Voz del cliente",
+      "market.section.voice.title": "Lo que los clientes de cafetería de Lima dicen de verdad",
+      "market.section.voice.meta": "Cuatro temas · verificados de reseñas públicas y observación directa",
+      "market.section.voice.methodology-title": "Metodología y limitaciones",
+      "market.section.voice.methodology-intro":
+        "Los temas de voz del cliente de abajo son ilustrativos, no validados. Se infieren de patrones de reseña de competidores y del propio análisis competitivo del dossier, no de una muestra codificada de los clientes de Ursa. Léelos como señal direccional, no como lectura cuantitativa de la clientela de Ursa.",
+      "market.section.voice.field.boundary": "Límite de mercado",
+      "market.section.voice.field.boundary-value": "Cafés de especialidad de Miraflores + líderes de Lima para benchmarking",
+      "market.section.voice.field.platforms": "Plataformas muestreadas",
+      "market.section.voice.field.platforms-value": "Instagram, Rappi, TripAdvisor, Google Maps, CoffeePass",
+      "market.section.voice.field.period": "Periodo de observación",
+      "market.section.voice.field.period-value": "2026-08-01 (snapshot puntual)",
+      "market.section.voice.field.sample": "Muestra",
+      "market.section.voice.field.sample-value": "Fichas públicas y bios de 10 competidores; muestras de reseña de TripAdvisor donde disponible",
+      "market.section.voice.field.inclusion": "Criterios de inclusión",
+      "market.section.voice.field.inclusion-value": "Competidores directos de Miraflores + líderes de especialidad de Lima con presencia online pública",
+      "market.section.voice.field.coding": "Codificación",
+      "market.section.voice.field.coding-value": "Temas agrupados por tópico recurrente (calidad, servicio, ambiente, valor, accesibilidad)",
+      "market.section.voice.limitation-label": "Limitación:",
+      "market.section.voice.limitation-body":
+        "El TripAdvisor de Ursa tiene ~0 reseñas; los temas de cliente se infieren de patrones de reseña de competidores y del propio análisis competitivo del dossier, no de una muestra codificada de los clientes de Ursa. Un estudio propio de voz del cliente requiere datos POS proporcionados por el dueño, una encuesta consentida o una muestra minada de ≥50 reseñas específicas de Ursa (no disponible actualmente). La muestra de reseñas reales de abajo complementa estos temas con menciones públicas verbatim pero no reemplaza un estudio codificado de voz del cliente.",
+
+      "market.section.voice.review-sample.eyebrow": "Estado de la muestra de reseñas",
+      "market.section.voice.review-sample.title": "Reseñas reales de cliente y voz externa",
+      "market.section.voice.review-sample.intro":
+        "Se buscaron {platforms} plataformas el {date}. Se encontraron {real} menciones reales específicas de Ursa (mayormente posts y reels de Instagram) y {aggregate} calificaciones agregadas de plataformas de directorios. La huella pública de reseñas de Ursa es delgada pero no cero — y está concentrada en Instagram y Google, no en TripAdvisor.",
+      "market.section.voice.review-sample.correction":
+        "Corrección al dossier previo: la evidencia de agregadores (datos schema.org LocalBusiness de addagio.io) muestra que Ursa tiene un Google Business Profile activo con ~56 reseñas a 4.5 estrellas. El claim previo de que el perfil de Google de Ursa estaba «missing/unverified» era incorrecto. La fricción real es una optimización débil de SEO/GBP (Ursa no aparece en las guías de «mejores cafés de Lima» del propio Google), no una presencia faltante.",
+      "market.section.voice.review-sample.platforms-toggle": "Plataformas buscadas y limitaciones",
+      "market.section.voice.review-sample.platforms-label": "Plataformas buscadas",
+      "market.section.voice.review-sample.methodology-label": "Metodología",
+      "market.section.voice.review-sample.limitations-label": "Limitaciones",
+      "market.section.voice.review-sample.source-link": "Fuente",
+      "market.section.voice.themes-divider": "Los temas ilustrativos de abajo se infieren de patrones de competidores",
+      "market.section.voice.theme-label.theme": "Tema",
+      "market.section.voice.theme-label.value": "Valor",
+      "market.section.voice.theme-label.pain": "Dolor",
+      "market.section.voice.theme-label.friction": "Fricción",
+      "market.section.voice.theme-label.lead": "Liderazgo",
+      "market.section.voice.theme-label.evidence": "Evidencia",
+      "market.section.voice.evidence-prefix": "Evidencia ·",
+      "market.section.voice.sample-prefix": "Muestra ·",
+
+      "market.section.conversion.badge": "Conversión a acción",
+      "market.section.conversion.title": "De hallazgos a una worklist de 90 días",
+      "market.section.conversion.meta": "Seis pistas · cada una rastreable a un competidor o un tema de voz del cliente",
+      "market.section.conversion.intro":
+        "Cada tarjeta de abajo es una conversión directa de un hallazgo de arriba — ninguna tarjeta es especulativa. Donde una tarjeta referencia un competidor, la implicación es explícita; donde referencia un tema de voz del cliente, se nombra el punto de fricción. Las seis pistas están secuenciadas para una worklist de 90 días: primero estándares (porque igualar las líneas base de la categoría es prerrequisito para liderarlas), luego evitación (porque las pérdidas se acumulan más rápido que las ganancias), luego liderazgo (las aperturas en forma de oso que el censo verificó).",
+
+      "market.conversion.standards.title": "Estándares que Ursa debe igualar",
+      "market.conversion.standards.item-1": "Visibilidad de premios — Punto Café ganó Premios Somos 2024; Ursa necesita una entrada de premios creíble",
+      "market.conversion.standards.item-2": "Calidad de degustación premium — Terrua cobra US$25; el cupping de Ursa debe ser técnicamente ajustado",
+      "market.conversion.standards.item-3": "Profundidad educativa — Bisetti es dueño de la escuela; los baristas de Ursa deben hablar origen con fluidez",
+      "market.conversion.standards.item-4": "Transparencia de grano — Puku Puku lista microlotes; el menú de Ursa debe mostrar origen, proceso, altitud",
+
+      "market.conversion.problems.title": "Problemas a evitar",
+      "market.conversion.problems.item-1": "Dilución de cobranding — la alianza WorkCafé de Neira suaviza su identidad de cafetería",
+      "market.conversion.problems.item-2": "Sensación de cadena a escala — Puku Puku cambia ambiente por reach",
+      "market.conversion.problems.item-3": "Mensajería genérica de sostenibilidad — el copy verde de Café Verde podría ser de cualquiera",
+      "market.conversion.problems.item-4": "Formalidad educativa — el tono escuela de Bisetti puede sentirse como tarea",
+      "market.conversion.problems.item-5": "Café de delivery frío o diluido — un queja recurrente en Lima",
+
+      "market.conversion.lead.title": "Áreas para liderar",
+      "market.conversion.lead.item-1": "Personaje de marca liderado por oso que ningún competidor tiene",
+      "market.conversion.lead.item-2": "Teatro de dos barras (espresso + coldbrew) visible desde la calle",
+      "market.conversion.lead.item-3": "Naming de bebida por portmanteau — Ursagroni, Maracumango — como sistema de firma",
+      "market.conversion.lead.item-4": "«Un gramo a la vez» como ethos de craft paciente",
+      "market.conversion.lead.item-5": "Lenguaje craft Art Nouveau aplicado de forma consistente en cada touchpoint",
+
+      "market.conversion.experience.title": "Mejoras de experiencia del cliente",
+      "market.conversion.experience.item-1": "Google Business Profile verificado — algo básico que los competidores también descuidan",
+      "market.conversion.experience.item-2": "Indicador en vivo de «¿está lleno ahora?» en el sitio de la cafetería",
+      "market.conversion.experience.item-3": "Canal claro de reserva para degustaciones y cuppings",
+      "market.conversion.experience.item-4": "Tarjetas de grano que marquen lotes estacionales vs. permanentes",
+      "market.conversion.experience.item-5": "Wi-Fi fuerte y tomacorrientes accesibles para trabajadores remotos",
+
+      "market.conversion.product.title": "Oportunidades de producto",
+      "market.conversion.product.item-1": "Flights de degustación por niveles — entrada accesible más profundidad premium vs. el techo de US$25 de Terrua",
+      "market.conversion.product.item-2": "Sub-línea de microlotes — tomar prestado el posicionamiento de Puku Puku sin la sensación de cadena",
+      "market.conversion.product.item-3": "Tarjetas de grano con historia de origen — parear con la línea Filtrado Lonya vs. RAIZ",
+      "market.conversion.product.item-4": "Rotación de bebidas con nombre — una nueva bebida con nombre cada temporada mantiene viva la carta",
+      "market.conversion.product.item-5": "Suscripción con economía de attach-rate — ver la Calculadora de Suscripción",
+
+      "market.conversion.marketing.title": "Proof points de marketing",
+      "market.conversion.marketing.item-1": "«Tostadora propia, visible desde la barra» — prueba de credibilidad de especialidad",
+      "market.conversion.marketing.item-2": "«Dos barras: espresso + coldbrew» — teatro visible",
+      "market.conversion.marketing.item-3": "«Bebidas originales que puedes pedir por nombre» — Ursagroni, Maracumango",
+      "market.conversion.marketing.item-4": "«Craft Art Nouveau, aplicado de forma consistente» — lenguaje de diseño como foso",
+      "market.conversion.marketing.item-5": "«Intimidad de sitio único» — una cafetería en Miraflores, no una cadena",
+
+      "market.section.website-gap.badge": "La brecha del sitio web",
+      "market.section.website-gap.title": "De {count} competidores con sitio web, Ursa no es uno de ellos.",
+      "market.section.website-gap.meta": "Surfaced en censo de 1km · prioridad de 30 días",
+      "market.section.website-gap.callout-title": "Esta es la brecha de infraestructura más visible del dossier",
+      "market.section.website-gap.callout-body":
+        "{withWebsite} de {total} competidores en el censo de 1km mantienen un sitio web público. La presencia descubrible de Ursa es solo Instagram. Un visitante primerizo que busca «café de especialidad Miraflores» en Google encuentra un muro de sitios de competidores — Punto Café, Neira Café Lab, Terrua, Cate Tasting Room y más — y un Google Business Profile subóptimo a cambio. El oso es invisible en el momento de mayor intención.",
+      "market.section.website-gap.priority-label": "Prioridad de 30 días:",
+      "market.section.website-gap.priority-body":
+        "lanzar un sitio de una sola página que cargue la identidad verificada — dirección, horario, bebidas de autor, el oso, la línea craft Art Nouveau y un canal de reserva para degustaciones. El sistema de diseño completo ya existe en el Módulo 01. Las bebidas de autor están verificadas en el Módulo 03. Esto es ensamblaje, no invención — y el costo de implementación es proporcionalmente pequeño: una sola página Next.js con los tokens existentes, deployable a un host estático gratuito en 72 horas. El costo de no lanzarlo es mayor: cada búsqueda en Google de «café Miraflores» que aterriza en el sitio de un competidor es un cliente al que Ursa no ha pagado costo de adquisición por alcanzar y aun así pierde.",
+      "market.section.website-gap.open-brand": "Abrir Auditoría de Marca (Módulo 01)",
+      "market.section.website-gap.open-dashboard": "Abrir el Tablero de Competidores interactivo",
+
+      "market.section.dossier.body":
+        "Todos los claims de competidores tienen fuente y fecha de snapshot. Ver Fuentes y Evidencia para citas completas.",
     },
   },
 };
