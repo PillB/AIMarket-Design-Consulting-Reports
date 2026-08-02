@@ -161,8 +161,9 @@ function RatingCell({
   );
 }
 
-/** Distance formatter — meters or km. */
-function formatDistance(m: number): string {
+/** Distance formatter — meters or km. Safe for undefined/NaN. */
+function formatDistance(m: number | undefined | null): string {
+  if (m == null || typeof m !== "number" || !isFinite(m) || isNaN(m)) return "—";
   if (m < 1000) return `${m}m`;
   return `${(m / 1000).toFixed(1)}km`;
 }
@@ -265,7 +266,7 @@ export function MarketView() {
 
   // Sorted by distance for the census table — nearest first.
   const censusSorted = [...COMPETITORS].sort(
-    (a, b) => a.distanceMeters - b.distanceMeters,
+    (a, b) => (a.distanceMeters ?? 9999) - (b.distanceMeters ?? 9999),
   );
 
   const ownableSpaces = [
