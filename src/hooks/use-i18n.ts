@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useSyncExternalStore, useCallback, useEffect } from "react";
 import {
   DEFAULT_LANGUAGE,
   I18N_STORAGE_KEY,
@@ -13,8 +13,7 @@ import {
  * preference is stored — the strategic dossier ships in English first;
  * Spanish (Peru) is opt-in for the customer-facing copy.
  */
-function readClientLanguage(): Language {
-  if (typeof window === "undefined") return DEFAULT_LANGUAGE;
+function readLanguage(): Language {
   try {
     const saved = localStorage.getItem(I18N_STORAGE_KEY) as Language | null;
     if (saved === "en" || saved === "es") return saved;
@@ -24,40 +23,48 @@ function readClientLanguage(): Language {
   }
 }
 
+/** Subscribe to language changes from other tabs and the toggle function. */
+function subscribe(callback: () => void): () => void {
+  window.addEventListener("storage", callback);
+  window.addEventListener("ursa-i18n-change", callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener("ursa-i18n-change", callback);
+  };
+}
+
+/** Client snapshot — reads the current language from localStorage. */
+function getSnapshot(): Language {
+  return readLanguage();
+}
+
+/**
+ * Server snapshot — always returns the default language. This is also used
+ * for the initial client render by useSyncExternalStore, preventing the
+ * SSR/CSR hydration mismatch when the client's localStorage holds "es"
+ * but the server rendered "en".
+ */
+function getServerSnapshot(): Language {
+  return DEFAULT_LANGUAGE;
+}
+
 /**
  * Language hook with localStorage persistence. Returns:
  *  - `lang`      : the active language ("en" | "es")
- *  - `setLang`   : setter that also persists
+ *  - `setLang`   : setter that also persists and updates <html lang>
  *  - `toggle`    : flips between en and es
  *  - `t(key)`    : resolves a dotted key (e.g. "nav.dashboard" or
  *                  "content.view.brand.title") for the active language,
- *                    with English as fallback.
+ *                  with English as fallback.
  *
- * Also broadcasts the change via a custom event so other mounted
- * instances of the hook stay in sync (e.g. header + dashboard).
+ * Uses `useSyncExternalStore` for hydration-safe reads: the server and the
+ * initial client render both see the default language, then the client
+ * switches to the real localStorage value after hydration.
  */
 export function useI18n() {
-  const [lang, setLangState] = useState<Language>(readClientLanguage);
-
-  useEffect(() => {
-    function onStorage(e: StorageEvent) {
-      if (e.key === I18N_STORAGE_KEY && (e.newValue === "en" || e.newValue === "es")) {
-        setLangState(e.newValue);
-      }
-    }
-    function onCustom() {
-      setLangState(readClientLanguage());
-    }
-    window.addEventListener("storage", onStorage);
-    window.addEventListener("ursa-i18n-change", onCustom);
-    return () => {
-      window.removeEventListener("storage", onStorage);
-      window.removeEventListener("ursa-i18n-change", onCustom);
-    };
-  }, []);
+  const lang = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const setLang = useCallback((next: Language) => {
-    setLangState(next);
     try {
       localStorage.setItem(I18N_STORAGE_KEY, next);
     } catch {
@@ -72,13 +79,22 @@ export function useI18n() {
   }, []);
 
   const toggle = useCallback(() => {
-    setLang(lang === "es" ? "en" : "es");
-  }, [lang, setLang]);
+    setLang(readLanguage() === "es" ? "en" : "es");
+  }, [setLang]);
 
   const t = useCallback(
     (key: string) => translate(lang, key),
     [lang],
   );
 
-  return { lang, setLang, toggle, t };
+  // Keep <html lang="..."> in sync with the active language. This is a DOM
+  // side effect (not state management) so it does not trigger the
+  // set-state-in-effect lint rule.
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = lang;
+    }
+  }, [lang]);
+
+  return { lang, setLang, toggle, t, mounted: true };
 }
