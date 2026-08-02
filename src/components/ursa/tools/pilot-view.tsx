@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import { BearMark, Pill, Callout, StatBlock, ProgressBar, ArtNouveauDivider } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 import {
   Users, Coffee, Cookie, TrendingUp, TrendingDown, AlertTriangle,
@@ -12,11 +13,10 @@ import {
 
 /**
  * Ursa Mañana Pilot Dashboard — an interactive tracker for the S/. 20/month
- * subscription pilot (EXP-11). Simulates sign-ups, side-attach, cannibalization,
+ * subscription pilot. Models sign-ups, side-attach, cannibalization,
  * and net profit over a 90-day pilot. All inputs editable; metrics recalculate live.
  *
- * This is a planning simulator, not a live data source. Real pilot data would
- * replace the inputs when available.
+ * Adjust the inputs to model different scenarios.
  */
 
 type WeekData = { signups: number; activeVisits: number; sideAttach: number; cannibal: number };
@@ -52,6 +52,7 @@ const DEFAULT_WEEKS: WeekData[] = [
 
 export function PilotView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [params, setParams] = useState(DEFAULTS);
   const [weeks, setWeeks] = useState<WeekData[]>(DEFAULT_WEEKS);
 
@@ -110,17 +111,16 @@ export function PilotView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T12 · Interactive pilot simulator"
-        title="Ursa Mañana Pilot Dashboard — track the S/. 20/month subscription as it runs"
+        eyebrow={t("content.view.pilot.eyebrow")}
+        title={t("content.view.pilot.title")}
         lede={
           <>
-            A 12-week simulator for the Ursa Mañana subscription pilot (EXP-11). Edit the per-subscriber
-            economics and the weekly sign-up trajectory; watch net profit, side-attach, and cannibalization
-            recalculate live. When the real pilot runs, replace these inputs with actual data.
+            A 12-week model for the subscription pilot. Adjust the inputs to model different scenarios —
+            net profit, side-attach, and cannibalization recalculate live as you edit.
           </>
         }
         meta={[
-          { label: "Pilot", value: "EXP-11 · 12 weeks" },
+          { label: "Pilot", value: "12 weeks" },
           { label: "Cap", value: "50 subscribers" },
           { label: "Stop rule", value: "Net profit < 0 at day 60" },
         ]}

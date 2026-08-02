@@ -15,6 +15,7 @@ import {
 } from "../ursa-brand";
 import { PALETTE, TYPOGRAPHY } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   Copy,
   Check,
@@ -134,17 +135,14 @@ function CopyButton({ hex }: { hex: string }) {
 
 export function StyleGuideView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   return (
     <>
       {/* 1. Hero */}
       <ViewHero
-        eyebrow="Extra Tool T5 · Interactive"
-        title={
-          <>
-            Brand Style Guide Explorer — the verified tokens, live.
-          </>
-        }
+        eyebrow={t("content.view.style-guide.eyebrow")}
+        title={<>{t("content.view.style-guide.title")}</>}
         lede={
           <>
             An interactive reference for Ursa's verified design system. Copy any colour token, see every

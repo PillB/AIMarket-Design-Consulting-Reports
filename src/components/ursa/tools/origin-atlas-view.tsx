@@ -10,6 +10,7 @@ import {
   StatBlock,
 } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   BarChart,
   Bar,
@@ -191,6 +192,7 @@ const HARVEST_WINDOWS: Record<string, number[]> = {
 
 export function OriginAtlasView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [selectedId, setSelectedId] = useState<string>("utcubamba");
 
   const selected = useMemo(
@@ -210,8 +212,8 @@ export function OriginAtlasView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T7 · Interactive"
-        title={<>Coffee Origin Atlas</>}
+        eyebrow={t("content.view.origin-atlas.eyebrow")}
+        title={<>{t("content.view.origin-atlas.title")}</>}
         lede={
           <>
             A clickable map of the Peruvian coffee regions Ursa buys from — or could buy from. Tap any dot to walk through altitude, process, varietal, and the cup it produces. Utcubamba (gold-ringed) is the verified Filtrado Lonya origin.

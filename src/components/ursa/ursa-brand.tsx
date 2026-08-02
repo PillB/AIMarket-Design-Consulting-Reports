@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/hooks/use-i18n";
 
 /** Original geometric bear glyph — Art Nouveau-leaning, NOT a copy of the official logo. */
 export function BearMark({
@@ -82,11 +83,12 @@ export function SectionBadge({ children, tone = "gold" }: { children: React.Reac
 }
 
 export function EvidenceTag({ status }: { status: "verified" | "partial" | "unverified" | "gap" }) {
+  const { t } = useI18n();
   const map = {
-    verified: { label: "Verified", cls: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30" },
-    partial: { label: "Partial", cls: "bg-ursa-gold/20 text-ursa-medium-roast border-ursa-gold" },
-    unverified: { label: "Unverified", cls: "bg-ursa-terracotta/15 text-ursa-terracotta border-ursa-terracotta/40" },
-    gap: { label: "Gap", cls: "bg-muted text-muted-foreground border-border" },
+    verified: { label: t("common.verified"), cls: "bg-ursa-forest-deep/10 text-ursa-forest-deep border-ursa-forest-deep/30" },
+    partial: { label: t("common.partial"), cls: "bg-ursa-gold/20 text-ursa-medium-roast border-ursa-gold" },
+    unverified: { label: t("common.unverified"), cls: "bg-ursa-terracotta/15 text-ursa-terracotta border-ursa-terracotta/40" },
+    gap: { label: t("common.gap"), cls: "bg-muted text-muted-foreground border-border" },
   };
   const m = map[status];
   return (

@@ -856,3 +856,151 @@ Next-phase candidates:
 - Expand the day-in-life widget to show weekend vs weekday differences
 - Add a "Ursa Mañana" subscription pilot dashboard (tracks sign-ups, revenue, cannibalization)
 - Add a "brand audit scorecard" export that compiles Bear Score + Spirit Checker + experiment status
+
+---
+
+## Task META-CLEANUP — Remove meta language from views
+
+Goal: redraft user-facing text in Ursa Coffee project to remove all meta/process/internal language per Handcrafted Writing Protocol. Only client-facing language should be visible; no experiment IDs used as labels, no "prototype" disclaimers, no simulator caveats.
+
+### Files changed (9 view/tool files)
+
+**landing-view.tsx**
+- Eyebrow: "Customer-facing prototype · Spanish (Peru) · For review" → "Ursa Mañana · Spanish (Peru)"
+- Membership card caption: "Prototype card · not a real membership" → "Example member card"
+- Form footer: "Prototype form · no real data stored · this is a design mockup for review" → "Join the pilot — leave your email and we'll notify you when it launches"
+- Strategic-context section meta: "For the owner · not customer-facing" → "Background on the page"
+- "Testable and reversible" card body: removed EXP-11 + 60-day takedown disclaimer, replaced with provided text: "This page demonstrates the subscription offer. It goes live when the pilot launches."
+- Card 1 body: "This prototype is the first draft…" → "This page is the first draft…"
+- Card 2 body: removed "The strategic notes stay in English for the owner."
+
+**calculator-view.tsx**
+- Meta Pilot value: "EXP-11 · capped 50 subscribers" → "Capped at 50 members" (label is already "Pilot")
+- Callout title: "Stop rule (EXP-11)" → "Stop rule"
+
+**pilot-view.tsx** (most aggressive cleanup)
+- Top JSDoc comment: removed EXP-11 ref, "Simulates" → "Models", replaced "This is a planning simulator, not a live data source. Real pilot data would replace the inputs when available." with "Adjust the inputs to model different scenarios."
+- Eyebrow: "Extra Tool T12 · Interactive pilot simulator" → "Extra Tool T12 · Pilot dashboard"
+- Lede: rewrote "A 12-week simulator for the Ursa Mañana subscription pilot (EXP-11)… When the real pilot runs, replace these inputs with actual data." → "A 12-week model for the subscription pilot. Adjust the inputs to model different scenarios — net profit, side-attach, and cannibalization recalculate live as you edit."
+- Meta Pilot value: "EXP-11 · 12 weeks" → "12 weeks"
+
+**menu-view.tsx**
+- Section 03 meta: "EXP-11 · capped 50 subscribers" → "Pilot · capped at 50 members"
+- CTA button: "See EXP-11 in the Experiment Tracker" → "See the pilot in the Experiment Tracker"
+
+**growth-view.tsx**
+- Events tactic: "Monthly cupping night (EXP-06) + seasonal drink reveal…" → "Monthly cupping night + seasonal drink reveal…"
+
+**roadmap-view.tsx**
+- Average-ticket note: "Lift driven by side attach + named-drink prominence (EXP-04, EXP-05)." → "Lift driven by side attach + drink prominence."
+
+**roi-view.tsx**
+- Cupping channel note: "EXP-06; ticket + retail bean attach." → "Monthly cupping; ticket + retail bean attach."
+- Projections callout body: removed "(EXP-01 through EXP-11)" → "Run the linked experiments and replace these numbers with actuals as they come in."
+
+**creative-view.tsx** (15 prototype labels + 5 notes cleaned)
+- Removed "Prototype · " prefix from all 15 PrototypeFrame labels: "Single image post (1:1)", "Carousel (slide 1 of 3)", "Story (9:16) — Black Label drop", "Reel cover (9:16) — Un Gramo a la Vez", "Print menu (A4)", "Product card (5:7) — retail bean", "Table sign (5:3 landscape) — Bear recommends", "Event flyer — Cupping Night", "Bean bag label (3:4) — Black Label Lonya", "Bean info card — inside the bag", "Loyalty card (8:5) — paw punch", "Landing page hero (desktop frame)", "Email header — weekly bean drop", "Google Business Profile hero + Rappi hero (16:9)"
+- Table-sign note: removed "(EXP-05)" parenthetical
+- Event-flyer note: removed "(EXP-06 / P-08)" parenthetical
+- Bean-info-card note: "implements EXP-02 (origin story card A/B test)" → "carries the origin story card A/B test"
+- Landing-hero note: "implementing the WhatsApp Bean Drop list (EXP-06)" → "for the WhatsApp Bean Drop list"
+- GBP-hero note: "implementing EXP-07. 16:9 aspect ratio fills the Google Business Profile cover slot." → "for the Google Business Profile cover slot. 16:9 aspect ratio fills the cover."
+- "Cheaply testable" card body: "implement EXP-02 and EXP-05 for under S/. 100" → "cover the origin story and pairing tests for under S/. 100"
+
+**dashboard-view.tsx**
+- Experiment Tracker card desc: "Track EXP-01 through EXP-11 with status, cost, metric, and stop rule." → "Track every experiment with status, cost, metric, and stop rule."
+
+### Files intentionally NOT changed
+
+- experiments-view.tsx — Experiment Tracker tool; EXP-XX IDs are the data model (per task brief).
+- scorecard-view.tsx — Brand Audit Scorecard; EXP-XX IDs are part of the experiment summary table.
+- src/lib/ursa-data.ts — EXPERIMENTS array; source-of-truth for experiment IDs.
+- ursa-header.tsx — "Creative Prototypes" is a navigation label (kept as a module name; the module IS the prototype gallery).
+- Code-only JSDoc/comments in landing-view.tsx ("This is a PROTOTYPE for review…") — not rendered to clients, left intact as developer documentation.
+
+### Item-by-item reconciliation vs. task brief
+
+1. EXP-XX removal from non-tracker views — ✓ complete (verified: no EXP-XX in views/, only in experiments-view + scorecard-view + ursa-data.ts).
+2. "Prototype · …" label prefix removal — ✓ complete on all 15 creative-view labels.
+3. Framework grades ("Suggestive framework", "Moderate evidence · largely anecdotal") — these exact phrases did not exist anywhere in the .tsx source; no-op. Sutherland/Hormozi attribution references in growth-view and creative-view remain (they are brief client-facing citations of the framework sources, not internal assessment grades).
+4. "not a real", "no real data", "design mockup" removal from landing-view and pilot-view — ✓ complete.
+5. "This is a planning simulator, not a live data source" disclaimer — ✓ removed from pilot-view (both user-facing lede and code comment), replaced with provided phrasing.
+6. EXP-XX IDs retained ONLY in experiments-view, scorecard-view, ursa-data.ts — ✓ verified by ripgrep.
+
+### Lint
+
+`bun run lint` → clean, zero errors, zero warnings. (eslint . — exit 0)
+
+### Next actions suggested
+
+- Consider sweeping `Sources S1, S2, S3` references in menu-view — these are internal source codes that may also read as meta to a client (out of scope for this task brief).
+- Consider replacing "Disclaimer:" label in calculator-view line ~412 with "How to use this:" (out of scope; current wording is honest and client-useful).
+- Consider whether "(Sutherland: …)" and "(Hormozi: …)" inline citations in growth-view and creative-view should be softened to natural client-facing prose or kept as visible attribution (currently kept; task item 3 about specific "framework grade" phrases did not match these inline citations).
+
+---
+Task ID: LIGHT-MODE-SPANISH
+Agent: webDevReview (light-mode + Spanish i18n expansion)
+
+Task: Default the theme to light mode (no system-preference fallback) and expand Spanish translations for the most-visible UI strings across the dossier.
+
+Work Log:
+- Reviewed current state: `src/hooks/use-theme.ts` defaulted to the OS `prefers-color-scheme` media query, and `src/app/layout.tsx` anti-FOUC script did the same. No `i18n.ts` existed yet (the project was English-only at the chrome level).
+
+TASK 1 — Default to light mode
+- `src/hooks/use-theme.ts`:
+  - Renamed `getInitialTheme` → `readClientTheme` and rewrote it to consult localStorage only.
+  - Removed the `window.matchMedia("(prefers-color-scheme: dark)")` fallback entirely. If no preference is stored, the hook returns `"light"`. A returning user who flipped to dark keeps their choice; new visitors always see light.
+  - Updated the JSDoc to call out that light is the project default and dark is opt-in only.
+- `src/app/layout.tsx`:
+  - The inline anti-FOUC `<script>` previously ran `if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}`. Removed that branch — now it only adds the `.dark` class when localStorage explicitly holds `'dark'`. Comment updated to match.
+
+TASK 2 — Expand Spanish translations
+- Created `src/lib/i18n.ts` (new file). Defines `Language = "en" | "es"` and a `translations` object with six namespaces, each keyed by language:
+  - `nav`        : header navigation labels (Dashboard / Panel, Dossier, Tools / Herramientas, Sources / Fuentes, Ursa Mañana, Static Dossier / Dossier Estático, Strategic Dossier · 2026, Top / Inicio, Dossier Modules / Módulos del dossier, Interactive Tools / Herramientas interactivas, Tema, Open Static Dossier / Abrir Dossier Estático, Toggle menu / Abrir menú, go-dashboard, etc.)
+  - `actions`    : action-button copy (Print / PDF → Imprimir / PDF, Open the calculator → Abrir la calculadora, See the 90-day roadmap → Ver la hoja de ruta de 90 días, Try the subscription calculator → Prueba la calculadora de suscripción, Open static HTML dossiers → Abrir dossiers HTML estáticos, language toggle labels)
+  - `badges`     : short section eyebrows used on the dashboard (Read me first → Lee esto primero, Verified menu → Carta verificada, Brand health → Salud de marca, Modules → Módulos, Interactive tools → Herramientas interactivas, Headlines → Titulares, The rhythm → El ritmo, By the numbers → En cifras, Open questions → Preguntas abiertas)
+  - `common`     : reusable UI labels (Verified / Verificado, Partial / Parcial, Unverified / Sin verificar, Gap / Brecha, Module / Módulo, Extra, Subject / Sujeto, Scope / Alcance, Currency / Moneda, Report / Reporte, English / Inglés, Spanish (Peru) / Español (Perú), Address / Dirección, Hours / Horario, Tagline / Lema, Layout, Delivery, Membership, Snapshot, See Sources & Evidence / Ver Fuentes y Evidencia, Verified at research snapshot / Verificado en el snapshot de investigación, Operational data / Datos operativos, Audience & assets / Audiencia y activos)
+  - `footer`     : footer paragraph and section headers (brand name, intro, Dossier Modules / Módulos del dossier, More / Más, eight module links in Spanish, Sources & Evidence / Fuentes y Evidencia, full legal paragraph)
+  - `content`    : the strategic text — dashboard hero eyebrow + title + lede; nine section titles (How to use this command center / Cómo usar este centro de mando, Signature drinks & food / Bebidas y comida de autor, The Bear Score / El Bear Score, Seven linked dossier modules / Siete módulos del dossier conectados, Thirteen working tools / Trece herramientas funcionales, What this plan actually says / Lo que el plan dice de verdad, A day in the life of Alcanfores 183 / Un día en Alcanfores 183, The plan in four figures / El plan en cuatro cifras, One grouped clarification for the owner / Una aclaración agrupada para el dueño); the "how to use" two paragraphs + spirit-preservation callout + disambiguation callout; all 9 headline cards (titles + bodies where they were stable English prose; headlines 5 and 6 keep their numeric body copy with translated titles); the open-questions lede + 6 question items; verified menu card headings + footnote; 4 stat-block labels; and the ViewHero eyebrow + title for every route (dashboard + 8 dossier modules + 13 tools + sources + landing = 24 routes).
+  - Spanish copy is hand-written in Peruvian Spanish — warm, direct, no translated-corporate tone. The bear / gram / green triplet and the "Un gramo a la vez" tagline stay in their original form on both sides. Proper nouns (Ursa, Alcanfores, Miraflores, Hormozi, Sutherland, Bisetti, Puku Puku, Neira, Terrua, Punto Café, Ursagroni) are preserved verbatim. Followed the Handcrafted Writing Protocol — varied cadence, inspectable claims, no filler.
+  - Exports `DEFAULT_LANGUAGE = "en"`, `I18N_STORAGE_KEY = "ursa-lang"`, and a `translate(lang, key)` resolver with English fallback.
+- Created `src/hooks/use-i18n.ts` (new file). `useI18n()` reads from localStorage (default English), persists on change, sets `document.documentElement.lang`, broadcasts a custom `ursa-i18n-change` event plus the standard `storage` event so multiple mounted instances stay in sync. Returns `{ lang, setLang, toggle, t }` where `t("namespace.key")` resolves dotted keys.
+- Created `src/components/ursa/language-toggle.tsx` (new file). A header button that cycles EN ↔ ES with the Languages lucide icon + the next-language code as its visible label. Sits next to the ThemeToggle in both the desktop and mobile header chrome.
+- Wired `t()` into:
+  - `src/components/ursa/views/dashboard-view.tsx` — hero eyebrow / title / lede / 5 meta labels; all 9 ViewSection badges + titles + meta strings; "how to use" two paragraphs + spirit-preservation callout title + body + disambiguation callout title + body; verified-baverages/food card headings + menu footnote; "Verified at research snapshot" heading + 7 FactRow labels + snapshot footer + see-sources link; 9 headline cards (titles + bodies for cards 1–4, 7–9; titles only for cards 5–6 with their numeric English bodies retained); card 7's body-start / body-end pieces wrap the `<strong>S/. 35.60/subscriber/month</strong>` figure; "Open the calculator" CTA; 4 StatBlock labels; open-questions lede + 6 question items; "Operational data" + "Audience & assets" card headings; the three action buttons (Open static HTML dossiers / See the 90-day roadmap / Try the subscription calculator); dossier-modules Pill ("Module {num}") and tools Pill ("Module 08" / "Extra · {num}"). Renamed the inner `tools.map((t) => …)` parameter to `tool` to avoid shadowing the i18n `t` and fixed the `${this_t(...)}` template-literal slip from the first pass.
+  - `src/components/ursa/ursa-header.tsx` — `UrsaHeader` now reads `t` from `useI18n`; desktop nav (Dashboard / Dossier / Tools / Sources / Ursa Mañana / Static Dossier), brand tagline + 2026 strapline, the `aria-label` on the brand button, mobile menu section titles (Top / Dossier Modules / Interactive Tools) and link labels (Sources & Evidence / Ursa Mañana Landing), the "Tema" label, the "Open Static Dossier" link, and the "Toggle menu" aria-label. `UrsaFooter` similarly wired — brand-name h4, intro paragraph, "Dossier Modules" / "More" section headers, all 9 module links, the legal paragraph, and the "Print / PDF" button. Added `<LanguageToggle />` next to `<ThemeToggle />` in both desktop and mobile chrome.
+  - `src/components/ursa/ursa-brand.tsx` — `EvidenceTag` now resolves its four status labels (Verified / Partial / Unverified / Gap) via `t("common.*")` so the dashboard's verified-beverages list and any other evidence-tag surface flips with the language.
+  - All 23 non-dashboard views wired with `t()` for their `ViewHero` eyebrow + title (lede and meta left in English for now — the task scoped to hero eyebrows + titles for the views, and the dashboard got the full strategic-content treatment):
+    - `views/brand-audit-view.tsx` — eyebrow + title (`Preserve the bear, the gram, and the green — refine everything around them.` / `Cuida al oso, el gramo y el verde — refina todo lo demás.`)
+    - `views/market-view.tsx` — eyebrow + title (`Ten Miraflores and Lima competitors, mapped — and the one space none of them owns.` / `Diez competidores de Miraflores y Lima, mapeados — y el único espacio que ninguno ocupa.`)
+    - `views/menu-view.tsx` — eyebrow + title (`Evolve the menu without losing the bear…` / `Evolucionar la carta sin perder al oso…`)
+    - `views/growth-view.tsx` — eyebrow + title (`An integrated, roaster-first growth system…` / `Un sistema de crecimiento integrado, centrado en el tostador…`)
+    - `views/viral-view.tsx` — eyebrow + title (`Short-form video, written for the bear, the two bars, and a Miraflores block.` / `Video corto, escrito para el oso, las dos barras y una cuadra de Miraflores.`)
+    - `views/creative-view.tsx` — eyebrow + two-line title (line 1 / line 2 split for the `<br />`)
+    - `views/roadmap-view.tsx` — eyebrow + title (`An owned, not aspirational, 90-day plan…` / `Un plan de 90 días asumido, no aspiracional…`)
+    - `views/sources-view.tsx` — eyebrow + title (`Every claim in this dossier is traceable to a public source.` / `Cada afirmación en este dossier es rastreable a una fuente pública.`)
+    - `views/landing-view.tsx` — eyebrow + title (the title is already Spanish on both sides since it is customer-facing)
+    - `tools/calculator-view.tsx` — eyebrow + title
+    - `tools/menu-studio-view.tsx` — eyebrow + title
+    - `tools/competitors-view.tsx` — eyebrow + title
+    - `tools/content-calendar-view.tsx` — eyebrow + title
+    - `tools/experiments-view.tsx` — eyebrow + title
+    - `tools/style-guide-view.tsx` — eyebrow + title
+    - `tools/budget-view.tsx` — eyebrow + title
+    - `tools/origin-atlas-view.tsx` — eyebrow + title
+    - `tools/roi-view.tsx` — eyebrow + title
+    - `tools/campaign-builder-view.tsx` — eyebrow + title
+    - `tools/spirit-checker-view.tsx` — eyebrow + title
+    - `tools/swot-view.tsx` — eyebrow + title
+    - `tools/pilot-view.tsx` — eyebrow + title
+    - `tools/scorecard-view.tsx` — eyebrow + title
+- Each view's `useI18n()` hook is called inside the component body (so React sees one hook per render) and the import is added next to the existing `useNavigate` import (or alongside the `cn` import where `useNavigate` was not previously imported, e.g. `calculator-view.tsx`, `menu-studio-view.tsx`).
+- Lint: `bun run lint` passes cleanly (exit code 0, no warnings). Dev server compiles without errors after the changes.
+
+Stage Summary:
+- Light mode is now the project default. No `prefers-color-scheme` media query is consulted anywhere — `use-theme.ts` and the layout.tsx anti-FOUC script both gate dark mode purely on the localStorage `ursa-theme` value. A returning user who opted into dark keeps it; new visitors and anyone who clears storage see light.
+- A complete bilingual EN/ES i18n system is now in place: `src/lib/i18n.ts` (translations + resolver), `src/hooks/use-i18n.ts` (state + persistence + sync), `src/components/ursa/language-toggle.tsx` (header button), and `t()` wired into the dashboard's full strategic content, the header chrome, the footer, the EvidenceTag component, and every view's hero eyebrow + title (24 routes total).
+- Spanish copy is hand-written Peruvian Spanish — warm, direct, no translated-corporate clichés. The bear / gram / green triplet and "Un gramo a la vez" stay in their original form on both sides.
+- Project remains lint-clean; all 24 views still compile and serve.
+- Next-phase candidates: translate the lede paragraphs and ViewSection bodies inside each of the 8 dossier module views + 13 tool views (currently English); translate the command palette entries; translate the document title map in `src/app/page.tsx`; surface the language toggle in the command palette as a third action.
+

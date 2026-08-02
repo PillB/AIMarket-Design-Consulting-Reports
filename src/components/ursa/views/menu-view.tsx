@@ -32,6 +32,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD } from "@/lib/ursa-data";
 
 // ---------------------------------------------------------------
@@ -472,17 +473,13 @@ const EVALUATION_CRITERIA = [
 
 export function MenuView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   return (
     <>
       <ViewHero
-        eyebrow="Module 03 · Menu & Product Development"
-        title={
-          <>
-            Evolve the menu without losing the bear — a structured path from
-            verified staples to evaluated new products.
-          </>
-        }
+        eyebrow={t("content.view.menu.eyebrow")}
+        title={<>{t("content.view.menu.title")}</>}
         lede={
           <>
             Ursa already owns a distinctive menu language — portmanteau names
@@ -789,7 +786,7 @@ export function MenuView() {
       <ViewSection
         badge="Section 03"
         title="Ursa Mañana — the subscription as a menu product"
-        meta="EXP-11 · capped 50 subscribers"
+        meta="Pilot · capped at 50 members"
       >
         <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 items-center">
@@ -819,7 +816,7 @@ export function MenuView() {
                   onClick={() => navigate("experiments")}
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full font-label text-[0.72rem] tracking-[0.12em] uppercase bg-transparent text-ursa-medium-roast border border-ursa-line hover:-translate-y-0.5 transition"
                 >
-                  See EXP-11 in the Experiment Tracker
+                  See the pilot in the Experiment Tracker
                 </button>
               </div>
             </div>

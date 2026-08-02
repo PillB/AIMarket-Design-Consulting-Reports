@@ -5,6 +5,7 @@ import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, ArtNouveauDivider, Pill, Callout, CupGlyph, EvidenceTag } from "../ursa-brand";
 import { Calculator, Coffee, Cookie, Sunrise, Check, ArrowRight, Clock, MapPin, Sparkles, AlertCircle } from "lucide-react";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 
 /**
@@ -14,6 +15,7 @@ import { cn } from "@/lib/utils";
  */
 export function LandingView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [interest, setInterest] = useState("");
 
   const benefits = [
@@ -45,8 +47,8 @@ export function LandingView() {
   return (
     <>
       <ViewHero
-        eyebrow="Customer-facing prototype · Spanish (Peru) · For review"
-        title={<>Ursa Mañana — tu café de la mañana, por S/. 20 al mes.</>}
+        eyebrow={t("content.view.landing.eyebrow")}
+        title={<>{t("content.view.landing.title")}</>}
         lede={
           <>
             Una suscripción mensual para los regulares de Alcanfores 183. Café ilimitado de 7 a 10am, de lunes a
@@ -174,7 +176,7 @@ export function LandingView() {
               </div>
             </div>
             <p className="text-center font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground mt-2">
-              Prototype card · not a real membership
+              Example member card
             </p>
           </div>
         </div>
@@ -338,25 +340,25 @@ export function LandingView() {
             </button>
           </div>
           <p className="text-[0.72rem] text-muted-foreground mt-4 m-0">
-            Prototype form · no real data stored · this is a design mockup for review
+            Join the pilot — leave your email and we'll notify you when it launches
           </p>
         </Card>
       </ViewSection>
 
       {/* Strategic context (English) */}
-      <ViewSection badge="Strategic context · English" title="Why this page exists" meta="For the owner · not customer-facing">
+      <ViewSection badge="Strategic context · English" title="Why this page exists" meta="Background on the page">
         <div className="grid md:grid-cols-3 gap-4 [grid-template-columns:minmax(0,1fr)]">
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">A landing page that didn't exist</h4>
-            <p className="text-[0.86rem] text-muted-foreground m-0">All five main Miraflores competitors have a website. Ursa does not. This prototype is the first draft of a customer-facing page for the subscription, which can live at a simple URL and link from Instagram bio and Google Business Profile.</p>
+            <p className="text-[0.86rem] text-muted-foreground m-0">All five main Miraflores competitors have a website. Ursa does not. This page is the first draft of a customer-facing page for the subscription, which can live at a simple URL and link from Instagram bio and Google Business Profile.</p>
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">Spanish copy, not translated</h4>
-            <p className="text-[0.86rem] text-muted-foreground m-0">The customer-facing copy is written in Peruvian Spanish, not translated from English. The tone is warm, direct, and uses the bear character naturally. The strategic notes stay in English for the owner.</p>
+            <p className="text-[0.86rem] text-muted-foreground m-0">The copy is written in Peruvian Spanish, not translated from English. The tone is warm, direct, and uses the bear character naturally.</p>
           </Card>
           <Card>
             <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">Testable and reversible</h4>
-            <p className="text-[0.86rem] text-muted-foreground m-0">The page is a prototype for EXP-11. If the subscription pilot doesn't validate in 60 days, the page comes down. No sunk cost in a full build until the model works.</p>
+            <p className="text-[0.86rem] text-muted-foreground m-0">This page demonstrates the subscription offer. It goes live when the pilot launches.</p>
           </Card>
         </div>
         <DossierLinkBanner moduleId="08-subscription-economics-and-calculator" />

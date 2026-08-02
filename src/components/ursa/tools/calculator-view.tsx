@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 
 const PEN = (n: number) => {
@@ -24,6 +25,7 @@ const PRESETS = {
 type Inputs = typeof PRESETS.default;
 
 export function CalculatorView() {
+  const { t } = useI18n();
   const [inputs, setInputs] = useState<Inputs>(PRESETS.default);
   const [weeksMonth] = useState(4.33);
 
@@ -94,8 +96,8 @@ export function CalculatorView() {
   return (
     <>
       <ViewHero
-        eyebrow="Module 08 · New product proposal · Interactive"
-        title="Ursa Mañana — Subscription Economics & Cutoff Calculator"
+        eyebrow={t("content.view.calculator.eyebrow")}
+        title={t("content.view.calculator.title")}
         lede={
           <>
             A S/. 20/month unlimited-coffee subscription (Mon–Fri, 7–10am, in-store only, one cup per visit, no milk
@@ -105,7 +107,7 @@ export function CalculatorView() {
           </>
         }
         meta={[
-          { label: "Pilot", value: "EXP-11 · capped 50 subscribers" },
+          { label: "Pilot", value: "Capped at 50 members" },
           { label: "Default", value: "S/. 20/mo · 7–10am" },
           { label: "Verified cost", value: "S/. 1.20–1.80/cup (own roastery)" },
         ]}
@@ -350,7 +352,7 @@ export function CalculatorView() {
                   <li>• Marginal cost is assumed to stay at S/. 1.20–1.80 as volume rises, on the assumption that the roastery has spare capacity. Confirm against roast logs before scaling.</li>
                 </ul>
               </Callout>
-              <Callout tone="stop" title="Stop rule (EXP-11)">
+              <Callout tone="stop" title="Stop rule">
                 <p className="m-0 text-[0.9rem]">
                   Kill or revise the pilot if <strong>blended profit per subscriber is below zero after 60 days</strong>,
                   or if <strong>cannibalization exceeds 50%</strong>, or if <strong>side attach rate stays below 40%</strong>{" "}

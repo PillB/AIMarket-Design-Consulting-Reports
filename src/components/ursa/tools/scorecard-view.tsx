@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
 import { BearMark, Pill, Callout, StatBlock, ProgressBar, ArtNouveauDivider, EvidenceTag } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 import {
   FileText, Download, Check, X, AlertTriangle, Shield, FlaskConical,
@@ -66,6 +67,7 @@ const STATUS_META = {
 
 export function ScorecardView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [copied, setCopied] = useState(false);
 
   const bearOverall = Math.round(BEAR_SCORE_SURFACES.reduce((s, x) => s + x.score, 0) / BEAR_SCORE_SURFACES.length);
@@ -136,8 +138,8 @@ export function ScorecardView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T13 · One-page executive compilation"
-        title="Brand Audit Scorecard — the whole picture on one page"
+        eyebrow={t("content.view.scorecard.eyebrow")}
+        title={t("content.view.scorecard.title")}
         lede={
           <>
             A compilation of the Bear Score (identity consistency), the four brand pillars, the

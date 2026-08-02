@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, Pill, Callout, ArtNouveauDivider } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 import {
   ArrowRight, ArrowLeft, Check, RotateCcw, Target, Users, Megaphone,
@@ -70,6 +71,7 @@ const STEPS = [
 
 export function CampaignBuilderView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [step, setStep] = useState(0);
   const [offer, setOffer] = useState<string | null>(null);
   const [audience, setAudience] = useState<string | null>(null);
@@ -136,8 +138,8 @@ export function CampaignBuilderView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T9 · Interactive wizard"
-        title="Campaign Builder — from offer to brief in six steps"
+        eyebrow={t("content.view.campaign-builder.eyebrow")}
+        title={t("content.view.campaign-builder.title")}
         lede={
           <>
             A step-by-step wizard that assembles a campaign brief by connecting an offer to an audience, a channel,

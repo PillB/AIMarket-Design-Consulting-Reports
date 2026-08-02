@@ -13,6 +13,7 @@ import {
 } from "../ursa-brand";
 import { ROADMAP, TWELVE_MONTH_ROADMAP, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   ArrowRight,
   Calendar,
@@ -211,7 +212,7 @@ const KPIS: Kpi[] = [
     metric: "S/. per transaction",
     baseline: "Unknown",
     target: "S/. 22",
-    note: "Lift driven by side attach + named-drink prominence (EXP-04, EXP-05).",
+    note: "Lift driven by side attach + drink prominence.",
     tone: "terracotta",
   },
   {
@@ -290,17 +291,14 @@ const BUDGET_TONES: { tone: "forest" | "gold" | "terracotta"; ring: string }[] =
 // ---- Component ---------------------------------------------------------------
 export function RoadmapView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   return (
     <>
       <ViewHero
-        eyebrow="Module 07 · Implementation Roadmap & KPIs"
+        eyebrow={t("content.view.roadmap.eyebrow")}
         tone="forest"
-        title={
-          <>
-            An owned, not aspirational, 90-day plan — with owners, metrics, and stop rules.
-          </>
-        }
+        title={<>{t("content.view.roadmap.title")}</>}
         lede={
           <>
             Every action below has a named owner, a primary metric, and a stopping rule. No

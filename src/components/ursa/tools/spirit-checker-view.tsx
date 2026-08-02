@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, Pill, Callout, ArtNouveauDivider, ProgressBar } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 import {
   Shield, Check, X, AlertTriangle, RotateCcw, PawPrint as BearLucide,
@@ -101,6 +102,7 @@ const PILLAR_META: Record<Pillar, { label: string; icon: typeof BearLucide; colo
 
 export function SpiritCheckerView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [tactic, setTactic] = useState("");
   const [answers, setAnswers] = useState<Record<string, "yes" | "no" | "neutral" | undefined>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -167,8 +169,8 @@ export function SpiritCheckerView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T10 · Interactive identity guard"
-        title="Spirit-Preservation Checker — does this tactic protect the bear, the gram, and the green?"
+        eyebrow={t("content.view.spirit-checker.eyebrow")}
+        title={t("content.view.spirit-checker.title")}
         lede={
           <>
             Before any new tactic ships, run it through this checker. Eight questions across three

@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { BearMark, Pill, Callout, EvidenceTag } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 import { Swords, Eye, TrendingUp, AlertTriangle, Info, RotateCcw } from "lucide-react";
 
@@ -152,6 +153,7 @@ const QUADRANTS = {
 
 export function SwotView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [selected, setSelected] = useState<string>("Ursa");
 
   const selectedComp = COMPETITORS.find((c) => c.name === selected) || COMPETITORS[0];
@@ -165,8 +167,8 @@ export function SwotView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T11 · Interactive competitive analysis"
-        title="Competitor SWOT Matrix — where Ursa stands, and where it can move"
+        eyebrow={t("content.view.swot.eyebrow")}
+        title={t("content.view.swot.title")}
         lede={
           <>
             A 2×2 plot of {COMPETITORS.length} Miraflores and Lima competitors on two axes the dossier

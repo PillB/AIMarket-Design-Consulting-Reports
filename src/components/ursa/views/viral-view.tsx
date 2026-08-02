@@ -16,6 +16,7 @@ import {
   UGC_MECHANISMS,
 } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   Accordion,
   AccordionItem,
@@ -107,16 +108,13 @@ function conceptById(id: string) {
 
 export function ViralView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   return (
     <>
       <ViewHero
-        eyebrow="Module 05 · Viral Content Laboratory"
-        title={
-          <>
-            Short-form video, written for the bear, the two bars, and a Miraflores block.
-          </>
-        }
+        eyebrow={t("content.view.viral.eyebrow")}
+        title={<>{t("content.view.viral.title")}</>}
         lede={
           <>
             Twenty-six content concepts and ten production-ready scripts — every one anchored in a verified Ursa asset: the named drinks, the in-house roastery, the bear mark, and Alcanfores 183. Built to learn cheaply, not to chase virality.

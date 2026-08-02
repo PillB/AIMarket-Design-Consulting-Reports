@@ -13,6 +13,7 @@ import {
 } from "../ursa-brand";
 import { PALETTE, TYPOGRAPHY, URSA_FACTS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   Palette,
   Type,
@@ -242,17 +243,14 @@ const CONSISTENT_INCONSISTENT = [
 
 export function BrandAuditView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   return (
     <>
       {/* 1. Hero */}
       <ViewHero
-        eyebrow="Module 01 · Brand Audit & Design System"
-        title={
-          <>
-            Preserve the bear, the gram, and the green — refine everything around them.
-          </>
-        }
+        eyebrow={t("content.view.brand.eyebrow")}
+        title={<>{t("content.view.brand.title")}</>}
         lede={
           <>
             This module verifies what is already consistent, distinctive, inconsistent, and missing in Ursa's

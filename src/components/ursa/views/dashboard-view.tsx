@@ -6,10 +6,12 @@ import { BearScoreWidget } from "../bear-score-widget";
 import { DayInTheLifeWidget } from "../day-in-life-widget";
 import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD, EXPERIMENTS, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { ROUTES, useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { ArrowRight, MapPin, Clock, Coffee, Star, Sparkles, Calculator, ExternalLink, Flame, Compass, Utensils, Swords, Calendar, FlaskConical, SwatchBook, Wallet, Globe, TrendingUp, Wand2, Shield, Grid2x2, Activity, Award } from "lucide-react";
 
 export function DashboardView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   const dossierModules = [
     { key: "brand", num: "01", title: "Brand Audit & Design System", desc: "Verifies what is consistent, inconsistent, distinctive, and missing in Ursa's current brand. Codifies a conservative-refinement design system." },
@@ -26,7 +28,7 @@ export function DashboardView() {
     { key: "menu-studio", num: "T1", title: "Menu Engineering Studio", desc: "Build a menu category by category with live margin analysis, ingredient overlap, and attach-rate modelling.", icon: Utensils },
     { key: "competitors", num: "T2", title: "Competitor Intelligence Dashboard", desc: "Filterable comparison matrix of 10 Miraflores and Lima competitors with strengths, weaknesses, and Ursa implications.", icon: Swords },
     { key: "content-calendar", num: "T3", title: "Content Calendar & Scripts", desc: "Browse 26 concepts, read 10 full scripts, and lay out a four-week pilot calendar with a drag-friendly planner.", icon: Calendar },
-    { key: "experiments", num: "T4", title: "Experiment Tracker", desc: "Track EXP-01 through EXP-11 with status, cost, metric, and stop rule. Update status as you run each test.", icon: FlaskConical },
+    { key: "experiments", num: "T4", title: "Experiment Tracker", desc: "Track every experiment with status, cost, metric, and stop rule. Update status as you run each test.", icon: FlaskConical },
     { key: "style-guide", num: "T5", title: "Brand Style Guide Explorer", desc: "Inspect the verified Ursa palette, typography, and components with copy-to-clipboard tokens.", icon: SwatchBook },
     { key: "budget", num: "T6", title: "Budget Allocator", desc: "Compare lean, moderate, and growth scenarios in PEN. Adjust line items and see the live monthly total.", icon: Wallet },
     { key: "origin-atlas", num: "T7", title: "Coffee Origin Atlas", desc: "Interactive map of Ursa's verified bean origins with altitude, process, and tasting notes.", icon: Globe },
@@ -41,27 +43,15 @@ export function DashboardView() {
   return (
     <>
       <ViewHero
-        eyebrow="Strategic Dossier · Prepared 2026-08-01 · Miraflores, Lima"
-        title={
-          <>
-            A roaster-first growth plan that protects the bear, the gram, and the green.
-          </>
-        }
-        lede={
-          <>
-            This command center preserves what Ursa Coffee Roasters already is — the Art Nouveau lean, the
-            browns-and-greens palette, the bear motif, the in-house roastery on the floor, the two-bar theatre, and
-            the <em>"Un gramo a la vez"</em> tagline — and proposes a conservative-refinement growth system across
-            brand, menu, marketing, content, and creative. The direction is refinement, not rebrand; every
-            recommendation is checked against the bear, the gram, and the green before it ships.
-          </>
-        }
+        eyebrow={t("content.dashboard.eyebrow")}
+        title={<>{t("content.dashboard.title")}</>}
+        lede={<>{t("content.dashboard.lede")}</>}
         meta={[
-          { label: "Subject", value: "Alcanfores 183, Miraflores" },
-          { label: "Scope", value: "90-day launch + 12-month roadmap" },
-          { label: "Currency", value: "PEN (S/.)" },
-          { label: "Report", value: "English" },
-          { label: "Campaign copy", value: "Spanish (Peru)" },
+          { label: t("common.subject"), value: "Alcanfores 183, Miraflores" },
+          { label: t("common.scope"), value: "90-day launch + 12-month roadmap" },
+          { label: t("common.currency"), value: "PEN (S/.)" },
+          { label: t("common.report"), value: t("common.english-report") },
+          { label: t("common.campaign-copy"), value: t("common.spanish-peru") },
         ]}
       />
 
@@ -69,60 +59,51 @@ export function DashboardView() {
       <ViewSection>
         <Grid cols={2}>
           <div>
-            <SectionBadge>Read me first</SectionBadge>
+            <SectionBadge>{t("badges.read-me-first")}</SectionBadge>
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-ursa-dark-roast mt-3 mb-3">
-              How to use this command center
+              {t("content.dashboard.section.how-to-use")}
             </h2>
             <p className="text-[0.97rem] leading-relaxed text-foreground/85 mb-3">
-              This site is a single, interactive workspace. The seven dossier modules above present the research and
-              recommendations; the nine tools below turn the most important recommendations into things you can actually
-              manipulate — a calculator, a menu builder, a budget allocator, a competitor matrix, and more. Every
-              recommendation is traceable to a source, and every risky assumption is paired with a low-cost experiment.
+              {t("content.dashboard.how-to-use.p1")}
             </p>
             <p className="text-[0.97rem] leading-relaxed text-muted-foreground">
-              Each view is print-friendly (use the Print button in the footer for a clean PDF), responsive, and
-              keyboard-navigable. The original static HTML dossiers remain available as browsable reference.
+              {t("content.dashboard.how-to-use.p2")}
             </p>
-            <Callout tone="forest" title="Spirit-preservation principle">
-              If a recommendation forces a choice between (a) protecting Ursa's existing bear / Art Nouveau / roastery
-              identity and (b) chasing a generic growth tactic, this dossier always chooses (a). The
-              conservative-refinement direction is the permanent system; experimental expressions are kept seasonal and
-              reversible.
+            <Callout tone="forest" title={t("content.dashboard.how-to-use.callout-title")}>
+              {t("content.dashboard.how-to-use.callout")}
             </Callout>
           </div>
           <div className="space-y-4">
             <Card className="bg-ursa-foam">
               <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-                <BearMark size={22} className="text-ursa-dark-roast" /> Verified at research snapshot
+                <BearMark size={22} className="text-ursa-dark-roast" /> {t("common.verified-at-snapshot")}
               </h3>
               <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
-                <FactRow label="Address" value={URSA_FACTS.address} />
-                <FactRow label="Hours" value={URSA_FACTS.hours} />
-                <FactRow label="Tagline" value={`"${URSA_FACTS.tagline}"`} />
-                <FactRow label="Instagram" value={`${URSA_FACTS.instagram} · ${URSA_FACTS.followers} followers · ${URSA_FACTS.posts} posts`} />
-                <FactRow label="Layout" value={URSA_FACTS.twoBars} />
-                <FactRow label="Delivery" value={URSA_FACTS.delivery} />
-                <FactRow label="Membership" value={URSA_FACTS.membership} />
+                <FactRow label={t("common.address")} value={URSA_FACTS.address} />
+                <FactRow label={t("common.hours")} value={URSA_FACTS.hours} />
+                <FactRow label={t("common.tagline")} value={`"${URSA_FACTS.tagline}"`} />
+                <FactRow label={t("common.instagram")} value={`${URSA_FACTS.instagram} · ${URSA_FACTS.followers} followers · ${URSA_FACTS.posts} posts`} />
+                <FactRow label={t("common.layout")} value={URSA_FACTS.twoBars} />
+                <FactRow label={t("common.delivery")} value={URSA_FACTS.delivery} />
+                <FactRow label={t("common.membership")} value={URSA_FACTS.membership} />
               </ul>
               <p className="font-label text-[0.72rem] tracking-[0.06em] text-muted-foreground mt-3 mb-0">
-                Snapshot {URSA_FACTS.snapshot} · <button onClick={() => navigate("sources")} className="text-ursa-forest-deep underline hover:text-ursa-dark-roast">See Sources &amp; Evidence</button>
+                {t("common.snapshot")} {URSA_FACTS.snapshot} · <button onClick={() => navigate("sources")} className="text-ursa-forest-deep underline hover:text-ursa-dark-roast">{t("common.see-sources")}</button>
               </p>
             </Card>
-            <Callout tone="warn" title="Disambiguation — read before any external comparison">
-              An unrelated <strong>"URSA"</strong> roastery and art gallery exists at ursabpt.com in Bridgeport, CT,
-              USA. It is <em>not</em> the Peruvian brand and is <em>not</em> a benchmark. All references to Ursa in this
-              dossier mean Ursa Coffee Roasters of Miraflores, Lima, Peru.
+            <Callout tone="warn" title={t("content.dashboard.disambiguation-title")}>
+              {t("content.dashboard.disambiguation")}
             </Callout>
           </div>
         </Grid>
       </ViewSection>
 
       {/* Verified signature drinks */}
-      <ViewSection badge="Verified menu" title="Signature drinks & food" meta="From public sources, 2026-08-01">
+      <ViewSection badge={t("badges.verified-menu")} title={t("content.dashboard.section.signature")} meta={t("content.dashboard.meta.signature")}>
         <Grid cols={2}>
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Coffee size={18} className="text-ursa-gold" /> Verified beverages
+              <Coffee size={18} className="text-ursa-gold" /> {t("content.dashboard.verified.beverages")}
             </h3>
             <ul className="space-y-2 m-0 p-0 list-none">
               {VERIFIED_BEVERAGES.map((b) => (
@@ -138,7 +119,7 @@ export function DashboardView() {
           </Card>
           <Card>
             <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Flame size={18} className="text-ursa-terracotta" /> Verified food
+              <Flame size={18} className="text-ursa-terracotta" /> {t("content.dashboard.verified.food")}
             </h3>
             <ul className="space-y-2 m-0 p-0 list-none">
               {VERIFIED_FOOD.map((b) => (
@@ -152,24 +133,24 @@ export function DashboardView() {
               ))}
             </ul>
             <p className="text-[0.82rem] text-muted-foreground mt-3 mb-0 italic">
-              The full reconstructed menu and product-development proposals are in Module 03.
+              {t("content.dashboard.verified.menu-footnote")}
             </p>
           </Card>
         </Grid>
       </ViewSection>
 
       {/* Bear Score — brand-health widget */}
-      <ViewSection badge="Brand health" title="The Bear Score — identity consistency across surfaces" meta="Snapshot 2026-08-01">
+      <ViewSection badge={t("badges.brand-health")} title={t("content.dashboard.section.bear-score")} meta={t("content.dashboard.meta.bear-score")}>
         <BearScoreWidget />
       </ViewSection>
 
       {/* Dossier modules */}
-      <ViewSection badge="Modules" title="Seven linked dossier modules">
+      <ViewSection badge={t("badges.modules")} title={t("content.dashboard.section.modules")}>
         <Grid cols={4}>
           {dossierModules.map((m) => (
             <Card key={m.key} className="cursor-pointer group">
               <button onClick={() => navigate(m.key)} className="text-left w-full h-full flex flex-col">
-                <Pill tone="forest">Module {m.num}</Pill>
+                <Pill tone="forest">{t("common.module")} {m.num}</Pill>
                 <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-2 mb-1.5 flex items-center gap-1.5">
                   {m.title}
                   <ArrowRight size={15} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -182,24 +163,24 @@ export function DashboardView() {
       </ViewSection>
 
       {/* Tools — the extra innovative pages */}
-      <ViewSection badge="Interactive tools" title="Thirteen working tools — built on the verified research" meta="Click any card to open">
+      <ViewSection badge={t("badges.interactive-tools")} title={t("content.dashboard.section.tools")} meta={t("content.dashboard.meta.tools")}>
         <Grid cols={4}>
-          {tools.map((t) => {
-            const Icon = t.icon;
+          {tools.map((tool) => {
+            const Icon = tool.icon;
             return (
-              <Card key={t.key} highlight={t.featured} className="cursor-pointer group">
-                <button onClick={() => navigate(t.key)} className="text-left w-full h-full flex flex-col">
+              <Card key={tool.key} highlight={tool.featured} className="cursor-pointer group">
+                <button onClick={() => navigate(tool.key)} className="text-left w-full h-full flex flex-col">
                   <div className="flex items-start justify-between gap-2 mb-3">
-                    <span className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 transition group-hover:scale-110 ${t.featured ? "bg-ursa-gold/20 text-ursa-gold" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>
+                    <span className={`w-10 h-10 rounded-lg grid place-items-center shrink-0 transition group-hover:scale-110 ${tool.featured ? "bg-ursa-gold/20 text-ursa-gold" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>
                       <Icon size={20} />
                     </span>
-                    <Pill tone={t.featured ? "gold" : "forest"}>{t.featured ? "Module 08" : `Extra · ${t.num}`}</Pill>
+                    <Pill tone={tool.featured ? "gold" : "forest"}>{tool.featured ? `${t("common.module")} 08` : `${t("common.extra")} · ${tool.num}`}</Pill>
                   </div>
                   <h3 className="font-display text-[0.98rem] font-semibold text-ursa-dark-roast mt-0 mb-1.5 flex items-center gap-1.5 leading-tight">
-                    {t.title}
+                    {tool.title}
                     <ArrowRight size={14} className="text-ursa-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0" />
                   </h3>
-                  <p className="text-[0.8rem] text-muted-foreground m-0 leading-relaxed">{t.desc}</p>
+                  <p className="text-[0.8rem] text-muted-foreground m-0 leading-relaxed">{tool.desc}</p>
                 </button>
               </Card>
             );
@@ -208,72 +189,72 @@ export function DashboardView() {
       </ViewSection>
 
       {/* Headlines */}
-      <ViewSection badge="Headlines" title="What this plan actually says">
+      <ViewSection badge={t("badges.headlines")} title={t("content.dashboard.section.headlines")}>
         <Grid cols={3}>
           <Reveal delay={0}><Card>
-            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">1 · Ursa is more distinctive than it looks</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">The bear, the gram, the Art Nouveau lean, the two-bar layout, and named drinks like <em>Ursagroni</em> add up to a brand that already does what Lima's specialty scene rewards: a recognizable identity rather than trend-hopping. The plan refines this rather than replacing it.</p>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h1.title")}</h3>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h1.body")}</p>
           </Card></Reveal>
           <Reveal delay={80}><Card>
-            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">2 · The biggest gap is distribution, not product</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">Ursa has the roastery, the drinks, and the atmosphere. What it lacks is review-channel presence, a Google Business Profile that converts, a creator network, a hospitality pipeline into the 8+ hotels within walking distance, and — most visibly — a website. All five main Miraflores competitors already have one. The plan fixes this in the first 30 days.</p>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h2.title")}</h3>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h2.body")}</p>
           </Card></Reveal>
           <Reveal delay={160}><Card>
-            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">3 · Hormozi + Sutherland adapt, with caveats</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">Hormozi's Value Equation and offer-stack discipline adapt usefully to a café — the dossier adapts rather than imports them, with explicit "do not" lists where the framework would overreach. Sutherland's perceived-value lens is the cheaper lever: story cards, named preparations, and the bear as a recurring character often beat expensive rational changes at near-zero cost.</p>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h3.title")}</h3>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h3.body")}</p>
           </Card></Reveal>
           <Reveal delay={0}><Card>
-            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">4 · Conservative refinement is the recommended direction</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">Of three brand-evolution levels, the plan recommends Level 1 as the permanent system, Level 2 as a 6-month growth skin, and Level 3 only as seasonal expression. Total rebrand is explicitly off the table.</p>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h4.title")}</h3>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h4.body")}</p>
           </Card></Reveal>
           <Reveal delay={80}><Card>
-            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">5 · Each risky assumption has a test and a stop rule</h3>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h5.title")}</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">{EXPERIMENTS.length} experiments cover the riskiest assumptions. Most cost S/. 0–560 to run. Each has a success metric and a stop rule. If something does not work in 14–30 days, it is killed cleanly and documented, not doubled-down on.</p>
           </Card></Reveal>
           <Reveal delay={160}><Card>
-            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">6 · The 90-day plan is owned, not aspirational</h3>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h6.title")}</h3>
             <p className="text-[0.9rem] text-muted-foreground m-0">72-hour / 30 / 60 / 90-day plans each name an owner, a dependency, a metric, and a stopping rule. Budget scenarios: lean (S/. {BUDGET_SCENARIOS[0].monthlyPEN.toLocaleString()}/mo), moderate (S/. {BUDGET_SCENARIOS[1].monthlyPEN.toLocaleString()}/mo), growth (S/. {BUDGET_SCENARIOS[2].monthlyPEN.toLocaleString()}/mo). The owner picks one and the plan adjusts.</p>
           </Card></Reveal>
           <Reveal delay={0}><Card highlight>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-1.5">
-              <Calculator size={16} className="text-ursa-gold" /> 7 · NEW · Ursa Mañana works on marginal-cost math
+              <Calculator size={16} className="text-ursa-gold" /> {t("content.dashboard.h7.title")}
             </h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">A S/. 20/month unlimited-coffee subscription (Mon–Fri 7–10am, no milk drinks, in-store only, 1 cup/visit) is profitable across all three calculator presets — conservative, default, optimistic — because Ursa's own-roastery keeps marginal cost at S/. 1.20–1.80/cup. At default assumptions, net profit is <strong>S/. 35.60/subscriber/month</strong> before cannibalization. The real risk is cannibalization, which is why an interactive calculator models it explicitly.</p>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h7.body-start")} <strong>S/. 35.60/subscriber/month</strong> {t("content.dashboard.h7.body-end")}</p>
             <button onClick={() => navigate("calculator")} className="mt-3 inline-flex items-center gap-1.5 font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold hover:text-ursa-dark-roast transition">
-              Open the calculator <ArrowRight size={14} />
+              {t("actions.open-calculator")} <ArrowRight size={14} />
             </button>
           </Card></Reveal>
           <Reveal delay={80}><Card>
-            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">8 · Ownable space sits orthogonal to competitors</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">Punto Café won Premios Somos 2024. Neira has 4+ locations. Bisetti owns "escuela de café". Puku Puku owns "microlotes". Terrua charges US$25 for a tasting. Ursa's ownable space — bear + two bars + named-drink portmanteaus + "un gramo a la vez" — sits orthogonal to all of these.</p>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h8.title")}</h3>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h8.body")}</p>
           </Card></Reveal>
           <Reveal delay={160}><Card>
-            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">9 · Every claim is traceable; every gap is named</h3>
-            <p className="text-[0.9rem] text-muted-foreground m-0">Each strategic claim cites a public source or marks itself as a scenario assumption. Where data is missing — average ticket, repeat rate, margin — the dossier says so and absorbs the gap with lean, moderate, and growth scenarios rather than invented numbers. No recommendation is held together by filler.</p>
+            <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2">{t("content.dashboard.h9.title")}</h3>
+            <p className="text-[0.9rem] text-muted-foreground m-0">{t("content.dashboard.h9.body")}</p>
           </Card></Reveal>
         </Grid>
       </ViewSection>
 
       {/* Day in the Life — new interactive feature */}
-      <ViewSection badge="The rhythm" title="A day in the life of Alcanfores 183" meta="Interactive · live Lima time">
+      <ViewSection badge={t("badges.rhythm")} title={t("content.dashboard.section.day-in-life")} meta={t("content.dashboard.meta.day-in-life")}>
         <DayInTheLifeWidget />
       </ViewSection>
 
       {/* Quick stats */}
-      <ViewSection badge="By the numbers" title="The plan in four figures">
+      <ViewSection badge={t("badges.by-the-numbers")} title={t("content.dashboard.section.figures")}>
         <Card className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 divide-x divide-ursa-line-soft">
             <div className="px-2 md:px-4 first:pl-0">
-              <StatBlock value="26" label="Original content concepts specific to Ursa" tone="forest" />
+              <StatBlock value="26" label={t("content.dashboard.stat.concepts")} tone="forest" />
             </div>
             <div className="px-2 md:px-4">
-              <StatBlock value="11" label="Designed experiments with stop rules" tone="gold" />
+              <StatBlock value="11" label={t("content.dashboard.stat.experiments")} tone="gold" />
             </div>
             <div className="px-2 md:px-4">
-              <StatBlock value="S/.20" label="Proposed monthly subscription price" tone="terracotta" />
+              <StatBlock value="S/.20" label={t("content.dashboard.stat.subscription")} tone="terracotta" />
             </div>
             <div className="px-2 md:px-4 last:pr-0">
-              <StatBlock value="8+" label="Hotels within walking distance of Alcanfores 183" tone="forest" />
+              <StatBlock value="8+" label={t("content.dashboard.stat.hotels")} tone="forest" />
             </div>
           </div>
         </Card>
@@ -281,44 +262,41 @@ export function DashboardView() {
       </ViewSection>
 
       {/* Open questions */}
-      <ViewSection badge="Open questions" title="One grouped clarification for the owner">
+      <ViewSection badge={t("badges.open-questions")} title={t("content.dashboard.section.clarification")}>
         <p className="text-[1.05rem] text-muted-foreground max-w-[62ch] mb-6">
-          Most missing business data (average ticket, repeat-visit rate, margin, customer database, campaign history)
-          is handled by lean/moderate/growth scenarios throughout the plan. Six questions would materially improve the
-          plan if answered, but none blocks the 72-hour launch. The owner should answer them in a single batched reply
-          when convenient.
+          {t("content.dashboard.open-questions.lede")}
         </p>
         <Grid cols={2}>
           <Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Compass size={16} className="text-ursa-forest-deep" /> Operational data
+              <Compass size={16} className="text-ursa-forest-deep" /> {t("common.operational-data")}
             </h3>
             <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
-              <li>Monthly marketing budget range (lean / moderate / growth)?</li>
-              <li>Average ticket size and best / worst sellers from POS?</li>
-              <li>Current repeat-visit rate or any loyalty data?</li>
+              <li>{t("content.dashboard.q.operational.1")}</li>
+              <li>{t("content.dashboard.q.operational.2")}</li>
+              <li>{t("content.dashboard.q.operational.3")}</li>
             </ul>
           </Card>
           <Card>
             <h3 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-3 flex items-center gap-2">
-              <Star size={16} className="text-ursa-gold" /> Audience &amp; assets
+              <Star size={16} className="text-ursa-gold" /> {t("common.audience-assets")}
             </h3>
             <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
-              <li>Size of existing customer email / WhatsApp list with consent?</li>
-              <li>Staff capacity for classes, cuppings, or creator collaborations?</li>
-              <li>Owner-supplied logo and packaging asset pack for visual verification?</li>
+              <li>{t("content.dashboard.q.audience.1")}</li>
+              <li>{t("content.dashboard.q.audience.2")}</li>
+              <li>{t("content.dashboard.q.audience.3")}</li>
             </ul>
           </Card>
         </Grid>
         <div className="mt-6 flex flex-wrap gap-3">
           <a href="/dossier/index.html" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-ursa-gold-soft/40 text-ursa-forest-deep hover:bg-ursa-gold hover:text-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase">
-            <ExternalLink size={14} /> Open static HTML dossiers
+            <ExternalLink size={14} /> {t("actions.open-static-html")}
           </a>
           <button onClick={() => navigate("roadmap")} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-forest-deep text-ursa-cream hover:bg-ursa-dark-roast transition font-label text-[0.74rem] tracking-[0.1em] uppercase">
-            <MapPin size={14} /> See the 90-day roadmap
+            <MapPin size={14} /> {t("actions.see-roadmap")}
           </button>
           <button onClick={() => navigate("calculator")} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-gold text-ursa-dark-roast hover:bg-ursa-gold-soft transition font-label text-[0.74rem] tracking-[0.1em] uppercase">
-            <Calculator size={14} /> Try the subscription calculator
+            <Calculator size={14} /> {t("actions.try-calculator")}
           </button>
         </div>
       </ViewSection>

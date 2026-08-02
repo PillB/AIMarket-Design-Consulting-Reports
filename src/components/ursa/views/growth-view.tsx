@@ -14,6 +14,7 @@ import {
 } from "../ursa-brand";
 import { HORMOZI_PRINCIPLES, SUTHERLAND_PRINCIPLES, BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 import {
   ArrowRight,
@@ -239,7 +240,7 @@ const CHANNELS = [
   { name: "Tourism", stage: "Discover", icon: <Compass size={14} />, tactic: "POV walk Reel from Parque Kennedy; 'closer than you think' framing for visitors." },
   { name: "Creator strategy", stage: "Engage", icon: <Star size={14} />, tactic: "3 micro-creators per quarter — a barista, a foodie, a traveller — briefs not posts." },
   { name: "Delivery", stage: "Engage", icon: <Truck size={14} />, tactic: "Rappi menu re-photography + bundle pricing. Packing ritual Reel builds trust." },
-  { name: "Events", stage: "Engage", icon: <Calendar size={14} />, tactic: "Monthly cupping night (EXP-06) + seasonal drink reveal with cloth-off ceremony." },
+  { name: "Events", stage: "Engage", icon: <Calendar size={14} />, tactic: "Monthly cupping night + seasonal drink reveal with cloth-off ceremony." },
   { name: "Partnerships", stage: "Engage", icon: <Handshake size={14} />, tactic: "8 nearby hotels with concierge origin cards; redeemable coupon code per hotel." },
   { name: "Hotels", stage: "Engage", icon: <Hotel size={14} />, tactic: "Concierge cards + a small bean gift for VIP rooms in partnering properties." },
   { name: "Offices / coworking", stage: "Engage", icon: <Briefcase size={14} />, tactic: "B2B office sampling (10 offices) for wholesale bean accounts + morning runs." },
@@ -262,17 +263,14 @@ const FUNNEL_STAGES = [
 
 export function GrowthView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [expandedPersona, setExpandedPersona] = useState<number | null>(0);
 
   return (
     <>
       <ViewHero
-        eyebrow="Module 04 · Marketing, Growth & Retention"
-        title={
-          <>
-            An integrated, roaster-first growth system that protects the bear, the gram, and the green.
-          </>
-        }
+        eyebrow={t("content.view.growth.eyebrow")}
+        title={<>{t("content.view.growth.title")}</>}
         lede={
           <>
             Positioning, jobs-to-be-done, message and offer architecture, channel coverage, and a

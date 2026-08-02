@@ -10,6 +10,7 @@ import {
 } from "../ursa-brand";
 import { SOURCES, OPEN_QUESTIONS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   ExternalLink,
   ShieldCheck,
@@ -96,6 +97,7 @@ const METHODOLOGY: { title: string; detail: string }[] = [
 
 export function SourcesView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   const verifiedCount = SOURCES.filter((s) => s.status === "verified").length;
   const partialCount = SOURCES.filter((s) => s.status === "partial").length;
@@ -105,8 +107,8 @@ export function SourcesView() {
   return (
     <>
       <ViewHero
-        eyebrow="Appendix · Sources & Evidence"
-        title={<>Every claim in this dossier is traceable to a public source.</>}
+        eyebrow={t("content.view.sources.eyebrow")}
+        title={<>{t("content.view.sources.title")}</>}
         lede={
           <>
             The Ursa command center is built on publicly verifiable evidence. Where data was inferred, the inference is flagged. Where data was missing, the gap is named openly — and the lean/moderate/growth scenario structure absorbs it without blocking the launch.

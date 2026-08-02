@@ -12,6 +12,7 @@ import {
 } from "../ursa-brand";
 import { COMPETITORS, CUSTOMER_VOICE, URSA_FACTS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   Compass,
   Globe,
@@ -113,6 +114,7 @@ function ActionCard({
 
 export function MarketView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   const mirafloresCount = COMPETITORS.filter((c) => c.area.includes("Miraflores")).length;
   const withWebsite = COMPETITORS.filter((c) => c.hasWebsite).length;
@@ -208,12 +210,8 @@ export function MarketView() {
   return (
     <>
       <ViewHero
-        eyebrow="Module 02 · Market, Competitors & Customer Voice"
-        title={
-          <>
-            Ten Miraflores and Lima competitors, mapped — and the one space none of them owns.
-          </>
-        }
+        eyebrow={t("content.view.market.eyebrow")}
+        title={<>{t("content.view.market.title")}</>}
         lede={
           <>
             This module reconstructs the direct competitive set around Ursa's Alcanfores 183 address, reads the

@@ -5,26 +5,31 @@ import { useState, useEffect, useCallback } from "react";
 type Theme = "light" | "dark";
 const STORAGE_KEY = "ursa-theme";
 
-function getInitialTheme(): Theme {
+/**
+ * Read the saved theme from localStorage only. The user explicitly chose
+ * light mode as the project default, so we never fall back to the OS
+ * prefers-color-scheme media query — if no preference is stored, we ship
+ * light. A returning user who flipped to dark keeps their choice.
+ */
+function readClientTheme(): Theme {
   if (typeof window === "undefined") return "light";
   try {
     const saved = localStorage.getItem(STORAGE_KEY) as Theme | null;
     if (saved === "dark" || saved === "light") return saved;
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    return systemDark ? "dark" : "light";
+    return "light";
   } catch {
     return "light";
   }
 }
 
 /**
- * Theme hook with localStorage persistence and system-preference fallback.
- * Applies/removes the `.dark` class on <html> and respects the user's
- * saved choice across sessions. The inline script in layout.tsx applies
- * the class before hydration to prevent a flash.
+ * Theme hook with localStorage persistence. Light is the project default;
+ * dark is opt-in only. Applies/removes the `.dark` class on <html> and
+ * respects the user's saved choice across sessions. The inline script in
+ * layout.tsx applies the class before hydration to prevent a flash.
  */
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>(readClientTheme);
 
   useEffect(() => {
     const root = document.documentElement;

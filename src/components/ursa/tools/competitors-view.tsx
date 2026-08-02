@@ -12,6 +12,7 @@ import {
 } from "../ursa-brand";
 import { COMPETITORS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   Search,
   Globe,
@@ -147,6 +148,7 @@ function SortIcon({
 
 export function CompetitorsView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   const [areaFilter, setAreaFilter] = useState<AreaFilter>("All");
   const [siteFilter, setSiteFilter] = useState<SiteFilter>("All");
@@ -230,12 +232,8 @@ export function CompetitorsView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T2 · Interactive"
-        title={
-          <>
-            Competitor Intelligence Dashboard.
-          </>
-        }
+        eyebrow={t("content.view.competitors.eyebrow")}
+        title={<>{t("content.view.competitors.title")}</>}
         lede={
           <>
             A filterable comparison matrix of the ten Miraflores and Lima competitors, plus Ursa's own profile pinned

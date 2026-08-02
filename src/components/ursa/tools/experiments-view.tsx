@@ -12,6 +12,7 @@ import {
 } from "../ursa-brand";
 import { EXPERIMENTS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   Beaker,
   FlaskConical,
@@ -206,6 +207,7 @@ function usePersistentState<T>(
 
 export function ExperimentsView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [statuses, setStatuses] = usePersistentState<Record<string, Status>>(
     STORAGE_KEY_STATUS,
     {}
@@ -268,9 +270,9 @@ export function ExperimentsView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T4 · Interactive"
+        eyebrow={t("content.view.experiments.eyebrow")}
         tone="forest"
-        title={<>Experiment Tracker — eleven tests, four outcomes, one source of truth.</>}
+        title={<>{t("content.view.experiments.title")}</>}
         lede={
           <>
             Track the eleven low-cost experiments from Module 07 against their stop rules. Move

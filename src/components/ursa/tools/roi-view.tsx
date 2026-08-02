@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { ViewHero, ViewSection, Card, DossierLinkBanner } from "../view-shell";
 import { Pill, Callout, StatBlock } from "../ursa-brand";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -46,7 +47,7 @@ const DEFAULT_CHANNELS: Channel[] = [
   { id: "meta", name: "Meta paid social", spend: 1800, customers: 90, revenuePerCustomer: 14, note: "Miraflores 3km radius; A/B bear vs cup creative." },
   { id: "creator", name: "Creator pilot (3 micro)", spend: 1600, customers: 40, revenuePerCustomer: 18, note: "Briefs, not posts; barista + foodie + traveller." },
   { id: "hotel", name: "Hotel concierge cards", spend: 300, customers: 30, revenuePerCustomer: 22, note: "8 nearby hotels; coupon code per property." },
-  { id: "cupping", name: "Monthly cupping night", spend: 560, customers: 20, revenuePerCustomer: 35, note: "EXP-06; ticket + retail bean attach." },
+  { id: "cupping", name: "Monthly cupping night", spend: 560, customers: 20, revenuePerCustomer: 35, note: "Monthly cupping; ticket + retail bean attach." },
   { id: "rappi", name: "Rappi optimisation", spend: 400, customers: 50, revenuePerCustomer: 22, note: "Re-photography + bundles; lifts AOV." },
   { id: "whatsapp", name: "WhatsApp list", spend: 150, customers: 35, revenuePerCustomer: 12, note: "Consented weekly drops; near-zero marginal cost." },
   { id: "sub", name: "Subscription pilot", spend: 1200, customers: 30, revenuePerCustomer: 60, note: "Ursa Mañana S/.20/mo; first 90 days LTV." },
@@ -92,6 +93,7 @@ function roiColorHex(roi: number): string {
 
 export function RoiView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [channels, setChannels] = useState<Channel[]>(DEFAULT_CHANNELS);
   const [confidence, setConfidence] = useState<number>(75);
 
@@ -155,12 +157,8 @@ export function RoiView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T8 · Interactive"
-        title={
-          <>
-            ROI Dashboard — model return on each marketing channel with confidence ranges.
-          </>
-        }
+        eyebrow={t("content.view.roi.eyebrow")}
+        title={<>{t("content.view.roi.title")}</>}
         lede={
           <>
             Pre-populated with eight Ursa channels and the verified budget defaults. Edit spend,
@@ -313,7 +311,7 @@ export function RoiView() {
         <Callout tone="warn" title="These are projections, not receipts">
           <p className="m-0">
             Expected customers and revenue per customer are assumptions, not measured results. Run
-            the linked experiments (EXP-01 through EXP-11) and replace these numbers with actuals
+            the linked experiments and replace these numbers with actuals
             as they come in. The confidence slider is the explicit acknowledgement that projections
             are uncertain.
           </p>

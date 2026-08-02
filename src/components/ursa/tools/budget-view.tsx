@@ -5,6 +5,7 @@ import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-sh
 import { Pill, Callout, StatBlock, EvidenceTag } from "../ursa-brand";
 import { BUDGET_SCENARIOS } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -67,6 +68,7 @@ const cloneScenarios = (): Scenario[] =>
 
 export function BudgetView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [scenarios, setScenarios] = useState<Scenario[]>(cloneScenarios);
   const [activeIdx, setActiveIdx] = useState<number>(1); // Moderate by default
   const [newItemName, setNewItemName] = useState("");
@@ -139,12 +141,8 @@ export function BudgetView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T6 · Interactive"
-        title={
-          <>
-            Marketing Budget Allocator — compare, edit, and stress-test three scenarios in PEN.
-          </>
-        }
+        eyebrow={t("content.view.budget.eyebrow")}
+        title={<>{t("content.view.budget.title")}</>}
         lede={
           <>
             Start from the verified Lean, Moderate, and Growth scenarios. Edit any line item, add

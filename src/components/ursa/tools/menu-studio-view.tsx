@@ -40,6 +40,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/hooks/use-i18n";
 import {
   Utensils,
   Plus,
@@ -204,6 +205,7 @@ const QUADRANT_META: Record<
 // ---------------------------------------------------------------
 
 export function MenuStudioView() {
+  const { t } = useI18n();
   const [items, setItems] = useState<MenuItem[]>(INITIAL_ITEMS);
   const [sortKey, setSortKey] = useState<"marginPct" | "marginPEN" | "price" | "prepTime" | "name">("marginPct");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
@@ -397,8 +399,8 @@ export function MenuStudioView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T1 · Interactive"
-        title="Menu Engineering Studio"
+        eyebrow={t("content.view.menu-studio.eyebrow")}
+        title={t("content.view.menu-studio.title")}
         lede={
           <>
             An interactive menu builder for café owners. Edit prices, costs, and prep times

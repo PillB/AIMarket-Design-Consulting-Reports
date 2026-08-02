@@ -30,6 +30,7 @@ import {
   Leaf,
 } from "lucide-react";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 
 // ============================================================
 // Module 06 · Creative Campaign Prototypes — CreativeView
@@ -298,7 +299,7 @@ function LevelSample({
 function InstagramPostProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Single image post (1:1)"
+      label="Single image post (1:1)"
       note="Single-image post template. A bear silhouette watermark sits at 18% opacity behind a centered drink name; an Art Nouveau gold border frames the image; the headline is set in italic Cormorant Garamond and the verified tagline closes the composition. Caption uses warm-expert voice per the §1.7 rules."
     >
       <div className="max-w-[380px] mx-auto bg-ursa-paper rounded-md overflow-hidden border border-ursa-line">
@@ -446,7 +447,7 @@ function CarouselProto() {
   ];
   return (
     <PrototypeFrame
-      label="Prototype · Carousel (slide 1 of 3)"
+      label="Carousel (slide 1 of 3)"
       note="3-slide carousel implementing Concept #10. Each slide carries one mood + one recommended order. Color rotation signals the two-bar distinction: dark brown = espresso bar, deep green = coldbrew bar, terracotta = sweet/cocktail. CTA on final slide."
     >
       <div className="flex flex-col items-center gap-4">
@@ -505,7 +506,7 @@ function CarouselProto() {
 function StoryProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Story (9:16) — Black Label drop"
+      label="Story (9:16) — Black Label drop"
       note="Two Story variants. Left: Bean Drop announcement (warm-expert tone, scarcity without urgency theater). Right: Saturday cupping announcement (event-booking CTA). Both follow the §1.7 voice rules: max two emoji per caption, Spanish as spoken in Lima."
     >
       <div className="flex gap-5 flex-wrap justify-center">
@@ -577,7 +578,7 @@ function StoryProto() {
 function ReelCoverProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Reel cover (9:16) — Un Gramo a la Vez"
+      label="Reel cover (9:16) — Un Gramo a la Vez"
       note="Three Reel covers from Series A (Un Gramo a la Vez). Same composition, same hook phrase, same end card — different brew method and ratio per episode. Color rotation across the series (dark brown / forest / medium roast) keeps the grid visually fresh while the typographic system stays rigidly consistent."
     >
       <div className="flex gap-4 flex-wrap justify-center">
@@ -674,7 +675,7 @@ function MenuProto() {
 
   return (
     <PrototypeFrame
-      label="Prototype · Print menu (A4)"
+      label="Print menu (A4)"
       note="Print menu implementing the §3.2 architecture. Two-column layout operationalises the two-bar concept; the pairings section completes the menu story. Bear crest at top uses the original concept mark as placeholder for the official logo. Print at A4 portrait, double-sided if needed."
     >
       <div
@@ -748,7 +749,7 @@ function MenuProto() {
 function ProductCardProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Product card (5:7) — retail bean"
+      label="Product card (5:7) — retail bean"
       note="Retail bean product card with origin transparency. Bear mark at top right; process, roast, tasting notes, and a V60 recipe make the card self-sufficient. No bear on this surface per the §1.4 grammar — the mark lives only on the menu crest and bean bag label."
     >
       <div className="flex justify-center">
@@ -803,8 +804,8 @@ function ProductCardProto() {
 function TableSignProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Table sign (5:3 landscape) — Bear recommends"
-      note="Landscape table card meant to sit on a table: a 'Bear recommends' pairing that nudges the side attach rate (EXP-05). The pairing is real (verified Ursagroni + verified financier de pera). Cost: ~S/. 0.60/card at local print."
+      label="Table sign (5:3 landscape) — Bear recommends"
+      note="Landscape table card meant to sit on a table: a 'Bear recommends' pairing that nudges the side attach rate. The pairing is real (verified Ursagroni + verified financier de pera). Cost: ~S/. 0.60/card at local print."
     >
       <div className="flex justify-center">
         <div
@@ -842,8 +843,8 @@ function TableSignProto() {
 function EventFlyerProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Event flyer — Cupping Night"
-      note="Event flyer for the monthly cupping night (EXP-06 / P-08). Bear concept mark at top as placeholder for the official logo. Print at A6 for in-store handout, A5 for window posting. Bear recommends the Saturday 11am slot — the cupping builds community and seeds retail bean sales."
+      label="Event flyer — Cupping Night"
+      note="Event flyer for the monthly cupping night. Bear concept mark at top as placeholder for the official logo. Print at A6 for in-store handout, A5 for window posting. Bear recommends the Saturday 11am slot — the cupping builds community and seeds retail bean sales."
     >
       <div className="flex justify-center">
         <div
@@ -894,7 +895,7 @@ function EventFlyerProto() {
 function BeanBagLabelProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Bean bag label (3:4) — Black Label Lonya"
+      label="Bean bag label (3:4) — Black Label Lonya"
       note="Level-2 bean bag label. Forest-to-espresso gradient evokes the field-to-cup story. Gold seal with roast date functions as both a freshness signal (Sutherland: perceived value via transparency) and a limited-edition feel. Print on matte sticker, 90 × 120mm."
     >
       <div className="flex justify-center">
@@ -959,8 +960,8 @@ function BeanBagLabelProto() {
 function BeanInfoCardProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Bean info card — inside the bag"
-      note="Bean info card inserted inside the bag — origin story + home-brew recipe. Together with the bean bag label it implements EXP-02 (origin story card A/B test). The card raises perceived value more than a bigger cup at the same cost (Sutherland: perceived value > objective value)."
+      label="Bean info card — inside the bag"
+      note="Bean info card inserted inside the bag — origin story + home-brew recipe. Together with the bean bag label it carries the origin story card A/B test. The card raises perceived value more than a bigger cup at the same cost (Sutherland: perceived value > objective value)."
     >
       <div className="flex justify-center">
         <div
@@ -1005,7 +1006,7 @@ function BeanInfoCardProto() {
 function LoyaltyCardProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Loyalty card (8:5) — paw punch"
+      label="Loyalty card (8:5) — paw punch"
       note="Physical loyalty card implementing R1. Constellation (Ursa Major) at top connects the bear identity to the loyalty program. Paw print per punch (concept mark; in production use a custom bear-paw stamp). 8 drinks, the 9th is on the house. Cost: ~S/. 0.40/card at local print."
     >
       <div className="flex justify-center">
@@ -1071,8 +1072,8 @@ function LoyaltyCardProto() {
 function LandingHeroProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Landing page hero (desktop frame)"
-      note="Landing page implementing the WhatsApp Bean Drop list (EXP-06). Single conversion goal — collect email/WhatsApp opt-in. Above-the-fold only; full page would include social proof, FAQ, and origin preview. Works without a build process — pure HTML + CSS, no JavaScript framework."
+      label="Landing page hero (desktop frame)"
+      note="Landing page for the WhatsApp Bean Drop list. Single conversion goal — collect email/WhatsApp opt-in. Above-the-fold only; full page would include social proof, FAQ, and origin preview. Works without a build process — pure HTML + CSS, no JavaScript framework."
     >
       {/* Desktop browser frame */}
       <div className="max-w-[760px] mx-auto bg-ursa-espresso rounded-lg p-2 shadow-[0_24px_48px_-12px_rgba(33,18,8,0.35)]">
@@ -1132,7 +1133,7 @@ function LandingHeroProto() {
 function EmailHeaderProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Email header — weekly bean drop"
+      label="Email header — weekly bean drop"
       note="Email header for the weekly newsletter announcing the new bean drop. Reusable HTML template; only the headline and origin name change weekly. Bear concept mark as watermark; in production replace with the official mark."
     >
       <div
@@ -1184,8 +1185,8 @@ function EmailHeaderProto() {
 function GbpHeroProto() {
   return (
     <PrototypeFrame
-      label="Prototype · Google Business Profile hero + Rappi hero (16:9)"
-      note="GBP hero image implementing EXP-07. 16:9 aspect ratio fills the Google Business Profile cover slot. Hero conveys the two-bar identity, address, hours, and delivery availability in a single glance. The Rappi hero reuses the same composition with a different CTA. Bear concept mark as watermark; in production replace with the official mark."
+      label="Google Business Profile hero + Rappi hero (16:9)"
+      note="GBP hero image for the Google Business Profile cover slot. 16:9 aspect ratio fills the cover. Hero conveys the two-bar identity, address, hours, and delivery availability in a single glance. The Rappi hero reuses the same composition with a different CTA. Bear concept mark as watermark; in production replace with the official mark."
     >
       <div className="space-y-4">
         {/* GBP hero */}
@@ -1269,16 +1270,17 @@ function GbpHeroProto() {
 
 export function CreativeView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   return (
     <>
       <ViewHero
-        eyebrow="Module 06 · Creative Campaign Prototypes"
+        eyebrow={t("content.view.creative.eyebrow")}
         title={
           <>
-            Prototypes you can click, copy,
+            {t("content.view.creative.title-line1")}
             <br />
-            and hand to a printer.
+            {t("content.view.creative.title-line2")}
           </>
         }
         lede={
@@ -1547,7 +1549,7 @@ export function CreativeView() {
             <h4 className="font-display text-[1.05rem] text-ursa-dark-roast mb-1">Cheaply testable</h4>
             <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
               Most prototypes cost S/. 0–200 to test in print. The bean bag label and the table
-              sign together implement EXP-02 and EXP-05 for under S/. 100.
+              sign together cover the origin story and pairing tests for under S/. 100.
             </p>
           </Card>
         </Grid>

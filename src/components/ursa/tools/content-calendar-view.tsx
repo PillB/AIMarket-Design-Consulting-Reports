@@ -15,6 +15,7 @@ import {
   REPEATABLE_SERIES,
 } from "@/lib/ursa-data";
 import { useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -90,6 +91,7 @@ function conceptById(id: string): Concept | undefined {
 
 export function ContentCalendarView() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   // Filter state for concept library
   const [filter, setFilter] = useState<FilterKey>("All");
@@ -185,8 +187,8 @@ export function ContentCalendarView() {
   return (
     <>
       <ViewHero
-        eyebrow="Extra Tool T3 · Interactive"
-        title={<>Content Calendar &amp; Script Library</>}
+        eyebrow={t("content.view.content-calendar.eyebrow")}
+        title={<>{t("content.view.content-calendar.title")}</>}
         lede={
           <>
             A working planner for the Ursa content lab. Browse all 26 concepts, read every

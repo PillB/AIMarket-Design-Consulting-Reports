@@ -4,11 +4,14 @@ import { useState } from "react";
 import { Menu, X, Printer, ExternalLink } from "lucide-react";
 import { BearMark } from "./ursa-brand";
 import { ThemeToggle } from "./theme-toggle";
+import { LanguageToggle } from "./language-toggle";
 import { ROUTES, RouteKey, useNavigate } from "@/lib/ursa-nav";
+import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/lib/utils";
 
 export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const dossierKeys: RouteKey[] = ["brand", "market", "menu", "growth", "viral", "creative", "roadmap"];
@@ -44,17 +47,17 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
           <button
             onClick={() => go("")}
             className="flex items-center gap-3 text-left hover:opacity-90 transition shrink-0"
-            aria-label="Ursa Coffee — go to dashboard"
+            aria-label={t("nav.go-dashboard")}
           >
             <span className="w-11 h-11 rounded-full bg-ursa-cream grid place-items-center shadow-[inset_0_0_0_1px_var(--color-ursa-gold)] text-ursa-dark-roast ursa-breathe">
               <BearMark size={30} />
             </span>
             <span className="hidden sm:block">
               <span className="block font-display text-xl font-semibold leading-none text-ursa-cream">
-                Ursa Coffee Roasters
+                {t("nav.ursa-tagline")}
               </span>
               <span className="block font-label text-[0.62rem] tracking-[0.22em] uppercase text-ursa-gold-soft mt-1">
-                Strategic Dossier · 2026
+                {t("nav.strategic-dossier-2026")}
               </span>
             </span>
           </button>
@@ -62,12 +65,12 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1 ml-auto" aria-label="Primary">
             <NavBtn active={isActive("")} onClick={() => go("")}>
-              Dashboard
+              {t("nav.dashboard")}
             </NavBtn>
 
             <div className="relative group">
               <button className="px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded text-ursa-cream hover:bg-white/10 transition flex items-center gap-1">
-                Dossier
+                {t("nav.dossier")}
                 <span className="text-[0.6rem] opacity-60">▾</span>
               </button>
               <div className="absolute right-0 top-full pt-1 hidden group-hover:block">
@@ -90,7 +93,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
 
             <div className="relative group">
               <button className="px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded text-ursa-cream hover:bg-white/10 transition flex items-center gap-1">
-                Tools
+                {t("nav.tools")}
                 <span className="text-[0.6rem] opacity-60">▾</span>
               </button>
               <div className="absolute right-0 top-full pt-1 hidden group-hover:block">
@@ -112,14 +115,15 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
             </div>
 
             <NavBtn active={isActive("sources")} onClick={() => go("sources")}>
-              Sources
+              {t("nav.sources")}
             </NavBtn>
 
             <NavBtn active={isActive("landing")} onClick={() => go("landing")}>
-              Ursa Mañana
+              {t("nav.ursa-manana")}
             </NavBtn>
 
             <ThemeToggle className="ml-1" />
+            <LanguageToggle className="ml-0.5" />
 
             <a
               href="/dossier/index.html"
@@ -127,7 +131,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               rel="noopener noreferrer"
               className="ml-1 px-3 py-2 font-label text-[0.7rem] tracking-[0.14em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-soft hover:bg-ursa-gold hover:text-ursa-dark-roast transition flex items-center gap-1.5"
             >
-              Static Dossier <ExternalLink size={12} />
+              {t("nav.static-dossier")} <ExternalLink size={12} />
             </a>
           </nav>
 
@@ -135,7 +139,7 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
           <button
             className="lg:hidden ml-auto p-2 text-ursa-cream"
             onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
+            aria-label={t("nav.toggle-menu")}
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -147,25 +151,25 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
       {mobileOpen && (
         <div className="lg:hidden border-t border-ursa-gold/30 bg-ursa-espresso max-h-[80vh] overflow-y-auto ursa-scroll">
           <div className="px-4 py-4 space-y-4">
-            <MobileSection title="Top">
+            <MobileSection title={t("nav.top")}>
               <MobileLink active={isActive("")} onClick={() => go("")}>
-                Dashboard
+                {t("nav.dashboard")}
               </MobileLink>
               <MobileLink active={isActive("sources")} onClick={() => go("sources")}>
-                Sources & Evidence
+                {t("nav.sources-evidence")}
               </MobileLink>
               <MobileLink active={isActive("landing")} onClick={() => go("landing")}>
-                Ursa Mañana Landing
+                {t("nav.ursa-landing")}
               </MobileLink>
             </MobileSection>
-            <MobileSection title="Dossier Modules">
+            <MobileSection title={t("nav.dossier-modules")}>
               {dossierKeys.map((k) => (
                 <MobileLink key={k} active={isActive(k)} onClick={() => go(k)}>
                   {ROUTES[k].label}
                 </MobileLink>
               ))}
             </MobileSection>
-            <MobileSection title="Interactive Tools">
+            <MobileSection title={t("nav.interactive-tools")}>
               {toolKeys.map((k) => (
                 <MobileLink key={k} active={isActive(k)} onClick={() => go(k)}>
                   {ROUTES[k].label}
@@ -178,11 +182,14 @@ export function UrsaHeader({ currentRoute }: { currentRoute: string }) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-2.5 font-label text-[0.72rem] tracking-[0.1em] uppercase rounded border border-ursa-gold-soft/40 text-ursa-gold-soft"
             >
-              Open Static Dossier <ExternalLink size={14} />
+              {t("nav.open-static-dossier")} <ExternalLink size={14} />
             </a>
             <div className="flex items-center justify-between pt-3 border-t border-ursa-gold/20">
-              <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-soft">Tema</span>
-              <ThemeToggle />
+              <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-gold-soft">{t("nav.theme")}</span>
+              <div className="flex items-center gap-1">
+                <ThemeToggle />
+                <LanguageToggle />
+              </div>
             </div>
           </div>
         </div>
@@ -230,6 +237,7 @@ function MobileLink({ children, active, onClick }: { children: React.ReactNode; 
 }
 
 export function UrsaFooter({ onPrint }: { onPrint?: () => void }) {
+  const { t } = useI18n();
   return (
     <footer className="bg-ursa-espresso text-ursa-cream mt-auto border-t-[3px] border-ursa-gold no-print">
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-12">
@@ -239,46 +247,42 @@ export function UrsaFooter({ onPrint }: { onPrint?: () => void }) {
               <span className="w-9 h-9 rounded-full bg-ursa-cream grid place-items-center text-ursa-dark-roast">
                 <BearMark size={24} />
               </span>
-              <h4 className="font-display text-lg text-ursa-cream m-0">Ursa Coffee Roasters — Strategic Dossier</h4>
+              <h4 className="font-display text-lg text-ursa-cream m-0">{t("footer.brand-name")}</h4>
             </div>
             <p className="text-[0.88rem] text-ursa-sage leading-relaxed">
-              Research-grounded brand, product, graphic, and marketing plan prepared for the owners of Ursa Coffee
-              Roasters, Alcanfores 183, Miraflores, Lima. Preserves the existing Art Nouveau / bear / roastery identity.
-              No rebrand. Compiled 2026-08-01.
+              {t("footer.intro")}
             </p>
           </div>
           <div>
-            <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-soft mb-3">Dossier Modules</h4>
+            <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-soft mb-3">{t("footer.dossier-modules")}</h4>
             <div className="text-[0.85rem] space-y-1.5">
-              <FooterLink href="#/brand">01 · Brand Audit</FooterLink>
-              <FooterLink href="#/market">02 · Market &amp; Customer Voice</FooterLink>
-              <FooterLink href="#/menu">03 · Menu &amp; Product</FooterLink>
-              <FooterLink href="#/growth">04 · Growth &amp; Retention</FooterLink>
+              <FooterLink href="#/brand">{t("footer.module-01")}</FooterLink>
+              <FooterLink href="#/market">{t("footer.module-02")}</FooterLink>
+              <FooterLink href="#/menu">{t("footer.module-03")}</FooterLink>
+              <FooterLink href="#/growth">{t("footer.module-04")}</FooterLink>
             </div>
           </div>
           <div>
-            <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-soft mb-3">More</h4>
+            <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-soft mb-3">{t("footer.more")}</h4>
             <div className="text-[0.85rem] space-y-1.5">
-              <FooterLink href="#/viral">05 · Viral Content Lab</FooterLink>
-              <FooterLink href="#/creative">06 · Creative Prototypes</FooterLink>
-              <FooterLink href="#/roadmap">07 · Roadmap &amp; KPIs</FooterLink>
-              <FooterLink href="#/calculator">08 · Subscription &amp; Calculator</FooterLink>
-              <FooterLink href="#/sources">Sources &amp; Evidence</FooterLink>
+              <FooterLink href="#/viral">{t("footer.module-05")}</FooterLink>
+              <FooterLink href="#/creative">{t("footer.module-06")}</FooterLink>
+              <FooterLink href="#/roadmap">{t("footer.module-07")}</FooterLink>
+              <FooterLink href="#/calculator">{t("footer.module-08")}</FooterLink>
+              <FooterLink href="#/sources">{t("footer.sources")}</FooterLink>
             </div>
           </div>
         </div>
         <div className="mt-8 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
           <p className="text-[0.76rem] text-ursa-sage max-w-3xl">
-            Compiled from public sources cited in Sources &amp; Evidence. No proprietary material reproduced. This
-            dossier does not represent, alter, or counterfeit the official Ursa Coffee Roasters logo or trademark; the
-            geometric bear glyph used in the header is an original concept mark for navigation only.
+            {t("footer.legal")}
           </p>
           {onPrint && (
             <button
               onClick={onPrint}
               className="flex items-center gap-2 border border-ursa-gold-soft/40 text-ursa-gold-soft px-4 py-2 rounded-full font-label text-[0.7rem] tracking-[0.14em] uppercase hover:bg-ursa-gold hover:text-ursa-dark-roast transition shrink-0"
             >
-              <Printer size={14} /> Print / PDF
+              <Printer size={14} /> {t("actions.print-pdf")}
             </button>
           )}
         </div>
