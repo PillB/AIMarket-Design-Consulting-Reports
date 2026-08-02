@@ -101,7 +101,7 @@ export function LandingView() {
                 Quiero ser socio <ArrowRight size={16} />
               </button>
               <button
-                onClick={() => navigate("calculator")}
+                onClick={() => navigate("pilot")}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-ursa-forest-deep/40 text-ursa-forest-deep font-label text-[0.78rem] tracking-[0.12em] uppercase hover:bg-ursa-dark-roast hover:text-ursa-cream transition"
               >
                 <Calculator size={16} /> Ver las matemáticas
@@ -250,10 +250,10 @@ export function LandingView() {
               </li>
             </ul>
             <button
-              onClick={() => navigate("calculator")}
+              onClick={() => navigate("pilot")}
               className="mt-4 inline-flex items-center gap-1.5 font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold-text hover:text-ursa-dark-roast transition"
             >
-              <Calculator size={14} /> Abrir la calculadora completa <ArrowRight size={14} />
+              <Calculator size={14} /> Abrir el caso de negocio completo <ArrowRight size={14} />
             </button>
           </Card>
 
