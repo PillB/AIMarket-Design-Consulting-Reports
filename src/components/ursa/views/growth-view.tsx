@@ -89,75 +89,14 @@ const PERSONAS: Persona[] = [
 
 type Pillar = {
   id: string;
-  titleKey: string;
-  promiseKey: string;
-  proofs: string[];
-  evidence: string;
-  risk: string;
   tone: "gold" | "forest" | "terracotta";
 };
 
 const MESSAGE_PILLARS: Pillar[] = [
-  {
-    id: "visible-craft",
-    titleKey: "content.growth.message.pillar.visible-craft.title",
-    promiseKey: "content.growth.message.pillar.visible-craft.promise",
-    proofs: [
-      "In-house roaster visible from the bar",
-      "'Un gramo a la vez' as the weighing ritual",
-      "Baristas trained to talk origin, altitude, process",
-    ],
-    evidence:
-      "Corner.inc editorial praises Ursa's 'visible roasting equipment creates a workshop feel.' Terrua (513 Google reviews, 4.6★) and Punto Café (CAM 2025 2nd place) both lean on visible roastery/in-house roasting as the credibility signal that converts walk-ins. In the 1km competitor census, 4 of 14 in-catchment competitors make roastery visibility central to their positioning.",
-    risk:
-      "'Visible craft' without consistency is hollow. If Ursa's roast consistency slips (no documented QC protocol surfaced in research), the visible roaster becomes a liability — customers see the inconsistency, not the craft. Missing evidence: no roast-log audit, no extraction-yield log observed in public sources.",
-    tone: "gold",
-  },
-  {
-    id: "ownable-atmosphere",
-    titleKey: "content.growth.message.pillar.ownable-atmosphere.title",
-    promiseKey: "content.growth.message.pillar.ownable-atmosphere.promise",
-    proofs: [
-      "Bear motif as a recurring character",
-      "Two-bar theatre: espresso + cold brew side by side",
-      "Coined drink names: Ursagroni, Maracumango (the other two named drinks — Filtrado Lonya, Durazno Clarificado — use origin/descriptive labels, not coined names)",
-    ],
-    evidence:
-      "The 1km competitor census of 18 competitors: 0 use an animal or character identity; 0 operate a visible two-bar format; 0 use coined drink names. 'Amauta' is the closest analogue — a heritage word, not a character. The bear + two-bar + coined-name trio is uncontested in the catchment.",
-    risk:
-      "Atmosphere is ownable only as long as it is legible. If the bear is treated as decoration rather than character (no consistent voice, no recurring role), competitors can copy the surface (an animal mascot) without copying the meaning. Risk: bear identity becomes a logo, not a character.",
-    tone: "forest",
-  },
-  {
-    id: "honest-origin",
-    titleKey: "content.growth.message.pillar.honest-origin.title",
-    promiseKey: "content.growth.message.pillar.honest-origin.promise",
-    proofs: [
-      "Filtrado Lonya line with farm + altitude (Utcubamba, Amazonas, 1,750m, Bourbon lavado)",
-      "'Gram of the week' micro-lot highlight",
-      "Quarterly origin transparency report",
-    ],
-    evidence:
-      "The 1km competitor census: Café Verde (possibly closed) was the cautionary case — generic 'sustainability' messaging without specifics. RAIZ and Terrua own farm-to-cup depth, but Terrua's single-origin (Villa Rica only) is a narrow terroir story. Ursa's Filtrado Lonya line (multi-origin, named lot, named altitude) is uncontested in the catchment.",
-    risk:
-      "'Specific' is only credible if the named farm relationship is real and ongoing. If Ursa cannot document the producer relationship behind each Lonya lot (contract, purchase price, visit date), the story degrades into marketing. Missing evidence: no producer-relationship documentation surfaced in public sources.",
-    tone: "forest",
-  },
-  {
-    id: "patient-continuity",
-    titleKey: "content.growth.message.pillar.patient-continuity.title",
-    promiseKey: "content.growth.message.pillar.patient-continuity.promise",
-    proofs: [
-      "Seasonal drink rotation (Lonya origins)",
-      "Ursa Mañana subscription pilot (S/. 20/mo, capped at 50)",
-      "Monthly cupping nights + named-drink drops",
-    ],
-    evidence:
-      "The 1km competitor census: Bisetti owns 'escuela de café' (formal education); Puku Puku owns 'microlotes' retail (S/.49 bag); no competitor owns a subscription + cupping + named-drink drop cadence. CoffeePass Perú listing validates Ursa already participates in Lima's loyalty infrastructure.",
-    risk:
-      "Continuity promises erode the moment a weekly cadence is missed. If the cupping night skips a month, or the named-drink drop is late, the rhythm breaks and the promise feels performative. Risk: subscription cannibalizes full-price visits if attach rate < 60% (see Module 08 model).",
-    tone: "gold",
-  },
+  { id: "visible-craft", tone: "gold" },
+  { id: "ownable-atmosphere", tone: "forest" },
+  { id: "honest-origin", tone: "forest" },
+  { id: "patient-continuity", tone: "gold" },
 ];
 
 const OFFER_STACK = [
@@ -485,23 +424,26 @@ export function GrowthView() {
 
           {/* Pillars grid */}
           <Grid cols={2}>
-            {MESSAGE_PILLARS.map((pillar) => (
+            {MESSAGE_PILLARS.map((pillar) => {
+              const pillarKey = (field: string) => `content.growth.message.pillar.${pillar.id}.${field}`;
+              const proofs = [1, 2, 3].map((n) => t(pillarKey(`proof.${n}`)));
+              return (
               <div
                 key={pillar.id}
                 className="rounded-lg border border-ursa-line-soft bg-card p-5 shadow-[0_1px_0_rgba(59,36,23,0.06),0_8px_24px_-16px_rgba(59,36,23,0.18)]"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <Pill tone={pillar.tone}>{t(pillar.titleKey)}</Pill>
+                  <Pill tone={pillar.tone}>{t(pillarKey("title"))}</Pill>
                 </div>
                 <p className="font-display text-[1.05rem] text-ursa-dark-roast font-medium leading-snug mb-3">
-                  {t(pillar.promiseKey)}
+                  {t(pillarKey("promise"))}
                 </p>
                 <div className="flex items-center gap-1 text-ursa-gold-text mb-2">
                   <ArrowDown size={12} />
                   <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase">{t("content.growth.message.pillars.label")}</span>
                 </div>
                 <ul className="space-y-1.5 m-0 p-0 list-none">
-                  {pillar.proofs.map((proof) => (
+                  {proofs.map((proof) => (
                     <li key={proof} className="flex items-start gap-2 text-[0.85rem] text-foreground/85">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ursa-forest shrink-0" />
                       <span>{proof}</span>
@@ -514,18 +456,19 @@ export function GrowthView() {
                     <EvidenceTag status="partial" />
                     <p className="text-[0.78rem] text-muted-foreground leading-relaxed m-0 flex-1">
                       <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-forest-deep block mb-0.5">{t("content.growth.message.label.evidence")}</span>
-                      {pillar.evidence}
+                      {t(pillarKey("evidence"))}
                     </p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase px-1.5 py-0.5 rounded border bg-ursa-terracotta/15 text-ursa-terracotta-text border-ursa-terracotta/40 shrink-0 mt-0.5">{t("content.growth.message.label.risk")}</span>
                     <p className="text-[0.78rem] text-muted-foreground leading-relaxed m-0 flex-1">
-                      {pillar.risk}
+                      {t(pillarKey("risk"))}
                     </p>
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </Grid>
         </Card>
         <Callout tone="warn" title={t("content.growth.message.callout.title")}>

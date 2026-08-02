@@ -1384,6 +1384,28 @@ export const translations: Translations = {
         "Hormozi's Value Equation is a popular entrepreneurial framework with anecdotal support. Treat these adaptations as testable hypotheses, not proven principles. The stronger scientific frame is Ehrenberg-Bass — distinctive assets plus mental and physical availability. We use Hormozi for offer discipline, not as a law of growth.",
       "growth.hormozi.label.do-not": "Do not",
 
+      /* Hormozi principles (adapted text + caveat resolved by index) */
+      "growth.hormozi.principle.1.name": "Value Equation",
+      "growth.hormozi.principle.1.adapted":
+        "Increase Dream Outcome (become the person who knows good coffee), increase Likelihood of Achievement (guaranteed good cup via roastery), decrease Time Delay (7am opening), decrease Effort & Sacrifice (subscription removes per-cup decision).",
+      "growth.hormozi.principle.1.caveat": "Do not promise transformational outcomes a café cannot deliver.",
+      "growth.hormozi.principle.2.name": "Offer Design & Stacks",
+      "growth.hormozi.principle.2.adapted":
+        "Bundle a core drink + a side + a bean sample + a story card. Anchor against à la carte total. Continuity via subscription.",
+      "growth.hormozi.principle.2.caveat": "Anchors must be truthful, not inflated.",
+      "growth.hormozi.principle.3.name": "Lead Magnets",
+      "growth.hormozi.principle.3.adapted":
+        "Free 'origin flavour wheel' PDF or a free mini-cupping ticket with first retail bean purchase — not a discount.",
+      "growth.hormozi.principle.3.caveat": "Lead magnet must be genuinely useful, not a coupon in disguise.",
+      "growth.hormozi.principle.4.name": "Retention & Repeat Purchase",
+      "growth.hormozi.principle.4.adapted":
+        "Subscription + named-drink rotation + seasonal Lonya origins create a reason to return weekly.",
+      "growth.hormozi.principle.4.caveat": "Do not over-discount; protect specialty margin perception.",
+      "growth.hormozi.principle.5.name": "More, Better, New",
+      "growth.hormozi.principle.5.adapted":
+        "More (delivery, retail), Better (consistency, service), New (seasonal drinks, workshops). Sequence Better before More.",
+      "growth.hormozi.principle.5.caveat": "New without Better erodes trust.",
+
       /* Sutherland */
       "growth.sutherland.badge": "Framework · Sutherland",
       "growth.sutherland.title": "Sutherland adapted — perceived value is the lever",
@@ -1394,6 +1416,24 @@ export const translations: Translations = {
       "growth.sutherland.callout2.title": "The Sutherland lens is the cheaper lever — try it first",
       "growth.sutherland.callout2.body":
         "Hormozi's offer stack changes the receipt. Sutherland's perceived-value moves change the same cup's meaning at near-zero cost: a story card, a named preparation, a bear character. Sequence Sutherland before Hormozi wherever possible.",
+
+      /* Sutherland principles (adapted text + caveat resolved by index) */
+      "growth.sutherland.principle.1.name": "Perceived value > objective value",
+      "growth.sutherland.principle.1.adapted":
+        "A story card describing origin, altitude, and process raises perceived value more than a bigger cup at the same cost.",
+      "growth.sutherland.principle.2.name": "Inexpensive experiments",
+      "growth.sutherland.principle.2.adapted":
+        "Test named-drink story cards, table signs, and bear-character captions before any expensive redesign. Most cost S/. 0–200.",
+      "growth.sutherland.principle.3.name": "Psychological pricing & anchoring",
+      "growth.sutherland.principle.3.adapted":
+        "A S/. 28 tasting flight makes a S/. 14 pour-over feel reasonable. Anchor, then offer the accessible tier.",
+      "growth.sutherland.principle.4.name": "Context shapes perception",
+      "growth.sutherland.principle.4.adapted":
+        "The two-bar layout, the Art Nouveau details, and the roaster visible from the counter are context that makes the same coffee taste better.",
+      "growth.sutherland.principle.5.name": "Irrational-but-testable ideas",
+      "growth.sutherland.principle.5.adapted":
+        "A 'bear recommends' pairing on the menu, a morning ritual greeting, or a weekly 'gram of the week' bean highlight.",
+      "growth.sutherland.principle.5.caveat": "Test cheaply; keep only what improves repeat or ticket.",
 
       /* Offer */
       "growth.offer.badge": "Offer",
@@ -4256,6 +4296,40 @@ export const translations: Translations = {
       "growth.message.pillar.honest-origin.promise": "Te decimos de dónde vino el grano, específicamente.",
       "growth.message.pillar.patient-continuity.title": "Continuidad Paciente",
       "growth.message.pillar.patient-continuity.promise": "Razones para volver cada semana, no solo una vez.",
+
+      /* Pruebas, evidencia, riesgo de pilares (resueltos por id de pilar) */
+      "growth.message.pillar.visible-craft.proof.1": "Tostadora a la vista desde la barra",
+      "growth.message.pillar.visible-craft.proof.2": "«Un gramo a la vez» como ritual de pesaje",
+      "growth.message.pillar.visible-craft.proof.3": "Baristas entrenados para hablar de origen, altitud, proceso",
+      "growth.message.pillar.visible-craft.evidence":
+        "El editorial de Corner.inc elogia que el «equipo de tostado visible crea un feeling de taller» de Ursa. Terrua (513 reseñas Google, 4.6★) y Punto Café (CAM 2025 2do puesto) apoyan ambos en tostadero visible/tostado in-house como la señal de credibilidad que convierte walk-ins. En el censo de competidores de 1km, 4 de 14 competidores in-catchment hacen de la visibilidad del tostadero el centro de su posicionamiento.",
+      "growth.message.pillar.visible-craft.risk":
+        "«Oficio visible» sin consistencia es hueco. Si la consistencia de tueste de Ursa se resbala (no surgió protocolo de QC documentado en la investigación), la tostadora visible se convierte en pasivo — el cliente ve la inconsistencia, no el oficio. Evidencia faltante: no hay auditoría de registro de tueste, no hay log de rendimiento de extracción observado en fuentes públicas.",
+
+      "growth.message.pillar.ownable-atmosphere.proof.1": "Motivo del oso como personaje recurrente",
+      "growth.message.pillar.ownable-atmosphere.proof.2": "Teatro de dos barras: espresso + cold brew lado a lado",
+      "growth.message.pillar.ownable-atmosphere.proof.3": "Nombres acuñados de bebidas: Ursagroni, Maracumango (las otras dos bebidas con nombre — Filtrado Lonya, Durazno Clarificado — usan etiquetas de origen/descriptivas, no nombres acuñados)",
+      "growth.message.pillar.ownable-atmosphere.evidence":
+        "El censo de competidores de 1km de 18 competidores: 0 usan una identidad animal o de personaje; 0 operan un formato visible de dos barras; 0 usan nombres acuñados de bebidas. «Amauta» es el análogo más cercano — una palabra de herencia, no un personaje. El trío oso + dos-barras + nombre-acuñado está sin contender en el catchment.",
+      "growth.message.pillar.ownable-atmosphere.risk":
+        "La atmósfera es ownable solo mientras sea legible. Si al oso se le trata como decoración en vez de personaje (sin voz consistente, sin rol recurrente), los competidores pueden copiar la superficie (una mascota animal) sin copiar el significado. Riesgo: la identidad del oso se convierte en logo, no en personaje.",
+
+      "growth.message.pillar.honest-origin.proof.1": "Línea Filtrado Lonya con finca + altitud (Utcubamba, Amazonas, 1,750m, Bourbon lavado)",
+      "growth.message.pillar.honest-origin.proof.2": "«Gramo de la semana» destacado de micro-lote",
+      "growth.message.pillar.honest-origin.proof.3": "Reporte trimestral de transparencia de origen",
+      "growth.message.pillar.honest-origin.evidence":
+        "El censo de competidores de 1km: Café Verde (posiblemente cerrado) fue el caso aleccionador — messaging genérico de «sostenibilidad» sin específicos. RAIZ y Terrua son dueños de la profundidad farm-to-cup, pero el origen único de Terrua (solo Villa Rica) es una historia de terroir estrecha. La línea Filtrado Lonya de Ursa (multi-origen, lote con nombre, altitud con nombre) está sin contender en el catchment.",
+      "growth.message.pillar.honest-origin.risk":
+        "«Específico» solo es creíble si la relación de finca con nombre es real y ongoing. Si Ursa no puede documentar la relación con productor detrás de cada lote Lonya (contrato, precio de compra, fecha de visita), la historia se degrada a marketing. Evidencia faltante: no surgió documentación de relación con productor en fuentes públicas.",
+
+      "growth.message.pillar.patient-continuity.proof.1": "Rotación estacional de bebidas (orígenes Lonya)",
+      "growth.message.pillar.patient-continuity.proof.2": "Piloto de suscripción Ursa Mañana (S/. 20/mes, tope de 50)",
+      "growth.message.pillar.patient-continuity.proof.3": "Noches de cupping mensuales + drops de bebidas con nombre",
+      "growth.message.pillar.patient-continuity.evidence":
+        "El censo de competidores de 1km: Bisetti es dueño de «escuela de café» (educación formal); Puku Puku es dueño de «microlotes» retail (bolsa de S/.49); ningún competidor es dueño de una cadencia de suscripción + cupping + drop de bebida con nombre. El listing de CoffeePass Perú valida que Ursa ya participa en la infraestructura de loyalty de Lima.",
+      "growth.message.pillar.patient-continuity.risk":
+        "Las promesas de continuidad se erosionan en el momento en que se salta una cadencia semanal. Si la noche de cupping se salta un mes, o el drop de bebida con nombre llega tarde, el ritmo se rompe y la promesa se siente performative. Riesgo: la suscripción canibaliza visitas a precio completo si el attach rate < 60% (ver modelo Módulo 08).",
+
       "growth.message.callout.title":
         "No dividas los pilares entre canales — cada canal debe cargar la misma promesa",
       "growth.message.callout.body":
